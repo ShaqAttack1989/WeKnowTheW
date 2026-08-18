@@ -43,14 +43,25 @@ function cleanUrl(value = '') {
   return /^https?:\/\//i.test(url) ? url : '';
 }
 
+function creativeCommonsApproved(value = '') {
+  const normalized = String(value || '').trim().toLowerCase();
+  return ['yes', 'true', '1', 'y'].includes(normalized)
+    || normalized.includes('creative commons')
+    || normalized.includes('creativecommons.org');
+}
+
 function normalizePlayer(player, team) {
   const name = player.strPlayer || player.strName || player.name || '';
   const { firstName, lastName } = splitName(name);
   const thumb = cleanUrl(player.strThumb || player.strPlayerThumb || player.strImage || '');
   const cutout = cleanUrl(player.strCutout || player.strPlayerCutout || '');
   const creativeCommons = String(player.strCreativeCommons || player.strCreativeCommonsLicense || '').trim();
+  const approvedArtwork = creativeCommonsApproved(creativeCommons);
+  const photo = approvedArtwork ? (thumb || cutout) : '';
+  const id = String(player.idPlayer || player.id || '');
+
   return {
-    id: String(player.idPlayer || player.id || ''),
+    id,
     name,
     firstName,
     lastName,
@@ -62,11 +73,12 @@ function normalizePlayer(player, team) {
     birthDate: player.dateBorn || player.strBirthDate || '',
     height: player.strHeight || '',
     weight: player.strWeight || '',
-    photo: cutout || thumb,
-    photoThumb: thumb || cutout,
-    photoCutout: cutout,
-    photoCreativeCommons: creativeCommons,
-    photoSource: thumb || cutout ? 'TheSportsDB' : ''
+    photo,
+    photoThumb: photo,
+    photoCutout: approvedArtwork ? cutout : '',
+    photoCreativeCommons: approvedArtwork ? (creativeCommons || 'Yes') : '',
+    photoSource: photo ? 'TheSportsDB' : '',
+    photoSourceUrl: photo ? `https://www.thesportsdb.com/player/${id}` : ''
   };
 }
 

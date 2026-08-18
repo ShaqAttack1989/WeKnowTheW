@@ -7,6 +7,37 @@ const REGULAR_SEASON_WINDOWS = {
   2026: { start: '2026-05-08', end: '2026-09-24' }
 };
 
+const CONFERENCES_2026 = {
+  eastern: [
+    'Atlanta Dream',
+    'Chicago Sky',
+    'Connecticut Sun',
+    'Indiana Fever',
+    'New York Liberty',
+    'Toronto Tempo',
+    'Washington Mystics'
+  ],
+  western: [
+    'Dallas Wings',
+    'Golden State Valkyries',
+    'Las Vegas Aces',
+    'Los Angeles Sparks',
+    'Minnesota Lynx',
+    'Phoenix Mercury',
+    'Portland Fire',
+    'Seattle Storm'
+  ]
+};
+
+function normalizedName(value = '') {
+  return String(value).toLowerCase().replace(/[^a-z0-9]/g, '');
+}
+
+const CONFERENCE_LOOKUP = new Map([
+  ...CONFERENCES_2026.eastern.map(name => [normalizedName(name), 'Eastern']),
+  ...CONFERENCES_2026.western.map(name => [normalizedName(name), 'Western'])
+]);
+
 async function fetchJson(url, options = {}) {
   const response = await fetch(url, {
     ...options,
@@ -32,8 +63,6 @@ async function fetchJson(url, options = {}) {
 
 async function getSeasonSchedule(season, productionKey) {
   if (productionKey) {
-    // Premium V2: key belongs in the X-API-KEY header and the full league
-    // season endpoint returns its events in the `schedule` array.
     const body = await fetchJson(
       `${V2_ROOT}/schedule/league/${LEAGUE_ID}/${encodeURIComponent(season)}`,
       { headers: { 'X-API-KEY': productionKey } }
@@ -44,7 +73,6 @@ async function getSeasonSchedule(season, productionKey) {
     };
   }
 
-  // Development fallback only. The public key returns a limited sample.
   const body = await fetchJson(
     `${V1_ROOT}/${FREE_KEY}/eventsseason.php?id=${LEAGUE_ID}&s=${encodeURIComponent(season)}`
   );
@@ -89,13 +117,53 @@ function teamFromEvent(event, side) {
   };
 }
 
+function conferenceForTeam(name) {
+  return CONFERENCE_LOOKUP.get(normalizedName(name)) || 'Unknown';
+}
+
+function recordLabel(wins, losses) {
+  return `${wins}-${losses}`;
+}
+
+function gamesBack(leader, record) {
+  if (!leader || leader === record) return 0;
+  return ((leader.wins - record.wins) + (record.losses - leader.losses)) / 2;
+}
+
+function enrichRankings(records, rankKey = 'rank') {
+  const sorted = [...records].sort((a, b) =>
+    Number(b.win_percentage) - Number(a.win_percentage) ||
+    b.wins - a.wins ||
+    a.losses - b.losses ||
+    a.team.full_name.localeCompare(b.team.full_name)
+  );
+  const leader = sorted[0] || null;
+  return sorted.map((record, index) => ({
+    ...record,
+    [rankKey]: index + 1,
+    games_back: gamesBack(leader, record)
+  }));
+}
+
 function deriveStandings(events) {
   const records = new Map();
 
   function ensure(team) {
     if (!team?.id || !team?.full_name) return null;
     if (!records.has(team.id)) {
-      records.set(team.id, { team, wins: 0, losses: 0 });
+      records.set(team.id, {
+        team,
+        conference: conferenceForTeam(team.full_name),
+        wins: 0,
+        losses: 0,
+        homeWins: 0,
+        homeLosses: 0,
+        roadWins: 0,
+        roadLosses: 0,
+        confWins: 0,
+        confLosses: 0,
+        games: []
+      });
     }
     return records.get(team.id);
   }
@@ -111,33 +179,91 @@ function deriveStandings(events) {
     const awayScore = Number(event.intAwayScore);
     if (!Number.isFinite(homeScore) || !Number.isFinite(awayScore) || homeScore === awayScore) continue;
 
-    if (homeScore > awayScore) {
+    const homeWon = homeScore > awayScore;
+    const sameConference = home.conference !== 'Unknown' && home.conference === away.conference;
+    const sortKey = `${event.dateEvent || ''}-${event.strTime || ''}-${event.idEvent || ''}`;
+
+    if (homeWon) {
       home.wins += 1;
+      home.homeWins += 1;
       away.losses += 1;
+      away.roadLosses += 1;
+      if (sameConference) {
+        home.confWins += 1;
+        away.confLosses += 1;
+      }
     } else {
-      away.wins += 1;
       home.losses += 1;
+      home.homeLosses += 1;
+      away.wins += 1;
+      away.roadWins += 1;
+      if (sameConference) {
+        home.confLosses += 1;
+        away.confWins += 1;
+      }
     }
+
+    home.games.push({ sortKey, won: homeWon });
+    away.games.push({ sortKey, won: !homeWon });
   }
 
-  return [...records.values()]
-    .map(record => {
-      const played = record.wins + record.losses;
-      return { ...record, win_percentage: played ? record.wins / played : 0 };
-    })
-    .sort((a, b) =>
-      Number(b.win_percentage) - Number(a.win_percentage) ||
-      b.wins - a.wins ||
-      a.losses - b.losses ||
-      a.team.full_name.localeCompare(b.team.full_name)
-    )
-    .map((record, index) => ({ ...record, playoff_seed: index + 1 }));
+  const baseRecords = [...records.values()].map(record => {
+    const played = record.wins + record.losses;
+    const recentGames = [...record.games].sort((a, b) => b.sortKey.localeCompare(a.sortKey));
+    const latest = recentGames[0];
+    let streakCount = 0;
+    if (latest) {
+      for (const game of recentGames) {
+        if (game.won !== latest.won) break;
+        streakCount += 1;
+      }
+    }
+    const lastTen = recentGames.slice(0, 10);
+    const lastTenWins = lastTen.filter(game => game.won).length;
+    const lastTenLosses = lastTen.length - lastTenWins;
+
+    return {
+      team: record.team,
+      conference: record.conference,
+      wins: record.wins,
+      losses: record.losses,
+      win_percentage: played ? record.wins / played : 0,
+      conference_record: recordLabel(record.confWins, record.confLosses),
+      conference_wins: record.confWins,
+      conference_losses: record.confLosses,
+      home_record: recordLabel(record.homeWins, record.homeLosses),
+      road_record: recordLabel(record.roadWins, record.roadLosses),
+      streak: latest ? `${latest.won ? 'W' : 'L'}${streakCount}` : '—',
+      last_ten: recordLabel(lastTenWins, lastTenLosses),
+      games_played: played
+    };
+  });
+
+  const overall = enrichRankings(baseRecords, 'overall_rank').map(record => ({
+    ...record,
+    playoff_seed: record.overall_rank
+  }));
+
+  const eastern = enrichRankings(baseRecords.filter(record => record.conference === 'Eastern'), 'conference_rank');
+  const western = enrichRankings(baseRecords.filter(record => record.conference === 'Western'), 'conference_rank');
+
+  return {
+    overall,
+    conferences: {
+      eastern,
+      western
+    }
+  };
 }
 
-function recentResults(events, limit = 5) {
+function pastGames(events, limit = 5) {
   return events
     .filter(isFinished)
-    .sort((a, b) => String(b.dateEvent || '').localeCompare(String(a.dateEvent || '')))
+    .sort((a, b) => {
+      const dateCompare = String(b.dateEvent || '').localeCompare(String(a.dateEvent || ''));
+      if (dateCompare) return dateCompare;
+      return String(b.strTime || '').localeCompare(String(a.strTime || ''));
+    })
     .slice(0, limit)
     .map(event => ({
       id: event.idEvent,
@@ -166,10 +292,9 @@ module.exports = async function handler(req, res) {
   try {
     const { events: allEvents, apiVersion } = await getSeasonSchedule(season, productionKey);
     const regularSeasonEvents = allEvents.filter(event => inRegularSeason(event, season));
-
-    // The 2026 regular season has hundreds of games. Requiring at least 100 schedule
-    // rows prevents the site from calculating standings from the 15-event free sample.
     const fullSeasonAccess = Boolean(productionKey) && allEvents.length >= 100;
+    const standingsData = fullSeasonAccess ? deriveStandings(regularSeasonEvents) : { overall: [], conferences: { eastern: [], western: [] } };
+    const completedGames = fullSeasonAccess ? pastGames(regularSeasonEvents) : [];
 
     return res.status(200).json({
       configured: Boolean(productionKey),
@@ -180,8 +305,10 @@ module.exports = async function handler(req, res) {
       eventCount: allEvents.length,
       regularSeasonEventCount: regularSeasonEvents.length,
       fullSeasonAccess,
-      standings: fullSeasonAccess ? deriveStandings(regularSeasonEvents) : [],
-      recentResults: fullSeasonAccess ? recentResults(regularSeasonEvents) : [],
+      standings: standingsData.overall,
+      conferenceStandings: standingsData.conferences,
+      pastGames: completedGames,
+      recentResults: completedGames,
       providerMessage: fullSeasonAccess
         ? null
         : productionKey

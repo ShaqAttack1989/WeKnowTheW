@@ -1,0 +1,40 @@
+{
+  "site": "Snack Shaq",
+  "tagline": "Where the food gets seasoned, the rankings get debated, and everybody gets served.",
+  "posts": [
+    {
+      "slug": "welcome-to-snack-shaq",
+      "type": "intro",
+      "title": "Welcome to Snack Shaq",
+      "published": "2026-08-18",
+      "week": "The weekly W check-in",
+      "dek": "Pull up a chair. We’re talking hoops like we talk hoops in real life: with receipts, opinions, a little side-eye and something cooking on the stove.",
+      "sections": [
+        {
+          "title": "What this is",
+          "paragraphs": [
+            "Snack Shaq is the weekly temperature check for the W. We’ll move through the power rankings, talk about who is cooking, who needs to get out of the kitchen for a minute, and which storylines deserve more attention than they’re getting.",
+            "The numbers still matter. So do injuries, roster changes, matchups and the stuff that doesn’t fit neatly in a box score. But this is not supposed to read like somebody copied a press release into a robot. It should sound like basketball talk — because that’s what it is."
+          ]
+        },
+        {
+          "title": "What shows up every week",
+          "paragraphs": [
+            "Expect the full power ranking and movement from the last edition, the biggest team and player stories, standout performances, injury and roster watch, a few spicy debate questions, and one food-themed segment built for a short video.",
+            "The rule around here is simple: facts on the bottom, spice on top. If a stat is a fact, we source it. If it’s a take, we say it like a take."
+          ]
+        }
+      ],
+      "debates": [
+        "Who is being underrated right now?",
+        "Which contender has the biggest flaw nobody wants to talk about?",
+        "Who would you trust with one possession and the game on the line?"
+      ],
+      "foodSegment": {
+        "title": "Setting the Table",
+        "script": "Welcome to Snack Shaq, where the food gets seasoned, the rankings get debated, and everybody gets served. Every week we’re checking the standings, the streaks, the stars, the role players and the teams somebody swore were cooked three games ago. Bring your receipts, because the rankings are hot and I am absolutely going to ask who needs more seasoning. Keep your takes spicy and your turnovers low."
+      },
+      "sources": []
+    }
+  ]
+}

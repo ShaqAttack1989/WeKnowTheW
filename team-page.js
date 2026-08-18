@@ -4,6 +4,7 @@ function tNorm(value=''){return String(value).toLowerCase().replace(/[^a-z0-9]/g
 const params=new URLSearchParams(location.search);
 const slug=params.get('team')||'';
 const team=teamBySlug(slug);
+let torontoPosterData='';
 const POSTER_ORDER=[
   'atlanta-dream','chicago-sky','connecticut-sun','dallas-wings',
   'golden-state-valkyries','indiana-fever','las-vegas-aces','los-angeles-sparks',
@@ -12,23 +13,30 @@ const POSTER_ORDER=[
 ];
 
 function posterStyle(slug){
+  if(slug==='toronto-tempo'&&torontoPosterData){
+    return `background-image:url("data:image/webp;base64,${torontoPosterData}");background-size:cover;background-position:center;background-repeat:no-repeat;`;
+  }
   const index=POSTER_ORDER.indexOf(slug);
   if(index<0)return '';
-  const x=index%2===0?0:100;
-  const y=(Math.floor(index/2)/6)*100;
-  return `--poster-x:${x}%;--poster-y:${y.toFixed(4)}%`;
+  const y=(index/(POSTER_ORDER.length-1))*100;
+  return `background-size:100% ${POSTER_ORDER.length*100}%;background-position:0% ${y.toFixed(4)}%;background-repeat:no-repeat;`;
 }
 
+function hasPoster(){return Boolean(team&&(POSTER_ORDER.includes(team.slug)||(team.slug==='toronto-tempo'&&torontoPosterData)));}
+
 function applyGeneratedPoster(){
-  if(!team||!POSTER_ORDER.includes(team.slug))return false;
+  if(!hasPoster())return false;
   const hero=document.getElementById('teamHero');
   const nav=hero?.querySelector('.nav');
   if(!hero||!nav)return false;
   hero.classList.add('has-generated-poster');
-  const banner=document.createElement('div');
-  banner.className='team-poster-page-banner';
+  let banner=hero.querySelector('.team-poster-page-banner');
+  if(!banner){
+    banner=document.createElement('div');
+    banner.className='team-poster-page-banner';
+    nav.insertAdjacentElement('afterend',banner);
+  }
   banner.innerHTML=`<div class="team-poster-art" style="${posterStyle(team.slug)}" role="img" aria-label="${tSafe(team.name)} city graphic"></div>`;
-  nav.insertAdjacentElement('afterend',banner);
   return true;
 }
 
@@ -86,11 +94,17 @@ async function loadTeamPage(){
   const roster=document.getElementById('teamRoster');
   const rosterStatus=document.getElementById('rosterStatus');
 
-  const [statsResult,playersResult,teamsResult]=await Promise.allSettled([
+  const [statsResult,playersResult,teamsResult,torontoResult]=await Promise.allSettled([
     fetch('/api/stats?season=2026',{headers:{Accept:'application/json'}}).then(async response=>{const payload=await response.json().catch(()=>({}));if(!response.ok)throw new Error(payload.error||'Stats unavailable');return payload;}),
     fetch('/api/players?artwork=2',{headers:{Accept:'application/json'}}).then(async response=>{const payload=await response.json().catch(()=>({}));if(!response.ok)throw new Error(payload.error||'Roster unavailable');return payload;}),
-    fetch('/api/teams',{headers:{Accept:'application/json'}}).then(async response=>{const payload=await response.json().catch(()=>({}));if(!response.ok)throw new Error(payload.error||'Team artwork unavailable');return payload;})
+    fetch('/api/teams',{headers:{Accept:'application/json'}}).then(async response=>{const payload=await response.json().catch(()=>({}));if(!response.ok)throw new Error(payload.error||'Team artwork unavailable');return payload;}),
+    team?.slug==='toronto-tempo'?fetch('/assets/team-posters/toronto-tempo-small.b64',{cache:'force-cache'}).then(async response=>response.ok?(await response.text()).trim():''):Promise.resolve('')
   ]);
+
+  if(torontoResult.status==='fulfilled'&&String(torontoResult.value).startsWith('UklG')){
+    torontoPosterData=torontoResult.value;
+    applyGeneratedPoster();
+  }
 
   if(teamsResult.status==='fulfilled'){
     const assets=Array.isArray(teamsResult.value.teams)?teamsResult.value.teams:[];

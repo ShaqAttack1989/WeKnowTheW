@@ -4,6 +4,7 @@ function tNorm(value=''){return String(value).toLowerCase().replace(/[^a-z0-9]/g
 const params=new URLSearchParams(location.search);
 const slug=params.get('team')||'';
 const team=teamBySlug(slug);
+let posterSpriteData='';
 let torontoPosterData='';
 const POSTER_ORDER=[
   'atlanta-dream','chicago-sky','connecticut-sun','dallas-wings',
@@ -17,12 +18,14 @@ function posterStyle(slug){
     return `background-image:url("data:image/webp;base64,${torontoPosterData}");background-size:cover;background-position:center;background-repeat:no-repeat;`;
   }
   const index=POSTER_ORDER.indexOf(slug);
-  if(index<0)return '';
+  if(index<0||!posterSpriteData)return '';
   const y=(index/(POSTER_ORDER.length-1))*100;
-  return `background-size:100% ${POSTER_ORDER.length*100}%;background-position:0% ${y.toFixed(4)}%;background-repeat:no-repeat;`;
+  return `background-image:url("data:image/webp;base64,${posterSpriteData}");background-size:100% ${POSTER_ORDER.length*100}%;background-position:0% ${y.toFixed(4)}%;background-repeat:no-repeat;`;
 }
 
-function hasPoster(){return Boolean(team&&(POSTER_ORDER.includes(team.slug)||(team.slug==='toronto-tempo'&&torontoPosterData)));}
+function hasPoster(){
+  return Boolean(team&&((POSTER_ORDER.includes(team.slug)&&posterSpriteData)||(team.slug==='toronto-tempo'&&torontoPosterData)));
+}
 
 function applyGeneratedPoster(){
   if(!hasPoster())return false;
@@ -84,7 +87,6 @@ if(!team){
   document.getElementById('rosterHeading').textContent=`${team.name} roster`;
   document.getElementById('teamPlayerpediaLink').href=`/playerpedia.html?team=${encodeURIComponent(team.name)}`;
   if(team.note)document.getElementById('teamSeasonNote').textContent=`${team.note}. Live record and roster information refresh automatically from the independent data feed.`;
-  applyGeneratedPoster();
   loadTeamPage();
 }
 
@@ -94,17 +96,17 @@ async function loadTeamPage(){
   const roster=document.getElementById('teamRoster');
   const rosterStatus=document.getElementById('rosterStatus');
 
-  const [statsResult,playersResult,teamsResult,torontoResult]=await Promise.allSettled([
+  const [statsResult,playersResult,teamsResult,spriteResult,torontoResult]=await Promise.allSettled([
     fetch('/api/stats?season=2026',{headers:{Accept:'application/json'}}).then(async response=>{const payload=await response.json().catch(()=>({}));if(!response.ok)throw new Error(payload.error||'Stats unavailable');return payload;}),
     fetch('/api/players?artwork=2',{headers:{Accept:'application/json'}}).then(async response=>{const payload=await response.json().catch(()=>({}));if(!response.ok)throw new Error(payload.error||'Roster unavailable');return payload;}),
     fetch('/api/teams',{headers:{Accept:'application/json'}}).then(async response=>{const payload=await response.json().catch(()=>({}));if(!response.ok)throw new Error(payload.error||'Team artwork unavailable');return payload;}),
-    team?.slug==='toronto-tempo'?fetch('/assets/team-posters/toronto-tempo-small.b64',{cache:'force-cache'}).then(async response=>response.ok?(await response.text()).trim():''):Promise.resolve('')
+    team&&POSTER_ORDER.includes(team.slug)?fetch('/assets/team-posters/team-posters-sprite.webp?v=20260818d',{cache:'no-store'}).then(async response=>response.ok?(await response.text()).trim():''):Promise.resolve(''),
+    team?.slug==='toronto-tempo'?fetch('/assets/team-posters/toronto-tempo-small.b64?v=20260818d',{cache:'no-store'}).then(async response=>response.ok?(await response.text()).trim():''):Promise.resolve('')
   ]);
 
-  if(torontoResult.status==='fulfilled'&&String(torontoResult.value).startsWith('UklG')){
-    torontoPosterData=torontoResult.value;
-    applyGeneratedPoster();
-  }
+  if(spriteResult.status==='fulfilled'&&String(spriteResult.value).startsWith('UklG'))posterSpriteData=spriteResult.value;
+  if(torontoResult.status==='fulfilled'&&String(torontoResult.value).startsWith('UklG'))torontoPosterData=torontoResult.value;
+  applyGeneratedPoster();
 
   if(teamsResult.status==='fulfilled'){
     const assets=Array.isArray(teamsResult.value.teams)?teamsResult.value.teams:[];

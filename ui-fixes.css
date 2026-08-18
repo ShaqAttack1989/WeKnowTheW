@@ -125,10 +125,8 @@
 }
 .team-poster-art{
   display:block;
-  background-image:url('/assets/team-posters/team-posters-sprite.webp');
+  background-color:#0d0d12;
   background-repeat:no-repeat;
-  background-size:200% 700%;
-  background-position:var(--poster-x,0%) var(--poster-y,0%);
 }
 .poster-ready .team-poster-art{
   position:absolute;

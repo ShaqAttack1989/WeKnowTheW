@@ -84,14 +84,26 @@ function inRegularSeason(event, season) {
   return Boolean(eventDate && start && end && eventDate >= start && eventDate <= end);
 }
 
+function scoreValue(value) {
+  if (value === null || value === undefined) return null;
+  const text = String(value).trim();
+  if (!text) return null;
+  const number = Number(text);
+  return Number.isFinite(number) ? number : null;
+}
+
+function hasFinalScore(event) {
+  const home = scoreValue(event.intHomeScore);
+  const away = scoreValue(event.intAwayScore);
+  return home !== null && away !== null && home !== away;
+}
+
 function isFinished(event) {
-  const home = Number(event.intHomeScore);
-  const away = Number(event.intAwayScore);
-  if (!Number.isFinite(home) || !Number.isFinite(away)) return false;
+  if (!hasFinalScore(event)) return false;
   const status = String(event.strStatus || '').toUpperCase();
   if (['FT', 'AET', 'FINAL', 'MATCH FINISHED'].some(value => status.includes(value))) return true;
-  const eventDate = asDate(event.dateEvent);
-  return Boolean(eventDate && eventDate < new Date());
+  const timestamp = eventTimestamp(event);
+  return Number.isFinite(timestamp) && timestamp < Date.now();
 }
 
 function teamFromEvent(event, side) {
@@ -138,9 +150,9 @@ function deriveStandings(events) {
     const home = ensure(teamFromEvent(event, 'home'));
     const away = ensure(teamFromEvent(event, 'away'));
     if (!home || !away) continue;
-    const homeScore = Number(event.intHomeScore);
-    const awayScore = Number(event.intAwayScore);
-    if (!Number.isFinite(homeScore) || !Number.isFinite(awayScore) || homeScore === awayScore) continue;
+    const homeScore = scoreValue(event.intHomeScore);
+    const awayScore = scoreValue(event.intAwayScore);
+    if (homeScore === null || awayScore === null || homeScore === awayScore) continue;
     const homeWon = homeScore > awayScore;
     const sameConference = home.conference !== 'Unknown' && home.conference === away.conference;
     const sortKey = `${event.dateEvent || ''}-${event.strTime || ''}-${event.idEvent || ''}`;
@@ -192,14 +204,14 @@ function deriveStandings(events) {
   return { overall, conferences: { eastern, western } };
 }
 
-function pastGames(events, limit = 5) {
-  return events.filter(isFinished)
+function pastGames(events, limit = 8) {
+  return events.filter(event => isFinished(event) && hasFinalScore(event))
     .sort((a, b) => eventTimestamp(b) - eventTimestamp(a))
     .slice(0, limit)
     .map(event => ({
       id: event.idEvent, date: event.dateEvent, time: event.strTime || '',
       homeTeam: event.strHomeTeam, awayTeam: event.strAwayTeam,
-      homeScore: Number(event.intHomeScore), awayScore: Number(event.intAwayScore)
+      homeScore: scoreValue(event.intHomeScore), awayScore: scoreValue(event.intAwayScore)
     }));
 }
 
@@ -225,7 +237,7 @@ module.exports = async function handler(req, res) {
   const requestedSeason = Number(req.query.season);
   const season = Number.isInteger(requestedSeason) && requestedSeason >= 1997 && requestedSeason <= 2100 ? requestedSeason : new Date().getFullYear();
   const productionKey = String(process.env.THESPORTSDB_API_KEY || '').trim();
-  res.setHeader('Cache-Control', 's-maxage=900, stale-while-revalidate=3600');
+  res.setHeader('Cache-Control', 's-maxage=300, stale-while-revalidate=900');
 
   try {
     const { events: allEvents, apiVersion } = await getSeasonSchedule(season, productionKey);

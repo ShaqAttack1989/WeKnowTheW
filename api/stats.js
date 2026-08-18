@@ -1,138 +1,81 @@
-const API_ROOT = 'https://api.balldontlie.io/wnba/v1';
-const ACCOUNT_ROOT = 'https://api.balldontlie.io/account/v1';
+const LEAGUE_ID = 4516;
+const API_ROOT = 'https://www.thesportsdb.com/api/v1/json';
+const FREE_KEY = '123';
 
-async function request(path, apiKey) {
-  const response = await fetch(`${API_ROOT}${path}`, {
-    headers: {
-      Authorization: apiKey,
-      Accept: 'application/json'
-    }
+// Exact regular-season windows keep preseason and playoffs out of the standings.
+// Add the next season here when its official dates are announced.
+const REGULAR_SEASON_WINDOWS = {
+  2026: { start: '2026-05-08', end: '2026-09-24' }
+};
+
+async function tsdb(path, apiKey) {
+  const response = await fetch(`${API_ROOT}/${encodeURIComponent(apiKey)}/${path}`, {
+    headers: { Accept: 'application/json' }
   });
 
-  const text = await response.text();
-  let body = {};
-  try { body = text ? JSON.parse(text) : {}; } catch { body = { raw: text }; }
-
   if (!response.ok) {
-    const error = new Error(body?.message || body?.error?.message || body?.error || `BALLDONTLIE returned ${response.status}`);
-    error.status = response.status;
-    error.body = body;
-    throw error;
+    throw new Error(`TheSportsDB returned ${response.status}`);
   }
 
-  return body;
+  return response.json();
 }
 
-async function getAccountInfo(apiKey) {
-  const response = await fetch(`${ACCOUNT_ROOT}/me`, {
-    headers: {
-      Authorization: `Bearer ${apiKey}`,
-      Accept: 'application/json'
-    }
-  });
-
-  const text = await response.text();
-  let body = {};
-  try { body = text ? JSON.parse(text) : {}; } catch { body = { raw: text }; }
-
-  if (!response.ok) {
-    const error = new Error(body?.error?.message || body?.message || `Account API returned ${response.status}`);
-    error.status = response.status;
-    throw error;
-  }
-
-  return body;
+function asDate(value) {
+  if (!value) return null;
+  const date = new Date(`${value}T12:00:00Z`);
+  return Number.isNaN(date.getTime()) ? null : date;
 }
 
-function getWnbaTier(account) {
-  const subscriptions = Array.isArray(account?.subscriptions) ? account.subscriptions : [];
-  const wnba = subscriptions.find(item => String(item?.sport || '').toLowerCase() === 'wnba');
-  return wnba?.tier || null;
+function inRegularSeason(event, season) {
+  const window = REGULAR_SEASON_WINDOWS[season];
+  if (!window) return true;
+  const eventDate = asDate(event.dateEvent);
+  const start = asDate(window.start);
+  const end = asDate(window.end);
+  return eventDate && start && end && eventDate >= start && eventDate <= end;
 }
 
-function canUseOfficialStandings(tier) {
-  return ['paid', 'paid_plus', 'all_access_v3', 'all-star', 'goat'].includes(String(tier || '').toLowerCase());
+function isFinished(event) {
+  const home = Number(event.intHomeScore);
+  const away = Number(event.intAwayScore);
+  if (!Number.isFinite(home) || !Number.isFinite(away)) return false;
+
+  const status = String(event.strStatus || '').toUpperCase();
+  if (['FT', 'AET', 'FINAL', 'MATCH FINISHED'].some(value => status.includes(value))) return true;
+
+  const eventDate = asDate(event.dateEvent);
+  return Boolean(eventDate && eventDate < new Date());
 }
 
-function canUsePlayerSeasonStats(tier) {
-  return ['paid_plus', 'all_access_v3', 'goat'].includes(String(tier || '').toLowerCase());
+function teamFromEvent(event, side) {
+  const home = side === 'home';
+  return {
+    id: home ? event.idHomeTeam : event.idAwayTeam,
+    full_name: home ? event.strHomeTeam : event.strAwayTeam
+  };
 }
 
-async function getAllPlayerSeasonStats(season, apiKey) {
-  const all = [];
-  let cursor = null;
-  let pageCount = 0;
-
-  do {
-    const query = new URLSearchParams({
-      season: String(season),
-      season_type: '2',
-      per_page: '100'
-    });
-    if (cursor) query.set('cursor', cursor);
-
-    const body = await request(`/player_season_stats?${query}`, apiKey);
-    all.push(...(body.data || []));
-    cursor = body.meta?.next_cursor ? String(body.meta.next_cursor) : null;
-    pageCount += 1;
-  } while (cursor && pageCount < 10);
-
-  return all;
-}
-
-async function getAllRegularSeasonGames(season, apiKey) {
-  const all = [];
-  let cursor = null;
-  let pageCount = 0;
-
-  do {
-    const query = new URLSearchParams();
-    query.append('seasons[]', String(season));
-    query.set('season_type', '2');
-    query.set('per_page', '100');
-    if (cursor) query.set('cursor', cursor);
-
-    const body = await request(`/games?${query.toString()}`, apiKey);
-    all.push(...(body.data || []));
-    cursor = body.meta?.next_cursor ? String(body.meta.next_cursor) : null;
-    pageCount += 1;
-  } while (cursor && pageCount < 5);
-
-  return all;
-}
-
-function isFinalGame(game) {
-  if (game?.status_state) return game.status_state === 'final';
-  const status = String(game?.status || '').toLowerCase();
-  return status === 'post' || status === 'final' || status.includes('final');
-}
-
-function deriveStandingsFromGames(games) {
+function deriveStandings(events) {
   const records = new Map();
 
-  function ensureTeam(team) {
-    if (!team?.id) return null;
+  function ensure(team) {
+    if (!team?.id || !team?.full_name) return null;
     if (!records.has(team.id)) {
-      records.set(team.id, {
-        team,
-        conference: team.conference || '',
-        wins: 0,
-        losses: 0
-      });
+      records.set(team.id, { team, wins: 0, losses: 0 });
     }
     return records.get(team.id);
   }
 
-  for (const game of games || []) {
-    if (!isFinalGame(game)) continue;
+  for (const event of events) {
+    if (!isFinished(event)) continue;
 
-    const home = ensureTeam(game.home_team);
-    const away = ensureTeam(game.visitor_team);
+    const home = ensure(teamFromEvent(event, 'home'));
+    const away = ensure(teamFromEvent(event, 'away'));
     if (!home || !away) continue;
 
-    const homeScore = Number(game.home_score);
-    const awayScore = Number(game.visitor_score);
-    if (!Number.isFinite(homeScore) || !Number.isFinite(awayScore) || homeScore === awayScore) continue;
+    const homeScore = Number(event.intHomeScore);
+    const awayScore = Number(event.intAwayScore);
+    if (homeScore === awayScore) continue;
 
     if (homeScore > awayScore) {
       home.wins += 1;
@@ -151,8 +94,28 @@ function deriveStandingsFromGames(games) {
         win_percentage: played ? record.wins / played : 0
       };
     })
-    .sort((a, b) => Number(b.win_percentage) - Number(a.win_percentage) || b.wins - a.wins || String(a.team?.full_name || '').localeCompare(String(b.team?.full_name || '')))
+    .sort((a, b) =>
+      Number(b.win_percentage) - Number(a.win_percentage) ||
+      b.wins - a.wins ||
+      a.losses - b.losses ||
+      a.team.full_name.localeCompare(b.team.full_name)
+    )
     .map((record, index) => ({ ...record, playoff_seed: index + 1 }));
+}
+
+function recentResults(events, limit = 5) {
+  return events
+    .filter(isFinished)
+    .sort((a, b) => String(b.dateEvent || '').localeCompare(String(a.dateEvent || '')))
+    .slice(0, limit)
+    .map(event => ({
+      id: event.idEvent,
+      date: event.dateEvent,
+      homeTeam: event.strHomeTeam,
+      awayTeam: event.strAwayTeam,
+      homeScore: Number(event.intHomeScore),
+      awayScore: Number(event.intAwayScore)
+    }));
 }
 
 module.exports = async function handler(req, res) {
@@ -166,131 +129,39 @@ module.exports = async function handler(req, res) {
     ? requestedSeason
     : new Date().getFullYear();
 
-  const apiKey = String(process.env.BDL_WNBA_API_KEY || '').trim();
-  res.setHeader('Cache-Control', 's-maxage=60, stale-while-revalidate=300');
+  const productionKey = String(process.env.THESPORTSDB_API_KEY || '').trim();
+  const apiKey = productionKey || FREE_KEY;
 
-  if (!apiKey) {
-    return res.status(200).json({
-      configured: false,
-      keyValid: false,
-      wnbaAccess: false,
-      season,
-      updatedAt: new Date().toISOString(),
-      standings: [],
-      playerSeasonStats: [],
-      access: { standings: false, playerSeasonStats: false }
-    });
-  }
+  // Fifteen minutes is current enough for standings while staying friendly to the provider.
+  res.setHeader('Cache-Control', 's-maxage=900, stale-while-revalidate=3600');
 
-  let account = null;
-  let accountError = null;
   try {
-    account = await getAccountInfo(apiKey);
-  } catch (error) {
-    accountError = error;
-  }
+    const body = await tsdb(`eventsseason.php?id=${LEAGUE_ID}&s=${encodeURIComponent(season)}`, apiKey);
+    const allEvents = Array.isArray(body.events) ? body.events : [];
+    const regularSeasonEvents = allEvents.filter(event => inRegularSeason(event, season));
 
-  let keyValid = Boolean(account);
-  let tier = getWnbaTier(account);
+    // The free public key intentionally returns a limited season result set. A public production
+    // site should use a dedicated TheSportsDB key so standings are never calculated from a partial schedule.
+    const fullSeasonAccess = Boolean(productionKey) && allEvents.length >= 100;
 
-  // The account API is the authoritative check for whether the API key itself is valid.
-  // A valid account can still lack a WNBA subscription, which is different from a bad key.
-  if (keyValid && !tier) {
     return res.status(200).json({
-      configured: true,
-      keyValid: true,
-      wnbaAccess: false,
+      configured: Boolean(productionKey),
+      source: 'TheSportsDB',
+      sourceUrl: 'https://www.thesportsdb.com',
       season,
       updatedAt: new Date().toISOString(),
-      standings: [],
-      playerSeasonStats: [],
-      access: { standings: false, playerSeasonStats: false },
-      providerErrors: {
-        wnbaAccess: 'Your BALLDONTLIE API key is valid, but this account does not currently show a WNBA subscription. Enable WNBA access in your BALLDONTLIE account; the WNBA Free tier supports Teams, Players, and Games.'
-      }
+      fullSeasonAccess,
+      standings: fullSeasonAccess ? deriveStandings(regularSeasonEvents) : [],
+      recentResults: fullSeasonAccess ? recentResults(regularSeasonEvents) : [],
+      providerMessage: fullSeasonAccess
+        ? null
+        : 'A dedicated TheSportsDB production key is required for the complete season feed. The free development key returns only a limited sample, so We Know the W will not calculate standings from incomplete data.'
+    });
+  } catch (error) {
+    return res.status(502).json({
+      error: error.message,
+      source: 'TheSportsDB',
+      season
     });
   }
-
-  // If the account endpoint could not validate the key, try a free WNBA endpoint once.
-  if (!keyValid) {
-    try {
-      await request('/teams', apiKey);
-      keyValid = true;
-      tier = tier || 'free';
-    } catch (error) {
-      if (error.status === 401) {
-        return res.status(200).json({
-          configured: true,
-          keyValid: false,
-          wnbaAccess: false,
-          season,
-          updatedAt: new Date().toISOString(),
-          standings: [],
-          playerSeasonStats: [],
-          access: { standings: false, playerSeasonStats: false },
-          providerErrors: {
-            authentication: 'BALLDONTLIE could not validate this API key. Re-copy the current API key from your BALLDONTLIE account and update BDL_WNBA_API_KEY in Vercel.'
-          }
-        });
-      }
-      throw error;
-    }
-  }
-
-  let standings = [];
-  let standingsSource = null;
-  let standingsError = null;
-
-  if (canUseOfficialStandings(tier)) {
-    try {
-      const body = await request(`/standings?season=${encodeURIComponent(season)}`, apiKey);
-      standings = (body.data || [])
-        .filter(item => Number(item.season) === season)
-        .sort((a, b) => Number(b.win_percentage) - Number(a.win_percentage));
-      standingsSource = 'official';
-    } catch (error) {
-      standingsError = error;
-    }
-  }
-
-  if (!standings.length) {
-    try {
-      const games = await getAllRegularSeasonGames(season, apiKey);
-      standings = deriveStandingsFromGames(games);
-      standingsSource = 'games-derived';
-    } catch (error) {
-      standingsError = standingsError || error;
-    }
-  }
-
-  let playerSeasonStats = [];
-  let playerStatsError = null;
-  if (canUsePlayerSeasonStats(tier)) {
-    try {
-      playerSeasonStats = await getAllPlayerSeasonStats(season, apiKey);
-    } catch (error) {
-      playerStatsError = error;
-    }
-  }
-
-  return res.status(200).json({
-    configured: true,
-    keyValid,
-    wnbaAccess: true,
-    season,
-    wnbaTier: tier,
-    updatedAt: new Date().toISOString(),
-    standings,
-    standingsSource,
-    playerSeasonStats,
-    access: {
-      standings: standings.length > 0,
-      playerSeasonStats: playerSeasonStats.length > 0
-    },
-    providerErrors: {
-      account: accountError ? accountError.message : null,
-      standings: standingsError ? standingsError.message : null,
-      playerSeasonStats: playerStatsError ? playerStatsError.message : null
-    }
-  });
 };

@@ -51,6 +51,23 @@ document.querySelectorAll('.nav-group').forEach(group => {
   });
 });
 
+const hierarchyMap = {
+  '/herstory.html': { parent: 'Playerpedia', parentHref: '/playerpedia.html', current: 'Herstory' },
+  '/starting-five.html': { parent: 'Playerpedia', parentHref: '/playerpedia.html', current: 'The Starting Five' },
+  '/bench-mob.html': { parent: 'Playerpedia', parentHref: '/playerpedia.html', current: 'The Bench Mob' },
+  '/film-room.html': { parent: 'The W Vault', parentHref: '/w-vault.html', current: 'The Film Room' },
+  '/around-the-w.html': { parent: 'The W Vault', parentHref: '/w-vault.html', current: 'Around the W' },
+  '/trophy-case.html': { parent: 'The W Vault', parentHref: '/w-vault.html', current: 'The Trophy Case' },
+  '/locker-room.html': { parent: 'The W Vault', parentHref: '/w-vault.html', current: 'The Locker Room' },
+  '/expansion-watch.html': { parent: 'Who Got Next?', parentHref: '/who-got-next.html', current: 'Expansion Watch' }
+};
+
+const pageHierarchy = hierarchyMap[location.pathname];
+const crumbs = document.querySelector('.page-crumbs');
+if (crumbs && pageHierarchy) {
+  crumbs.innerHTML = `<a href="/">Home</a><span>›</span><a href="${pageHierarchy.parentHref}">${pageHierarchy.parent}</a><span>›</span><b>${pageHierarchy.current}</b>`;
+}
+
 document.querySelectorAll('[data-current-year]').forEach(el => {
   el.textContent = new Date().getFullYear();
 });

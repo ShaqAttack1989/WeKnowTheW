@@ -5,6 +5,23 @@ const params=new URLSearchParams(location.search);
 const slug=params.get('team')||'';
 const team=teamBySlug(slug);
 
+function applyOfficialTeamArtwork(asset){
+  const badge=document.getElementById('teamHeroBadge');
+  const badgeFallback=document.getElementById('teamHeroBadgeFallback');
+  const wordmark=document.getElementById('teamHeroWordmark');
+  if(asset?.badge){
+    badge.src=asset.badge;
+    badge.alt=`${team.name} official logo`;
+    badge.hidden=false;
+    badgeFallback.hidden=true;
+  }
+  if(asset?.logo){
+    wordmark.src=asset.logo;
+    wordmark.alt=`${team.name} official wordmark`;
+    wordmark.hidden=false;
+  }
+}
+
 if(!team){
   document.getElementById('teamName').textContent='Team not found';
   document.getElementById('teamIntro').textContent='Choose a current team from Around the W.';
@@ -26,6 +43,7 @@ if(!team){
   document.getElementById('teamIntro').textContent=`${team.city} · current season, roster, history and culture in one franchise home.`;
   document.getElementById('teamCrumb').textContent=team.name;
   document.getElementById('teamTag').textContent=team.tag;
+  document.getElementById('teamHeroBadgeFallback').textContent=team.tag;
   document.getElementById('teamSkyline').innerHTML=skylineSvg(team.skyline);
   document.getElementById('rosterHeading').textContent=`${team.name} roster`;
   document.getElementById('teamPlayerpediaLink').href=`/playerpedia.html?team=${encodeURIComponent(team.name)}`;
@@ -39,10 +57,17 @@ async function loadTeamPage(){
   const roster=document.getElementById('teamRoster');
   const rosterStatus=document.getElementById('rosterStatus');
 
-  const [statsResult,playersResult]=await Promise.allSettled([
+  const [statsResult,playersResult,teamsResult]=await Promise.allSettled([
     fetch('/api/stats?season=2026',{headers:{Accept:'application/json'}}).then(async response=>{const payload=await response.json().catch(()=>({}));if(!response.ok)throw new Error(payload.error||'Stats unavailable');return payload;}),
-    fetch('/api/players',{headers:{Accept:'application/json'}}).then(async response=>{const payload=await response.json().catch(()=>({}));if(!response.ok)throw new Error(payload.error||'Roster unavailable');return payload;})
+    fetch('/api/players?artwork=2',{headers:{Accept:'application/json'}}).then(async response=>{const payload=await response.json().catch(()=>({}));if(!response.ok)throw new Error(payload.error||'Roster unavailable');return payload;}),
+    fetch('/api/teams',{headers:{Accept:'application/json'}}).then(async response=>{const payload=await response.json().catch(()=>({}));if(!response.ok)throw new Error(payload.error||'Team artwork unavailable');return payload;})
   ]);
+
+  if(teamsResult.status==='fulfilled'){
+    const assets=Array.isArray(teamsResult.value.teams)?teamsResult.value.teams:[];
+    const asset=assets.find(item=>tNorm(item.name)===tNorm(team.name));
+    if(asset)applyOfficialTeamArtwork(asset);
+  }
 
   if(statsResult.status==='fulfilled'){
     const standings=Array.isArray(statsResult.value.standings)?statsResult.value.standings:[];

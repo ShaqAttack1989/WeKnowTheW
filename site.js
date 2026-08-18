@@ -9,7 +9,12 @@ const navLinks = document.getElementById('navLinks');
 const menuButton = document.getElementById('menuButton');
 
 const structuredNav = `
-  <a class="nav-direct" href="/#live">Live Stats</a>
+  <div class="nav-group">
+    <a class="nav-parent" href="/#live">Live Stats <span aria-hidden="true">▾</span></a>
+    <div class="nav-submenu">
+      <a href="/around-the-w.html">Around the W</a>
+    </div>
+  </div>
   <div class="nav-group">
     <a class="nav-parent" href="/playerpedia.html">Playerpedia <span aria-hidden="true">▾</span></a>
     <div class="nav-submenu">
@@ -22,7 +27,6 @@ const structuredNav = `
     <a class="nav-parent" href="/w-vault.html">The W Vault <span aria-hidden="true">▾</span></a>
     <div class="nav-submenu">
       <a href="/film-room.html">The Film Room</a>
-      <a href="/around-the-w.html">Around the W</a>
       <a href="/trophy-case.html">The Trophy Case</a>
       <a href="/locker-room.html">The Locker Room</a>
     </div>
@@ -59,11 +63,11 @@ document.querySelectorAll('.nav-group').forEach(group => {
 });
 
 const hierarchyMap = {
+  '/around-the-w.html': { parent: 'Live Stats', parentHref: '/#live', current: 'Around the W' },
   '/herstory.html': { parent: 'Playerpedia', parentHref: '/playerpedia.html', current: 'Herstory' },
   '/starting-five.html': { parent: 'Playerpedia', parentHref: '/playerpedia.html', current: 'The Starting Five' },
   '/bench-mob.html': { parent: 'Playerpedia', parentHref: '/playerpedia.html', current: 'The Bench Mob' },
   '/film-room.html': { parent: 'The W Vault', parentHref: '/w-vault.html', current: 'The Film Room' },
-  '/around-the-w.html': { parent: 'The W Vault', parentHref: '/w-vault.html', current: 'Around the W' },
   '/trophy-case.html': { parent: 'The W Vault', parentHref: '/w-vault.html', current: 'The Trophy Case' },
   '/locker-room.html': { parent: 'The W Vault', parentHref: '/w-vault.html', current: 'The Locker Room' },
   '/expansion-watch.html': { parent: 'Who Got Next?', parentHref: '/who-got-next.html', current: 'Expansion Watch' }

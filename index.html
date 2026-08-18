@@ -55,7 +55,16 @@
             <div id="homeStandings" class="live-table-scroll"><div class="card-pad">Loading 2026 standings…</div></div>
             <div class="standings-footnote">W-L records and split stats are calculated from completed regular-season games in the independent feed.</div>
           </div>
-          <div class="home-live-card"><div class="card-pad"><p class="kicker">PAST GAMES</p><h3>What just happened?</h3><div id="homeResults" class="home-live-results"><div class="home-result"><strong>Loading past games…</strong></div></div></div></div>
+          <div class="home-live-card">
+            <div class="card-pad">
+              <div class="standings-toggle" role="group" aria-label="Games view" style="margin-bottom:18px">
+                <button type="button" class="active" id="pastGamesToggle" aria-pressed="true">Past Games</button>
+                <button type="button" id="upcomingGamesToggle" aria-pressed="false">Upcoming Games</button>
+              </div>
+              <h3 id="gamesPanelTitle">What just happened?</h3>
+              <div id="homeResults" class="home-live-results"><div class="home-result"><strong>Loading games…</strong></div></div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -68,41 +77,18 @@
           <p>The smaller sections now live underneath the larger encyclopedia families instead of crowding the main menu.</p>
         </div>
         <div class="family-grid">
-          <article class="family-card featured">
-            <p class="kicker">PLAYERS</p><h3>Playerpedia</h3><p>Players A–Z, current rosters and the personal stories behind the names.</p>
-            <div class="family-links"><a href="/playerpedia.html"><span>Open Playerpedia</span><span>→</span></a><a href="/herstory.html"><span>Herstory</span><span>→</span></a><a href="/starting-five.html"><span>The Starting Five</span><span>→</span></a><a href="/bench-mob.html"><span>The Bench Mob</span><span>→</span></a></div>
-          </article>
-          <article class="family-card">
-            <p class="kicker">HISTORY + HOW THE GAME WORKS</p><h3>The W Vault</h3><p>The archive for league history, teams, strategy, championships and visual legacy.</p>
-            <div class="family-links"><a href="/w-vault.html"><span>Open The W Vault</span><span>→</span></a><a href="/film-room.html"><span>The Film Room</span><span>→</span></a><a href="/around-the-w.html"><span>Around the W</span><span>→</span></a><a href="/trophy-case.html"><span>The Trophy Case</span><span>→</span></a><a href="/locker-room.html"><span>The Locker Room</span><span>→</span></a></div>
-          </article>
-          <article class="family-card">
-            <p class="kicker">PEOPLE + PERSONALITY</p><h3>Courtside Culture</h3><p>Mascots, coaches, trainers, owners, celebrity fans and the people who shape the atmosphere around the game.</p>
-            <div class="family-links"><a href="/courtside-culture.html"><span>Go Courtside</span><span>→</span></a></div>
-          </article>
-          <article class="family-card">
-            <p class="kicker">THE NEXT WAVE</p><h3>Who Got Next?</h3><p>College stars and the future league map live together here, but with two clearly different lanes.</p>
-            <div class="family-links"><a href="/who-got-next.html"><span>Open Who Got Next?</span><span>→</span></a><a href="/who-got-next.html#class-is-in-session"><span>Class Is in Session · NCAAW</span><span>→</span></a><a href="/expansion-watch.html"><span>Expansion Watch</span><span>→</span></a></div>
-          </article>
-          <article class="family-card" style="background:#d8ff4f">
-            <p class="kicker">FRESH EVERY MONDAY</p><h3>Snack Shaq</h3><p>Power rankings, who’s cooking, roster watch, standout performances and the spicy debate board.</p>
-            <div class="family-links"><a href="/snack-shaq.html"><span>Read Snack Shaq</span><span>🌶️</span></a></div>
-          </article>
-          <article class="family-card">
-            <p class="kicker">HOW IT FITS TOGETHER</p><h3>Built to cross-reference</h3><p>A player can connect to her team, awards, off-court milestones, history and weekly Snack Shaq mentions without repeating the same information everywhere.</p>
-            <div class="family-links"><a href="/playerpedia.html"><span>Start with a player</span><span>→</span></a><a href="/w-vault.html"><span>Start with history</span><span>→</span></a></div>
-          </article>
+          <article class="family-card featured"><p class="kicker">PLAYERS</p><h3>Playerpedia</h3><p>Players A–Z, current rosters and the personal stories behind the names.</p><div class="family-links"><a href="/playerpedia.html"><span>Open Playerpedia</span><span>→</span></a><a href="/herstory.html"><span>Herstory</span><span>→</span></a><a href="/starting-five.html"><span>The Starting Five</span><span>→</span></a><a href="/bench-mob.html"><span>The Bench Mob</span><span>→</span></a></div></article>
+          <article class="family-card"><p class="kicker">HISTORY + HOW THE GAME WORKS</p><h3>The W Vault</h3><p>The archive for league history, teams, strategy, championships and visual legacy.</p><div class="family-links"><a href="/w-vault.html"><span>Open The W Vault</span><span>→</span></a><a href="/film-room.html"><span>The Film Room</span><span>→</span></a><a href="/around-the-w.html"><span>Around the W</span><span>→</span></a><a href="/trophy-case.html"><span>The Trophy Case</span><span>→</span></a><a href="/locker-room.html"><span>The Locker Room</span><span>→</span></a></div></article>
+          <article class="family-card"><p class="kicker">PEOPLE + PERSONALITY</p><h3>Courtside Culture</h3><p>Mascots, coaches, trainers, owners, celebrity fans and the people who shape the atmosphere around the game.</p><div class="family-links"><a href="/courtside-culture.html"><span>Go Courtside</span><span>→</span></a></div></article>
+          <article class="family-card"><p class="kicker">THE NEXT WAVE</p><h3>Who Got Next?</h3><p>College stars and the future league map live together here, but with two clearly different lanes.</p><div class="family-links"><a href="/who-got-next.html"><span>Open Who Got Next?</span><span>→</span></a><a href="/who-got-next.html#class-is-in-session"><span>Class Is in Session · NCAAW</span><span>→</span></a><a href="/expansion-watch.html"><span>Expansion Watch</span><span>→</span></a></div></article>
+          <article class="family-card" style="background:#d8ff4f"><p class="kicker">FRESH EVERY MONDAY</p><h3>Snack Shaq</h3><p>Power rankings, who’s cooking, roster watch, standout performances and the spicy debate board.</p><div class="family-links"><a href="/snack-shaq.html"><span>Read Snack Shaq</span><span>🌶️</span></a></div></article>
+          <article class="family-card"><p class="kicker">HOW IT FITS TOGETHER</p><h3>Built to cross-reference</h3><p>A player can connect to her team, awards, off-court milestones, history and weekly Snack Shaq mentions without repeating the same information everywhere.</p><div class="family-links"><a href="/playerpedia.html"><span>Start with a player</span><span>→</span></a><a href="/w-vault.html"><span>Start with history</span><span>→</span></a></div></article>
         </div>
       </div>
     </section>
   </main>
 
-  <footer class="footer">
-    <div class="shell footer-inner">
-      <div><strong>WE KNOW THE W</strong><p>An independent, fan-built women’s basketball encyclopedia. Not affiliated with or endorsed by the WNBA.</p></div>
-      <a href="#top">Back to top ↑</a>
-    </div>
-  </footer>
+  <footer class="footer"><div class="shell footer-inner"><div><strong>WE KNOW THE W</strong><p>An independent, fan-built women’s basketball encyclopedia. Not affiliated with or endorsed by the WNBA.</p></div><a href="#top">Back to top ↑</a></div></footer>
   <script src="/site.js"></script>
   <script src="/home-live.js"></script>
 </body>

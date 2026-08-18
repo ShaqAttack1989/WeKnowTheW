@@ -9,23 +9,13 @@ const REGULAR_SEASON_WINDOWS = {
 
 const CONFERENCES_2026 = {
   eastern: [
-    'Atlanta Dream',
-    'Chicago Sky',
-    'Connecticut Sun',
-    'Indiana Fever',
-    'New York Liberty',
-    'Toronto Tempo',
-    'Washington Mystics'
+    'Atlanta Dream', 'Chicago Sky', 'Connecticut Sun', 'Indiana Fever',
+    'New York Liberty', 'Toronto Tempo', 'Washington Mystics'
   ],
   western: [
-    'Dallas Wings',
-    'Golden State Valkyries',
-    'Las Vegas Aces',
-    'Los Angeles Sparks',
-    'Minnesota Lynx',
-    'Phoenix Mercury',
-    'Portland Fire',
-    'Seattle Storm'
+    'Dallas Wings', 'Golden State Valkyries', 'Las Vegas Aces',
+    'Los Angeles Sparks', 'Minnesota Lynx', 'Phoenix Mercury',
+    'Portland Fire', 'Seattle Storm'
   ]
 };
 
@@ -41,23 +31,17 @@ const CONFERENCE_LOOKUP = new Map([
 async function fetchJson(url, options = {}) {
   const response = await fetch(url, {
     ...options,
-    headers: {
-      Accept: 'application/json',
-      ...(options.headers || {})
-    }
+    headers: { Accept: 'application/json', ...(options.headers || {}) }
   });
-
   const text = await response.text();
   let body = {};
   try { body = text ? JSON.parse(text) : {}; } catch { body = { raw: text }; }
-
   if (!response.ok) {
     const message = body?.message || body?.Message || body?.error || `TheSportsDB returned ${response.status}`;
     const error = new Error(String(message));
     error.status = response.status;
     throw error;
   }
-
   return body;
 }
 
@@ -67,25 +51,28 @@ async function getSeasonSchedule(season, productionKey) {
       `${V2_ROOT}/schedule/league/${LEAGUE_ID}/${encodeURIComponent(season)}`,
       { headers: { 'X-API-KEY': productionKey } }
     );
-    return {
-      events: Array.isArray(body.schedule) ? body.schedule : [],
-      apiVersion: 'v2'
-    };
+    return { events: Array.isArray(body.schedule) ? body.schedule : [], apiVersion: 'v2' };
   }
-
-  const body = await fetchJson(
-    `${V1_ROOT}/${FREE_KEY}/eventsseason.php?id=${LEAGUE_ID}&s=${encodeURIComponent(season)}`
-  );
-  return {
-    events: Array.isArray(body.events) ? body.events : [],
-    apiVersion: 'v1-free'
-  };
+  const body = await fetchJson(`${V1_ROOT}/${FREE_KEY}/eventsseason.php?id=${LEAGUE_ID}&s=${encodeURIComponent(season)}`);
+  return { events: Array.isArray(body.events) ? body.events : [], apiVersion: 'v1-free' };
 }
 
 function asDate(value) {
   if (!value) return null;
   const date = new Date(`${value}T12:00:00Z`);
   return Number.isNaN(date.getTime()) ? null : date;
+}
+
+function eventTimestamp(event) {
+  const timestamp = event.strTimestamp || '';
+  if (timestamp) {
+    const parsed = Date.parse(timestamp);
+    if (Number.isFinite(parsed)) return parsed;
+  }
+  const date = event.dateEvent || event.dateEventLocal || '';
+  const time = event.strTime || event.strTimeLocal || '12:00:00';
+  const parsed = Date.parse(`${date}T${String(time).replace('Z','')}Z`);
+  return Number.isFinite(parsed) ? parsed : Date.parse(`${date}T12:00:00Z`);
 }
 
 function inRegularSeason(event, season) {
@@ -101,30 +88,22 @@ function isFinished(event) {
   const home = Number(event.intHomeScore);
   const away = Number(event.intAwayScore);
   if (!Number.isFinite(home) || !Number.isFinite(away)) return false;
-
   const status = String(event.strStatus || '').toUpperCase();
   if (['FT', 'AET', 'FINAL', 'MATCH FINISHED'].some(value => status.includes(value))) return true;
-
   const eventDate = asDate(event.dateEvent);
   return Boolean(eventDate && eventDate < new Date());
 }
 
 function teamFromEvent(event, side) {
   const home = side === 'home';
-  return {
-    id: home ? event.idHomeTeam : event.idAwayTeam,
-    full_name: home ? event.strHomeTeam : event.strAwayTeam
-  };
+  return { id: home ? event.idHomeTeam : event.idAwayTeam, full_name: home ? event.strHomeTeam : event.strAwayTeam };
 }
 
 function conferenceForTeam(name) {
   return CONFERENCE_LOOKUP.get(normalizedName(name)) || 'Unknown';
 }
 
-function recordLabel(wins, losses) {
-  return `${wins}-${losses}`;
-}
-
+function recordLabel(wins, losses) { return `${wins}-${losses}`; }
 function gamesBack(leader, record) {
   if (!leader || leader === record) return 0;
   return ((leader.wins - record.wins) + (record.losses - leader.losses)) / 2;
@@ -133,36 +112,22 @@ function gamesBack(leader, record) {
 function enrichRankings(records, rankKey = 'rank') {
   const sorted = [...records].sort((a, b) =>
     Number(b.win_percentage) - Number(a.win_percentage) ||
-    b.wins - a.wins ||
-    a.losses - b.losses ||
+    b.wins - a.wins || a.losses - b.losses ||
     a.team.full_name.localeCompare(b.team.full_name)
   );
   const leader = sorted[0] || null;
-  return sorted.map((record, index) => ({
-    ...record,
-    [rankKey]: index + 1,
-    games_back: gamesBack(leader, record)
-  }));
+  return sorted.map((record, index) => ({ ...record, [rankKey]: index + 1, games_back: gamesBack(leader, record) }));
 }
 
 function deriveStandings(events) {
   const records = new Map();
-
   function ensure(team) {
     if (!team?.id || !team?.full_name) return null;
     if (!records.has(team.id)) {
       records.set(team.id, {
-        team,
-        conference: conferenceForTeam(team.full_name),
-        wins: 0,
-        losses: 0,
-        homeWins: 0,
-        homeLosses: 0,
-        roadWins: 0,
-        roadLosses: 0,
-        confWins: 0,
-        confLosses: 0,
-        games: []
+        team, conference: conferenceForTeam(team.full_name), wins: 0, losses: 0,
+        homeWins: 0, homeLosses: 0, roadWins: 0, roadLosses: 0,
+        confWins: 0, confLosses: 0, games: []
       });
     }
     return records.get(team.id);
@@ -170,39 +135,23 @@ function deriveStandings(events) {
 
   for (const event of events) {
     if (!isFinished(event)) continue;
-
     const home = ensure(teamFromEvent(event, 'home'));
     const away = ensure(teamFromEvent(event, 'away'));
     if (!home || !away) continue;
-
     const homeScore = Number(event.intHomeScore);
     const awayScore = Number(event.intAwayScore);
     if (!Number.isFinite(homeScore) || !Number.isFinite(awayScore) || homeScore === awayScore) continue;
-
     const homeWon = homeScore > awayScore;
     const sameConference = home.conference !== 'Unknown' && home.conference === away.conference;
     const sortKey = `${event.dateEvent || ''}-${event.strTime || ''}-${event.idEvent || ''}`;
 
     if (homeWon) {
-      home.wins += 1;
-      home.homeWins += 1;
-      away.losses += 1;
-      away.roadLosses += 1;
-      if (sameConference) {
-        home.confWins += 1;
-        away.confLosses += 1;
-      }
+      home.wins++; home.homeWins++; away.losses++; away.roadLosses++;
+      if (sameConference) { home.confWins++; away.confLosses++; }
     } else {
-      home.losses += 1;
-      home.homeLosses += 1;
-      away.wins += 1;
-      away.roadWins += 1;
-      if (sameConference) {
-        home.confLosses += 1;
-        away.confWins += 1;
-      }
+      home.losses++; home.homeLosses++; away.wins++; away.roadWins++;
+      if (sameConference) { home.confLosses++; away.confWins++; }
     }
-
     home.games.push({ sortKey, won: homeWon });
     away.games.push({ sortKey, won: !homeWon });
   }
@@ -215,13 +164,11 @@ function deriveStandings(events) {
     if (latest) {
       for (const game of recentGames) {
         if (game.won !== latest.won) break;
-        streakCount += 1;
+        streakCount++;
       }
     }
     const lastTen = recentGames.slice(0, 10);
     const lastTenWins = lastTen.filter(game => game.won).length;
-    const lastTenLosses = lastTen.length - lastTenWins;
-
     return {
       team: record.team,
       conference: record.conference,
@@ -234,44 +181,38 @@ function deriveStandings(events) {
       home_record: recordLabel(record.homeWins, record.homeLosses),
       road_record: recordLabel(record.roadWins, record.roadLosses),
       streak: latest ? `${latest.won ? 'W' : 'L'}${streakCount}` : '—',
-      last_ten: recordLabel(lastTenWins, lastTenLosses),
+      last_ten: recordLabel(lastTenWins, lastTen.length - lastTenWins),
       games_played: played
     };
   });
 
-  const overall = enrichRankings(baseRecords, 'overall_rank').map(record => ({
-    ...record,
-    playoff_seed: record.overall_rank
-  }));
-
+  const overall = enrichRankings(baseRecords, 'overall_rank').map(record => ({ ...record, playoff_seed: record.overall_rank }));
   const eastern = enrichRankings(baseRecords.filter(record => record.conference === 'Eastern'), 'conference_rank');
   const western = enrichRankings(baseRecords.filter(record => record.conference === 'Western'), 'conference_rank');
-
-  return {
-    overall,
-    conferences: {
-      eastern,
-      western
-    }
-  };
+  return { overall, conferences: { eastern, western } };
 }
 
 function pastGames(events, limit = 5) {
-  return events
-    .filter(isFinished)
-    .sort((a, b) => {
-      const dateCompare = String(b.dateEvent || '').localeCompare(String(a.dateEvent || ''));
-      if (dateCompare) return dateCompare;
-      return String(b.strTime || '').localeCompare(String(a.strTime || ''));
-    })
+  return events.filter(isFinished)
+    .sort((a, b) => eventTimestamp(b) - eventTimestamp(a))
     .slice(0, limit)
     .map(event => ({
-      id: event.idEvent,
-      date: event.dateEvent,
-      homeTeam: event.strHomeTeam,
-      awayTeam: event.strAwayTeam,
-      homeScore: Number(event.intHomeScore),
-      awayScore: Number(event.intAwayScore)
+      id: event.idEvent, date: event.dateEvent, time: event.strTime || '',
+      homeTeam: event.strHomeTeam, awayTeam: event.strAwayTeam,
+      homeScore: Number(event.intHomeScore), awayScore: Number(event.intAwayScore)
+    }));
+}
+
+function upcomingGames(events, limit = 8) {
+  const now = Date.now();
+  return events
+    .filter(event => !isFinished(event) && Number.isFinite(eventTimestamp(event)) && eventTimestamp(event) >= now)
+    .sort((a, b) => eventTimestamp(a) - eventTimestamp(b))
+    .slice(0, limit)
+    .map(event => ({
+      id: event.idEvent, date: event.dateEvent, time: event.strTime || '',
+      homeTeam: event.strHomeTeam, awayTeam: event.strAwayTeam,
+      venue: event.strVenue || '', status: event.strStatus || 'Scheduled'
     }));
 }
 
@@ -282,10 +223,7 @@ module.exports = async function handler(req, res) {
   }
 
   const requestedSeason = Number(req.query.season);
-  const season = Number.isInteger(requestedSeason) && requestedSeason >= 1997 && requestedSeason <= 2100
-    ? requestedSeason
-    : new Date().getFullYear();
-
+  const season = Number.isInteger(requestedSeason) && requestedSeason >= 1997 && requestedSeason <= 2100 ? requestedSeason : new Date().getFullYear();
   const productionKey = String(process.env.THESPORTSDB_API_KEY || '').trim();
   res.setHeader('Cache-Control', 's-maxage=900, stale-while-revalidate=3600');
 
@@ -295,34 +233,22 @@ module.exports = async function handler(req, res) {
     const fullSeasonAccess = Boolean(productionKey) && allEvents.length >= 100;
     const standingsData = fullSeasonAccess ? deriveStandings(regularSeasonEvents) : { overall: [], conferences: { eastern: [], western: [] } };
     const completedGames = fullSeasonAccess ? pastGames(regularSeasonEvents) : [];
+    const scheduledGames = fullSeasonAccess ? upcomingGames(regularSeasonEvents) : [];
 
     return res.status(200).json({
-      configured: Boolean(productionKey),
-      source: 'TheSportsDB',
-      apiVersion,
-      season,
-      updatedAt: new Date().toISOString(),
-      eventCount: allEvents.length,
-      regularSeasonEventCount: regularSeasonEvents.length,
-      fullSeasonAccess,
+      configured: Boolean(productionKey), source: 'TheSportsDB', apiVersion, season,
+      updatedAt: new Date().toISOString(), eventCount: allEvents.length,
+      regularSeasonEventCount: regularSeasonEvents.length, fullSeasonAccess,
       standings: standingsData.overall,
       conferenceStandings: standingsData.conferences,
       pastGames: completedGames,
       recentResults: completedGames,
-      providerMessage: fullSeasonAccess
-        ? null
-        : productionKey
-          ? `TheSportsDB key was detected, but only ${allEvents.length} season events were returned. We Know the W will not calculate standings from an incomplete schedule.`
-          : 'THESPORTSDB_API_KEY is not configured in Vercel. The free development feed is intentionally limited.'
+      upcomingGames: scheduledGames,
+      providerMessage: fullSeasonAccess ? null : productionKey
+        ? `TheSportsDB key was detected, but only ${allEvents.length} season events were returned. We Know the W will not calculate standings from an incomplete schedule.`
+        : 'THESPORTSDB_API_KEY is not configured in Vercel. The free development feed is intentionally limited.'
     });
   } catch (error) {
-    return res.status(502).json({
-      error: error.message,
-      status: error.status || null,
-      configured: Boolean(productionKey),
-      source: 'TheSportsDB',
-      apiVersion: productionKey ? 'v2' : 'v1-free',
-      season
-    });
+    return res.status(502).json({ error: error.message, status: error.status || null, configured: Boolean(productionKey), source: 'TheSportsDB', apiVersion: productionKey ? 'v2' : 'v1-free', season });
   }
 };

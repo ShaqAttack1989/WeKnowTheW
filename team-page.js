@@ -4,8 +4,36 @@ function tNorm(value=''){return String(value).toLowerCase().replace(/[^a-z0-9]/g
 const params=new URLSearchParams(location.search);
 const slug=params.get('team')||'';
 const team=teamBySlug(slug);
+const POSTER_ORDER=[
+  'atlanta-dream','chicago-sky','connecticut-sun','dallas-wings',
+  'golden-state-valkyries','indiana-fever','las-vegas-aces','los-angeles-sparks',
+  'minnesota-lynx','new-york-liberty','phoenix-mercury','portland-fire',
+  'seattle-storm','washington-mystics'
+];
+
+function posterStyle(slug){
+  const index=POSTER_ORDER.indexOf(slug);
+  if(index<0)return '';
+  const x=index%2===0?0:100;
+  const y=(Math.floor(index/2)/6)*100;
+  return `--poster-x:${x}%;--poster-y:${y.toFixed(4)}%`;
+}
+
+function applyGeneratedPoster(){
+  if(!team||!POSTER_ORDER.includes(team.slug))return false;
+  const hero=document.getElementById('teamHero');
+  const nav=hero?.querySelector('.nav');
+  if(!hero||!nav)return false;
+  hero.classList.add('has-generated-poster');
+  const banner=document.createElement('div');
+  banner.className='team-poster-page-banner';
+  banner.innerHTML=`<div class="team-poster-art" style="${posterStyle(team.slug)}" role="img" aria-label="${tSafe(team.name)} city graphic"></div>`;
+  nav.insertAdjacentElement('afterend',banner);
+  return true;
+}
 
 function applyOfficialTeamArtwork(asset){
+  if(document.getElementById('teamHero')?.classList.contains('has-generated-poster'))return;
   const badge=document.getElementById('teamHeroBadge');
   const badgeFallback=document.getElementById('teamHeroBadgeFallback');
   const wordmark=document.getElementById('teamHeroWordmark');
@@ -48,6 +76,7 @@ if(!team){
   document.getElementById('rosterHeading').textContent=`${team.name} roster`;
   document.getElementById('teamPlayerpediaLink').href=`/playerpedia.html?team=${encodeURIComponent(team.name)}`;
   if(team.note)document.getElementById('teamSeasonNote').textContent=`${team.note}. Live record and roster information refresh automatically from the independent data feed.`;
+  applyGeneratedPoster();
   loadTeamPage();
 }
 

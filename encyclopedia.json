@@ -1,26 +1,33 @@
 {
   "siteTitle": "We Know the W",
-  "subtitle": "The WNBA Encyclopedia",
+  "subtitle": "Women’s Basketball Encyclopedia",
   "edition": 2026,
   "sections": [
-    "Welcome to the W",
+    "Live From the W",
     "Playerpedia A-Z",
-    "Meet the Teams",
-    "Franchise Family Tree",
-    "Expansion Teams",
-    "The WNBA Record Book",
-    "Awards and Honors",
-    "Championship Corner",
-    "Coaches and Leaders",
-    "Players Who Became Coaches",
-    "Mascots",
-    "Jerseys and Team Personality",
-    "Big Moments in WNBA History",
-    "The W Around the World",
-    "More Than Basketball",
-    "WNBA Culture",
-    "Did THAT Really Happen?",
-    "Play Along",
-    "WNBA Reference Guide"
-  ]
+    "The Starting Five",
+    "The Bench Mob",
+    "The Film Room",
+    "Around the W",
+    "Expansion Watch",
+    "The W Vault",
+    "Herstory",
+    "The Trophy Case",
+    "The Locker Room",
+    "Courtside Characters",
+    "Who Got Next?"
+  ],
+  "sectionPurpose": {
+    "The W Vault": "League history, franchise family trees, relocations, defunct teams, eras and major moments.",
+    "Herstory": "Publicly shared off-court milestones including education, business, family, advocacy and creative work.",
+    "The Starting Five": "A rotating editorial group of five featured players.",
+    "The Bench Mob": "Role players, sixth players and specialist basketball roles.",
+    "The Film Room": "Basketball education covering positions, roles, schemes and strategy.",
+    "Around the W": "Current team pages, rosters and automatically refreshed current-season records.",
+    "Expansion Watch": "Future franchises, branding, leadership, roster construction and expansion timelines.",
+    "The Trophy Case": "Championships, individual awards and honors.",
+    "The Locker Room": "Uniform history, retired numbers, visual identity and signature gear.",
+    "Courtside Characters": "Mascot biographies, origins, traditions and kid-friendly trivia.",
+    "Who Got Next?": "NCAA Division I women’s basketball watchlists, schedule/results, draft radar and future-pro scouting."
+  }
 }

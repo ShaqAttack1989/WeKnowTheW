@@ -1,0 +1,7 @@
+{
+  "items": [],
+  "usage": {
+    "allowed": "Add only media that is public domain, openly licensed for this use, explicitly permitted by the rights holder, or owned by We Know the W.",
+    "fields": ["type", "subject", "image", "alt", "caption", "creator", "sourceUrl", "license", "licenseUrl"]
+  }
+}

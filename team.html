@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#140a2f">
+  <title>Team | We Know the W</title>
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/landing.css">
+  <link rel="stylesheet" href="/team-page.css">
+</head>
+<body class="team-page">
+  <header class="team-hero" id="teamHero">
+    <nav class="nav shell" aria-label="Main navigation">
+      <a class="brand" href="/"><span class="brand-mark">W</span><span>WE KNOW THE W</span></a>
+      <button class="menu-button" id="menuButton" aria-expanded="false" aria-controls="navLinks">Menu</button>
+      <div class="nav-links" id="navLinks"></div>
+    </nav>
+    <div id="teamSkyline"></div>
+    <div class="page-shell team-hero-inner">
+      <div class="team-hero-copy">
+        <p class="eyebrow">AROUND THE W · TEAM PAGE</p>
+        <h1 id="teamName">Loading team…</h1>
+        <p id="teamIntro">Current season, roster, history and culture in one franchise home.</p>
+        <div class="page-crumbs"><a href="/">Home</a><span>›</span><a href="/w-vault.html">The W Vault</a><span>›</span><a href="/around-the-w.html">Around the W</a><span>›</span><b id="teamCrumb">Team</b></div>
+      </div>
+      <aside class="team-snapshot">
+        <span class="team-monogram" id="teamTag">W</span>
+        <span>2026 snapshot</span>
+        <strong id="teamRecord">—</strong>
+        <small id="teamPct">Checking the live record…</small>
+      </aside>
+    </div>
+  </header>
+
+  <main>
+    <section class="team-content">
+      <div class="team-section-heading"><p class="kicker">FRANCHISE FILE</p><h2>Everything about this team has a lane.</h2><p>Use this landing page as the bridge between the live season and the deeper encyclopedia sections.</p></div>
+      <div class="team-overview-grid">
+        <article class="team-panel"><span class="panel-label">THE W VAULT</span><strong>Franchise history</strong><p>Origins, eras, relocations, defining seasons and the players who shaped the franchise story.</p></article>
+        <article class="team-panel"><span class="panel-label">THE TROPHY CASE</span><strong>Titles & awards</strong><p>Championships, individual award winners and the biggest pieces of hardware connected to this team.</p></article>
+        <article class="team-panel"><span class="panel-label">THE LOCKER ROOM</span><strong>Uniforms & retired numbers</strong><p>Visual eras, throwbacks, retired jerseys and the design history that makes the franchise recognizable.</p></article>
+        <article class="team-panel"><span class="panel-label">COURTSIDE CULTURE</span><strong>People around the team</strong><p>Coaches, trainers, owners, celebrity fans, mascots and the personality surrounding game day.</p></article>
+        <article class="team-panel"><span class="panel-label">PLAYERPEDIA</span><strong>Current players</strong><p>The roster connects directly into individual player profiles, Herstory, The Starting Five and The Bench Mob.</p></article>
+        <article class="team-panel"><span class="panel-label">2026 SEASON</span><strong>What’s happening now</strong><p id="teamSeasonNote">Live record and roster information refresh automatically from the independent data feed.</p></article>
+      </div>
+      <div class="team-link-row"><a href="/around-the-w.html">← All current teams</a><a class="secondary" id="teamPlayerpediaLink" href="/playerpedia.html">Open this team in Playerpedia →</a></div>
+    </section>
+
+    <section class="team-band">
+      <div class="team-content">
+        <div class="team-section-heading"><p class="kicker">CURRENT ROSTER</p><h2 id="rosterHeading">Who’s on the team?</h2><p id="rosterStatus">Loading the current roster…</p></div>
+        <div id="teamRoster" class="team-roster-grid"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer"><div class="shell footer-inner"><div><strong>WE KNOW THE W</strong><p>Independent, fan-built women’s basketball encyclopedia.</p></div><a href="/around-the-w.html">Back to Around the W ↑</a></div></footer>
+  <script src="/site.js"></script>
+  <script src="/team-data.js"></script>
+  <script src="/team-page.js"></script>
+</body>
+</html>

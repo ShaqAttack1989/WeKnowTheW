@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#140a2f" />
+  <meta name="description" content="We Know the W — a kid-friendly WNBA encyclopedia for players, teams, history, culture, records and live stats." />
+  <title>We Know the W | The WNBA Encyclopedia</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header class="hero" id="top">
+    <nav class="nav shell" aria-label="Main navigation">
+      <a class="brand" href="#top" aria-label="We Know the W home">
+        <span class="brand-mark">W</span>
+        <span>WE KNOW THE W</span>
+      </a>
+      <button class="menu-button" id="menuButton" aria-expanded="false" aria-controls="navLinks">Menu</button>
+      <div class="nav-links" id="navLinks">
+        <a href="#live">Live</a>
+        <a href="#players">Players A–Z</a>
+        <a href="#teams">Teams</a>
+        <a href="#records">Records</a>
+        <a href="#culture">Culture</a>
+      </div>
+    </nav>
+
+    <div class="hero-inner shell">
+      <div class="hero-copy-wrap">
+        <p class="eyebrow">THE WNBA, FROM A TO Z</p>
+        <h1>Know the players.<br>Know the history.<br><em>Know the W.</em></h1>
+        <p class="hero-copy">A colorful, kid-friendly home for the league’s stars, teams, records, coaches, mascots, expansion stories and the numbers changing right now.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#live">See what’s happening</a>
+          <a class="button ghost" href="#players">Browse Playerpedia</a>
+        </div>
+      </div>
+      <aside class="hero-card" aria-label="2026 edition information">
+        <span class="mini-label">CURRENT EDITION</span>
+        <strong id="editionYear">2026</strong>
+        <p>History stays. Live numbers refresh.</p>
+        <div class="basketball-lines" aria-hidden="true"></div>
+      </aside>
+    </div>
+  </header>
+
+  <main>
+    <section id="live" class="section shell">
+      <div class="section-heading split">
+        <div>
+          <p class="kicker">LIVE FROM THE W</p>
+          <h2><span id="seasonLabel">2026</span> standings</h2>
+        </div>
+        <div class="status-wrap" role="status" aria-live="polite">
+          <span id="statusDot" class="status-dot"></span>
+          <span id="statusText">Checking the W…</span>
+        </div>
+      </div>
+      <div id="standings" class="standings card loading-card">
+        <p>Loading standings…</p>
+      </div>
+    </section>
+
+    <section class="section purple-band">
+      <div class="shell">
+        <div class="section-heading split light-heading">
+          <div>
+            <p class="kicker">WHO’S HOOPING?</p>
+            <h2>Season leaders</h2>
+          </div>
+          <p class="small-note" id="leaderNote">Points, boards, dimes, steals and blocks.</p>
+        </div>
+        <div id="leaders" class="leader-grid">
+          <article class="leader-card skeleton"></article>
+          <article class="leader-card skeleton"></article>
+          <article class="leader-card skeleton"></article>
+          <article class="leader-card skeleton"></article>
+          <article class="leader-card skeleton"></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="players" class="section shell">
+      <div class="section-heading">
+        <p class="kicker">PLAYERPEDIA</p>
+        <h2>Players A–Z</h2>
+        <p class="intro">Pick a letter and build a page for the players who define the W — legends, current stars, rookies and fan favorites.</p>
+      </div>
+      <div class="az-grid" id="azGrid" aria-label="Player alphabet"></div>
+      <div class="info-strip">
+        <strong>Built for the book:</strong>
+        <span>Each player page can hold a bio, teams, position, awards, signature moments, fun facts and a “Why We Know Her” box.</span>
+      </div>
+    </section>
+
+    <section id="teams" class="section cream-band">
+      <div class="shell">
+        <div class="section-heading">
+          <p class="kicker">MEET THE TEAMS</p>
+          <h2>Past, present & growing</h2>
+        </div>
+        <div class="feature-grid">
+          <article class="feature-card">
+            <span class="feature-number">01</span>
+            <h3>Today’s W</h3>
+            <p>Every current team gets its own page with city, colors, coach, mascot, titles, stars and personality.</p>
+          </article>
+          <article class="feature-card">
+            <span class="feature-number">02</span>
+            <h3>Franchise family tree</h3>
+            <p>Follow relocations and name changes without treating every familiar city as the same franchise.</p>
+          </article>
+          <article class="feature-card accent-card">
+            <span class="feature-number">03</span>
+            <h3>The W is growing</h3>
+            <p>Expansion pages track Golden State, Toronto, Portland, Cleveland, Detroit, Philadelphia and whoever joins next.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="records" class="section shell">
+      <div class="section-heading split">
+        <div>
+          <p class="kicker">THE RECORD BOOK</p>
+          <h2>Who did it most?</h2>
+        </div>
+        <p class="small-note">Curated history + live-season context.</p>
+      </div>
+      <div id="recordsGrid" class="record-grid"></div>
+    </section>
+
+    <section id="culture" class="section dark-band">
+      <div class="shell culture-layout">
+        <div>
+          <p class="kicker coral">THE W IS MORE THAN NUMBERS</p>
+          <h2>Coaches. Mascots. Fits. Activism. Culture.</h2>
+          <p class="culture-copy">The encyclopedia has room for the people and moments that make the league feel like the league — from former players turned coaches to iconic tunnel fits, mascots, rivalries and social impact.</p>
+        </div>
+        <div class="culture-tags" aria-label="Culture topics">
+          <span>Coaches</span><span>Mascots</span><span>Jerseys</span><span>Rivalries</span><span>Activism</span><span>International W</span><span>Big Moments</span><span>Trivia</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section shell">
+      <div class="callout">
+        <div>
+          <p class="kicker">BUILT TO KEEP GROWING</p>
+          <h2>The site can grow with the league.</h2>
+          <p>Editorial history stays permanent while the live layer can request the newest season automatically. New teams, new awards and new chapters can be added without rebuilding the whole project.</p>
+        </div>
+        <div class="big-w" aria-hidden="true">W</div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="shell footer-inner">
+      <div>
+        <strong>WE KNOW THE W</strong>
+        <p>A fan-built, kid-friendly WNBA encyclopedia project.</p>
+      </div>
+      <a href="#top">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <script src="/app.js" defer></script>
+</body>
+</html>

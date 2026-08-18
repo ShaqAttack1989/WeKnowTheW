@@ -1,7 +1,20 @@
 {
-  "items": [],
+  "items": [
+    {
+      "type": "player",
+      "subject": "Aliyah Boston",
+      "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Aliyah_Boston_(cropped).jpg?width=720",
+      "alt": "Aliyah Boston playing basketball",
+      "caption": "Aliyah Boston.",
+      "creator": "Gamecock Central / Chris Gillespie",
+      "source": "Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aliyah_Boston_(cropped).jpg",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0/"
+    }
+  ],
   "usage": {
     "allowed": "Add only media that is public domain, openly licensed for this use, explicitly permitted by the rights holder, or owned by We Know the W.",
-    "fields": ["type", "subject", "image", "alt", "caption", "creator", "sourceUrl", "license", "licenseUrl"]
+    "fields": ["type", "subject", "image", "alt", "caption", "creator", "source", "sourceUrl", "license", "licenseUrl"]
   }
 }

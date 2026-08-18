@@ -18,7 +18,7 @@
       <button class="menu-button" id="menuButton" aria-expanded="false" aria-controls="navLinks">Menu</button>
       <div class="nav-links" id="navLinks">
         <a href="#live">Live</a>
-        <a href="#players">Players A–Z</a>
+        <a href="#players">Playerpedia</a>
         <a href="#teams">Teams</a>
         <a href="#records">Records</a>
         <a href="#culture">Culture</a>
@@ -80,16 +80,47 @@
       </div>
     </section>
 
-    <section id="players" class="section shell">
-      <div class="section-heading">
-        <p class="kicker">PLAYERPEDIA</p>
-        <h2>Players A–Z</h2>
-        <p class="intro">Pick a letter and build a page for the players who define the W — legends, current stars, rookies and fan favorites.</p>
+    <section id="players" class="section shell playerpedia-section">
+      <div class="section-heading split playerpedia-heading">
+        <div>
+          <p class="kicker">PLAYERPEDIA</p>
+          <h2>Players A–Z</h2>
+          <p class="intro">Current rosters refresh automatically. Search by name, jump to a last-name letter or filter by team, then tap a player to open her profile.</p>
+        </div>
+        <div class="player-status" id="playerStatus" role="status" aria-live="polite">Loading current rosters…</div>
       </div>
-      <div class="az-grid" id="azGrid" aria-label="Player alphabet"></div>
+
+      <div class="player-tools" aria-label="Playerpedia filters">
+        <label class="player-search">
+          <span>Search players</span>
+          <input id="playerSearch" type="search" placeholder="Try Wilson, Collier, Clark…" autocomplete="off" />
+        </label>
+        <label class="team-filter">
+          <span>Team</span>
+          <select id="playerTeamFilter">
+            <option value="">All current teams</option>
+          </select>
+        </label>
+        <button class="reset-player-filters" id="resetPlayerFilters" type="button">Reset</button>
+      </div>
+
+      <div class="az-grid" id="azGrid" aria-label="Browse players by last name"></div>
+
+      <div class="playerpedia-meta">
+        <strong id="playerCount">Loading players…</strong>
+        <span>Current roster data refreshes from TheSportsDB. Historical legends and editorial stories are curated by We Know the W.</span>
+      </div>
+
+      <div id="playerGrid" class="player-grid" aria-live="polite">
+        <article class="player-card player-card-loading"></article>
+        <article class="player-card player-card-loading"></article>
+        <article class="player-card player-card-loading"></article>
+        <article class="player-card player-card-loading"></article>
+      </div>
+
       <div class="info-strip">
-        <strong>Built for the book:</strong>
-        <span>Each player page can hold a bio, teams, position, awards, signature moments, fun facts and a “Why We Know Her” box.</span>
+        <strong>Playerpedia profile recipe:</strong>
+        <span>Current team + position + bio facts + honors + former teams, then our curated awards, signature moments, fun facts and “Why We Know Her” story.</span>
       </div>
     </section>
 
@@ -159,11 +190,18 @@
     <div class="shell footer-inner">
       <div>
         <strong>WE KNOW THE W</strong>
-        <p>A fan-built, kid-friendly encyclopedia project. Not affiliated with or endorsed by the WNBA. Live scores and schedule data supplied through TheSportsDB official API; no WNBA-owned API is used.</p>
+        <p>A fan-built, kid-friendly encyclopedia project. Not affiliated with or endorsed by the WNBA. Live scores, schedule and current roster data supplied through TheSportsDB official API; no WNBA-owned API is used.</p>
       </div>
       <a href="#top">Back to top ↑</a>
     </div>
   </footer>
+
+  <dialog class="player-modal" id="playerModal" aria-labelledby="playerModalTitle">
+    <button class="player-modal-close" id="playerModalClose" type="button" aria-label="Close player profile">×</button>
+    <div id="playerModalBody" class="player-modal-body">
+      <p>Loading player profile…</p>
+    </div>
+  </dialog>
 
   <script src="/app.js" defer></script>
 </body>

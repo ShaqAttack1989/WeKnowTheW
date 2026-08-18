@@ -1,0 +1,43 @@
+{
+  "updatedAt": "2026-08-18T13:18:00Z",
+  "note": "Curated current-player movement layer used to correct stale third-party roster data. This file is designed to be refreshed regularly without using a WNBA-owned API.",
+  "rosterOverrides": [
+    {"name":"Betnijah Laney-Hamilton","team":"Washington Mystics","position":"Guard-Forward","status":"active","effectiveDate":"2026-08-08","reason":"Claimed off waivers after New York release."},
+    {"name":"Rori Harmon","team":"","position":"Guard","status":"waived","effectiveDate":"2026-08-08","reason":"Waived by Washington to make roster space for Betnijah Laney-Hamilton."},
+    {"name":"Christyn Williams","team":"Dallas Wings","position":"Guard","status":"development","effectiveDate":"2026-08-14","reason":"Signed developmental player contract after playing for Greensboro Groove in the UPSHOT League."},
+    {"name":"Michelle Onyiah","team":"Indiana Fever","position":"Forward","status":"development","effectiveDate":"2026-07-31","reason":"Signed developmental player contract after playing for Charlotte Crown in the UPSHOT League."},
+    {"name":"Kelsey Plum","team":"Phoenix Mercury","position":"Guard","status":"active","effectiveDate":"2026-08-02","reason":"Traded from Los Angeles to Phoenix."},
+    {"name":"Monique Akoa Makani","team":"Los Angeles Sparks","position":"Guard","status":"active","effectiveDate":"2026-08-02","reason":"Acquired from Phoenix in the Kelsey Plum trade."},
+    {"name":"Aneesah Morrow","team":"Toronto Tempo","position":"Forward","status":"active","effectiveDate":"2026-07-31","reason":"Acquired from Connecticut before the 2026 trade deadline."}
+  ],
+  "photoRules": [
+    {"name":"Dana Evans","blockRosterApiPhoto":true,"preferDetailApiPhoto":true,"reason":"Roster-list artwork has been observed to resolve to the wrong person; use verified profile artwork or Commons instead."}
+  ],
+  "transactions": [
+    {"date":"2026-08-14","type":"SIGNED","player":"Christyn Williams","team":"Dallas Wings","detail":"Developmental player contract; moved up from Greensboro Groove (UPSHOT)."},
+    {"date":"2026-08-08","type":"CLAIMED","player":"Betnijah Laney-Hamilton","team":"Washington Mystics","detail":"Claimed off waivers after release by New York."},
+    {"date":"2026-08-08","type":"WAIVED","player":"Rori Harmon","team":"Washington Mystics","detail":"Waived to create roster space for Laney-Hamilton."},
+    {"date":"2026-08-06","type":"WAIVED","player":"Betnijah Laney-Hamilton","team":"New York Liberty","detail":"Released; later claimed by Washington."},
+    {"date":"2026-08-06","type":"SIGNED","player":"Marine Fauthoux","team":"New York Liberty","detail":"Developmental contract converted to a multiyear deal."},
+    {"date":"2026-08-02","type":"TRADE","player":"Kelsey Plum","team":"Phoenix Mercury","detail":"Acquired from Los Angeles; Sparks received Monique Akoa Makani plus 2027 first- and 2028 second-round picks."},
+    {"date":"2026-08-02","type":"TRADE","player":"Monique Akoa Makani","team":"Los Angeles Sparks","detail":"Acquired from Phoenix in the Kelsey Plum trade."},
+    {"date":"2026-07-31","type":"SIGNED","player":"Michelle Onyiah","team":"Indiana Fever","detail":"Developmental player contract; first UPSHOT League player to earn a WNBA contract."},
+    {"date":"2026-07-31","type":"TRADE","player":"Aneesah Morrow","team":"Toronto Tempo","detail":"Acquired from Connecticut for the rights to Maria Kliundikova and a 2028 second-round pick."}
+  ],
+  "injuries": [
+    {"player":"Leonie Fiebich","team":"New York Liberty","status":"DAY TO DAY","reason":"Foot","updated":"2026-08-18"},
+    {"player":"Satou Sabally","team":"New York Liberty","status":"DAY TO DAY","reason":"Concussion protocol","updated":"2026-08-18"},
+    {"player":"Sydney Taylor","team":"Chicago Sky","status":"DAY TO DAY","reason":"Groin","updated":"2026-08-18"},
+    {"player":"Azura Stevens","team":"Chicago Sky","status":"DAY TO DAY","reason":"Personal","updated":"2026-08-18"},
+    {"player":"Skylar Diggins","team":"Chicago Sky","status":"OUT","reason":"Knee","updated":"2026-07-14"},
+    {"player":"Rickea Jackson","team":"Chicago Sky","status":"OUT FOR SEASON","reason":"Knee","updated":"2026-05-19"},
+    {"player":"Janiah Barker","team":"Las Vegas Aces","status":"OUT FOR SEASON","reason":"Leg","updated":"2026-07-15"},
+    {"player":"Ema Cechova","team":"Minnesota Lynx","status":"OUT FOR SEASON","reason":"Knee","updated":"2026-05-15"},
+    {"player":"Sania Feagin","team":"Portland Fire","status":"OUT FOR SEASON","reason":"Knee","updated":"2026-07-08"}
+  ],
+  "sources": [
+    {"label":"CBS Sports WNBA injuries","url":"https://www.cbssports.com/wnba/injuries/"},
+    {"label":"Basketball Reference 2026 transactions","url":"https://www.basketball-reference.com/wnba/years/2026_transactions.html"},
+    {"label":"UPSHOT League","url":"https://upshotleague.com/"}
+  ]
+}

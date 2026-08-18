@@ -1,0 +1,30 @@
+{
+  "updatedAt":"2026-08-18T13:18:00Z",
+  "league":"UPSHOT League",
+  "season":2026,
+  "label":"WNBA pipeline tracker",
+  "note":"Public-source snapshot. Records and leaderboards are timestamped because the UPSHOT League does not currently expose a public stats API used by this site.",
+  "teams":[
+    {"team":"Jacksonville Waves","record":"17-4","asOf":"2026-07-22","status":"Last verified public record"},
+    {"team":"Charlotte Crown","record":"13-10","asOf":"2026-07-28","status":"Last verified public record"},
+    {"team":"Greensboro Groove","record":"8-15","asOf":"2026-07-22","status":"Last verified public record"},
+    {"team":"Savannah Steel","record":"7-15","asOf":"2026-07-22","status":"Last verified public record"}
+  ],
+  "leaders":[
+    {"player":"Deja Kelly","team":"Charlotte Crown","stat":"17.7","metric":"PPG","asOf":"2026-07-23"},
+    {"player":"Deja Kelly","team":"Charlotte Crown","stat":"4.1","metric":"APG","asOf":"2026-07-23"},
+    {"player":"Michelle Onyiah","team":"Charlotte Crown","stat":"6.9","metric":"RPG","asOf":"2026-07-31"},
+    {"player":"Michelle Onyiah","team":"Charlotte Crown","stat":"1.1","metric":"BPG","asOf":"2026-07-31"}
+  ],
+  "callUps":[
+    {"player":"Michelle Onyiah","from":"Charlotte Crown","to":"Indiana Fever","date":"2026-07-31","contract":"Developmental player contract","stats":"9.6 PPG · 6.9 RPG · 1.1 BPG · 52.8 FG% in 21 games","milestone":"First UPSHOT League player to earn a WNBA contract."},
+    {"player":"Christyn Williams","from":"Greensboro Groove","to":"Dallas Wings","date":"2026-08-14","contract":"Developmental player contract","stats":"9.6 PPG · 3.0 RPG · 1.9 APG · 41.1 FG% in 14 games","milestone":"Second UPSHOT League player from the inaugural season to earn a WNBA contract."}
+  ],
+  "next":"The inaugural UPSHOT championship is scheduled for Aug. 29 in Jacksonville, with the top two regular-season teams advancing.",
+  "sources":[
+    {"label":"UPSHOT League","url":"https://upshotleague.com/"},
+    {"label":"Jacksonville Today","url":"https://jaxtoday.org/2026/07/22/upshot-league-championship-announcement/"},
+    {"label":"The IX Basketball","url":"https://www.theixsports.com/features/upshot-notebook-deja-kelly-embraces-the-grind-as-she-continues-to-work-toward-wnba/"},
+    {"label":"CT Insider","url":"https://www.ctinsider.com/sports/uconn-womens-basketball/article/christyn-williams-dallas-wings-bueckers-fudd-22389063.php"}
+  ]
+}

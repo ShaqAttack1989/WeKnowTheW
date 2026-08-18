@@ -38,9 +38,17 @@ function splitName(name = '') {
   };
 }
 
+function cleanUrl(value = '') {
+  const url = String(value || '').trim();
+  return /^https?:\/\//i.test(url) ? url : '';
+}
+
 function normalizePlayer(player, team) {
   const name = player.strPlayer || player.strName || player.name || '';
   const { firstName, lastName } = splitName(name);
+  const thumb = cleanUrl(player.strThumb || player.strPlayerThumb || player.strImage || '');
+  const cutout = cleanUrl(player.strCutout || player.strPlayerCutout || '');
+  const creativeCommons = String(player.strCreativeCommons || player.strCreativeCommonsLicense || '').trim();
   return {
     id: String(player.idPlayer || player.id || ''),
     name,
@@ -53,7 +61,12 @@ function normalizePlayer(player, team) {
     nationality: player.strNationality || player.strCountry || '',
     birthDate: player.dateBorn || player.strBirthDate || '',
     height: player.strHeight || '',
-    weight: player.strWeight || ''
+    weight: player.strWeight || '',
+    photo: cutout || thumb,
+    photoThumb: thumb || cutout,
+    photoCutout: cutout,
+    photoCreativeCommons: creativeCommons,
+    photoSource: thumb || cutout ? 'TheSportsDB' : ''
   };
 }
 

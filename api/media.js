@@ -41,7 +41,7 @@ async function fetchJson(url) {
   const response = await fetch(url, {
     headers: {
       Accept: 'application/json',
-      'User-Agent': 'WeKnowTheW/1.1 (independent basketball encyclopedia; reusable-media resolver)'
+      'User-Agent': 'WeKnowTheW/1.2 (independent basketball encyclopedia; reusable-media resolver)'
     }
   });
   if (!response.ok) throw new Error(`Wikimedia returned ${response.status}`);
@@ -64,6 +64,37 @@ function pageTitleScore(title, name) {
   if (page.includes(target)) return 75;
   const tokens = target.split(' ').filter(Boolean);
   return tokens.reduce((score, token) => score + (page.includes(token) ? 12 : 0), 0);
+}
+
+function latestYear(value = '') {
+  const years = [...String(value).matchAll(/\b(20\d{2})\b/g)]
+    .map(match => Number(match[1]))
+    .filter(year => year >= 2000 && year <= new Date().getUTCFullYear() + 1);
+  return years.length ? Math.max(...years) : 0;
+}
+
+function freshnessScore(item, name) {
+  const title = normalize(item.fileTitle || '');
+  const description = normalize(item.caption || '');
+  const target = normalize(name);
+  let score = 0;
+
+  if (title.includes(target)) score += 25;
+  if (title.includes('cropped') || title.includes('crop')) score += 8;
+  if (title.includes('portrait') || description.includes('portrait')) score += 6;
+  if (title.includes('team photo') || description.includes('team photo')) score -= 8;
+
+  const describedYear = latestYear(`${item.fileTitle || ''} ${item.caption || ''}`);
+  const uploadedYear = item.uploadedAt ? new Date(item.uploadedAt).getUTCFullYear() : 0;
+  const year = describedYear || uploadedYear;
+  if (year >= 2026) score += 42;
+  else if (year === 2025) score += 34;
+  else if (year === 2024) score += 26;
+  else if (year === 2023) score += 18;
+  else if (year === 2022) score += 9;
+  else if (year && year < 2020) score -= 8;
+
+  return score;
 }
 
 async function wikipediaPlayerPage(name) {
@@ -124,6 +155,7 @@ function commonsRecord(page, name, source = 'commons-search', requireNameMatch =
     licenseUrl,
     source: 'Wikimedia Commons',
     fileTitle: page.title || '',
+    uploadedAt: info.timestamp || '',
     resolvedBy: source
   };
 }
@@ -135,7 +167,7 @@ async function commonsFileByTitle(fileName, name, source = 'commons-file') {
     action: 'query',
     titles: title,
     prop: 'imageinfo',
-    iiprop: 'url|mime|extmetadata',
+    iiprop: 'url|mime|timestamp|extmetadata',
     iiurlwidth: '720',
     iiextmetadatafilter: 'Artist|Credit|LicenseShortName|LicenseUrl|UsageTerms|ImageDescription',
     format: 'json',
@@ -175,7 +207,7 @@ async function commonsCategory(name) {
     list: 'categorymembers',
     cmtitle: `Category:${name}`,
     cmnamespace: '6',
-    cmlimit: '24',
+    cmlimit: '40',
     format: 'json',
     formatversion: '2',
     origin: '*'
@@ -184,26 +216,24 @@ async function commonsCategory(name) {
   const members = categoryBody?.query?.categorymembers || [];
   if (!members.length) return null;
 
-  const preferred = [...members].sort((a, b) => {
-    const aName = normalize(a.title);
-    const bName = normalize(b.title);
-    const target = normalize(name);
-    const score = title => {
-      let value = 0;
-      if (title.includes(target)) value += 10;
-      if (title.includes('cropped')) value += 4;
-      if (title.includes('portrait')) value += 3;
-      if (title.includes('team')) value -= 2;
-      return value;
-    };
-    return score(bName) - score(aName);
+  const titles = members.map(member => member.title).join('|');
+  const params = new URLSearchParams({
+    action: 'query',
+    titles,
+    prop: 'imageinfo',
+    iiprop: 'url|mime|timestamp|extmetadata',
+    iiurlwidth: '720',
+    iiextmetadatafilter: 'Artist|Credit|LicenseShortName|LicenseUrl|UsageTerms|ImageDescription',
+    format: 'json',
+    formatversion: '2',
+    origin: '*'
   });
-
-  for (const member of preferred.slice(0, 12)) {
-    const record = await commonsFileByTitle(member.title, name, 'commons-category');
-    if (record) return record;
-  }
-  return null;
+  const body = await fetchJson(`${COMMONS_API}?${params}`);
+  const records = (body?.query?.pages || [])
+    .map(page => commonsRecord(page, name, 'commons-category', false))
+    .filter(Boolean)
+    .sort((a, b) => freshnessScore(b, name) - freshnessScore(a, name));
+  return records[0] || null;
 }
 
 async function commonsSearch(name) {
@@ -212,9 +242,9 @@ async function commonsSearch(name) {
     generator: 'search',
     gsrsearch: `${name} basketball`,
     gsrnamespace: '6',
-    gsrlimit: '12',
+    gsrlimit: '20',
     prop: 'imageinfo',
-    iiprop: 'url|mime|extmetadata',
+    iiprop: 'url|mime|timestamp|extmetadata',
     iiurlwidth: '720',
     iiextmetadatafilter: 'Artist|Credit|LicenseShortName|LicenseUrl|UsageTerms|ImageDescription',
     format: 'json',
@@ -222,25 +252,30 @@ async function commonsSearch(name) {
     origin: '*'
   });
   const body = await fetchJson(`${COMMONS_API}?${params}`);
-  const pages = body?.query?.pages || [];
-  const records = pages.map(page => commonsRecord(page, name, 'commons-search', true)).filter(Boolean);
-  records.sort((a, b) => {
-    const target = normalize(name);
-    const score = item => {
-      const title = normalize(item.fileTitle);
-      let value = 0;
-      if (title.includes(target)) value += 10;
-      if (title.includes('cropped')) value += 3;
-      return value;
-    };
-    return score(b) - score(a);
-  });
+  const records = (body?.query?.pages || [])
+    .map(page => commonsRecord(page, name, 'commons-search', true))
+    .filter(Boolean)
+    .sort((a, b) => freshnessScore(b, name) - freshnessScore(a, name));
   return records[0] || null;
 }
 
 async function resolvePlayerMedia(name) {
   const manual = manualMedia('player', name);
   if (manual) return { ...manual, resolvedBy: 'manual-library' };
+
+  try {
+    const record = await commonsCategory(name);
+    if (record) return record;
+  } catch {
+    // Continue to broader fallbacks.
+  }
+
+  try {
+    const record = await commonsSearch(name);
+    if (record) return record;
+  } catch {
+    // Continue to Wikipedia/Wikidata fallbacks.
+  }
 
   let article = null;
   try {
@@ -254,7 +289,7 @@ async function resolvePlayerMedia(name) {
       const record = await wikidataImage(article.pageprops.wikibase_item, name);
       if (record) return { ...record, articleTitle: article.title };
     } catch {
-      // Continue through the remaining Commons fallbacks.
+      // Continue to the page image fallback.
     }
   }
 
@@ -263,22 +298,11 @@ async function resolvePlayerMedia(name) {
       const record = await commonsFileByTitle(article.pageimage, name, 'wikipedia-pageimage');
       if (record) return { ...record, articleTitle: article.title };
     } catch {
-      // Continue through the remaining Commons fallbacks.
+      return null;
     }
   }
 
-  try {
-    const record = await commonsCategory(name);
-    if (record) return record;
-  } catch {
-    // Continue to broad Commons search.
-  }
-
-  try {
-    return await commonsSearch(name);
-  } catch {
-    return null;
-  }
+  return null;
 }
 
 module.exports = async function handler(req, res) {
@@ -292,12 +316,12 @@ module.exports = async function handler(req, res) {
   if (!name) return res.status(400).json({ error: 'A subject name is required.' });
   if (type !== 'player') return res.status(200).json({ found: false, item: null });
 
-  res.setHeader('Cache-Control', 's-maxage=604800, stale-while-revalidate=2592000');
+  res.setHeader('Cache-Control', 's-maxage=86400, stale-while-revalidate=604800');
 
   const item = await resolvePlayerMedia(name);
   return res.status(200).json({
     found: Boolean(item),
     item,
-    policy: 'Only manually approved media or Wikimedia Commons files with a reusable public-domain/CC BY/CC BY-SA/CC0 license are returned.'
+    policy: 'Playerpedia prefers newer reusable Commons media and only returns manually approved or public-domain/CC BY/CC BY-SA/CC0 files.'
   });
 };

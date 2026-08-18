@@ -4,6 +4,7 @@ function formatPct(value){return Number.isFinite(Number(value)) ? Number(value).
 function formatGb(value){const number=Number(value);if(!Number.isFinite(number)||number===0)return '—';return Number.isInteger(number)?String(number):number.toFixed(1);}
 function formatGameDate(value){if(!value)return '';const date=new Date(`${value}T12:00:00`);return Number.isNaN(date.getTime())?value:date.toLocaleDateString([],{month:'short',day:'numeric'});}
 function formatGameTime(value){if(!value)return '';const match=String(value).match(/^(\d{1,2}):(\d{2})/);if(!match)return value;let hour=Number(match[1]);const minute=match[2];const suffix=hour>=12?'PM':'AM';hour=hour%12||12;return `${hour}:${minute} ${suffix} ET`;}
+function validFinalGame(game){const home=Number(game?.homeScore),away=Number(game?.awayScore);return Number.isFinite(home)&&Number.isFinite(away)&&home!==away;}
 
 function standingsTable(items=[],rankKey='overall_rank'){
   if(!items.length)return '<div class="card-pad"><strong>Standings are temporarily unavailable.</strong><p>The encyclopedia is still open.</p></div>';
@@ -18,8 +19,9 @@ function conferenceMarkup(conferences={}){
 }
 
 function pastGamesMarkup(items=[]){
-  if(!items.length)return '<div class="home-result"><strong>No past games returned.</strong><span>Check back after the next completed games.</span></div>';
-  return items.slice(0,6).map(game=>`<article class="home-result"><span>${liveSafe(formatGameDate(game.date)||'Completed game')}</span><strong>${liveSafe(game.awayTeam||'TBD')} ${game.awayScore??'—'}–${game.homeScore??'—'} ${liveSafe(game.homeTeam||'TBD')}</strong><span>Completed</span></article>`).join('');
+  const finals=items.filter(validFinalGame);
+  if(!finals.length)return '<div class="home-result"><strong>No completed games yet.</strong><span>Games move here only after a real final score is posted.</span></div>';
+  return finals.slice(0,8).map(game=>`<article class="home-result"><span>${liveSafe(formatGameDate(game.date)||'Completed game')}</span><strong>${liveSafe(game.awayTeam||'TBD')} ${game.awayScore}–${game.homeScore} ${liveSafe(game.homeTeam||'TBD')}</strong><span>Completed</span></article>`).join('');
 }
 
 function upcomingGamesMarkup(items=[]){
@@ -80,7 +82,7 @@ async function loadHomeLive(){
   const status=document.getElementById('homeLiveStatus');
   if(!table||!results)return;
   try{
-    const response=await fetch('/api/stats?season=2026',{headers:{Accept:'application/json'}});
+    const response=await fetch('/api/stats?season=2026',{headers:{Accept:'application/json'},cache:'no-store'});
     const payload=await response.json().catch(()=>({}));
     if(!response.ok)throw new Error(payload.error||'Live data unavailable');
     livePayload=payload;

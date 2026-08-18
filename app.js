@@ -38,7 +38,7 @@ document.getElementById('recordsGrid').innerHTML = curatedRecords.map(item => `
 
 function standingsMarkup(items) {
   if (!items?.length) {
-    return `<div class="notice-box"><strong>No standings returned for ${season}.</strong><span>The season may not have started yet, or the API plan may not include standings.</span></div>`;
+    return `<div class="notice-box"><strong>No standings returned for ${season}.</strong><span>The season may not have started yet, or the API key may not have WNBA access.</span></div>`;
   }
 
   return `
@@ -104,10 +104,19 @@ async function loadLiveData() {
     }
 
     if (!payload.configured) {
-      standingsEl.innerHTML = `<div class="notice-box"><strong>Live stats are ready to connect.</strong><span>Add the BALLDONTLIE API key in Vercel as <code>BDL_WNBA_API_KEY</code>. The rest of the site works now.</span></div>`;
+      standingsEl.innerHTML = `<div class="notice-box"><strong>Live stats are ready to connect.</strong><span>Add the BALLDONTLIE API key in Vercel as <code>BDL_WNBA_API_KEY</code>.</span></div>`;
       leadersEl.innerHTML = leadersMarkup([]);
       statusText.textContent = 'API key not connected yet';
       leaderNote.textContent = 'Live leader cards will populate after the data key is connected.';
+      return;
+    }
+
+    if (payload.keyValid === false) {
+      const message = payload.providerErrors?.authentication || 'BALLDONTLIE rejected the API key.';
+      standingsEl.innerHTML = `<div class="error-box"><strong>API key rejected.</strong><span>${message}</span></div>`;
+      leadersEl.innerHTML = leadersMarkup([]);
+      statusText.textContent = 'API key needs attention';
+      leaderNote.textContent = 'Once the key is accepted, live WNBA data will populate here.';
       return;
     }
 
@@ -116,16 +125,22 @@ async function loadLiveData() {
 
     const hasStandings = payload.standings?.length > 0;
     const hasLeaders = payload.playerSeasonStats?.length > 0;
+
     if (hasStandings && hasLeaders) {
       statusDot.classList.add('live');
       statusText.textContent = `Live • updated ${new Date(payload.updatedAt).toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' })}`;
+    } else if (hasStandings) {
+      statusDot.classList.add('partial');
+      statusText.textContent = payload.standingsSource === 'games-derived'
+        ? 'Live standings • calculated from game results'
+        : 'Live standings connected';
     } else {
       statusDot.classList.add('partial');
-      statusText.textContent = 'Connected • some stats require a higher API tier';
+      statusText.textContent = 'API connected • WNBA data unavailable';
     }
 
     if (payload.access?.playerSeasonStats === false) {
-      leaderNote.textContent = 'Player season leaders require BALLDONTLIE WNBA GOAT access.';
+      leaderNote.textContent = 'Player season leaders require BALLDONTLIE WNBA GOAT access. Standings can still update automatically from game results.';
     }
   } catch (error) {
     standingsEl.innerHTML = `<div class="error-box"><strong>Live stats could not load.</strong><span>${error.message}</span></div>`;

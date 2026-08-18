@@ -38,14 +38,24 @@
   <main>
     <section class="page-section home-live" id="live">
       <div class="page-shell">
-        <div class="page-heading">
-          <p class="kicker">LIVE STATS</p>
-          <h2>The numbers first.</h2>
-          <p id="homeLiveStatus">Checking the independent live feed…</p>
+        <div class="page-heading live-heading-row">
+          <div>
+            <p class="kicker">LIVE STATS</p>
+            <h2>The numbers first.</h2>
+            <p id="homeLiveStatus">Checking the independent live feed…</p>
+          </div>
+          <div class="standings-toggle" role="group" aria-label="Standings view">
+            <button type="button" class="active" id="overallToggle" aria-pressed="true">Overall</button>
+            <button type="button" id="conferenceToggle" aria-pressed="false">Conference</button>
+          </div>
         </div>
         <div class="home-live-grid">
-          <div class="home-live-card" id="homeStandings"><div class="card-pad">Loading 2026 standings…</div></div>
-          <div class="home-live-card"><div class="card-pad"><p class="kicker">RECENT FINALS</p><h3>What just happened?</h3><div id="homeResults" class="home-live-results"><div class="home-result"><strong>Loading recent results…</strong></div></div></div></div>
+          <div class="home-live-card standings-card">
+            <div class="standings-card-head"><strong id="standingsTitle">Overall Standings</strong><span>2026 regular season</span></div>
+            <div id="homeStandings" class="live-table-scroll"><div class="card-pad">Loading 2026 standings…</div></div>
+            <div class="standings-footnote">W-L records and split stats are calculated from completed regular-season games in the independent feed.</div>
+          </div>
+          <div class="home-live-card"><div class="card-pad"><p class="kicker">PAST GAMES</p><h3>What just happened?</h3><div id="homeResults" class="home-live-results"><div class="home-result"><strong>Loading past games…</strong></div></div></div></div>
         </div>
       </div>
     </section>

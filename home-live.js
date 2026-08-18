@@ -1,51 +1,35 @@
 function liveSafe(value=''){return String(value).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;');}
 
-function formatPct(value){
-  return Number.isFinite(Number(value)) ? Number(value).toFixed(3) : '—';
-}
-
-function formatGb(value){
-  const number=Number(value);
-  if(!Number.isFinite(number)||number===0)return '—';
-  return Number.isInteger(number)?String(number):number.toFixed(1);
-}
+function formatPct(value){return Number.isFinite(Number(value)) ? Number(value).toFixed(3) : '—';}
+function formatGb(value){const number=Number(value);if(!Number.isFinite(number)||number===0)return '—';return Number.isInteger(number)?String(number):number.toFixed(1);}
+function formatGameDate(value){if(!value)return '';const date=new Date(`${value}T12:00:00`);return Number.isNaN(date.getTime())?value:date.toLocaleDateString([],{month:'short',day:'numeric'});}
+function formatGameTime(value){if(!value)return '';const match=String(value).match(/^(\d{1,2}):(\d{2})/);if(!match)return value;let hour=Number(match[1]);const minute=match[2];const suffix=hour>=12?'PM':'AM';hour=hour%12||12;return `${hour}:${minute} ${suffix} ET`;}
 
 function standingsTable(items=[],rankKey='overall_rank'){
   if(!items.length)return '<div class="card-pad"><strong>Standings are temporarily unavailable.</strong><p>The encyclopedia is still open.</p></div>';
-  return `<div class="live-standings-table">
-    <div class="live-standings-row head"><span>TEAM</span><span>W</span><span>L</span><span>PCT</span><span>GB</span><span>CONF</span><span>HOME</span><span>ROAD</span><span>STREAK</span><span>L-10</span></div>
-    ${items.map((item,index)=>`<div class="live-standings-row">
-      <span class="live-team-cell"><b class="live-rank">${item[rankKey]||index+1}</b><strong>${liveSafe(item.team?.full_name||'Unknown team')}</strong></span>
-      <strong>${item.wins??'—'}</strong>
-      <strong>${item.losses??'—'}</strong>
-      <span>${formatPct(item.win_percentage)}</span>
-      <span>${formatGb(item.games_back)}</span>
-      <span>${liveSafe(item.conference_record||'—')}</span>
-      <span>${liveSafe(item.home_record||'—')}</span>
-      <span>${liveSafe(item.road_record||'—')}</span>
-      <span class="streak-cell">${liveSafe(item.streak||'—')}</span>
-      <span class="last-ten-cell">${liveSafe(item.last_ten||'—')}</span>
-    </div>`).join('')}
-  </div>`;
+  return `<div class="live-standings-table"><div class="live-standings-row head"><span>TEAM</span><span>W</span><span>L</span><span>PCT</span><span>GB</span><span>CONF</span><span>HOME</span><span>ROAD</span><span>STREAK</span><span>L-10</span></div>${items.map((item,index)=>`<div class="live-standings-row"><span class="live-team-cell"><b class="live-rank">${item[rankKey]||index+1}</b><strong>${liveSafe(item.team?.full_name||'Unknown team')}</strong></span><strong>${item.wins??'—'}</strong><strong>${item.losses??'—'}</strong><span>${formatPct(item.win_percentage)}</span><span>${formatGb(item.games_back)}</span><span>${liveSafe(item.conference_record||'—')}</span><span>${liveSafe(item.home_record||'—')}</span><span>${liveSafe(item.road_record||'—')}</span><span class="streak-cell">${liveSafe(item.streak||'—')}</span><span class="last-ten-cell">${liveSafe(item.last_ten||'—')}</span></div>`).join('')}</div>`;
 }
 
 function conferenceMarkup(conferences={}){
   const east=Array.isArray(conferences.eastern)?conferences.eastern:[];
   const west=Array.isArray(conferences.western)?conferences.western:[];
   if(!east.length&&!west.length)return standingsTable([]);
-  return `<div class="conference-stack">
-    <section class="conference-block"><h3>Eastern Conference</h3>${standingsTable(east,'conference_rank')}</section>
-    <section class="conference-block"><h3>Western Conference</h3>${standingsTable(west,'conference_rank')}</section>
-  </div>`;
+  return `<div class="conference-stack"><section class="conference-block"><h3>Eastern Conference</h3>${standingsTable(east,'conference_rank')}</section><section class="conference-block"><h3>Western Conference</h3>${standingsTable(west,'conference_rank')}</section></div>`;
 }
 
-function resultsMarkup(items=[]){
+function pastGamesMarkup(items=[]){
   if(!items.length)return '<div class="home-result"><strong>No past games returned.</strong><span>Check back after the next completed games.</span></div>';
-  return items.slice(0,5).map(game=>`<article class="home-result"><span>${liveSafe(game.date||'Completed game')}</span><strong>${liveSafe(game.awayTeam||'TBD')} ${game.awayScore??'—'}–${game.homeScore??'—'} ${liveSafe(game.homeTeam||'TBD')}</strong><span>Completed</span></article>`).join('');
+  return items.slice(0,6).map(game=>`<article class="home-result"><span>${liveSafe(formatGameDate(game.date)||'Completed game')}</span><strong>${liveSafe(game.awayTeam||'TBD')} ${game.awayScore??'—'}–${game.homeScore??'—'} ${liveSafe(game.homeTeam||'TBD')}</strong><span>Completed</span></article>`).join('');
+}
+
+function upcomingGamesMarkup(items=[]){
+  if(!items.length)return '<div class="home-result"><strong>No upcoming games returned.</strong><span>The next scheduled matchup will appear here when the feed publishes it.</span></div>';
+  return items.slice(0,8).map(game=>`<article class="home-result"><span>${liveSafe(formatGameDate(game.date))}${game.time?` · ${liveSafe(formatGameTime(game.time))}`:''}</span><strong>${liveSafe(game.awayTeam||'TBD')} @ ${liveSafe(game.homeTeam||'TBD')}</strong><span>${liveSafe(game.venue||'Scheduled')}</span></article>`).join('');
 }
 
 let livePayload=null;
 let liveMode='overall';
+let gameMode='past';
 
 function renderLiveStandings(){
   const table=document.getElementById('homeStandings');
@@ -53,26 +37,42 @@ function renderLiveStandings(){
   const overallButton=document.getElementById('overallToggle');
   const conferenceButton=document.getElementById('conferenceToggle');
   if(!table||!livePayload)return;
-
   if(liveMode==='conference'){
     title.textContent='Conference Standings';
     table.innerHTML=conferenceMarkup(livePayload.conferenceStandings);
-    overallButton?.classList.remove('active');
-    conferenceButton?.classList.add('active');
-    overallButton?.setAttribute('aria-pressed','false');
-    conferenceButton?.setAttribute('aria-pressed','true');
+    overallButton?.classList.remove('active');conferenceButton?.classList.add('active');
+    overallButton?.setAttribute('aria-pressed','false');conferenceButton?.setAttribute('aria-pressed','true');
   }else{
     title.textContent='Overall Standings';
     table.innerHTML=standingsTable(livePayload.standings,'overall_rank');
-    overallButton?.classList.add('active');
-    conferenceButton?.classList.remove('active');
-    overallButton?.setAttribute('aria-pressed','true');
-    conferenceButton?.setAttribute('aria-pressed','false');
+    overallButton?.classList.add('active');conferenceButton?.classList.remove('active');
+    overallButton?.setAttribute('aria-pressed','true');conferenceButton?.setAttribute('aria-pressed','false');
+  }
+}
+
+function renderGamePanel(){
+  const results=document.getElementById('homeResults');
+  const title=document.getElementById('gamesPanelTitle');
+  const pastButton=document.getElementById('pastGamesToggle');
+  const upcomingButton=document.getElementById('upcomingGamesToggle');
+  if(!results||!livePayload)return;
+  if(gameMode==='upcoming'){
+    title.textContent="What's next?";
+    results.innerHTML=upcomingGamesMarkup(livePayload.upcomingGames||[]);
+    pastButton?.classList.remove('active');upcomingButton?.classList.add('active');
+    pastButton?.setAttribute('aria-pressed','false');upcomingButton?.setAttribute('aria-pressed','true');
+  }else{
+    title.textContent='What just happened?';
+    results.innerHTML=pastGamesMarkup(livePayload.pastGames||livePayload.recentResults||[]);
+    pastButton?.classList.add('active');upcomingButton?.classList.remove('active');
+    pastButton?.setAttribute('aria-pressed','true');upcomingButton?.setAttribute('aria-pressed','false');
   }
 }
 
 document.getElementById('overallToggle')?.addEventListener('click',()=>{liveMode='overall';renderLiveStandings();});
 document.getElementById('conferenceToggle')?.addEventListener('click',()=>{liveMode='conference';renderLiveStandings();});
+document.getElementById('pastGamesToggle')?.addEventListener('click',()=>{gameMode='past';renderGamePanel();});
+document.getElementById('upcomingGamesToggle')?.addEventListener('click',()=>{gameMode='upcoming';renderGamePanel();});
 
 async function loadHomeLive(){
   const table=document.getElementById('homeStandings');
@@ -85,11 +85,11 @@ async function loadHomeLive(){
     if(!response.ok)throw new Error(payload.error||'Live data unavailable');
     livePayload=payload;
     renderLiveStandings();
-    results.innerHTML=resultsMarkup(payload.pastGames||payload.recentResults);
+    renderGamePanel();
     status.textContent=payload.fullSeasonAccess?`Live via independent feed • updated ${new Date(payload.updatedAt).toLocaleTimeString([], {hour:'numeric',minute:'2-digit'})}`:'Independent feed connected';
   }catch(error){
     table.innerHTML='<div class="card-pad"><strong>Live standings could not load.</strong><p>Try again shortly.</p></div>';
-    results.innerHTML='<div class="home-result"><strong>Past games unavailable.</strong></div>';
+    results.innerHTML='<div class="home-result"><strong>Game schedule unavailable.</strong></div>';
     status.textContent='Live data temporarily unavailable';
   }
 }

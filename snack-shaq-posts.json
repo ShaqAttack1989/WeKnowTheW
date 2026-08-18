@@ -3,6 +3,131 @@
   "tagline": "Where the food gets seasoned, the rankings get debated, and everybody gets served.",
   "posts": [
     {
+      "slug": "snack-shaq-byte-2026-08-17",
+      "type": "byte",
+      "title": "Snack Shaq Byte: Aug. 10–16",
+      "published": "2026-08-17",
+      "week": "Games from Aug. 10–16, 2026",
+      "dek": "The top two held their seats, Indiana jumped into the top three, Washington slid, and the bottom of the board reshuffled again.",
+      "rankings": [
+        { "rank": 1, "team": "Minnesota Lynx", "movement": "Same", "note": "Still holding the top spot." },
+        { "rank": 2, "team": "Golden State Valkyries", "movement": "Same", "note": "Still right behind Minnesota." },
+        { "rank": 3, "team": "Indiana Fever", "movement": "Up 3", "note": "Biggest jump near the top of the board." },
+        { "rank": 4, "team": "Las Vegas Aces", "movement": "Up 1", "note": "Moved back into the top four." },
+        { "rank": 5, "team": "New York Liberty", "movement": "Down 1", "note": "One spot down from the previous Byte." },
+        { "rank": 6, "team": "Atlanta Dream", "movement": "Up 1", "note": "Back above Washington." },
+        { "rank": 7, "team": "Washington Mystics", "movement": "Down 4", "note": "The sharpest fall from the previous week." },
+        { "rank": 8, "team": "Dallas Wings", "movement": "Same", "note": "Holding steady in the middle." },
+        { "rank": 9, "team": "Portland Fire", "movement": "Same", "note": "Still sitting ninth." },
+        { "rank": 10, "team": "Phoenix Mercury", "movement": "Up 3", "note": "A three-place climb into the top ten." },
+        { "rank": 11, "team": "Chicago Sky", "movement": "Down 1", "note": "One spot lower this week." },
+        { "rank": 12, "team": "Los Angeles Sparks", "movement": "Down 1", "note": "Slipped one place." },
+        { "rank": 13, "team": "Seattle Storm", "movement": "Up 2", "note": "Moved out of the basement." },
+        { "rank": 14, "team": "Connecticut Sun", "movement": "Down 2", "note": "Dropped two places." },
+        { "rank": 15, "team": "Toronto Tempo", "movement": "Down 1", "note": "This week’s No. 15." }
+      ],
+      "sections": [
+        {
+          "title": "The Byte",
+          "paragraphs": [
+            "This recovered edition keeps the original weekly ranking board from the Aug. 10–16 Snack Shaq update in the archive so the movement from week to week does not disappear.",
+            "The point of keeping these old boards is not to pretend every take aged perfectly. It is to keep the receipts."
+          ]
+        }
+      ],
+      "sources": []
+    },
+    {
+      "slug": "snack-shaq-byte-2026-08-10",
+      "type": "byte",
+      "title": "Washington brought the seven-alarm heat",
+      "published": "2026-08-10",
+      "week": "Games from Aug. 3–9, 2026",
+      "dek": "Washington brought the seven-alarm heat, Golden State quietly kept cooking, and Las Vegas finished an exhausting road trip looking like somebody unplugged the air fryer.",
+      "rankings": [
+        { "rank": 1, "team": "Minnesota Lynx", "movement": "—", "note": "No. 1 for this edition." },
+        { "rank": 2, "team": "Golden State Valkyries", "movement": "—", "note": "Still cooking near the top." },
+        { "rank": 3, "team": "Washington Mystics", "movement": "—", "note": "The seven-alarm week." },
+        { "rank": 4, "team": "New York Liberty", "movement": "—", "note": "Top-four position in this Byte." },
+        { "rank": 5, "team": "Las Vegas Aces", "movement": "—", "note": "Road-trip fatigue was part of the conversation." },
+        { "rank": 6, "team": "Indiana Fever", "movement": "—", "note": "Sixth on this week’s board." },
+        { "rank": 7, "team": "Atlanta Dream", "movement": "—", "note": "Seventh in the Aug. 3–9 reset." },
+        { "rank": 8, "team": "Dallas Wings", "movement": "—", "note": "Holding the middle." },
+        { "rank": 9, "team": "Portland Fire", "movement": "—", "note": "Expansion team sitting ninth." },
+        { "rank": 10, "team": "Chicago Sky", "movement": "—", "note": "Rounded out the top ten." },
+        { "rank": 11, "team": "Los Angeles Sparks", "movement": "—", "note": "Eleventh this week." },
+        { "rank": 12, "team": "Connecticut Sun", "movement": "—", "note": "Twelfth this week." },
+        { "rank": 13, "team": "Phoenix Mercury", "movement": "—", "note": "Thirteenth this week." },
+        { "rank": 14, "team": "Toronto Tempo", "movement": "—", "note": "Fourteenth this week." },
+        { "rank": 15, "team": "Seattle Storm", "movement": "—", "note": "Fifteenth this week." }
+      ],
+      "sections": [
+        {
+          "title": "The Byte",
+          "paragraphs": [
+            "This was the week Washington jumped all the way into the top three while Minnesota and Golden State kept the top two seats.",
+            "The archive keeps the original ranking order so the next edition’s movement has something real to compare against."
+          ]
+        }
+      ],
+      "foodSegment": {
+        "title": "The Seven-Layer Mystics Dip",
+        "script": "The original short-form segment from this edition was The Seven-Layer Mystics Dip. The title stays in the archive with the ranking board rather than replacing the original script with a made-up reconstruction."
+      },
+      "sources": []
+    },
+    {
+      "slug": "snack-shaq-w-reset-2026-07-18",
+      "type": "byte",
+      "title": "Standings sizzling, defense in the air fryer",
+      "published": "2026-07-18",
+      "week": "Midseason W reset",
+      "dek": "Standings, streaks, stars, snubs, and who looked like a contender versus who still looked like they were reading the instructions.",
+      "rankings": [
+        { "rank": 1, "team": "Minnesota Lynx", "movement": "—", "note": "19-6, W4, with the best scoring margin in the scouting reset." },
+        { "rank": 2, "team": "Golden State Valkyries", "movement": "—", "note": "18-7, W8, and the best opponent-points defense in the reset." },
+        { "rank": 3, "team": "Las Vegas Aces", "movement": "—", "note": "Dynasty and drama at the same time." },
+        { "rank": 4, "team": "Dallas Wings", "movement": "—", "note": "The transformation story of the season at that point." },
+        { "rank": 5, "team": "Atlanta Dream", "movement": "—", "note": "Three All-Stars and a loud starter-snub conversation." },
+        { "rank": 6, "team": "Indiana Fever", "movement": "—", "note": "Elite scoring with a defense that kept the debate spicy." },
+        { "rank": 7, "team": "New York Liberty", "movement": "—", "note": "Talented, but wobbling." },
+        { "rank": 8, "team": "Washington Mystics", "movement": "—", "note": "Rebound everything, score later." },
+        { "rank": 9, "team": "Portland Fire", "movement": "—", "note": "Expansion with personality." },
+        { "rank": 10, "team": "Los Angeles Sparks", "movement": "—", "note": "Offense without enough stops." },
+        { "rank": 11, "team": "Toronto Tempo", "movement": "—", "note": "Expansion pace and personality." },
+        { "rank": 12, "team": "Chicago Sky", "movement": "—", "note": "A roster still under construction." },
+        { "rank": 13, "team": "Phoenix Mercury", "movement": "—", "note": "A proud name in reset mode." },
+        { "rank": 14, "team": "Connecticut Sun", "movement": "—", "note": "Rebuilding and trying to manufacture offense." },
+        { "rank": 15, "team": "Seattle Storm", "movement": "—", "note": "The future was clearer than the present." }
+      ],
+      "sections": [
+        {
+          "title": "Current top tier",
+          "paragraphs": [
+            "Minnesota stayed No. 1 at 19-6 with a four-game win streak and the best scoring margin in the reset. Golden State was the twist at 18-7 with eight straight wins and the best scoring defense. That defense was not a cute storyline anymore; it was a padlock."
+          ]
+        },
+        {
+          "title": "Aces, Dallas and the Fever debate",
+          "paragraphs": [
+            "Las Vegas had the historic 106-58 Phoenix win and then later got humbled by Indiana, so the Aces were giving dynasty and drama at the same time.",
+            "Dallas had gone from a 10-win 2025 to 16-8 in this snapshot. Indiana led the league in scoring at 93.9 points per game while allowing 89.7, which is exactly why the offense-versus-defense conversation stayed spicy."
+          ]
+        },
+        {
+          "title": "Snub watch",
+          "paragraphs": [
+            "Atlanta had Allisha Gray, Rhyne Howard and Angel Reese as reserves with zero starters while Indiana had three starters. That was the argument on the table."
+          ]
+        }
+      ],
+      "foodSegment": {
+        "title": "The contender plate",
+        "script": "If I’m cooking a contender plate today, Minnesota gets the main dish, Golden State gets the side that steals the show, Vegas gets the championship seasoning, and Dallas gets the ‘don’t say I didn’t warn you’ sauce."
+      },
+      "sources": []
+    },
+    {
       "slug": "welcome-to-snack-shaq",
       "type": "intro",
       "title": "Welcome to Snack Shaq",

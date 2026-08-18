@@ -1,5 +1,6 @@
 const LEAGUE_ID = 4516;
 const V2_ROOT = 'https://www.thesportsdb.com/api/v2/json';
+const liveUpdates = require('../player-live-updates.json');
 
 async function fetchV2(path, apiKey) {
   const response = await fetch(`${V2_ROOT}${path}`, {
@@ -50,6 +51,14 @@ function creativeCommonsApproved(value = '') {
     || normalized.includes('creativecommons.org');
 }
 
+function key(value = '') {
+  return String(value).toLowerCase().replace(/[^a-z0-9]/g, '');
+}
+
+function staffLike(position = '') {
+  return /(coach|manager|trainer|staff|president|director|executive|owner|operations|general manager)/i.test(String(position));
+}
+
 function normalizePlayer(player, team) {
   const name = player.strPlayer || player.strName || player.name || '';
   const { firstName, lastName } = splitName(name);
@@ -82,6 +91,81 @@ function normalizePlayer(player, team) {
   };
 }
 
+function applyCuratedLayer(players, normalizedTeams) {
+  const teamIds = new Map(normalizedTeams.map(team => [key(team.name), team.id]));
+  const overrides = new Map((liveUpdates.rosterOverrides || []).map(item => [key(item.name), item]));
+  const photoRules = new Map((liveUpdates.photoRules || []).map(item => [key(item.name), item]));
+
+  let curated = players
+    .filter(player => !staffLike(player.position))
+    .map(player => {
+      const override = overrides.get(key(player.name));
+      const photoRule = photoRules.get(key(player.name));
+      const next = { ...player };
+
+      if (override) {
+        if (override.team) {
+          next.team = override.team;
+          next.teamId = teamIds.get(key(override.team)) || next.teamId;
+        }
+        if (override.position) next.position = override.position;
+        next.liveStatus = override.status || 'active';
+        next.liveEffectiveDate = override.effectiveDate || '';
+        next.liveNote = override.reason || '';
+      }
+
+      if (photoRule?.blockRosterApiPhoto) {
+        next.photo = '';
+        next.photoThumb = '';
+        next.photoCutout = '';
+        next.photoCreativeCommons = '';
+        next.photoSource = '';
+        next.photoSourceUrl = '';
+        next.photoNeedsDetail = Boolean(photoRule.preferDetailApiPhoto);
+        next.photoRuleNote = photoRule.reason || '';
+      }
+
+      return next;
+    })
+    .filter(player => {
+      const override = overrides.get(key(player.name));
+      return !(override && ['waived', 'released', 'inactive'].includes(String(override.status).toLowerCase()) && !override.team);
+    });
+
+  for (const override of liveUpdates.rosterOverrides || []) {
+    const status = String(override.status || '').toLowerCase();
+    if (!override.team || !['active', 'development'].includes(status)) continue;
+    if (curated.some(player => key(player.name) === key(override.name))) continue;
+    const { firstName, lastName } = splitName(override.name);
+    curated.push({
+      id: `curated-${key(override.name)}`,
+      name: override.name,
+      firstName,
+      lastName,
+      teamId: teamIds.get(key(override.team)) || '',
+      team: override.team,
+      position: override.position || 'Player',
+      number: '',
+      nationality: '',
+      birthDate: '',
+      height: '',
+      weight: '',
+      photo: '',
+      photoThumb: '',
+      photoCutout: '',
+      photoCreativeCommons: '',
+      photoSource: '',
+      photoSourceUrl: '',
+      curated: true,
+      liveStatus: override.status || 'active',
+      liveEffectiveDate: override.effectiveDate || '',
+      liveNote: override.reason || ''
+    });
+  }
+
+  return curated;
+}
+
 module.exports = async function handler(req, res) {
   if (req.method !== 'GET') {
     res.setHeader('Allow', 'GET');
@@ -89,7 +173,7 @@ module.exports = async function handler(req, res) {
   }
 
   const apiKey = String(process.env.THESPORTSDB_API_KEY || '').trim();
-  res.setHeader('Cache-Control', 's-maxage=21600, stale-while-revalidate=86400');
+  res.setHeader('Cache-Control', 's-maxage=1800, stale-while-revalidate=7200');
 
   if (!apiKey) {
     return res.status(503).json({
@@ -110,6 +194,13 @@ module.exports = async function handler(req, res) {
       });
     }
 
+    const normalizedTeams = teams
+      .map(team => ({
+        id: String(team.idTeam || team.id),
+        name: team.strTeam || team.name
+      }))
+      .sort((a, b) => a.name.localeCompare(b.name));
+
     const rosterResults = await Promise.allSettled(
       teams.map(async team => {
         const teamId = team.idTeam || team.id;
@@ -119,33 +210,30 @@ module.exports = async function handler(req, res) {
       })
     );
 
-    const players = rosterResults
+    const rawPlayers = rosterResults
       .filter(result => result.status === 'fulfilled')
       .flatMap(result => result.value)
       .filter(player => player.id && player.name);
 
-    const uniquePlayers = [...new Map(players.map(player => [player.id, player])).values()]
+    const layeredPlayers = applyCuratedLayer(rawPlayers, normalizedTeams);
+    const uniquePlayers = [...new Map(layeredPlayers.map(player => [key(player.name), player])).values()]
       .sort((a, b) =>
         a.lastName.localeCompare(b.lastName) ||
         a.firstName.localeCompare(b.firstName)
       );
 
-    const normalizedTeams = teams
-      .map(team => ({
-        id: String(team.idTeam || team.id),
-        name: team.strTeam || team.name
-      }))
-      .sort((a, b) => a.name.localeCompare(b.name));
-
     const failedRosters = rosterResults.filter(result => result.status === 'rejected').length;
 
     return res.status(200).json({
-      source: 'TheSportsDB',
+      source: 'TheSportsDB + curated public-source roster corrections',
       leagueId: LEAGUE_ID,
       updatedAt: new Date().toISOString(),
+      liveUpdatesUpdatedAt: liveUpdates.updatedAt || null,
       teams: normalizedTeams,
       players: uniquePlayers,
       playerCount: uniquePlayers.length,
+      transactions: Array.isArray(liveUpdates.transactions) ? liveUpdates.transactions : [],
+      injuries: Array.isArray(liveUpdates.injuries) ? liveUpdates.injuries : [],
       partial: failedRosters > 0,
       failedRosters
     });

@@ -115,7 +115,11 @@ async function loadSnackShaq() {
     const posts = Array.isArray(payload.posts) ? payload.posts : [];
     if (!posts.length) throw new Error('No Snack Shaq posts have been published yet.');
 
-    posts.sort((a, b) => String(b.published || '').localeCompare(String(a.published || '')));
+    posts.sort((a, b) => {
+      if (a.type === 'intro' && b.type !== 'intro') return 1;
+      if (b.type === 'intro' && a.type !== 'intro') return -1;
+      return String(b.published || '').localeCompare(String(a.published || ''));
+    });
     const requested = new URLSearchParams(location.search).get('post');
     const active = posts.find(post => post.slug === requested) || posts[0];
 

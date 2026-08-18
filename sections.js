@@ -186,5 +186,36 @@ async function loadWhoGotNext() {
   }
 }
 
+function installSnackShaq() {
+  const nav = document.getElementById('navLinks');
+  if (nav && !nav.querySelector('[data-snack-shaq-link]')) {
+    const link = document.createElement('a');
+    link.href = '/snack-shaq.html';
+    link.textContent = 'Snack Shaq';
+    link.dataset.snackShaqLink = 'true';
+    nav.appendChild(link);
+  }
+
+  const explore = document.getElementById('explore');
+  if (explore && !document.getElementById('snack-shaq-teaser')) {
+    const teaser = document.createElement('section');
+    teaser.id = 'snack-shaq-teaser';
+    teaser.className = 'section shell';
+    teaser.innerHTML = `
+      <div class="callout">
+        <div>
+          <p class="kicker">FRESH EVERY MONDAY</p>
+          <h2>Snack Shaq</h2>
+          <p>The weekly W temperature check: power rankings, who’s cooking, who needs more seasoning, standout performances, roster watch and the spicy debate board.</p>
+          <a class="button primary" href="/snack-shaq.html">Read the latest Snack Shaq</a>
+        </div>
+        <div class="big-w" aria-hidden="true">🌶️</div>
+      </div>
+    `;
+    explore.insertAdjacentElement('beforebegin', teaser);
+  }
+}
+
 loadAroundTheW();
 loadWhoGotNext();
+installSnackShaq();

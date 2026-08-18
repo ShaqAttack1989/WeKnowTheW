@@ -1,0 +1,9 @@
+.profile-photo{margin:20px 0 24px;border-radius:22px;overflow:hidden;background:#f2edf6;border:1px solid #e3d9e9;}
+.profile-photo img{display:block;width:100%;max-height:460px;object-fit:cover;background:#e9e2ef;}
+.profile-photo figcaption{display:grid;gap:4px;padding:10px 12px;background:#fff;color:#51485d;font-size:.78rem;line-height:1.4;}
+.profile-photo figcaption span{font-weight:750;color:#30283a;}
+.profile-photo figcaption small{color:#746a7e;}
+.profile-photo figcaption a{color:#5c1fc1;font-weight:800;}
+.media-card-image{margin:0;border-radius:18px;overflow:hidden;background:#eee7f3;}
+.media-card-image img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;}
+.media-card-image figcaption{padding:8px 10px;background:#fff;font-size:.7rem;color:#6f6879;}

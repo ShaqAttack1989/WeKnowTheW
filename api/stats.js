@@ -131,7 +131,7 @@ function deriveStandingsFromGames(games) {
     if (!home || !away) continue;
 
     const homeScore = Number(game.home_score);
-    const awayScore = Number(game.away_score);
+    const awayScore = Number(game.visitor_score);
     if (!Number.isFinite(homeScore) || !Number.isFinite(awayScore) || homeScore === awayScore) continue;
 
     if (homeScore > awayScore) {
@@ -167,12 +167,13 @@ module.exports = async function handler(req, res) {
     : new Date().getFullYear();
 
   const apiKey = String(process.env.BDL_WNBA_API_KEY || '').trim();
-  res.setHeader('Cache-Control', 's-maxage=900, stale-while-revalidate=3600');
+  res.setHeader('Cache-Control', 's-maxage=60, stale-while-revalidate=300');
 
   if (!apiKey) {
     return res.status(200).json({
       configured: false,
       keyValid: false,
+      wnbaAccess: false,
       season,
       updatedAt: new Date().toISOString(),
       standings: [],
@@ -192,25 +193,43 @@ module.exports = async function handler(req, res) {
   let keyValid = Boolean(account);
   let tier = getWnbaTier(account);
 
-  // If the account endpoint does not recognize the key or does not expose a WNBA
-  // subscription, test a free WNBA endpoint directly before declaring the key invalid.
-  if (!keyValid || !tier) {
+  // The account API is the authoritative check for whether the API key itself is valid.
+  // A valid account can still lack a WNBA subscription, which is different from a bad key.
+  if (keyValid && !tier) {
+    return res.status(200).json({
+      configured: true,
+      keyValid: true,
+      wnbaAccess: false,
+      season,
+      updatedAt: new Date().toISOString(),
+      standings: [],
+      playerSeasonStats: [],
+      access: { standings: false, playerSeasonStats: false },
+      providerErrors: {
+        wnbaAccess: 'Your BALLDONTLIE API key is valid, but this account does not currently show a WNBA subscription. Enable WNBA access in your BALLDONTLIE account; the WNBA Free tier supports Teams, Players, and Games.'
+      }
+    });
+  }
+
+  // If the account endpoint could not validate the key, try a free WNBA endpoint once.
+  if (!keyValid) {
     try {
       await request('/teams', apiKey);
       keyValid = true;
-      if (!tier) tier = 'free';
+      tier = tier || 'free';
     } catch (error) {
       if (error.status === 401) {
         return res.status(200).json({
           configured: true,
           keyValid: false,
+          wnbaAccess: false,
           season,
           updatedAt: new Date().toISOString(),
           standings: [],
           playerSeasonStats: [],
           access: { standings: false, playerSeasonStats: false },
           providerErrors: {
-            authentication: 'BALLDONTLIE rejected this API key for the free WNBA Teams endpoint (401). Check that the key was copied correctly and belongs to your BALLDONTLIE account.'
+            authentication: 'BALLDONTLIE could not validate this API key. Re-copy the current API key from your BALLDONTLIE account and update BDL_WNBA_API_KEY in Vercel.'
           }
         });
       }
@@ -234,7 +253,6 @@ module.exports = async function handler(req, res) {
     }
   }
 
-  // Free-tier fallback: derive W-L records from completed regular-season games.
   if (!standings.length) {
     try {
       const games = await getAllRegularSeasonGames(season, apiKey);
@@ -258,6 +276,7 @@ module.exports = async function handler(req, res) {
   return res.status(200).json({
     configured: true,
     keyValid,
+    wnbaAccess: true,
     season,
     wnbaTier: tier,
     updatedAt: new Date().toISOString(),

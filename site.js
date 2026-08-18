@@ -1,3 +1,10 @@
+if (!document.querySelector('link[href="/ui-fixes.css"]')) {
+  const uiFixes = document.createElement('link');
+  uiFixes.rel = 'stylesheet';
+  uiFixes.href = '/ui-fixes.css';
+  document.head.appendChild(uiFixes);
+}
+
 const navLinks = document.getElementById('navLinks');
 const menuButton = document.getElementById('menuButton');
 

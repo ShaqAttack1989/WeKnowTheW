@@ -1,5 +1,6 @@
 const LEAGUE_ID = 5789;
 const V2_ROOT = 'https://www.thesportsdb.com/api/v2/json';
+const offseasonSnapshot = require('../college-snapshot-2025-26.json');
 
 function seasonLabel() {
   const now = new Date();
@@ -81,15 +82,23 @@ module.exports = async function handler(req, res) {
   const priorSeason = previousSeasonLabel(upcomingSeason);
   res.setHeader('Cache-Control', 's-maxage=3600, stale-while-revalidate=7200');
 
+  const baseSnapshot = {
+    snapshot: offseasonSnapshot,
+    snapshotSource: 'NCAA.com'
+  };
+
   if (!apiKey) {
     return res.status(200).json({
       configured: false,
       source: 'TheSportsDB',
       league: 'NCAA Division I Basketball Women',
-      season: upcomingSeason,
+      season: offseasonSnapshot.season,
+      upcomingSeason,
+      showingPriorSeason: true,
       upcoming: [],
-      recent: [],
-      providerMessage: 'College live-data key is not configured.'
+      recent: offseasonSnapshot.tournamentFinish || [],
+      providerMessage: `Showing the ${offseasonSnapshot.season} NCAA season snapshot while the independent schedule feed is unavailable.`,
+      ...baseSnapshot
     });
   }
 
@@ -99,13 +108,14 @@ module.exports = async function handler(req, res) {
     let schedule = await fetchSchedule(upcomingSeason, apiKey);
     let showingPriorSeason = false;
 
-    // When no season was explicitly requested, keep the completed season on screen
-    // until the first scheduled game of the new season has actually arrived.
     if (!requestedSeason && !seasonHasStarted(schedule, now)) {
       const priorSchedule = await fetchSchedule(priorSeason, apiKey);
       if (priorSchedule.length) {
         season = priorSeason;
         schedule = priorSchedule;
+        showingPriorSeason = true;
+      } else {
+        season = offseasonSnapshot.season;
         showingPriorSeason = true;
       }
     }
@@ -116,11 +126,15 @@ module.exports = async function handler(req, res) {
       .slice(0, 8)
       .map(normalize);
 
-    const recent = schedule
+    let recent = schedule
       .filter(event => eventTime(event) < now && event.intHomeScore !== null && event.intAwayScore !== null)
       .sort((a, b) => eventTime(b) - eventTime(a))
       .slice(0, 8)
       .map(normalize);
+
+    if (!recent.length && showingPriorSeason) {
+      recent = offseasonSnapshot.tournamentFinish || [];
+    }
 
     return res.status(200).json({
       configured: true,
@@ -134,21 +148,25 @@ module.exports = async function handler(req, res) {
       upcoming,
       recent,
       providerMessage: showingPriorSeason
-        ? `Showing ${season} results until the ${upcomingSeason} season begins.`
+        ? `Showing the ${offseasonSnapshot.season} NCAA season snapshot until ${upcomingSeason} begins.`
         : schedule.length
           ? null
-          : 'The provider has not published a complete college schedule for this season yet.'
+          : 'The provider has not published a complete college schedule for this season yet.',
+      ...baseSnapshot
     });
   } catch (error) {
     return res.status(200).json({
       configured: true,
       source: 'TheSportsDB',
       league: 'NCAA Division I Basketball Women',
-      season: upcomingSeason,
+      season: offseasonSnapshot.season,
+      upcomingSeason,
+      showingPriorSeason: true,
       upcoming: [],
-      recent: [],
-      providerMessage: 'The college schedule feed is temporarily unavailable.',
-      providerStatus: error.status || null
+      recent: offseasonSnapshot.tournamentFinish || [],
+      providerMessage: `Showing the ${offseasonSnapshot.season} NCAA season snapshot while the independent schedule feed is temporarily unavailable.`,
+      providerStatus: error.status || null,
+      ...baseSnapshot
     });
   }
 };

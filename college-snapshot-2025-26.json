@@ -1,0 +1,39 @@
+{
+  "season": "2025-26",
+  "label": "2025-26 Season Snapshot",
+  "source": "NCAA.com",
+  "sourceUrl": "https://www.ncaa.com/",
+  "championship": {
+    "champion": "UCLA",
+    "record": "37-1",
+    "runnerUp": "South Carolina",
+    "score": "79-51",
+    "date": "2026-04-05",
+    "note": "UCLA won its first NCAA Division I women's basketball championship."
+  },
+  "finalFour": ["UCLA", "South Carolina", "UConn", "Texas"],
+  "tournamentFinish": [
+    { "date": "2026-04-03", "awayTeam": "UConn", "awayScore": 48, "homeTeam": "South Carolina", "homeScore": 62, "label": "National semifinal" },
+    { "date": "2026-04-03", "awayTeam": "Texas", "awayScore": 44, "homeTeam": "UCLA", "homeScore": 51, "label": "National semifinal" },
+    { "date": "2026-04-05", "awayTeam": "South Carolina", "awayScore": 51, "homeTeam": "UCLA", "homeScore": 79, "label": "National championship" }
+  ],
+  "scoringLeaders": [
+    { "rank": 1, "name": "Mikayla Blakes", "team": "Vanderbilt", "stat": "918", "metric": "PTS" },
+    { "rank": 2, "name": "Hannah Hidalgo", "team": "Notre Dame", "stat": "909", "metric": "PTS" },
+    { "rank": 3, "name": "Jaloni Cambridge", "team": "Ohio State", "stat": "813", "metric": "PTS" },
+    { "rank": 4, "name": "Audi Crooks", "team": "Iowa State", "stat": "801", "metric": "PTS" },
+    { "rank": 5, "name": "Halli Poock", "team": "Murray State", "stat": "788", "metric": "PTS" }
+  ],
+  "pointsPerGameLeaders": [
+    { "rank": 1, "name": "Mikayla Blakes", "team": "Vanderbilt", "stat": "27.0", "metric": "PPG" },
+    { "rank": 2, "name": "Audi Crooks", "team": "Iowa State", "stat": "25.8", "metric": "PPG" },
+    { "rank": 3, "name": "Hannah Hidalgo", "team": "Notre Dame", "stat": "25.2", "metric": "PPG" },
+    { "rank": 4, "name": "Mia Nicastro", "team": "Western Illinois", "stat": "24.1", "metric": "PPG" },
+    { "rank": 5, "name": "Hannah Wickstrom", "team": "UC Riverside", "stat": "23.4", "metric": "PPG" }
+  ],
+  "notes": [
+    "Scoring totals are NCAA Division I individual totals through games April 5, 2026.",
+    "Points-per-game leaders are the NCAA published leaderboard through April 1, 2026.",
+    "The offseason snapshot remains visible until the 2026-27 season starts."
+  ]
+}

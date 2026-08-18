@@ -38,6 +38,11 @@ function firstObject(body, keys) {
   return null;
 }
 
+function cleanUrl(value = '') {
+  const url = String(value || '').trim();
+  return /^https?:\/\//i.test(url) ? url : '';
+}
+
 module.exports = async function handler(req, res) {
   if (req.method !== 'GET') {
     res.setHeader('Allow', 'GET');
@@ -83,6 +88,10 @@ module.exports = async function handler(req, res) {
       ? firstArray(milestonesResult.value, ['milestones', 'player_milestones', 'list', 'data'])
       : [];
 
+    const thumb = cleanUrl(player.strThumb || player.strPlayerThumb || player.strImage || '');
+    const cutout = cleanUrl(player.strCutout || player.strPlayerCutout || '');
+    const creativeCommons = String(player.strCreativeCommons || player.strCreativeCommonsLicense || '').trim();
+
     return res.status(200).json({
       source: 'TheSportsDB',
       updatedAt: new Date().toISOString(),
@@ -99,7 +108,12 @@ module.exports = async function handler(req, res) {
         height: player.strHeight || '',
         weight: player.strWeight || '',
         college: player.strCollege || '',
-        description: player.strDescriptionEN || player.strDescription || ''
+        description: player.strDescriptionEN || player.strDescription || '',
+        photo: cutout || thumb,
+        photoThumb: thumb || cutout,
+        photoCutout: cutout,
+        photoCreativeCommons: creativeCommons,
+        photoSource: thumb || cutout ? 'TheSportsDB' : ''
       },
       honours,
       formerTeams,

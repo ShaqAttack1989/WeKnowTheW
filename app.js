@@ -38,7 +38,7 @@ document.getElementById('recordsGrid').innerHTML = curatedRecords.map(item => `
 
 function standingsMarkup(items) {
   if (!items?.length) {
-    return `<div class="notice-box"><strong>No standings returned for ${season}.</strong><span>The season may not have started yet, or the API key may not have WNBA access.</span></div>`;
+    return `<div class="notice-box"><strong>No standings returned for ${season}.</strong><span>The season may not have started yet, or WNBA data access may not be enabled.</span></div>`;
   }
 
   return `
@@ -112,11 +112,21 @@ async function loadLiveData() {
     }
 
     if (payload.keyValid === false) {
-      const message = payload.providerErrors?.authentication || 'BALLDONTLIE rejected the API key.';
-      standingsEl.innerHTML = `<div class="error-box"><strong>API key rejected.</strong><span>${message}</span></div>`;
+      const message = payload.providerErrors?.authentication || 'BALLDONTLIE could not validate this API key.';
+      standingsEl.innerHTML = `<div class="error-box"><strong>API key needs attention.</strong><span>${message}</span></div>`;
       leadersEl.innerHTML = leadersMarkup([]);
       statusText.textContent = 'API key needs attention';
-      leaderNote.textContent = 'Once the key is accepted, live WNBA data will populate here.';
+      leaderNote.textContent = 'Once the key is validated, live WNBA data will populate here.';
+      return;
+    }
+
+    if (payload.wnbaAccess === false) {
+      const message = payload.providerErrors?.wnbaAccess || 'Your BALLDONTLIE account does not currently show WNBA access.';
+      standingsEl.innerHTML = `<div class="notice-box"><strong>WNBA access is not enabled yet.</strong><span>${message}</span></div>`;
+      leadersEl.innerHTML = leadersMarkup([]);
+      statusDot.classList.add('partial');
+      statusText.textContent = 'API key valid • WNBA access needed';
+      leaderNote.textContent = 'Enable WNBA access on the BALLDONTLIE account tied to this API key.';
       return;
     }
 

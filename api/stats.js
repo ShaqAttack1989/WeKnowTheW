@@ -1,23 +1,57 @@
 const LEAGUE_ID = 4516;
-const API_ROOT = 'https://www.thesportsdb.com/api/v1/json';
+const V1_ROOT = 'https://www.thesportsdb.com/api/v1/json';
+const V2_ROOT = 'https://www.thesportsdb.com/api/v2/json';
 const FREE_KEY = '123';
 
-// Exact regular-season windows keep preseason and playoffs out of the standings.
-// Add the next season here when its official dates are announced.
 const REGULAR_SEASON_WINDOWS = {
   2026: { start: '2026-05-08', end: '2026-09-24' }
 };
 
-async function tsdb(path, apiKey) {
-  const response = await fetch(`${API_ROOT}/${encodeURIComponent(apiKey)}/${path}`, {
-    headers: { Accept: 'application/json' }
+async function fetchJson(url, options = {}) {
+  const response = await fetch(url, {
+    ...options,
+    headers: {
+      Accept: 'application/json',
+      ...(options.headers || {})
+    }
   });
 
+  const text = await response.text();
+  let body = {};
+  try { body = text ? JSON.parse(text) : {}; } catch { body = { raw: text }; }
+
   if (!response.ok) {
-    throw new Error(`TheSportsDB returned ${response.status}`);
+    const message = body?.message || body?.Message || body?.error || `TheSportsDB returned ${response.status}`;
+    const error = new Error(String(message));
+    error.status = response.status;
+    throw error;
   }
 
-  return response.json();
+  return body;
+}
+
+async function getSeasonSchedule(season, productionKey) {
+  if (productionKey) {
+    // Premium V2: key belongs in the X-API-KEY header and the full league
+    // season endpoint returns its events in the `schedule` array.
+    const body = await fetchJson(
+      `${V2_ROOT}/schedule/league/${LEAGUE_ID}/${encodeURIComponent(season)}`,
+      { headers: { 'X-API-KEY': productionKey } }
+    );
+    return {
+      events: Array.isArray(body.schedule) ? body.schedule : [],
+      apiVersion: 'v2'
+    };
+  }
+
+  // Development fallback only. The public key returns a limited sample.
+  const body = await fetchJson(
+    `${V1_ROOT}/${FREE_KEY}/eventsseason.php?id=${LEAGUE_ID}&s=${encodeURIComponent(season)}`
+  );
+  return {
+    events: Array.isArray(body.events) ? body.events : [],
+    apiVersion: 'v1-free'
+  };
 }
 
 function asDate(value) {
@@ -32,7 +66,7 @@ function inRegularSeason(event, season) {
   const eventDate = asDate(event.dateEvent);
   const start = asDate(window.start);
   const end = asDate(window.end);
-  return eventDate && start && end && eventDate >= start && eventDate <= end;
+  return Boolean(eventDate && start && end && eventDate >= start && eventDate <= end);
 }
 
 function isFinished(event) {
@@ -75,7 +109,7 @@ function deriveStandings(events) {
 
     const homeScore = Number(event.intHomeScore);
     const awayScore = Number(event.intAwayScore);
-    if (homeScore === awayScore) continue;
+    if (!Number.isFinite(homeScore) || !Number.isFinite(awayScore) || homeScore === awayScore) continue;
 
     if (homeScore > awayScore) {
       home.wins += 1;
@@ -89,10 +123,7 @@ function deriveStandings(events) {
   return [...records.values()]
     .map(record => {
       const played = record.wins + record.losses;
-      return {
-        ...record,
-        win_percentage: played ? record.wins / played : 0
-      };
+      return { ...record, win_percentage: played ? record.wins / played : 0 };
     })
     .sort((a, b) =>
       Number(b.win_percentage) - Number(a.win_percentage) ||
@@ -130,37 +161,40 @@ module.exports = async function handler(req, res) {
     : new Date().getFullYear();
 
   const productionKey = String(process.env.THESPORTSDB_API_KEY || '').trim();
-  const apiKey = productionKey || FREE_KEY;
-
-  // Fifteen minutes is current enough for standings while staying friendly to the provider.
   res.setHeader('Cache-Control', 's-maxage=900, stale-while-revalidate=3600');
 
   try {
-    const body = await tsdb(`eventsseason.php?id=${LEAGUE_ID}&s=${encodeURIComponent(season)}`, apiKey);
-    const allEvents = Array.isArray(body.events) ? body.events : [];
+    const { events: allEvents, apiVersion } = await getSeasonSchedule(season, productionKey);
     const regularSeasonEvents = allEvents.filter(event => inRegularSeason(event, season));
 
-    // The free public key intentionally returns a limited season result set. A public production
-    // site should use a dedicated TheSportsDB key so standings are never calculated from a partial schedule.
+    // The 2026 regular season has hundreds of games. Requiring at least 100 schedule
+    // rows prevents the site from calculating standings from the 15-event free sample.
     const fullSeasonAccess = Boolean(productionKey) && allEvents.length >= 100;
 
     return res.status(200).json({
       configured: Boolean(productionKey),
       source: 'TheSportsDB',
-      sourceUrl: 'https://www.thesportsdb.com',
+      apiVersion,
       season,
       updatedAt: new Date().toISOString(),
+      eventCount: allEvents.length,
+      regularSeasonEventCount: regularSeasonEvents.length,
       fullSeasonAccess,
       standings: fullSeasonAccess ? deriveStandings(regularSeasonEvents) : [],
       recentResults: fullSeasonAccess ? recentResults(regularSeasonEvents) : [],
       providerMessage: fullSeasonAccess
         ? null
-        : 'A dedicated TheSportsDB production key is required for the complete season feed. The free development key returns only a limited sample, so We Know the W will not calculate standings from incomplete data.'
+        : productionKey
+          ? `TheSportsDB key was detected, but only ${allEvents.length} season events were returned. We Know the W will not calculate standings from an incomplete schedule.`
+          : 'THESPORTSDB_API_KEY is not configured in Vercel. The free development feed is intentionally limited.'
     });
   } catch (error) {
     return res.status(502).json({
       error: error.message,
+      status: error.status || null,
+      configured: Boolean(productionKey),
       source: 'TheSportsDB',
+      apiVersion: productionKey ? 'v2' : 'v1-free',
       season
     });
   }

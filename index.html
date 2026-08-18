@@ -4,10 +4,11 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#140a2f" />
-  <meta name="description" content="We Know the W — a kid-friendly WNBA encyclopedia for players, teams, history, culture, records and automatically refreshed stats." />
-  <title>We Know the W | The WNBA Encyclopedia</title>
+  <meta name="description" content="We Know the W — a kid-friendly women's basketball encyclopedia for players, teams, history, culture, records and automatically refreshed stats." />
+  <title>We Know the W | Women’s Basketball Encyclopedia</title>
   <link rel="stylesheet" href="/styles.css" />
   <link rel="stylesheet" href="/playerpedia.css" />
+  <link rel="stylesheet" href="/sections.css" />
 </head>
 <body>
   <header class="hero" id="top">
@@ -20,19 +21,19 @@
       <div class="nav-links" id="navLinks">
         <a href="#live">Live</a>
         <a href="#players">Playerpedia</a>
-        <a href="#teams">Teams</a>
-        <a href="#records">Records</a>
-        <a href="#culture">Culture</a>
+        <a href="#around-the-w">Around the W</a>
+        <a href="#vault">The W Vault</a>
+        <a href="#who-got-next">Who Got Next?</a>
       </div>
     </nav>
 
     <div class="hero-inner shell">
       <div class="hero-copy-wrap">
-        <p class="eyebrow">THE WNBA, FROM A TO Z</p>
+        <p class="eyebrow">WOMEN’S BASKETBALL, FROM A TO Z</p>
         <h1>Know the players.<br>Know the history.<br><em>Know the W.</em></h1>
-        <p class="hero-copy">A colorful, kid-friendly home for the league’s stars, teams, records, coaches, mascots, expansion stories and the numbers changing right now.</p>
+        <p class="hero-copy">A colorful, kid-friendly home for the stars, teams, roles, records, history, culture, expansion stories and numbers changing right now.</p>
         <div class="hero-actions">
-          <a class="button primary" href="#live">See what’s happening</a>
+          <a class="button primary" href="#explore">Explore the W</a>
           <a class="button ghost" href="#players">Browse Playerpedia</a>
         </div>
       </div>
@@ -57,26 +58,17 @@
           <span id="statusText">Checking the W…</span>
         </div>
       </div>
-      <div id="standings" class="standings card loading-card">
-        <p>Loading standings…</p>
-      </div>
+      <div id="standings" class="standings card loading-card"><p>Loading standings…</p></div>
     </section>
 
     <section class="section purple-band">
       <div class="shell">
         <div class="section-heading split light-heading">
-          <div>
-            <p class="kicker">WHAT JUST HAPPENED?</p>
-            <h2>Recent results</h2>
-          </div>
+          <div><p class="kicker">WHAT JUST HAPPENED?</p><h2>Recent results</h2></div>
           <p class="small-note" id="leaderNote">Completed games from the independent live-data feed.</p>
         </div>
         <div id="leaders" class="leader-grid">
-          <article class="leader-card skeleton"></article>
-          <article class="leader-card skeleton"></article>
-          <article class="leader-card skeleton"></article>
-          <article class="leader-card skeleton"></article>
-          <article class="leader-card skeleton"></article>
+          <article class="leader-card skeleton"></article><article class="leader-card skeleton"></article><article class="leader-card skeleton"></article><article class="leader-card skeleton"></article><article class="leader-card skeleton"></article>
         </div>
       </div>
     </section>
@@ -92,96 +84,194 @@
       </div>
 
       <div class="player-tools" aria-label="Playerpedia filters">
-        <label class="player-search">
-          <span>Search players</span>
-          <input id="playerSearch" type="search" placeholder="Try Wilson, Collier, Clark…" autocomplete="off" />
-        </label>
-        <label class="team-filter">
-          <span>Team</span>
-          <select id="playerTeamFilter">
-            <option value="">All current teams</option>
-          </select>
-        </label>
+        <label class="player-search"><span>Search players</span><input id="playerSearch" type="search" placeholder="Try Wilson, Collier, Clark…" autocomplete="off" /></label>
+        <label class="team-filter"><span>Team</span><select id="playerTeamFilter"><option value="">All current teams</option></select></label>
         <button class="reset-player-filters" id="resetPlayerFilters" type="button">Reset</button>
       </div>
-
       <div class="az-grid" id="azGrid" aria-label="Browse players by last name"></div>
-
-      <div class="playerpedia-meta">
-        <strong id="playerCount">Loading players…</strong>
-        <span>Current roster data refreshes from TheSportsDB. Historical legends and editorial stories are curated by We Know the W.</span>
-      </div>
-
+      <div class="playerpedia-meta"><strong id="playerCount">Loading players…</strong><span>Current roster data refreshes from TheSportsDB. Historical legends and editorial stories are curated by We Know the W.</span></div>
       <div id="playerGrid" class="player-grid" aria-live="polite">
-        <article class="player-card player-card-loading"></article>
-        <article class="player-card player-card-loading"></article>
-        <article class="player-card player-card-loading"></article>
-        <article class="player-card player-card-loading"></article>
+        <article class="player-card player-card-loading"></article><article class="player-card player-card-loading"></article><article class="player-card player-card-loading"></article><article class="player-card player-card-loading"></article>
       </div>
+      <div class="info-strip"><strong>Playerpedia profile recipe:</strong><span>Current team + position + bio facts + honors + former teams, then our curated awards, signature moments, fun facts and “Why We Know Her” story.</span></div>
+    </section>
 
-      <div class="info-strip">
-        <strong>Playerpedia profile recipe:</strong>
-        <span>Current team + position + bio facts + honors + former teams, then our curated awards, signature moments, fun facts and “Why We Know Her” story.</span>
+    <section id="explore" class="section shell explore-hub">
+      <div class="section-heading">
+        <p class="kicker">EXPLORE THE W</p>
+        <h2>More than a stat sheet.</h2>
+        <p class="intro">Jump into the history, personalities, strategy, style and next generation that make women’s basketball its own world.</p>
+      </div>
+      <div class="explore-grid">
+        <a class="explore-card" href="#vault"><span>History</span><strong>The W Vault</strong><p>Origins, eras, franchises, relocations and moments that changed the game.</p></a>
+        <a class="explore-card" href="#herstory"><span>Off court</span><strong>Herstory</strong><p>Personal milestones, education, business, family, firsts and impact beyond basketball.</p></a>
+        <a class="explore-card" href="#starting-five"><span>Featured</span><strong>The Starting Five</strong><p>A rotating five-player front page for the stars and stories we want to spotlight.</p></a>
+        <a class="explore-card" href="#bench-mob"><span>Roles</span><strong>The Bench Mob</strong><p>Sixth players, specialists, glue players and the people who swing games without top billing.</p></a>
+        <a class="explore-card" href="#film-room"><span>Learn the game</span><strong>The Film Room</strong><p>Positions, roles, spacing, screening, defense and strategy explained for new fans.</p></a>
+        <a class="explore-card" href="#around-the-w"><span>Teams</span><strong>Around the W</strong><p>Current team pages plus live-season records and roster connections.</p></a>
+        <a class="explore-card" href="#expansion-watch"><span>Growing league</span><strong>Expansion Watch</strong><p>Cleveland, Detroit, Philadelphia and what it takes to build a new franchise.</p></a>
+        <a class="explore-card" href="#trophy-case"><span>Winning</span><strong>The Trophy Case</strong><p>Championships, MVPs, DPOYs, rookies, sixth players and award history.</p></a>
+        <a class="explore-card" href="#locker-room"><span>Style + legacy</span><strong>The Locker Room</strong><p>Uniform eras, retired numbers, throwbacks and the visual history of the teams.</p></a>
+        <a class="explore-card" href="#courtside-characters"><span>Mascots</span><strong>Courtside Characters</strong><p>Mascot bios, origin stories, personality, traditions and kid-friendly trivia.</p></a>
+        <a class="explore-card" href="#who-got-next"><span>College</span><strong>Who Got Next?</strong><p>NCAAW watchlists, big games, draft radar, highlights and future W stars.</p></a>
       </div>
     </section>
 
-    <section id="teams" class="section cream-band">
-      <div class="shell">
-        <div class="section-heading">
-          <p class="kicker">MEET THE TEAMS</p>
-          <h2>Past, present & growing</h2>
-        </div>
-        <div class="feature-grid">
-          <article class="feature-card">
-            <span class="feature-number">01</span>
-            <h3>Today’s W</h3>
-            <p>Every current team gets its own page with city, colors, coach, mascot, titles, stars and personality.</p>
-          </article>
-          <article class="feature-card">
-            <span class="feature-number">02</span>
-            <h3>Franchise family tree</h3>
-            <p>Follow relocations and name changes without treating every familiar city as the same franchise.</p>
-          </article>
-          <article class="feature-card accent-card">
-            <span class="feature-number">03</span>
-            <h3>The W is growing</h3>
-            <p>Expansion pages track Golden State, Toronto, Portland, Cleveland, Detroit, Philadelphia and whoever joins next.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="records" class="section shell">
+    <section id="starting-five" class="section shell">
       <div class="section-heading split">
-        <div>
-          <p class="kicker">THE RECORD BOOK</p>
-          <h2>Who did it most?</h2>
-        </div>
-        <p class="small-note">Curated history + live-season context.</p>
+        <div><p class="kicker">THE STARTING FIVE</p><h2>Five players. Five reasons to watch.</h2></div>
+        <p class="small-note">This is an editorial rotation, not a ranking. Tap a player to find her in Playerpedia.</p>
       </div>
-      <div id="recordsGrid" class="record-grid"></div>
+      <div class="starting-five-grid">
+        <button class="feature-player" type="button" data-feature-player="A'ja Wilson"><span class="slot">01 · FEATURED</span><strong>A’ja Wilson</strong><small>Power, production, presence.</small></button>
+        <button class="feature-player" type="button" data-feature-player="Napheesa Collier"><span class="slot">02 · FEATURED</span><strong>Napheesa Collier</strong><small>Two-way precision.</small></button>
+        <button class="feature-player" type="button" data-feature-player="Breanna Stewart"><span class="slot">03 · FEATURED</span><strong>Breanna Stewart</strong><small>Versatility at superstar scale.</small></button>
+        <button class="feature-player" type="button" data-feature-player="Caitlin Clark"><span class="slot">04 · FEATURED</span><strong>Caitlin Clark</strong><small>Range, passing and attention.</small></button>
+        <button class="feature-player" type="button" data-feature-player="Paige Bueckers"><span class="slot">05 · FEATURED</span><strong>Paige Bueckers</strong><small>Craft, pace and next-wave star power.</small></button>
+      </div>
     </section>
 
-    <section id="culture" class="section dark-band">
-      <div class="shell culture-layout">
-        <div>
-          <p class="kicker coral">THE W IS MORE THAN NUMBERS</p>
-          <h2>Coaches. Mascots. Fits. Activism. Culture.</h2>
-          <p class="culture-copy">The encyclopedia has room for the people and moments that make the league feel like the league — from former players turned coaches to iconic tunnel fits, mascots, rivalries and social impact.</p>
+    <section id="bench-mob" class="section bench-band">
+      <div class="shell">
+        <div class="section-heading"><p class="kicker">THE BENCH MOB</p><h2>The game is bigger than the starters.</h2><p class="intro">A home for role players, sixth players and specialists — plus a way to teach young fans why those jobs matter.</p></div>
+        <div class="archetype-grid">
+          <article class="archetype-card"><strong>Sixth Player</strong><p>The first player off the bench who can change the rhythm of a game without starting it.</p></article>
+          <article class="archetype-card"><strong>Microwave Scorer</strong><p>A player who can heat up quickly and create points in short bursts.</p></article>
+          <article class="archetype-card"><strong>3-and-D Wing</strong><p>Spacing on offense, difficult assignments on defense and value without needing the ball all game.</p></article>
+          <article class="archetype-card"><strong>Glue Player</strong><p>Screens, rotations, communication, extra passes and the little things that make lineups work.</p></article>
+          <article class="archetype-card"><strong>Backup Floor General</strong><p>Keeps the offense organized, manages pace and protects the team when the lead guard rests.</p></article>
+          <article class="archetype-card"><strong>Energy Big</strong><p>Rebounding, rim pressure, screens, paint defense and effort possessions that can flip momentum.</p></article>
         </div>
-        <div class="culture-tags" aria-label="Culture topics">
-          <span>Coaches</span><span>Mascots</span><span>Jerseys</span><span>Rivalries</span><span>Activism</span><span>International W</span><span>Big Moments</span><span>Trivia</span>
+      </div>
+    </section>
+
+    <section id="film-room" class="section film-room-band">
+      <div class="shell">
+        <div class="section-heading"><p class="kicker">THE FILM ROOM</p><h2>Learn to see what the players see.</h2><p class="culture-copy">Basketball education without assuming you already know the language. Positions are starting points — modern players often do several jobs at once.</p></div>
+        <div class="film-grid">
+          <article class="film-card"><strong>Point Guard</strong><p>Initiates offense, reads coverages, controls tempo and creates advantages for teammates.</p></article>
+          <article class="film-card"><strong>Wing</strong><p>Scores, cuts, spaces, defends across positions and often connects guards with bigs.</p></article>
+          <article class="film-card"><strong>Post / Big</strong><p>Protects the paint, rebounds, screens, finishes inside and can anchor offense from the high or low post.</p></article>
+          <article class="film-card"><strong>Pick-and-Roll</strong><p>A ball-handler uses a teammate’s screen to force defenders to choose between two threats.</p></article>
+          <article class="film-card"><strong>Spacing</strong><p>Good floor balance creates driving lanes, cleaner passing windows and harder defensive decisions.</p></article>
+          <article class="film-card"><strong>Help Defense</strong><p>Great defense is five people moving together — tagging cutters, protecting the rim and recovering to shooters.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="around-the-w" class="section shell">
+      <div class="section-heading split">
+        <div><p class="kicker">AROUND THE W</p><h2>Every current team. One living directory.</h2><p class="team-directory-note">Tap a team for its page blueprint and current 2026 record. Golden State, Portland and Toronto are included.</p></div>
+        <div class="status-wrap"><span class="status-dot live"></span><span>Records refresh from the live feed</span></div>
+      </div>
+      <div id="aroundWGrid" class="around-w-grid" aria-live="polite"></div>
+    </section>
+
+    <section id="expansion-watch" class="section expansion-band">
+      <div class="shell">
+        <div class="section-heading"><p class="kicker">EXPANSION WATCH</p><h2>The map keeps growing.</h2><p class="intro">Track branding, leadership, roster-building, expansion drafts, arenas and the countdown to tip-off.</p></div>
+        <div class="expansion-grid">
+          <article class="expansion-card"><span class="year">2028</span><h3>Cleveland Sirens</h3><p>Cleveland returns to women’s pro basketball with a newly unveiled Sirens identity. This page will track the build toward the inaugural season.</p></article>
+          <article class="expansion-card"><span class="year">2029</span><h3>Detroit</h3><p>Detroit’s new franchise is approved for 2029. Name, brand, leadership and roster construction will be tracked as they are announced.</p></article>
+          <article class="expansion-card"><span class="year">2030</span><h3>Philadelphia</h3><p>Philadelphia joins in 2030. Until the official identity arrives, the page stays a living expansion file rather than guessing the name or brand.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="vault" class="section vault-band">
+      <div class="shell">
+        <div class="section-heading"><p class="kicker">THE W VAULT</p><h2>History belongs somewhere you can open.</h2><p class="culture-copy">The Vault connects league eras, franchise family trees, defunct teams, relocations, dynasties, turning points and the expansion story into one navigable timeline.</p></div>
+        <div class="vault-timeline">
+          <article class="vault-year"><strong>1997</strong><p>The inaugural season becomes the starting point for team pages, firsts and original stars.</p></article>
+          <article class="vault-year"><strong>2000s</strong><p>Dynasties, relocations and franchise changes make the family-tree view essential.</p></article>
+          <article class="vault-year"><strong>2010s</strong><p>New stars, new champions and an evolving style of play reshape the league’s identity.</p></article>
+          <article class="vault-year"><strong>2025</strong><p>Golden State begins play, opening the newest expansion era.</p></article>
+          <article class="vault-year"><strong>2026+</strong><p>Portland and Toronto join the current map; Cleveland, Detroit and Philadelphia build what comes next.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="herstory" class="section shell">
+      <div class="section-heading"><p class="kicker">HERSTORY</p><h2>Who they are when the clock stops.</h2><p class="intro">A respectful off-court record of milestones players have chosen to make public — without turning personal lives into gossip.</p></div>
+      <div class="section-grid">
+        <article class="editorial-card herstory-card"><span class="card-number">01</span><h3>Education</h3><p>Degrees, graduate work, academic honors and learning that continues beyond college basketball.</p></article>
+        <article class="editorial-card herstory-card"><span class="card-number">02</span><h3>Business Moves</h3><p>Companies, investments, media ventures, fashion, food, production and ownership.</p></article>
+        <article class="editorial-card herstory-card"><span class="card-number">03</span><h3>Family Milestones</h3><p>Publicly shared marriages, motherhood, chosen family and the ways players talk about balancing life and sport.</p></article>
+        <article class="editorial-card herstory-card"><span class="card-number">04</span><h3>Community + Advocacy</h3><p>Foundations, organizing, voting work, youth programs and causes players put their names behind.</p></article>
+        <article class="editorial-card herstory-card"><span class="card-number">05</span><h3>Creative Life</h3><p>Books, podcasts, music, acting, broadcasting, photography, fashion and other artistic work.</p></article>
+        <article class="editorial-card herstory-card"><span class="card-number">06</span><h3>Firsts + Landmarks</h3><p>Historic personal milestones that belong in the record because they changed what was possible.</p></article>
+      </div>
+    </section>
+
+    <section id="trophy-case" class="section cream-band">
+      <div class="shell">
+        <div class="section-heading split"><div><p class="kicker">THE TROPHY CASE</p><h2>Winning has a history.</h2></div><p class="small-note">A searchable home for team titles and individual awards, built to connect back to each player and franchise page.</p></div>
+        <div class="trophy-grid">
+          <article class="trophy-card"><strong>Championships</strong><p>Team titles, repeat champions, dynasty runs and championship rosters.</p></article>
+          <article class="trophy-card"><strong>Most Valuable Player</strong><p>Regular-season MVP winners, repeat winners and career totals.</p></article>
+          <article class="trophy-card"><strong>Finals MVP</strong><p>The players who owned the biggest series of the season.</p></article>
+          <article class="trophy-card"><strong>Defensive Player of the Year</strong><p>Rim protectors, switch defenders, ball hawks and defensive anchors.</p></article>
+          <article class="trophy-card"><strong>Most Improved Player</strong><p>Breakout seasons and the jumps that changed careers.</p></article>
+          <article class="trophy-card"><strong>Sixth Player of the Year</strong><p>The Bench Mob’s signature award and the history of elite reserve impact.</p></article>
+          <article class="trophy-card"><strong>Rookie of the Year</strong><p>First-season stars and the rookie classes that shifted the league.</p></article>
+          <article class="trophy-card"><strong>Coach of the Year</strong><p>Systems, turnarounds, championship leadership and coaching eras.</p></article>
+          <article class="trophy-card"><strong>All-Star + Special Honors</strong><p>All-Star selections, skills events, Commissioner’s Cup honors and other major recognition.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="locker-room" class="section locker-band">
+      <div class="shell">
+        <div class="section-heading"><p class="kicker">THE LOCKER ROOM</p><h2>Uniforms remember things.</h2><p class="intro">A visual-history section for what teams wore, whose numbers went into the rafters and how team identity changed over time.</p></div>
+        <div class="locker-grid">
+          <article class="locker-card"><strong>Uniform Evolution</strong><p>Home, road, alternate and special-edition looks arranged by era.</p></article>
+          <article class="locker-card"><strong>Retired Numbers</strong><p>Who is honored, which franchise retired the number and why it matters.</p></article>
+          <article class="locker-card"><strong>Throwback Files</strong><p>Defunct-team uniforms, revived colorways and the designs fans still remember.</p></article>
+          <article class="locker-card"><strong>Color Stories</strong><p>How palettes, typography and city identity show up on the court.</p></article>
+          <article class="locker-card"><strong>Signature Gear</strong><p>Shoes, sleeves, goggles and other equipment that became part of a player’s visual identity.</p></article>
+          <article class="locker-card"><strong>Tunnel to Court</strong><p>Where basketball uniforms meet fashion culture without confusing game gear with tunnel fits.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="courtside-characters" class="section mascot-band">
+      <div class="shell">
+        <div class="section-heading"><p class="kicker">COURTSIDE CHARACTERS</p><h2>The mascots deserve biographies too.</h2><p class="intro">A better home than “Mascot Madness”: every mascot can get a real bio page with origin, team, debut, personality, signature bits and kid-friendly trivia.</p></div>
+        <div class="mascot-grid">
+          <article class="mascot-card"><span class="mascot-bubble">BIO</span><strong>Who are they?</strong><p>Name, team, species or character type, debut era and a short personality profile.</p></article>
+          <article class="mascot-card"><span class="mascot-bubble">WHY</span><strong>Origin Story</strong><p>Where the concept came from and how it connects to the city, team name or local culture.</p></article>
+          <article class="mascot-card"><span class="mascot-bubble">FUN</span><strong>Game-Day Personality</strong><p>Signature dances, stunts, crowd interactions and recurring arena routines.</p></article>
+          <article class="mascot-card"><span class="mascot-bubble">TREE</span><strong>Mascot Family Tree</strong><p>Track retired mascots, replacements and mascots that moved or disappeared with a franchise.</p></article>
+          <article class="mascot-card"><span class="mascot-bubble">WOW</span><strong>Big Mascot Moments</strong><p>Memorable entrances, viral bits and special appearances worth saving in the archive.</p></article>
+          <article class="mascot-card"><span class="mascot-bubble">KID</span><strong>Kid Corner</strong><p>Fast facts, mascot quizzes, “draw your own mascot” prompts and easy team connections.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="who-got-next" class="section college-band">
+      <div class="shell">
+        <div class="section-heading split">
+          <div><p class="kicker">WHO GOT NEXT?</p><h2>Before the W, watch the road to it.</h2><p class="culture-copy">NCAA Division I women’s basketball gets its own scouting corner: prospects, big games, draft radar, skills translation and an independent schedule/results feed when the provider has the season loaded.</p></div>
+          <p class="small-note" id="collegeStatus">Checking the college feed…</p>
+        </div>
+        <div class="college-board-grid">
+          <article class="college-board-card"><strong>Draft Radar</strong><p>Prospects organized by class, position, strengths, questions and likely W role.</p></article>
+          <article class="college-board-card"><strong>Stat Watch</strong><p>Scoring, rebounding, assists, efficiency and other player stats — only when we have a licensed, reliable player-level source.</p></article>
+          <article class="college-board-card"><strong>Highlight Reel</strong><p>Curated descriptions and links to legally shareable highlight sources instead of re-uploading copyrighted video.</p></article>
+          <article class="college-board-card"><strong>Big Games</strong><p>Matchups that matter for rankings, tournament seeding, rivalries or pro evaluation.</p></article>
+          <article class="college-board-card"><strong>Freshman Watch</strong><p>The youngest names building a résumé long before draft year.</p></article>
+          <article class="college-board-card"><strong>W-Ready Skills</strong><p>Shooting, size, decision-making, defense, pace and role translation from college to the pros.</p></article>
+        </div>
+        <div class="college-live-wrap">
+          <div class="college-live-head"><strong>College schedule + recent results</strong><span>Independent TheSportsDB feed · NCAA Division I Basketball Women</span></div>
+          <div id="collegeLiveGrid" class="college-live-grid"><div class="college-feed-empty"><strong>Checking the college season…</strong><span>Live schedule data will appear here when available.</span></div></div>
         </div>
       </div>
     </section>
 
     <section class="section shell">
       <div class="callout">
-        <div>
-          <p class="kicker">BUILT TO KEEP GROWING</p>
-          <h2>The site can grow with the league.</h2>
-          <p>Editorial history stays permanent while the live layer can request the newest season automatically. New teams, new awards and new chapters can be added without rebuilding the whole project.</p>
-        </div>
+        <div><p class="kicker">BUILT TO KEEP GROWING</p><h2>The encyclopedia can grow with the game.</h2><p>Current numbers refresh automatically. History, culture and personal stories stay curated. New teams, new awards, new prospects and new chapters can be added without rebuilding the whole project.</p></div>
         <div class="big-w" aria-hidden="true">W</div>
       </div>
     </section>
@@ -189,21 +279,22 @@
 
   <footer class="footer">
     <div class="shell footer-inner">
-      <div>
-        <strong>WE KNOW THE W</strong>
-        <p>A fan-built, kid-friendly encyclopedia project. Not affiliated with or endorsed by the WNBA. Live scores, schedule and current roster data supplied through TheSportsDB official API; no WNBA-owned API is used.</p>
-      </div>
+      <div><strong>WE KNOW THE W</strong><p>A fan-built, kid-friendly women’s basketball encyclopedia project. Not affiliated with or endorsed by the WNBA or NCAA. Live pro and available college schedule data are supplied through TheSportsDB official API; no WNBA-owned API is used.</p></div>
       <a href="#top">Back to top ↑</a>
     </div>
   </footer>
 
   <dialog class="player-modal" id="playerModal" aria-labelledby="playerModalTitle">
     <button class="player-modal-close" id="playerModalClose" type="button" aria-label="Close player profile">×</button>
-    <div id="playerModalBody" class="player-modal-body">
-      <p>Loading player profile…</p>
-    </div>
+    <div id="playerModalBody" class="player-modal-body"><p>Loading player profile…</p></div>
+  </dialog>
+
+  <dialog class="team-modal" id="teamModal" aria-labelledby="teamModalTitle">
+    <button class="team-modal-close" id="teamModalClose" type="button" aria-label="Close team page">×</button>
+    <div id="teamModalBody" class="team-modal-body"><p>Loading team page…</p></div>
   </dialog>
 
   <script src="/app.js" defer></script>
+  <script src="/sections.js" defer></script>
 </body>
 </html>

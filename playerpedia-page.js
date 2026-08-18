@@ -2,13 +2,99 @@ function pSafe(v=''){return String(v).replaceAll('&','&amp;').replaceAll('<','&l
 function initials(name=''){return String(name).trim().split(/\s+/).filter(Boolean).slice(0,2).map(x=>x[0]?.toUpperCase()||'').join('')||'W';}
 const azGrid=document.getElementById('azGrid'),playerGrid=document.getElementById('playerGrid'),playerSearch=document.getElementById('playerSearch'),playerTeamFilter=document.getElementById('playerTeamFilter'),reset=document.getElementById('resetPlayerFilters'),playerCount=document.getElementById('playerCount'),status=document.getElementById('playerStatus'),modal=document.getElementById('playerModal'),modalBody=document.getElementById('playerModalBody'),modalClose=document.getElementById('playerModalClose');
 let allPlayers=[],teams=[],letter='';
+let photoObserver=null;
 const letters='ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
 azGrid.innerHTML=['<button type="button" class="active" data-letter="">All</button>',...letters.map(l=>`<button type="button" data-letter="${l}">${l}</button>`)].join('');
+
 function filtered(){const q=playerSearch.value.trim().toLowerCase(),team=playerTeamFilter.value;return allPlayers.filter(p=>(!letter||String(p.lastName||'').toUpperCase().startsWith(letter))&&(!team||String(p.teamId)===team)&&(!q||`${p.name} ${p.team} ${p.position}`.toLowerCase().includes(q)));}
-function render(){const list=filtered();playerCount.textContent=`${list.length} ${list.length===1?'player':'players'} shown`;playerGrid.innerHTML=list.length?list.map(p=>`<button class="player-card" type="button" data-player-id="${pSafe(p.id)}"><span class="player-avatar">${pSafe(initials(p.name))}</span><span class="player-card-copy"><span class="player-card-topline">${pSafe(p.position||'Player')}${p.number?` · #${pSafe(p.number)}`:''}</span><strong>${pSafe(p.name)}</strong><span>${pSafe(p.team||'Current roster')}</span></span><span class="player-card-arrow">→</span></button>`).join(''):'<div class="player-empty"><strong>No players match those filters.</strong><span>Try another letter, team or search.</span></div>';}
+
+async function hydrateAvatar(avatar){
+  if(!avatar||avatar.dataset.photoLoaded==='true')return;
+  avatar.dataset.photoLoaded='true';
+  const name=avatar.dataset.playerName;
+  if(!name||!window.mediaFor)return;
+  avatar.classList.add('photo-loading');
+  const media=await window.mediaFor('player',name);
+  avatar.classList.remove('photo-loading');
+  if(!media?.image)return;
+  avatar.classList.add('has-photo');
+  avatar.innerHTML=`<img src="${pSafe(media.image)}" alt="${pSafe(media.alt||name)}" loading="lazy" referrerpolicy="no-referrer">`;
+}
+
+function observePlayerPhotos(){
+  photoObserver?.disconnect();
+  const avatars=[...playerGrid.querySelectorAll('.player-avatar[data-player-name]')];
+  if(!('IntersectionObserver' in window)){
+    avatars.slice(0,24).forEach(hydrateAvatar);
+    return;
+  }
+  photoObserver=new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+      if(!entry.isIntersecting)return;
+      photoObserver.unobserve(entry.target);
+      hydrateAvatar(entry.target);
+    });
+  },{rootMargin:'250px 0px'});
+  avatars.forEach(avatar=>photoObserver.observe(avatar));
+}
+
+function render(){
+  const list=filtered();
+  playerCount.textContent=`${list.length} ${list.length===1?'player':'players'} shown`;
+  playerGrid.innerHTML=list.length?list.map(p=>`<button class="player-card" type="button" data-player-id="${pSafe(p.id)}"><span class="player-avatar" data-player-name="${pSafe(p.name)}">${pSafe(initials(p.name))}</span><span class="player-card-copy"><span class="player-card-topline">${pSafe(p.position||'Player')}${p.number?` · #${pSafe(p.number)}`:''}</span><strong>${pSafe(p.name)}</strong><span>${pSafe(p.team||'Current roster')}</span></span><span class="player-card-arrow">→</span></button>`).join(''):'<div class="player-empty"><strong>No players match those filters.</strong><span>Try another letter, team or search.</span></div>';
+  observePlayerPhotos();
+}
+
 function fillTeams(){playerTeamFilter.innerHTML=['<option value="">All current teams</option>',...teams.map(t=>`<option value="${pSafe(t.id)}">${pSafe(t.name)}</option>`)].join('');}
-async function load(){try{const r=await fetch('/api/players',{headers:{Accept:'application/json'}}),payload=await r.json().catch(()=>({}));if(!r.ok)throw new Error(payload.error||'Playerpedia unavailable');allPlayers=Array.isArray(payload.players)?payload.players:[];teams=Array.isArray(payload.teams)?payload.teams:[];fillTeams();const query=new URLSearchParams(location.search),wanted=query.get('search'),wantedTeam=query.get('team');if(wanted)playerSearch.value=wanted;if(wantedTeam){const option=[...playerTeamFilter.options].find(item=>item.textContent.trim().toLowerCase()===wantedTeam.trim().toLowerCase());if(option)playerTeamFilter.value=option.value;}render();status.textContent=payload.partial?`${allPlayers.length} current players loaded • some roster feeds retrying later`:`${allPlayers.length} current players • auto-refreshed`;}catch(e){playerGrid.innerHTML=`<div class="error-box"><strong>Playerpedia roster feed could not load.</strong><span>${pSafe(e.message)}</span></div>`;status.textContent='Roster feed unavailable';}}
-azGrid.addEventListener('click',e=>{const b=e.target.closest('[data-letter]');if(!b)return;letter=b.dataset.letter||'';azGrid.querySelectorAll('button').forEach(x=>x.classList.toggle('active',x===b));render();});playerSearch.addEventListener('input',render);playerTeamFilter.addEventListener('change',render);reset.addEventListener('click',()=>{letter='';playerSearch.value='';playerTeamFilter.value='';azGrid.querySelectorAll('button').forEach((x,i)=>x.classList.toggle('active',i===0));render();});
+
+async function load(){
+  try{
+    const r=await fetch('/api/players',{headers:{Accept:'application/json'}}),payload=await r.json().catch(()=>({}));
+    if(!r.ok)throw new Error(payload.error||'Playerpedia unavailable');
+    allPlayers=Array.isArray(payload.players)?payload.players:[];
+    teams=Array.isArray(payload.teams)?payload.teams:[];
+    fillTeams();
+    const query=new URLSearchParams(location.search),wanted=query.get('search'),wantedTeam=query.get('team');
+    if(wanted)playerSearch.value=wanted;
+    if(wantedTeam){const option=[...playerTeamFilter.options].find(item=>item.textContent.trim().toLowerCase()===wantedTeam.trim().toLowerCase());if(option)playerTeamFilter.value=option.value;}
+    render();
+    status.textContent=payload.partial?`${allPlayers.length} current players loaded • some roster feeds retrying later`:`${allPlayers.length} current players • auto-refreshed`;
+  }catch(e){
+    playerGrid.innerHTML=`<div class="error-box"><strong>Playerpedia roster feed could not load.</strong><span>${pSafe(e.message)}</span></div>`;
+    status.textContent='Roster feed unavailable';
+  }
+}
+
+azGrid.addEventListener('click',e=>{const b=e.target.closest('[data-letter]');if(!b)return;letter=b.dataset.letter||'';azGrid.querySelectorAll('button').forEach(x=>x.classList.toggle('active',x===b));render();});
+playerSearch.addEventListener('input',render);
+playerTeamFilter.addEventListener('change',render);
+reset.addEventListener('click',()=>{letter='';playerSearch.value='';playerTeamFilter.value='';azGrid.querySelectorAll('button').forEach((x,i)=>x.classList.toggle('active',i===0));render();});
+
 function facts(player){return [['Jersey',player.number?`#${player.number}`:''],['Born',player.birthDate],['From',player.birthPlace],['Nationality',player.nationality],['Height',player.height],['College',player.college]].filter(x=>x[1]).map(([l,v])=>`<div class="profile-fact"><span>${pSafe(l)}</span><strong>${pSafe(v)}</strong></div>`).join('');}
-async function openProfile(id){const roster=allPlayers.find(p=>String(p.id)===String(id));modalBody.innerHTML=`<div class="profile-loading"><span class="player-avatar large">${pSafe(initials(roster?.name||'W'))}</span><div><p class="kicker">PLAYERPEDIA</p><h3 id="playerModalTitle">${pSafe(roster?.name||'Loading…')}</h3><p>Loading profile details…</p></div></div>`;modal.showModal();try{const r=await fetch(`/api/player?id=${encodeURIComponent(id)}`,{headers:{Accept:'application/json'}}),payload=await r.json().catch(()=>({}));if(!r.ok)throw new Error(payload.error||'Profile unavailable');const p=payload.player||{},name=p.name||roster?.name||'Player';const honors=(payload.honours||[]).map(x=>x.strHonour||x.strHonor||x.strAward||x.strAchievement||x.strName).filter(Boolean).slice(0,12);const media=window.mediaFor?await window.mediaFor('player',name):null;const photo=media&&window.attributedFigure?window.attributedFigure(media,'profile-photo'):'';modalBody.innerHTML=`<div class="profile-hero"><span class="player-avatar large">${pSafe(initials(name))}</span><div><p class="kicker">PLAYERPEDIA</p><h3 id="playerModalTitle">${pSafe(name)}</h3><p class="profile-teamline">${pSafe([p.team||roster?.team,p.position||roster?.position].filter(Boolean).join(' · '))}</p></div></div>${photo}<div class="profile-facts">${facts(p)}</div>${p.description?`<section class="profile-subsection"><h4>Quick bio</h4><p>${pSafe(p.description)}</p></section>`:''}${honors.length?`<section class="profile-subsection"><h4>Honors & awards</h4><div class="profile-tags">${honors.map(h=>`<span>${pSafe(h)}</span>`).join('')}</div></section>`:''}<section class="why-we-know-her"><span>WHY WE KNOW HER</span><strong>${pSafe(name)} belongs in Playerpedia.</strong><p>The deeper editorial story connects here: signature moments, cultural impact, fun facts, Herstory and Trophy Case links.</p></section>`;}catch(e){modalBody.innerHTML=`<div class="error-box"><strong>Full profile details could not load.</strong><span>${pSafe(e.message)}</span></div>`;}}
-playerGrid.addEventListener('click',e=>{const card=e.target.closest('[data-player-id]');if(card)openProfile(card.dataset.playerId);});modalClose.addEventListener('click',()=>modal.close());modal.addEventListener('click',e=>{if(e.target===modal)modal.close();});load();
+
+async function openProfile(id){
+  const roster=allPlayers.find(p=>String(p.id)===String(id));
+  const initialName=roster?.name||'W';
+  modalBody.innerHTML=`<div class="profile-loading"><span class="player-avatar large">${pSafe(initials(initialName))}</span><div><p class="kicker">PLAYERPEDIA</p><h3 id="playerModalTitle">${pSafe(roster?.name||'Loading…')}</h3><p>Loading profile details and reusable media…</p></div></div>`;
+  modal.showModal();
+  try{
+    const [profileResult,mediaResult]=await Promise.allSettled([
+      fetch(`/api/player?id=${encodeURIComponent(id)}`,{headers:{Accept:'application/json'}}).then(async r=>{const payload=await r.json().catch(()=>({}));if(!r.ok)throw new Error(payload.error||'Profile unavailable');return payload;}),
+      window.mediaFor?window.mediaFor('player',initialName):Promise.resolve(null)
+    ]);
+    if(profileResult.status!=='fulfilled')throw profileResult.reason;
+    const payload=profileResult.value,p=payload.player||{},name=p.name||roster?.name||'Player';
+    let media=mediaResult.status==='fulfilled'?mediaResult.value:null;
+    if(name!==initialName&&window.mediaFor)media=await window.mediaFor('player',name);
+    const honors=(payload.honours||[]).map(x=>x.strHonour||x.strHonor||x.strAward||x.strAchievement||x.strName).filter(Boolean).slice(0,12);
+    const photo=media&&window.attributedFigure?window.attributedFigure(media,'profile-photo'):'';
+    modalBody.innerHTML=`<div class="profile-hero"><span class="player-avatar large${media?.image?' has-photo':''}">${media?.image?`<img src="${pSafe(media.image)}" alt="${pSafe(media.alt||name)}" referrerpolicy="no-referrer">`:pSafe(initials(name))}</span><div><p class="kicker">PLAYERPEDIA</p><h3 id="playerModalTitle">${pSafe(name)}</h3><p class="profile-teamline">${pSafe([p.team||roster?.team,p.position||roster?.position].filter(Boolean).join(' · '))}</p></div></div>${photo}<div class="profile-facts">${facts(p)}</div>${p.description?`<section class="profile-subsection"><h4>Quick bio</h4><p>${pSafe(p.description)}</p></section>`:''}${honors.length?`<section class="profile-subsection"><h4>Honors & awards</h4><div class="profile-tags">${honors.map(h=>`<span>${pSafe(h)}</span>`).join('')}</div></section>`:''}<section class="why-we-know-her"><span>WHY WE KNOW HER</span><strong>${pSafe(name)} belongs in Playerpedia.</strong><p>The deeper editorial story connects here: signature moments, cultural impact, fun facts, Herstory and Trophy Case links.</p></section>${media?.image?'<p class="media-license-note">Player photo is shown only when the site can verify a reusable Wikimedia Commons or manually approved license. Credit and license details appear directly beneath the image.</p>':''}`;
+  }catch(e){
+    modalBody.innerHTML=`<div class="error-box"><strong>Full profile details could not load.</strong><span>${pSafe(e.message)}</span></div>`;
+  }
+}
+
+playerGrid.addEventListener('click',e=>{const card=e.target.closest('[data-player-id]');if(card)openProfile(card.dataset.playerId);});
+modalClose.addEventListener('click',()=>modal.close());
+modal.addEventListener('click',e=>{if(e.target===modal)modal.close();});
+load();

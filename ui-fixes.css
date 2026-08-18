@@ -67,7 +67,38 @@
 .team-card-copy small{display:block;color:inherit !important;opacity:.82;font-weight:700;}
 .team-card-arrow{position:absolute;right:18px;bottom:16px;z-index:2;display:grid;place-items:center;width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.92);color:#111 !important;font-size:1.15rem;font-weight:950;}
 
+/* Full live standings */
+.live-heading-row{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;max-width:none;}
+.standings-toggle{display:inline-flex;gap:4px;padding:5px;border-radius:999px;background:#eee8f5;border:1px solid #ded3e6;}
+.standings-toggle button{border:0;background:transparent;color:#4c4357;border-radius:999px;padding:10px 16px;font-weight:900;cursor:pointer;}
+.standings-toggle button.active{background:#140a2f;color:#d8ff4f;box-shadow:0 5px 14px rgba(20,10,47,.16);}
+.standings-card{min-width:0;}
+.standings-card-head{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 20px;border-bottom:1px solid #e7deec;background:#faf7fc;}
+.standings-card-head strong{font-size:1.08rem;}
+.standings-card-head span{color:#6f6879;font-size:.78rem;font-weight:800;}
+.live-table-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;}
+.live-standings-table{min-width:900px;}
+.live-standings-row{display:grid;grid-template-columns:minmax(185px,1.7fr) 45px 45px 62px 55px 68px 68px 68px 72px 62px;align-items:center;min-height:49px;border-top:1px solid #ece7ef;background:#fff;font-size:.83rem;}
+.live-standings-row.head{min-height:42px;background:#140a2f;color:#fff;border-top:0;font-size:.69rem;font-weight:950;letter-spacing:.04em;}
+.live-standings-row>span,.live-standings-row>strong{padding:10px 8px;text-align:center;}
+.live-standings-row>span:first-child{text-align:left;}
+.live-team-cell{display:flex;align-items:center;gap:9px;min-width:0;}
+.live-team-cell strong{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.live-rank{display:inline-grid;place-items:center;width:24px;height:24px;flex:0 0 24px;border-radius:8px;background:#f0e8fb;color:#5c1fc1;font-size:.73rem;}
+.streak-cell,.last-ten-cell{font-weight:850;}
+.conference-stack{display:grid;gap:26px;padding-bottom:6px;}
+.conference-block h3{margin:0;padding:16px 20px 10px;font-size:1.25rem;background:#fff;}
+.conference-block+.conference-block{border-top:8px solid #f3eef7;}
+.standings-footnote{padding:11px 18px;border-top:1px solid #ece7ef;background:#faf7fc;color:#766d80;font-size:.72rem;}
+
+@media(max-width:900px){
+  .live-heading-row{align-items:flex-start;flex-direction:column;}
+  .standings-toggle{align-self:stretch;}
+  .standings-toggle button{flex:1;}
+}
 @media(max-width:640px){
   .team-directory-card{min-height:205px;}
   .team-card-copy strong{font-size:1.4rem;}
+  .standings-card-head{align-items:flex-start;flex-direction:column;gap:3px;}
+  .live-standings-table{min-width:850px;}
 }

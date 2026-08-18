@@ -7,6 +7,14 @@ function seasonLabel() {
   return now.getUTCMonth() >= 6 ? `${year}-${year + 1}` : `${year - 1}-${year}`;
 }
 
+function previousSeasonLabel(season) {
+  const match = String(season).match(/^(\d{4})-(\d{4})$/);
+  if (!match) return season;
+  const start = Number(match[1]) - 1;
+  const end = Number(match[2]) - 1;
+  return `${start}-${end}`;
+}
+
 async function fetchJson(url, apiKey) {
   const response = await fetch(url, {
     headers: {
@@ -29,11 +37,23 @@ async function fetchJson(url, apiKey) {
   return body;
 }
 
+async function fetchSchedule(season, apiKey) {
+  const body = await fetchJson(`${V2_ROOT}/schedule/league/${LEAGUE_ID}/${encodeURIComponent(season)}`, apiKey);
+  return Array.isArray(body.schedule) ? body.schedule : [];
+}
+
 function eventTime(event) {
   const date = event.dateEvent || '';
   const time = event.strTime || '12:00:00';
   const value = Date.parse(`${date}T${time.replace('Z', '')}Z`);
   return Number.isFinite(value) ? value : Date.parse(`${date}T12:00:00Z`);
+}
+
+function seasonHasStarted(schedule, now = Date.now()) {
+  if (!schedule.length) return false;
+  const validTimes = schedule.map(eventTime).filter(Number.isFinite);
+  if (!validTimes.length) return false;
+  return Math.min(...validTimes) <= now;
 }
 
 function normalize(event) {
@@ -56,7 +76,9 @@ module.exports = async function handler(req, res) {
   }
 
   const apiKey = String(process.env.THESPORTSDB_API_KEY || '').trim();
-  const season = String(req.query.season || seasonLabel()).trim();
+  const requestedSeason = req.query.season ? String(req.query.season).trim() : '';
+  const upcomingSeason = requestedSeason || seasonLabel();
+  const priorSeason = previousSeasonLabel(upcomingSeason);
   res.setHeader('Cache-Control', 's-maxage=3600, stale-while-revalidate=7200');
 
   if (!apiKey) {
@@ -64,7 +86,7 @@ module.exports = async function handler(req, res) {
       configured: false,
       source: 'TheSportsDB',
       league: 'NCAA Division I Basketball Women',
-      season,
+      season: upcomingSeason,
       upcoming: [],
       recent: [],
       providerMessage: 'College live-data key is not configured.'
@@ -72,9 +94,21 @@ module.exports = async function handler(req, res) {
   }
 
   try {
-    const body = await fetchJson(`${V2_ROOT}/schedule/league/${LEAGUE_ID}/${encodeURIComponent(season)}`, apiKey);
-    const schedule = Array.isArray(body.schedule) ? body.schedule : [];
     const now = Date.now();
+    let season = upcomingSeason;
+    let schedule = await fetchSchedule(upcomingSeason, apiKey);
+    let showingPriorSeason = false;
+
+    // When no season was explicitly requested, keep the completed season on screen
+    // until the first scheduled game of the new season has actually arrived.
+    if (!requestedSeason && !seasonHasStarted(schedule, now)) {
+      const priorSchedule = await fetchSchedule(priorSeason, apiKey);
+      if (priorSchedule.length) {
+        season = priorSeason;
+        schedule = priorSchedule;
+        showingPriorSeason = true;
+      }
+    }
 
     const upcoming = schedule
       .filter(event => eventTime(event) >= now)
@@ -93,20 +127,24 @@ module.exports = async function handler(req, res) {
       source: 'TheSportsDB',
       league: 'NCAA Division I Basketball Women',
       season,
+      upcomingSeason,
+      showingPriorSeason,
       updatedAt: new Date().toISOString(),
       eventCount: schedule.length,
       upcoming,
       recent,
-      providerMessage: schedule.length
-        ? null
-        : 'The provider has not published a complete college schedule for this season yet.'
+      providerMessage: showingPriorSeason
+        ? `Showing ${season} results until the ${upcomingSeason} season begins.`
+        : schedule.length
+          ? null
+          : 'The provider has not published a complete college schedule for this season yet.'
     });
   } catch (error) {
     return res.status(200).json({
       configured: true,
       source: 'TheSportsDB',
       league: 'NCAA Division I Basketball Women',
-      season,
+      season: upcomingSeason,
       upcoming: [],
       recent: [],
       providerMessage: 'The college schedule feed is temporarily unavailable.',

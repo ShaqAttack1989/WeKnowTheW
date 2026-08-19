@@ -1,0 +1,149 @@
+/* Stable team-page hero: official logo + HTML text only. */
+.team-hero{
+  background:linear-gradient(180deg,#1b1b21 0,#1b1b21 92px,#fffaf0 92px,#fffaf0 100%) !important;
+  color:#17131f !important;
+  padding-bottom:44px !important;
+  overflow:visible !important;
+}
+.team-hero::after,
+.team-hero-stripe,
+.team-hero .city-silhouette,
+#teamSkyline,
+.team-hero-wordmark{
+  display:none !important;
+}
+.team-hero .nav{
+  position:relative;
+  z-index:10;
+  color:#fff;
+}
+.team-hero .nav .brand{color:#fff;}
+.team-hero-inner{
+  position:relative;
+  z-index:2;
+  padding:42px 0 10px !important;
+  display:grid !important;
+  grid-template-columns:minmax(0,1fr) 250px !important;
+  gap:28px !important;
+  align-items:end !important;
+}
+.team-brand-stage{
+  display:grid !important;
+  grid-template-columns:150px minmax(0,1fr) !important;
+  gap:26px !important;
+  align-items:center !important;
+  min-width:0;
+}
+.team-hero-badge-shell{
+  width:150px !important;
+  height:150px !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  padding:16px !important;
+  border-radius:28px !important;
+  background:#fff !important;
+  border:2px solid color-mix(in srgb,var(--team-primary) 42%,#ddd) !important;
+  box-shadow:0 14px 32px rgba(20,10,47,.12) !important;
+}
+.team-hero-badge{
+  width:100% !important;
+  height:100% !important;
+  max-width:100% !important;
+  max-height:100% !important;
+  object-fit:contain !important;
+  filter:none !important;
+}
+.team-hero-badge-fallback{
+  width:100%;
+  height:100%;
+  display:grid;
+  place-items:center;
+  border-radius:18px;
+  background:var(--team-primary);
+  color:#fff !important;
+  font-size:2rem !important;
+  font-weight:950;
+}
+.team-hero-copy{
+  min-width:0;
+  padding:0 !important;
+}
+.team-hero-copy .eyebrow{
+  margin:0 0 8px !important;
+  color:var(--team-primary) !important;
+  font-size:.78rem !important;
+  font-weight:950 !important;
+  letter-spacing:.12em !important;
+  line-height:1.25 !important;
+}
+.team-hero-copy h1,
+.team-hero-wordmark:not([hidden]) + h1{
+  margin:0 0 12px !important;
+  max-width:800px !important;
+  color:#17131f !important;
+  font-size:clamp(2.4rem,5vw,4.6rem) !important;
+  font-style:normal !important;
+  font-weight:950 !important;
+  letter-spacing:-.045em !important;
+  line-height:.98 !important;
+  text-transform:uppercase !important;
+  text-shadow:none !important;
+  overflow-wrap:anywhere;
+}
+.team-hero-copy p{
+  margin:0 !important;
+  max-width:680px !important;
+  color:#5c5564 !important;
+  font-size:1rem !important;
+  line-height:1.55 !important;
+}
+.team-hero .page-crumbs{
+  margin-top:18px !important;
+  display:flex !important;
+  gap:8px !important;
+  align-items:center !important;
+  flex-wrap:wrap !important;
+  color:#655d6e !important;
+  line-height:1.35 !important;
+}
+.team-hero .page-crumbs a{color:var(--team-primary) !important;font-weight:900;}
+.team-snapshot{
+  align-self:end;
+  background:#fff !important;
+  border:1px solid #e4dce8 !important;
+  box-shadow:0 14px 32px rgba(20,10,47,.09) !important;
+}
+
+@media(max-width:900px){
+  .team-hero-inner{grid-template-columns:1fr !important;}
+  .team-snapshot{max-width:360px;}
+}
+@media(max-width:640px){
+  .team-hero{
+    background:linear-gradient(180deg,#1b1b21 0,#1b1b21 84px,#fffaf0 84px,#fffaf0 100%) !important;
+    padding-bottom:34px !important;
+  }
+  .team-hero-inner{padding-top:30px !important;gap:22px !important;}
+  .team-brand-stage{
+    grid-template-columns:96px minmax(0,1fr) !important;
+    gap:16px !important;
+    align-items:start !important;
+  }
+  .team-hero-badge-shell{
+    width:96px !important;
+    height:96px !important;
+    border-radius:20px !important;
+    padding:9px !important;
+  }
+  .team-hero-badge-fallback{font-size:1.35rem !important;border-radius:14px;}
+  .team-hero-copy .eyebrow{font-size:.68rem !important;margin-bottom:6px !important;}
+  .team-hero-copy h1,
+  .team-hero-wordmark:not([hidden]) + h1{
+    font-size:clamp(1.8rem,8.5vw,2.8rem) !important;
+    line-height:1 !important;
+    margin-bottom:9px !important;
+  }
+  .team-hero-copy p{font-size:.9rem !important;line-height:1.45 !important;}
+  .team-hero .page-crumbs{margin-top:14px !important;font-size:.82rem !important;gap:6px !important;}
+}

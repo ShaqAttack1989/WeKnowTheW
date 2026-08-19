@@ -75,7 +75,12 @@ const hierarchyMap = {
   '/locker-room.html': { parent: 'The W Vault', parentHref: '/w-vault.html', current: 'The Locker Room' },
   '/class-is-in-session.html': { parent: 'Who Got Next?', parentHref: '/who-got-next.html', current: 'Class Is in Session' },
   '/the-call-up.html': { parent: 'Who Got Next?', parentHref: '/who-got-next.html', current: 'The Call Up' },
-  '/expansion-watch.html': { parent: 'Who Got Next?', parentHref: '/who-got-next.html', current: 'Expansion Watch' }
+  '/expansion-watch.html': { parent: 'Who Got Next?', parentHref: '/who-got-next.html', current: 'Expansion Watch' },
+  '/cleveland-sirens.html': { parent: 'Expansion Watch', parentHref: '/expansion-watch.html', current: 'Cleveland Sirens' },
+  '/detroit-expansion.html': { parent: 'Expansion Watch', parentHref: '/expansion-watch.html', current: 'Detroit 2029' },
+  '/philadelphia-expansion.html': { parent: 'Expansion Watch', parentHref: '/expansion-watch.html', current: 'Philadelphia 2030' },
+  '/expansion-draft-101.html': { parent: 'Expansion Watch', parentHref: '/expansion-watch.html', current: 'Expansion Draft 101' },
+  '/past-expansion-waves.html': { parent: 'Expansion Watch', parentHref: '/expansion-watch.html', current: 'Past Expansion Waves' }
 };
 
 const pageHierarchy = hierarchyMap[location.pathname];

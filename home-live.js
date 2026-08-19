@@ -1,9 +1,40 @@
 function liveSafe(value=''){return String(value).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;');}
 
+const EASTERN_TIME_ZONE='America/New_York';
 function formatPct(value){return Number.isFinite(Number(value)) ? Number(value).toFixed(3) : '—';}
 function formatGb(value){const number=Number(value);if(!Number.isFinite(number)||number===0)return '—';return Number.isInteger(number)?String(number):number.toFixed(1);}
-function formatGameDate(value){if(!value)return '';const date=new Date(`${value}T12:00:00`);return Number.isNaN(date.getTime())?value:date.toLocaleDateString([],{month:'short',day:'numeric'});}
-function formatGameTime(value){if(!value)return '';const match=String(value).match(/^(\d{1,2}):(\d{2})/);if(!match)return value;let hour=Number(match[1]);const minute=match[2];const suffix=hour>=12?'PM':'AM';hour=hour%12||12;return `${hour}:${minute} ${suffix} ET`;}
+
+// TheSportsDB schedule date/time fields are UTC. Always combine them first,
+// then convert the instant to Eastern Time so both the clock time and date rollover are correct.
+function gameDateTime(game={}){
+  const direct=String(game.startTimeUtc||game.timestamp||'').trim();
+  if(direct){const parsed=new Date(direct);if(!Number.isNaN(parsed.getTime()))return parsed;}
+  const date=String(game.date||'').trim();
+  const rawTime=String(game.time||'').trim();
+  if(date&&rawTime){
+    const hasZone=/Z$|[+-]\d{2}:?\d{2}$/i.test(rawTime);
+    const parsed=new Date(`${date}T${rawTime}${hasZone?'':'Z'}`);
+    if(!Number.isNaN(parsed.getTime()))return parsed;
+  }
+  if(date){const parsed=new Date(`${date}T12:00:00Z`);if(!Number.isNaN(parsed.getTime()))return parsed;}
+  return null;
+}
+function formatGameDate(game={}){
+  const date=gameDateTime(game);
+  if(!date)return game.date||'';
+  return new Intl.DateTimeFormat('en-US',{timeZone:EASTERN_TIME_ZONE,month:'short',day:'numeric'}).format(date);
+}
+function formatGameTime(game={}){
+  const date=gameDateTime(game);
+  if(!date||!game.time)return '';
+  const time=new Intl.DateTimeFormat('en-US',{timeZone:EASTERN_TIME_ZONE,hour:'numeric',minute:'2-digit'}).format(date);
+  return `${time} ET`;
+}
+function formatEasternUpdatedAt(value){
+  const date=new Date(value);
+  if(Number.isNaN(date.getTime()))return '';
+  return new Intl.DateTimeFormat('en-US',{timeZone:EASTERN_TIME_ZONE,hour:'numeric',minute:'2-digit'}).format(date);
+}
 function validFinalGame(game){const home=Number(game?.homeScore),away=Number(game?.awayScore);return Number.isFinite(home)&&Number.isFinite(away)&&home!==away;}
 
 function standingsTable(items=[],rankKey='overall_rank'){
@@ -21,12 +52,12 @@ function conferenceMarkup(conferences={}){
 function pastGamesMarkup(items=[]){
   const finals=items.filter(validFinalGame);
   if(!finals.length)return '<div class="home-result"><strong>No completed games yet.</strong><span>Games move here only after a real final score is posted.</span></div>';
-  return finals.slice(0,8).map(game=>`<article class="home-result"><span>${liveSafe(formatGameDate(game.date)||'Completed game')}</span><strong>${liveSafe(game.awayTeam||'TBD')} ${game.awayScore}–${game.homeScore} ${liveSafe(game.homeTeam||'TBD')}</strong><span>Completed</span></article>`).join('');
+  return finals.slice(0,8).map(game=>`<article class="home-result"><span>${liveSafe(formatGameDate(game)||'Completed game')}</span><strong>${liveSafe(game.awayTeam||'TBD')} ${game.awayScore}–${game.homeScore} ${liveSafe(game.homeTeam||'TBD')}</strong><span>Completed</span></article>`).join('');
 }
 
 function upcomingGamesMarkup(items=[]){
   if(!items.length)return '<div class="home-result"><strong>No upcoming games returned.</strong><span>The next scheduled matchup will appear here when the feed publishes it.</span></div>';
-  return items.slice(0,8).map(game=>`<article class="home-result"><span>${liveSafe(formatGameDate(game.date))}${game.time?` · ${liveSafe(formatGameTime(game.time))}`:''}</span><strong>${liveSafe(game.awayTeam||'TBD')} @ ${liveSafe(game.homeTeam||'TBD')}</strong><span>${liveSafe(game.venue||'Scheduled')}</span></article>`).join('');
+  return items.slice(0,8).map(game=>`<article class="home-result"><span>${liveSafe(formatGameDate(game))}${game.time?` · ${liveSafe(formatGameTime(game))}`:''}</span><strong>${liveSafe(game.awayTeam||'TBD')} @ ${liveSafe(game.homeTeam||'TBD')}</strong><span>${liveSafe(game.venue||'Scheduled')}</span></article>`).join('');
 }
 
 let livePayload=null;
@@ -88,7 +119,8 @@ async function loadHomeLive(){
     livePayload=payload;
     renderLiveStandings();
     renderGamePanel();
-    status.textContent=payload.fullSeasonAccess?`Live via independent feed • updated ${new Date(payload.updatedAt).toLocaleTimeString([], {hour:'numeric',minute:'2-digit'})}`:'Independent feed connected';
+    const updated=formatEasternUpdatedAt(payload.updatedAt);
+    status.textContent=payload.fullSeasonAccess?`Live via independent feed${updated?` • updated ${updated} ET`:''}`:'Independent feed connected';
   }catch(error){
     table.innerHTML='<div class="card-pad"><strong>Live standings could not load.</strong><p>Try again shortly.</p></div>';
     results.innerHTML='<div class="home-result"><strong>Game schedule unavailable.</strong></div>';

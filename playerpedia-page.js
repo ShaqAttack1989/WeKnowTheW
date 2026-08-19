@@ -1,5 +1,7 @@
 function pSafe(v=''){return String(v).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;').replaceAll("'",'&#039;');}
 function initials(name=''){return String(name).trim().split(/\s+/).filter(Boolean).slice(0,2).map(x=>x[0]?.toUpperCase()||'').join('')||'W';}
+function playerPhoto(player={}){const direct=[player.photo,player.photoThumb,player.headshot].find(value=>/^https?:\/\//i.test(String(value||'').trim()));if(direct)return String(direct).trim();const id=String(player.espnId||'').replace(/[^0-9]/g,'');return id?`https://a.espncdn.com/i/headshots/wnba/players/full/${id}.png`:'';}
+function avatarMarkup(player={},large=false){const photo=playerPhoto(player),name=player.name||'Player',classes=`player-avatar photo-avatar${large?' large':''}`;return `<span class="${classes}" aria-hidden="true"><span class="player-avatar-fallback">${pSafe(initials(name))}</span>${photo?`<img class="player-avatar-image" src="${pSafe(photo)}" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.remove()">`:''}</span>`;}
 function prettyDate(value=''){if(!value)return '';const date=new Date(`${String(value).slice(0,10)}T12:00:00`);return Number.isNaN(date.getTime())?value:date.toLocaleDateString([],{month:'short',day:'numeric'});}
 function playerKey(value=''){return String(value).normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]/g,'');}
 function hasMetric(value){return value!==null&&value!==undefined&&String(value).trim()!==''&&Number.isFinite(Number(value));}
@@ -36,7 +38,7 @@ function filtered(){const q=playerSearch.value.trim().toLowerCase(),team=playerT
 function render(){
   const list=filtered();
   playerCount.textContent=`${list.length} ${list.length===1?'player':'players'} shown`;
-  playerGrid.innerHTML=list.length?list.map(p=>`<button class="player-card" type="button" data-player-id="${pSafe(p.id)}"><span class="player-avatar curated-avatar" aria-hidden="true">${pSafe(initials(p.name))}</span><span class="player-card-copy"><span class="player-card-topline">${pSafe(p.position||'Player')}${p.number?` · #${pSafe(p.number)}`:''}</span><strong>${pSafe(p.name)}</strong><span>${pSafe(p.team||'Current roster')}</span></span><span class="player-card-arrow">→</span></button>`).join(''):'<div class="player-empty"><strong>No players match those filters.</strong><span>Try another letter, team or search.</span></div>';
+  playerGrid.innerHTML=list.length?list.map(p=>`<button class="player-card" type="button" data-player-id="${pSafe(p.id)}">${avatarMarkup(p)}<span class="player-card-copy"><span class="player-card-topline">${pSafe(p.position||'Player')}${p.number?` · #${pSafe(p.number)}`:''}</span><strong>${pSafe(p.name)}</strong><span>${pSafe(p.team||'Current roster')}</span></span><span class="player-card-arrow">→</span></button>`).join(''):'<div class="player-empty"><strong>No players match those filters.</strong><span>Try another letter, team or search.</span></div>';
 }
 
 function fillTeams(){playerTeamFilter.innerHTML=['<option value="">All current teams</option>',...teams.map(t=>`<option value="${pSafe(t.id)}">${pSafe(t.name)}</option>`)].join('');}
@@ -84,7 +86,8 @@ async function load(){
     if(wantedTeam){const option=[...playerTeamFilter.options].find(item=>item.textContent.trim().toLowerCase()===wantedTeam.trim().toLowerCase());if(option)playerTeamFilter.value=option.value;}
     render();
     const partialText=payload.partial?' · some roster feeds retrying later':'';
-    status.textContent=`${allPlayers.length} current players · curated visuals only · ${advancedFeedReady?'live PER + TS% connected':'advanced metrics retrying'}${partialText}`;
+    const photoCount=allPlayers.filter(player=>playerPhoto(player)).length;
+    status.textContent=`${allPlayers.length} current players · ${photoCount} player photos connected · ${advancedFeedReady?'live PER + TS% connected':'advanced metrics retrying'}${partialText}`;
   }catch(e){
     playerGrid.innerHTML=`<div class="error-box"><strong>Playerpedia roster feed could not load.</strong><span>${pSafe(e.message)}</span></div>`;
     if(transactionFeed)transactionFeed.innerHTML='<div class="wire-row"><strong>Player movement feed unavailable.</strong></div>';
@@ -149,7 +152,7 @@ function metricsMarkup(name){
 async function openProfile(id){
   const roster=allPlayers.find(p=>String(p.id)===String(id));
   const initialName=roster?.name||'W';
-  modalBody.innerHTML=`<div class="profile-loading"><span class="player-avatar large curated-avatar">${pSafe(initials(initialName))}</span><div><p class="kicker">PLAYERPEDIA</p><h3 id="playerModalTitle">${pSafe(roster?.name||'Loading…')}</h3><p>Loading profile details and advanced metrics…</p></div></div>`;
+  modalBody.innerHTML=`<div class="profile-loading">${avatarMarkup(roster||{name:initialName},true)}<div><p class="kicker">PLAYERPEDIA</p><h3 id="playerModalTitle">${pSafe(roster?.name||'Loading…')}</h3><p>Loading profile details and advanced metrics…</p></div></div>`;
   modal.showModal();
 
   let payload={player:roster||{},honours:[],milestones:[]};
@@ -166,6 +169,9 @@ async function openProfile(id){
   const p={...(roster||{}),...(payload.player||{})};
   if(roster?.team)p.team=roster.team;
   if(roster?.position)p.position=roster.position;
+  if(roster?.espnId&&!p.espnId)p.espnId=roster.espnId;
+  if(roster?.photo&&!p.photo)p.photo=roster.photo;
+  if(roster?.photoThumb&&!p.photoThumb)p.photoThumb=roster.photoThumb;
   const name=p.name||roster?.name||'Player';
   const honors=(payload.honours||[]).map(itemText).filter(Boolean).slice(0,12);
   const liveNote=roster?.liveNote?`<section class="profile-subsection live-profile-note"><h4>Current roster note</h4><p>${pSafe(roster.liveNote)}</p></section>`:'';
@@ -175,7 +181,7 @@ async function openProfile(id){
   const refreshedText=refreshed&&!Number.isNaN(refreshed.getTime())?` Last refreshed ${refreshed.toLocaleString([],{month:'short',day:'numeric',hour:'numeric',minute:'2-digit'})}.`:'';
   const statNote=advancedFeedReady?`<p class="why-source">2026 PER and TS% refresh automatically through the We Know the W advanced-stats API backed by Basketball-Reference.${pSafe(refreshedText)}</p>`:'<p class="why-source">Advanced metrics are temporarily unavailable and will repopulate automatically when the stats API reconnects.</p>';
 
-  modalBody.innerHTML=`<div class="profile-hero"><span class="player-avatar large curated-avatar" aria-hidden="true">${pSafe(initials(name))}</span><div><p class="kicker">PLAYERPEDIA</p><h3 id="playerModalTitle">${pSafe(name)}</h3><p class="profile-teamline">${pSafe([p.team||roster?.team,p.position||roster?.position].filter(Boolean).join(' · '))}</p></div></div><div class="profile-facts">${facts(p)}</div>${liveNote}${p.description?`<section class="profile-subsection"><h4>Quick bio</h4><p>${pSafe(p.description)}</p></section>`:''}${honors.length?`<section class="profile-subsection"><h4>Honors & awards</h4><div class="profile-tags">${honors.map(h=>`<span>${pSafe(h)}</span>`).join('')}</div></section>`:''}<section class="why-we-know-her"><span>WHY WE KNOW HER</span><strong>${pSafe(name)} · the numbers + the story.</strong>${metricsMarkup(name)}<div class="amazing-fact"><span>AMAZING FACT</span><p>${pSafe(fact)}</p></div>${statNote}</section>${detailsNote}`;
+  modalBody.innerHTML=`<div class="profile-hero">${avatarMarkup({...p,name},true)}<div><p class="kicker">PLAYERPEDIA</p><h3 id="playerModalTitle">${pSafe(name)}</h3><p class="profile-teamline">${pSafe([p.team||roster?.team,p.position||roster?.position].filter(Boolean).join(' · '))}</p></div></div><div class="profile-facts">${facts(p)}</div>${liveNote}${p.description?`<section class="profile-subsection"><h4>Quick bio</h4><p>${pSafe(p.description)}</p></section>`:''}${honors.length?`<section class="profile-subsection"><h4>Honors & awards</h4><div class="profile-tags">${honors.map(h=>`<span>${pSafe(h)}</span>`).join('')}</div></section>`:''}<section class="why-we-know-her"><span>WHY WE KNOW HER</span><strong>${pSafe(name)} · the numbers + the story.</strong>${metricsMarkup(name)}<div class="amazing-fact"><span>AMAZING FACT</span><p>${pSafe(fact)}</p></div>${statNote}</section>${detailsNote}`;
 }
 
 playerGrid.addEventListener('click',e=>{const card=e.target.closest('[data-player-id]');if(card)openProfile(card.dataset.playerId);});

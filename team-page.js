@@ -5,22 +5,41 @@ const params=new URLSearchParams(location.search);
 const slug=params.get('team')||'';
 const team=teamBySlug(slug);
 
+const TEAM_HEADER_POSITIONS={
+  'atlanta-dream':['0%','0%'],
+  'chicago-sky':['33.333%','0%'],
+  'connecticut-sun':['66.667%','0%'],
+  'dallas-wings':['100%','0%'],
+  'golden-state-valkyries':['0%','33.333%'],
+  'indiana-fever':['33.333%','33.333%'],
+  'las-vegas-aces':['66.667%','33.333%'],
+  'los-angeles-sparks':['100%','33.333%'],
+  'minnesota-lynx':['0%','66.667%'],
+  'new-york-liberty':['33.333%','66.667%'],
+  'phoenix-mercury':['66.667%','66.667%'],
+  'portland-fire':['100%','66.667%'],
+  'seattle-storm':['0%','100%'],
+  'toronto-tempo':['33.333%','100%'],
+  'washington-mystics':['66.667%','100%']
+};
+
+function applyHeaderBackdrop(){
+  const backdrop=document.getElementById('teamHeaderBackdrop');
+  const position=TEAM_HEADER_POSITIONS[slug];
+  if(!backdrop||!position)return;
+  backdrop.style.setProperty('--team-backdrop-x',position[0]);
+  backdrop.style.setProperty('--team-backdrop-y',position[1]);
+}
+
 function applyOfficialTeamArtwork(asset){
   const badge=document.getElementById('teamHeroBadge');
   const badgeFallback=document.getElementById('teamHeroBadgeFallback');
-  const wordmark=document.getElementById('teamHeroWordmark');
   if(asset?.badge){
     badge.src=asset.badge;
     badge.alt=`${team.name} official logo`;
     badge.hidden=false;
     badgeFallback.hidden=true;
     badge.onerror=()=>{badge.hidden=true;badgeFallback.hidden=false;};
-  }
-  if(asset?.logo){
-    wordmark.src=asset.logo;
-    wordmark.alt=`${team.name} official wordmark`;
-    wordmark.hidden=false;
-    wordmark.onerror=()=>{wordmark.hidden=true;};
   }
 }
 
@@ -40,13 +59,13 @@ if(!team){
   hero.style.setProperty('--team-secondary',team.secondary);
   hero.style.setProperty('--team-accent',team.accent);
   hero.style.setProperty('--team-text',team.text);
+  applyHeaderBackdrop();
   document.title=`${team.name} | Around the W`;
   document.getElementById('teamName').textContent=team.name;
   document.getElementById('teamIntro').textContent=`${team.city} · current season, roster, history and culture in one franchise home.`;
   document.getElementById('teamCrumb').textContent=team.name;
   document.getElementById('teamTag').textContent=team.tag;
   document.getElementById('teamHeroBadgeFallback').textContent=team.tag;
-  document.getElementById('teamSkyline').innerHTML=skylineSvg(team.skyline);
   document.getElementById('rosterHeading').textContent=`${team.name} roster`;
   document.getElementById('teamPlayerpediaLink').href=`/playerpedia.html?team=${encodeURIComponent(team.name)}`;
   if(team.note)document.getElementById('teamSeasonNote').textContent=`${team.note}. Live record and roster information refresh automatically from the independent data feed.`;

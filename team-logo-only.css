@@ -1,9 +1,10 @@
-/* Stable team-page hero: official logo + HTML text only. */
+/* Stable team-page hero: official logo + HTML text with approved custom graphic as a backdrop. */
 .team-hero{
   background:linear-gradient(180deg,#1b1b21 0,#1b1b21 92px,#fffaf0 92px,#fffaf0 100%) !important;
   color:#17131f !important;
   padding-bottom:44px !important;
-  overflow:visible !important;
+  overflow:hidden !important;
+  isolation:isolate;
 }
 .team-hero::after,
 .team-hero-stripe,
@@ -18,6 +19,32 @@
   color:#fff;
 }
 .team-hero .nav .brand{color:#fff;}
+
+/* The exact custom team graphic lives here — in the upper-right header area. */
+.team-header-backdrop{
+  position:absolute;
+  z-index:0;
+  top:92px;
+  right:0;
+  width:min(58vw,880px);
+  aspect-ratio:16/9;
+  background-image:url('/assets/team-posters/team-cards-sprite.webp?v=20260819-header-backdrop-v2');
+  background-repeat:no-repeat;
+  background-size:400% 400%;
+  background-position:var(--team-backdrop-x,0%) var(--team-backdrop-y,0%);
+  opacity:.52;
+  filter:saturate(.95) contrast(1.03);
+  pointer-events:none;
+  -webkit-mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.22) 13%,rgba(0,0,0,.78) 35%,#000 58%,#000 100%);
+  mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.22) 13%,rgba(0,0,0,.78) 35%,#000 58%,#000 100%);
+}
+.team-header-backdrop::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg,rgba(255,250,240,.04),rgba(255,250,240,.12));
+}
+
 .team-hero-inner{
   position:relative;
   z-index:2;
@@ -42,7 +69,7 @@
   justify-content:center !important;
   padding:16px !important;
   border-radius:28px !important;
-  background:#fff !important;
+  background:rgba(255,255,255,.96) !important;
   border:2px solid color-mix(in srgb,var(--team-primary) 42%,#ddd) !important;
   box-shadow:0 14px 32px rgba(20,10,47,.12) !important;
 }
@@ -68,6 +95,15 @@
 .team-hero-copy{
   min-width:0;
   padding:0 !important;
+  position:relative;
+}
+.team-hero-copy::before{
+  content:"";
+  position:absolute;
+  z-index:-1;
+  inset:-18px -26px -18px -22px;
+  background:linear-gradient(90deg,rgba(255,250,240,.96) 0%,rgba(255,250,240,.90) 68%,rgba(255,250,240,0) 100%);
+  border-radius:24px;
 }
 .team-hero-copy .eyebrow{
   margin:0 0 8px !important;
@@ -109,13 +145,16 @@
 }
 .team-hero .page-crumbs a{color:var(--team-primary) !important;font-weight:900;}
 .team-snapshot{
+  position:relative;
+  z-index:3;
   align-self:end;
-  background:#fff !important;
+  background:rgba(255,255,255,.96) !important;
   border:1px solid #e4dce8 !important;
   box-shadow:0 14px 32px rgba(20,10,47,.09) !important;
 }
 
 @media(max-width:900px){
+  .team-header-backdrop{width:min(72vw,720px);opacity:.38;}
   .team-hero-inner{grid-template-columns:1fr !important;}
   .team-snapshot{max-width:360px;}
 }
@@ -123,6 +162,14 @@
   .team-hero{
     background:linear-gradient(180deg,#1b1b21 0,#1b1b21 84px,#fffaf0 84px,#fffaf0 100%) !important;
     padding-bottom:34px !important;
+  }
+  .team-header-backdrop{
+    top:84px;
+    right:-10%;
+    width:110%;
+    opacity:.20;
+    -webkit-mask-image:linear-gradient(180deg,#000 0%,rgba(0,0,0,.78) 58%,transparent 100%);
+    mask-image:linear-gradient(180deg,#000 0%,rgba(0,0,0,.78) 58%,transparent 100%);
   }
   .team-hero-inner{padding-top:30px !important;gap:22px !important;}
   .team-brand-stage{
@@ -137,6 +184,7 @@
     padding:9px !important;
   }
   .team-hero-badge-fallback{font-size:1.35rem !important;border-radius:14px;}
+  .team-hero-copy::before{inset:-12px -18px -12px -14px;}
   .team-hero-copy .eyebrow{font-size:.68rem !important;margin-bottom:6px !important;}
   .team-hero-copy h1,
   .team-hero-wordmark:not([hidden]) + h1{

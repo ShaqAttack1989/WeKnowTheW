@@ -1,1 +1,17 @@
-window.TEAM_POSTER_DATA={"atlanta-dream":"data:image/webp;base64,UklGRuQeAABXRUJQVlA4INgeAACQgwCdASosAakAPrlOn0qnJCKkrVVdkOAXCWhtGPTl5HNNIBaB8n5z9nf03Bq1z5YXRfm8/0Hqk/TfsBf4foeeZH+jf6z1mvSN/bvUA/wHUz/4f/r+yP5d/s5f3X/qemFp2fZj0Y+V+QbdF9z+bC15/heGt4e/KD/V9Qj2p5+X2venAC/T/7D50X13nf/Nf6jzU+P+/B/9j2BP5P/o/SH01fYq9V76LVOivleLi6tZ6esvvHx6lmqf6uA9FcGAyza8cuV7DrpQIGfSpIbeofgTHtu1RYvhwpd4tLzyJ9qz0KNyzwT1MugYjpmfexRtm4uJdh5tK5x1xlqUHihcK90QqSGL4C3M8I1Z+GTwhvRUMY3N68bsajnllV0rLYqMz39kUuKUwG/LiW4x+0T998sqSgz8Tn0c+Eqyj8J2qfa1H7c0BdF0JVZzOaq6IJJKBhglqS/7vvd5W6e8C/c5RioUzytDXHm39eDC6vxOivuiSyYOg3OIgbuqjMHiDun7Hb8v2qc/7RGMKssgB7peWb30caDQAmjuI4J0JUiTS4TCa2TkraFG3tw9yQqZQeSpqngKLyD7ffV9nJhNk2V3HqwppQqezcTvYk5pI9uQf2xiw1E5ZsTsJQq/mpPaEy3TzX3RaYWNhOsAaUumO8tYICqzdoW/3kafjeKcPbg3sAmHDMQLIhzE/L4ciY+UPTwlvr1PP6JNFaoD37rZLLMOwGlK0Dif0hFOasSLo4cwPXGyN+I4ITNk6bdx5zXEbruUy6c1r9Mkghvz8SY2BwWmcmpjeZUIuzoH3uuINQKLlg606Whw+VxWfZADbdbAGOSWkKBj6bPlWv8CNM8Cjuw07OAJBX99WkVxy5917x42ytdbzidtNLXIF69ac3zPbAlERAqUnBuzDF0iNNLNVhUbC+Vi3gDZXz6soZpCPpqNYzAwV/K35lPcVhsWIcDUvrSNVjOlftFooGS37rK11wYBWgP3X0AH1KBQ38TqGt5KDPb5CHkc3BMnhg7NkVUS7oqb/non/JKoJDtM63jhZRKMhSEaHSw7bn3S+VMnc3pn2JHHYJDLrMSzvZE6NI/nrOO4/eR6rQZjO5BalmV9umlBS1to4EazcN7uo0jTosydz0FCDVet3b1svDG1vgWTrEuXpB/RVXs7Bgx4H6bW7VUXWluPkBBQXWhwqBzbpf//1dv//7K7ud8v/+4cJWbznDDRmal58dDdyjODg8o/P6c78O6bQMbnxLnTgywixb8Xp2n/Jb/4vtn/fTHWqVYp8S5DrNEr91A2vyL/mC5PmrjeLlk1Rn/Ij+lx6e9lD22rWIvwu/J+xA8cQulbYeGfEAgQEgikbG6nJWgUuBpXEHLXv3ObV2mpnfiOd20p3ivm1OQz+pM+HH3aVQLUTkEuRTr7IdKBrDiwAAD++TlJsSxO7OThfkGyNiPODA0206ooXe4e1w9ay7h9q+QhEI+FlzuqO6qV7FkB4ZudlIiUFjnmjMO3RQxZI5iQWca/UWkqOKmlcBRR3mlC04F9CXSkSbOmeear5RUXQCrEszAUY6QQhN84EY+EhcSzN3uC7DLckMaTiNXAzIzI+4PDVnMuPQvyJUjeu8JSx9Y+rOPXES7cRlRgZAPIHd5Z9FP4CkUdTGlvpUvTpJ1hH7tQmYOebA5W871FEy51oq/AGfrQgbAMCtlaLqokQ0dkRaJMw9ZpvHb5wt0d9tqnmY7Aqps4PuQS7bYcGg1jmi2ypECaqrwVhMzwr‡^¶»§q«^
+window.TEAM_POSTER_DATA={
+  "atlanta-dream":"/assets/team-posters-final/atlanta-dream.webp?v=20260818j",
+  "chicago-sky":"/assets/team-posters-final/chicago-sky.webp?v=20260818j",
+  "connecticut-sun":"/assets/team-posters-final/connecticut-sun.webp?v=20260818j",
+  "dallas-wings":"/assets/team-posters-final/dallas-wings.webp?v=20260818j",
+  "golden-state-valkyries":"/assets/team-posters-final/golden-state-valkyries.webp?v=20260818j",
+  "indiana-fever":"/assets/team-posters-final/indiana-fever.webp?v=20260818j",
+  "las-vegas-aces":"/assets/team-posters-final/las-vegas-aces.webp?v=20260818j",
+  "los-angeles-sparks":"/assets/team-posters-final/los-angeles-sparks.webp?v=20260818j",
+  "minnesota-lynx":"/assets/team-posters-final/minnesota-lynx.webp?v=20260818j",
+  "new-york-liberty":"/assets/team-posters-final/new-york-liberty.webp?v=20260818j",
+  "phoenix-mercury":"/assets/team-posters-final/phoenix-mercury.webp?v=20260818j",
+  "portland-fire":"/assets/team-posters-final/portland-fire.webp?v=20260818j",
+  "seattle-storm":"/assets/team-posters-final/seattle-storm.webp?v=20260818j",
+  "toronto-tempo":"/assets/team-posters-final/toronto-tempo.webp?v=20260818j",
+  "washington-mystics":"/assets/team-posters-final/washington-mystics.webp?v=20260818j"
+};

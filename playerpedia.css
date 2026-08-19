@@ -124,6 +124,31 @@
   letter-spacing: -.03em;
   transform: rotate(-2deg);
 }
+.player-avatar.photo-avatar{
+  position:relative;
+  overflow:hidden;
+  transform:none;
+  background:linear-gradient(145deg,var(--purple),#3c1385);
+}
+.player-avatar-fallback{
+  position:absolute;
+  inset:0;
+  display:grid;
+  place-items:center;
+  color:var(--lime);
+  font-weight:950;
+  letter-spacing:-.03em;
+}
+.player-avatar-image{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center 18%;
+  display:block;
+  background:#eee9f3;
+}
 .player-avatar.large {
   width: 82px;
   height: 82px;

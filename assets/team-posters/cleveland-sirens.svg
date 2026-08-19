@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+<title id="title">Cleveland Sirens team card</title>
+<desc id="desc">Black, white and lake-blue Cleveland skyline poster with a Sirens crest, large Cleveland Sirens wordmark and Hear the Call tagline.</desc>
+<defs>
+  <linearGradient id="sky" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#05090f"/><stop offset=".48" stop-color="#aab5bf"/><stop offset="1" stop-color="#eef4f7"/></linearGradient>
+  <linearGradient id="water" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#06152c"/><stop offset=".5" stop-color="#0d4fa3"/><stop offset="1" stop-color="#66bceb"/></linearGradient>
+  <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="16" stdDeviation="14" flood-color="#000" flood-opacity=".45"/></filter>
+  <filter id="glow"><feGaussianBlur stdDeviation="9" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+</defs>
+<rect width="1600" height="900" fill="#02060b"/>
+<path d="M0 0h720L340 900H0z" fill="#000"/>
+<path d="M300 0h1300v900H520z" fill="url(#sky)" opacity=".96"/>
+<!-- brush streaks -->
+<path d="M0 115C265 5 430 38 790 0L575 110C350 135 180 180 0 250z" fill="#0d4fa3" opacity=".86"/>
+<path d="M0 215C250 130 420 142 685 90L475 207C292 235 155 278 0 342z" fill="#66bceb" opacity=".68"/>
+<path d="M0 706C265 618 492 605 790 658L610 735C345 704 165 766 0 834z" fill="#0d4fa3" opacity=".82"/>
+<path d="M605 786C1010 725 1300 745 1600 642v258H515z" fill="#000" opacity=".94"/>
+<path d="M563 824C981 755 1318 797 1600 706v72c-284 82-589 52-978 112z" fill="#66bceb"/>
+<!-- Cleveland skyline -->
+<g fill="#151b22" opacity=".92">
+ <rect x="530" y="370" width="96" height="308"/><rect x="645" y="310" width="70" height="368"/>
+ <rect x="736" y="243" width="95" height="435"/><polygon points="755,243 783,202 812,243"/>
+ <rect x="850" y="340" width="90" height="338"/><rect x="960" y="295" width="110" height="383"/>
+ <rect x="1090" y="380" width="120" height="298"/><rect x="1235" y="330" width="88" height="348"/>
+ <rect x="1340" y="414" width="150" height="264"/>
+</g>
+<g stroke="#e9f4fb" stroke-width="5" opacity=".52">
+ <line x1="783" y1="202" x2="783" y2="135"/><line x1="783" y1="135" x2="790" y2="85"/>
+</g>
+<!-- bridge -->
+<g fill="none" stroke="#20262d" stroke-width="12" opacity=".82"><path d="M1090 568H1600"/><path d="M1160 568v110M1280 568v110M1400 568v110M1520 568v110"/><path d="M1115 560Q1280 425 1445 560Q1510 505 1580 560"/></g>
+<!-- crest -->
+<g transform="translate(70 135)" filter="url(#shadow)">
+ <path d="M285 12L430 75L505 220L482 426L286 540L88 426L65 220L140 75z" fill="#06152c" stroke="#fff" stroke-width="16"/>
+ <path d="M285 24L420 82L491 224L468 414L286 518L102 414L80 224L150 84z" fill="none" stroke="#66bceb" stroke-width="11"/>
+ <!-- five-point lake crown -->
+ <path d="M128 188L172 79L230 160L286 39L342 160L401 78L447 189L365 170L286 206L207 170z" fill="#66bceb" stroke="#fff" stroke-width="9"/>
+ <!-- flowing siren hair -->
+ <path d="M181 250C137 293 123 350 164 408C168 350 212 349 231 311C197 365 205 430 263 470C237 405 272 380 286 343C300 381 335 405 309 470C367 430 374 365 341 311C360 349 404 350 408 408C449 350 435 293 391 250C362 220 329 206 286 205C243 206 210 220 181 250z" fill="#0d4fa3" stroke="#66bceb" stroke-width="8"/>
+ <!-- face -->
+ <path d="M235 241Q286 205 337 241L327 318Q313 352 286 363Q259 352 245 318z" fill="#f7fbff" stroke="#06152c" stroke-width="8"/>
+ <path d="M252 273l25 7M320 273l-25 7M270 329q16 10 32 0" stroke="#06152c" stroke-width="8" stroke-linecap="round"/>
+ <!-- basketball -->
+ <circle cx="286" cy="408" r="72" fill="#66bceb" stroke="#fff" stroke-width="10"/>
+ <path d="M214 408h144M286 336v144M235 351q64 57 102 114M337 351q-64 57-102 114" fill="none" stroke="#06152c" stroke-width="8"/>
+</g>
+<!-- identity typography -->
+<g transform="translate(700 318) skewX(-8)">
+ <text x="0" y="0" font-family="Impact,Arial Black,sans-serif" font-size="128" letter-spacing="3" fill="#05070a" stroke="#f7fbff" stroke-width="5" paint-order="stroke">CLEVELAND</text>
+ <text x="-30" y="162" font-family="Impact,Arial Black,sans-serif" font-size="184" letter-spacing="1" fill="#0d4fa3" stroke="#e9f4fb" stroke-width="7" paint-order="stroke">SIRENS</text>
+</g>
+<g transform="translate(875 595)">
+ <line x1="0" y1="18" x2="80" y2="18" stroke="#66bceb" stroke-width="6"/>
+ <text x="102" y="34" font-family="Arial Black,Arial,sans-serif" font-size="44" letter-spacing="13" fill="#66bceb">HEAR THE CALL</text>
+ <line x1="505" y1="18" x2="585" y2="18" stroke="#66bceb" stroke-width="6"/>
+</g>
+<text x="1035" y="846" font-family="Arial Black,Arial,sans-serif" font-size="38" letter-spacing="22" fill="#fff">WNBA</text>
+</svg>

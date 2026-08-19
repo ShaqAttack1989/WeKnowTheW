@@ -1,6 +1,11 @@
 const LEAGUE_ID = 4516;
 const V2_ROOT = 'https://www.thesportsdb.com/api/v2/json';
 const liveUpdates = require('../player-live-updates.json');
+const {
+  getWnbaRosters,
+  getWnbaInjuries,
+  getWnbaTransactions
+} = require('../lib/wehoop-espn');
 
 async function fetchV2(path, apiKey) {
   const response = await fetch(`${V2_ROOT}${path}`, {
@@ -52,7 +57,7 @@ function creativeCommonsApproved(value = '') {
 }
 
 function key(value = '') {
-  return String(value).toLowerCase().replace(/[^a-z0-9]/g, '');
+  return String(value).normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]/g, '');
 }
 
 function staffLike(position = '') {
@@ -87,8 +92,47 @@ function normalizePlayer(player, team) {
     photoCutout: approvedArtwork ? cutout : '',
     photoCreativeCommons: approvedArtwork ? (creativeCommons || 'Yes') : '',
     photoSource: photo ? 'TheSportsDB' : '',
-    photoSourceUrl: photo ? `https://www.thesportsdb.com/player/${id}` : ''
+    photoSourceUrl: photo ? `https://www.thesportsdb.com/player/${id}` : '',
+    dataSources: ['TheSportsDB']
   };
+}
+
+function normalizeEspnPlayer(player, teamIdByName) {
+  const name = player.name || '';
+  const { firstName, lastName } = splitName(name);
+  return {
+    id: `espn-${player.id}`,
+    espnId: String(player.id || ''),
+    name,
+    firstName: player.firstName || firstName,
+    lastName: player.lastName || lastName,
+    teamId: teamIdByName.get(key(player.team)) || String(player.teamId || ''),
+    team: player.team || '',
+    position: player.position || '',
+    number: player.number || '',
+    nationality: '',
+    birthDate: '',
+    height: player.height || '',
+    weight: player.weight || '',
+    photo: '',
+    photoThumb: '',
+    photoCutout: '',
+    photoCreativeCommons: '',
+    photoSource: '',
+    photoSourceUrl: '',
+    dataSources: ['SportsDataverse/WeHoop ESPN bridge'],
+    espnRosterFallback: true
+  };
+}
+
+function mergePlayerRecord(base, supplement) {
+  const merged = { ...base };
+  for (const field of ['team', 'teamId', 'position', 'number', 'height', 'weight', 'firstName', 'lastName']) {
+    if (!merged[field] && supplement[field]) merged[field] = supplement[field];
+  }
+  if (!merged.espnId && supplement.espnId) merged.espnId = supplement.espnId;
+  merged.dataSources = [...new Set([...(base.dataSources || []), ...(supplement.dataSources || [])])];
+  return merged;
 }
 
 function applyCuratedLayer(players, normalizedTeams) {
@@ -159,11 +203,73 @@ function applyCuratedLayer(players, normalizedTeams) {
       curated: true,
       liveStatus: override.status || 'active',
       liveEffectiveDate: override.effectiveDate || '',
-      liveNote: override.reason || ''
+      liveNote: override.reason || '',
+      dataSources: ['Curated public-source correction']
     });
   }
 
   return curated;
+}
+
+function transactionWireItem(item) {
+  return {
+    date: item.date || '',
+    type: String(item.type || 'TRANSACTION').toUpperCase(),
+    player: item.name || 'Player',
+    team: item.team || item.fromTeam || 'WNBA',
+    detail: item.description || [item.fromTeam, item.team].filter(Boolean).join(' → ') || 'Roster update',
+    source: item.source || 'SportsDataverse/WeHoop ESPN bridge'
+  };
+}
+
+function mergeTransactions(curated = [], espn = []) {
+  const combined = [
+    ...curated.map(item => ({ ...item, source: item.source || 'Curated public-source correction' })),
+    ...espn.map(transactionWireItem)
+  ];
+  const seen = new Set();
+  return combined
+    .sort((a, b) => String(b.date || '').localeCompare(String(a.date || '')))
+    .filter(item => {
+      const signature = `${String(item.date).slice(0, 10)}|${key(item.player)}|${key(item.detail)}`;
+      if (seen.has(signature)) return false;
+      seen.add(signature);
+      return true;
+    });
+}
+
+function injuryWireItem(item) {
+  const rawStatus = String(item.status || '').trim().toUpperCase();
+  const status = rawStatus === 'OUT' ? 'OUT'
+    : rawStatus.includes('SEASON') ? 'OUT FOR SEASON'
+      : rawStatus.includes('DAY') || rawStatus.includes('QUESTION') ? 'DAY TO DAY'
+        : rawStatus || 'STATUS';
+  const reasonParts = [item.injury, item.shortComment].filter(Boolean);
+  return {
+    player: item.name,
+    team: item.team || 'WNBA',
+    status,
+    reason: reasonParts.join(' · ') || item.longComment || 'Availability update',
+    updated: item.date || '',
+    returnDate: item.returnDate || '',
+    source: item.source || 'SportsDataverse/WeHoop ESPN bridge'
+  };
+}
+
+function mergeInjuries(curated = [], espn = []) {
+  const byPlayer = new Map();
+  for (const item of curated) {
+    if (!item?.player) continue;
+    byPlayer.set(key(item.player), { ...item, source: item.source || 'Curated public-source correction' });
+  }
+  for (const raw of espn) {
+    const item = injuryWireItem(raw);
+    if (!item.player) continue;
+    const playerKey = key(item.player);
+    const existing = byPlayer.get(playerKey);
+    if (!existing || String(item.updated || '') >= String(existing.updated || '')) byPlayer.set(playerKey, item);
+  }
+  return [...byPlayer.values()];
 }
 
 module.exports = async function handler(req, res) {
@@ -173,75 +279,126 @@ module.exports = async function handler(req, res) {
   }
 
   const apiKey = String(process.env.THESPORTSDB_API_KEY || '').trim();
-  res.setHeader('Cache-Control', 's-maxage=1800, stale-while-revalidate=7200');
+  const season = 2026;
+  res.setHeader('Cache-Control', 's-maxage=900, stale-while-revalidate=3600');
 
-  if (!apiKey) {
-    return res.status(503).json({
-      error: 'TheSportsDB production key is not configured.',
-      source: 'TheSportsDB'
-    });
-  }
+  const providerErrors = [];
+  let sportsDbTeams = [];
+  let sportsDbPlayers = [];
+  let sportsDbFailedRosters = 0;
 
-  try {
-    const teamBody = await fetchV2(`/list/teams/${LEAGUE_ID}`, apiKey);
-    const teams = firstArray(teamBody, ['teams', 'list', 'data'])
-      .filter(team => team && (team.idTeam || team.id) && (team.strTeam || team.name));
+  if (apiKey) {
+    try {
+      const teamBody = await fetchV2(`/list/teams/${LEAGUE_ID}`, apiKey);
+      const teams = firstArray(teamBody, ['teams', 'list', 'data'])
+        .filter(team => team && (team.idTeam || team.id) && (team.strTeam || team.name));
 
-    if (!teams.length) {
-      return res.status(502).json({
-        error: 'TheSportsDB returned no WNBA teams for Playerpedia.',
-        source: 'TheSportsDB'
-      });
-    }
-
-    const normalizedTeams = teams
-      .map(team => ({
+      sportsDbTeams = teams.map(team => ({
         id: String(team.idTeam || team.id),
         name: team.strTeam || team.name
-      }))
-      .sort((a, b) => a.name.localeCompare(b.name));
+      }));
 
-    const rosterResults = await Promise.allSettled(
-      teams.map(async team => {
-        const teamId = team.idTeam || team.id;
-        const body = await fetchV2(`/list/players/${encodeURIComponent(teamId)}`, apiKey);
-        const roster = firstArray(body, ['players', 'player', 'list', 'data']);
-        return roster.map(player => normalizePlayer(player, team));
-      })
-    );
-
-    const rawPlayers = rosterResults
-      .filter(result => result.status === 'fulfilled')
-      .flatMap(result => result.value)
-      .filter(player => player.id && player.name);
-
-    const layeredPlayers = applyCuratedLayer(rawPlayers, normalizedTeams);
-    const uniquePlayers = [...new Map(layeredPlayers.map(player => [key(player.name), player])).values()]
-      .sort((a, b) =>
-        a.lastName.localeCompare(b.lastName) ||
-        a.firstName.localeCompare(b.firstName)
+      const rosterResults = await Promise.allSettled(
+        teams.map(async team => {
+          const teamId = team.idTeam || team.id;
+          const body = await fetchV2(`/list/players/${encodeURIComponent(teamId)}`, apiKey);
+          const roster = firstArray(body, ['players', 'player', 'list', 'data']);
+          return roster.map(player => normalizePlayer(player, team));
+        })
       );
 
-    const failedRosters = rosterResults.filter(result => result.status === 'rejected').length;
+      sportsDbPlayers = rosterResults
+        .filter(result => result.status === 'fulfilled')
+        .flatMap(result => result.value)
+        .filter(player => player.id && player.name);
+      sportsDbFailedRosters = rosterResults.filter(result => result.status === 'rejected').length;
+    } catch (error) {
+      providerErrors.push({ source: 'TheSportsDB', message: error.message, status: error.status || null });
+    }
+  }
 
-    return res.status(200).json({
-      source: 'TheSportsDB + curated public-source roster corrections',
-      leagueId: LEAGUE_ID,
-      updatedAt: new Date().toISOString(),
-      liveUpdatesUpdatedAt: liveUpdates.updatedAt || null,
-      teams: normalizedTeams,
-      players: uniquePlayers,
-      playerCount: uniquePlayers.length,
-      transactions: Array.isArray(liveUpdates.transactions) ? liveUpdates.transactions : [],
-      injuries: Array.isArray(liveUpdates.injuries) ? liveUpdates.injuries : [],
-      partial: failedRosters > 0,
-      failedRosters
-    });
-  } catch (error) {
+  let espnRosterData = { teams: [], players: [], failedRosters: 0 };
+  let espnInjuries = [];
+  let espnTransactions = [];
+
+  const [rostersResult, injuriesResult, transactionsResult] = await Promise.allSettled([
+    getWnbaRosters(season),
+    getWnbaInjuries(),
+    getWnbaTransactions(season, 250)
+  ]);
+
+  if (rostersResult.status === 'fulfilled') espnRosterData = rostersResult.value;
+  else providerErrors.push({ source: 'SportsDataverse/WeHoop ESPN rosters', message: rostersResult.reason?.message || 'Roster fetch failed' });
+
+  if (injuriesResult.status === 'fulfilled') espnInjuries = injuriesResult.value;
+  else providerErrors.push({ source: 'SportsDataverse/WeHoop ESPN injuries', message: injuriesResult.reason?.message || 'Injury fetch failed' });
+
+  if (transactionsResult.status === 'fulfilled') espnTransactions = transactionsResult.value;
+  else providerErrors.push({ source: 'SportsDataverse/WeHoop ESPN transactions', message: transactionsResult.reason?.message || 'Transaction fetch failed' });
+
+  const teamMap = new Map();
+  for (const team of sportsDbTeams) teamMap.set(key(team.name), team);
+  for (const team of espnRosterData.teams || []) {
+    if (!teamMap.has(key(team.name))) teamMap.set(key(team.name), { id: `espn-${team.id}`, name: team.name });
+  }
+  const normalizedTeams = [...teamMap.values()].sort((a, b) => a.name.localeCompare(b.name));
+  const teamIdByName = new Map(normalizedTeams.map(team => [key(team.name), team.id]));
+
+  const playersByName = new Map();
+  for (const player of sportsDbPlayers) playersByName.set(key(player.name), player);
+  for (const raw of espnRosterData.players || []) {
+    const player = normalizeEspnPlayer(raw, teamIdByName);
+    const playerKey = key(player.name);
+    const existing = playersByName.get(playerKey);
+    playersByName.set(playerKey, existing ? mergePlayerRecord(existing, player) : player);
+  }
+
+  const layeredPlayers = applyCuratedLayer([...playersByName.values()], normalizedTeams);
+  const uniquePlayers = [...new Map(layeredPlayers.map(player => [key(player.name), player])).values()]
+    .sort((a, b) => a.lastName.localeCompare(b.lastName) || a.firstName.localeCompare(b.firstName));
+
+  const transactions = mergeTransactions(
+    Array.isArray(liveUpdates.transactions) ? liveUpdates.transactions : [],
+    espnTransactions
+  );
+  const injuries = mergeInjuries(
+    Array.isArray(liveUpdates.injuries) ? liveUpdates.injuries : [],
+    espnInjuries
+  );
+  const updatedAt = new Date().toISOString();
+  const failedRosters = sportsDbFailedRosters + Number(espnRosterData.failedRosters || 0);
+
+  if (!uniquePlayers.length) {
     return res.status(502).json({
-      error: error.message,
-      status: error.status || null,
-      source: 'TheSportsDB'
+      error: 'No roster provider returned usable WNBA players.',
+      source: 'TheSportsDB + SportsDataverse/WeHoop ESPN bridge',
+      providerErrors
     });
   }
+
+  return res.status(200).json({
+    source: 'TheSportsDB + SportsDataverse/WeHoop ESPN bridge + curated public-source corrections',
+    sources: ['TheSportsDB', 'SportsDataverse/WeHoop ESPN bridge', 'Curated public-source corrections'],
+    leagueId: LEAGUE_ID,
+    updatedAt,
+    liveUpdatesUpdatedAt: updatedAt,
+    curatedUpdatesUpdatedAt: liveUpdates.updatedAt || null,
+    teams: normalizedTeams,
+    players: uniquePlayers,
+    playerCount: uniquePlayers.length,
+    transactions,
+    injuries,
+    injuryCount: injuries.length,
+    transactionCount: transactions.length,
+    wehoopCoverage: {
+      rosterPlayers: (espnRosterData.players || []).length,
+      rosterTeams: (espnRosterData.teams || []).length,
+      injuries: espnInjuries.length,
+      transactions: espnTransactions.length
+    },
+    partial: failedRosters > 0 || providerErrors.length > 0,
+    failedRosters,
+    providerErrors,
+    artworkPolicy: 'ESPN/WeHoop roster data may fill identity and roster metadata, but site artwork remains restricted to the existing approved image policy.'
+  });
 };

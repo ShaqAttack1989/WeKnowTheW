@@ -1,18 +1,18 @@
 const FINAL_BUZZER_UPDATED='Aug 19, 2026';
 
-const confirmedRetirements=[];
-
-const retirementWatch=[
+const confirmedRetirements=[
   {
     player:'Nneka Ogwumike',
     team:'Los Angeles Sparks',
-    season:'2026?',
-    status:'Watch · not yet officially confirmed',
-    note:'Her one-year return to Los Angeles has fueled final-season speculation, but an explicit retirement announcement was not verified in the current official league/team sources or recent coverage checked for this archive.',
-    source:'https://ca.sports.yahoo.com/news/dewanna-bonner-more-wnba-veterans-172751930.html',
-    sourceLabel:'Yahoo Sports · veterans who may be in a final season'
+    season:'2026',
+    status:'Confirmed final season',
+    note:'Ogwumike announced that she will retire at the end of the 2026 WNBA season, closing a Hall-of-Fame-caliber career that includes the 2016 MVP award, a WNBA championship and years of leadership as WNBPA president.',
+    source:'https://www.silverscreenandroll.com/los-angeles-sparks-wnba/125272/nneka-ogwumike-la-sparks-retire-announcement',
+    sourceLabel:'Retirement announcement coverage'
   }
 ];
+
+const retirementWatch=[];
 
 const retiredLegends=[
   {name:'Sue Bird',year:'2022',team:'Seattle Storm',fact:'Retired after a 21-year WNBA career spent entirely with Seattle; four-time WNBA champion and the league’s all-time assists leader.',source:'https://sports.yahoo.com/sue-bird-vs-diana-taurasi-191546050.html'},
@@ -50,7 +50,7 @@ function esc(v=''){return String(v).replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&l
 function renderRetirementWatch(){
   const host=document.getElementById('lastDanceGrid');
   if(!host)return;
-  const confirmed=confirmedRetirements.map(item=>`<article class="retirement-card confirmed"><span class="retirement-pill">Confirmed final season</span><h3>${esc(item.player)}</h3><div class="meta">${esc(item.team)} · ${esc(item.season)}</div><p>${esc(item.note)}</p><a class="source-link" href="${esc(item.source)}" target="_blank" rel="noopener">Source →</a></article>`).join('');
+  const confirmed=confirmedRetirements.map(item=>`<article class="retirement-card confirmed"><span class="retirement-pill">${esc(item.status||'Confirmed final season')}</span><h3>${esc(item.player)}</h3><div class="meta">${esc(item.team)} · ${esc(item.season)}</div><p>${esc(item.note)}</p><a class="source-link" href="${esc(item.source)}" target="_blank" rel="noopener">${esc(item.sourceLabel||'Source')} →</a></article>`).join('');
   const watches=retirementWatch.map(item=>`<article class="retirement-card watch"><span class="retirement-pill">${esc(item.status)}</span><h3>${esc(item.player)}</h3><div class="meta">${esc(item.team)} · ${esc(item.season)}</div><p>${esc(item.note)}</p><a class="source-link" href="${esc(item.source)}" target="_blank" rel="noopener">${esc(item.sourceLabel)} →</a></article>`).join('');
   host.innerHTML=(confirmed||'')+(watches||'')||'<article class="retirement-card"><h3>No current announcements</h3><p>When an active player announces a final season, she will appear here.</p></article>';
 }

@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-18T13:18:00Z",
+  "updatedAt": "2026-08-19T11:53:44Z",
   "note": "Curated current-player movement layer used to correct stale third-party roster data. This file is designed to be refreshed regularly without using a WNBA-owned API.",
   "rosterOverrides": [
     {"name":"Betnijah Laney-Hamilton","team":"Washington Mystics","position":"Guard-Forward","status":"active","effectiveDate":"2026-08-08","reason":"Claimed off waivers after New York release."},
@@ -25,8 +25,9 @@
     {"date":"2026-07-31","type":"TRADE","player":"Aneesah Morrow","team":"Toronto Tempo","detail":"Acquired from Connecticut for the rights to Maria Kliundikova and a 2028 second-round pick."}
   ],
   "injuries": [
-    {"player":"Leonie Fiebich","team":"New York Liberty","status":"DAY TO DAY","reason":"Foot","updated":"2026-08-18"},
-    {"player":"Satou Sabally","team":"New York Liberty","status":"DAY TO DAY","reason":"Concussion protocol","updated":"2026-08-18"},
+    {"player":"Jonquel Jones","team":"New York Liberty","status":"OUT","reason":"Left ankle; exited Aug. 18 game vs. Chicago and did not return, with further evaluation pending.","updated":"2026-08-19"},
+    {"player":"Leonie Fiebich","team":"New York Liberty","status":"OUT","reason":"Foot; remained out for Aug. 18 game vs. Chicago.","updated":"2026-08-19"},
+    {"player":"Satou Sabally","team":"New York Liberty","status":"OUT","reason":"Lingering concussion recovery; temporarily away from the team and remained out Aug. 18.","updated":"2026-08-19"},
     {"player":"Sydney Taylor","team":"Chicago Sky","status":"DAY TO DAY","reason":"Groin","updated":"2026-08-18"},
     {"player":"Azura Stevens","team":"Chicago Sky","status":"DAY TO DAY","reason":"Personal","updated":"2026-08-18"},
     {"player":"Skylar Diggins","team":"Chicago Sky","status":"OUT","reason":"Knee","updated":"2026-07-14"},
@@ -38,6 +39,8 @@
   "sources": [
     {"label":"CBS Sports WNBA injuries","url":"https://www.cbssports.com/wnba/injuries/"},
     {"label":"Basketball Reference 2026 transactions","url":"https://www.basketball-reference.com/wnba/years/2026_transactions.html"},
-    {"label":"UPSHOT League","url":"https://upshotleague.com/"}
+    {"label":"UPSHOT League","url":"https://upshotleague.com/"},
+    {"label":"New York Post — Jonquel Jones ankle injury, Aug. 19","url":"https://nypost.com/2026/08/19/sports/jonquel-jones-exits-loss-with-ankle-injury-in-liberty-concern/"},
+    {"label":"New York Post — Satou Sabally concussion recovery, Aug. 13","url":"https://nypost.com/2026/08/13/sports/satou-sabally-stepping-away-from-liberty-for-a-little-bit/"}
   ]
 }

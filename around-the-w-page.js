@@ -1,69 +1,54 @@
 function safe(v=''){return String(v).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;').replaceAll("'",'&#039;');}
 function norm(v=''){return String(v).toLowerCase().replace(/[^a-z0-9]/g,'');}
 
-const POSTER_VERSION='20260819-approved-posters-v6';
-const posterCache=new Map();
-function posterUrl(slug,ext='webp'){return `/assets/team-posters/${encodeURIComponent(slug)}.${ext}?v=${POSTER_VERSION}`;}
+const SPRITE_URL='/assets/team-posters/team-cards-sprite.webp?v=20260819-hq-v1';
+const SPRITE_POSITIONS={
+  'atlanta-dream':[0,0],
+  'chicago-sky':[1,0],
+  'connecticut-sun':[2,0],
+  'dallas-wings':[3,0],
+  'golden-state-valkyries':[0,1],
+  'indiana-fever':[1,1],
+  'las-vegas-aces':[2,1],
+  'los-angeles-sparks':[3,1],
+  'minnesota-lynx':[0,2],
+  'new-york-liberty':[1,2],
+  'phoenix-mercury':[2,2],
+  'portland-fire':[3,2],
+  'seattle-storm':[0,3],
+  'toronto-tempo':[1,3],
+  'washington-mystics':[2,3],
+  'cleveland-sirens':[3,3]
+};
 
 function standingsMarkup(items=[]){
   if(!items.length)return '<div style="padding:24px"><strong>Standings are temporarily unavailable.</strong></div>';
   return `<div class="standing-row head"><span>#</span><span>Team</span><span>W</span><span>L</span><span>PCT</span></div>${items.map((item,i)=>`<div class="standing-row"><span class="rank">${item.playoff_seed||i+1}</span><span class="team-name">${safe(item.team?.full_name||'Unknown')}</span><strong>${item.wins??'—'}</strong><strong>${item.losses??'—'}</strong><span>${Number.isFinite(Number(item.win_percentage))?Number(item.win_percentage).toFixed(3):'—'}</span></div>`).join('')}`;
 }
 
-async function resolveApprovedPoster(url){
-  if(posterCache.has(url))return posterCache.get(url);
-  const promise=(async()=>{
-    const response=await fetch(url,{cache:'force-cache'});
-    if(!response.ok)throw new Error(`Poster unavailable (${response.status})`);
-
-    // These approved poster files were originally written to GitHub as base64 text.
-    // Read them explicitly as text so the browser never tries to decode that text as raw WebP bytes.
-    const text=(await response.text()).replace(/\s+/g,'').trim();
-    if(/^UklGR[A-Za-z0-9+/=]+$/.test(text))return `data:image/webp;base64,${text}`;
-    if(/^iVBOR[A-Za-z0-9+/=]+$/.test(text))return `data:image/png;base64,${text}`;
-    if(/^\/9j\/[A-Za-z0-9+/=]+$/.test(text))return `data:image/jpeg;base64,${text}`;
-    throw new Error('Saved poster is not a recognized encoded image');
-  })();
-  posterCache.set(url,promise);
-  return promise;
+function spriteArt(slug,name,tag){
+  const [col,row]=SPRITE_POSITIONS[slug]||[0,0];
+  return `<span class="team-sprite-fallback" aria-hidden="true"><b>${safe(tag)}</b><strong>${safe(name)}</strong></span>
+    <span class="team-sprite-window" aria-hidden="true">
+      <img class="team-sprite-sheet" src="${SPRITE_URL}" alt="" loading="lazy" decoding="async" style="--sprite-col:${col};--sprite-row:${row}" onerror="this.closest('.team-directory-card')?.classList.add('sprite-load-error')">
+    </span>`;
 }
 
 function posterCard(team,record){
   const recordText=record?`${record.wins}-${record.losses}`:'2026';
   const pct=record&&Number.isFinite(Number(record.win_percentage))?Number(record.win_percentage).toFixed(3):'Season';
-  return `<a class="team-directory-card team-poster-card poster-ready approved-local-poster" href="/team.html?team=${encodeURIComponent(team.slug)}" style="--team-primary:${team.primary};--team-secondary:${team.secondary};--team-accent:${team.accent};--team-text:${team.text}" aria-label="Open ${safe(team.name)} team page">
-    <span class="poster-local-fallback" aria-hidden="true"><b>${safe(team.tag)}</b><strong>${safe(team.name)}</strong></span>
-    <img class="team-poster-img" data-approved-poster="${safe(posterUrl(team.slug))}" alt="${safe(team.name)} custom We Know the W team graphic" loading="lazy" decoding="async">
+  return `<a class="team-directory-card team-sprite-card" href="/team.html?team=${encodeURIComponent(team.slug)}" style="--team-primary:${team.primary};--team-secondary:${team.secondary};--team-accent:${team.accent};--team-text:${team.text}" aria-label="Open ${safe(team.name)} team page">
+    ${spriteArt(team.slug,team.name,team.tag)}
     <div class="team-poster-footer"><span>${recordText}</span><span>${safe(team.note||`${pct} win percentage`)}</span><b>→</b></div>
   </a>`;
 }
 
 function clevelandPreviewCard(){
   return `<div class="directory-expansion-label"><span>EXPANSION PREVIEW</span><strong>Next stop: Cleveland · 2028</strong></div>
-  <a class="team-directory-card team-poster-card poster-ready approved-local-poster expansion-preview-card" href="/cleveland-sirens.html" style="--team-primary:#0D4FA3;--team-secondary:#06152C;--team-accent:#66BCEB;--team-text:#FFFFFF" aria-label="Open Cleveland Sirens expansion page">
-    <span class="poster-local-fallback" aria-hidden="true"><b>CLE</b><strong>Cleveland Sirens</strong></span>
-    <img class="team-poster-img" src="/assets/team-posters/cleveland-sirens.svg?v=20260819-cleveland-v2" alt="Cleveland Sirens custom We Know the W team graphic" loading="lazy" decoding="async">
+  <a class="team-directory-card team-sprite-card expansion-preview-card" href="/cleveland-sirens.html" style="--team-primary:#0D4FA3;--team-secondary:#06152C;--team-accent:#66BCEB;--team-text:#FFFFFF" aria-label="Open Cleveland Sirens expansion page">
+    ${spriteArt('cleveland-sirens','Cleveland Sirens','CLE')}
     <div class="team-poster-footer"><span>2028</span><span>Expansion team · Hear the Call</span><b>→</b></div>
   </a>`;
-}
-
-async function hydrateApprovedPosters(root){
-  const images=[...root.querySelectorAll('img[data-approved-poster]')];
-  await Promise.allSettled(images.map(async img=>{
-    const url=img.dataset.approvedPoster;
-    if(!url)return;
-    try{
-      img.src=await resolveApprovedPoster(url);
-      img.addEventListener('load',()=>img.closest('.team-directory-card')?.classList.add('poster-loaded'),{once:true});
-      img.addEventListener('error',()=>{
-        img.hidden=true;
-        img.closest('.team-directory-card')?.classList.add('poster-load-error');
-      },{once:true});
-    }catch{
-      img.hidden=true;
-      img.closest('.team-directory-card')?.classList.add('poster-load-error');
-    }
-  }));
 }
 
 function renderDirectory(records=[]){
@@ -74,7 +59,6 @@ function renderDirectory(records=[]){
     return posterCard(team,record);
   }).join('');
   grid.innerHTML=currentCards+clevelandPreviewCard();
-  hydrateApprovedPosters(grid);
 }
 
 async function loadAround(){
@@ -88,7 +72,7 @@ async function loadAround(){
     const standings=Array.isArray(payload.standings)?payload.standings:[];
     table.innerHTML=standingsMarkup(standings);
     renderDirectory(standings);
-    status.textContent=payload.fullSeasonAccess?'Live standings • approved custom team graphics':'Independent data feed connected';
+    status.textContent=payload.fullSeasonAccess?'Live standings • approved high-resolution team graphics':'Independent data feed connected';
   }catch(error){
     table.innerHTML='<div style="padding:24px"><strong>Live standings are temporarily unavailable.</strong><p>The team directory still works.</p></div>';
     renderDirectory();

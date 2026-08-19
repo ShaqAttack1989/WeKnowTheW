@@ -2,15 +2,32 @@ function pSafe(v=''){return String(v).replaceAll('&','&amp;').replaceAll('<','&l
 function initials(name=''){return String(name).trim().split(/\s+/).filter(Boolean).slice(0,2).map(x=>x[0]?.toUpperCase()||'').join('')||'W';}
 function prettyDate(value=''){if(!value)return '';const date=new Date(`${String(value).slice(0,10)}T12:00:00`);return Number.isNaN(date.getTime())?value:date.toLocaleDateString([],{month:'short',day:'numeric'});}
 function playerKey(value=''){return String(value).normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]/g,'');}
-function formatTs(value=''){const n=Number(value);if(!Number.isFinite(n))return '—';return `${(n<=1?n*100:n).toFixed(1)}%`;}
+function hasMetric(value){return value!==null&&value!==undefined&&String(value).trim()!==''&&Number.isFinite(Number(value));}
+function formatTs(value=''){if(!hasMetric(value))return '—';const n=Number(value);return `${(Math.abs(n)<=1?n*100:n).toFixed(1)}%`;}
 function compactText(value='',limit=210){const clean=String(value||'').replace(/\s+/g,' ').trim();if(!clean)return '';if(clean.length<=limit)return clean;const cut=clean.slice(0,limit);return `${cut.slice(0,Math.max(cut.lastIndexOf(' '),limit-25)).trim()}…`;}
 function itemText(item={}){return item.strMilestone||item.strAchievement||item.strHonour||item.strHonor||item.strAward||item.strName||item.strDescription||item.description||'';}
+function normalizeText(value=''){return String(value||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,' ').replace(/\s+/g,' ').trim();}
+function contentWords(value=''){const stop=new Set(['the','and','for','with','from','that','this','was','were','has','have','had','her','she','his','their','into','wnba','player','basketball']);return new Set(normalizeText(value).split(' ').filter(word=>word.length>3&&!stop.has(word)));}
+function overlapsBio(candidate,bio){
+  const c=normalizeText(candidate),b=normalizeText(bio);
+  if(!c||!b)return false;
+  if(b.includes(c))return true;
+  const cw=contentWords(candidate);
+  if(!cw.size)return false;
+  return String(bio).split(/(?<=[.!?])\s+/).some(sentence=>{
+    const sw=contentWords(sentence);
+    if(!sw.size)return false;
+    let shared=0;cw.forEach(word=>{if(sw.has(word))shared+=1;});
+    return shared/Math.min(cw.size,sw.size)>=0.72;
+  });
+}
 
 const azGrid=document.getElementById('azGrid'),playerGrid=document.getElementById('playerGrid'),playerSearch=document.getElementById('playerSearch'),playerTeamFilter=document.getElementById('playerTeamFilter'),reset=document.getElementById('resetPlayerFilters'),playerCount=document.getElementById('playerCount'),status=document.getElementById('playerStatus'),modal=document.getElementById('playerModal'),modalBody=document.getElementById('playerModalBody'),modalClose=document.getElementById('playerModalClose');
 const liveRosterCount=document.getElementById('liveRosterCount'),liveRosterUpdated=document.getElementById('liveRosterUpdated'),transactionFeed=document.getElementById('transactionFeed'),injuryFeed=document.getElementById('injuryFeed'),movementUpdated=document.getElementById('movementUpdated'),injuryUpdated=document.getElementById('injuryUpdated');
 let allPlayers=[],teams=[],letter='';
 let advancedByName=new Map();
 let advancedFeedReady=false;
+let advancedUpdatedAt='';
 const letters='ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
 azGrid.innerHTML=['<button type="button" class="active" data-letter="">All</button>',...letters.map(l=>`<button type="button" data-letter="${l}">${l}</button>`)].join('');
 
@@ -53,10 +70,12 @@ async function load(){
     if(advancedResult.status==='fulfilled'){
       const metrics=Array.isArray(advancedResult.value.players)?advancedResult.value.players:[];
       advancedByName=new Map(metrics.map(item=>[playerKey(item.name),item]));
-      advancedFeedReady=true;
+      advancedFeedReady=metrics.length>0;
+      advancedUpdatedAt=advancedResult.value.updatedAt||'';
     }else{
       advancedByName=new Map();
       advancedFeedReady=false;
+      advancedUpdatedAt='';
     }
     fillTeams();
     renderPlayerWire(payload);
@@ -65,7 +84,7 @@ async function load(){
     if(wantedTeam){const option=[...playerTeamFilter.options].find(item=>item.textContent.trim().toLowerCase()===wantedTeam.trim().toLowerCase());if(option)playerTeamFilter.value=option.value;}
     render();
     const partialText=payload.partial?' · some roster feeds retrying later':'';
-    status.textContent=`${allPlayers.length} current players · curated visuals only · ${advancedFeedReady?'PER + TS% connected':'advanced metrics retrying'}${partialText}`;
+    status.textContent=`${allPlayers.length} current players · curated visuals only · ${advancedFeedReady?'live PER + TS% connected':'advanced metrics retrying'}${partialText}`;
   }catch(e){
     playerGrid.innerHTML=`<div class="error-box"><strong>Playerpedia roster feed could not load.</strong><span>${pSafe(e.message)}</span></div>`;
     if(transactionFeed)transactionFeed.innerHTML='<div class="wire-row"><strong>Player movement feed unavailable.</strong></div>';
@@ -81,21 +100,48 @@ reset.addEventListener('click',()=>{letter='';playerSearch.value='';playerTeamFi
 
 function facts(player){return [['Jersey',player.number?`#${player.number}`:''],['Born',player.birthDate],['From',player.birthPlace],['Nationality',player.nationality],['Height',player.height],['College',player.college]].filter(x=>x[1]).map(([l,v])=>`<div class="profile-fact"><span>${pSafe(l)}</span><strong>${pSafe(v)}</strong></div>`).join('');}
 
+function uniqueFactCandidate(candidates=[],bio=''){
+  for(const candidate of candidates.map(compactText).filter(Boolean)){
+    if(!overlapsBio(candidate,bio))return candidate;
+  }
+  return '';
+}
+
+function statsFact(name){
+  const row=advancedByName.get(playerKey(name));
+  if(!row)return '';
+  const per=hasMetric(row.per)?Number(row.per):null;
+  const ts=hasMetric(row.tsPct)?formatTs(row.tsPct):'';
+  if(row.tsRank&&row.tsPool&&Number(row.tsRank)<=10&&ts)return `${name}'s 2026 true shooting is ${ts}, ranking No. ${row.tsRank} among ${row.tsPool} players in the current advanced table.`;
+  if(row.perRank&&row.perPool&&Number(row.perRank)<=10&&per!==null)return `${name}'s 2026 PER is ${per.toFixed(1)}, ranking No. ${row.perRank} among ${row.perPool} players in the current advanced table.`;
+  if(per!==null&&ts)return `${name}'s current 2026 advanced line is ${per.toFixed(1)} PER with ${ts} true shooting.`;
+  if(per!==null)return `${name}'s current 2026 Player Efficiency Rating is ${per.toFixed(1)}.`;
+  if(ts)return `${name}'s current 2026 true-shooting percentage is ${ts}.`;
+  return '';
+}
+
 function amazingFact(payload,player,name,honors=[]){
-  const milestone=(Array.isArray(payload.milestones)?payload.milestones:[]).map(itemText).find(Boolean);
-  if(milestone)return compactText(milestone);
-  if(honors.length)return compactText(honors[0]);
   const bio=String(player.description||'').replace(/\s+/g,' ').trim();
-  if(bio){const sentence=bio.match(/^(.{20,240}?[.!?])(?:\s|$)/)?.[1];return compactText(sentence||bio);}
-  if(player.nationality&&player.college)return `${name}'s path to the W connects ${player.nationality} basketball roots with ${player.college}.`;
-  if(player.nationality)return `${name} brings ${player.nationality} basketball roots to the W.`;
-  if(player.college)return `${name}'s path to the W includes ${player.college}.`;
-  return `${name} is part of the ${player.team||'WNBA'} roster as a ${player.position||'player'}.`;
+  const milestones=(Array.isArray(payload.milestones)?payload.milestones:[]).map(itemText).filter(Boolean);
+  const editorial=uniqueFactCandidate([...milestones,...honors],bio);
+  if(editorial)return editorial;
+
+  const advanced=statsFact(name);
+  if(advanced&&!overlapsBio(advanced,bio))return advanced;
+
+  const structured=[];
+  if(player.number)structured.push(`${name} wears #${player.number} for ${player.team||'her current WNBA team'}.`);
+  if(player.height)structured.push(`${name} is listed at ${player.height}, giving her Playerpedia profile a measurable size marker beyond the bio.`);
+  if(player.college&&player.team)structured.push(`${name}'s current Playerpedia path links ${player.college} to ${player.team}.`);
+  const fallback=uniqueFactCandidate(structured,bio);
+  if(fallback)return fallback;
+
+  return advancedFeedReady?`${name}'s 2026 advanced profile is tracked live and will keep updating as new games are added.`:`${name}'s Playerpedia profile is being tracked separately from the Quick Bio so new facts can be added without repeating it.`;
 }
 
 function metricsMarkup(name){
   const row=advancedByName.get(playerKey(name))||{};
-  const per=row.per||'—';
+  const per=hasMetric(row.per)?Number(row.per).toFixed(1):'—';
   const ts=formatTs(row.tsPct);
   return `<div class="why-metrics"><div class="why-metric"><span>PLAYER EFFICIENCY RATING</span><strong>${pSafe(per)}</strong><small>PER · per-minute all-around production</small></div><div class="why-metric"><span>TRUE SHOOTING</span><strong>${pSafe(ts)}</strong><small>TS% · scoring efficiency across 2s, 3s + free throws</small></div></div>`;
 }
@@ -125,7 +171,9 @@ async function openProfile(id){
   const liveNote=roster?.liveNote?`<section class="profile-subsection live-profile-note"><h4>Current roster note</h4><p>${pSafe(roster.liveNote)}</p></section>`:'';
   const fact=amazingFact(payload,p,name,honors);
   const detailsNote=detailUnavailable?'<p class="profile-data-note">Detailed bio service is temporarily unavailable; roster and advanced-stat information remain active.</p>':'';
-  const statNote=advancedFeedReady?'<p class="why-source">2026 PER and TS% refresh from Basketball-Reference advanced player statistics.</p>':'<p class="why-source">Advanced metrics are temporarily unavailable and will repopulate automatically when the stats feed reconnects.</p>';
+  const refreshed=advancedUpdatedAt?new Date(advancedUpdatedAt):null;
+  const refreshedText=refreshed&&!Number.isNaN(refreshed.getTime())?` Last refreshed ${refreshed.toLocaleString([],{month:'short',day:'numeric',hour:'numeric',minute:'2-digit'})}.`:'';
+  const statNote=advancedFeedReady?`<p class="why-source">2026 PER and TS% refresh automatically through the We Know the W advanced-stats API backed by Basketball-Reference.${pSafe(refreshedText)}</p>`:'<p class="why-source">Advanced metrics are temporarily unavailable and will repopulate automatically when the stats API reconnects.</p>';
 
   modalBody.innerHTML=`<div class="profile-hero"><span class="player-avatar large curated-avatar" aria-hidden="true">${pSafe(initials(name))}</span><div><p class="kicker">PLAYERPEDIA</p><h3 id="playerModalTitle">${pSafe(name)}</h3><p class="profile-teamline">${pSafe([p.team||roster?.team,p.position||roster?.position].filter(Boolean).join(' · '))}</p></div></div><div class="profile-facts">${facts(p)}</div>${liveNote}${p.description?`<section class="profile-subsection"><h4>Quick bio</h4><p>${pSafe(p.description)}</p></section>`:''}${honors.length?`<section class="profile-subsection"><h4>Honors & awards</h4><div class="profile-tags">${honors.map(h=>`<span>${pSafe(h)}</span>`).join('')}</div></section>`:''}<section class="why-we-know-her"><span>WHY WE KNOW HER</span><strong>${pSafe(name)} · the numbers + the story.</strong>${metricsMarkup(name)}<div class="amazing-fact"><span>AMAZING FACT</span><p>${pSafe(fact)}</p></div>${statNote}</section>${detailsNote}`;
 }

@@ -4,28 +4,8 @@ function tNorm(value=''){return String(value).toLowerCase().replace(/[^a-z0-9]/g
 const params=new URLSearchParams(location.search);
 const slug=params.get('team')||'';
 const team=teamBySlug(slug);
-const POSTER_VERSION='20260818-approved-v2';
-function posterUrl(slug){return `/assets/team-posters/${encodeURIComponent(slug)}.webp?v=${POSTER_VERSION}`;}
-const POSTER_IMG_STYLE='position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;z-index:1';
-
-function applyGeneratedPoster(){
-  if(!team)return false;
-  const hero=document.getElementById('teamHero');
-  const nav=hero?.querySelector('.nav');
-  if(!hero||!nav)return false;
-  hero.classList.add('has-generated-poster');
-  let banner=hero.querySelector('.team-poster-page-banner');
-  if(!banner){
-    banner=document.createElement('div');
-    banner.className='team-poster-page-banner';
-    nav.insertAdjacentElement('afterend',banner);
-  }
-  banner.innerHTML=`<img class="team-poster-img" style="${POSTER_IMG_STYLE}" src="${posterUrl(team.slug)}" alt="${tSafe(team.name)} city skyline team graphic" decoding="async" onerror="this.closest('.team-poster-page-banner').style.display='none';document.getElementById('teamHero')?.classList.remove('has-generated-poster')">`;
-  return true;
-}
 
 function applyOfficialTeamArtwork(asset){
-  if(document.getElementById('teamHero')?.classList.contains('has-generated-poster'))return;
   const badge=document.getElementById('teamHeroBadge');
   const badgeFallback=document.getElementById('teamHeroBadgeFallback');
   const wordmark=document.getElementById('teamHeroWordmark');
@@ -34,11 +14,13 @@ function applyOfficialTeamArtwork(asset){
     badge.alt=`${team.name} official logo`;
     badge.hidden=false;
     badgeFallback.hidden=true;
+    badge.onerror=()=>{badge.hidden=true;badgeFallback.hidden=false;};
   }
   if(asset?.logo){
     wordmark.src=asset.logo;
     wordmark.alt=`${team.name} official wordmark`;
     wordmark.hidden=false;
+    wordmark.onerror=()=>{wordmark.hidden=true;};
   }
 }
 
@@ -68,7 +50,6 @@ if(!team){
   document.getElementById('rosterHeading').textContent=`${team.name} roster`;
   document.getElementById('teamPlayerpediaLink').href=`/playerpedia.html?team=${encodeURIComponent(team.name)}`;
   if(team.note)document.getElementById('teamSeasonNote').textContent=`${team.note}. Live record and roster information refresh automatically from the independent data feed.`;
-  applyGeneratedPoster();
   loadTeamPage();
 }
 

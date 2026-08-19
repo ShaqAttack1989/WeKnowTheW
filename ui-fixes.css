@@ -33,48 +33,65 @@
   }
 }
 
-.branded-team-grid{gap:20px;grid-template-columns:repeat(2,minmax(0,1fr));}
+.branded-team-grid{gap:22px;grid-template-columns:repeat(2,minmax(0,1fr));align-items:start;}
 .team-directory-card{
   --team-primary:#6c2ad9;
   --team-secondary:#140a2f;
   --team-accent:#d8ff4f;
   --team-text:#fff;
   position:relative;
-  min-height:280px;
+  width:100%;
+  max-width:620px;
+  aspect-ratio:16/9;
+  min-height:0;
   overflow:hidden;
   display:block;
   padding:0;
   border-radius:24px;
   text-decoration:none;
-  color:var(--team-text) !important;
-  background:linear-gradient(120deg,#101015 0%,#1b1b22 28%,rgba(255,255,255,.97) 28%,rgba(255,255,255,.95) 68%,var(--team-primary) 150%);
-  border:1px solid rgba(0,0,0,.18);
-  box-shadow:0 16px 38px rgba(20,10,47,.16);
+  color:#17131f !important;
+  border:1px solid rgba(20,10,47,.16);
+  box-shadow:0 16px 38px rgba(20,10,47,.14);
   isolation:isolate;
   transition:transform .18s ease,box-shadow .18s ease;
+  justify-self:center;
 }
-.team-directory-card:hover{transform:translateY(-4px);box-shadow:0 22px 46px rgba(20,10,47,.22);}
-.team-directory-card::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,.05),transparent 45%,rgba(0,0,0,.22));z-index:-5;}
-.team-poster-card .team-skyline-wash{position:absolute;inset:0 0 0 24%;z-index:-4;display:flex;align-items:center;justify-content:center;overflow:hidden;opacity:.18;filter:grayscale(1);}
-.team-poster-card .team-skyline-wash .city-silhouette{width:115%;height:auto;transform:translateY(12px);}
-.team-poster-card .team-skyline-wash .city-silhouette g{fill:#222 !important;}
-.team-motion-stripe{position:absolute;z-index:-2;display:block;height:30px;width:72%;right:-14%;transform:skewX(-26deg) rotate(-8deg);border-radius:999px;opacity:.95;}
-.team-motion-stripe.stripe-one{top:18px;background:var(--team-primary);}
-.team-motion-stripe.stripe-two{top:54px;background:var(--team-secondary);width:58%;right:-10%;height:16px;}
-.team-motion-stripe.stripe-three{bottom:42px;background:var(--team-primary);width:84%;right:-22%;height:20px;}
-.team-official-lockup{position:absolute;inset:28px 28px 52px;display:grid;grid-template-columns:150px minmax(0,1fr);gap:26px;align-items:center;z-index:3;}
-.team-official-badge{width:150px;height:170px;display:flex;align-items:center;justify-content:center;padding:12px;border-radius:22px;background:rgba(18,18,23,.92);border:3px solid rgba(255,255,255,.9);box-shadow:0 14px 30px rgba(0,0,0,.2);}
-.team-official-badge img{display:block;max-width:100%;max-height:100%;object-fit:contain;filter:drop-shadow(0 6px 12px rgba(0,0,0,.18));}
-.team-official-badge-fallback{font-size:2rem;font-weight:950;color:#fff;letter-spacing:.08em;}
-.team-wordmark-zone{min-width:0;display:flex;align-items:center;justify-content:flex-start;}
-.team-official-wordmark{display:block;max-width:100%;max-height:120px;object-fit:contain;object-position:left center;filter:drop-shadow(0 6px 14px rgba(255,255,255,.65));}
-.team-official-name{display:grid;gap:2px;transform:skewX(-7deg);text-transform:uppercase;}
-.team-official-name small{color:var(--team-primary) !important;font-weight:950;letter-spacing:.12em;font-size:.78rem;}
-.team-official-name strong{color:var(--team-primary) !important;font-size:clamp(2rem,4vw,3.6rem);line-height:.9;letter-spacing:-.045em;text-shadow:0 2px 0 rgba(255,255,255,.85);}
-.team-poster-footer{position:absolute;left:0;right:0;bottom:0;min-height:48px;display:flex;align-items:center;gap:12px;padding:0 18px;background:linear-gradient(90deg,rgba(10,10,14,.94),rgba(10,10,14,.76));color:#fff;z-index:4;font-size:.78rem;font-weight:850;}
-.team-poster-footer span:nth-child(1){padding:7px 10px;border-radius:999px;background:var(--team-primary);color:#fff;}
-.team-poster-footer span:nth-child(2){opacity:.78;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
-.team-poster-footer b{margin-left:auto;font-size:1.2rem;color:var(--team-accent);}
+.team-directory-card:hover{transform:translateY(-4px);box-shadow:0 22px 46px rgba(20,10,47,.2);}
+.team-poster-footer{position:absolute;left:0;right:0;bottom:0;min-height:52px;display:flex;align-items:center;gap:12px;padding:0 18px;background:linear-gradient(90deg,rgba(10,10,14,.96),rgba(10,10,14,.82));color:#fff;z-index:8;font-size:.78rem;font-weight:850;}
+.team-poster-footer span:nth-child(1){padding:7px 11px;border-radius:999px;background:var(--team-primary);color:var(--team-text);text-shadow:0 1px 2px rgba(0,0,0,.2);}
+.team-poster-footer span:nth-child(2){opacity:.88;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.team-poster-footer b{margin-left:auto;font-size:1.35rem;color:var(--team-accent);}
+
+/* Scalable team-card system: no low-resolution poster dependency */
+.team-vector-card{
+  background:
+    linear-gradient(120deg,var(--team-primary) 0 22%,rgba(255,255,255,.98) 22% 76%,var(--team-secondary) 76% 100%);
+}
+.team-vector-card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:1;
+  background:
+    linear-gradient(180deg,rgba(255,255,255,.03),transparent 58%,rgba(0,0,0,.18)),
+    radial-gradient(circle at 60% 38%,rgba(255,255,255,.82),rgba(255,255,255,0) 42%);
+  pointer-events:none;
+}
+.team-vector-skyline{position:absolute;left:24%;right:8%;bottom:45px;height:62%;z-index:2;display:flex;align-items:flex-end;justify-content:center;opacity:.16;overflow:hidden;}
+.team-vector-skyline svg{width:112%;height:100%;display:block;transform:translateY(6%);}
+.team-vector-skyline svg g{fill:#050505 !important;}
+.team-vector-stripe{position:absolute;z-index:3;display:block;border-radius:999px;transform:skewX(-24deg) rotate(-7deg);pointer-events:none;}
+.team-vector-stripe.stripe-one{width:62%;height:18px;right:-10%;top:13%;background:var(--team-accent);opacity:.95;}
+.team-vector-stripe.stripe-two{width:54%;height:11px;right:-8%;top:21%;background:var(--team-primary);opacity:.92;}
+.team-vector-stripe.stripe-three{width:72%;height:12px;right:-18%;bottom:25%;background:var(--team-secondary);opacity:.86;}
+.team-vector-lockup{position:absolute;inset:9% 6% 54px;z-index:5;display:grid;grid-template-columns:minmax(112px,28%) minmax(0,1fr);gap:6%;align-items:center;}
+.team-vector-badge{position:relative;width:100%;aspect-ratio:1;max-width:150px;display:grid;place-items:center;padding:12%;border-radius:22%;background:rgba(12,12,17,.94);border:2px solid rgba(255,255,255,.9);box-shadow:0 12px 30px rgba(0,0,0,.2);overflow:hidden;}
+.team-vector-monogram{font-size:clamp(1.5rem,3.4vw,2.7rem);font-weight:950;letter-spacing:.06em;color:#fff;z-index:0;}
+.team-vector-badge img{position:absolute;inset:9%;width:82%;height:82%;object-fit:contain;z-index:1;filter:drop-shadow(0 5px 10px rgba(0,0,0,.2));}
+.team-vector-identity{min-width:0;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:5px;}
+.team-vector-identity img{display:block;max-width:min(100%,330px);max-height:66px;object-fit:contain;object-position:left center;margin-bottom:2px;}
+.team-vector-city{font-size:.72rem;font-weight:950;letter-spacing:.14em;text-transform:uppercase;color:#5b5364;}
+.team-vector-identity strong{font-size:clamp(1.65rem,4vw,3rem);line-height:.92;letter-spacing:-.045em;text-transform:uppercase;color:#101015;text-shadow:0 2px 0 rgba(255,255,255,.72);}
 
 /* Full live standings */
 .live-heading-row{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;max-width:none;}
@@ -107,61 +124,22 @@
   .branded-team-grid{grid-template-columns:1fr;}
 }
 @media(max-width:640px){
-  .team-directory-card{min-height:240px;}
-  .team-official-lockup{inset:22px 18px 50px;grid-template-columns:112px minmax(0,1fr);gap:16px;}
-  .team-official-badge{width:112px;height:128px;border-radius:18px;padding:9px;}
-  .team-official-wordmark{max-height:88px;}
-  .team-official-name strong{font-size:2rem;}
-  .team-poster-card .team-skyline-wash{inset:0 0 0 20%;}
+  .team-directory-card{width:min(100%,620px);border-radius:22px;}
+  .team-vector-lockup{inset:8% 5% 52px;grid-template-columns:minmax(92px,29%) minmax(0,1fr);gap:5%;}
+  .team-vector-badge{max-width:124px;padding:11%;}
+  .team-vector-identity img{max-height:48px;}
+  .team-vector-city{font-size:.62rem;letter-spacing:.11em;}
+  .team-vector-identity strong{font-size:clamp(1.4rem,6vw,2.25rem);}
+  .team-vector-skyline{left:20%;right:3%;bottom:48px;height:58%;}
+  .team-poster-footer{min-height:48px;padding:0 14px;font-size:.72rem;}
   .standings-card-head{align-items:flex-start;flex-direction:column;gap:3px;}
   .live-standings-table{min-width:850px;}
 }
 
-/* Approved Around the W poster artwork */
-.team-poster-card.poster-ready{
-  aspect-ratio:16/9;
-  min-height:0;
-  background:#0d0d12;
-}
-.team-poster-art{
-  display:block;
-  background-color:#0d0d12;
-  background-repeat:no-repeat;
-}
-.poster-ready .team-poster-art{
-  position:absolute;
-  inset:0;
-  width:100%;
-  height:100%;
-  z-index:1;
-}
+/* Legacy poster selectors retained only for old cached markup; new directory cards do not use them. */
+.team-poster-card.poster-ready{aspect-ratio:16/9;min-height:0;background:#0d0d12;}
+.team-poster-art{display:block;background-color:#0d0d12;background-repeat:no-repeat;}
+.poster-ready .team-poster-art{position:absolute;inset:0;width:100%;height:100%;z-index:1;}
 .poster-ready::before{z-index:2;background:linear-gradient(180deg,transparent 55%,rgba(0,0,0,.5));}
 .poster-ready .team-poster-footer{z-index:3;}
 .team-poster-a11y{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important;}
-
-.team-poster-page-banner{
-  position:relative;
-  z-index:5;
-  width:min(1180px,calc(100% - 32px));
-  margin:28px auto 0;
-  aspect-ratio:16/9;
-  border-radius:26px;
-  overflow:hidden;
-  background:#0d0d12;
-  border:1px solid rgba(255,255,255,.2);
-  box-shadow:0 22px 52px rgba(0,0,0,.28);
-}
-.team-poster-page-banner .team-poster-art{width:100%;height:100%;}
-.has-generated-poster #teamSkyline,
-.has-generated-poster .team-hero-stripe,
-.has-generated-poster .team-hero-badge-shell,
-.has-generated-poster .team-hero-wordmark{display:none!important;}
-.has-generated-poster .team-brand-stage{grid-template-columns:1fr;}
-.has-generated-poster .team-hero-inner{padding-top:26px;}
-.has-generated-poster .team-hero-copy h1{font-size:clamp(2.1rem,5vw,4.5rem);line-height:.92;}
-
-@media(max-width:700px){
-  .team-poster-page-banner{margin-top:18px;border-radius:18px;width:min(100% - 20px,1180px);}
-  .team-poster-card.poster-ready{min-height:0;}
-  .has-generated-poster .team-hero-inner{padding-top:20px;}
-}

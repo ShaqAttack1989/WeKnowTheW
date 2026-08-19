@@ -1,43 +1,33 @@
 function safe(v=''){return String(v).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');}
 function norm(v=''){return String(v).toLowerCase().replace(/[^a-z0-9]/g,'');}
 let teamAssets=[];
-let posterSpriteData='';
-let torontoPosterData='';
 
 const POSTER_ORDER=[
   'atlanta-dream','chicago-sky','connecticut-sun','dallas-wings',
   'golden-state-valkyries','indiana-fever','las-vegas-aces','los-angeles-sparks',
   'minnesota-lynx','new-york-liberty','phoenix-mercury','portland-fire',
-  'seattle-storm','washington-mystics'
+  'seattle-storm','toronto-tempo','washington-mystics'
 ];
+const POSTER_SPRITE='/assets/team-posters/team-posters-approved.webp?v=20260818f';
 
 function posterStyle(slug){
-  if(slug==='toronto-tempo'&&torontoPosterData){
-    return `background-image:url("data:image/webp;base64,${torontoPosterData}");background-size:cover;background-position:center;background-repeat:no-repeat;`;
-  }
   const index=POSTER_ORDER.indexOf(slug);
-  if(index<0||!posterSpriteData)return '';
+  if(index<0)return '';
   const y=(index/(POSTER_ORDER.length-1))*100;
-  return `background-image:url("data:image/webp;base64,${posterSpriteData}");background-size:100% ${POSTER_ORDER.length*100}%;background-position:0% ${y.toFixed(4)}%;background-repeat:no-repeat;`;
+  return `background-image:url("${POSTER_SPRITE}");background-size:100% ${POSTER_ORDER.length*100}%;background-position:0% ${y.toFixed(4)}%;background-repeat:no-repeat;`;
 }
-
-function hasPoster(slug){
-  return (POSTER_ORDER.includes(slug)&&Boolean(posterSpriteData))||(slug==='toronto-tempo'&&Boolean(torontoPosterData));
-}
+function hasPoster(slug){return POSTER_ORDER.includes(slug);}
 
 function standingsMarkup(items=[]){
   if(!items.length)return '<div style="padding:24px"><strong>Standings are temporarily unavailable.</strong></div>';
   return `<div class="standing-row head"><span>#</span><span>Team</span><span>W</span><span>L</span><span>PCT</span></div>${items.map((item,i)=>`<div class="standing-row"><span class="rank">${item.playoff_seed||i+1}</span><span class="team-name">${safe(item.team?.full_name||'Unknown')}</span><strong>${item.wins??'—'}</strong><strong>${item.losses??'—'}</strong><span>${Number.isFinite(Number(item.win_percentage))?Number(item.win_percentage).toFixed(3):'—'}</span></div>`).join('')}`;
 }
-
 function officialAsset(team){return teamAssets.find(asset=>norm(asset.name)===norm(team.name))||null;}
-
 function officialLockup(team,asset){
   const badge=asset?.badge?`<span class="team-official-badge"><img src="${safe(asset.badge)}" alt="${safe(team.name)} official logo" loading="lazy"></span>`:`<span class="team-official-badge team-official-badge-fallback">${safe(team.tag)}</span>`;
   const wordmark=asset?.logo?`<img class="team-official-wordmark" src="${safe(asset.logo)}" alt="${safe(team.name)} official wordmark" loading="lazy">`:`<span class="team-official-name"><small>${safe(team.city)}</small><strong>${safe(team.name)}</strong></span>`;
   return `<div class="team-official-lockup">${badge}<span class="team-wordmark-zone">${wordmark}</span></div>`;
 }
-
 function renderDirectory(records=[]){
   const grid=document.getElementById('teamDirectory');
   if(!grid)return;
@@ -61,22 +51,15 @@ function renderDirectory(records=[]){
     </a>`;
   }).join('');
 }
-
 async function loadAround(){
   const table=document.getElementById('aroundStandings');
   const status=document.getElementById('aroundStatus');
   renderDirectory();
-  const [statsResult,teamsResult,spriteResult,torontoResult]=await Promise.allSettled([
+  const [statsResult,teamsResult]=await Promise.allSettled([
     fetch('/api/stats?season=2026',{headers:{Accept:'application/json'}}).then(async response=>{const payload=await response.json().catch(()=>({}));if(!response.ok)throw new Error(payload.error||'Live data unavailable');return payload;}),
-    fetch('/api/teams',{headers:{Accept:'application/json'}}).then(async response=>{const payload=await response.json().catch(()=>({}));if(!response.ok)throw new Error(payload.error||'Team artwork unavailable');return payload;}),
-    fetch('/assets/team-posters/team-posters-sprite.webp?v=20260818d',{cache:'no-store'}).then(async response=>response.ok?(await response.text()).trim():''),
-    fetch('/assets/team-posters/toronto-tempo-small.b64?v=20260818d',{cache:'no-store'}).then(async response=>response.ok?(await response.text()).trim():'')
+    fetch('/api/teams',{headers:{Accept:'application/json'}}).then(async response=>{const payload=await response.json().catch(()=>({}));if(!response.ok)throw new Error(payload.error||'Team artwork unavailable');return payload;})
   ]);
-
   if(teamsResult.status==='fulfilled')teamAssets=Array.isArray(teamsResult.value.teams)?teamsResult.value.teams:[];
-  if(spriteResult.status==='fulfilled'&&String(spriteResult.value).startsWith('UklG'))posterSpriteData=spriteResult.value;
-  if(torontoResult.status==='fulfilled'&&String(torontoResult.value).startsWith('UklG'))torontoPosterData=torontoResult.value;
-
   if(statsResult.status==='fulfilled'){
     const payload=statsResult.value;
     const standings=Array.isArray(payload.standings)?payload.standings:[];
@@ -89,5 +72,4 @@ async function loadAround(){
     status.textContent='Team directory available';
   }
 }
-
 loadAround();

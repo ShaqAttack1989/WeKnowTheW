@@ -2,6 +2,11 @@ const LEAGUE_ID = 4516;
 const V1_ROOT = 'https://www.thesportsdb.com/api/v1/json';
 const V2_ROOT = 'https://www.thesportsdb.com/api/v2/json';
 const FREE_KEY = '123';
+const {
+  getWnbaScoreboard,
+  getWnbaStandings,
+  scoreboardToSportsDbShape
+} = require('../lib/wehoop-espn');
 
 const REGULAR_SEASON_WINDOWS = {
   2026: { start: '2026-05-08', end: '2026-09-24' }
@@ -128,7 +133,7 @@ function enrichRankings(records, rankKey = 'rank') {
     a.team.full_name.localeCompare(b.team.full_name)
   );
   const leader = sorted[0] || null;
-  return sorted.map((record, index) => ({ ...record, [rankKey]: index + 1, games_back: gamesBack(leader, record) }));
+  return sorted.map((record, index) => ({ ...record, [rankKey]: index + 1, games_back: Number.isFinite(Number(record.games_back)) ? Number(record.games_back) : gamesBack(leader, record) }));
 }
 
 function deriveStandings(events) {
@@ -155,7 +160,7 @@ function deriveStandings(events) {
     if (homeScore === null || awayScore === null || homeScore === awayScore) continue;
     const homeWon = homeScore > awayScore;
     const sameConference = home.conference !== 'Unknown' && home.conference === away.conference;
-    const sortKey = `${event.dateEvent || ''}-${event.strTime || ''}-${event.idEvent || ''}`;
+    const sortKey = `${event.strTimestamp || event.dateEvent || ''}-${event.strTime || ''}-${event.idEvent || ''}`;
 
     if (homeWon) {
       home.wins++; home.homeWins++; away.losses++; away.roadLosses++;
@@ -198,9 +203,17 @@ function deriveStandings(events) {
     };
   });
 
-  const overall = enrichRankings(baseRecords, 'overall_rank').map(record => ({ ...record, playoff_seed: record.overall_rank }));
-  const eastern = enrichRankings(baseRecords.filter(record => record.conference === 'Eastern'), 'conference_rank');
-  const western = enrichRankings(baseRecords.filter(record => record.conference === 'Western'), 'conference_rank');
+  return standingsFromRecords(baseRecords);
+}
+
+function standingsFromRecords(records) {
+  const withConference = records.map(record => ({
+    ...record,
+    conference: record.conference || conferenceForTeam(record.team?.full_name)
+  }));
+  const overall = enrichRankings(withConference, 'overall_rank').map(record => ({ ...record, playoff_seed: record.overall_rank }));
+  const eastern = enrichRankings(withConference.filter(record => record.conference === 'Eastern'), 'conference_rank');
+  const western = enrichRankings(withConference.filter(record => record.conference === 'Western'), 'conference_rank');
   return { overall, conferences: { eastern, western } };
 }
 
@@ -209,9 +222,14 @@ function pastGames(events, limit = 8) {
     .sort((a, b) => eventTimestamp(b) - eventTimestamp(a))
     .slice(0, limit)
     .map(event => ({
-      id: event.idEvent, date: event.dateEvent, time: event.strTime || '',
-      homeTeam: event.strHomeTeam, awayTeam: event.strAwayTeam,
-      homeScore: scoreValue(event.intHomeScore), awayScore: scoreValue(event.intAwayScore)
+      id: event.idEvent,
+      startTimeUtc: event.strTimestamp || '',
+      date: event.dateEvent,
+      time: event.strTime || '',
+      homeTeam: event.strHomeTeam,
+      awayTeam: event.strAwayTeam,
+      homeScore: scoreValue(event.intHomeScore),
+      awayScore: scoreValue(event.intAwayScore)
     }));
 }
 
@@ -222,9 +240,14 @@ function upcomingGames(events, limit = 8) {
     .sort((a, b) => eventTimestamp(a) - eventTimestamp(b))
     .slice(0, limit)
     .map(event => ({
-      id: event.idEvent, date: event.dateEvent, time: event.strTime || '',
-      homeTeam: event.strHomeTeam, awayTeam: event.strAwayTeam,
-      venue: event.strVenue || '', status: event.strStatus || 'Scheduled'
+      id: event.idEvent,
+      startTimeUtc: event.strTimestamp || '',
+      date: event.dateEvent,
+      time: event.strTime || '',
+      homeTeam: event.strHomeTeam,
+      awayTeam: event.strAwayTeam,
+      venue: event.strVenue || '',
+      status: event.strStatus || 'Scheduled'
     }));
 }
 
@@ -239,28 +262,83 @@ module.exports = async function handler(req, res) {
   const productionKey = String(process.env.THESPORTSDB_API_KEY || '').trim();
   res.setHeader('Cache-Control', 's-maxage=300, stale-while-revalidate=900');
 
-  try {
-    const { events: allEvents, apiVersion } = await getSeasonSchedule(season, productionKey);
-    const regularSeasonEvents = allEvents.filter(event => inRegularSeason(event, season));
-    const fullSeasonAccess = Boolean(productionKey) && allEvents.length >= 100;
-    const standingsData = fullSeasonAccess ? deriveStandings(regularSeasonEvents) : { overall: [], conferences: { eastern: [], western: [] } };
-    const completedGames = fullSeasonAccess ? pastGames(regularSeasonEvents) : [];
-    const scheduledGames = fullSeasonAccess ? upcomingGames(regularSeasonEvents) : [];
+  const providerErrors = [];
+  let sportsDbEvents = [];
+  let apiVersion = productionKey ? 'v2' : 'v1-free';
+  let espnEvents = [];
+  let espnStandings = [];
 
-    return res.status(200).json({
-      configured: Boolean(productionKey), source: 'TheSportsDB', apiVersion, season,
-      updatedAt: new Date().toISOString(), eventCount: allEvents.length,
-      regularSeasonEventCount: regularSeasonEvents.length, fullSeasonAccess,
-      standings: standingsData.overall,
-      conferenceStandings: standingsData.conferences,
-      pastGames: completedGames,
-      recentResults: completedGames,
-      upcomingGames: scheduledGames,
-      providerMessage: fullSeasonAccess ? null : productionKey
-        ? `TheSportsDB key was detected, but only ${allEvents.length} season events were returned. We Know the W will not calculate standings from an incomplete schedule.`
-        : 'THESPORTSDB_API_KEY is not configured in Vercel. The free development feed is intentionally limited.'
-    });
+  try {
+    const result = await getSeasonSchedule(season, productionKey);
+    sportsDbEvents = result.events;
+    apiVersion = result.apiVersion;
   } catch (error) {
-    return res.status(502).json({ error: error.message, status: error.status || null, configured: Boolean(productionKey), source: 'TheSportsDB', apiVersion: productionKey ? 'v2' : 'v1-free', season });
+    providerErrors.push({ source: 'TheSportsDB', message: error.message, status: error.status || null });
   }
+
+  try {
+    [espnEvents, espnStandings] = await Promise.all([
+      getWnbaScoreboard(season),
+      getWnbaStandings(season)
+    ]);
+  } catch (error) {
+    providerErrors.push({ source: 'SportsDataverse/WeHoop ESPN bridge', message: error.message, status: error.status || null });
+  }
+
+  const sportsDbRegular = sportsDbEvents.filter(event => inRegularSeason(event, season));
+  const espnRegular = espnEvents.map(scoreboardToSportsDbShape).filter(event => inRegularSeason(event, season));
+  const sportsDbComplete = sportsDbRegular.length >= 100;
+  const espnComplete = espnRegular.length >= 100;
+  const primaryEvents = sportsDbComplete ? sportsDbRegular : espnRegular.length ? espnRegular : sportsDbRegular;
+  const eventSource = sportsDbComplete ? 'TheSportsDB' : espnRegular.length ? 'SportsDataverse/WeHoop ESPN bridge' : 'TheSportsDB';
+
+  let standingsData;
+  let standingsSource;
+  if (sportsDbComplete) {
+    standingsData = deriveStandings(sportsDbRegular);
+    standingsSource = 'TheSportsDB';
+  } else if (espnStandings.length) {
+    standingsData = standingsFromRecords(espnStandings);
+    standingsSource = 'SportsDataverse/WeHoop ESPN bridge';
+  } else {
+    standingsData = deriveStandings(primaryEvents);
+    standingsSource = eventSource;
+  }
+
+  const completedGames = pastGames(primaryEvents);
+  const scheduledGames = upcomingGames(primaryEvents);
+  const fullSeasonAccess = sportsDbComplete || espnComplete || standingsData.overall.length >= 10;
+
+  if (!primaryEvents.length && !standingsData.overall.length) {
+    return res.status(502).json({
+      error: 'No live WNBA data provider returned usable data.',
+      configured: Boolean(productionKey),
+      season,
+      providerErrors
+    });
+  }
+
+  return res.status(200).json({
+    configured: Boolean(productionKey),
+    source: sportsDbComplete ? 'TheSportsDB + SportsDataverse/WeHoop ESPN backup' : 'SportsDataverse/WeHoop ESPN bridge + TheSportsDB backup',
+    sources: ['TheSportsDB', 'SportsDataverse/WeHoop ESPN bridge'],
+    eventSource,
+    standingsSource,
+    wehoopFallbackActive: !sportsDbComplete && (espnRegular.length > 0 || espnStandings.length > 0),
+    apiVersion,
+    season,
+    updatedAt: new Date().toISOString(),
+    eventCount: primaryEvents.length,
+    regularSeasonEventCount: primaryEvents.length,
+    fullSeasonAccess,
+    standings: standingsData.overall,
+    conferenceStandings: standingsData.conferences,
+    pastGames: completedGames,
+    recentResults: completedGames,
+    upcomingGames: scheduledGames,
+    providerErrors,
+    providerMessage: fullSeasonAccess
+      ? (!sportsDbComplete && eventSource.includes('WeHoop') ? 'Primary feed gaps are being filled by the SportsDataverse/WeHoop ESPN bridge.' : null)
+      : 'Live providers returned partial season coverage; We Know the W is showing only verified returned data.'
+  });
 };

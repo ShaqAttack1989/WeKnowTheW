@@ -1,4 +1,4 @@
-const UI_FIXES_HREF='/ui-fixes.css?v=20260819-approved-posters-v3';
+const UI_FIXES_HREF='/ui-fixes.css?v=20260819-spacing-v1';
 if (!document.querySelector('link[data-ui-fixes]')) {
   const uiFixes = document.createElement('link');
   uiFixes.rel = 'stylesheet';

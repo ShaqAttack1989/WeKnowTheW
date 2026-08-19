@@ -1,6 +1,7 @@
 function safe(v=''){return String(v).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;').replaceAll("'",'&#039;');}
 function norm(v=''){return String(v).toLowerCase().replace(/[^a-z0-9]/g,'');}
-const POSTER_VERSION='20260819-approved-local-v3';
+const POSTER_VERSION='20260819-approved-local-v4';
+const posterCache=new Map();
 function posterUrl(slug,ext='webp'){return `/assets/team-posters/${encodeURIComponent(slug)}.${ext}?v=${POSTER_VERSION}`;}
 
 function standingsMarkup(items=[]){
@@ -8,12 +9,44 @@ function standingsMarkup(items=[]){
   return `<div class="standing-row head"><span>#</span><span>Team</span><span>W</span><span>L</span><span>PCT</span></div>${items.map((item,i)=>`<div class="standing-row"><span class="rank">${item.playoff_seed||i+1}</span><span class="team-name">${safe(item.team?.full_name||'Unknown')}</span><strong>${item.wins??'—'}</strong><strong>${item.losses??'—'}</strong><span>${Number.isFinite(Number(item.win_percentage))?Number(item.win_percentage).toFixed(3):'—'}</span></div>`).join('')}`;
 }
 
+async function resolveSavedPoster(url){
+  if(posterCache.has(url))return posterCache.get(url);
+  const promise=(async()=>{
+    const response=await fetch(url,{cache:'force-cache'});
+    if(!response.ok)throw new Error(`Poster unavailable (${response.status})`);
+    const blob=await response.blob();
+    const text=await blob.text();
+    const encoded=text.replace(/\s+/g,'').trim();
+    if(/^UklGR[A-Za-z0-9+/=]+$/.test(encoded))return `data:image/webp;base64,${encoded}`;
+    if(/^iVBOR[A-Za-z0-9+/=]+$/.test(encoded))return `data:image/png;base64,${encoded}`;
+    if(/^\/9j\/[A-Za-z0-9+/=]+$/.test(encoded))return `data:image/jpeg;base64,${encoded}`;
+    return URL.createObjectURL(blob);
+  })();
+  posterCache.set(url,promise);
+  return promise;
+}
+
+function hydrateSavedPosters(root){
+  root.querySelectorAll('img[data-saved-poster]').forEach(async img=>{
+    const url=img.dataset.savedPoster;
+    if(!url||img.dataset.posterHydrated==='true')return;
+    img.dataset.posterHydrated='true';
+    try{
+      img.src=await resolveSavedPoster(url);
+    }catch{
+      img.hidden=true;
+      img.closest('.team-directory-card')?.classList.add('poster-load-error');
+    }
+  });
+}
+
 function localPosterCard(team,record){
   const recordText=record?`${record.wins}-${record.losses}`:'2026';
   const pct=record&&Number.isFinite(Number(record.win_percentage))?Number(record.win_percentage).toFixed(3):'Season';
+  const localFile=posterUrl(team.slug);
   return `<a class="team-directory-card team-poster-card poster-ready approved-local-poster" href="/team.html?team=${encodeURIComponent(team.slug)}" style="--team-primary:${team.primary};--team-secondary:${team.secondary};--team-accent:${team.accent};--team-text:${team.text}" aria-label="Open ${safe(team.name)} team page">
     <span class="poster-local-fallback" aria-hidden="true"><b>${safe(team.tag)}</b><strong>${safe(team.name)}</strong></span>
-    <img class="team-poster-img" src="${posterUrl(team.slug)}" alt="${safe(team.name)} custom team card" loading="lazy" decoding="async" onerror="this.hidden=true;this.closest('.team-directory-card')?.classList.add('poster-load-error')">
+    <img class="team-poster-img" data-saved-poster="${safe(localFile)}" alt="${safe(team.name)} custom team card" loading="lazy" decoding="async" onerror="this.hidden=true;this.closest('.team-directory-card')?.classList.add('poster-load-error')">
     <div class="team-poster-footer"><span>${recordText}</span><span>${safe(team.note||`${pct} win percentage`)}</span><b>→</b></div>
   </a>`;
 }
@@ -35,6 +68,7 @@ function renderDirectory(records=[]){
     return localPosterCard(team,record);
   }).join('');
   grid.innerHTML=currentCards+clevelandPreviewCard();
+  hydrateSavedPosters(grid);
 }
 
 async function loadAround(){

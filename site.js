@@ -34,8 +34,9 @@ const structuredNav = `
   <a class="nav-direct" href="/courtside-culture.html">Courtside Culture</a>
   <div class="nav-group">
     <a class="nav-parent" href="/who-got-next.html">Who Got Next? <span aria-hidden="true">▾</span></a>
-    <div class="nav-submenu">
-      <a href="/who-got-next.html#class-is-in-session">Class Is in Session</a>
+    <div class="nav-submenu who-got-next-menu">
+      <a href="/class-is-in-session.html">Class Is in Session (NCAAW)</a>
+      <a href="/the-call-up.html">The Call Up (UPSHOT)</a>
       <a href="/expansion-watch.html">Expansion Watch</a>
     </div>
   </div>
@@ -70,6 +71,8 @@ const hierarchyMap = {
   '/film-room.html': { parent: 'The W Vault', parentHref: '/w-vault.html', current: 'The Film Room' },
   '/trophy-case.html': { parent: 'The W Vault', parentHref: '/w-vault.html', current: 'The Trophy Case' },
   '/locker-room.html': { parent: 'The W Vault', parentHref: '/w-vault.html', current: 'The Locker Room' },
+  '/class-is-in-session.html': { parent: 'Who Got Next?', parentHref: '/who-got-next.html', current: 'Class Is in Session' },
+  '/the-call-up.html': { parent: 'Who Got Next?', parentHref: '/who-got-next.html', current: 'The Call Up' },
   '/expansion-watch.html': { parent: 'Who Got Next?', parentHref: '/who-got-next.html', current: 'Expansion Watch' }
 };
 

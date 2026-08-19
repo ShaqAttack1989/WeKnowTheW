@@ -30,8 +30,8 @@ const structuredNav = `
       <a class="nav-nested" href="/herstory.html#entrepreneurship">Entrepreneurship</a>
       <a class="nav-nested" href="/herstory.html#community">Community</a>
       <a class="nav-nested" href="/herstory.html#life-chapters">Life Chapters</a>
-      <a href="/starting-five.html"><strong>Shaq’s Starting Five</strong></a>
-      <a href="/bench-mob.html"><strong>Shaq’s Bench Mob</strong></a>
+      <a href="/starting-five.html"><strong>Shak’s Starting Five</strong></a>
+      <a href="/bench-mob.html"><strong>Shak’s Bench Mob</strong></a>
     </div>
   </div>
   <div class="nav-group">
@@ -101,8 +101,8 @@ const hierarchyMap = {
   '/around-the-w.html': { parent: 'Around the W', parentHref: '/around-the-w.html', current: 'Team Pages' },
   '/snack-shaq.html': { parent: 'Around the W', parentHref: '/around-the-w.html', current: 'Seasoned Notes' },
   '/herstory.html': { parent: 'Playerpedia', parentHref: '/playerpedia.html', current: 'Herstory' },
-  '/starting-five.html': { parent: 'Playerpedia', parentHref: '/playerpedia.html', current: 'Shaq’s Starting Five' },
-  '/bench-mob.html': { parent: 'Playerpedia', parentHref: '/playerpedia.html', current: 'Shaq’s Bench Mob' },
+  '/starting-five.html': { parent: 'Playerpedia', parentHref: '/playerpedia.html', current: 'Shak’s Starting Five' },
+  '/bench-mob.html': { parent: 'Playerpedia', parentHref: '/playerpedia.html', current: 'Shak’s Bench Mob' },
   '/film-room.html': { parent: 'The W Vault', parentHref: '/w-vault.html', current: 'The Film Room' },
   '/basketball-dictionary.html': { parent: 'The Film Room', parentHref: '/film-room.html', current: 'Basketball Dictionary' },
   '/trophy-case.html': { parent: 'The W Vault', parentHref: '/w-vault.html', current: 'The Trophy Room' },
@@ -140,8 +140,8 @@ const searchStaticIndex = [
   {title:'Herstory · Entrepreneurship',type:'Playerpedia',href:'/herstory.html#entrepreneurship',keywords:'business brands investments ownership companies'},
   {title:'Herstory · Community',type:'Playerpedia',href:'/herstory.html#community',keywords:'foundation philanthropy advocacy giving back'},
   {title:'Herstory · Life Chapters',type:'Playerpedia',href:'/herstory.html#life-chapters',keywords:'family milestones personal life chapters'},
-  {title:'Shaq’s Starting Five',type:'Playerpedia',href:'/starting-five.html',keywords:'featured players weekly monday'},
-  {title:'Shaq’s Bench Mob',type:'Playerpedia',href:'/bench-mob.html',keywords:'sixth woman microwave scorer 3 and d glue player backup floor general energy big'},
+  {title:'Shak’s Starting Five',type:'Playerpedia',href:'/starting-five.html',keywords:'shak shakeema featured players weekly monday'},
+  {title:'Shak’s Bench Mob',type:'Playerpedia',href:'/bench-mob.html',keywords:'shak shakeema sixth woman microwave scorer 3 and d glue player backup floor general energy big'},
   {title:'The W Vault',type:'Section',href:'/w-vault.html',keywords:'history basketball strategy awards uniforms'},
   {title:'The Film Room · Positions',type:'W Vault',href:'/film-room.html#positions',keywords:'point guard shooting guard wing forward center roles'},
   {title:'The Film Room · Offense',type:'W Vault',href:'/film-room.html#offense',keywords:'pick and roll spacing motion offense transition'},

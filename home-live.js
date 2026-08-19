@@ -4,11 +4,16 @@ const EASTERN_TIME_ZONE='America/New_York';
 function formatPct(value){return Number.isFinite(Number(value)) ? Number(value).toFixed(3) : '—';}
 function formatGb(value){const number=Number(value);if(!Number.isFinite(number)||number===0)return '—';return Number.isInteger(number)?String(number):number.toFixed(1);}
 
-// TheSportsDB schedule date/time fields are UTC. Always combine them first,
-// then convert the instant to Eastern Time so both the clock time and date rollover are correct.
+// Schedule timestamps are UTC. Some upstream feeds omit the trailing Z/offset,
+// so normalize unzoned timestamps as UTC before converting to Eastern Time.
 function gameDateTime(game={}){
   const direct=String(game.startTimeUtc||game.timestamp||'').trim();
-  if(direct){const parsed=new Date(direct);if(!Number.isNaN(parsed.getTime()))return parsed;}
+  if(direct){
+    const directIso=direct.includes('T')?direct:direct.replace(' ','T');
+    const hasZone=/Z$|[+-]\d{2}:?\d{2}$/i.test(directIso);
+    const parsed=new Date(hasZone?directIso:`${directIso}Z`);
+    if(!Number.isNaN(parsed.getTime()))return parsed;
+  }
   const date=String(game.date||'').trim();
   const rawTime=String(game.time||'').trim();
   if(date&&rawTime){
@@ -26,7 +31,7 @@ function formatGameDate(game={}){
 }
 function formatGameTime(game={}){
   const date=gameDateTime(game);
-  if(!date||!game.time)return '';
+  if(!date||(!game.time&&!game.startTimeUtc&&!game.timestamp))return '';
   const time=new Intl.DateTimeFormat('en-US',{timeZone:EASTERN_TIME_ZONE,hour:'numeric',minute:'2-digit'}).format(date);
   return `${time} ET`;
 }
@@ -57,7 +62,7 @@ function pastGamesMarkup(items=[]){
 
 function upcomingGamesMarkup(items=[]){
   if(!items.length)return '<div class="home-result"><strong>No upcoming games returned.</strong><span>The next scheduled matchup will appear here when the feed publishes it.</span></div>';
-  return items.slice(0,8).map(game=>`<article class="home-result"><span>${liveSafe(formatGameDate(game))}${game.time?` · ${liveSafe(formatGameTime(game))}`:''}</span><strong>${liveSafe(game.awayTeam||'TBD')} @ ${liveSafe(game.homeTeam||'TBD')}</strong><span>${liveSafe(game.venue||'Scheduled')}</span></article>`).join('');
+  return items.slice(0,8).map(game=>`<article class="home-result"><span>${liveSafe(formatGameDate(game))}${(game.time||game.startTimeUtc||game.timestamp)?` · ${liveSafe(formatGameTime(game))}`:''}</span><strong>${liveSafe(game.awayTeam||'TBD')} @ ${liveSafe(game.homeTeam||'TBD')}</strong><span>${liveSafe(game.venue||'Scheduled')}</span></article>`).join('');
 }
 
 let livePayload=null;

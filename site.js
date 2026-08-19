@@ -1,7 +1,9 @@
-if (!document.querySelector('link[href="/ui-fixes.css"]')) {
+const UI_FIXES_HREF='/ui-fixes.css?v=20260819-crisp-teams-v1';
+if (!document.querySelector('link[data-ui-fixes]')) {
   const uiFixes = document.createElement('link');
   uiFixes.rel = 'stylesheet';
-  uiFixes.href = '/ui-fixes.css';
+  uiFixes.href = UI_FIXES_HREF;
+  uiFixes.dataset.uiFixes = 'true';
   document.head.appendChild(uiFixes);
 }
 

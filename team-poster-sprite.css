@@ -1,0 +1,56 @@
+/* Around the W exact approved team graphics.
+   One verified 4x4 binary WebP sprite; each card reveals one 800x450 cell. */
+.team-directory-card.team-sprite-card{
+  position:relative;
+  width:100%;
+  max-width:520px;
+  aspect-ratio:16/9;
+  overflow:hidden;
+  border-radius:24px;
+  display:block;
+  padding:0;
+  background:#0b0b0f;
+  box-shadow:0 15px 34px rgba(20,10,47,.14);
+  isolation:isolate;
+}
+.team-sprite-window{
+  position:absolute;
+  inset:0;
+  z-index:1;
+  overflow:hidden;
+  background:#0b0b0f;
+}
+.team-sprite-sheet{
+  position:absolute;
+  width:400%;
+  height:400%;
+  max-width:none !important;
+  object-fit:fill;
+  left:calc(var(--sprite-col) * -100%);
+  top:calc(var(--sprite-row) * -100%);
+  display:block;
+  user-select:none;
+  pointer-events:none;
+}
+.team-sprite-fallback{
+  position:absolute;
+  inset:0;
+  z-index:0;
+  display:grid;
+  place-content:center;
+  text-align:center;
+  padding:24px;
+  color:#fff;
+  background:linear-gradient(135deg,var(--team-secondary),var(--team-primary));
+}
+.team-sprite-fallback b{font-size:.8rem;letter-spacing:.12em;opacity:.72;}
+.team-sprite-fallback strong{font-size:clamp(1.5rem,5vw,2.4rem);line-height:.95;text-transform:uppercase;}
+.team-sprite-card .team-poster-footer{
+  z-index:4;
+  background:linear-gradient(90deg,rgba(7,7,10,.98),rgba(7,7,10,.85));
+}
+.team-sprite-card.sprite-load-error .team-sprite-window{display:none;}
+.directory-expansion-label + .team-sprite-card{margin-top:0;}
+@media(max-width:640px){
+  .team-directory-card.team-sprite-card{width:min(100%,520px);border-radius:22px;}
+}

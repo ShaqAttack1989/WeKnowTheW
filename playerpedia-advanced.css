@@ -66,9 +66,6 @@
 .why-source{margin:13px 0 0!important;color:rgba(255,255,255,.5)!important;font-size:.7rem;line-height:1.45;}
 .profile-data-note{margin:14px 0 0;padding:12px 14px;border-radius:14px;background:#fff4d6;color:#655016;font-size:.8rem;}
 
-/* Playerpedia intentionally does not render remote player photos. */
-.player-card .player-avatar img,.player-modal .player-avatar img,.player-modal .profile-photo{display:none!important;}
-
 @media(max-width:560px){
   .why-we-know-her{padding:20px;}
   .why-metrics{grid-template-columns:1fr;}

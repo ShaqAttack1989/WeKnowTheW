@@ -11,8 +11,8 @@
     {"team":"Savannah Steel","record":"7-15","asOf":"2026-07-22","status":"Last verified public record"}
   ],
   "leaders":[
-    {"player":"Deja Kelly","team":"Charlotte Crown","stat":"17.7","metric":"PPG","asOf":"2026-07-23"},
-    {"player":"Deja Kelly","team":"Charlotte Crown","stat":"4.1","metric":"APG","asOf":"2026-07-23"},
+    {"player":"Deja Kelly","team":"Charlotte Crown","stat":"17.7","metric":"PPG","asOf":"2026-07-23","photo":"https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Deja_Kelly_Oregon_%28cropped%29.jpg/500px-Deja_Kelly_Oregon_%28cropped%29.jpg"},
+    {"player":"Deja Kelly","team":"Charlotte Crown","stat":"4.1","metric":"APG","asOf":"2026-07-23","photo":"https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Deja_Kelly_Oregon_%28cropped%29.jpg/500px-Deja_Kelly_Oregon_%28cropped%29.jpg"},
     {"player":"Michelle Onyiah","team":"Charlotte Crown","stat":"6.9","metric":"RPG","asOf":"2026-07-31"},
     {"player":"Michelle Onyiah","team":"Charlotte Crown","stat":"1.1","metric":"BPG","asOf":"2026-07-31"}
   ],

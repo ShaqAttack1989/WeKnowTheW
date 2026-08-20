@@ -1,4 +1,4 @@
-const UI_FIXES_HREF='/ui-fixes.css?v=20260819-nav-search-v2';
+const UI_FIXES_HREF='/ui-fixes.css?v=20260820-nav-posters-v1';
 if (!document.querySelector('link[data-ui-fixes]')) {
   const uiFixes = document.createElement('link');
   uiFixes.rel = 'stylesheet';

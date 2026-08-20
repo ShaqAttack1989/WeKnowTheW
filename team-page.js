@@ -1,34 +1,20 @@
 function tSafe(value=''){return String(value).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;').replaceAll("'",'&#039;');}
+function rosterPhoto(player={}){
+  const direct=[player.photo,player.photoThumb,player.headshot].find(value=>/^https?:\/\//i.test(String(value||'').trim()));
+  if(direct)return String(direct).trim();
+  const id=String(player.espnId||'').replace(/[^0-9]/g,'');
+  return id?`https://a.espncdn.com/i/headshots/wnba/players/full/${id}.png`:'';
+}
 function tNorm(value=''){return String(value).toLowerCase().replace(/[^a-z0-9]/g,'');}
 
 const params=new URLSearchParams(location.search);
 const slug=params.get('team')||'';
 const team=teamBySlug(slug);
 
-const TEAM_HEADER_POSITIONS={
-  'atlanta-dream':['0%','0%'],
-  'chicago-sky':['33.333%','0%'],
-  'connecticut-sun':['66.667%','0%'],
-  'dallas-wings':['100%','0%'],
-  'golden-state-valkyries':['0%','33.333%'],
-  'indiana-fever':['33.333%','33.333%'],
-  'las-vegas-aces':['66.667%','33.333%'],
-  'los-angeles-sparks':['100%','33.333%'],
-  'minnesota-lynx':['0%','66.667%'],
-  'new-york-liberty':['33.333%','66.667%'],
-  'phoenix-mercury':['66.667%','66.667%'],
-  'portland-fire':['100%','66.667%'],
-  'seattle-storm':['0%','100%'],
-  'toronto-tempo':['33.333%','100%'],
-  'washington-mystics':['66.667%','100%']
-};
-
 function applyHeaderBackdrop(){
   const backdrop=document.getElementById('teamHeaderBackdrop');
-  const position=TEAM_HEADER_POSITIONS[slug];
-  if(!backdrop||!position)return;
-  backdrop.style.setProperty('--team-backdrop-x',position[0]);
-  backdrop.style.setProperty('--team-backdrop-y',position[1]);
+  if(!backdrop||!team?.poster)return;
+  backdrop.style.backgroundImage=`url("${team.poster}")`;
 }
 
 function applyOfficialTeamArtwork(asset){
@@ -109,7 +95,10 @@ async function loadTeamPage(){
     const allPlayers=Array.isArray(playersResult.value.players)?playersResult.value.players:[];
     const teamPlayers=allPlayers.filter(player=>tNorm(player.team)===tNorm(team.name));
     rosterStatus.textContent=teamPlayers.length?`${teamPlayers.length} current players loaded automatically.`:'The current roster feed did not return players for this team yet.';
-    roster.innerHTML=teamPlayers.length?teamPlayers.map(player=>`<a class="team-roster-card" href="/playerpedia.html?search=${encodeURIComponent(player.name)}"><span class="team-roster-number">${tSafe(player.number?`#${player.number}`:'W')}</span><span><strong>${tSafe(player.name)}</strong><span>${tSafe(player.position||'Player')}</span></span></a>`).join(''):'<div class="team-error">Current roster details are temporarily unavailable. Playerpedia remains accessible.</div>';
+    roster.innerHTML=teamPlayers.length?teamPlayers.map(player=>{
+      const photo=rosterPhoto(player);
+      return `<a class="team-roster-card" href="/playerpedia.html?search=${encodeURIComponent(player.name)}"><span class="team-roster-media"><span class="team-roster-number">${tSafe(player.number?`#${player.number}`:'W')}</span>${photo?`<img class="team-roster-photo" src="${tSafe(photo)}" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.remove()">`:''}</span><span><strong>${tSafe(player.name)}</strong><span>${tSafe(player.position||'Player')}</span></span></a>`;
+    }).join(''):'<div class="team-error">Current roster details are temporarily unavailable. Playerpedia remains accessible.</div>';
   }else{
     rosterStatus.textContent='Current roster temporarily unavailable.';
     roster.innerHTML='<div class="team-error">The roster feed could not load right now. Try Playerpedia or return later.</div>';

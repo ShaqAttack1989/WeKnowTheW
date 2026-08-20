@@ -100,9 +100,11 @@ function normalizePlayer(player, team) {
 function normalizeEspnPlayer(player, teamIdByName) {
   const name = player.name || '';
   const { firstName, lastName } = splitName(name);
+  const espnId = String(player.id || '').replace(/[^0-9]/g, '');
+  const espnPhoto = cleanUrl(player.headshot) || (espnId ? `https://a.espncdn.com/i/headshots/wnba/players/full/${espnId}.png` : '');
   return {
-    id: `espn-${player.id}`,
-    espnId: String(player.id || ''),
+    id: `espn-${espnId || player.id}`,
+    espnId,
     name,
     firstName: player.firstName || firstName,
     lastName: player.lastName || lastName,
@@ -114,12 +116,13 @@ function normalizeEspnPlayer(player, teamIdByName) {
     birthDate: '',
     height: player.height || '',
     weight: player.weight || '',
-    photo: '',
-    photoThumb: '',
+    photo: espnPhoto,
+    photoThumb: espnPhoto,
     photoCutout: '',
+    headshot: espnPhoto,
     photoCreativeCommons: '',
-    photoSource: '',
-    photoSourceUrl: '',
+    photoSource: espnPhoto ? 'ESPN' : '',
+    photoSourceUrl: espnId ? `https://www.espn.com/wnba/player/_/id/${espnId}` : '',
     dataSources: ['SportsDataverse/WeHoop ESPN bridge'],
     espnRosterFallback: true
   };
@@ -131,6 +134,15 @@ function mergePlayerRecord(base, supplement) {
     if (!merged[field] && supplement[field]) merged[field] = supplement[field];
   }
   if (!merged.espnId && supplement.espnId) merged.espnId = supplement.espnId;
+  if (!merged.photo && (supplement.photo || supplement.headshot)) {
+    merged.photo = supplement.photo || supplement.headshot;
+    merged.photoThumb = supplement.photoThumb || merged.photo;
+    merged.headshot = supplement.headshot || merged.photo;
+    merged.photoSource = supplement.photoSource || merged.photoSource;
+    merged.photoSourceUrl = supplement.photoSourceUrl || merged.photoSourceUrl;
+  } else if (!merged.headshot && supplement.headshot) {
+    merged.headshot = supplement.headshot;
+  }
   merged.dataSources = [...new Set([...(base.dataSources || []), ...(supplement.dataSources || [])])];
   return merged;
 }
@@ -399,6 +411,6 @@ module.exports = async function handler(req, res) {
     partial: failedRosters > 0 || providerErrors.length > 0,
     failedRosters,
     providerErrors,
-    artworkPolicy: 'ESPN/WeHoop roster data may fill identity and roster metadata, but site artwork remains restricted to the existing approved image policy.'
+    artworkPolicy: 'Playerpedia uses Creative Commons TheSportsDB artwork when available, then ESPN roster headshots so current-player photos stay connected.'
   });
 };

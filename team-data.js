@@ -1,20 +1,21 @@
 const TEAM_DATA = [
-  { slug:'atlanta-dream', name:'Atlanta Dream', city:'Atlanta', tag:'ATL', primary:'#C8102E', secondary:'#69B3E7', accent:'#FFFFFF', text:'#FFFFFF', skyline:'atlanta' },
-  { slug:'chicago-sky', name:'Chicago Sky', city:'Chicago', tag:'CHI', primary:'#F9E547', secondary:'#69B3E7', accent:'#111111', text:'#111111', skyline:'chicago' },
-  { slug:'connecticut-sun', name:'Connecticut Sun', city:'Uncasville', tag:'CON', primary:'#F05023', secondary:'#003DA5', accent:'#F9E547', text:'#FFFFFF', skyline:'connecticut' },
-  { slug:'dallas-wings', name:'Dallas Wings', city:'Dallas', tag:'DAL', primary:'#0C2340', secondary:'#C4D600', accent:'#69B3E7', text:'#FFFFFF', skyline:'dallas' },
-  { slug:'golden-state-valkyries', name:'Golden State Valkyries', city:'San Francisco Bay Area', tag:'GSV', primary:'#6D35A8', secondary:'#B79BE6', accent:'#000000', text:'#FFFFFF', skyline:'san-francisco' },
-  { slug:'indiana-fever', name:'Indiana Fever', city:'Indianapolis', tag:'IND', primary:'#002D62', secondary:'#E03A3E', accent:'#FDBB30', text:'#FFFFFF', skyline:'indianapolis' },
-  { slug:'las-vegas-aces', name:'Las Vegas Aces', city:'Las Vegas', tag:'LVA', primary:'#C8102E', secondary:'#A7A8AA', accent:'#000000', text:'#FFFFFF', skyline:'las-vegas' },
-  { slug:'los-angeles-sparks', name:'Los Angeles Sparks', city:'Los Angeles', tag:'LAS', primary:'#552583', secondary:'#FDB927', accent:'#00A2E8', text:'#FFFFFF', skyline:'los-angeles' },
-  { slug:'minnesota-lynx', name:'Minnesota Lynx', city:'Minneapolis', tag:'MIN', primary:'#0C2340', secondary:'#78BE20', accent:'#236192', text:'#FFFFFF', skyline:'minneapolis' },
-  { slug:'new-york-liberty', name:'New York Liberty', city:'New York City', tag:'NYL', primary:'#6ECEB2', secondary:'#000000', accent:'#FFFFFF', text:'#111111', skyline:'new-york' },
-  { slug:'phoenix-mercury', name:'Phoenix Mercury', city:'Phoenix', tag:'PHX', primary:'#CB6015', secondary:'#201747', accent:'#F9A01B', text:'#FFFFFF', skyline:'phoenix' },
-  { slug:'portland-fire', name:'Portland Fire', city:'Portland', tag:'POR', primary:'#D52B1E', secondary:'#6B3F2A', accent:'#F4A7B9', text:'#FFFFFF', skyline:'portland', note:'Debut season: 2026' },
-  { slug:'seattle-storm', name:'Seattle Storm', city:'Seattle', tag:'SEA', primary:'#2C5234', secondary:'#FEE11A', accent:'#FFFFFF', text:'#FFFFFF', skyline:'seattle' },
-  { slug:'toronto-tempo', name:'Toronto Tempo', city:'Toronto', tag:'TOR', primary:'#2477C5', secondary:'#6E1F3A', accent:'#FFFFFF', text:'#FFFFFF', skyline:'toronto', note:'Debut season: 2026' },
-  { slug:'washington-mystics', name:'Washington Mystics', city:'Washington, D.C.', tag:'WAS', primary:'#002B5C', secondary:'#E31837', accent:'#C4CED4', text:'#FFFFFF', skyline:'washington' }
+  { slug:'atlanta-dream', name:'Atlanta Dream', city:'Atlanta', tag:'ATL', primary:'#C8102E', secondary:'#69B3E7', accent:'#FFFFFF', text:'#FFFFFF', skyline:'atlanta', poster:'/assets/images/17989.png' },
+  { slug:'chicago-sky', name:'Chicago Sky', city:'Chicago', tag:'CHI', primary:'#F9E547', secondary:'#69B3E7', accent:'#111111', text:'#111111', skyline:'chicago', poster:'/assets/images/17990.png' },
+  { slug:'connecticut-sun', name:'Connecticut Sun', city:'Uncasville', tag:'CON', primary:'#F05023', secondary:'#003DA5', accent:'#F9E547', text:'#FFFFFF', skyline:'connecticut', poster:'/assets/images/17991.png' },
+  { slug:'dallas-wings', name:'Dallas Wings', city:'Dallas', tag:'DAL', primary:'#0C2340', secondary:'#C4D600', accent:'#69B3E7', text:'#FFFFFF', skyline:'dallas', poster:'/assets/images/17992.png' },
+  { slug:'golden-state-valkyries', name:'Golden State Valkyries', city:'San Francisco Bay Area', tag:'GSV', primary:'#6D35A8', secondary:'#B79BE6', accent:'#000000', text:'#FFFFFF', skyline:'san-francisco', poster:'/assets/images/17993.png' },
+  { slug:'indiana-fever', name:'Indiana Fever', city:'Indianapolis', tag:'IND', primary:'#002D62', secondary:'#E03A3E', accent:'#FDBB30', text:'#FFFFFF', skyline:'indianapolis', poster:'/assets/images/17994.png' },
+  { slug:'las-vegas-aces', name:'Las Vegas Aces', city:'Las Vegas', tag:'LVA', primary:'#C8102E', secondary:'#A7A8AA', accent:'#000000', text:'#FFFFFF', skyline:'las-vegas', poster:'/assets/images/17995.png' },
+  { slug:'los-angeles-sparks', name:'Los Angeles Sparks', city:'Los Angeles', tag:'LAS', primary:'#552583', secondary:'#FDB927', accent:'#00A2E8', text:'#FFFFFF', skyline:'los-angeles', poster:'/assets/images/17998.png' },
+  { slug:'minnesota-lynx', name:'Minnesota Lynx', city:'Minneapolis', tag:'MIN', primary:'#0C2340', secondary:'#78BE20', accent:'#236192', text:'#FFFFFF', skyline:'minneapolis', poster:'/assets/images/17997.png' },
+  { slug:'new-york-liberty', name:'New York Liberty', city:'New York City', tag:'NYL', primary:'#6ECEB2', secondary:'#000000', accent:'#FFFFFF', text:'#111111', skyline:'new-york', poster:'/assets/images/17996.png' },
+  { slug:'phoenix-mercury', name:'Phoenix Mercury', city:'Phoenix', tag:'PHX', primary:'#CB6015', secondary:'#201747', accent:'#F9A01B', text:'#FFFFFF', skyline:'phoenix', poster:'/assets/images/17999.png' },
+  { slug:'portland-fire', name:'Portland Fire', city:'Portland', tag:'POR', primary:'#D52B1E', secondary:'#6B3F2A', accent:'#F4A7B9', text:'#FFFFFF', skyline:'portland', note:'Debut season: 2026', poster:'/assets/images/18000.png' },
+  { slug:'seattle-storm', name:'Seattle Storm', city:'Seattle', tag:'SEA', primary:'#2C5234', secondary:'#FEE11A', accent:'#FFFFFF', text:'#FFFFFF', skyline:'seattle', poster:'/assets/images/18001.png' },
+  { slug:'toronto-tempo', name:'Toronto Tempo', city:'Toronto', tag:'TOR', primary:'#2477C5', secondary:'#6E1F3A', accent:'#FFFFFF', text:'#FFFFFF', skyline:'toronto', note:'Debut season: 2026', poster:'/assets/images/18174.jpg' },
+  { slug:'washington-mystics', name:'Washington Mystics', city:'Washington, D.C.', tag:'WAS', primary:'#002B5C', secondary:'#E31837', accent:'#C4CED4', text:'#FFFFFF', skyline:'washington', poster:'/assets/images/18172.jpg' }
 ];
+const CLEVELAND_SIRENS = { slug:'cleveland-sirens', name:'Cleveland Sirens', city:'Cleveland', tag:'CLE', primary:'#0D4FA3', secondary:'#06152C', accent:'#66BCEB', text:'#FFFFFF', poster:'/assets/images/18171.png', href:'/cleveland-sirens.html' };
 
 function skylineSvg(kind, className='city-silhouette') {
   const commonStart = `<svg class="${className}" viewBox="0 0 640 190" role="img" aria-label="Black city skyline silhouette"><g fill="#000">`;

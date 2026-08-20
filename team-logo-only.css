@@ -26,17 +26,15 @@
   z-index:0;
   top:92px;
   right:0;
-  width:min(58vw,880px);
+  width:min(62vw,920px);
   aspect-ratio:16/9;
-  background-image:url('/assets/team-posters/team-cards-sprite.webp?v=20260819-header-backdrop-v2');
   background-repeat:no-repeat;
-  background-size:400% 400%;
-  background-position:var(--team-backdrop-x,0%) var(--team-backdrop-y,0%);
-  opacity:.52;
-  filter:saturate(.95) contrast(1.03);
+  background-size:cover;
+  background-position:center right;
+  opacity:.78;
   pointer-events:none;
-  -webkit-mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.22) 13%,rgba(0,0,0,.78) 35%,#000 58%,#000 100%);
-  mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.22) 13%,rgba(0,0,0,.78) 35%,#000 58%,#000 100%);
+  -webkit-mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.28) 12%,rgba(0,0,0,.86) 36%,#000 58%,#000 100%);
+  mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.28) 12%,rgba(0,0,0,.86) 36%,#000 58%,#000 100%);
 }
 .team-header-backdrop::after{
   content:"";

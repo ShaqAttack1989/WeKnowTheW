@@ -1,4 +1,4 @@
-const UI_FIXES_HREF='/ui-fixes.css?v=20260820-nav-posters-v1';
+const UI_FIXES_HREF='/ui-fixes.css?v=20260820-mobile-nav-v3';
 if (!document.querySelector('link[data-ui-fixes]')) {
   const uiFixes = document.createElement('link');
   uiFixes.rel = 'stylesheet';
@@ -25,6 +25,7 @@ const structuredNav = `
   <div class="nav-group">
     <a class="nav-parent" href="/playerpedia.html">Playerpedia <span aria-hidden="true">▾</span></a>
     <div class="nav-submenu">
+      <a href="/playerpedia.html"><strong>Players A–Z</strong></a>
       <a href="/herstory.html"><strong>Herstory</strong></a>
       <a class="nav-nested" href="/herstory.html#education">Education</a>
       <a class="nav-nested" href="/herstory.html#entrepreneurship">Entrepreneurship</a>
@@ -53,6 +54,7 @@ const structuredNav = `
   <div class="nav-group">
     <a class="nav-parent" href="/courtside-culture.html">Courtside Culture <span aria-hidden="true">▾</span></a>
     <div class="nav-submenu">
+      <a href="/courtside-culture.html"><strong>Open Courtside Culture</strong></a>
       <a href="/courtside-culture.html#mascots">Mascots</a>
       <a href="/courtside-culture.html#coaches">Coaches</a>
       <a class="nav-nested" href="/courtside-culture.html#court-to-clipboard">Court to Clipboard</a>
@@ -65,6 +67,7 @@ const structuredNav = `
   <div class="nav-group">
     <a class="nav-parent" href="/who-got-next.html">Who Got Next? <span aria-hidden="true">▾</span></a>
     <div class="nav-submenu who-got-next-menu">
+      <a href="/who-got-next.html"><strong>Who Got Next?</strong></a>
       <a href="/class-is-in-session.html">Class Is in Session · NCAAW</a>
       <a href="/the-call-up.html">The Call Up · UPSHOT</a>
       <a href="/expansion-watch.html">Expansion Watch</a>
@@ -75,22 +78,35 @@ const structuredNav = `
 
 if (navLinks) navLinks.innerHTML = structuredNav;
 
-menuButton?.addEventListener('click', () => {
+const mobileNav = window.matchMedia('(max-width: 1100px)');
+function isMobileNav(){return mobileNav.matches;}
+
+menuButton?.addEventListener('click', event => {
+  event.stopPropagation();
   const open = navLinks?.classList.toggle('open');
   menuButton.setAttribute('aria-expanded', String(Boolean(open)));
+  if (!open) document.querySelectorAll('.nav-group.submenu-open').forEach(group => group.classList.remove('submenu-open'));
 });
 
 document.querySelectorAll('.nav-group').forEach(group => {
   const parent = group.querySelector('.nav-parent');
   parent?.addEventListener('click', event => {
-    if (window.matchMedia('(max-width: 900px)').matches && !group.classList.contains('submenu-open')) {
-      event.preventDefault();
-      document.querySelectorAll('.nav-group.submenu-open').forEach(other => {
-        if (other !== group) other.classList.remove('submenu-open');
-      });
-      group.classList.add('submenu-open');
-    }
+    if (!isMobileNav()) return;
+    event.preventDefault();
+    event.stopPropagation();
+    const alreadyOpen = group.classList.contains('submenu-open');
+    document.querySelectorAll('.nav-group.submenu-open').forEach(other => {
+      if (other !== group) other.classList.remove('submenu-open');
+    });
+    group.classList.toggle('submenu-open', !alreadyOpen);
   });
+});
+
+document.addEventListener('click', event => {
+  if (!isMobileNav() || !navLinks?.classList.contains('open')) return;
+  if (event.target.closest('#navLinks') || event.target.closest('#menuButton')) return;
+  navLinks.classList.remove('open');
+  menuButton?.setAttribute('aria-expanded', 'false');
 });
 
 const hierarchyMap = {

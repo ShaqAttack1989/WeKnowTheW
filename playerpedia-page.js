@@ -1,6 +1,14 @@
 function pSafe(v=''){return String(v).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;').replaceAll("'",'&#039;');}
 function initials(name=''){return String(name).trim().split(/\s+/).filter(Boolean).slice(0,2).map(x=>x[0]?.toUpperCase()||'').join('')||'W';}
-function playerPhoto(player={}){const direct=[player.photo,player.photoThumb,player.headshot].find(value=>/^https?:\/\//i.test(String(value||'').trim()));if(direct)return String(direct).trim();const id=String(player.espnId||'').replace(/[^0-9]/g,'');return id?`https://a.espncdn.com/i/headshots/wnba/players/full/${id}.png`:'';}
+function playerPhoto(player={}){
+  const id=String(player.espnId||'').replace(/[^0-9]/g,'');
+  if(id)return `/api/photo?id=${id}`;
+  const direct=[player.photo,player.photoThumb,player.headshot].find(value=>/^https?:\/\//i.test(String(value||'').trim()));
+  if(!direct)return '';
+  const espn=String(direct).match(/headshots\/(wnba|womens-college-basketball)\/players\/full\/(\d+)\.(?:png|jpg)/i);
+  if(espn)return `/api/photo?id=${espn[2]}${espn[1]==='wnba'?'':'&league=ncaaw'}`;
+  return String(direct).trim();
+}
 function avatarMarkup(player={},large=false){const photo=playerPhoto(player),name=player.name||'Player',classes=`player-avatar photo-avatar${large?' large':''}`;return `<span class="${classes}" aria-hidden="true"><span class="player-avatar-fallback">${pSafe(initials(name))}</span>${photo?`<img class="player-avatar-image" src="${pSafe(photo)}" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.remove()">`:''}</span>`;}
 function prettyDate(value=''){if(!value)return '';const date=new Date(`${String(value).slice(0,10)}T12:00:00`);return Number.isNaN(date.getTime())?value:date.toLocaleDateString([],{month:'short',day:'numeric'});}
 function playerKey(value=''){return String(value).normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]/g,'');}

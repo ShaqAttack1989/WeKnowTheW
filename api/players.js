@@ -71,7 +71,7 @@ function normalizePlayer(player, team) {
   const cutout = cleanUrl(player.strCutout || player.strPlayerCutout || '');
   const creativeCommons = String(player.strCreativeCommons || player.strCreativeCommonsLicense || '').trim();
   const approvedArtwork = creativeCommonsApproved(creativeCommons);
-  const photo = approvedArtwork ? (thumb || cutout) : '';
+  const photo = thumb || cutout;
   const id = String(player.idPlayer || player.id || '');
 
   return {

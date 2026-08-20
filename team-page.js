@@ -1,9 +1,12 @@
 function tSafe(value=''){return String(value).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;').replaceAll("'",'&#039;');}
 function rosterPhoto(player={}){
-  const direct=[player.photo,player.photoThumb,player.headshot].find(value=>/^https?:\/\//i.test(String(value||'').trim()));
-  if(direct)return String(direct).trim();
   const id=String(player.espnId||'').replace(/[^0-9]/g,'');
-  return id?`https://a.espncdn.com/i/headshots/wnba/players/full/${id}.png`:'';
+  if(id)return `/api/photo?id=${id}`;
+  const direct=[player.photo,player.photoThumb,player.headshot].find(value=>/^https?:\/\//i.test(String(value||'').trim()));
+  if(!direct)return '';
+  const espn=String(direct).match(/headshots\/(wnba|womens-college-basketball)\/players\/full\/(\d+)\.(?:png|jpg)/i);
+  if(espn)return `/api/photo?id=${espn[2]}${espn[1]==='wnba'?'':'&league=ncaaw'}`;
+  return String(direct).trim();
 }
 function tNorm(value=''){return String(value).toLowerCase().replace(/[^a-z0-9]/g,'');}
 

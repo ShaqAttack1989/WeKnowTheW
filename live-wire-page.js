@@ -8,14 +8,25 @@ function wClass(value=''){
   return String(value).toLowerCase().trim().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
 }
 function wPageDate(){
-  const parts=new Intl.DateTimeFormat('en-US',{timeZone:'America/New_York',month:'short',day:'numeric'}).format(new Date());
-  return parts;
+  return new Intl.DateTimeFormat('en-US',{timeZone:'America/New_York',month:'short',day:'numeric'}).format(new Date());
 }
 function wTeam(value=''){
   const team=String(value||'').trim();
   return team&&!/^WNBA$/i.test(team)?team:'';
 }
-function statusWeight(value=''){return value==='OUT FOR SEASON'?0:value==='OUT'?1:value==='DAY TO DAY'?2:3;}
+function statusWeight(value=''){
+  const status=String(value||'').toUpperCase();
+  if(status==='OUT FOR SEASON')return 0;
+  if(status==='OUT'||status==='NWT'||status==='SUSPENDED')return 1;
+  if(status==='DOUBTFUL')return 2;
+  if(status==='QUESTIONABLE'||status==='DAY TO DAY')return 3;
+  if(status==='PROBABLE')return 4;
+  return 5;
+}
+function visibleInjury(item={}){
+  const status=String(item.status||'').toUpperCase();
+  return !['AVAILABLE','ACTIVE','CLEARED'].includes(status);
+}
 
 (async()=>{
   const mode=document.body.dataset.wirePage||'movement';
@@ -24,12 +35,14 @@ function statusWeight(value=''){return value==='OUT FOR SEASON'?0:value==='OUT'?
   const updated=document.getElementById('wireUpdated');
   if(updated)updated.textContent=`Updated ${wPageDate()}`;
   try{
-    const r=await fetch('/api/players',{headers:{Accept:'application/json'},cache:'no-store'});
+    const r=await fetch('/api/players?officialReports=20260822',{headers:{Accept:'application/json'},cache:'no-store'});
     const p=await r.json().catch(()=>({}));
     if(!r.ok)throw new Error(p.error||'Live player feed unavailable');
 
     if(mode==='availability'){
-      const items=Array.isArray(p.injuries)?[...p.injuries].sort((a,b)=>statusWeight(a.status)-statusWeight(b.status)||String(b.updated||'').localeCompare(String(a.updated||''))):[];
+      const items=Array.isArray(p.injuries)
+        ? [...p.injuries].filter(visibleInjury).sort((a,b)=>statusWeight(a.status)-statusWeight(b.status)||String(b.updated||'').localeCompare(String(a.updated||'')))
+        : [];
       list.innerHTML=items.length?items.map(item=>{
         const team=wTeam(item.team);
         const identity=[item.player||'Player',team].filter(Boolean).join(' · ');
@@ -43,7 +56,7 @@ function statusWeight(value=''){return value==='OUT FOR SEASON'?0:value==='OUT'?
           </div>
         </article>`;
       }).join(''):'<div class="wire-empty"><strong>No current availability updates returned.</strong></div>';
-      if(status)status.textContent=`${items.length} availability updates · live feed connected`;
+      if(status){status.hidden=false;status.innerHTML=`${items.length} current entries · <a href="https://www.wnba.com/wnba-injury-report" target="_blank" rel="noopener noreferrer">official WNBA Injury Report ↗</a>`;}
     }else{
       const items=Array.isArray(p.transactions)?p.transactions:[];
       list.innerHTML=items.length?items.map(item=>{
@@ -59,10 +72,10 @@ function statusWeight(value=''){return value==='OUT FOR SEASON'?0:value==='OUT'?
           </div>
         </article>`;
       }).join(''):'<div class="wire-empty"><strong>No recent player movement returned.</strong></div>';
-      if(status)status.textContent=`${items.length} roster transactions · live feed connected`;
+      if(status){status.hidden=false;status.innerHTML=`${items.length} recent transactions · <a href="https://www.wnba.com/players/transactions?transaction=&team=all&month=0" target="_blank" rel="noopener noreferrer">official WNBA Transactions ↗</a>`;}
     }
   }catch(error){
     list.innerHTML='<div class="wire-empty"><strong>Live player feed unavailable.</strong><p>Try again shortly.</p></div>';
-    if(status)status.textContent='Live feed temporarily unavailable';
+    if(status){status.hidden=false;status.textContent='Live feed temporarily unavailable';}
   }
 })();

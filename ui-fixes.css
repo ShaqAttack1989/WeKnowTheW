@@ -209,8 +209,8 @@
 .standings-card-head strong{font-size:1.08rem;}
 .standings-card-head span{color:#6f6879;font-size:.78rem;font-weight:800;}
 .live-table-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;}
-.live-standings-table{min-width:900px;}
-.live-standings-row{display:grid;grid-template-columns:minmax(185px,1.7fr) 45px 45px 62px 55px 68px 68px 68px 72px 62px;align-items:center;min-height:49px;border-top:1px solid #ece7ef;background:#fff;font-size:.83rem;}
+.live-standings-table{min-width:100%;}
+.live-standings-row{display:grid;grid-template-columns:minmax(230px,1.8fr) 54px 54px 70px 62px 82px 82px 82px 84px 74px;align-items:center;min-height:49px;border-top:1px solid #ece7ef;background:#fff;font-size:.83rem;}
 .live-standings-row.head{min-height:42px;background:#140a2f;color:#fff;border-top:0;font-size:.69rem;font-weight:950;letter-spacing:.04em;}
 .live-standings-row>span,.live-standings-row>strong{padding:10px 8px;text-align:center;}
 .live-standings-row>span:first-child{text-align:left;}
@@ -218,6 +218,24 @@
 .live-team-cell strong{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 .live-rank{display:inline-grid;place-items:center;width:24px;height:24px;flex:0 0 24px;border-radius:8px;background:#f0e8fb;color:#5c1fc1;font-size:.73rem;}
 .streak-cell,.last-ten-cell{font-weight:850;}
+.streak-cell.is-positive,.last-ten-cell.is-positive{color:#0b6b38;background:#e7f8ee;}
+.streak-cell.is-negative,.last-ten-cell.is-negative{color:#b4232c;background:#fff0f1;}
+.streak-cell.is-even,.last-ten-cell.is-even{color:#625b6d;background:#f3f0f5;}
+.playoff-marker{display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;flex:0 0 20px;vertical-align:middle;}
+.playoff-marker svg{width:20px;height:20px;overflow:visible;}
+.playoff-marker circle{fill:currentColor;stroke:none;}
+.playoff-marker path{fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
+.playoff-marker.clinched{color:#0b7b45;}
+.playoff-marker.eliminated{color:#c42b35;}
+.home-live-stack{display:grid;gap:24px;}
+.games-card-wide{width:100%;}
+.standings-info-grid{display:grid;grid-template-columns:minmax(250px,.72fr) minmax(0,2fr);gap:18px;margin-top:18px;}
+.standings-info-card{padding:22px 24px;border:1px solid #e4dce9;border-radius:22px;background:#fff;box-shadow:0 8px 24px rgba(24,12,47,.05);}
+.standings-info-card h3{margin:0 0 14px;font-size:1.08rem;}
+.standings-info-card p{margin:8px 0;color:#625b6d;line-height:1.55;font-size:.88rem;}
+.playoff-legend-item{display:flex;align-items:center;gap:10px;margin:12px 0;color:#332c3e;font-size:.88rem;font-weight:800;}
+.tiebreak-card ol{margin:10px 0 12px;padding-left:22px;color:#332c3e;}
+.tiebreak-card li{margin:7px 0;padding-left:4px;line-height:1.45;font-size:.88rem;}
 .conference-stack{display:grid;gap:26px;padding-bottom:6px;}
 .conference-block h3{margin:0;padding:16px 20px 10px;font-size:1.25rem;background:#fff;}
 .conference-block+.conference-block{border-top:8px solid #f3eef7;}
@@ -229,6 +247,7 @@
   .standings-toggle button{flex:1;}
   .branded-team-grid{grid-template-columns:1fr;}
   .expansion-preview-card{grid-column:auto;}
+  .standings-info-grid{grid-template-columns:1fr;}
 }
 @media(max-width:640px){
   .team-directory-card{width:min(100%,480px);border-radius:22px;}

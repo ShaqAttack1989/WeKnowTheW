@@ -236,6 +236,7 @@
 .playoff-legend-item{display:flex;align-items:center;gap:10px;margin:12px 0;color:#332c3e;font-size:.88rem;font-weight:800;}
 .tiebreak-card ol{margin:10px 0 12px;padding-left:22px;color:#332c3e;}
 .tiebreak-card li{margin:7px 0;padding-left:4px;line-height:1.45;font-size:.88rem;}
+.around-standings-info{margin:0;padding:18px;border-top:1px solid #e4dce9;background:#fffaf0;}
 .conference-stack{display:grid;gap:26px;padding-bottom:6px;}
 .conference-block h3{margin:0;padding:16px 20px 10px;font-size:1.25rem;background:#fff;}
 .conference-block+.conference-block{border-top:8px solid #f3eef7;}

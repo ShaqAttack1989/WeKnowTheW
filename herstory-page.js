@@ -21,6 +21,7 @@ function hNames(entry){
     .replace(/\s+Foundation$/i,'')
     .split(/\s+\+\s+/)
     .map(name=>name.trim())
+    .map(name=>/^Angel C\. Reese$/i.test(name)?'Angel Reese':name)
     .filter(Boolean);
 }
 

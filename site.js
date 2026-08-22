@@ -31,6 +31,7 @@ const structuredNav = `
       <a class="nav-nested" href="/herstory.html#entrepreneurship">Entrepreneurship</a>
       <a class="nav-nested" href="/herstory.html#community">Community</a>
       <a class="nav-nested" href="/herstory.html#life-chapters">Life Chapters</a>
+      <a class="nav-nested" href="/herstory.html#profile-connection">Profile Connection</a>
       <a href="/starting-five.html"><strong>Shak’s Starting Five</strong></a>
       <a href="/bench-mob.html"><strong>Shak’s Bench Mob</strong></a>
     </div>
@@ -156,6 +157,7 @@ const searchStaticIndex = [
   {title:'Herstory · Entrepreneurship',type:'Playerpedia',href:'/herstory.html#entrepreneurship',keywords:'business brands investments ownership companies'},
   {title:'Herstory · Community',type:'Playerpedia',href:'/herstory.html#community',keywords:'foundation philanthropy advocacy giving back'},
   {title:'Herstory · Life Chapters',type:'Playerpedia',href:'/herstory.html#life-chapters',keywords:'family milestones personal life chapters'},
+  {title:'Herstory · Profile Connection',type:'Playerpedia',href:'/herstory.html#profile-connection',keywords:'player profiles on court off court connected story'},
   {title:'Shak’s Starting Five',type:'Playerpedia',href:'/starting-five.html',keywords:'shak shakeema featured players weekly monday'},
   {title:'Shak’s Bench Mob',type:'Playerpedia',href:'/bench-mob.html',keywords:'shak shakeema sixth woman microwave scorer 3 and d glue player backup floor general energy big'},
   {title:'The W Vault',type:'Section',href:'/w-vault.html',keywords:'history basketball strategy awards uniforms'},

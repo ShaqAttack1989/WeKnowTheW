@@ -93,6 +93,10 @@ async function load(){
     if(wanted)playerSearch.value=wanted;
     if(wantedTeam){const option=[...playerTeamFilter.options].find(item=>item.textContent.trim().toLowerCase()===wantedTeam.trim().toLowerCase());if(option)playerTeamFilter.value=option.value;}
     render();
+    if(wanted){
+      const directMatch=allPlayers.find(player=>normalizeText(player.name)===normalizeText(wanted));
+      if(directMatch)openProfile(directMatch.id);
+    }
     const partialText=payload.partial?' · some roster feeds retrying later':'';
     const photoCount=allPlayers.filter(player=>playerPhoto(player)).length;
     status.textContent=`${allPlayers.length} current players · ${photoCount} player photos connected · ${advancedFeedReady?'live PER + TS% connected':'advanced metrics retrying'}${partialText}`;

@@ -91,6 +91,51 @@ body.section-page { background:#fffaf0; color:#17131f; }
 @media(max-width:900px){.portal-grid,.hub-grid,.directory-grid{grid-template-columns:repeat(2,minmax(0,1fr));}}
 @media(max-width:1100px){.nav-links.open{align-items:stretch}.nav-group{display:block}.nav-parent,.nav-direct{display:block;width:100%}.nav-submenu{position:static; transform:none !important; min-width:0; margin:4px 0 8px 12px; box-shadow:none; border:0; border-left:2px solid rgba(216,255,79,.5); border-radius:0; background:transparent; padding:0 0 0 10px; opacity:0; visibility:hidden; pointer-events:none; max-height:0; overflow:hidden}.nav-group.submenu-open .nav-submenu{opacity:1;visibility:visible;pointer-events:auto;max-height:420px}.nav-submenu a{color:#21152f !important;padding:8px 10px}.nav-submenu a:hover{background:#eee5ff;color:#5c1fc1 !important}}
 @media(max-width:640px){.portal-grid,.hub-grid,.directory-grid,.family-grid{grid-template-columns:1fr}.section-page .subhero{padding-bottom:44px}.section-page .subhero-inner{padding-top:42px}.page-section{padding:46px 0}.simple-row{grid-template-columns:48px 1fr}.simple-row>:last-child{grid-column:2}.hub-card{min-height:190px}.featured-player-card{grid-template-columns:72px minmax(0,1fr)}.featured-player-photo{width:72px;height:72px;border-radius:16px}}
+
+/* Herstory landing page */
+.herstory-hero{position:relative;overflow:hidden;background:linear-gradient(128deg,#140a2f 0%,#4a167e 58%,#a52a91 100%)!important}
+.herstory-hero .subhero-inner{position:relative;z-index:1;max-width:880px;padding-bottom:38px}
+.herstory-hero h1 em{font-style:normal;color:#ff826f}
+.herstory-lede{max-width:800px!important;font-size:clamp(1.08rem,2vw,1.3rem)!important;line-height:1.65}
+.herstory-wordmark{position:absolute;right:-2vw;bottom:-.23em;color:rgba(255,255,255,.055);font-size:clamp(13rem,30vw,30rem);font-weight:1000;line-height:1;letter-spacing:-.1em;pointer-events:none}
+.herstory-jump-nav{position:sticky;top:0;z-index:20;background:#140a2f;border-top:1px solid rgba(255,255,255,.12);box-shadow:0 8px 24px rgba(20,10,47,.16)}
+.herstory-jump-nav .page-shell{display:flex;gap:8px;overflow-x:auto;padding-top:12px;padding-bottom:12px;scrollbar-width:thin}
+.herstory-jump-nav a{flex:0 0 auto;color:#fff;text-decoration:none;font-size:.82rem;font-weight:900;letter-spacing:.02em;padding:9px 13px;border-radius:999px;border:1px solid rgba(255,255,255,.18)}
+.herstory-jump-nav a:hover,.herstory-jump-nav a:focus-visible{color:#140a2f;background:#d8ff4f;border-color:#d8ff4f}
+.herstory-intro{background:#fff;padding-bottom:42px}
+.herstory-intro-grid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(280px,.8fr);gap:52px;align-items:end}
+.herstory-intro-grid .page-heading{margin:0}
+.herstory-intro-grid>p{margin:0;color:#61596b;font-size:1.08rem;line-height:1.75}
+.herstory-stories{background:#f4effa;padding-top:64px}
+.herstory-section-heading{max-width:760px}
+.herstory-story-grid{display:grid;grid-template-columns:1fr;gap:28px}
+.herstory-story-card{scroll-margin-top:92px;position:relative;display:grid;grid-template-columns:1fr;gap:26px;padding:clamp(24px,4vw,42px);border-radius:28px;border:1px solid #dfd4e9;background:#fff;box-shadow:0 14px 35px rgba(32,13,58,.08);overflow:hidden}
+.herstory-story-card::after{content:"";position:absolute;right:-55px;bottom:-75px;width:190px;height:190px;border-radius:50%;background:var(--story-accent);opacity:.13}
+.herstory-story-card.education{--story-accent:#6b2bd9}.herstory-story-card.entrepreneurship{--story-accent:#ff705f}.herstory-story-card.community{--story-accent:#1f9f76}.herstory-story-card.life{--story-accent:#e2b900}
+.herstory-category-head{display:grid;grid-template-columns:68px minmax(0,1fr);gap:20px;max-width:820px}
+.herstory-card-number{color:var(--story-accent);font-size:1.15rem;font-weight:1000;letter-spacing:.08em;padding-top:3px}
+.herstory-story-card .portal-label{display:block;color:var(--story-accent);font-size:.75rem;font-weight:950;letter-spacing:.1em;margin-bottom:15px}
+.herstory-story-card h3{margin:0 0 12px;font-size:clamp(1.55rem,3vw,2.2rem);line-height:1.08}
+.herstory-story-card p{margin:0;color:#655d6e;line-height:1.65}
+.herstory-category-head p{max-width:680px}
+.herstory-entry-grid{position:relative;z-index:1;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.herstory-entry{display:flex;flex-direction:column;min-height:245px;padding:22px;border:1px solid #e8dfef;border-radius:20px;background:#fffaf5}
+.herstory-entry-tag{display:block;color:var(--story-accent);font-size:.69rem;font-weight:1000;letter-spacing:.095em;margin-bottom:10px}
+.herstory-entry h4{margin:0 0 10px;font-size:1.25rem;line-height:1.2}
+.herstory-entry p{font-size:.94rem}
+.herstory-entry-links{display:flex;flex-wrap:wrap;gap:8px 14px;margin-top:auto;padding-top:19px}
+.herstory-story-card a{position:relative;z-index:1;display:inline-flex;gap:8px;color:#35125d;font-weight:900;text-decoration:none;border-bottom:2px solid var(--story-accent);padding-bottom:3px}
+.herstory-entry-links a{font-size:.78rem}
+.herstory-source-note{margin:26px auto 0;max-width:900px;color:#665d6f;font-size:.85rem;line-height:1.6;text-align:center}
+.herstory-profile-section{scroll-margin-top:80px;background:#fff;padding-bottom:26px}
+.herstory-profile-card{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:36px;align-items:center;padding:clamp(30px,6vw,64px);border-radius:32px;color:#fff;background:linear-gradient(120deg,#140a2f,#5c1fc1 65%,#8c2ed7)}
+.herstory-profile-card .portal-label{display:block;color:#d8ff4f;font-size:.78rem;font-weight:950;letter-spacing:.1em;margin-bottom:14px}
+.herstory-profile-card h2{margin:0 0 14px;font-size:clamp(2rem,5vw,4.1rem);line-height:.98}
+.herstory-profile-card p{max-width:690px;margin:0;color:rgba(255,255,255,.78);font-size:1.05rem;line-height:1.65}
+.herstory-profile-button{display:inline-flex;align-items:center;gap:10px;white-space:nowrap;padding:15px 20px;border-radius:999px;background:#d8ff4f;color:#140a2f;text-decoration:none;font-weight:950}
+.herstory-profile-button:hover,.herstory-profile-button:focus-visible{background:#fff}
+@media(max-width:800px){.herstory-intro-grid,.herstory-profile-card{grid-template-columns:1fr}.herstory-entry-grid{grid-template-columns:1fr}.herstory-entry{min-height:0}.herstory-profile-button{justify-self:start}}
+@media(max-width:520px){.herstory-category-head{grid-template-columns:1fr;gap:8px}.herstory-card-number{font-size:.85rem}.herstory-jump-nav .page-shell{padding-left:16px;padding-right:16px}.herstory-profile-card{border-radius:24px}.herstory-profile-button{white-space:normal}}
 .featured-player-grid{align-items:stretch;}
 .featured-player-card{display:grid;grid-template-columns:92px minmax(0,1fr);gap:14px;align-items:center;min-height:150px;padding:16px;}
 .featured-player-photo{width:92px;height:92px;border-radius:20px;overflow:hidden;background:linear-gradient(145deg,#6b2bd9,#140a2f);display:grid;place-items:center;color:#d8ff4f;font-weight:950;font-size:1.4rem;}

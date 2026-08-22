@@ -1,0 +1,40 @@
+.wire-page-shell{width:min(900px,calc(100% - 32px));margin:0 auto;}
+.wire-card{background:#fff;border:1px solid #e6deeb;border-radius:28px;padding:26px 26px 10px;box-shadow:0 14px 34px rgba(24,12,47,.08);overflow:hidden;}
+.wire-card-head{padding:0 0 16px;border-bottom:1px solid #e7deec;}
+.wire-card-topline{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-bottom:8px;}
+.wire-card-label{margin:0;color:#6c2ad9;font-size:.78rem;font-weight:950;letter-spacing:.12em;text-transform:uppercase;}
+.wire-card-updated{color:#8a7182;font-size:.78rem;font-weight:850;white-space:nowrap;}
+.wire-card h2{font-size:clamp(2rem,5vw,3.1rem);line-height:1.02;letter-spacing:-.045em;margin:0;max-width:620px;}
+.wire-card-status{margin:8px 0 0;color:#7c7082;font-size:.84rem;}
+.wire-list{padding:0;}
+.wire-row{display:grid;align-items:start;gap:14px;padding:18px 0;border-bottom:1px solid #ece5f0;}
+.wire-row:last-child{border-bottom:0;}
+.wire-row.movement-row{grid-template-columns:46px minmax(0,1fr);}
+.wire-row.availability-row{grid-template-columns:118px minmax(0,1fr);}
+.wire-date{color:#8a7182;font-size:.82rem;font-weight:850;padding-top:2px;}
+.wire-copy{min-width:0;}
+.wire-copy strong{display:block;font-size:1rem;line-height:1.28;margin:3px 0 4px;color:#17131f;}
+.wire-copy p{margin:0;color:#7a6878;font-size:.9rem;line-height:1.4;}
+.wire-asof{color:#9a8492;}
+.wire-chip,.wire-status{display:inline-flex;align-items:center;justify-content:center;width:max-content;max-width:100%;border-radius:999px;padding:5px 9px;font-size:.67rem;line-height:1;font-weight:950;letter-spacing:.04em;text-transform:uppercase;}
+.wire-chip{background:#efe7ff;color:#6321cf;}
+.wire-chip.signed,.wire-chip.re-signed,.wire-chip.developmental,.wire-chip.converted{background:#efe7ff;color:#6321cf;}
+.wire-chip.waived,.wire-chip.released{background:#eadcff;color:#5d17bd;}
+.wire-chip.claimed{background:#eee5ff;color:#5c1fc1;}
+.wire-chip.traded,.wire-chip.trade{background:#dff1ff;color:#075985;}
+.wire-chip.acquired{background:#dcfce7;color:#166534;}
+.wire-chip.suspended{background:#fff1c9;color:#8a5a00;}
+.wire-chip.retired{background:#17131f;color:#fff;}
+.wire-status.out-for-season{background:#17131f;color:#fff;}
+.wire-status.out{background:#ffe2de;color:#b52a1d;}
+.wire-status.day-to-day{background:#fff1c9;color:#8a5a00;}
+.wire-status.questionable,.wire-status.probable{background:#e8f0ff;color:#2452a6;}
+.wire-status.available,.wire-status.active{background:#dcfce7;color:#166534;}
+.wire-empty{padding:22px 0;color:#6f6879;}
+@media(max-width:640px){
+  .wire-card{padding:20px 18px 8px;border-radius:22px;}
+  .wire-card-topline{align-items:flex-start;}
+  .wire-row.movement-row{grid-template-columns:42px minmax(0,1fr);}
+  .wire-row.availability-row{grid-template-columns:1fr;gap:8px;}
+  .wire-status{justify-self:start;}
+}

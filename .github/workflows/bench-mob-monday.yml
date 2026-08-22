@@ -1,0 +1,19 @@
+name: Refresh Shak Bench Mob
+
+on:
+  schedule:
+    - cron: '10 10 * * 1'
+  workflow_dispatch:
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Warm the weekly Bench Mob snapshot
+        shell: bash
+        run: |
+          WEEK=$(TZ=America/New_York date +%F)
+          URL="https://we-know-the-w.vercel.app/api/bench-mob?season=2026&week=${WEEK}"
+          echo "Refreshing ${URL}"
+          curl --fail --location --retry 3 --retry-delay 5 "$URL" -o bench-mob.json
+          node -e "const x=require('./bench-mob.json'); if(!Array.isArray(x.picks)||x.picks.length!==6){console.error(x);process.exit(1)}; console.log(x.picks.map(p=>p.role+': '+p.name).join('\n'))"

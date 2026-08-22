@@ -3,6 +3,18 @@ function liveSafe(value=''){return String(value).replaceAll('&','&amp;').replace
 const EASTERN_TIME_ZONE='America/New_York';
 function formatPct(value){return Number.isFinite(Number(value)) ? Number(value).toFixed(3) : '—';}
 function formatGb(value){const number=Number(value);if(!Number.isFinite(number)||number===0)return '—';return Number.isInteger(number)?String(number):number.toFixed(1);}
+function streakClass(value=''){return /^W/i.test(String(value))?'is-positive':/^L/i.test(String(value))?'is-negative':'';}
+function lastTenClass(value=''){
+  const match=String(value).match(/(\d+)\s*-\s*(\d+)/);
+  if(!match)return '';
+  const wins=Number(match[1]),losses=Number(match[2]);
+  return wins>losses?'is-positive':losses>wins?'is-negative':'is-even';
+}
+function playoffIcon(status){
+  if(status==='clinched')return '<span class="playoff-marker clinched" title="Clinched Playoffs Berth" aria-label="Clinched Playoffs Berth"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="8"/><path d="m6.3 10.1 2.4 2.4 5-5"/></svg></span>';
+  if(status==='eliminated')return '<span class="playoff-marker eliminated" title="Eliminated from Playoffs contention" aria-label="Eliminated from Playoffs contention"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="8"/><path d="m7 7 6 6m0-6-6 6"/></svg></span>';
+  return '';
+}
 
 // Schedule timestamps are UTC. Some upstream feeds omit the trailing Z/offset,
 // so normalize unzoned timestamps as UTC before converting to Eastern Time.
@@ -44,7 +56,7 @@ function validFinalGame(game){const home=Number(game?.homeScore),away=Number(gam
 
 function standingsTable(items=[],rankKey='overall_rank'){
   if(!items.length)return '<div class="card-pad"><strong>Standings are temporarily unavailable.</strong><p>The encyclopedia is still open.</p></div>';
-  return `<div class="live-standings-table"><div class="live-standings-row head"><span>TEAM</span><span>W</span><span>L</span><span>PCT</span><span>GB</span><span>CONF</span><span>HOME</span><span>ROAD</span><span>STREAK</span><span>L-10</span></div>${items.map((item,index)=>`<div class="live-standings-row"><span class="live-team-cell"><b class="live-rank">${item[rankKey]||index+1}</b><strong>${liveSafe(item.team?.full_name||'Unknown team')}</strong></span><strong>${item.wins??'—'}</strong><strong>${item.losses??'—'}</strong><span>${formatPct(item.win_percentage)}</span><span>${formatGb(item.games_back)}</span><span>${liveSafe(item.conference_record||'—')}</span><span>${liveSafe(item.home_record||'—')}</span><span>${liveSafe(item.road_record||'—')}</span><span class="streak-cell">${liveSafe(item.streak||'—')}</span><span class="last-ten-cell">${liveSafe(item.last_ten||'—')}</span></div>`).join('')}</div>`;
+  return `<div class="live-standings-table"><div class="live-standings-row head"><span>TEAM</span><span>W</span><span>L</span><span>PCT</span><span>GB</span><span>CONF</span><span>HOME</span><span>ROAD</span><span>STREAK</span><span>L-10</span></div>${items.map((item,index)=>`<div class="live-standings-row"><span class="live-team-cell"><b class="live-rank">${item[rankKey]||index+1}</b><strong>${liveSafe(item.team?.full_name||'Unknown team')}</strong>${playoffIcon(item.playoff_status)}</span><strong>${item.wins??'—'}</strong><strong>${item.losses??'—'}</strong><span>${formatPct(item.win_percentage)}</span><span>${formatGb(item.games_back)}</span><span>${liveSafe(item.conference_record||'—')}</span><span>${liveSafe(item.home_record||'—')}</span><span>${liveSafe(item.road_record||'—')}</span><span class="streak-cell ${streakClass(item.streak)}">${liveSafe(item.streak||'—')}</span><span class="last-ten-cell ${lastTenClass(item.last_ten)}">${liveSafe(item.last_ten||'—')}</span></div>`).join('')}</div>`;
 }
 
 function conferenceMarkup(conferences={}){

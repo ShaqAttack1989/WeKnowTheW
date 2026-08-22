@@ -305,6 +305,23 @@ module.exports = async function handler(req, res) {
     standingsSource = eventSource;
   }
 
+  // ESPN publishes the official x/e playoff markers. Preserve them even when
+  // the more complete event feed supplies the displayed standings records.
+  const playoffStatusByTeam = new Map(espnStandings
+    .filter(record => record.playoff_status)
+    .map(record => [normalizedName(record.team?.full_name), record.playoff_status]));
+  const withPlayoffStatus = record => ({
+    ...record,
+    playoff_status: playoffStatusByTeam.get(normalizedName(record.team?.full_name)) || record.playoff_status || null
+  });
+  standingsData = {
+    overall: standingsData.overall.map(withPlayoffStatus),
+    conferences: {
+      eastern: standingsData.conferences.eastern.map(withPlayoffStatus),
+      western: standingsData.conferences.western.map(withPlayoffStatus)
+    }
+  };
+
   const completedGames = pastGames(primaryEvents);
   const scheduledGames = upcomingGames(primaryEvents);
   const fullSeasonAccess = sportsDbComplete || espnComplete || standingsData.overall.length >= 10;

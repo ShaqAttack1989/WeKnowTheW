@@ -14,15 +14,6 @@ function wTeam(value=''){
   const team=String(value||'').trim();
   return team&&!/^WNBA$/i.test(team)?team:'';
 }
-function statusWeight(value=''){
-  const status=String(value||'').toUpperCase();
-  if(status==='OUT FOR SEASON')return 0;
-  if(status==='OUT'||status==='NWT'||status==='SUSPENDED')return 1;
-  if(status==='DOUBTFUL')return 2;
-  if(status==='QUESTIONABLE'||status==='DAY TO DAY')return 3;
-  if(status==='PROBABLE')return 4;
-  return 5;
-}
 function visibleInjury(item={}){
   const status=String(item.status||'').toUpperCase();
   return !['AVAILABLE','ACTIVE','CLEARED'].includes(status);
@@ -35,13 +26,13 @@ function visibleInjury(item={}){
   const updated=document.getElementById('wireUpdated');
   if(updated)updated.textContent=`Updated ${wPageDate()}`;
   try{
-    const r=await fetch('/api/players?officialReports=20260822',{headers:{Accept:'application/json'},cache:'no-store'});
+    const r=await fetch('/api/players?officialReports=20260822-chronological-v3',{headers:{Accept:'application/json'},cache:'no-store'});
     const p=await r.json().catch(()=>({}));
     if(!r.ok)throw new Error(p.error||'Live player feed unavailable');
 
     if(mode==='availability'){
       const items=Array.isArray(p.injuries)
-        ? [...p.injuries].filter(visibleInjury).sort((a,b)=>statusWeight(a.status)-statusWeight(b.status)||String(b.updated||'').localeCompare(String(a.updated||'')))
+        ? [...p.injuries].filter(visibleInjury).sort((a,b)=>String(b.updated||'').localeCompare(String(a.updated||''))||String(a.player||'').localeCompare(String(b.player||'')))
         : [];
       list.innerHTML=items.length?items.map(item=>{
         const team=wTeam(item.team);

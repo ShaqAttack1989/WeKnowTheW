@@ -1,5 +1,5 @@
 {
-  "updatedAt":"2026-08-18T13:18:00Z",
+  "updatedAt":"2026-08-22T07:11:00Z",
   "league":"UPSHOT League",
   "season":2026,
   "label":"WNBA pipeline tracker",
@@ -13,11 +13,11 @@
   "leaders":[
     {"player":"Deja Kelly","team":"Charlotte Crown","stat":"17.7","metric":"PPG","asOf":"2026-07-23","photo":"https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Deja_Kelly_Oregon_%28cropped%29.jpg/500px-Deja_Kelly_Oregon_%28cropped%29.jpg"},
     {"player":"Deja Kelly","team":"Charlotte Crown","stat":"4.1","metric":"APG","asOf":"2026-07-23","photo":"https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Deja_Kelly_Oregon_%28cropped%29.jpg/500px-Deja_Kelly_Oregon_%28cropped%29.jpg"},
-    {"player":"Michelle Onyiah","team":"Charlotte Crown","stat":"6.9","metric":"RPG","asOf":"2026-07-31"},
-    {"player":"Michelle Onyiah","team":"Charlotte Crown","stat":"1.1","metric":"BPG","asOf":"2026-07-31"}
+    {"player":"Michelle Onyiah","team":"Charlotte Crown","stat":"6.9","metric":"RPG","asOf":"2026-07-31","photo":"https://a.espncdn.com/i/headshots/womens-college-basketball/players/full/4433744.png"},
+    {"player":"Michelle Onyiah","team":"Charlotte Crown","stat":"1.1","metric":"BPG","asOf":"2026-07-31","photo":"https://a.espncdn.com/i/headshots/womens-college-basketball/players/full/4433744.png"}
   ],
   "callUps":[
-    {"player":"Michelle Onyiah","from":"Charlotte Crown","to":"Indiana Fever","date":"2026-07-31","contract":"Developmental player contract","stats":"9.6 PPG · 6.9 RPG · 1.1 BPG · 52.8 FG% in 21 games","milestone":"First UPSHOT League player to earn a WNBA contract."},
+    {"player":"Michelle Onyiah","from":"Charlotte Crown","to":"Indiana Fever","date":"2026-07-31","contract":"Developmental player contract","stats":"9.6 PPG · 6.9 RPG · 1.1 BPG · 52.8 FG% in 21 games","milestone":"First UPSHOT League player to earn a WNBA contract.","photo":"https://a.espncdn.com/i/headshots/womens-college-basketball/players/full/4433744.png"},
     {"player":"Christyn Williams","from":"Greensboro Groove","to":"Dallas Wings","date":"2026-08-14","contract":"Developmental player contract","stats":"9.6 PPG · 3.0 RPG · 1.9 APG · 41.1 FG% in 14 games","milestone":"Second UPSHOT League player from the inaugural season to earn a WNBA contract."}
   ],
   "next":"The inaugural UPSHOT championship is scheduled for Aug. 29 in Jacksonville, with the top two regular-season teams advancing.",

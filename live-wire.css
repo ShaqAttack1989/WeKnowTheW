@@ -1,4 +1,4 @@
-.wire-page-shell{width:min(900px,calc(100% - 32px));margin:0 auto;}
+.wire-page-shell{width:min(760px,calc(100% - 32px));margin:0 auto;}
 .wire-card{background:#fff;border:1px solid #e6deeb;border-radius:28px;padding:26px 26px 10px;box-shadow:0 14px 34px rgba(24,12,47,.08);overflow:hidden;}
 .wire-card-head{padding:0 0 16px;border-bottom:1px solid #e7deec;}
 .wire-card-topline{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-bottom:8px;}

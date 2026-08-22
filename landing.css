@@ -131,6 +131,8 @@ body.section-page { background:#fffaf0; color:#17131f; }
 .herstory-entry-links{grid-area:links;display:flex;flex-wrap:wrap;gap:8px 14px;margin-top:auto;padding-top:19px}
 .herstory-story-card a{position:relative;z-index:1;display:inline-flex;gap:8px;color:#35125d;font-weight:900;text-decoration:none;border-bottom:2px solid var(--story-accent);padding-bottom:3px}
 .herstory-entry-links a{font-size:.78rem}
+.herstory-more-link{justify-self:start;margin-top:-2px;padding:12px 17px!important;border:0!important;border-radius:999px;background:var(--story-accent);color:#fff!important;box-shadow:0 8px 18px color-mix(in srgb,var(--story-accent) 24%,transparent)}
+.herstory-more-link:hover,.herstory-more-link:focus-visible{transform:translateY(-2px);filter:brightness(.95)}
 .herstory-source-note{margin:26px auto 0;max-width:900px;color:#665d6f;font-size:.85rem;line-height:1.6;text-align:center}
 .herstory-profile-section{scroll-margin-top:80px;background:#fff;padding-bottom:26px}
 .herstory-profile-card{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:36px;align-items:center;padding:clamp(30px,6vw,64px);border-radius:32px;color:#fff;background:linear-gradient(120deg,#140a2f,#5c1fc1 65%,#8c2ed7)}
@@ -139,8 +141,25 @@ body.section-page { background:#fffaf0; color:#17131f; }
 .herstory-profile-card p{max-width:690px;margin:0;color:rgba(255,255,255,.78);font-size:1.05rem;line-height:1.65}
 .herstory-profile-button{display:inline-flex;align-items:center;gap:10px;white-space:nowrap;padding:15px 20px;border-radius:999px;background:#d8ff4f;color:#140a2f;text-decoration:none;font-weight:950}
 .herstory-profile-button:hover,.herstory-profile-button:focus-visible{background:#fff}
+.herstory-category-page .herstory-hero{padding-bottom:42px}
+.herstory-category-page .herstory-hero .subhero-inner{max-width:960px;padding-top:52px;padding-bottom:24px}
+.herstory-category-page .herstory-hero h1{font-size:clamp(3rem,8vw,6.4rem)}
+.herstory-category-page .herstory-jump-nav a[aria-current="page"]{color:#140a2f;background:#d8ff4f;border-color:#d8ff4f}
+.herstory-category-intro{background:#fff;padding:52px 0 38px}
+.herstory-category-intro .page-heading{max-width:920px;margin-bottom:0}
+.herstory-category-intro h2{font-size:clamp(2rem,4.5vw,3.6rem)}
+.herstory-category-intro p:last-child{max-width:820px;color:#61596b;font-size:1.08rem;line-height:1.72}
+.herstory-expanded-stories{background:#f4effa;padding-top:42px}
+.herstory-expanded-card{padding:clamp(22px,4vw,42px)}
+.herstory-expanded-card .herstory-entry-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+.herstory-section-switcher{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:28px}
+.herstory-section-switcher a{display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:88px;padding:18px;border:1px solid #dfd4e9;border-radius:18px;background:#fff;color:#35125d;text-decoration:none;font-weight:900}
+.herstory-section-switcher a:hover,.herstory-section-switcher a:focus-visible{border-color:#6b2bd9;transform:translateY(-2px)}
+.herstory-section-switcher a[aria-current="page"]{background:#140a2f;color:#d8ff4f;border-color:#140a2f}
 @media(max-width:800px){.herstory-intro-grid,.herstory-profile-card{grid-template-columns:1fr}.herstory-entry-grid{grid-template-columns:1fr}.herstory-entry{min-height:0}.herstory-profile-button{justify-self:start}}
-@media(max-width:520px){.herstory-category-head{grid-template-columns:1fr;gap:8px}.herstory-card-number{font-size:.85rem}.herstory-jump-nav .page-shell{padding-left:16px;padding-right:16px}.herstory-profile-card{border-radius:24px}.herstory-profile-button{white-space:normal}}
+@media(max-width:900px){.herstory-section-switcher{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:800px){.herstory-expanded-card .herstory-entry-grid{grid-template-columns:1fr}}
+@media(max-width:520px){.herstory-category-head{grid-template-columns:1fr;gap:8px}.herstory-card-number{font-size:.85rem}.herstory-jump-nav .page-shell{padding-left:16px;padding-right:16px}.herstory-profile-card{border-radius:24px}.herstory-profile-button{white-space:normal}.herstory-section-switcher{grid-template-columns:1fr}.herstory-more-link{width:100%;justify-content:center}}
 .featured-player-grid{align-items:stretch;}
 .featured-player-card{display:grid;grid-template-columns:92px minmax(0,1fr);gap:14px;align-items:center;min-height:150px;padding:16px;}
 .featured-player-photo{width:92px;height:92px;border-radius:20px;overflow:hidden;background:linear-gradient(145deg,#6b2bd9,#140a2f);display:grid;place-items:center;color:#d8ff4f;font-weight:950;font-size:1.4rem;}

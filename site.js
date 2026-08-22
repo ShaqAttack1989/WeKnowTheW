@@ -27,10 +27,10 @@ const structuredNav = `
     <div class="nav-submenu">
       <a href="/playerpedia.html"><strong>Players A–Z</strong></a>
       <a href="/herstory.html"><strong>Herstory</strong></a>
-      <a class="nav-nested" href="/herstory.html#education">Education</a>
-      <a class="nav-nested" href="/herstory.html#entrepreneurship">Entrepreneurship</a>
-      <a class="nav-nested" href="/herstory.html#community">Community</a>
-      <a class="nav-nested" href="/herstory.html#life-chapters">Life Chapters</a>
+      <a class="nav-nested" href="/herstory-education.html">Education</a>
+      <a class="nav-nested" href="/herstory-entrepreneurship.html">Entrepreneurship</a>
+      <a class="nav-nested" href="/herstory-community.html">Community</a>
+      <a class="nav-nested" href="/herstory-life-chapters.html">Life Chapters</a>
       <a class="nav-nested" href="/herstory.html#profile-connection">Profile Connection</a>
       <a href="/starting-five.html"><strong>Shak’s Starting Five</strong></a>
       <a href="/bench-mob.html"><strong>Shak’s Bench Mob</strong></a>
@@ -118,6 +118,10 @@ const hierarchyMap = {
   '/around-the-w.html': { parent: 'Around the W', parentHref: '/around-the-w.html', current: 'Team Pages' },
   '/snack-shaq.html': { parent: 'Around the W', parentHref: '/around-the-w.html', current: 'Seasoned Notes' },
   '/herstory.html': { parent: 'Playerpedia', parentHref: '/playerpedia.html', current: 'Herstory' },
+  '/herstory-education.html': { parent: 'Herstory', parentHref: '/herstory.html', current: 'Education' },
+  '/herstory-entrepreneurship.html': { parent: 'Herstory', parentHref: '/herstory.html', current: 'Entrepreneurship' },
+  '/herstory-community.html': { parent: 'Herstory', parentHref: '/herstory.html', current: 'Community' },
+  '/herstory-life-chapters.html': { parent: 'Herstory', parentHref: '/herstory.html', current: 'Life Chapters' },
   '/starting-five.html': { parent: 'Playerpedia', parentHref: '/playerpedia.html', current: 'Shak’s Starting Five' },
   '/bench-mob.html': { parent: 'Playerpedia', parentHref: '/playerpedia.html', current: 'Shak’s Bench Mob' },
   '/film-room.html': { parent: 'The W Vault', parentHref: '/w-vault.html', current: 'The Film Room' },
@@ -153,10 +157,10 @@ const searchStaticIndex = [
   {title:'Team Pages',type:'Around the W',href:'/around-the-w.html',keywords:'franchises teams roster history'},
   {title:'Seasoned Notes · Snack Shaq',type:'Around the W',href:'/snack-shaq.html',keywords:'weekly blog power rankings monday spicy'},
   {title:'Playerpedia',type:'Section',href:'/playerpedia.html',keywords:'players roster bios stats photos'},
-  {title:'Herstory · Education',type:'Playerpedia',href:'/herstory.html#education',keywords:'degrees college graduate academic learning'},
-  {title:'Herstory · Entrepreneurship',type:'Playerpedia',href:'/herstory.html#entrepreneurship',keywords:'business brands investments ownership companies'},
-  {title:'Herstory · Community',type:'Playerpedia',href:'/herstory.html#community',keywords:'foundation philanthropy advocacy giving back'},
-  {title:'Herstory · Life Chapters',type:'Playerpedia',href:'/herstory.html#life-chapters',keywords:'family milestones personal life chapters'},
+  {title:'Herstory · Education',type:'Playerpedia',href:'/herstory-education.html',keywords:'degrees college graduate academic learning'},
+  {title:'Herstory · Entrepreneurship',type:'Playerpedia',href:'/herstory-entrepreneurship.html',keywords:'business brands investments ownership companies'},
+  {title:'Herstory · Community',type:'Playerpedia',href:'/herstory-community.html',keywords:'foundation philanthropy advocacy giving back'},
+  {title:'Herstory · Life Chapters',type:'Playerpedia',href:'/herstory-life-chapters.html',keywords:'family milestones personal life chapters'},
   {title:'Herstory · Profile Connection',type:'Playerpedia',href:'/herstory.html#profile-connection',keywords:'player profiles on court off court connected story'},
   {title:'Shak’s Starting Five',type:'Playerpedia',href:'/starting-five.html',keywords:'shak shakeema featured players weekly monday'},
   {title:'Shak’s Bench Mob',type:'Playerpedia',href:'/bench-mob.html',keywords:'shak shakeema sixth woman microwave scorer 3 and d glue player backup floor general energy big'},

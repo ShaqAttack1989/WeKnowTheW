@@ -13,7 +13,8 @@ const BENCH_TEAM_OVERRIDES=new Map([
 ]);
 const BENCH_PHOTO_OVERRIDES=new Map([
   ['sydneytaylor','https://cdn.wnba.com/headshots/wnba/latest/1040x760/1642321.png'],
-  ['madinaokot','https://cdn.wnba.com/headshots/wnba/latest/1040x760/1643431.png']
+  ['madinaokot','https://cdn.wnba.com/headshots/wnba/latest/1040x760/1643431.png'],
+  ['kikirice','https://cdn.wnba.com/headshots/wnba/latest/1040x760/1643445.png']
 ]);
 function bPhoto(player={}){
   const id=String(player.espnId||'').replace(/[^0-9]/g,'');
@@ -47,7 +48,7 @@ async function loadBenchMob(){
   const methodology=document.getElementById('benchMobMethod');
   if(!grid)return;
   const week=mondayKey();
-  const revision='20260822-roster-v3';
+  const revision='20260822-kiki-rice-photo-v1';
   if(status)status.textContent=`Week of ${weekLabel(week)} · Season-to-date board`;
   try{
     const [boardRes,playersRes]=await Promise.all([

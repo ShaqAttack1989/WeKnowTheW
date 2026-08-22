@@ -15,7 +15,7 @@ const TEAM_DATA = [
   { slug:'toronto-tempo', name:'Toronto Tempo', city:'Toronto', tag:'TOR', primary:'#2477C5', secondary:'#6E1F3A', accent:'#FFFFFF', text:'#FFFFFF', skyline:'toronto', note:'Debut season: 2026', poster:'/assets/images/18174.jpg' },
   { slug:'washington-mystics', name:'Washington Mystics', city:'Washington, D.C.', tag:'WAS', primary:'#002B5C', secondary:'#E31837', accent:'#C4CED4', text:'#FFFFFF', skyline:'washington', poster:'/assets/images/18172.jpg' }
 ];
-const CLEVELAND_SIRENS = { slug:'cleveland-sirens', name:'Cleveland Sirens', city:'Cleveland', tag:'CLE', primary:'#0D4FA3', secondary:'#06152C', accent:'#66BCEB', text:'#FFFFFF', poster:'/assets/images/18171.png', href:'/cleveland-sirens.html' };
+const CLEVELAND_SIRENS = { slug:'cleveland-sirens', name:'Cleveland Sirens', city:'Cleveland', tag:'CLE', primary:'#0D4FA3', secondary:'#06152C', accent:'#66BCEB', text:'#FFFFFF', poster:'/assets/images/18171.png', href:'/team.html?team=cleveland-sirens' };
 
 function skylineSvg(kind, className='city-silhouette') {
   const commonStart = `<svg class="${className}" viewBox="0 0 640 190" role="img" aria-label="Black city skyline silhouette"><g fill="#000">`;
@@ -35,10 +35,11 @@ function skylineSvg(kind, className='city-silhouette') {
     portland:`<rect x="18" y="142" width="92" height="48"/><rect x="126" y="124" width="60" height="66"/><rect x="204" y="138" width="52" height="52"/><path d="M274 190v-72h10v72zm95 0v-72h10v72zm-85-58c20-26 64-26 85 0v8c-26-18-59-18-85 0z"/><polygon points="396,190 470,78 544,190"/><polygon points="430,190 470,122 510,190"/><rect x="552" y="144" width="72" height="46"/>`,
     seattle:`<rect x="14" y="142" width="92" height="48"/><rect x="120" y="126" width="58" height="64"/><rect x="194" y="136" width="46" height="54"/><rect x="280" y="84" width="10" height="106"/><ellipse cx="285" cy="75" rx="42" ry="10"/><rect x="310" y="118" width="54" height="72"/><rect x="382" y="92" width="54" height="98"/><rect x="452" y="130" width="64" height="60"/><polygon points="530,190 578,96 626,190"/>`,
     toronto:`<rect x="14" y="144" width="92" height="46"/><rect x="120" y="124" width="50" height="66"/><rect x="184" y="138" width="54" height="52"/><rect x="280" y="66" width="9" height="124"/><ellipse cx="284" cy="82" rx="34" ry="12"/><polygon points="280,66 289,66 284,18"/><rect x="320" y="112" width="62" height="78"/><rect x="398" y="90" width="50" height="100"/><rect x="466" y="132" width="58" height="58"/><rect x="542" y="118" width="82" height="72"/>`,
-    washington:`<rect x="18" y="140" width="102" height="50"/><rect x="136" y="126" width="62" height="64"/><rect x="214" y="136" width="48" height="54"/><polygon points="306,190 306,62 319,26 332,62 332,190"/><rect x="356" y="116" width="72" height="74"/><rect x="448" y="132" width="60" height="58"/><rect x="526" y="108" width="42" height="82"/><rect x="584" y="142" width="40" height="48"/>`
+    washington:`<rect x="18" y="140" width="102" height="50"/><rect x="136" y="126" width="62" height="64"/><rect x="214" y="136" width="48" height="54"/><polygon points="306,190 306,62 319,26 332,62 332,190"/><rect x="356" y="116" width="72" height="74"/><rect x="448" y="132" width="60" height="58"/><rect x="526" y="108" width="42" height="82"/><rect x="584" y="142" width="40" height="48"/>`,
+    cleveland:`<rect x="16" y="142" width="88" height="48"/><rect x="120" y="126" width="58" height="64"/><rect x="194" y="138" width="48" height="52"/><rect x="260" y="94" width="62" height="96"/><polygon points="260,94 291,70 322,94"/><rect x="342" y="116" width="54" height="74"/><rect x="414" y="82" width="56" height="108"/><rect x="488" y="130" width="62" height="60"/><path d="M570 190v-76h10v76zm-18-60c18-22 44-22 62 0v8c-20-16-42-16-62 0z"/>`
   };
   return `${commonStart}${skylines[kind] || skylines.atlanta}${commonEnd}`;
 }
 
-function teamBySlug(slug='') { return TEAM_DATA.find(team => team.slug === slug) || null; }
-function teamByName(name='') { const key=String(name).toLowerCase().replace(/[^a-z0-9]/g,''); return TEAM_DATA.find(team => team.name.toLowerCase().replace(/[^a-z0-9]/g,'') === key) || null; }
+function teamBySlug(slug='') { return TEAM_DATA.find(team => team.slug === slug) || (CLEVELAND_SIRENS.slug === slug ? CLEVELAND_SIRENS : null); }
+function teamByName(name='') { const key=String(name).toLowerCase().replace(/[^a-z0-9]/g,''); return TEAM_DATA.find(team => team.name.toLowerCase().replace(/[^a-z0-9]/g,'') === key) || (CLEVELAND_SIRENS.name.toLowerCase().replace(/[^a-z0-9]/g,'') === key ? CLEVELAND_SIRENS : null); }

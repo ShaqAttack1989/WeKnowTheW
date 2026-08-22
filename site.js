@@ -18,8 +18,9 @@ const structuredNav = `
       <a class="nav-nested" href="/games.html">Games</a>
       <a class="nav-nested" href="/player-movement.html">Player Movement</a>
       <a class="nav-nested" href="/availability-report.html">Availability Report</a>
-      <a href="/around-the-w.html"><strong>Team Pages</strong></a>
-      <a class="nav-nested" href="/team.html?team=atlanta-dream">Atlanta Dream</a>
+      <a href="/around-the-w.html"><strong>Franchise Hubs</strong></a>
+      <a class="nav-nested" href="/around-the-w.html#team-pages">All Current Teams</a>
+      <a class="nav-nested" href="/team.html?team=cleveland-sirens">Cleveland Sirens · 2028</a>
       <a href="/snack-shaq.html"><strong>Seasoned Notes · Snack Shaq</strong></a>
     </div>
   </div>
@@ -200,7 +201,7 @@ const searchStaticIndex = [
   {title:'Seattle Storm',type:'Team',href:'/team.html?team=seattle-storm',keywords:'seattle storm'},
   {title:'Toronto Tempo',type:'Team',href:'/team.html?team=toronto-tempo',keywords:'toronto tempo'},
   {title:'Washington Mystics',type:'Team',href:'/team.html?team=washington-mystics',keywords:'washington mystics'},
-  {title:'Cleveland Sirens',type:'Expansion Team',href:'/cleveland-sirens.html',keywords:'cleveland sirens 2028'},
+  {title:'Cleveland Sirens',type:'Expansion Team',href:'/team.html?team=cleveland-sirens',keywords:'cleveland sirens 2028 franchise history roster uniforms leadership rocket arena expansion'},
   {title:'Detroit Expansion',type:'Expansion Team',href:'/detroit-expansion.html',keywords:'detroit 2029 expansion'},
   {title:'Philadelphia Expansion',type:'Expansion Team',href:'/philadelphia-expansion.html',keywords:'philadelphia 2030 expansion'}
 ];

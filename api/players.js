@@ -2,6 +2,7 @@ const LEAGUE_ID = 4516;
 const V2_ROOT = 'https://www.thesportsdb.com/api/v2/json';
 const liveUpdates = require('../player-live-updates.json');
 const { officialHeadshot } = require('../lib/wnba-headshots');
+const { OFFICIAL_ROSTER_SNAPSHOT } = require('../lib/official-roster-snapshot');
 const {
   getWnbaRosters,
   getWnbaInjuries,
@@ -158,6 +159,35 @@ function mergePlayerRecord(base, supplement) {
   }
   merged.dataSources = [...new Set([...(base.dataSources || []), ...(supplement.dataSources || [])])];
   return merged;
+}
+
+function officialRosterPlayer(item, teamIds, existing = null) {
+  const { firstName, lastName } = splitName(item.name);
+  const base = {
+    id: `wnba-${item.wnbaId}`,
+    wnbaId: String(item.wnbaId || ''),
+    name: item.name,
+    firstName,
+    lastName,
+    teamId: teamIds.get(key(item.team)) || '',
+    team: item.team,
+    position: item.position || 'Player',
+    number: String(item.number || ''),
+    nationality: '',
+    birthDate: '',
+    height: '',
+    weight: '',
+    photo: '',
+    photoThumb: '',
+    photoCutout: '',
+    photoCreativeCommons: '',
+    photoSource: 'Official WNBA team roster page',
+    photoSourceUrl: item.sourceUrl || '',
+    officialRosterSnapshot: true,
+    rosterSourceUrl: item.sourceUrl || '',
+    dataSources: ['Official WNBA 2026 team roster page']
+  };
+  return existing ? mergePlayerRecord(base, existing) : base;
 }
 
 function applyCuratedLayer(players, normalizedTeams) {
@@ -380,6 +410,9 @@ module.exports = async function handler(req, res) {
   for (const team of espnRosterData.teams || []) {
     if (!teamMap.has(key(team.name))) teamMap.set(key(team.name), { id: `espn-${team.id}`, name: team.name });
   }
+  for (const item of OFFICIAL_ROSTER_SNAPSHOT) {
+    if (!teamMap.has(key(item.team))) teamMap.set(key(item.team), { id: `wnba-roster-${key(item.team)}`, name: item.team });
+  }
   const normalizedTeams = [...teamMap.values()].sort((a, b) => a.name.localeCompare(b.name));
   const teamIdByName = new Map(normalizedTeams.map(team => [key(team.name), team.id]));
 
@@ -392,7 +425,8 @@ module.exports = async function handler(req, res) {
     playersByName.set(playerKey, existing ? mergePlayerRecord(existing, player) : player);
   }
 
-  const layeredPlayers = applyCuratedLayer([...playersByName.values()], normalizedTeams)
+  const officialPlayers = OFFICIAL_ROSTER_SNAPSHOT.map(item => officialRosterPlayer(item, teamIdByName, playersByName.get(key(item.name))));
+  const layeredPlayers = applyCuratedLayer(officialPlayers, normalizedTeams)
     .map(attachOfficialHeadshot);
   const uniquePlayers = [...new Map(layeredPlayers.map(player => [key(player.name), player])).values()]
     .sort((a, b) => a.lastName.localeCompare(b.lastName) || a.firstName.localeCompare(b.firstName));
@@ -417,8 +451,8 @@ module.exports = async function handler(req, res) {
   }
 
   return res.status(200).json({
-    source: 'TheSportsDB + SportsDataverse/WeHoop ESPN bridge + curated public-source corrections',
-    sources: ['TheSportsDB', 'SportsDataverse/WeHoop ESPN bridge', 'Curated public-source corrections'],
+    source: 'Official WNBA 2026 team roster pages + TheSportsDB + SportsDataverse/WeHoop ESPN bridge + curated public-source corrections',
+    sources: ['Official WNBA 2026 team roster pages', 'TheSportsDB', 'SportsDataverse/WeHoop ESPN bridge', 'Curated public-source corrections'],
     leagueId: LEAGUE_ID,
     updatedAt,
     liveUpdatesUpdatedAt: updatedAt,
@@ -426,6 +460,11 @@ module.exports = async function handler(req, res) {
     teams: normalizedTeams,
     players: uniquePlayers,
     playerCount: uniquePlayers.length,
+    officialRosterSnapshot: {
+      refreshedAt: '2026-08-22',
+      players: OFFICIAL_ROSTER_SNAPSHOT.length,
+      teams: new Set(OFFICIAL_ROSTER_SNAPSHOT.map(item => item.team)).size
+    },
     transactions,
     injuries,
     injuryCount: injuries.length,

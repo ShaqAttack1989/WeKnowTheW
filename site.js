@@ -1,4 +1,4 @@
-const UI_FIXES_HREF='/ui-fixes.css?v=20260822-standings-v2';
+const UI_FIXES_HREF='/ui-fixes.css?v=20260822-mobile-nav-v1';
 if (!document.querySelector('link[data-ui-fixes]')) {
   const uiFixes = document.createElement('link');
   uiFixes.rel = 'stylesheet';
@@ -83,12 +83,16 @@ if (navLinks) navLinks.innerHTML = structuredNav;
 
 const mobileNav = window.matchMedia('(max-width: 1100px)');
 function isMobileNav(){return mobileNav.matches;}
+function setMobileMenuState(open){
+  navLinks?.classList.toggle('open',Boolean(open));
+  menuButton?.setAttribute('aria-expanded',String(Boolean(open)));
+  document.body.classList.toggle('mobile-nav-open',Boolean(open));
+  if(!open)document.querySelectorAll('.nav-group.submenu-open').forEach(group=>group.classList.remove('submenu-open'));
+}
 
 menuButton?.addEventListener('click', event => {
   event.stopPropagation();
-  const open = navLinks?.classList.toggle('open');
-  menuButton.setAttribute('aria-expanded', String(Boolean(open)));
-  if (!open) document.querySelectorAll('.nav-group.submenu-open').forEach(group => group.classList.remove('submenu-open'));
+  setMobileMenuState(!navLinks?.classList.contains('open'));
 });
 
 document.querySelectorAll('.nav-group').forEach(group => {
@@ -108,9 +112,22 @@ document.querySelectorAll('.nav-group').forEach(group => {
 document.addEventListener('click', event => {
   if (!isMobileNav() || !navLinks?.classList.contains('open')) return;
   if (event.target.closest('#navLinks') || event.target.closest('#menuButton')) return;
-  navLinks.classList.remove('open');
-  menuButton?.setAttribute('aria-expanded', 'false');
+  setMobileMenuState(false);
 });
+
+navLinks?.addEventListener('click',event=>{
+  if(!isMobileNav()||event.target.closest('.nav-parent'))return;
+  if(event.target.closest('a')||event.target.closest('button'))setMobileMenuState(false);
+});
+
+document.addEventListener('keydown',event=>{
+  if(event.key==='Escape'&&navLinks?.classList.contains('open')){
+    setMobileMenuState(false);
+    menuButton?.focus();
+  }
+});
+
+mobileNav.addEventListener?.('change',event=>{if(!event.matches)setMobileMenuState(false);});
 
 const hierarchyMap = {
   '/live-stats.html': { parent: 'Around the W', parentHref: '/around-the-w.html', current: 'Live Stats' },

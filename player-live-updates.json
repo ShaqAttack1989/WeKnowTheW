@@ -27,7 +27,7 @@
     {"date":"2026-08-02","type":"TRADE","player":"Monique Akoa Makani","team":"Los Angeles Sparks","detail":"Acquired from Phoenix in the Kelsey Plum trade.","source":"WNBA Transactions Report"},
     {"date":"2026-07-31","type":"SIGNED","player":"Michelle Onyiah","team":"Indiana Fever","detail":"Developmental player contract; first UPSHOT League player to earn a WNBA contract.","source":"WNBA Transactions Report"},
     {"date":"2026-07-31","type":"TRADE","player":"Aneesah Morrow","team":"Toronto Tempo","detail":"Acquired from Connecticut for the rights to Maria Kliundikova and a 2028 second-round pick.","source":"WNBA Transactions Report"},
-    {"date":"2026-07-07","type":"WAIVED","player":"Chennedy Carter","team":"Las Vegas Aces","detail":"Waived by Las Vegas; removed from the active Bench Mob candidate pool.","source":"WNBA Transactions Report"}
+    {"date":"2026-07-07","type":"WAIVED","player":"Chennedy Carter","team":"Las Vegas Aces","detail":"Waived by Las Vegas.","source":"WNBA Transactions Report"}
   ],
   "injuries": [
     {"player":"Azzi Fudd","team":"Dallas Wings","status":"OUT FOR SEASON","reason":"Right knee · arthroscopic procedure; will miss the remainder of the 2026 season","updated":"2026-08-19","source":"WNBA Injury Report / Dallas Wings"},

@@ -1,4 +1,4 @@
-const UI_FIXES_HREF='/ui-fixes.css?v=20260822-standings-v1';
+const UI_FIXES_HREF='/ui-fixes.css?v=20260822-standings-v2';
 if (!document.querySelector('link[data-ui-fixes]')) {
   const uiFixes = document.createElement('link');
   uiFixes.rel = 'stylesheet';

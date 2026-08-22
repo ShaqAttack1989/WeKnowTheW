@@ -26,7 +26,7 @@ function visibleInjury(item={}){
   const updated=document.getElementById('wireUpdated');
   if(updated)updated.textContent=`Updated ${wPageDate()}`;
   try{
-    const r=await fetch('/api/players?officialReports=20260822-chronological-v3',{headers:{Accept:'application/json'},cache:'no-store'});
+    const r=await fetch('/api/players?officialReports=20260822-public-copy-v4',{headers:{Accept:'application/json'},cache:'no-store'});
     const p=await r.json().catch(()=>({}));
     if(!r.ok)throw new Error(p.error||'Live player feed unavailable');
 

@@ -82,7 +82,7 @@ function parseAdvancedHtml(raw=''){
     const r=m[1],name=text(cellByStat(r,'player'));if(!name||name.toLowerCase()==='player')continue;
     const item={name,team:text(cellByStat(r,'team_name_abbr')||cellByStat(r,'team_id')),per:num(text(cellByStat(r,'per'))),tsPct:pct(text(cellByStat(r,'ts_pct'))),
       trbPct:num(text(cellByStat(r,'trb_pct'))),astPct:num(text(cellByStat(r,'ast_pct'))),stlPct:num(text(cellByStat(r,'stl_pct'))),blkPct:num(text(cellByStat(r,'blk_pct'))),
-      tovPct:num(text(cellByStat(r,'tov_pct'))),usgPct:num(text(cellByStat(r,'usg_pct'))),ortg:num(text(cellByStat(r,'off_rtg'))),drtg:num(text(cellByStat(r,'def_rtg')),
+      tovPct:num(text(cellByStat(r,'tov_pct'))),usgPct:num(text(cellByStat(r,'usg_pct'))),ortg:num(text(cellByStat(r,'off_rtg'))),drtg:num(text(cellByStat(r,'def_rtg'))),
       ows:num(text(cellByStat(r,'ows'))),dws:num(text(cellByStat(r,'dws'))),ws:num(text(cellByStat(r,'ws'))),ws40:num(text(cellByStat(r,'ws_per_40')))};
     if(item.per!==null||item.tsPct!==null)rows.push(item);
   }

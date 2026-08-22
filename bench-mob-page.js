@@ -40,11 +40,12 @@ async function loadBenchMob(){
   const methodology=document.getElementById('benchMobMethod');
   if(!grid)return;
   const week=mondayKey();
+  const revision='20260822-roster-v2';
   if(status)status.textContent=`Week of ${weekLabel(week)} · Season-to-date board`;
   try{
     const [boardRes,playersRes]=await Promise.all([
-      fetch(`/api/bench-mob?season=2026&week=${encodeURIComponent(week)}`,{headers:{Accept:'application/json'}}),
-      fetch('/api/players',{headers:{Accept:'application/json'}})
+      fetch(`/api/bench-mob?season=2026&week=${encodeURIComponent(week)}&rev=${revision}`,{headers:{Accept:'application/json'}}),
+      fetch(`/api/players?rev=${revision}`,{headers:{Accept:'application/json'}})
     ]);
     const board=await boardRes.json().catch(()=>({}));
     const rosterPayload=await playersRes.json().catch(()=>({}));

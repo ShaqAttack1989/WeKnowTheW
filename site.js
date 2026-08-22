@@ -19,6 +19,7 @@ const structuredNav = `
       <a class="nav-nested" href="/player-movement.html">Player Movement</a>
       <a class="nav-nested" href="/availability-report.html">Availability Report</a>
       <a href="/around-the-w.html"><strong>Team Pages</strong></a>
+      <a class="nav-nested" href="/team.html?team=atlanta-dream">Atlanta Dream</a>
       <a href="/snack-shaq.html"><strong>Seasoned Notes · Snack Shaq</strong></a>
     </div>
   </div>
@@ -184,7 +185,7 @@ const searchStaticIndex = [
   {title:'Class Is in Session',type:'Who Got Next?',href:'/class-is-in-session.html',keywords:'ncaaw college draft radar freshmen highlights'},
   {title:'The Call Up',type:'Who Got Next?',href:'/the-call-up.html',keywords:'upshot league development call ups'},
   {title:'Expansion Watch',type:'Who Got Next?',href:'/expansion-watch.html',keywords:'cleveland detroit philadelphia expansion draft future teams'},
-  {title:'Atlanta Dream',type:'Team',href:'/team.html?team=atlanta-dream',keywords:'atlanta dream'},
+  {title:'Atlanta Dream',type:'Team',href:'/team.html?team=atlanta-dream',keywords:'atlanta dream history roster players awards championships finals uniforms jerseys retired numbers coaches owners gateway center'},
   {title:'Chicago Sky',type:'Team',href:'/team.html?team=chicago-sky',keywords:'chicago sky'},
   {title:'Connecticut Sun',type:'Team',href:'/team.html?team=connecticut-sun',keywords:'connecticut sun uncasville'},
   {title:'Dallas Wings',type:'Team',href:'/team.html?team=dallas-wings',keywords:'dallas wings'},

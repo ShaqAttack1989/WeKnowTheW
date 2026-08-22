@@ -6,8 +6,8 @@
   <meta name="theme-color" content="#140a2f">
   <title>Team | We Know the W</title>
   <link rel="stylesheet" href="/styles.css?v=20260822-transparent-headshots-v1">
-  <link rel="stylesheet" href="/landing.css">
-  <link rel="stylesheet" href="/team-page.css">
+  <link rel="stylesheet" href="/landing.css?v=20260822-games-v1">
+  <link rel="stylesheet" href="/team-page.css?v=20260822-atlanta-hub-v1">
   <link rel="stylesheet" href="/team-logo-only.css?v=20260820-posters-v1">
 </head>
 <body class="team-page">
@@ -46,7 +46,19 @@
   </header>
 
   <main>
-    <section class="team-content">
+    <nav class="team-local-nav" id="atlantaLocalNav" aria-label="Atlanta Dream page sections" hidden>
+      <div class="team-local-nav-inner">
+        <a href="#whats-happening">Now</a>
+        <a href="#current-roster">Current players</a>
+        <a href="#franchise-history">History</a>
+        <a href="#titles-awards">Titles &amp; awards</a>
+        <a href="#uniforms-numbers">Uniforms &amp; numbers</a>
+        <a href="#people-around-team">People</a>
+        <a href="#dream-connections">Explore more</a>
+      </div>
+    </nav>
+
+    <section class="team-content" id="genericTeamOverview">
       <div class="team-section-heading"><p class="kicker">FRANCHISE FILE</p><h2>Everything about this team has a lane.</h2><p>Use this landing page as the bridge between the live season and the deeper encyclopedia sections.</p></div>
       <div class="team-overview-grid">
         <article class="team-panel"><span class="panel-label">THE W VAULT</span><strong>Franchise history</strong><p>Origins, eras, relocations, defining seasons and the players who shaped the franchise story.</p></article>
@@ -60,17 +72,123 @@
       <p class="small-note" style="margin-top:18px">Team names and logos are trademarks of their respective owners and are used here for identification on this independent fan-built encyclopedia.</p>
     </section>
 
-    <section class="team-band">
+    <div id="atlantaTeamHub" hidden>
+      <section class="team-content dream-now-section" id="whats-happening">
+        <div class="team-section-heading dream-heading-row">
+          <div><p class="kicker">WHAT’S HAPPENING NOW</p><h2>The Dream, right now.</h2><p>Live standings, the next tipoffs and the latest final scores update automatically with the 2026 season feed.</p></div>
+          <p class="dream-feed-status" id="dreamFeedStatus"><span aria-hidden="true"></span> Connecting to the live season…</p>
+        </div>
+        <div class="dream-stat-grid" id="dreamStatGrid" aria-live="polite">
+          <article><span>Record</span><strong>—</strong><small>Live standings</small></article>
+          <article><span>Overall</span><strong>—</strong><small>League position</small></article>
+          <article><span>Streak</span><strong>—</strong><small>Current run</small></article>
+          <article><span>Last 10</span><strong>—</strong><small>Recent form</small></article>
+        </div>
+        <div class="dream-schedule-grid">
+          <section class="dream-schedule-panel">
+            <div class="dream-panel-heading"><div><span>UP NEXT</span><h3>Upcoming games</h3></div><a href="/games.html">Full schedule →</a></div>
+            <div id="dreamUpcomingGames" class="dream-games-feed"><div class="schedule-loading">Loading Atlanta’s next games…</div></div>
+          </section>
+          <section class="dream-schedule-panel">
+            <div class="dream-panel-heading"><div><span>LATEST FINALS</span><h3>Recent results</h3></div><a href="/live-stats.html#games">Live Stats →</a></div>
+            <div id="dreamRecentGames" class="dream-games-feed"><div class="schedule-loading">Loading Atlanta’s recent results…</div></div>
+          </section>
+        </div>
+        <section class="dream-roster-wire" aria-labelledby="dreamRosterWireHeading">
+          <div class="dream-panel-heading"><div><span>ROSTER &amp; AVAILABILITY</span><h3 id="dreamRosterWireHeading">The latest team updates</h3></div><a href="/availability-report.html">Full report →</a></div>
+          <div id="dreamTeamUpdates" class="dream-update-grid" aria-live="polite"><div class="schedule-loading">Checking Atlanta’s roster wire…</div></div>
+        </section>
+        <div class="dream-action-row">
+          <a href="/player-movement.html">Player Movement</a>
+          <a href="/availability-report.html">Availability Report</a>
+          <a href="https://dream.wnba.com/" target="_blank" rel="noopener">Official Dream news ↗</a>
+        </div>
+      </section>
+    </div>
+
+    <section class="team-band" id="current-roster">
       <div class="team-content">
-        <div class="team-section-heading"><p class="kicker">CURRENT ROSTER</p><h2 id="rosterHeading">Who’s on the team?</h2><p id="rosterStatus">Loading the current roster…</p></div>
+        <div class="team-section-heading dream-heading-row"><div><p class="kicker">CURRENT PLAYERS</p><h2 id="rosterHeading">Who’s on the team?</h2><p id="rosterStatus">Loading the current roster…</p></div><a class="dream-heading-link" id="rosterPlayerpediaLink" href="/playerpedia.html?team=Atlanta%20Dream">Open Atlanta in Playerpedia →</a></div>
         <div id="teamRoster" class="team-roster-grid"></div>
       </div>
     </section>
+
+    <div id="atlantaTeamArchive" hidden>
+      <section class="team-content dream-history-section" id="franchise-history">
+        <div class="team-section-heading"><p class="kicker">THE W VAULT · FRANCHISE HISTORY</p><h2>A franchise built to represent Atlanta.</h2><p>The Dream arrived in 2008, found a contender quickly and continues to connect the league’s present to a city with deep basketball and cultural roots.</p></div>
+        <div class="dream-timeline">
+          <article><time>2008</time><div><h3>The Dream begins</h3><p>Atlanta entered the WNBA as an expansion franchise and became the league’s home in the Southeast.</p></div></article>
+          <article><time>2009</time><div><h3>A cornerstone arrives</h3><p>Atlanta selected Angel McCoughtry No. 1 overall. She won Rookie of the Year and became the centerpiece of the franchise’s first great era.</p></div></article>
+          <article><time>2010–13</time><div><h3>Three trips to the Finals</h3><p>The Dream won Eastern Conference titles in 2010, 2011 and 2013, reaching the WNBA Finals three times in four seasons.</p></div></article>
+          <article><time>2019–21</time><div><h3>A new home and a new brand</h3><p>The shooting-star identity was refreshed around Atlanta’s red, black, white and original Dream light blue as the team made Gateway Center Arena its primary home.</p></div></article>
+          <article><time>2021</time><div><h3>New ownership</h3><p>Larry Gottesdiener, Renee Montgomery and Suzanne Abair took ownership, beginning a new chapter centered on community, players and long-term growth.</p></div></article>
+          <article><time>2025–26</time><div><h3>The Smesko era</h3><p>Karl Smesko’s staff and Dan Padover’s front office shape the current contender around a core that includes Rhyne Howard, Allisha Gray and Brionna Jones.</p></div></article>
+        </div>
+        <div class="dream-source-row"><a href="https://dream.wnba.com/news/atlanta-dream-announce-2026-roster" target="_blank" rel="noopener">Official 2026 franchise overview ↗</a><a href="https://dream.wnba.com/news/atlanta-dream-unveil-bold-new-brand" target="_blank" rel="noopener">2019 rebrand story ↗</a></div>
+      </section>
+
+      <section class="dream-dark-section" id="titles-awards">
+        <div class="team-content">
+          <div class="team-section-heading"><p class="kicker">THE TROPHY ROOM</p><h2>Titles, firsts and franchise honors.</h2><p>Atlanta is still chasing its first WNBA championship, but its history already includes three conference crowns and landmark individual awards.</p></div>
+          <div class="dream-honors-grid">
+            <article class="dream-honor-feature"><span>3×</span><strong>WNBA Finals appearances</strong><p>Eastern Conference champions in 2010, 2011 and 2013.</p></article>
+            <article><span>11</span><strong>Playoff appearances</strong><p>Eleven postseason berths since 2009, according to the franchise’s 2026 overview.</p></article>
+            <article><span>2</span><strong>Rookies of the Year</strong><p>Angel McCoughtry (2009) and Rhyne Howard (2022).</p></article>
+            <article><span>2025</span><strong>Executive of the Year</strong><p>Dan Padover earned his third WNBA Basketball Executive of the Year award and his first with Atlanta.</p></article>
+            <article><span>2×</span><strong>Scoring champion</strong><p>Angel McCoughtry led the WNBA in scoring twice during her Dream career.</p></article>
+            <article><span>2025</span><strong>All-WNBA First Team</strong><p>Allisha Gray earned first-team honors after a defining season in Atlanta.</p></article>
+          </div>
+          <div class="dream-source-row light"><a href="/trophy-case.html#championships">Explore championships in The Trophy Room →</a><a href="https://www.wnba.com/news/atlanta-dreams-rhyne-howard-named-2022-kia-rookie-of-the-year" target="_blank" rel="noopener">Howard’s Rookie of the Year release ↗</a><a href="https://dream.wnba.com/news/dan-padover-named-2025-wnba-basketball-executive-of-the-year" target="_blank" rel="noopener">Padover’s 2025 honor ↗</a></div>
+        </div>
+      </section>
+
+      <section class="team-content" id="uniforms-numbers">
+        <div class="team-section-heading"><p class="kicker">THE LOCKER ROOM</p><h2>Uniform eras and retired numbers.</h2><p>Atlanta’s visual identity has moved from the original Dream light blue into a bolder city-led palette while keeping the shooting star at the center.</p></div>
+        <div class="dream-uniform-layout">
+          <div class="dream-uniform-story">
+            <article><span class="uniform-chip original"></span><div><h3>Original Dream blue</h3><p>The franchise’s early light-blue identity remains part of the current star and symbolizes unity and loyalty.</p></div></article>
+            <article><span class="uniform-chip city"></span><div><h3>Atlanta red, black and white</h3><p>The 2019 rebrand made Atlanta’s energy and strength the foundation of the modern crest and uniform system.</p></div></article>
+            <article><span class="uniform-chip rebel"></span><div><h3>Homegrown Rebel</h3><p>The current black Rebel look uses peach accents to connect the team directly to Georgia and was designed with player input.</p></div></article>
+          </div>
+          <aside class="dream-retired-card"><span class="retired-zero">0</span><div><p class="panel-label">RETIRED NUMBERS</p><h3>None officially retired</h3><p>As of the 2026 season, the Atlanta Dream have not formally retired a player number. This page will be updated when the franchise announces its first.</p></div></aside>
+        </div>
+        <div class="dream-source-row"><a href="/locker-room.html">Explore The Locker Room →</a><a href="https://dream.wnba.com/news/atlanta-dream-unveil-bold-new-brand" target="_blank" rel="noopener">Modern brand reveal ↗</a><a href="https://dream.wnba.com/homegrown-rebel-jersey" target="_blank" rel="noopener">Homegrown Rebel story ↗</a></div>
+      </section>
+
+      <section class="team-band" id="people-around-team">
+        <div class="team-content">
+          <div class="team-section-heading"><p class="kicker">COURTSIDE CULTURE</p><h2>The people around the Dream.</h2><p>The roster is only one part of the franchise. Ownership, basketball operations, coaches and the game-night crew shape the experience around it.</p></div>
+          <div class="dream-people-grid">
+            <article><span>OWNERSHIP</span><h3>Larry Gottesdiener, Renee Montgomery &amp; Suzanne Abair</h3><p>The investor group has led the franchise since 2021. Montgomery is also a former Dream guard and the first former WNBA player to become both an owner and executive of a WNBA team.</p><a href="/courtside-culture.html#owners">Owners in Courtside Culture →</a></article>
+            <article><span>BASKETBALL OPERATIONS</span><h3>Dan Padover</h3><p>General Manager and Executive Vice President; 2025 WNBA Basketball Executive of the Year.</p><a href="https://dream.wnba.com/staff-directory" target="_blank" rel="noopener">Official staff directory ↗</a></article>
+            <article><span>HEAD COACH</span><h3>Karl Smesko</h3><p>Hired in November 2024 after building one of college basketball’s most consistent programs at Florida Gulf Coast.</p><a href="/courtside-culture.html#coaches">Coaches in Courtside Culture →</a></article>
+            <article><span>BUSINESS LEADERSHIP</span><h3>Morgan Shaw Parker</h3><p>President and Chief Operating Officer, responsible for the Dream’s day-to-day business operation and growth.</p><a href="https://dream.wnba.com/morgan-shaw-parker" target="_blank" rel="noopener">Official profile ↗</a></article>
+            <article><span>GAME NIGHT</span><h3>Star &amp; the Hype Squad</h3><p>The Dream’s mascot and Hype Squad bring the in-arena energy and represent the team throughout the Atlanta community.</p><a href="https://dream.wnba.com/hypesquad" target="_blank" rel="noopener">Meet the Hype Squad ↗</a></article>
+            <article><span>HOME COURT</span><h3>Gateway Center Arena</h3><p>The Dream’s primary home in College Park, with selected 2026 home dates staged at State Farm Arena.</p><a href="/courtside-culture.html#gameday-vibes">Explore game-day culture →</a></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="team-content" id="dream-connections">
+        <div class="team-section-heading"><p class="kicker">KEEP EXPLORING</p><h2>Atlanta connects across We Know the W.</h2><p>Move between the current season, individual player stories, franchise history, style and the people shaping the team.</p></div>
+        <div class="dream-connection-grid">
+          <a href="/playerpedia.html?team=Atlanta%20Dream"><span>PLAYERPEDIA</span><strong>Meet every current Dream player</strong><small>Profiles, career details and connected stories →</small></a>
+          <a href="/live-stats.html"><span>LIVE STATS</span><strong>Follow the standings</strong><small>Records, streaks, last 10 and league position →</small></a>
+          <a href="/w-vault.html"><span>THE W VAULT</span><strong>Put Atlanta in league history</strong><small>Franchises, eras and milestones →</small></a>
+          <a href="/trophy-case.html"><span>THE TROPHY ROOM</span><strong>Explore the hardware</strong><small>Championships and individual honors →</small></a>
+          <a href="/locker-room.html"><span>THE LOCKER ROOM</span><strong>See the visual history</strong><small>Uniforms, jerseys and retired numbers →</small></a>
+          <a href="/courtside-culture.html"><span>COURTSIDE CULTURE</span><strong>Meet the people around the game</strong><small>Coaches, owners, mascots and game day →</small></a>
+        </div>
+        <div class="team-link-row"><a href="/around-the-w.html">← All current teams</a><a class="secondary" href="https://dream.wnba.com/" target="_blank" rel="noopener">Official Atlanta Dream site ↗</a></div>
+        <p class="small-note" style="margin-top:18px">Team names and logos are trademarks of their respective owners and are used here for identification on this independent fan-built encyclopedia.</p>
+      </section>
+    </div>
   </main>
 
   <footer class="footer"><div class="shell footer-inner"><div><strong>WE KNOW THE W</strong><p>Independent, fan-built women’s basketball encyclopedia.</p></div><a href="/around-the-w.html">Back to Around the W ↑</a></div></footer>
   <script src="/site.js"></script>
   <script src="/team-data.js"></script>
-  <script src="/team-page.js?v=20260822-transparent-headshots-v1"></script>
+  <script src="/game-cards.js?v=20260822-games-v1"></script>
+  <script src="/team-page.js?v=20260822-atlanta-hub-v1"></script>
 </body>
 </html>

@@ -28,7 +28,13 @@ function hInitials(name=''){
   return String(name).trim().split(/\s+/).filter(Boolean).slice(0,2).map(part=>part[0]?.toUpperCase()||'').join('')||'W';
 }
 
+const H_PHOTO_OVERRIDES=new Map([
+  ['angelreese','https://cdn.wnba.com/headshots/wnba/latest/1040x760/1642291.png']
+]);
+
 function hPhoto(player={}){
+  const override=H_PHOTO_OVERRIDES.get(hKey(player.name));
+  if(override)return override;
   const id=String(player.espnId||'').replace(/[^0-9]/g,'');
   if(id)return `/api/photo?id=${id}`;
   const direct=[player.photo,player.photoThumb,player.headshot].find(value=>/^https?:\/\//i.test(String(value||'').trim()));

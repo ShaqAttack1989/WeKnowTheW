@@ -5,7 +5,9 @@
 .wire-card-label{margin:0;color:#6c2ad9;font-size:.78rem;font-weight:950;letter-spacing:.12em;text-transform:uppercase;}
 .wire-card-updated{color:#8a7182;font-size:.78rem;font-weight:850;white-space:nowrap;}
 .wire-card h2{font-size:clamp(2rem,5vw,3.1rem);line-height:1.02;letter-spacing:-.045em;margin:0;max-width:620px;}
-.wire-card-status{margin:8px 0 0;color:#7c7082;font-size:.84rem;}
+.wire-card-status{margin:10px 0 0;color:#7c7082;font-size:.84rem;}
+.wire-card-status a{color:#6c2ad9;font-weight:850;text-decoration:none;}
+.wire-card-status a:hover{text-decoration:underline;}
 .wire-list{padding:0;}
 .wire-row{display:grid;align-items:start;gap:14px;padding:18px 0;border-bottom:1px solid #ece5f0;}
 .wire-row:last-child{border-bottom:0;}
@@ -27,8 +29,10 @@
 .wire-chip.retired{background:#17131f;color:#fff;}
 .wire-status.out-for-season{background:#17131f;color:#fff;}
 .wire-status.out{background:#ffe2de;color:#b52a1d;}
-.wire-status.day-to-day{background:#fff1c9;color:#8a5a00;}
-.wire-status.questionable,.wire-status.probable{background:#e8f0ff;color:#2452a6;}
+.wire-status.nwt{background:#efe7ff;color:#5d17bd;}
+.wire-status.doubtful{background:#ffd9e6;color:#9f1748;}
+.wire-status.questionable,.wire-status.day-to-day{background:#fff1c9;color:#8a5a00;}
+.wire-status.probable{background:#dff1ff;color:#075985;}
 .wire-status.available,.wire-status.active{background:#dcfce7;color:#166534;}
 .wire-empty{padding:22px 0;color:#6f6879;}
 @media(max-width:640px){

@@ -1,5 +1,13 @@
 function bSafe(v=''){return String(v).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');}
-function bKey(v=''){return String(v).normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]/g,'');}
+function bCleanName(v=''){
+  return String(v)
+    .replace(/<\/?(?:strong|b|span|a)\b[^>]*>?/gi,' ')
+    .replace(/[<>]/g,' ')
+    .replace(/\*\*/g,' ')
+    .replace(/\s+/g,' ')
+    .trim();
+}
+function bKey(v=''){return bCleanName(v).normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]/g,'');}
 function bPhoto(player={}){
   const id=String(player.espnId||'').replace(/[^0-9]/g,'');
   if(id)return `/api/photo?id=${id}`;
@@ -44,16 +52,23 @@ async function loadBenchMob(){
     const roster=Array.isArray(rosterPayload.players)?rosterPayload.players:[];
     const byName=new Map(roster.map(player=>[bKey(player.name),player]));
     grid.innerHTML=board.picks.map((pick,index)=>{
-      const player=byName.get(bKey(pick.name))||{name:pick.name};
+      const cleanName=bCleanName(pick.name);
+      const player=byName.get(bKey(cleanName))||{name:cleanName};
+      const displayName=bCleanName(player.name||cleanName);
       const photo=bPhoto(player);
-      const initials=pick.name.split(/\s+/).map(part=>part[0]).join('').slice(0,2);
-      const media=photo?`<img src="${bSafe(photo)}" alt="${bSafe(pick.name)}" loading="lazy" decoding="async" onerror="this.replaceWith(Object.assign(document.createElement('span'),{textContent:'${bSafe(initials)}'}))">`:`<span>${bSafe(initials)}</span>`;
-      return `<a class="portal-card featured-player-card${index===5?' lime':''}" href="/playerpedia.html?search=${encodeURIComponent(pick.name)}">
+      const initials=displayName.split(/\s+/).filter(Boolean).map(part=>part[0]).join('').slice(0,2).toUpperCase();
+      const media=photo?`<img src="${bSafe(photo)}" alt="${bSafe(displayName)}" loading="lazy" decoding="async" onerror="this.replaceWith(Object.assign(document.createElement('span'),{textContent:'${bSafe(initials)}'}))">`:`<span>${bSafe(initials)}</span>`;
+      const rosterTeam=String(player.team||'').trim();
+      const pickTeam=String(pick.team||'').trim();
+      const team=rosterTeam&&!/^WNBA$/i.test(rosterTeam)?rosterTeam:(pickTeam&&!/^WNBA$/i.test(pickTeam)?pickTeam:'');
+      const position=String(player.position||pick.position||'').trim();
+      const meta=[team,position].filter(Boolean).map(bSafe).join(' · ');
+      return `<a class="portal-card featured-player-card${index===5?' lime':''}" href="/playerpedia.html?search=${encodeURIComponent(displayName)}">
         <span class="featured-player-photo">${media}</span>
         <span>
           <span class="portal-label">${bSafe(pick.role)}</span>
-          <strong>${bSafe(pick.name)}</strong>
-          <p><b>${bSafe(pick.team||'WNBA')}</b>${pick.position?` · ${bSafe(pick.position)}`:''}</p>
+          <strong>${bSafe(displayName)}</strong>
+          ${meta?`<p><b>${meta}</b></p>`:''}
           <p>${bSafe(pick.statLine||'')}</p>
           <p>${bSafe(pick.why||pick.subtitle||'')}</p>
         </span>

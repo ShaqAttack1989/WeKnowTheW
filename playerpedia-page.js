@@ -1,6 +1,8 @@
 function pSafe(v=''){return String(v).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;').replaceAll("'",'&#039;');}
 function initials(name=''){return String(name).trim().split(/\s+/).filter(Boolean).slice(0,2).map(x=>x[0]?.toUpperCase()||'').join('')||'W';}
 function playerPhoto(player={}){
+  const cutout=[player.officialHeadshot,player.photoCutout].find(value=>/^https?:\/\//i.test(String(value||'').trim()));
+  if(cutout)return String(cutout).trim();
   const id=String(player.espnId||'').replace(/[^0-9]/g,'');
   if(id)return `/api/photo?id=${id}`;
   const direct=[player.photo,player.photoThumb,player.headshot].find(value=>/^https?:\/\//i.test(String(value||'').trim()));
@@ -9,7 +11,7 @@ function playerPhoto(player={}){
   if(espn)return `/api/photo?id=${espn[2]}${espn[1]==='wnba'?'':'&league=ncaaw'}`;
   return `/api/photo?src=${encodeURIComponent(String(direct).trim())}`;
 }
-function avatarMarkup(player={},large=false){const photo=playerPhoto(player),name=player.name||'Player',classes=`player-avatar photo-avatar${large?' large':''}`;return `<span class="${classes}" aria-hidden="true"><span class="player-avatar-fallback">${pSafe(initials(name))}</span>${photo?`<img class="player-avatar-image" src="${pSafe(photo)}" alt="" loading="lazy" decoding="async" onerror="this.style.display='none'">`:''}</span>`;}
+function avatarMarkup(player={},large=false){const photo=playerPhoto(player),name=player.name||'Player',cutout=Boolean(player.officialHeadshot||player.photoCutout),classes=`player-avatar photo-avatar${large?' large':''}`;return `<span class="${classes}" aria-hidden="true"><span class="player-avatar-fallback">${pSafe(initials(name))}</span>${photo?`<img class="player-avatar-image${cutout?' player-cutout':''}" src="${pSafe(photo)}" alt="" loading="lazy" decoding="async" onerror="this.style.display='none'">`:''}</span>`;}
 function prettyDate(value=''){if(!value)return '';const date=new Date(`${String(value).slice(0,10)}T12:00:00`);return Number.isNaN(date.getTime())?value:date.toLocaleDateString([],{month:'short',day:'numeric'});}
 function playerKey(value=''){return String(value).normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]/g,'');}
 function hasMetric(value){return value!==null&&value!==undefined&&String(value).trim()!==''&&Number.isFinite(Number(value));}
@@ -70,7 +72,7 @@ function renderPlayerWire(payload={}){
 async function load(){
   try{
     const [rosterResult,advancedResult]=await Promise.allSettled([
-      fetch('/api/players?publicCopy=20260822-v4',{headers:{Accept:'application/json'}}).then(async r=>{const payload=await r.json().catch(()=>({}));if(!r.ok)throw new Error(payload.error||'Playerpedia unavailable');return payload;}),
+      fetch('/api/players?publicCopy=20260822-transparent-v1',{headers:{Accept:'application/json'}}).then(async r=>{const payload=await r.json().catch(()=>({}));if(!r.ok)throw new Error(payload.error||'Playerpedia unavailable');return payload;}),
       fetch('/api/advanced-stats?season=2026',{headers:{Accept:'application/json'}}).then(async r=>{const payload=await r.json().catch(()=>({}));if(!r.ok)throw new Error(payload.error||'Advanced stats unavailable');return payload;})
     ]);
     if(rosterResult.status!=='fulfilled')throw rosterResult.reason;
@@ -182,6 +184,9 @@ async function openProfile(id){
   if(roster?.team)p.team=roster.team;
   if(roster?.position)p.position=roster.position;
   if(roster?.espnId&&!p.espnId)p.espnId=roster.espnId;
+  if(roster?.wnbaId)p.wnbaId=roster.wnbaId;
+  if(roster?.officialHeadshot)p.officialHeadshot=roster.officialHeadshot;
+  if(roster?.photoCutout)p.photoCutout=roster.photoCutout;
   if(roster?.photo&&!p.photo)p.photo=roster.photo;
   if(roster?.photoThumb&&!p.photoThumb)p.photoThumb=roster.photoThumb;
   const name=p.name||roster?.name||'Player';

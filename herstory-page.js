@@ -34,8 +34,8 @@ const H_PHOTO_OVERRIDES=new Map([
 ]);
 
 function hPhoto(player={}){
-  const override=H_PHOTO_OVERRIDES.get(hKey(player.name));
-  if(override)return override;
+  const cutout=H_PHOTO_OVERRIDES.get(hKey(player.name))||[player.officialHeadshot,player.photoCutout].find(value=>/^https?:\/\//i.test(String(value||'').trim()));
+  if(cutout)return String(cutout).trim();
   const id=String(player.espnId||'').replace(/[^0-9]/g,'');
   if(id)return `/api/photo?id=${id}`;
   const direct=[player.photo,player.photoThumb,player.headshot].find(value=>/^https?:\/\//i.test(String(value||'').trim()));
@@ -51,7 +51,8 @@ function hMedia(names,byName=new Map()){
   return `<div class="herstory-entry-media" style="--photo-count:${count}" aria-label="${hSafe(people.join(' and '))}">${people.map(name=>{
     const player=byName.get(hKey(name))||{name};
     const photo=hPhoto(player);
-    return `<div class="herstory-entry-photo"><span>${hSafe(hInitials(name))}</span>${photo?`<img src="${hSafe(photo)}" alt="${hSafe(name)}" loading="lazy" decoding="async" onerror="this.remove()">`:''}</div>`;
+    const cutout=H_PHOTO_OVERRIDES.has(hKey(name))||Boolean(player.officialHeadshot||player.photoCutout);
+    return `<div class="herstory-entry-photo"><span>${hSafe(hInitials(name))}</span>${photo?`<img class="${cutout?'player-cutout':''}" src="${hSafe(photo)}" alt="${hSafe(name)}" loading="lazy" decoding="async" onerror="this.remove()">`:''}</div>`;
   }).join('')}</div>`;
 }
 
@@ -62,7 +63,7 @@ async function loadHerstoryPhotos(){
   entries.forEach(entry=>entry.insertAdjacentHTML('afterbegin',hMedia(hNames(entry))));
 
   try{
-    const response=await fetch('/api/players?herstoryPhotos=20260822-v1',{headers:{Accept:'application/json'}});
+    const response=await fetch('/api/players?herstoryPhotos=20260822-transparent-v1',{headers:{Accept:'application/json'}});
     const payload=await response.json().catch(()=>({}));
     if(!response.ok||!Array.isArray(payload.players))throw new Error(payload.error||'Player photos unavailable');
     const byName=new Map(payload.players.map(player=>[hKey(player.name),player]));

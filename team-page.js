@@ -1,5 +1,7 @@
 function tSafe(value=''){return String(value).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;').replaceAll("'",'&#039;');}
 function rosterPhoto(player={}){
+  const cutout=[player.officialHeadshot,player.photoCutout].find(value=>/^https?:\/\//i.test(String(value||'').trim()));
+  if(cutout)return String(cutout).trim();
   const id=String(player.espnId||'').replace(/[^0-9]/g,'');
   if(id)return `/api/photo?id=${id}`;
   const direct=[player.photo,player.photoThumb,player.headshot].find(value=>/^https?:\/\//i.test(String(value||'').trim()));
@@ -69,7 +71,7 @@ async function loadTeamPage(){
 
   const [statsResult,playersResult,teamsResult]=await Promise.allSettled([
     fetch('/api/stats?season=2026',{headers:{Accept:'application/json'}}).then(async response=>{const payload=await response.json().catch(()=>({}));if(!response.ok)throw new Error(payload.error||'Stats unavailable');return payload;}),
-    fetch('/api/players?artwork=2',{headers:{Accept:'application/json'}}).then(async response=>{const payload=await response.json().catch(()=>({}));if(!response.ok)throw new Error(payload.error||'Roster unavailable');return payload;}),
+    fetch('/api/players?artwork=transparent-v1',{headers:{Accept:'application/json'}}).then(async response=>{const payload=await response.json().catch(()=>({}));if(!response.ok)throw new Error(payload.error||'Roster unavailable');return payload;}),
     fetch('/api/teams',{headers:{Accept:'application/json'}}).then(async response=>{const payload=await response.json().catch(()=>({}));if(!response.ok)throw new Error(payload.error||'Team artwork unavailable');return payload;})
   ]);
 
@@ -100,7 +102,8 @@ async function loadTeamPage(){
     rosterStatus.textContent=teamPlayers.length?`${teamPlayers.length} current players loaded automatically.`:'The current roster feed did not return players for this team yet.';
     roster.innerHTML=teamPlayers.length?teamPlayers.map(player=>{
       const photo=rosterPhoto(player);
-      return `<a class="team-roster-card" href="/playerpedia.html?search=${encodeURIComponent(player.name)}"><span class="team-roster-media"><span class="team-roster-number">${tSafe(player.number?`#${player.number}`:'W')}</span>${photo?`<img class="team-roster-photo" src="${tSafe(photo)}" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.remove()">`:''}</span><span><strong>${tSafe(player.name)}</strong><span>${tSafe(player.position||'Player')}</span></span></a>`;
+      const cutout=Boolean(player.officialHeadshot||player.photoCutout);
+      return `<a class="team-roster-card" href="/playerpedia.html?search=${encodeURIComponent(player.name)}"><span class="team-roster-media"><span class="team-roster-number">${tSafe(player.number?`#${player.number}`:'W')}</span>${photo?`<img class="team-roster-photo${cutout?' player-cutout':''}" src="${tSafe(photo)}" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.remove()">`:''}</span><span><strong>${tSafe(player.name)}</strong><span>${tSafe(player.position||'Player')}</span></span></a>`;
     }).join(''):'<div class="team-error">Current roster details are temporarily unavailable. Playerpedia remains accessible.</div>';
   }else{
     rosterStatus.textContent='Current roster temporarily unavailable.';

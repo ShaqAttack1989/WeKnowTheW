@@ -13,10 +13,11 @@ function callupPhoto(item={},players=[],extras=new Map()){
   const name=item.player||item.name||'';
   const match=players.find(player=>uNorm(player.name)===uNorm(name));
   const espnId=String(item.espnId||match?.espnId||'').replace(/[^0-9]/g,'');
-  const raw=item.photo||match?.photo||match?.photoThumb||match?.headshot||extras.get(uNorm(name))||(espnId?`/api/photo?id=${espnId}${item.league==='ncaaw'?'&league=ncaaw':''}`:'');
-  const src=/^https?:\/\//i.test(raw)?hostedPhoto(raw):raw;
+  const cutout=match?.officialHeadshot||match?.photoCutout||'';
+  const raw=cutout||item.photo||match?.photo||match?.photoThumb||match?.headshot||extras.get(uNorm(name))||(espnId?`/api/photo?id=${espnId}${item.league==='ncaaw'?'&league=ncaaw':''}`:'');
+  const src=cutout?String(cutout):(/^https?:\/\//i.test(raw)?hostedPhoto(raw):raw);
   if(!src)return `<div class="callup-player-photo photo-fallback"><span class="photo-fallback-mark">${uSafe(uInitials(name))}</span></div>`;
-  return `<div class="callup-player-photo"><img src="${uSafe(src)}" alt="${uSafe(name)}" loading="lazy" decoding="async" onerror="this.hidden=true;this.parentElement.classList.add('photo-fallback')"><span class="photo-fallback-mark">${uSafe(uInitials(name))}</span></div>`;
+  return `<div class="callup-player-photo"><img class="${cutout?'player-cutout':''}" src="${uSafe(src)}" alt="${uSafe(name)}" loading="lazy" decoding="async" onerror="this.hidden=true;this.parentElement.classList.add('photo-fallback')"><span class="photo-fallback-mark">${uSafe(uInitials(name))}</span></div>`;
 }
 function upshotLeadersMarkup(items=[],extras=new Map()){if(!items.length)return '<div class="college-leader-row"><span>—</span><div><strong>Leader data is refreshing.</strong></div></div>';return items.map((item,index)=>{const espnId=String(item.espnId||'').replace(/[^0-9]/g,'');const raw=item.photo||extras.get(uNorm(item.player))||(espnId?`/api/photo?id=${espnId}${item.league==='ncaaw'?'&league=ncaaw':''}`:'');const photo=/^https?:\/\//i.test(raw)?hostedPhoto(raw):raw;const media=photo?`<img class="leader-mini-photo" src="${uSafe(photo)}" alt="" loading="lazy" decoding="async" onerror="this.remove()">`:'';return `<div class="college-leader-row">${media||`<span class="college-rank">${index+1}</span>`}<div><strong>${uSafe(item.player)}</strong><small>${uSafe(item.team)} · as of ${uSafe(uDate(item.asOf))}</small></div><b>${uSafe(item.stat)} <small>${uSafe(item.metric)}</small></b></div>`;}).join('');}
 function upshotCallupMarkup(items=[],players=[],extras=new Map()){if(!items.length)return '<article class="upshot-callup-card"><strong>No call-ups loaded yet.</strong></article>';return items.map(item=>`<article class="upshot-callup-card callup-with-photo">${callupPhoto(item,players,extras)}<div class="callup-copy"><span class="upshot-callup-date">${uSafe(uDate(item.date))}</span><div class="upshot-callup-route"><b>${uSafe(item.from)}</b><span>→</span><b>${uSafe(item.to)}</b></div><strong>${uSafe(item.player)}</strong><p>${uSafe(item.contract||'WNBA opportunity')}</p><small>${uSafe(item.stats||'')}</small><em>${uSafe(item.milestone||'')}</em></div></article>`).join('');}
@@ -41,7 +42,7 @@ async function loadUpshot(){
   try{
     const [liveResult,playersResult]=await Promise.allSettled([
       fetch('/upshot-live.json',{headers:{Accept:'application/json'},cache:'no-store'}).then(async response=>{const payload=await response.json().catch(()=>({}));if(!response.ok)throw new Error('UPSHOT snapshot unavailable');return payload;}),
-      fetch('/api/players',{headers:{Accept:'application/json'}}).then(async response=>{const payload=await response.json().catch(()=>({}));if(!response.ok)throw new Error('Player artwork unavailable');return payload;})
+      fetch('/api/players?headshots=transparent-v1',{headers:{Accept:'application/json'}}).then(async response=>{const payload=await response.json().catch(()=>({}));if(!response.ok)throw new Error('Player artwork unavailable');return payload;})
     ]);
     if(liveResult.status!=='fulfilled')throw liveResult.reason||new Error('UPSHOT snapshot unavailable');
     const payload=liveResult.value,teams=Array.isArray(payload.teams)?payload.teams:[],leaders=Array.isArray(payload.leaders)?payload.leaders:[],moves=Array.isArray(payload.callUps)?payload.callUps:[],players=playersResult.status==='fulfilled'&&Array.isArray(playersResult.value.players)?playersResult.value.players:[];

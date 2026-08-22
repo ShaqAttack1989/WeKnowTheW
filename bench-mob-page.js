@@ -17,6 +17,8 @@ const BENCH_PHOTO_OVERRIDES=new Map([
   ['kikirice','https://cdn.wnba.com/headshots/wnba/latest/1040x760/1643445.png']
 ]);
 function bPhoto(player={}){
+  const cutout=[player.officialHeadshot,player.photoCutout].find(value=>/^https?:\/\//i.test(String(value||'').trim()));
+  if(cutout)return String(cutout).trim();
   const id=String(player.espnId||'').replace(/[^0-9]/g,'');
   if(id)return `/api/photo?id=${id}`;
   const direct=[player.photo,player.photoThumb,player.headshot].find(value=>/^https?:\/\//i.test(String(value||'').trim()));
@@ -48,7 +50,7 @@ async function loadBenchMob(){
   const methodology=document.getElementById('benchMobMethod');
   if(!grid)return;
   const week=mondayKey();
-  const revision='20260822-kiki-rice-photo-v1';
+  const revision='20260822-transparent-headshots-v1';
   if(status)status.textContent=`Week of ${weekLabel(week)} · Season-to-date board`;
   try{
     const [boardRes,playersRes]=await Promise.all([
@@ -66,8 +68,9 @@ async function loadBenchMob(){
       const displayName=bCleanName(player.name||cleanName);
       const playerKey=bKey(displayName);
       const photo=BENCH_PHOTO_OVERRIDES.get(playerKey)||bPhoto(player);
+      const cutout=BENCH_PHOTO_OVERRIDES.has(playerKey)||Boolean(player.officialHeadshot||player.photoCutout);
       const initials=displayName.split(/\s+/).filter(Boolean).map(part=>part[0]).join('').slice(0,2).toUpperCase();
-      const media=photo?`<img src="${bSafe(photo)}" alt="${bSafe(displayName)}" loading="lazy" decoding="async" onerror="this.replaceWith(Object.assign(document.createElement('span'),{textContent:'${bSafe(initials)}'}))">`:`<span>${bSafe(initials)}</span>`;
+      const media=photo?`<img class="${cutout?'player-cutout':''}" src="${bSafe(photo)}" alt="${bSafe(displayName)}" loading="lazy" decoding="async" onerror="this.replaceWith(Object.assign(document.createElement('span'),{textContent:'${bSafe(initials)}'}))">`:`<span>${bSafe(initials)}</span>`;
       const forcedTeam=BENCH_TEAM_OVERRIDES.get(playerKey)||'';
       const rosterTeam=String(player.team||'').trim();
       const pickTeam=String(pick.team||'').trim();

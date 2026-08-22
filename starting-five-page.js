@@ -1,6 +1,8 @@
 function sSafe(v=''){return String(v).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');}
 function sKey(v=''){return String(v).normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]/g,'');}
 function sPhoto(player={}){
+  const cutout=[player.officialHeadshot,player.photoCutout].find(value=>/^https?:\/\//i.test(String(value||'').trim()));
+  if(cutout)return String(cutout).trim();
   const id=String(player.espnId||'').replace(/[^0-9]/g,'');
   if(id)return `/api/photo?id=${id}`;
   const direct=[player.photo,player.photoThumb,player.headshot].find(value=>/^https?:\/\//i.test(String(value||'').trim()));
@@ -23,7 +25,7 @@ async function renderStartingFive(){
   if(!grid)return;
   let roster=[];
   try{
-    const response=await fetch('/api/players',{headers:{Accept:'application/json'}});
+    const response=await fetch('/api/players?headshots=transparent-v1',{headers:{Accept:'application/json'}});
     const payload=await response.json().catch(()=>({}));
     roster=Array.isArray(payload.players)?payload.players:[];
   }catch{}
@@ -31,7 +33,8 @@ async function renderStartingFive(){
   const cards=featuredPlayers.map(item=>{
     const player=byName.get(sKey(item.name))||{name:item.name};
     const photo=sPhoto(player);
-    const media=photo?`<img src="${sSafe(photo)}" alt="${sSafe(item.name)}" loading="lazy" decoding="async" onerror="this.remove()">`:`<span>${sSafe(item.name.split(' ').map(part=>part[0]).join('').slice(0,2))}</span>`;
+    const cutout=Boolean(player.officialHeadshot||player.photoCutout);
+    const media=photo?`<img class="${cutout?'player-cutout':''}" src="${sSafe(photo)}" alt="${sSafe(item.name)}" loading="lazy" decoding="async" onerror="this.remove()">`:`<span>${sSafe(item.name.split(' ').map(part=>part[0]).join('').slice(0,2))}</span>`;
     return `<a class="portal-card featured-player-card" href="/playerpedia.html?search=${encodeURIComponent(item.name)}"><span class="featured-player-photo">${media}</span><span><span class="portal-label">${sSafe(item.label)} · ${sSafe(item.role)}</span><strong>${sSafe(item.name)}</strong><p>${sSafe(item.copy)}</p></span></a>`;
   }).join('');
   grid.innerHTML=cards+`<article class="portal-card lime"><span class="portal-label">HOW IT WORKS</span><strong>Shak builds the five by role.</strong><p>The lineup can change as the season changes, but every edition is built as a playable five — 1 through 5 — rather than simply ranking the five biggest names.</p></article>`;

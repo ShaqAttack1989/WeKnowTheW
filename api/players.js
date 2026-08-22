@@ -1,6 +1,7 @@
 const LEAGUE_ID = 4516;
 const V2_ROOT = 'https://www.thesportsdb.com/api/v2/json';
 const liveUpdates = require('../player-live-updates.json');
+const { officialHeadshot } = require('../lib/wnba-headshots');
 const {
   getWnbaRosters,
   getWnbaInjuries,
@@ -62,6 +63,18 @@ function key(value = '') {
 
 function staffLike(position = '') {
   return /(coach|manager|trainer|staff|president|director|executive|owner|operations|general manager)/i.test(String(position));
+}
+
+function attachOfficialHeadshot(player = {}) {
+  const official = officialHeadshot(player.name);
+  if (!official) return player;
+  return {
+    ...player,
+    wnbaId: official.id,
+    officialHeadshot: official.url,
+    photoCutout: official.url,
+    photoOfficial: true
+  };
 }
 
 function normalizePlayer(player, team) {
@@ -365,7 +378,8 @@ module.exports = async function handler(req, res) {
     playersByName.set(playerKey, existing ? mergePlayerRecord(existing, player) : player);
   }
 
-  const layeredPlayers = applyCuratedLayer([...playersByName.values()], normalizedTeams);
+  const layeredPlayers = applyCuratedLayer([...playersByName.values()], normalizedTeams)
+    .map(attachOfficialHeadshot);
   const uniquePlayers = [...new Map(layeredPlayers.map(player => [key(player.name), player])).values()]
     .sort((a, b) => a.lastName.localeCompare(b.lastName) || a.firstName.localeCompare(b.firstName));
 
@@ -411,6 +425,6 @@ module.exports = async function handler(req, res) {
     partial: failedRosters > 0 || providerErrors.length > 0,
     failedRosters,
     providerErrors,
-    artworkPolicy: 'Playerpedia uses Creative Commons TheSportsDB artwork when available, then ESPN roster headshots so current-player photos stay connected.'
+    artworkPolicy: 'Official transparent WNBA headshots are preferred when a verified player ID is available; existing roster photos remain as fallbacks.'
   });
 };

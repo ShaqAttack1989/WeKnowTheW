@@ -11,6 +11,8 @@ const {
 const REGULAR_SEASON_WINDOWS = {
   2026: { start: '2026-05-08', end: '2026-09-24' }
 };
+const REGULAR_SEASON_GAME_COUNTS = { 2026: 44 };
+const PLAYOFF_BERTHS = 8;
 
 const CONFERENCES_2026 = {
   eastern: [
@@ -217,6 +219,24 @@ function standingsFromRecords(records) {
   return { overall, conferences: { eastern, western } };
 }
 
+function guaranteedPlayoffStatuses(records, season) {
+  const seasonGames = REGULAR_SEASON_GAME_COUNTS[season];
+  if (!seasonGames || records.length < PLAYOFF_BERTHS) return new Map();
+  const cutoffWins = Number(records[PLAYOFF_BERTHS - 1]?.wins);
+  if (!Number.isFinite(cutoffWins)) return new Map();
+  const maximumWins = record => Number(record.wins) + Math.max(0, seasonGames - Number(record.games_played || 0));
+  return new Map(records.map(record => {
+    const key = normalizedName(record.team?.full_name);
+    const maxWins = maximumWins(record);
+    if (maxWins < cutoffWins) return [key, 'eliminated'];
+    const possibleTeamsAtOrAbove = records.filter(other =>
+      normalizedName(other.team?.full_name) !== key && maximumWins(other) >= Number(record.wins)
+    ).length;
+    if (possibleTeamsAtOrAbove < PLAYOFF_BERTHS) return [key, 'clinched'];
+    return [key, null];
+  }).filter(([, status]) => status));
+}
+
 function pastGames(events, limit = 8) {
   return events.filter(event => isFinished(event) && hasFinalScore(event))
     .sort((a, b) => eventTimestamp(b) - eventTimestamp(a))
@@ -319,6 +339,18 @@ module.exports = async function handler(req, res) {
     conferences: {
       eastern: standingsData.conferences.eastern.map(withPlayoffStatus),
       western: standingsData.conferences.western.map(withPlayoffStatus)
+    }
+  };
+  const guaranteedStatusByTeam = guaranteedPlayoffStatuses(standingsData.overall, season);
+  const withGuaranteedStatus = record => ({
+    ...record,
+    playoff_status: record.playoff_status || guaranteedStatusByTeam.get(normalizedName(record.team?.full_name)) || null
+  });
+  standingsData = {
+    overall: standingsData.overall.map(withGuaranteedStatus),
+    conferences: {
+      eastern: standingsData.conferences.eastern.map(withGuaranteedStatus),
+      western: standingsData.conferences.western.map(withGuaranteedStatus)
     }
   };
 

@@ -162,7 +162,13 @@ function mergePlayerRecord(base, supplement) {
 
 function applyCuratedLayer(players, normalizedTeams) {
   const teamIds = new Map(normalizedTeams.map(team => [key(team.name), team.id]));
-  const overrides = new Map((liveUpdates.rosterOverrides || []).map(item => [key(item.name), item]));
+  const overrideItems = liveUpdates.rosterOverrides || [];
+  const overrides = new Map();
+  for (const item of overrideItems) {
+    for (const name of [item.name, ...(Array.isArray(item.aliases) ? item.aliases : [])]) {
+      if (name) overrides.set(key(name), item);
+    }
+  }
   const photoRules = new Map((liveUpdates.photoRules || []).map(item => [key(item.name), item]));
 
   let curated = players
@@ -173,11 +179,18 @@ function applyCuratedLayer(players, normalizedTeams) {
       const next = { ...player };
 
       if (override) {
+        if (override.name && key(override.name) !== key(next.name)) {
+          const canonical = splitName(override.name);
+          next.name = override.name;
+          next.firstName = canonical.firstName;
+          next.lastName = canonical.lastName;
+        }
         if (override.team) {
           next.team = override.team;
           next.teamId = teamIds.get(key(override.team)) || next.teamId;
         }
         if (override.position) next.position = override.position;
+        if (override.number !== undefined && override.number !== null) next.number = String(override.number);
         next.liveStatus = override.status || 'active';
         next.liveEffectiveDate = override.effectiveDate || '';
         next.liveNote = override.reason || '';
@@ -201,10 +214,11 @@ function applyCuratedLayer(players, normalizedTeams) {
       return !(override && ['waived', 'released', 'inactive'].includes(String(override.status).toLowerCase()) && !override.team);
     });
 
-  for (const override of liveUpdates.rosterOverrides || []) {
+  for (const override of overrideItems) {
     const status = String(override.status || '').toLowerCase();
     if (!override.team || !['active', 'development'].includes(status)) continue;
-    if (curated.some(player => key(player.name) === key(override.name))) continue;
+    const identities = new Set([override.name, ...(Array.isArray(override.aliases) ? override.aliases : [])].map(key));
+    if (curated.some(player => identities.has(key(player.name)))) continue;
     const { firstName, lastName } = splitName(override.name);
     curated.push({
       id: `curated-${key(override.name)}`,
@@ -214,7 +228,7 @@ function applyCuratedLayer(players, normalizedTeams) {
       teamId: teamIds.get(key(override.team)) || '',
       team: override.team,
       position: override.position || 'Player',
-      number: '',
+      number: override.number === undefined || override.number === null ? '' : String(override.number),
       nationality: '',
       birthDate: '',
       height: '',

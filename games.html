@@ -1,1 +1,27 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Games | Around the W</title><link rel="stylesheet" href="/styles.css"><link rel="stylesheet" href="/landing.css"></head><body class="section-page"><header class="subhero"><nav class="nav shell"><a class="brand" href="/"><span class="brand-mark">W</span><span>WE KNOW THE W</span></a><button class="menu-button" id="menuButton" aria-expanded="false" aria-controls="navLinks">Menu</button><div class="nav-links" id="navLinks"></div></nav><div class="page-shell subhero-inner"><p class="eyebrow">AROUND THE W · LIVE STATS</p><h1>GAMES</h1><p>Completed scores and upcoming matchups in one place, with all dates and tip times converted to Eastern Time.</p><div class="page-crumbs"><a href="/">Home</a><span>›</span><a href="/around-the-w.html">Around the W</a><span>›</span><a href="/live-stats.html">Live Stats</a><span>›</span><b>Games</b></div></div></header><main><section class="page-section"><div class="page-shell"><div class="page-heading live-heading-row"><div><p class="kicker">SCHEDULE + RESULTS</p><h2 id="gamesTitle">Past Games</h2><p id="gamesStatus">Checking the live schedule…</p></div><div class="standings-toggle" role="group" aria-label="Games view"><button class="active" id="gamesPastToggle" aria-pressed="true">Past Games</button><button id="gamesUpcomingToggle" aria-pressed="false">Upcoming Games</button></div></div><div class="home-live-card"><div class="card-pad"><div id="gamesList" class="home-live-results"><div class="home-result"><strong>Loading games…</strong></div></div></div></div><div class="page-footer-nav"><a href="/live-stats.html">← Live Stats</a><a href="/player-movement.html">Player Movement →</a></div></div></section></main><script src="/site.js"></script><script src="/games-page.js"></script></body></html>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="description" content="Browse upcoming WNBA games first, filter the schedule by team, and revisit completed scores." />
+    <title>Games | Around the W</title>
+    <link rel="stylesheet" href="/styles.css" />
+    <link rel="stylesheet" href="/landing.css?v=20260822-schedule-cards-v1" />
+  </head>
+  <body class="section-page games-page">
+    <header class="subhero">
+      <nav class="nav shell" aria-label="Main navigation"><a class="brand" href="/"><span class="brand-mark">W</span><span>WE KNOW THE W</span></a><button class="menu-button" id="menuButton" aria-expanded="false" aria-controls="navLinks">Menu</button><div class="nav-links" id="navLinks"></div></nav>
+      <div class="page-shell subhero-inner"><p class="eyebrow">AROUND THE W · LIVE STATS</p><h1>GAMES</h1><p>Upcoming matchups first, completed scores one tap away, and every date and tip time converted to Eastern Time.</p><div class="page-crumbs"><a href="/">Home</a><span>›</span><a href="/around-the-w.html">Around the W</a><span>›</span><a href="/live-stats.html">Live Stats</a><span>›</span><b>Games</b></div></div>
+    </header>
+    <main><section class="page-section"><div class="page-shell">
+      <div class="page-heading live-heading-row"><div><p class="kicker">SCHEDULE + RESULTS</p><h2 id="gamesTitle">Upcoming Games</h2><p id="gamesStatus">Checking the live schedule…</p></div></div>
+      <div class="games-toolbar games-page-toolbar">
+        <div class="standings-toggle" role="group" aria-label="Games view"><button class="active" id="gamesUpcomingToggle" aria-pressed="true">Upcoming Games</button><button id="gamesPastToggle" aria-pressed="false">Past Games</button></div>
+        <label class="game-team-filter" for="gamesTeamFilter"><span>Filter by team</span><select id="gamesTeamFilter"><option value="all">All teams</option></select></label>
+      </div>
+      <div id="gamesList" class="home-live-results game-schedule-list"><div class="home-result"><strong>Loading games…</strong></div></div>
+      <div class="page-footer-nav"><a href="/live-stats.html">← Live Stats</a><a href="/player-movement.html">Player Movement →</a></div>
+    </div></section></main>
+    <script src="/site.js"></script><script src="/team-data.js"></script><script src="/game-cards.js?v=20260822-schedule-cards-v1"></script><script src="/games-page.js?v=20260822-schedule-cards-v1"></script>
+  </body>
+</html>

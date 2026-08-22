@@ -1,10 +1,43 @@
-function gSafe(v=''){return String(v).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;');}
-const GAMES_TZ='America/New_York';
-function gameInstant(game={}){const direct=String(game.startTimeUtc||game.timestamp||'').trim();if(direct){const iso=direct.includes('T')?direct:direct.replace(' ','T');const zoned=/Z$|[+-]\d{2}:?\d{2}$/i.test(iso);const d=new Date(zoned?iso:`${iso}Z`);if(!Number.isNaN(d.getTime()))return d;}const date=String(game.date||'').trim(),time=String(game.time||'').trim();if(date&&time){const zoned=/Z$|[+-]\d{2}:?\d{2}$/i.test(time);const d=new Date(`${date}T${time}${zoned?'':'Z'}`);if(!Number.isNaN(d.getTime()))return d;}if(date){const d=new Date(`${date}T12:00:00Z`);if(!Number.isNaN(d.getTime()))return d;}return null;}
-function gameDate(game){const d=gameInstant(game);return d?new Intl.DateTimeFormat('en-US',{timeZone:GAMES_TZ,month:'short',day:'numeric'}).format(d):String(game.date||'');}
-function gameTime(game){const d=gameInstant(game);return d?`${new Intl.DateTimeFormat('en-US',{timeZone:GAMES_TZ,hour:'numeric',minute:'2-digit'}).format(d)} ET`:'';}
-function finalGame(game){const h=Number(game?.homeScore),a=Number(game?.awayScore);return Number.isFinite(h)&&Number.isFinite(a);}
-let gamesPayload=null,gamesMode='past';
-function renderGames(){const list=document.getElementById('gamesList'),title=document.getElementById('gamesTitle'),past=document.getElementById('gamesPastToggle'),up=document.getElementById('gamesUpcomingToggle');if(!list||!gamesPayload)return;const items=gamesMode==='upcoming'?(gamesPayload.upcomingGames||[]):((gamesPayload.pastGames||gamesPayload.recentResults||[]).filter(finalGame));title.textContent=gamesMode==='upcoming'?'Upcoming Games':'Past Games';past.classList.toggle('active',gamesMode==='past');up.classList.toggle('active',gamesMode==='upcoming');past.setAttribute('aria-pressed',String(gamesMode==='past'));up.setAttribute('aria-pressed',String(gamesMode==='upcoming'));if(!items.length){list.innerHTML='<div class="home-result"><strong>No games returned.</strong><span>Check again shortly.</span></div>';return;}list.innerHTML=items.slice(0,20).map(game=>gamesMode==='upcoming'?`<article class="home-result"><span>${gSafe(gameDate(game))}${gameTime(game)?` · ${gSafe(gameTime(game))}`:''}</span><strong>${gSafe(game.awayTeam||'TBD')} @ ${gSafe(game.homeTeam||'TBD')}</strong><span>${gSafe(game.venue||'Scheduled')}</span></article>`:`<article class="home-result"><span>${gSafe(gameDate(game))}</span><strong>${gSafe(game.awayTeam||'TBD')} ${game.awayScore}–${game.homeScore} ${gSafe(game.homeTeam||'TBD')}</strong><span>Completed</span></article>`).join('');}
-document.getElementById('gamesPastToggle')?.addEventListener('click',()=>{gamesMode='past';renderGames();});document.getElementById('gamesUpcomingToggle')?.addEventListener('click',()=>{gamesMode='upcoming';renderGames();});
-(async()=>{const status=document.getElementById('gamesStatus');try{const r=await fetch('/api/stats?season=2026',{headers:{Accept:'application/json'},cache:'no-store'});const p=await r.json().catch(()=>({}));if(!r.ok)throw new Error(p.error||'Schedule unavailable');gamesPayload=p;renderGames();status.textContent='Live schedule connected · Eastern Time';}catch(e){document.getElementById('gamesList').innerHTML='<div class="home-result"><strong>Game schedule unavailable.</strong></div>';status.textContent='Schedule feed temporarily unavailable';}})();
+let gamesPayload=null;
+let gamesMode='upcoming';
+let gamesTeam='all';
+
+function renderGames(){
+  const list=document.getElementById('gamesList');
+  const title=document.getElementById('gamesTitle');
+  const past=document.getElementById('gamesPastToggle');
+  const upcoming=document.getElementById('gamesUpcomingToggle');
+  if(!list||!gamesPayload||!window.WGameCards)return;
+
+  const source=gamesMode==='upcoming'
+    ? gamesPayload.upcomingGames||[]
+    : (gamesPayload.pastGames||gamesPayload.recentResults||[]).filter(WGameCards.finalGame);
+  const items=WGameCards.filter(source,gamesTeam);
+  title.textContent=gamesMode==='upcoming'?'Upcoming Games':'Past Games';
+  past?.classList.toggle('active',gamesMode==='past');
+  upcoming?.classList.toggle('active',gamesMode==='upcoming');
+  past?.setAttribute('aria-pressed',String(gamesMode==='past'));
+  upcoming?.setAttribute('aria-pressed',String(gamesMode==='upcoming'));
+  list.innerHTML=WGameCards.render(items,gamesMode,{limit:24,standings:gamesPayload.standings||[]});
+}
+
+document.getElementById('gamesUpcomingToggle')?.addEventListener('click',()=>{gamesMode='upcoming';renderGames();});
+document.getElementById('gamesPastToggle')?.addEventListener('click',()=>{gamesMode='past';renderGames();});
+document.getElementById('gamesTeamFilter')?.addEventListener('change',event=>{gamesTeam=event.target.value||'all';renderGames();});
+
+(async()=>{
+  const status=document.getElementById('gamesStatus');
+  try{
+    const response=await fetch('/api/stats?season=2026',{headers:{Accept:'application/json'},cache:'no-store'});
+    const payload=await response.json().catch(()=>({}));
+    if(!response.ok)throw new Error(payload.error||'Schedule unavailable');
+    gamesPayload=payload;
+    WGameCards.populateFilter(document.getElementById('gamesTeamFilter'),payload);
+    renderGames();
+    status.textContent='Live schedule connected · Eastern Time';
+    WGameCards.loadArtwork().then(renderGames);
+  }catch(error){
+    document.getElementById('gamesList').innerHTML='<div class="schedule-empty"><span>!</span><strong>Game schedule unavailable.</strong><p>Try again shortly.</p></div>';
+    status.textContent='Schedule feed temporarily unavailable';
+  }
+})();

@@ -68,18 +68,17 @@ function conferenceMarkup(conferences={}){
 
 function pastGamesMarkup(items=[]){
   const finals=items.filter(validFinalGame);
-  if(!finals.length)return '<div class="home-result"><strong>No completed games yet.</strong><span>Games move here only after a real final score is posted.</span></div>';
-  return finals.slice(0,8).map(game=>`<article class="home-result"><span>${liveSafe(formatGameDate(game)||'Completed game')}</span><strong>${liveSafe(game.awayTeam||'TBD')} ${game.awayScore}–${game.homeScore} ${liveSafe(game.homeTeam||'TBD')}</strong><span>Completed</span></article>`).join('');
+  return window.WGameCards?WGameCards.render(finals,'past',{limit:8,standings:livePayload?.standings||[]}):'';
 }
 
 function upcomingGamesMarkup(items=[]){
-  if(!items.length)return '<div class="home-result"><strong>No upcoming games returned.</strong><span>The next scheduled matchup will appear here when the feed publishes it.</span></div>';
-  return items.slice(0,8).map(game=>`<article class="home-result"><span>${liveSafe(formatGameDate(game))}${(game.time||game.startTimeUtc||game.timestamp)?` · ${liveSafe(formatGameTime(game))}`:''}</span><strong>${liveSafe(game.awayTeam||'TBD')} @ ${liveSafe(game.homeTeam||'TBD')}</strong><span>${liveSafe(game.venue||'Scheduled')}</span></article>`).join('');
+  return window.WGameCards?WGameCards.render(items,'upcoming',{limit:8,standings:livePayload?.standings||[]}):'';
 }
 
 let livePayload=null;
 let liveMode='overall';
-let gameMode='past';
+let gameMode='upcoming';
+let gameTeam='all';
 
 function renderLiveStandings(){
   const table=document.getElementById('homeStandings');
@@ -106,14 +105,16 @@ function renderGamePanel(){
   const pastButton=document.getElementById('pastGamesToggle');
   const upcomingButton=document.getElementById('upcomingGamesToggle');
   if(!results||!livePayload)return;
+  const upcomingItems=window.WGameCards?WGameCards.filter(livePayload.upcomingGames||[],gameTeam):(livePayload.upcomingGames||[]);
+  const pastItems=window.WGameCards?WGameCards.filter(livePayload.pastGames||livePayload.recentResults||[],gameTeam):(livePayload.pastGames||livePayload.recentResults||[]);
   if(gameMode==='upcoming'){
     title.textContent="What's next?";
-    results.innerHTML=upcomingGamesMarkup(livePayload.upcomingGames||[]);
+    results.innerHTML=upcomingGamesMarkup(upcomingItems);
     pastButton?.classList.remove('active');upcomingButton?.classList.add('active');
     pastButton?.setAttribute('aria-pressed','false');upcomingButton?.setAttribute('aria-pressed','true');
   }else{
     title.textContent='What just happened?';
-    results.innerHTML=pastGamesMarkup(livePayload.pastGames||livePayload.recentResults||[]);
+    results.innerHTML=pastGamesMarkup(pastItems);
     pastButton?.classList.add('active');upcomingButton?.classList.remove('active');
     pastButton?.setAttribute('aria-pressed','true');upcomingButton?.setAttribute('aria-pressed','false');
   }
@@ -123,6 +124,7 @@ document.getElementById('overallToggle')?.addEventListener('click',()=>{liveMode
 document.getElementById('conferenceToggle')?.addEventListener('click',()=>{liveMode='conference';renderLiveStandings();});
 document.getElementById('pastGamesToggle')?.addEventListener('click',()=>{gameMode='past';renderGamePanel();});
 document.getElementById('upcomingGamesToggle')?.addEventListener('click',()=>{gameMode='upcoming';renderGamePanel();});
+document.getElementById('homeGamesTeamFilter')?.addEventListener('change',event=>{gameTeam=event.target.value||'all';renderGamePanel();});
 
 async function loadHomeLive(){
   const table=document.getElementById('homeStandings');
@@ -134,8 +136,10 @@ async function loadHomeLive(){
     const payload=await response.json().catch(()=>({}));
     if(!response.ok)throw new Error(payload.error||'Live data unavailable');
     livePayload=payload;
+    window.WGameCards?.populateFilter(document.getElementById('homeGamesTeamFilter'),payload);
     renderLiveStandings();
     renderGamePanel();
+    window.WGameCards?.loadArtwork().then(renderGamePanel);
     const updated=formatEasternUpdatedAt(payload.updatedAt);
     status.textContent=payload.fullSeasonAccess?`Live via independent feed${updated?` • updated ${updated} ET`:''}`:'Independent feed connected';
   }catch(error){

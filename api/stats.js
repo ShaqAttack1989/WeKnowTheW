@@ -237,7 +237,7 @@ function guaranteedPlayoffStatuses(records, season) {
   }).filter(([, status]) => status));
 }
 
-function pastGames(events, limit = 8) {
+function pastGames(events, limit = 64) {
   return events.filter(event => isFinished(event) && hasFinalScore(event))
     .sort((a, b) => eventTimestamp(b) - eventTimestamp(a))
     .slice(0, limit)
@@ -249,11 +249,13 @@ function pastGames(events, limit = 8) {
       homeTeam: event.strHomeTeam,
       awayTeam: event.strAwayTeam,
       homeScore: scoreValue(event.intHomeScore),
-      awayScore: scoreValue(event.intAwayScore)
+      awayScore: scoreValue(event.intAwayScore),
+      venue: event.strVenue || '',
+      status: event.strStatus || 'Final'
     }));
 }
 
-function upcomingGames(events, limit = 8) {
+function upcomingGames(events, limit = 64) {
   const now = Date.now();
   return events
     .filter(event => !isFinished(event) && Number.isFinite(eventTimestamp(event)) && eventTimestamp(event) >= now)

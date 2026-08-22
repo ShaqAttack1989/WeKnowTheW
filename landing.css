@@ -70,7 +70,7 @@ body.section-page { background:#fffaf0; color:#17131f; }
 
 /* Homepage live stats */
 .home-live { background:#fffaf0; }
-.home-live-grid { display:grid; grid-template-columns:minmax(0,1.25fr) minmax(300px,.75fr); gap:24px; align-items:start; }
+.home-live-grid { display:grid; grid-template-columns:1fr; gap:24px; align-items:start; }
 .home-live-card { background:#fff; border:1px solid #e7deec; border-radius:26px; overflow:hidden; box-shadow:0 12px 34px rgba(24,12,47,.07); }
 .home-live-card .card-pad { padding:24px; }
 .home-live-results { display:grid; gap:10px; }

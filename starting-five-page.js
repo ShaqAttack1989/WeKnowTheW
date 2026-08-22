@@ -11,11 +11,11 @@ function sPhoto(player={}){
 }
 
 const featuredPlayers=[
-  {name:"A'ja Wilson",label:'01 · FEATURED',copy:'Power, production, leadership and championship-level presence.'},
-  {name:'Napheesa Collier',label:'02 · FEATURED',copy:'Two-way precision and the kind of game that makes hard things look simple.'},
-  {name:'Breanna Stewart',label:'03 · FEATURED',copy:'Length, skill, versatility and a résumé built across every level.'},
-  {name:'Caitlin Clark',label:'04 · FEATURED',copy:'Range, passing vision and an ability to bend defenses before the possession even settles.'},
-  {name:'Paige Bueckers',label:'05 · FEATURED',copy:'Craft, pace, shot-making and next-wave star power.'}
+  {name:'Kelsey Mitchell',label:'1 · PG',role:'POINT GUARD',copy:'The lead guard in Shak’s five — pace, pressure, scoring gravity and the first decision-maker in the offense.'},
+  {name:'Paige Bueckers',label:'2 · SG',role:'SHOOTING GUARD',copy:'A secondary creator at the two, bringing craft, shot-making, movement and another elite playmaking option.'},
+  {name:'Napheesa Collier',label:'3 · SF',role:'SMALL FORWARD',copy:'The two-way connector on the wing — versatile enough to score, defend across matchups and keep the lineup balanced.'},
+  {name:'Breanna Stewart',label:'4 · PF',role:'POWER FORWARD',copy:'Length, skill and versatility at the four, stretching the floor while creating matchup problems inside and out.'},
+  {name:"A'ja Wilson",label:'5 · C',role:'CENTER',copy:'The anchor at the five — interior scoring, rim protection, rebounding and championship-level presence in the middle.'}
 ];
 
 async function renderStartingFive(){
@@ -32,9 +32,9 @@ async function renderStartingFive(){
     const player=byName.get(sKey(item.name))||{name:item.name};
     const photo=sPhoto(player);
     const media=photo?`<img src="${sSafe(photo)}" alt="${sSafe(item.name)}" loading="lazy" decoding="async" onerror="this.remove()">`:`<span>${sSafe(item.name.split(' ').map(part=>part[0]).join('').slice(0,2))}</span>`;
-    return `<a class="portal-card featured-player-card" href="/playerpedia.html?search=${encodeURIComponent(item.name)}"><span class="featured-player-photo">${media}</span><span><span class="portal-label">${sSafe(item.label)}</span><strong>${sSafe(item.name)}</strong><p>${sSafe(item.copy)}</p></span></a>`;
+    return `<a class="portal-card featured-player-card" href="/playerpedia.html?search=${encodeURIComponent(item.name)}"><span class="featured-player-photo">${media}</span><span><span class="portal-label">${sSafe(item.label)} · ${sSafe(item.role)}</span><strong>${sSafe(item.name)}</strong><p>${sSafe(item.copy)}</p></span></a>`;
   }).join('');
-  grid.innerHTML=cards+`<article class="portal-card lime"><span class="portal-label">HOW IT WORKS</span><strong>The rotation changes.</strong><p>Hot stretches, milestones, comeback stories, breakout players and big moments can all earn a spot here.</p></article>`;
+  grid.innerHTML=cards+`<article class="portal-card lime"><span class="portal-label">HOW IT WORKS</span><strong>Shak builds the five by role.</strong><p>The lineup can change as the season changes, but every edition is built as a playable five — 1 through 5 — rather than simply ranking the five biggest names.</p></article>`;
 }
 
 renderStartingFive();

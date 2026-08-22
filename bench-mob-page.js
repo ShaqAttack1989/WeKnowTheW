@@ -8,6 +8,13 @@ function bCleanName(v=''){
     .trim();
 }
 function bKey(v=''){return bCleanName(v).normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]/g,'');}
+const BENCH_TEAM_OVERRIDES=new Map([
+  ['sydneytaylor','Chicago Sky']
+]);
+const BENCH_PHOTO_OVERRIDES=new Map([
+  ['sydneytaylor','https://cdn.wnba.com/headshots/wnba/latest/1040x760/1642321.png'],
+  ['madinaokot','https://cdn.wnba.com/headshots/wnba/latest/1040x760/1643431.png']
+]);
 function bPhoto(player={}){
   const id=String(player.espnId||'').replace(/[^0-9]/g,'');
   if(id)return `/api/photo?id=${id}`;
@@ -40,7 +47,7 @@ async function loadBenchMob(){
   const methodology=document.getElementById('benchMobMethod');
   if(!grid)return;
   const week=mondayKey();
-  const revision='20260822-roster-v2';
+  const revision='20260822-roster-v3';
   if(status)status.textContent=`Week of ${weekLabel(week)} · Season-to-date board`;
   try{
     const [boardRes,playersRes]=await Promise.all([
@@ -56,12 +63,14 @@ async function loadBenchMob(){
       const cleanName=bCleanName(pick.name);
       const player=byName.get(bKey(cleanName))||{name:cleanName};
       const displayName=bCleanName(player.name||cleanName);
-      const photo=bPhoto(player);
+      const playerKey=bKey(displayName);
+      const photo=BENCH_PHOTO_OVERRIDES.get(playerKey)||bPhoto(player);
       const initials=displayName.split(/\s+/).filter(Boolean).map(part=>part[0]).join('').slice(0,2).toUpperCase();
       const media=photo?`<img src="${bSafe(photo)}" alt="${bSafe(displayName)}" loading="lazy" decoding="async" onerror="this.replaceWith(Object.assign(document.createElement('span'),{textContent:'${bSafe(initials)}'}))">`:`<span>${bSafe(initials)}</span>`;
+      const forcedTeam=BENCH_TEAM_OVERRIDES.get(playerKey)||'';
       const rosterTeam=String(player.team||'').trim();
       const pickTeam=String(pick.team||'').trim();
-      const team=rosterTeam&&!/^WNBA$/i.test(rosterTeam)?rosterTeam:(pickTeam&&!/^WNBA$/i.test(pickTeam)?pickTeam:'');
+      const team=forcedTeam||(rosterTeam&&!/^WNBA$/i.test(rosterTeam)?rosterTeam:(pickTeam&&!/^WNBA$/i.test(pickTeam)?pickTeam:''));
       const position=String(player.position||pick.position||'').trim();
       const meta=[team,position].filter(Boolean).map(bSafe).join(' · ');
       return `<a class="portal-card featured-player-card${index===5?' lime':''}" href="/playerpedia.html?search=${encodeURIComponent(displayName)}">

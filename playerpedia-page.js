@@ -56,7 +56,7 @@ function renderPlayerWire(payload={}){
   const injuries=Array.isArray(payload.injuries)?payload.injuries:[];
   const updateDate=payload.liveUpdatesUpdatedAt?new Date(payload.liveUpdatesUpdatedAt):null;
   if(liveRosterCount)liveRosterCount.textContent=`${allPlayers.length} current players · ${teams.length} teams`;
-  if(liveRosterUpdated)liveRosterUpdated.textContent=updateDate&&!Number.isNaN(updateDate.getTime())?`Correction layer checked ${updateDate.toLocaleDateString([],{month:'short',day:'numeric',year:'numeric'})}.`:'Live roster correction layer connected.';
+  if(liveRosterUpdated)liveRosterUpdated.textContent=updateDate&&!Number.isNaN(updateDate.getTime())?`Roster information checked ${updateDate.toLocaleDateString([],{month:'short',day:'numeric',year:'numeric'})}.`:'Current roster information connected.';
   if(movementUpdated)movementUpdated.textContent=updateDate&&!Number.isNaN(updateDate.getTime())?`Updated ${updateDate.toLocaleDateString([],{month:'short',day:'numeric'})}`:'';
   if(injuryUpdated)injuryUpdated.textContent=updateDate&&!Number.isNaN(updateDate.getTime())?`Updated ${updateDate.toLocaleDateString([],{month:'short',day:'numeric'})}`:'';
 
@@ -70,7 +70,7 @@ function renderPlayerWire(payload={}){
 async function load(){
   try{
     const [rosterResult,advancedResult]=await Promise.allSettled([
-      fetch('/api/players',{headers:{Accept:'application/json'}}).then(async r=>{const payload=await r.json().catch(()=>({}));if(!r.ok)throw new Error(payload.error||'Playerpedia unavailable');return payload;}),
+      fetch('/api/players?publicCopy=20260822-v4',{headers:{Accept:'application/json'}}).then(async r=>{const payload=await r.json().catch(()=>({}));if(!r.ok)throw new Error(payload.error||'Playerpedia unavailable');return payload;}),
       fetch('/api/advanced-stats?season=2026',{headers:{Accept:'application/json'}}).then(async r=>{const payload=await r.json().catch(()=>({}));if(!r.ok)throw new Error(payload.error||'Advanced stats unavailable');return payload;})
     ]);
     if(rosterResult.status!=='fulfilled')throw rosterResult.reason;

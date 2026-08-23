@@ -55,6 +55,41 @@
   if(page==='vibes'){
     const node=$('#cultureGrid');node.innerHTML=GAMEDAY_VIBES.map(item=>{const team=teamFor(item.team);return `<article class="vibe-card" style="--team:${team.primary}"><span>${escape(item.team)}</span><h3>${escape(item.title)}</h3><p>${escape(item.summary)}</p><a href="${team.href}">Enter the team hub →</a></article>`}).join('');
   }
+
+  function sourceCard(item){
+    const team=teamFor(item.team||'');
+    const href=safeHttps(item.href);
+    const fallback=posterBySlug[team.slug]?`/assets/images/${posterBySlug[team.slug]}`:'/assets/images/17996.png';
+    const image=safeHttps(item.image)||fallback;
+    const source=String(item.sourceType||'SOURCE').toUpperCase();
+    const date=item.date?new Date(item.date):null;
+    const dateText=date&&!Number.isNaN(date.getTime())?date.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'}):'';
+    return `<article class="culture-card source-card" data-source-type="${escape(source)}" style="--team:${team.primary};--team2:${team.secondary}"><div class="culture-photo"><img src="${escape(image)}" alt="${escape(item.title)}" loading="lazy" decoding="async"><span class="culture-source-badge">${escape(source)}</span></div><div class="culture-card-body"><span class="culture-kicker">${escape(item.category||item.team||'Courtside Culture')}</span><h3>${escape(item.title)}</h3><div class="source-meta">${item.team?`<span>${escape(item.team)}</span>`:''}${dateText?`<time>${escape(dateText)}</time>`:''}</div><p>${escape(item.summary||'')}</p><a href="${escape(href)}" target="_blank" rel="noopener">Open original source ↗</a></div></article>`;
+  }
+  function buildSourceFilters(filterTarget,grid,items){
+    const filterNode=$(filterTarget);if(!filterNode)return;
+    const sources=['ALL',...new Set(items.map(item=>String(item.sourceType||'SOURCE').toUpperCase()))];
+    filterNode.innerHTML=sources.map((source,index)=>`<button type="button" class="culture-filter${index===0?' active':''}" data-source-filter="${escape(source)}">${escape(source)}</button>`).join('');
+    filterNode.addEventListener('click',event=>{
+      const button=event.target.closest('[data-source-filter]');if(!button)return;
+      filterNode.querySelectorAll('.culture-filter').forEach(node=>node.classList.toggle('active',node===button));
+      const wanted=button.dataset.sourceFilter;
+      grid.querySelectorAll('.source-card').forEach(card=>{card.hidden=wanted!=='ALL'&&card.dataset.sourceType!==wanted;});
+    });
+  }
+  async function renderPeopleFeed(kind,target,filterTarget,updatedTarget){
+    const node=$(target);if(!node)return;
+    try{
+      const response=await fetch(`/api/culture-people-feed?type=${encodeURIComponent(kind)}&v=20260823-multisource-v1`,{headers:{Accept:'application/json'}});
+      const payload=await response.json();if(!response.ok||!payload.items?.length)throw new Error(payload.error||'No source items returned');
+      node.innerHTML=payload.items.map(sourceCard).join('');
+      buildSourceFilters(filterTarget,node,payload.items);
+      const updated=$(updatedTarget);if(updated)updated.textContent=`Source desk refreshed ${new Date(payload.updatedAt).toLocaleString('en-US',{month:'short',day:'numeric',hour:'numeric',minute:'2-digit'})}`;
+    }catch(error){node.innerHTML=`<div class="culture-loading">The ${kind==='fan'?'fan culture':'celebrity culture'} source desk is refreshing. The core cards above remain available.</div>`;}
+  }
+  if(page==='fans')renderPeopleFeed('celebrity','#celebrityFeed','#celebrityFilters','#celebrityUpdated');
+  if(page==='vibes')renderPeopleFeed('fan','#fanCultureFeed','#fanFilters','#fanUpdated');
+
   async function renderFits(){
     const node=$('#cultureGrid');if(!node)return;
     try{const response=await fetch('/api/culture-feed');const payload=await response.json();if(!payload.items?.length)throw new Error();node.innerHTML=payload.items.map(item=>{const href=safeHttps(item.href);const image=safeHttps(item.image)||'/assets/images/17996.png';return `<article class="culture-card fit-card"><div class="culture-photo"><img src="${escape(image)}" alt="${escape(item.title)}" loading="lazy"></div><div class="culture-card-body"><span class="culture-kicker">WNBA FASHION</span><h3>${escape(item.title)}</h3>${item.date?`<time>${escape(new Date(item.date).toString()==='Invalid Date'?item.date:new Date(item.date).toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'}))}</time>`:''}<a href="${escape(href)}" target="_blank" rel="noopener">View source ↗</a></div></article>`}).join('');$('#fitsUpdated').textContent=`Feed refreshed ${new Date(payload.updatedAt).toLocaleString('en-US',{month:'short',day:'numeric',hour:'numeric',minute:'2-digit'})}`;

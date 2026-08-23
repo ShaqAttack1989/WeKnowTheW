@@ -2,10 +2,39 @@
   const data = window.TROPHY_DATA;
   if (!data) return;
 
+  const safeAttr = value => String(value ?? '').replaceAll('&','&amp;').replaceAll('"','&quot;').replaceAll('<','&lt;').replaceAll('>','&gt;');
+  const initials = value => String(value || '').split(/\s+/).filter(Boolean).map(word => word[0]).join('').slice(0, 3).toUpperCase();
+  const teamLogoMap = new Map();
+  const teamKey = value => String(value || '').toLowerCase().replace(/[^a-z0-9]/g, '');
+  function hydrateTeamLogos(root = document) {
+    root.querySelectorAll('[data-team-logo]').forEach(slot => {
+      const source = teamLogoMap.get(teamKey(slot.dataset.teamLogo));
+      if (!source || slot.querySelector('img')) return;
+      const image = document.createElement('img');
+      image.src = source;
+      image.alt = '';
+      image.loading = 'lazy';
+      image.addEventListener('error', () => image.remove());
+      slot.appendChild(image);
+    });
+  }
+  async function loadTeamLogos() {
+    try {
+      const response = await fetch('/api/teams?trophyRoom=20260823-v1', {headers:{Accept:'application/json'}});
+      const payload = await response.json();
+      (payload.teams || []).forEach(team => teamLogoMap.set(teamKey(team.name), team.badge || team.logo));
+      hydrateTeamLogos();
+    } catch { /* Team initials remain as the accessible fallback. */ }
+  }
+
   const championTimeline = document.getElementById('championTimeline');
   const seasonRow = (season, index) => `
     <article class="champion-season${index === 0 ? ' is-featured' : ''}">
       <div class="champion-year">${season.year}</div>
+      <div class="winner-insets">
+        <span class="winner-inset player-inset">${data.finalsMvpPhotos[season.finalsMvp] ? `<img src="${data.finalsMvpPhotos[season.finalsMvp]}" alt="${safeAttr(season.finalsMvp)}" loading="lazy">` : `<b>${initials(season.finalsMvp)}</b>`}</span>
+        <span class="winner-inset team-inset" data-team-logo="${safeAttr(season.champion)}"><b>${initials(season.champion)}</b></span>
+      </div>
       <div class="champion-name"><strong>${season.champion}</strong><span>Champion · defeated ${season.runnerUp}</span></div>
       <div class="champion-mvp"><strong>${season.finalsMvp}</strong><span>Finals MVP</span></div>
       <div class="champion-result">${season.result}</div>
@@ -17,6 +46,7 @@
       `<button class="champion-more" type="button" aria-expanded="false">Show every champion, 1997 to 2025</button>`;
     championTimeline.querySelector('.champion-more')?.addEventListener('click', event => {
       championTimeline.innerHTML = data.champions.map(seasonRow).join('');
+      hydrateTeamLogos(championTimeline);
       event.currentTarget?.setAttribute('aria-expanded', 'true');
     });
   }
@@ -56,4 +86,6 @@
       <span class="award-placard-arrow" aria-hidden="true">→</span>
     </a>`;
   }).join('');
+
+  loadTeamLogos();
 })();

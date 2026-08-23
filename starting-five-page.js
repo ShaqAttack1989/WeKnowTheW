@@ -68,7 +68,7 @@ async function renderStartingFive(){
   try{
     const [playersResponse,historyResponse]=await Promise.all([
       fetch('/api/players?headshots=transparent-v1',{headers:{Accept:'application/json'}}),
-      fetch('/rotation-history.json?rev=20260822-weekly-rotations-v1',{headers:{Accept:'application/json'}})
+      fetch('/rotation-history.json?rev=20260822-rotation-copy-v2',{headers:{Accept:'application/json'}})
     ]);
     const playersPayload=await playersResponse.json().catch(()=>({}));
     const historyPayload=await historyResponse.json().catch(()=>({}));
@@ -79,11 +79,11 @@ async function renderStartingFive(){
   const current=rotations[0]||fallbackRotation;
   const picks=Array.isArray(current.picks)?current.picks:fallbackRotation.picks;
   const byName=new Map(roster.map(player=>[sKey(player.name),player]));
-  if(summary)summary.textContent=`Week of ${sWeekLabel(current.week)} · Approved Monday rotation. Five roles, one playable lineup.`;
-  grid.innerHTML=picks.map(item=>sCurrentCard(item,byName)).join('')+`<article class="portal-card lime"><span class="portal-label">HOW IT WORKS</span><strong>Shak builds the five by role.</strong><p>The lineup can change as the season changes, but every approved edition is frozen in the archive instead of disappearing.</p></article>`;
+  if(summary)summary.textContent=`Week of ${sWeekLabel(current.week)} · Five roles, one playable lineup.`;
+  grid.innerHTML=picks.map(item=>sCurrentCard(item,byName)).join('')+`<article class="portal-card lime"><span class="portal-label">HOW IT WORKS</span><strong>Shak builds the five by role.</strong><p>The lineup can change as the season changes, and every edition moves into the archive when a new five takes the floor.</p></article>`;
   if(archive){
     const past=rotations.slice(1);
-    archive.innerHTML=past.length?past.map(rotation=>sArchiveWeek(rotation,byName)).join(''):`<div class="rotation-empty"><strong>The archive starts here.</strong><p>This approved five will move into Past Starting Fives when the next Monday rotation is published.</p></div>`;
+    archive.innerHTML=past.length?past.map(rotation=>sArchiveWeek(rotation,byName)).join(''):`<div class="rotation-empty"><strong>The archive starts here.</strong><p>This five will move into Past Starting Fives when the next Monday rotation is published.</p></div>`;
   }
 }
 

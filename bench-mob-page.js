@@ -84,7 +84,7 @@ async function loadBenchMob(){
   const methodology=document.getElementById('benchMobMethod');
   const archive=document.getElementById('benchMobArchive');
   if(!grid)return;
-  const revision='20260822-weekly-rotations-v1';
+  const revision='20260822-rotation-copy-v2';
   try{
     const [historyRes,playersRes]=await Promise.all([
       fetch(`/rotation-history.json?rev=${revision}`,{headers:{Accept:'application/json'}}),
@@ -104,16 +104,16 @@ async function loadBenchMob(){
       current={week:new Date().toISOString().slice(0,10),picks:board.picks};
       rotations=[current];
     }
-    if(status)status.textContent=`Week of ${weekLabel(current.week)} · Approved Monday board`;
+    if(status)status.textContent=`Week of ${weekLabel(current.week)} · Weekly role-player board`;
     grid.innerHTML=bCurrentCards(current.picks,byName);
-    if(methodology)methodology.textContent='Sunday’s stat-backed candidates are reviewed by Shak, then the approved Monday board is frozen here for the full week.';
+    if(methodology)methodology.textContent='A weekly snapshot of scoring, efficiency, defense, playmaking and role fit. Each edition remains unchanged until the next rotation.';
     if(archive){
       const past=rotations.slice(1);
-      archive.innerHTML=past.length?past.map(rotation=>bArchiveWeek(rotation,byName)).join(''):`<div class="rotation-empty"><strong>The archive starts here.</strong><p>This board will move into Past Bench Mobs after the next approved Monday rotation.</p></div>`;
+      archive.innerHTML=past.length?past.map(rotation=>bArchiveWeek(rotation,byName)).join(''):`<div class="rotation-empty"><strong>The archive starts here.</strong><p>This board will move into Past Bench Mobs after the next Monday rotation.</p></div>`;
     }
   }catch(error){
     grid.innerHTML=`<article class="portal-card"><span class="portal-label">BENCH MOB</span><strong>The rotation is warming up.</strong><p>${bSafe(error.message||'The weekly board is temporarily unavailable.')}</p></article>`;
-    if(status)status.textContent='The approved rotation could not be loaded.';
+    if(status)status.textContent='The weekly rotation could not be loaded.';
     if(methodology)methodology.textContent='The page will retry automatically the next time it loads.';
   }
 }

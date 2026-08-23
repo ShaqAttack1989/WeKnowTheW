@@ -4,7 +4,6 @@
   "startingFive": [
     {
       "week": "2026-08-17",
-      "approved": true,
       "picks": [
         {
           "name": "Kelsey Mitchell",
@@ -42,7 +41,6 @@
   "benchMob": [
     {
       "week": "2026-08-17",
-      "approved": true,
       "picks": [
         {
           "role": "Sixth Woman",
@@ -61,9 +59,9 @@
         {
           "role": "3 & D Wing",
           "roleId": "three-d",
-          "name": "Azzi Fudd",
-          "statLine": "39.7% from three · 1.7 steals · 0.8 blocks",
-          "why": "She grades best at combining real three-point volume with disruptive perimeter defense."
+          "name": "Janelle Salaun",
+          "statLine": "13.1 PPG · 3.8 RPG · 1.2 APG",
+          "why": "Her wing size, shooting gravity and defensive versatility fit the role."
         },
         {
           "role": "Glue Player · Floor General",
@@ -90,14 +88,13 @@
     },
     {
       "week": "2026-08-10",
-      "approved": true,
       "picks": [
         {
           "role": "Sixth Woman",
           "roleId": "sixth-woman",
           "name": "Janelle Salaun",
           "statLine": "Golden State Valkyries · Forward",
-          "why": "Last week’s approved Sixth Woman selection."
+          "why": "The August 10 Sixth Woman selection."
         },
         {
           "role": "Microwave Scorer",
@@ -111,28 +108,28 @@
           "roleId": "three-d",
           "name": "Azzi Fudd",
           "statLine": "Dallas Wings · Guard",
-          "why": "Last week’s approved 3 & D selection."
+          "why": "The August 10 3 & D selection."
         },
         {
           "role": "Glue Player · Floor General",
           "roleId": "glue",
-          "name": "Natasha Cloud",
-          "statLine": "Chicago Sky · Guard",
-          "why": "Last week’s connective guard and stabilizer."
+          "name": "Chelsea Gray",
+          "statLine": "Las Vegas Aces · Guard",
+          "why": "The August 10 connective guard and stabilizer."
         },
         {
           "role": "Backup Floor General",
           "roleId": "backup-pg",
-          "name": "Tiffany Hayes",
-          "statLine": "Golden State Valkyries · Guard",
-          "why": "Last week’s second-unit playmaking selection."
+          "name": "Jackie Young",
+          "statLine": "Las Vegas Aces · Guard",
+          "why": "The August 10 second-unit playmaking selection."
         },
         {
           "role": "Energy Big",
           "roleId": "energy-big",
-          "name": "Madina Okot",
-          "statLine": "Atlanta Dream · Center",
-          "why": "Last week’s rebounding and rim-protection selection."
+          "name": "Awa Fam",
+          "statLine": "Seattle Storm · Center",
+          "why": "The August 10 rebounding and rim-protection selection."
         }
       ]
     }

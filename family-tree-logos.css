@@ -1,0 +1,26 @@
+.family-tree-logo-row{display:flex;align-items:center;gap:10px}
+.family-tree-mark{flex:0 0 46px;width:46px;height:46px;display:grid;place-items:center;border-radius:13px;background:#fff;border:1px solid #e1d8e6;box-shadow:0 5px 12px rgba(20,10,47,.08);overflow:hidden}
+.family-tree-mark img{max-width:39px;max-height:39px;object-fit:contain}
+.family-tree-mark b{display:none;color:#5d5265;font-size:.62rem;font-weight:950}
+.family-tree-mark.logo-failed img{display:none}
+.family-tree-mark.logo-failed b{display:block}
+.branch-line li{min-height:52px}
+.branch-line li .family-tree-logo-row>span:last-child{min-width:0}
+.branch-line li .family-tree-logo-row>span:last-child>span,.branch-line li .family-tree-logo-row>span:last-child>strong{display:block}
+.branch-line li.future-branch:before{background:#d8ff4f;box-shadow:0 0 0 2px #6c2ad9}
+.branch-line li.future-branch strong{color:#4c1c91}
+.rooted-card .mini-routes a{display:inline-flex;align-items:center;gap:6px;padding:6px 9px 6px 6px}
+.rooted-card .family-tree-mark{width:28px;height:28px;flex-basis:28px;border-radius:8px;background:rgba(255,255,255,.95)}
+.rooted-card .family-tree-mark img{max-width:24px;max-height:24px}
+.closed-card .closed-team-title{display:flex;align-items:center;gap:10px;margin:5px 0}
+.closed-card .closed-team-title h3{margin:0}
+.family-tree-current-note{display:grid;grid-template-columns:auto minmax(0,1fr);gap:15px;align-items:start;margin:20px 0 0;padding:18px 20px;border-radius:20px;background:#140a2f;color:#fff;border-left:6px solid #d8ff4f}
+.family-tree-current-note .family-tree-mark{width:58px;height:58px;flex-basis:58px}
+.family-tree-current-note .family-tree-mark img{max-width:50px;max-height:50px}
+.family-tree-current-note strong{display:block;color:#d8ff4f;font-size:.74rem;letter-spacing:.08em;text-transform:uppercase}
+.family-tree-current-note h3{margin:4px 0 5px;font-size:1.2rem}
+.family-tree-current-note p{margin:0;color:#ddd4e4;line-height:1.5;font-size:.84rem}
+.family-tree-current-note .tree-source-links{display:flex;flex-wrap:wrap;gap:8px;margin-top:11px}
+.family-tree-current-note a{padding:7px 9px;border-radius:999px;background:rgba(255,255,255,.1);color:#fff;text-decoration:none;font-size:.7rem;font-weight:900}
+.tree-logo-note{margin-top:13px;color:#807586;font-size:.68rem;line-height:1.45}
+@media(max-width:640px){.family-tree-current-note{grid-template-columns:1fr}.family-tree-current-note .family-tree-mark{width:52px;height:52px}.branch-line{padding-left:28px}}

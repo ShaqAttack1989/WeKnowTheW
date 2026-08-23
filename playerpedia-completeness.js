@@ -29,9 +29,9 @@
   let decorateTimer=null;
   let modalTimer=null;
   let lastCoverage='';
+  let gridObserver=null;
 
   function rosterPlayer(name){return rosterByName.get(key(name))||null;}
-  function playerTeamAbbr(player={}){return TEAM_ABBR[key(player.team)]||'';}
 
   function advancedRow(name,team=''){
     const exact=advancedByName.get(key(name));
@@ -79,6 +79,7 @@
   }
 
   function decorateCards(){
+    gridObserver?.disconnect();
     document.querySelectorAll('#playerGrid .player-card[data-player-id]').forEach(card=>{
       const name=card.querySelector('.player-card-copy strong')?.textContent?.trim();
       if(!name)return;
@@ -88,9 +89,12 @@
       wrap.innerHTML=cardEfficiency(player);
       const next=wrap.firstElementChild;
       if(!next)return;
-      if(current)current.replaceWith(next);else card.querySelector('.player-card-copy')?.appendChild(next);
+      if(current){
+        if(current.className!==next.className||current.innerHTML!==next.innerHTML)current.replaceWith(next);
+      }else card.querySelector('.player-card-copy')?.appendChild(next);
     });
     updateCoverage();
+    gridObserver?.observe(grid,{childList:true,subtree:true});
   }
 
   function scheduleCards(){clearTimeout(decorateTimer);decorateTimer=setTimeout(decorateCards,40);}
@@ -202,7 +206,8 @@
 
   function scheduleModal(){clearTimeout(modalTimer);modalTimer=setTimeout(enrichModal,60);}
 
-  new MutationObserver(scheduleCards).observe(grid,{childList:true,subtree:true});
+  gridObserver=new MutationObserver(scheduleCards);
+  gridObserver.observe(grid,{childList:true,subtree:true});
   new MutationObserver(scheduleModal).observe(modalBody,{childList:true,subtree:true});
 
   async function loadAuditData(){

@@ -354,6 +354,7 @@ function addTransferLinks(){
   const cards=[...document.querySelectorAll('.family-card')];
   const around=cards.find(card=>card.querySelector('h3')?.textContent.trim()==='Around the W');
   const players=cards.find(card=>card.querySelector('h3')?.textContent.trim()==='Playerpedia');
+  const courtside=cards.find(card=>card.querySelector('h3')?.textContent.trim()==='Courtside Culture');
   const add=(card,href,label,icon='→')=>{
     const box=card?.querySelector('.family-links');
     if(box&&!box.querySelector(`a[href="${href}"]`)){
@@ -365,5 +366,9 @@ function addTransferLinks(){
   };
   add(around,'/no-love-lost.html','No Love Lost');
   add(players,'/retired-players.html','Legends Lounge');
+  add(courtside,'/mascots.html','Mascots');
+  add(courtside,'/coaches.html','Coaches');
+  add(courtside,'/owners.html','Owners');
+  add(courtside,'/wnba-fits.html','The Fits');
 }
 if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',addTransferLinks); else addTransferLinks();

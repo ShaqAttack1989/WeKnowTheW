@@ -63,3 +63,4 @@ renderIdentities();
 renderChanges();
 renderTree();
 document.querySelectorAll('[data-locker-sources]').forEach(el=>el.innerHTML=sourceRow());
+if(!document.querySelector('script[data-legacy-team-assets]')){const legacy=document.createElement('script');legacy.src='/legacy-team-assets.js?v=20260823-v1';legacy.dataset.legacyTeamAssets='true';document.body.appendChild(legacy);}

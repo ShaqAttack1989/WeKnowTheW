@@ -50,7 +50,7 @@ module.exports = async function handler(req,res) {
   } catch { items=[]; }
   const seen=new Set();
   items=[...items,...FALLBACK].filter(item=>{
-    try { const parsed=new URL(item.href,'https://www.wnba.com'); if(parsed.protocol!=='https:'||!(parsed.hostname==='wnba.com'||parsed.hostname.endsWith('.wnba.com')))return false; item.href=parsed.toString(); } catch { return false; }
+    try { const parsed=new URL(item.href,'https://www.wnba.com'); if(parsed.protocol!=='https:'||!(parsed.hostname==='wnba.com'||parsed.hostname.endsWith('.wnba.com'))||!parsed.pathname.includes('/news/'))return false; item.href=parsed.toString(); } catch { return false; }
     if(seen.has(item.href))return false; seen.add(item.href); return true;
   }).slice(0,10);
   const hydrated=await Promise.all(items.slice(0,8).map(async item=>({...item,image:item.image || await ogImage(item.href)})));

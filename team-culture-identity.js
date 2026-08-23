@@ -49,4 +49,11 @@
     const observer=new MutationObserver(()=>{if(render())observer.disconnect();});
     observer.observe(document.body,{childList:true,subtree:true});
   }
+
+  if(!document.querySelector('script[data-team-availability-sync]')){
+    const script=document.createElement('script');
+    script.src='/team-availability.js?v=20260823-official-pdf-v1';
+    script.dataset.teamAvailabilitySync='true';
+    document.body.appendChild(script);
+  }
 })();

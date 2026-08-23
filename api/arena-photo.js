@@ -1,5 +1,5 @@
 const VENUES = {
-  'Atlanta Dream': { venue:'Gateway Center Arena', titles:['Gateway Center Arena'], note:'Primary 2026 home; select games also play at State Farm Arena.' },
+  'Atlanta Dream': { venue:'Gateway Center Arena', titles:['Gateway Center Arena','Gateway Center Arena at College Park'], note:'Primary 2026 home; select games also play at State Farm Arena.' },
   'Chicago Sky': { venue:'Wintrust Arena', titles:['Wintrust Arena'] },
   'Connecticut Sun': { venue:'Mohegan Sun Arena', titles:['Mohegan Sun Arena'] },
   'Dallas Wings': { venue:'College Park Center', titles:['College Park Center'], note:'Primary 2026 home; select games also play at American Airlines Center.' },
@@ -16,58 +16,51 @@ const VENUES = {
   'Washington Mystics': { venue:'CareFirst Arena', titles:['CareFirst Arena','Entertainment and Sports Arena'] }
 };
 
-function wikiUrl(title=''){
-  return `https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(String(title).replace(/ /g,'_'))}`;
-}
-function largerThumb(url=''){
-  return String(url).replace(/\/\d+px-([^/]+)$/,'/720px-$1');
-}
-async function summary(title){
+async function fetchJson(url){
   const controller=new AbortController();
   const timer=setTimeout(()=>controller.abort(),7000);
   try{
-    const response=await fetch(wikiUrl(title),{
-      headers:{'User-Agent':'WeKnowTheW/1.0 (https://www.weknowthew.com)','Accept':'application/json'},
-      signal:controller.signal
-    });
+    const response=await fetch(url,{headers:{'User-Agent':'WeKnowTheW/1.0','Accept':'application/json'},signal:controller.signal});
     if(!response.ok)return null;
-    const data=await response.json();
-    const image=largerThumb(data.thumbnail?.source||data.originalimage?.source||'');
-    if(!image)return null;
-    return {
-      image,
-      sourceUrl:data.content_urls?.desktop?.page||`https://en.wikipedia.org/wiki/${encodeURIComponent(String(title).replace(/ /g,'_'))}`,
-      sourceTitle:data.title||title
-    };
+    return response.json();
   }catch{return null;}
   finally{clearTimeout(timer);}
 }
+function pageImageUrl(title){
+  const params=new URLSearchParams({action:'query',format:'json',formatversion:'2',redirects:'1',prop:'pageimages',piprop:'thumbnail|original',pithumbsize:'1200',titles:title});
+  return `https://en.wikipedia.org/w/api.php?${params.toString()}`;
+}
+async function pageImage(title){
+  const data=await fetchJson(pageImageUrl(title));
+  const page=data?.query?.pages?.[0];
+  const image=page?.thumbnail?.source||page?.original?.source||'';
+  if(!image)return null;
+  return {image,sourceUrl:`https://en.wikipedia.org/wiki/${encodeURIComponent(String(page.title||title).replace(/ /g,'_'))}`,sourceTitle:page.title||title};
+}
+async function commonsSearch(query){
+  const params=new URLSearchParams({action:'query',format:'json',formatversion:'2',generator:'search',gsrsearch:`${query} arena`,gsrnamespace:'6',gsrlimit:'8',prop:'imageinfo',iiprop:'url',iiurlwidth:'1200'});
+  const data=await fetchJson(`https://commons.wikimedia.org/w/api.php?${params.toString()}`);
+  const pages=data?.query?.pages||[];
+  const good=pages.find(page=>{
+    const name=String(page.title||'').toLowerCase();
+    return !/logo|map|diagram|icon|seal|flag/.test(name)&&page.imageinfo?.[0]?.thumburl;
+  })||pages.find(page=>page.imageinfo?.[0]?.thumburl);
+  if(!good)return null;
+  const info=good.imageinfo[0];
+  return {image:info.thumburl||info.url||'',sourceUrl:info.descriptionurl||`https://commons.wikimedia.org/wiki/${encodeURIComponent(good.title)}`,sourceTitle:good.title};
+}
 async function resolve(team,meta){
   let photo=null;
-  for(const title of meta.titles){
-    photo=await summary(title);
-    if(photo)break;
-  }
-  return {
-    team,
-    venue:meta.venue,
-    note:meta.note||'',
-    image:photo?.image||'',
-    sourceUrl:photo?.sourceUrl||'',
-    sourceTitle:photo?.sourceTitle||meta.venue,
-    credit:photo?'Wikipedia / Wikimedia Commons':''
-  };
+  for(const title of meta.titles){photo=await pageImage(title);if(photo)break;}
+  if(!photo)photo=await commonsSearch(meta.venue);
+  return {team,venue:meta.venue,note:meta.note||'',image:photo?.image||'',sourceUrl:photo?.sourceUrl||'',sourceTitle:photo?.sourceTitle||meta.venue,credit:photo?'Wikipedia / Wikimedia Commons':''};
 }
-
 module.exports=async function handler(req,res){
-  if(req.method!=='GET'){
-    res.setHeader('Allow','GET');
-    return res.status(405).json({error:'Method not allowed'});
-  }
+  if(req.method!=='GET'){res.setHeader('Allow','GET');return res.status(405).json({error:'Method not allowed'});}
   const requested=String(req.query.team||'').trim();
   const entries=requested&&VENUES[requested]?[[requested,VENUES[requested]]]:Object.entries(VENUES);
   const settled=await Promise.allSettled(entries.map(([team,meta])=>resolve(team,meta)));
   const items=settled.filter(result=>result.status==='fulfilled').map(result=>result.value);
-  res.setHeader('Cache-Control','s-maxage=604800, stale-while-revalidate=2592000');
+  res.setHeader('Cache-Control','s-maxage=86400, stale-while-revalidate=604800');
   return res.status(200).json({updatedAt:new Date().toISOString(),source:'Wikipedia / Wikimedia Commons',items});
 };

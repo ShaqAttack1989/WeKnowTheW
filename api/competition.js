@@ -85,18 +85,25 @@ module.exports=async function handler(req,res){
   if(req.method!=='GET'){res.setHeader('Allow','GET');return res.status(405).json({error:'Method not allowed'});}
   const season=Number(req.query.season)||2026;
   res.setHeader('Cache-Control','no-store, max-age=0');
-  try{
-    const [regular,postseason]=await Promise.all([fetchType(season,2),fetchType(season,3)]);
-    let pool=regular.filter(cupPool);
-    if(season===2026)pool=mergeGames(pool,CUP_2026_LATE_RESULTS);
-    let finals=regular.filter(g=>g.date==='2026-06-30'&&((g.homeTeam==='New York Liberty'&&g.awayTeam==='Las Vegas Aces')||(g.awayTeam==='New York Liberty'&&g.homeTeam==='Las Vegas Aces')));
-    if(season===2026)finals=mergeGames(finals,[CUP_2026_FINAL]);
-    return res.status(200).json({
-      updatedAt:new Date().toISOString(),season,
-      cup:{poolGames:pool,championshipGames:finals,standings:standings(pool),champion:season===2026?'New York Liberty':null,complete:season===2026},
-      playoffs:{games:postseason,series:series(postseason),starts:'2026-09-27',started:postseason.length>0||Date.now()>=Date.parse('2026-09-27T00:00:00-04:00')},
-      sources:{cup:'https://www.wnba.com/commissioners-cup/2026/about-the-cup',cupResults:'https://www.wnba.com/news/category/2026-commissioners-cup',cupFinal:'https://www.wnba.com/commissioners-cup/2026/leaderboard',playoffs:'https://www.wnba.com/news/2026-schedule-release'},
-      sourceVersion:'20260823-competition-v2'
-    });
-  }catch(error){return res.status(502).json({error:error.message||'Competition feed unavailable'});}
+
+  const [regularResult,postseasonResult]=await Promise.allSettled([fetchType(season,2),fetchType(season,3)]);
+  const regular=regularResult.status==='fulfilled'?regularResult.value:[];
+  const postseason=postseasonResult.status==='fulfilled'?postseasonResult.value:[];
+  const providerErrors=[];
+  if(regularResult.status==='rejected')providerErrors.push(`regular season: ${regularResult.reason?.message||'unavailable'}`);
+  if(postseasonResult.status==='rejected')providerErrors.push(`postseason: ${postseasonResult.reason?.message||'unavailable'}`);
+
+  let pool=regular.filter(cupPool);
+  if(season===2026)pool=mergeGames(pool,CUP_2026_LATE_RESULTS);
+  let finals=regular.filter(g=>g.date==='2026-06-30'&&((g.homeTeam==='New York Liberty'&&g.awayTeam==='Las Vegas Aces')||(g.awayTeam==='New York Liberty'&&g.homeTeam==='Las Vegas Aces')));
+  if(season===2026)finals=mergeGames(finals,[CUP_2026_FINAL]);
+
+  return res.status(200).json({
+    updatedAt:new Date().toISOString(),season,
+    cup:{poolGames:pool,championshipGames:finals,standings:standings(pool),champion:season===2026?'New York Liberty':null,complete:season===2026},
+    playoffs:{games:postseason,series:series(postseason),starts:'2026-09-27',started:postseason.length>0||Date.now()>=Date.parse('2026-09-27T00:00:00-04:00')},
+    sources:{cup:'https://www.wnba.com/commissioners-cup/2026/about-the-cup',cupResults:'https://www.wnba.com/news/category/2026-commissioners-cup',cupFinal:'https://www.wnba.com/commissioners-cup/2026/leaderboard',playoffs:'https://www.wnba.com/news/2026-schedule-release'},
+    providerErrors,
+    sourceVersion:'20260823-competition-v3'
+  });
 };

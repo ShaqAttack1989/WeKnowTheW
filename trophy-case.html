@@ -3,11 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="Explore WNBA champions, Finals MVPs, dynasties, franchise title counts and the league awards that define every era.">
+  <meta name="description" content="Explore WNBA champions, Finals MVPs, dynasties, awards, all-time player records and historic team game records.">
   <title>The Trophy Room | We Know the W</title>
   <link rel="stylesheet" href="/styles.css">
   <link rel="stylesheet" href="/landing.css">
   <link rel="stylesheet" href="/trophy-room.css">
+  <link rel="stylesheet" href="/trophy-records.css?v=20260823-v1">
 </head>
 <body class="section-page trophy-page">
   <header class="subhero trophy-hero">
@@ -18,9 +19,9 @@
     </nav>
     <div class="page-shell trophy-hero-grid">
       <div class="subhero-inner">
-        <p class="eyebrow">THE W VAULT · CHAMPIONSHIPS + AWARDS</p>
+        <p class="eyebrow">THE W VAULT · CHAMPIONSHIPS + AWARDS + RECORDS</p>
         <h1>THE TROPHY <em>ROOM</em></h1>
-        <p class="trophy-lede">Follow the banners, the defining Finals performances and the awards that mark each WNBA era.</p>
+        <p class="trophy-lede">Follow the banners, the defining Finals performances, the awards and the numbers that refuse to come down from the rafters.</p>
         <div class="page-crumbs"><a href="/">Home</a><span>›</span><b>The Trophy Room</b></div>
       </div>
       <figure class="trophy-hero-visual">
@@ -36,6 +37,8 @@
       <a href="#finals-mvp">Finals MVPs</a>
       <a href="#dynasties">Dynasties</a>
       <a href="#franchise-counts">Franchise Counts</a>
+      <a href="#record-rack">The Record Rack</a>
+      <a href="#squad-goals">Squad Goals</a>
       <a href="#awards">And the W Goes To…</a>
     </div>
   </nav>
@@ -83,6 +86,59 @@
       </div>
     </section>
 
+    <section class="page-section record-rack-section" id="record-rack">
+      <div class="page-shell">
+        <div class="record-rack-intro">
+          <div>
+            <p class="kicker">THE RECORD RACK</p>
+            <h2>Where the numbers hang in the rafters.</h2>
+            <p>Top-five regular-season player records across the league’s history. The seven core stat boards let you flip between a single-game high, a single-season total, a rookie-season total and the all-time career list without turning the Trophy Room into thirty-three separate tables.</p>
+          </div>
+          <aside class="record-rack-meta">
+            <span>HOW TO READ IT</span>
+            <strong id="recordRackChecked">Snapshot updated August 23, 2026</strong>
+            <small>2026 totals are still moving. Ties are shown when they land on a top-five rank, so some boards may have more than five rows.</small>
+          </aside>
+        </div>
+        <div class="record-rack-legend">
+          <span>Game = single-game total</span>
+          <span>Season = single-season total</span>
+          <span>Rookie = rookie-season total</span>
+          <span>Career = all-time regular season</span>
+          <span class="active-legend" data-active-legend>Bold = on a current 2026 roster</span>
+        </div>
+        <div class="record-board-grid" id="recordRackBoards" aria-live="polite"></div>
+
+        <div class="record-rack-subhead">
+          <p class="kicker">LONG HAUL + WHISTLE FILES</p>
+          <h3>Career-only record boards</h3>
+          <p>These categories are career totals by definition: games, triple-doubles, minutes, disqualifications and personal fouls.</p>
+        </div>
+        <div class="record-board-grid career-board-grid" id="recordRackCareerBoards"></div>
+      </div>
+    </section>
+
+    <section class="page-section squad-goals-section" id="squad-goals">
+      <div class="page-shell">
+        <div class="trophy-section-heading">
+          <div><p class="kicker">SQUAD GOALS</p><h2>When the whole team broke the scoreboard.</h2></div>
+          <p>These boards belong to the team, not one player: blowouts, comebacks, overtime marathons and the highest and lowest scoring nights in regular-season history.</p>
+        </div>
+        <div class="record-board-grid" id="squadGoalsBoards"></div>
+      </div>
+    </section>
+
+    <section class="page-section record-source-section" id="record-sources">
+      <div class="page-shell">
+        <div class="trophy-section-heading light">
+          <div><p class="kicker">RECORD DESK</p><h2>Receipts for the rafters.</h2></div>
+          <p>The boards are a curated historical snapshot, not a fragile live scrape. Current-roster status is checked separately so active players can be bolded without letting a roster outage erase the record book.</p>
+        </div>
+        <div class="record-source-bank" id="recordSources"></div>
+        <div class="record-method-note">Regular season only unless a board explicitly says otherwise. Historical franchise/team names are shown as they appeared in the game record. The 2026 season is in progress, so current-season totals can change after this snapshot. Disqualification totals are the one especially old-school record category: league media guides and modern databases do not always agree on every historical DQ, so that board follows league and media-guide conventions and says so on the card.</div>
+      </div>
+    </section>
+
     <section class="page-section awards-section" id="awards">
       <div class="page-shell">
         <div class="trophy-section-heading">
@@ -98,5 +154,7 @@
   <script src="/site.js"></script>
   <script src="/trophy-data.js"></script>
   <script src="/trophy-case-page.js"></script>
+  <script src="/trophy-records-data.js?v=20260823-v1"></script>
+  <script src="/trophy-records.js?v=20260823-v1"></script>
 </body>
 </html>

@@ -10,7 +10,7 @@
   ].map(([slug,name,abbr])=>({slug,name,abbr}));
   const norm=(v='')=>String(v).normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]/g,'');
   const teamByName=new Map(TEAMS.map(team=>[norm(team.name),team]));
-  let current=null,history=null,allTimeMatrix=null,mode='season';
+  let current=null,history=null,allTimeMatrix=null,historyPromise=null,historyError='',mode='season';
 
   function edge(record={wins:0,losses:0}){if(record.wins>record.losses)return 'Leading';if(record.losses>record.wins)return 'Trailing';return record.wins+record.losses?'Even':'No meetings';}
   function seriesClass(record={wins:0,losses:0}){const w=Number(record.wins||0),l=Number(record.losses||0);if(w+l===0)return 'no-meeting';if(w>l)return 'series-win';if(l>w)return 'series-loss';return 'series-even';}
@@ -49,7 +49,7 @@
       const missing=Array.isArray(history?.coverage?.missingYears)?history.coverage.missingYears:[];
       status.textContent=`All-time regular season · ${allGames} games connected across ${years} seasons · checked ${checked}${missing.length?` · partial archive, missing ${missing.join(', ')}`:''}`;
     }else{
-      status.textContent=`2026 regular season · ${Number(current?.coverage?.seasonGameCount||0)} completed games connected · checked ${checked}${current?.fallback?' · Live Stats fallback active':''}`;
+      status.textContent=`2026 regular season · ${Number(current?.coverage?.seasonGameCount||0)} completed games connected · checked ${checked}${current?.fallback?' · Live Stats fallback active':''}${historyError?' · all-time archive can be retried with the All time button':''}`;
     }
   }
 
@@ -66,17 +66,36 @@
     catch(error){primaryError=error;const response=await fetch(`/api/stats?season=2026&headToHead=1&cb=${Date.now()}`,{headers:{Accept:'application/json','Cache-Control':'no-cache'},cache:'no-store'});const stats=await response.json().catch(()=>({}));if(!response.ok||stats.error)throw new Error(stats.error||primaryError?.message||'Rivalry feed unavailable');const data=payloadFromStats(stats);if(!Number(data.coverage?.seasonGameCount))throw new Error(primaryError?.message||'No completed games were available for the rivalry board.');return data;}
   }
 
-  async function load(){
-    current=await loadCurrent();
-    const historicalResponse=await fetch('/api/rivalries?season=2026&v=20260823-v5',{headers:{Accept:'application/json'}});
-    history=await historicalResponse.json().catch(()=>({}));
-    if(!historicalResponse.ok||!Number(history?.coverage?.allGameCount))throw new Error(history.error||'Historical rivalry archive unavailable');
-    buildAllTime();
-    select.innerHTML='<option value="all">Full league matrix</option>'+TEAMS.map(t=>`<option value="${esc(t.slug)}">${esc(t.name)}</option>`).join('');
-    select.addEventListener('change',()=>focusTable(select.value));
-    modeToggle?.addEventListener('click',event=>{const button=event.target.closest('button[data-mode]');if(!button)return;mode=button.dataset.mode==='allTime'?'allTime':'season';render();});
-    render();
+  async function ensureHistory(force=false){
+    if(history&&!force)return history;
+    if(historyPromise&&!force)return historyPromise;
+    historyPromise=(async()=>{
+      const response=await fetch(`/api/rivalries?season=2026&v=20260823-v6&cb=${Date.now()}`,{headers:{Accept:'application/json','Cache-Control':'no-cache'},cache:'no-store'});
+      const data=await response.json().catch(()=>({}));
+      if(!response.ok||!Number(data?.coverage?.allGameCount))throw new Error(data.error||'Historical rivalry archive unavailable');
+      history=data;historyError='';buildAllTime();return data;
+    })();
+    try{return await historyPromise;}catch(error){historyError=error.message||'Historical rivalry archive unavailable';throw error;}finally{historyPromise=null;}
   }
 
-  load().catch(error=>{matrix.innerHTML=`<div class="page-note"><strong>Rivalry board temporarily unavailable.</strong><p>${esc(error.message||'Try again shortly.')}</p></div>`;status.textContent='The rivalry board could not connect to both current and historical completed-game feeds.';});
+  async function chooseMode(nextMode){
+    if(nextMode!=='allTime'){mode='season';render();return;}
+    if(!history){
+      status.textContent='Loading all-time regular-season rivalry history…';
+      try{await ensureHistory(true);}catch(error){mode='season';render();status.textContent=`2026 board is live. All-time archive could not load yet: ${error.message||'try again shortly'}. Click All time to retry.`;return;}
+    }
+    mode='allTime';render();
+  }
+
+  async function load(){
+    current=await loadCurrent();
+    select.innerHTML='<option value="all">Full league matrix</option>'+TEAMS.map(t=>`<option value="${esc(t.slug)}">${esc(t.name)}</option>`).join('');
+    select.addEventListener('change',()=>focusTable(select.value));
+    modeToggle?.addEventListener('click',event=>{const button=event.target.closest('button[data-mode]');if(!button)return;chooseMode(button.dataset.mode==='allTime'?'allTime':'season');});
+    render();
+    // Historical data loads independently. A history outage can never blank the working 2026 board again.
+    ensureHistory().then(()=>{if(mode==='allTime')render();}).catch(()=>{updateStatus();});
+  }
+
+  load().catch(error=>{matrix.innerHTML=`<div class="page-note"><strong>2026 rivalry board temporarily unavailable.</strong><p>${esc(error.message||'Try again shortly.')}</p></div>`;status.textContent='The current-season rivalry board could not connect to a completed-game feed.';});
 })();

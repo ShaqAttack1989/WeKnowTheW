@@ -58,13 +58,13 @@ const structuredNav = `
     <a class="nav-parent" href="/courtside-culture.html">Courtside Culture <span aria-hidden="true">▾</span></a>
     <div class="nav-submenu">
       <a href="/courtside-culture.html"><strong>Open Courtside Culture</strong></a>
-      <a href="/courtside-culture.html#mascots">Mascots</a>
-      <a href="/courtside-culture.html#coaches">Coaches</a>
-      <a class="nav-nested" href="/courtside-culture.html#court-to-clipboard">Court to Clipboard</a>
-      <a href="/courtside-culture.html#owners">Owners</a>
-      <a href="/courtside-culture.html#celebrity-fans">Celebrity Fans</a>
-      <a href="/courtside-culture.html#gameday-vibes">Gameday Vibes</a>
-      <a href="/courtside-culture.html#the-fits">The Fits</a>
+      <a href="/mascots.html">Mascots</a>
+      <a href="/coaches.html">Coaches</a>
+      <a class="nav-nested" href="/coaches.html#court-to-clipboard">Court to Clipboard</a>
+      <a href="/owners.html">Owners</a>
+      <a href="/celebrity-fans.html">Celebrity Fans</a>
+      <a href="/gameday-vibes.html">Gameday Vibes</a>
+      <a href="/wnba-fits.html">The Fits</a>
     </div>
   </div>
   <div class="nav-group">
@@ -147,6 +147,12 @@ const hierarchyMap = {
   '/basketball-dictionary.html': { parent: 'The Film Room', parentHref: '/film-room.html', current: 'Basketball Dictionary' },
   '/trophy-case.html': { parent: 'The W Vault', parentHref: '/w-vault.html', current: 'The Trophy Room' },
   '/locker-room.html': { parent: 'The Trophy Room', parentHref: '/trophy-case.html', current: 'The Locker Room' },
+  '/mascots.html': { parent: 'Courtside Culture', parentHref: '/courtside-culture.html', current: 'Mascots' },
+  '/coaches.html': { parent: 'Courtside Culture', parentHref: '/courtside-culture.html', current: 'Coaches' },
+  '/owners.html': { parent: 'Courtside Culture', parentHref: '/courtside-culture.html', current: 'Owners' },
+  '/celebrity-fans.html': { parent: 'Courtside Culture', parentHref: '/courtside-culture.html', current: 'Celebrity Fans' },
+  '/gameday-vibes.html': { parent: 'Courtside Culture', parentHref: '/courtside-culture.html', current: 'Gameday Vibes' },
+  '/wnba-fits.html': { parent: 'Courtside Culture', parentHref: '/courtside-culture.html', current: 'The Fits' },
   '/class-is-in-session.html': { parent: 'Who Got Next?', parentHref: '/who-got-next.html', current: 'Class Is in Session' },
   '/the-call-up.html': { parent: 'Who Got Next?', parentHref: '/who-got-next.html', current: 'The Call Up' },
   '/expansion-watch.html': { parent: 'Who Got Next?', parentHref: '/who-got-next.html', current: 'Expansion Watch' },
@@ -195,13 +201,13 @@ const searchStaticIndex = [
   {title:'The Trophy Room · Championships',type:'W Vault',href:'/trophy-case.html#championships',keywords:'titles finals dynasties finals mvp champions'},
   {title:'And the W Goes To…',type:'W Vault',href:'/trophy-case.html#awards',keywords:'mvp dpoy mip sixth player rookie coach all wnba all defensive all rookie commissioners cup'},
   {title:'The Locker Room',type:'W Vault',href:'/locker-room.html',keywords:'uniforms retired numbers colors symbols rebrands relocations franchise family tree'},
-  {title:'Courtside Culture · Mascots',type:'Courtside Culture',href:'/courtside-culture.html#mascots',keywords:'mascot bios personalities'},
-  {title:'Courtside Culture · Coaches',type:'Courtside Culture',href:'/courtside-culture.html#coaches',keywords:'head coach assistant coaches bench'},
-  {title:'Court to Clipboard',type:'Courtside Culture',href:'/courtside-culture.html#court-to-clipboard',keywords:'former players coaches moved to bench'},
-  {title:'Courtside Culture · Owners',type:'Courtside Culture',href:'/courtside-culture.html#owners',keywords:'owners investors leadership groups'},
-  {title:'Celebrity Fans',type:'Courtside Culture',href:'/courtside-culture.html#celebrity-fans',keywords:'courtside famous fans'},
-  {title:'Gameday Vibes',type:'Courtside Culture',href:'/courtside-culture.html#gameday-vibes',keywords:'traditions rituals arena energy music chants'},
-  {title:'The Fits',type:'Courtside Culture',href:'/courtside-culture.html#the-fits',keywords:'fashion tunnel style signature shoes sneakers'},
+  {title:'Courtside Culture · Mascots',type:'Courtside Culture',href:'/mascots.html',keywords:'mascot bios personalities ellie violet freddy blaze skye'},
+  {title:'Courtside Culture · Coaches',type:'Courtside Culture',href:'/coaches.html',keywords:'head coach assistant coaches bench'},
+  {title:'Court to Clipboard',type:'Courtside Culture',href:'/coaches.html#court-to-clipboard',keywords:'former players coaches moved to bench'},
+  {title:'Courtside Culture · Owners',type:'Courtside Culture',href:'/owners.html',keywords:'owners investors leadership groups'},
+  {title:'Celebrity Fans',type:'Courtside Culture',href:'/celebrity-fans.html',keywords:'courtside famous fans queen latifah wanda sykes'},
+  {title:'Gameday Vibes',type:'Courtside Culture',href:'/gameday-vibes.html',keywords:'traditions rituals arena energy music chants'},
+  {title:'The Fits',type:'Courtside Culture',href:'/wnba-fits.html',keywords:'fashion tunnel style signature shoes sneakers gallery'},
   {title:'Class Is in Session',type:'Who Got Next?',href:'/class-is-in-session.html',keywords:'ncaaw college draft radar freshmen highlights'},
   {title:'The Call Up',type:'Who Got Next?',href:'/the-call-up.html',keywords:'upshot league development call ups'},
   {title:'Expansion Watch',type:'Who Got Next?',href:'/expansion-watch.html',keywords:'cleveland detroit philadelphia expansion draft future teams'},

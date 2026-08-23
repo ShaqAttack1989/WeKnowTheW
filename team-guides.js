@@ -86,13 +86,13 @@ const TEAM_GUIDES = {
     official:'https://www.wnba.com/team/1611661320/los-angeles-sparks'
   },
   'minnesota-lynx': {
-    established:'1999', arena:'Target Center', owner:'Glen Taylor', gm:'Minnesota basketball operations', coach:'Cheryl Reeve',
+    established:'1999', arena:'Target Center', owner:'Marc Lore & Alex Rodriguez', gm:'Minnesota basketball operations', coach:'Cheryl Reeve',
     intro:'Minneapolis · four championships and one of the defining dynasties in women’s basketball.',
     history:[['1999','Minnesota joins the W','The Lynx began play as an expansion franchise.'],['2011–17','A four-title dynasty','Minnesota won championships in 2011, 2013, 2015 and 2017.'],['2011–18','The legendary core','Seimone Augustus, Lindsay Whalen, Maya Moore, Rebekkah Brunson and Sylvia Fowles built an era.'],['2024','Commissioner’s Cup champions','The Lynx added the in-season trophy to their collection.']],
     honors:[['4','WNBA championships','Titles in 2011, 2013, 2015 and 2017.'],['5','Retired numbers','Whalen, Moore, Brunson, Augustus and Fowles.'],['2024','Commissioner’s Cup','Minnesota won its first Cup.'],['3×','Finals MVP','Maya Moore, Sylvia Fowles and Seimone Augustus headline the title-era honors.']],
     uniforms:[['original','Blue and silver','The founding palette established a cold-weather, North Star identity.'],['city','Navy and action green','Modern colors sharpen the Lynx mark and connect to Minnesota sports.'],['rebel','First Avenue and city culture','Special editions have celebrated Minneapolis music and community.']],
     retired:{value:'5',title:'No. 13 Whalen · 23 Moore · 32 Brunson · 33 Augustus · 34 Fowles',text:'The championship core lives together in the Target Center rafters.'},
-    people:[['OWNER','Glen Taylor','The longtime owner of the Lynx.'],['HEAD COACH','Cheryl Reeve','Architect of the four-title dynasty.'],['ASSOCIATE HEAD COACH','Eric Thibault','Part of the current leadership group.'],['HOME COURT','Target Center','The Minneapolis home of the Lynx.']],
+    people:[['OWNERSHIP','Marc Lore & Alex Rodriguez','The controlling owners lead the Lynx, with Rodriguez serving as WNBA governor.'],['HEAD COACH','Cheryl Reeve','Architect of the four-title dynasty.'],['ASSOCIATE HEAD COACH','Eric Thibault','Part of the current leadership group.'],['HOME COURT','Target Center','The Minneapolis home of the Lynx.']],
     official:'https://www.wnba.com/team/1611661324/minnesota-lynx'
   },
   'new-york-liberty': {

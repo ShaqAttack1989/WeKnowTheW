@@ -97,11 +97,25 @@ function freshnessScore(item, name) {
   return score;
 }
 
-async function wikipediaPlayerPage(name) {
+function mediaSearchQuery(name, type = 'player') {
+  const qualifier = {
+    player: 'basketball player',
+    coach: 'basketball coach',
+    celebrity: 'actor singer entertainer',
+    mascot: 'WNBA mascot'
+  }[type] || 'basketball';
+  return `"${name}" ${qualifier}`;
+}
+
+function mediaAlt(name, type = 'player') {
+  return `${name} ${type === 'celebrity' ? 'courtside fan' : type}`;
+}
+
+async function wikipediaPlayerPage(name, type = 'player') {
   const params = new URLSearchParams({
     action: 'query',
     generator: 'search',
-    gsrsearch: `"${name}" basketball`,
+    gsrsearch: mediaSearchQuery(name, type),
     gsrnamespace: '0',
     gsrlimit: '8',
     prop: 'pageimages|pageprops',
@@ -119,7 +133,7 @@ async function wikipediaPlayerPage(name) {
     .sort((a, b) => b.score - a.score)[0] || null;
 }
 
-function commonsRecord(page, name, source = 'commons-search', requireNameMatch = false) {
+function commonsRecord(page, name, source = 'commons-search', requireNameMatch = false, type = 'player') {
   const info = page?.imageinfo?.[0];
   if (!info) return null;
   const meta = info.extmetadata || {};
@@ -143,11 +157,11 @@ function commonsRecord(page, name, source = 'commons-search', requireNameMatch =
   const sourceUrl = info.descriptionurl || `https://commons.wikimedia.org/wiki/${encodeURIComponent(page.title || '')}`;
 
   return {
-    type: 'player',
+    type,
     subject: name,
     image: info.thumburl || info.url,
     originalImage: info.url,
-    alt: `${name} basketball player`,
+    alt: mediaAlt(name, type),
     caption: description || `${name}.`,
     creator,
     sourceUrl,
@@ -160,7 +174,7 @@ function commonsRecord(page, name, source = 'commons-search', requireNameMatch =
   };
 }
 
-async function commonsFileByTitle(fileName, name, source = 'commons-file') {
+async function commonsFileByTitle(fileName, name, source = 'commons-file', type = 'player') {
   if (!fileName) return null;
   const title = fileName.startsWith('File:') ? fileName : `File:${fileName}`;
   const params = new URLSearchParams({
@@ -177,10 +191,10 @@ async function commonsFileByTitle(fileName, name, source = 'commons-file') {
   const body = await fetchJson(`${COMMONS_API}?${params}`);
   const page = body?.query?.pages?.[0];
   if (!page || page.missing) return null;
-  return commonsRecord(page, name, source, false);
+  return commonsRecord(page, name, source, false, type);
 }
 
-async function wikidataImage(wikibaseItem, name) {
+async function wikidataImage(wikibaseItem, name, type = 'player') {
   if (!wikibaseItem) return null;
   const params = new URLSearchParams({
     action: 'wbgetentities',
@@ -195,13 +209,13 @@ async function wikidataImage(wikibaseItem, name) {
   for (const claim of claims) {
     const fileName = claim?.mainsnak?.datavalue?.value;
     if (!fileName) continue;
-    const record = await commonsFileByTitle(fileName, name, 'wikidata-p18');
+    const record = await commonsFileByTitle(fileName, name, 'wikidata-p18', type);
     if (record) return record;
   }
   return null;
 }
 
-async function commonsCategory(name) {
+async function commonsCategory(name, type = 'player') {
   const categoryParams = new URLSearchParams({
     action: 'query',
     list: 'categorymembers',
@@ -230,17 +244,17 @@ async function commonsCategory(name) {
   });
   const body = await fetchJson(`${COMMONS_API}?${params}`);
   const records = (body?.query?.pages || [])
-    .map(page => commonsRecord(page, name, 'commons-category', false))
+    .map(page => commonsRecord(page, name, 'commons-category', false, type))
     .filter(Boolean)
     .sort((a, b) => freshnessScore(b, name) - freshnessScore(a, name));
   return records[0] || null;
 }
 
-async function commonsSearch(name) {
+async function commonsSearch(name, type = 'player') {
   const params = new URLSearchParams({
     action: 'query',
     generator: 'search',
-    gsrsearch: `${name} basketball`,
+    gsrsearch: mediaSearchQuery(name, type),
     gsrnamespace: '6',
     gsrlimit: '20',
     prop: 'imageinfo',
@@ -253,25 +267,25 @@ async function commonsSearch(name) {
   });
   const body = await fetchJson(`${COMMONS_API}?${params}`);
   const records = (body?.query?.pages || [])
-    .map(page => commonsRecord(page, name, 'commons-search', true))
+    .map(page => commonsRecord(page, name, 'commons-search', true, type))
     .filter(Boolean)
     .sort((a, b) => freshnessScore(b, name) - freshnessScore(a, name));
   return records[0] || null;
 }
 
-async function resolvePlayerMedia(name) {
-  const manual = manualMedia('player', name);
+async function resolvePlayerMedia(name, type = 'player') {
+  const manual = manualMedia(type, name);
   if (manual) return { ...manual, resolvedBy: 'manual-library' };
 
   try {
-    const record = await commonsCategory(name);
+    const record = await commonsCategory(name, type);
     if (record) return record;
   } catch {
     // Continue to broader fallbacks.
   }
 
   try {
-    const record = await commonsSearch(name);
+    const record = await commonsSearch(name, type);
     if (record) return record;
   } catch {
     // Continue to Wikipedia/Wikidata fallbacks.
@@ -279,14 +293,14 @@ async function resolvePlayerMedia(name) {
 
   let article = null;
   try {
-    article = await wikipediaPlayerPage(name);
+    article = await wikipediaPlayerPage(name, type);
   } catch {
     article = null;
   }
 
   if (article?.pageprops?.wikibase_item) {
     try {
-      const record = await wikidataImage(article.pageprops.wikibase_item, name);
+      const record = await wikidataImage(article.pageprops.wikibase_item, name, type);
       if (record) return { ...record, articleTitle: article.title };
     } catch {
       // Continue to the page image fallback.
@@ -295,7 +309,7 @@ async function resolvePlayerMedia(name) {
 
   if (article?.pageimage) {
     try {
-      const record = await commonsFileByTitle(article.pageimage, name, 'wikipedia-pageimage');
+      const record = await commonsFileByTitle(article.pageimage, name, 'wikipedia-pageimage', type);
       if (record) return { ...record, articleTitle: article.title };
     } catch {
       return null;
@@ -314,14 +328,15 @@ module.exports = async function handler(req, res) {
   const name = String(req.query.name || '').trim();
   const type = String(req.query.type || 'player').trim().toLowerCase();
   if (!name) return res.status(400).json({ error: 'A subject name is required.' });
-  if (type !== 'player') return res.status(200).json({ found: false, item: null });
+  const allowedTypes = new Set(['player', 'coach', 'celebrity', 'mascot']);
+  if (!allowedTypes.has(type)) return res.status(200).json({ found: false, item: null });
 
   res.setHeader('Cache-Control', 's-maxage=86400, stale-while-revalidate=604800');
 
-  const item = await resolvePlayerMedia(name);
+  const item = await resolvePlayerMedia(name, type);
   return res.status(200).json({
     found: Boolean(item),
     item,
-    policy: 'Playerpedia prefers newer reusable Commons media and only returns manually approved or public-domain/CC BY/CC BY-SA/CC0 files.'
+    policy: 'We Know the W prefers newer reusable Commons media and only returns manually approved or public-domain/CC BY/CC BY-SA/CC0 files.'
   });
 };

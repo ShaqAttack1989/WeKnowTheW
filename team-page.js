@@ -61,7 +61,7 @@ function renderFranchiseGuide(){
   document.getElementById('teamRetiredTitle').textContent=guide.retired.title;
   document.getElementById('teamRetiredText').textContent=guide.retired.text;
   document.getElementById('teamPeopleHeading').textContent=`The people around the ${team.name}.`;
-  document.getElementById('teamPeopleGrid').innerHTML=guide.people.map(([label,name,text])=>`<article><span>${tSafe(label)}</span><h3>${tSafe(name)}</h3><p>${tSafe(text)}</p><a href="/courtside-culture.html">Explore Courtside Culture →</a></article>`).join('');
+  document.getElementById('teamPeopleGrid').innerHTML=guide.people.map(([label,name,text])=>{const key=String(label).toLowerCase();const cultureHref=key.includes('owner')?'/owners.html':(key.includes('coach')||key.includes('basketball leadership'))?'/coaches.html':'/courtside-culture.html';return `<article><span>${tSafe(label)}</span><h3>${tSafe(name)}</h3><p>${tSafe(text)}</p><a href="${cultureHref}">Explore Courtside Culture →</a></article>`}).join('');
   document.getElementById('teamConnectionsHeading').textContent=`${team.name} connects across We Know the W.`;
   document.getElementById('teamVaultConnectionTitle').textContent=`Put ${team.name} in league history`;
   const playerLink=document.getElementById('teamPlayerConnection');

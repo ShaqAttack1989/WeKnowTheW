@@ -68,7 +68,6 @@ function parseMarkdown(text=''){
 
     if(!indexes)continue;
     if(cells.every(cell=>/^[-: ]+$/.test(cell)))continue;
-
     const name=cleanName(cells[indexes.player]||'');
     if(!name||name.toLowerCase()==='player')continue;
     const per=metric(cells[indexes.per]||'');
@@ -160,32 +159,39 @@ module.exports=async function handler(req,res){
   const requested=Number.parseInt(String(req.query.season||'2026'),10);
   const season=Number.isFinite(requested)&&requested>=1997&&requested<=2100?requested:2026;
   const sourceUrl=`https://www.basketball-reference.com/wnba/years/${season}_advanced.html`;
-  const readerUrl=`https://r.jina.ai/http://www.basketball-reference.com/wnba/years/${season}_advanced.html`;
-  res.setHeader('Cache-Control','s-maxage=3600, stale-while-revalidate=21600');
+  const readerUrls=[
+    `https://r.jina.ai/http://www.basketball-reference.com/wnba/years/${season}_advanced.html`,
+    `https://r.jina.ai/https://www.basketball-reference.com/wnba/years/${season}_advanced.html`
+  ];
+  res.setHeader('Cache-Control','s-maxage=1800, stale-while-revalidate=21600');
 
   let rows=[];
-  let resolvedBy='Basketball-Reference via text reader API';
+  let resolvedBy='';
   const errors=[];
 
-  try{
-    const text=await fetchText(readerUrl,{Accept:'text/plain'});
-    rows=parseMarkdown(text);
-    if(rows.length<10)throw new Error(`Reader returned only ${rows.length} advanced rows`);
-  }catch(error){errors.push(error.message);}
+  const readerResults=await Promise.allSettled(readerUrls.map(url=>fetchText(url,{Accept:'text/plain','User-Agent':'Mozilla/5.0 (compatible; WeKnowTheW/1.0)'})));
+  readerResults.forEach((result,index)=>{
+    if(result.status==='fulfilled'){
+      const parsed=parseMarkdown(result.value);
+      if(parsed.length>rows.length){rows=parsed;resolvedBy=`Basketball-Reference via text reader ${index+1}`;}
+      if(parsed.length<10)errors.push(`Reader ${index+1} returned only ${parsed.length} advanced rows`);
+    }else errors.push(`Reader ${index+1}: ${result.reason?.message||'unavailable'}`);
+  });
 
   if(rows.length<10){
     try{
       const html=await fetchText(sourceUrl,{
         Accept:'text/html,application/xhtml+xml',
-        'User-Agent':'Mozilla/5.0 (compatible; WeKnowTheW/1.0; +https://we-know-the-w.vercel.app)'
+        'User-Agent':'Mozilla/5.0 (compatible; WeKnowTheW/1.0; +https://www.weknowthew.com)'
       });
-      rows=parseHtml(html);
-      resolvedBy='Basketball-Reference direct';
-      if(rows.length<10)throw new Error(`Direct source returned only ${rows.length} advanced rows`);
-    }catch(error){errors.push(error.message);}
+      const parsed=parseHtml(html);
+      if(parsed.length>rows.length){rows=parsed;resolvedBy='Basketball-Reference direct';}
+      if(parsed.length<10)errors.push(`Direct source returned only ${parsed.length} advanced rows`);
+    }catch(error){errors.push(`Direct source: ${error.message}`);}
   }
 
   if(rows.length<10){
+    res.setHeader('Cache-Control','no-store, max-age=0');
     return res.status(502).json({
       error:'Advanced player metrics are temporarily unavailable.',
       detail:errors.join(' | '),
@@ -194,17 +200,16 @@ module.exports=async function handler(req,res){
     });
   }
 
-  const players=addRanks(chooseBestRows(rows))
-    .sort((a,b)=>a.name.localeCompare(b.name));
-
+  const players=addRanks(chooseBestRows(rows)).sort((a,b)=>a.name.localeCompare(b.name));
   return res.status(200).json({
     source:'Basketball-Reference',
     sourceUrl,
-    resolvedBy,
+    resolvedBy:resolvedBy||'Basketball-Reference',
     season,
     updatedAt:new Date().toISOString(),
-    refreshSeconds:3600,
+    refreshSeconds:1800,
     playerCount:players.length,
-    players
+    players,
+    diagnostics:{readerAttempts:readerUrls.length,errors}
   });
 };

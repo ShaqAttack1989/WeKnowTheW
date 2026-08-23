@@ -1,11 +1,11 @@
 (()=>{
-  const esc=(v='')=>String(v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c]));
+  const esc=(v='')=>String(v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot',"'":'&#039;'}[c]));
   const teamSlug=new URLSearchParams(location.search).get('team')||'';
   if(!teamSlug||teamSlug==='cleveland-sirens')return;
 
   const css=document.createElement('link');
   css.rel='stylesheet';
-  css.href='/rivalry.css?v=20260823-v2';
+  css.href='/rivalry.css?v=20260823-v5';
   document.head.appendChild(css);
 
   function label(p){
@@ -51,10 +51,23 @@
 
   (async()=>{
     try{
-      const response=await fetch(`/api/rivalries?season=2026&team=${encodeURIComponent(teamSlug)}&v=20260823-4`,{headers:{Accept:'application/json'},cache:'no-store'});
-      const payload=await response.json();
+      const cacheBust=Date.now();
+      const response=await fetch(`/api/rivalries?season=2026&team=${encodeURIComponent(teamSlug)}&v=20260823-5&cb=${cacheBust}`,{
+        headers:{Accept:'application/json','Cache-Control':'no-cache'},
+        cache:'no-store'
+      });
+      const payload=await response.json().catch(()=>({}));
       if(!response.ok)throw new Error(payload.error||'Rivalry history unavailable');
-      render(Array.isArray(payload.rows)?payload.rows:[]);
+      if(!String(payload.sourceVersion||'').startsWith('20260823-rivalries-v4')){
+        throw new Error('A stale rivalry response was blocked. Reload once more to pull the current feed.');
+      }
+      const rows=Array.isArray(payload.rows)?payload.rows:[];
+      const seasonMeetings=rows.reduce((sum,row)=>sum+Number(row?.season?.wins||0)+Number(row?.season?.losses||0),0);
+      const seasonGameCount=Number(payload.coverage?.seasonGameCount||0);
+      if(seasonGameCount>0&&seasonMeetings===0){
+        throw new Error('The current feed returned league games but no matchups for this team, so zero records were suppressed.');
+      }
+      render(rows);
       if(payload.partial){
         const missing=Array.isArray(payload.coverage?.missingYears)?payload.coverage.missingYears:[];
         const detail=missing.length?`Missing season${missing.length===1?'':'s'}: ${missing.join(', ')}.`:'One or more older season feeds are retrying.';

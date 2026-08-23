@@ -2,7 +2,7 @@ const LOCKER_UPDATED = 'Aug 23, 2026';
 const lockerHeadshot = id => `https://cdn.wnba.com/headshots/wnba/latest/1040x760/${id}.png`;
 
 const LOCKER_SECTIONS = [
-  {key:'uniforms',href:'/old-uniforms.html',label:'OLD UNIFORMS',title:'The jersey tells the year',copy:'Travel through original colors, relocation eras and the looks that made a franchise instantly recognizable.',image:'/assets/team-posters/los-angeles-sparks.webp',accent:'#f4c430'},
+  {key:'uniforms',href:'/old-uniforms.html',label:'OLD UNIFORMS',title:'The jersey tells the year',copy:'Travel through documented team editions, relocation eras and the All Star looks that marked each format.',image:'/assets/team-posters/los-angeles-sparks.webp',accent:'#f4c430'},
   {key:'buzzer',href:'/final-buzzer.html',label:'THE FINAL BUZZER',title:'Legends in the rafters',copy:'Retirement announcements, legacy portraits and the numbers that will never be worn again.',image:lockerHeadshot('100940'),accent:'#d8ff4f'},
   {key:'identity',href:'/colors-symbols.html',label:'COLORS & SYMBOLS',title:'A city in every detail',copy:'Team palettes, icons and local references decoded in one visual identity guide.',image:'/assets/team-posters/new-york-liberty.webp',accent:'#6eceb2'},
   {key:'changes',href:'/franchise-changes.html',label:'FRANCHISE CHANGES',title:'Moves, names and new chapters',copy:'A clean timeline of relocations, rebrands and expansion without mixing separate franchises together.',image:'/assets/team-posters/dallas-wings.webp',accent:'#69b3e7'},
@@ -87,3 +87,50 @@ const LOCKER_SOURCES = [
   ['Connecticut Sun early years','https://sun.wnba.com/the-early-years'],
   ['WNBA history hub','https://www.wnba.com/history']
 ];
+
+const JERSEY_ARCHIVE_BY_TEAM = {
+  'los-angeles-sparks':{url:'https://basketballjerseyarchive.com/los-angeles-sparks-jerseys-t6152/',looks:['2010 Home','2018 Icon + Statement','2021 to 2024 Heroine + Explorer','2025 Explorer + Rebel','2026 Court Origins + Rebel']},
+  'new-york-liberty':{url:'https://basketballjerseyarchive.com/new-york-liberty-jerseys-t6154/',looks:['2018 Icon + Statement','2019 to 2020 Icon + Statement','2021 to 2023 Heroine + Explorer','2024 to 2025 Rebel','2026 Court Origins + Rebel']},
+  'phoenix-mercury':{url:'https://basketballjerseyarchive.com/wnba-jerseys-l781/',looks:['2018 Icon','2019 to 2020 editions','2024 Rebel','2025 Heroine','2026 Heroine + Explorer']},
+  'las-vegas-aces':{url:'https://basketballjerseyarchive.com/wnba-jerseys-l781/',looks:['2019 to 2020 Icon','2021 era set','2024 to 2025 Heroine + Rebel','2026 Rebel']},
+  'dallas-wings':{url:'https://basketballjerseyarchive.com/dallas-wings-2026-rebel-jersey-89075/',looks:['2018 Icon + Statement','2019 to 2020 Icon + Statement','2021 to 2024 Heroine + Explorer','2025 Explorer','2026 Rebel']},
+  'connecticut-sun':{url:'https://basketballjerseyarchive.com/wnba-jerseys-l781/',looks:['2003 debut set','2004 to 2006 home + away','2007 solar side panels','2008 to 2010 set','2011 to 2017 refreshes','2019 to 2020 Icon','2024 Rebel']},
+  'minnesota-lynx':{url:'https://basketballjerseyarchive.com/minnesota-lynx-jerseys-t6153/',looks:['2009 Home','2018 Icon + Statement','2019 to 2020 Icon + Statement','2021 to 2026 Heroine + Explorer','2023 to 2025 Rebel','2026 Rebel']},
+  'seattle-storm':{url:'https://basketballjerseyarchive.com/wnba-jerseys-l781/',looks:['2006 to 2009 Home','2010 to 2015 home + away','2016 to 2017 Home','2018 Icon','2019 to 2020 editions','2021 to 2025 Heroine + Explorer','2024 to 2025 Rebel']},
+  'indiana-fever':{url:'https://basketballjerseyarchive.com/indiana-fever-jerseys-t6150/',looks:['2004 Home','2018 Icon + Statement','2019 to 2020 editions','2021 to 2023 Heroine + Explorer','2024 to 2025 set','2025 Stranger Things','2026 Rebel']},
+  'chicago-sky':{url:'https://basketballjerseyarchive.com/chicago-sky-jerseys-t6147/',looks:['2018 Icon + Statement','2019 to 2020 editions','2021 to 2025 Heroine + Explorer','2024 to 2025 Rebel','2026 Rebel']},
+  'atlanta-dream':{url:'https://basketballjerseyarchive.com/wnba-jerseys-l781/',looks:['2008 Home','2018 Icon','2021 era set','2025 Rebel','2026 Rebel']},
+  'washington-mystics':{url:'https://basketballjerseyarchive.com/wnba-jerseys-l781/',looks:['2018 era set','2021 to 2025 Heroine + Explorer','2023 to 2025 Rebel','2026 Rebel']}
+};
+
+const JERSEY_LANGUAGE = [
+  {years:'EARLY ARCHIVE',title:'Home + Away',copy:'The archive’s oldest listings use the familiar home and away labels, with individual years or multi season ranges.'},
+  {years:'2018 TO 2020',title:'Icon + Statement',copy:'Nike era records first appear under Icon and Statement labels across many team histories.'},
+  {years:'2021 FORWARD',title:'Heroine + Explorer + Rebel',copy:'The modern system broadens each team’s visual wardrobe and gives story driven Rebel designs their own lane.'},
+  {years:'2026',title:'Court Origins',copy:'The 30th season adds retro inspired Court Origins looks for teams including New York and Los Angeles.'}
+];
+
+const ARCHIVE_FAN_PICKS = [
+  {rank:'1',team:'Dallas Wings',name:'2026 Rebel',rating:'4.91',votes:'11 votes',slug:'dallas-wings',url:'https://basketballjerseyarchive.com/dallas-wings-2026-rebel-jersey-89075/',color:'#008c95'},
+  {rank:'2',team:'New York Liberty',name:'2026 Court Origins',rating:'4.70',votes:'10 votes',slug:'new-york-liberty',url:'https://basketballjerseyarchive.com/new-york-liberty-2026-court-origins-jersey-89073/',color:'#f26a21'},
+  {rank:'3',team:'New York Liberty',name:'2024 to 2025 Rebel',rating:'4.64',votes:'11 votes',slug:'new-york-liberty',url:'https://basketballjerseyarchive.com/new-york-liberty-jerseys-t6154/',color:'#6eceb2'},
+  {rank:'4',team:'Los Angeles Sparks',name:'2025 Explorer',rating:'4.60',votes:'10 votes',slug:'los-angeles-sparks',url:'https://basketballjerseyarchive.com/los-angeles-sparks-2025-explorer-jersey-85463/',color:'#552583'},
+  {rank:'5',team:'Indiana Fever',name:'2025 Stranger Things',rating:'4.58',votes:'12 votes',slug:'indiana-fever',url:'https://basketballjerseyarchive.com/indiana-fever-2025-stranger-things-jersey-86629/',color:'#002d62'},
+  {rank:'6',team:'Portland Fire',name:'2026 Rebel',rating:'4.57',votes:'7 votes',slug:'portland-fire',url:'https://basketballjerseyarchive.com/portland-fire-2026-rebel-jersey-89083/',color:'#d52b1e'}
+];
+
+const ALL_STAR_UNIFORM_ERAS = [
+  {year:'2006',title:'The first event based uniforms',copy:'Reebok introduced separate conference jerseys. The East wore white, the West wore orange and each jersey carried a team patch above the player name.',image:'https://a.espncdn.com/photo/2024/0717/r1359944_608x342_16-9.jpg',credit:'Nathaniel S. Butler, NBAE via Getty Images'},
+  {year:'2007',title:'Stars move to the side panels',copy:'The second conference set added a star design along the side and the look returned for the 2009 game.',image:'https://a.espncdn.com/photo/2024/0717/r1359945_608x342_16-9.jpg',credit:'Harry Walker, MCT, Tribune News Service via Getty Images'},
+  {year:'2011',title:'The East moves from white to black',copy:'After years of white East jerseys, the league shifted the conference color balance with a black uniform.',image:'https://a.espncdn.com/photo/2024/0717/r1359947_608x342_16-9.jpg',credit:'D. Clarke Evans, NBAE via Getty Images'},
+  {year:'2015',title:'Outlined numbers define the era',copy:'A lighter design and outlined font became the signature look for the next several All Star games, with team patches placed on the back.',image:'https://a.espncdn.com/photo/2024/0717/r1359948_608x342_16-9.jpg',credit:'Brian Babineau, NBAE via Getty Images'},
+  {year:'2018',title:'Captains replace conferences',copy:'The format changed from East versus West to captain selected teams. Nike used black and white, colorless team logos and a large W across the chest.',image:'https://a.espncdn.com/photo/2024/0717/r1359949_608x342_16-9.jpg',credit:'Jordan Johnson, NBAE via Getty Images'},
+  {year:'2019',title:'The host city enters the design',copy:'Las Vegas inspired red, white and gold uniforms, establishing a stronger connection between the All Star look and its host market.',image:'https://a.espncdn.com/photo/2024/0717/r1359950_608x342_16-9.jpg',credit:'Brian Babineau, NBAE via Getty Images'},
+  {year:'2021',title:'Olympic year orange returns',copy:'Team USA wore its national uniforms while the WNBA All Stars returned to the league’s signature orange for the special format.',image:'https://a.espncdn.com/photo/2024/0717/r1359951_608x342_16-9.jpg',credit:'Ethan Miller, Getty Images'},
+  {year:'2025',title:'Indiana colors frame the celebration',copy:'Red and yellow honored the host team identity, while orange kept the league’s signature color inside the design.',image:'https://a.espncdn.com/photo/2025/0717/r1520071_490x276_16-9.jpg',credit:'WNBA via Instagram'}
+];
+
+const JERSEY_SOURCES = {
+  archive:'https://basketballjerseyarchive.com/wnba-jerseys-l781/',
+  allStar:'https://www.espn.com/wnba/story/_/id/40584990/wnba-all-star-game-uniform-designs-history'
+};

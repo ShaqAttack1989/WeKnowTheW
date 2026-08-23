@@ -58,6 +58,7 @@ const structuredNav = `
       <a class="nav-nested" href="/trophy-case.html#awards">All Award Pages</a>
       <a href="/locker-room.html"><strong>The Locker Room</strong></a>
       <a class="nav-nested" href="/old-uniforms.html">Old Uniforms</a>
+      <a class="nav-nested" href="/all-star-uniforms.html">All Star Uniforms</a>
       <a class="nav-nested" href="/final-buzzer.html">The Final Buzzer</a>
       <a class="nav-nested" href="/colors-symbols.html">Colors & Symbols</a>
       <a class="nav-nested" href="/franchise-changes.html">Franchise Changes</a>
@@ -169,6 +170,7 @@ const hierarchyMap = {
   '/all-rookie.html': { parent: 'The Trophy Room', parentHref: '/trophy-case.html', current: 'All Rookie' },
   '/locker-room.html': { parent: 'The W Vault', parentHref: '/w-vault.html', current: 'The Locker Room' },
   '/old-uniforms.html': { parent: 'The Locker Room', parentHref: '/locker-room.html', current: 'Old Uniforms' },
+  '/all-star-uniforms.html': { parent: 'Old Uniforms', parentHref: '/old-uniforms.html', current: 'All Star Uniforms' },
   '/final-buzzer.html': { parent: 'The Locker Room', parentHref: '/locker-room.html', current: 'The Final Buzzer' },
   '/colors-symbols.html': { parent: 'The Locker Room', parentHref: '/locker-room.html', current: 'Colors & Symbols' },
   '/franchise-changes.html': { parent: 'The Locker Room', parentHref: '/locker-room.html', current: 'Franchise Changes' },
@@ -238,6 +240,7 @@ const searchStaticIndex = [
   {title:'All Rookie Team',type:'The Trophy Room',href:'/all-rookie.html',keywords:'all rookie team selections first year players'},
   {title:'The Locker Room',type:'W Vault',href:'/locker-room.html',keywords:'uniforms retired numbers colors symbols rebrands relocations franchise family tree'},
   {title:'Old Uniforms',type:'The Locker Room',href:'/old-uniforms.html',keywords:'classic vintage jerseys uniform eras colors history'},
+  {title:'All Star Uniforms',type:'The Locker Room',href:'/all-star-uniforms.html',keywords:'wnba all star jerseys uniforms east west captains host city history'},
   {title:'The Final Buzzer',type:'The Locker Room',href:'/final-buzzer.html',keywords:'retired players final season retired numbers rafters legends'},
   {title:'Colors & Symbols',type:'The Locker Room',href:'/colors-symbols.html',keywords:'team colors logos marks icons visual identity palettes'},
   {title:'Franchise Changes',type:'The Locker Room',href:'/franchise-changes.html',keywords:'relocation rebrand expansion folded teams changes timeline'},

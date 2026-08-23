@@ -12,7 +12,22 @@ function renderLockerParent(){
 
 function renderUniforms(){
   const host=document.getElementById('uniformGrid'); if(!host)return;
-  host.innerHTML=OLD_UNIFORM_ERAS.map(item=>`<article class="uniform-card"><div class="uniform-visual"><img class="poster" src="${lockerPoster(item.slug)}" alt="${lockerEsc(item.team)} team artwork" loading="lazy"><span class="jersey-mark" style="--jersey:${item.colors[0]}">${lockerEsc(lockerTeam(item.slug)?.tag||'W')}</span></div><div class="uniform-copy"><small>${lockerEsc(item.years)} · ${lockerEsc(item.team)}</small><h3>${lockerEsc(item.era)}</h3>${swatches(item.colors)}<p>${lockerEsc(item.story)}</p>${lockerRoute(item.slug)}</div></article>`).join('');
+  host.innerHTML=OLD_UNIFORM_ERAS.map(item=>{const archive=JERSEY_ARCHIVE_BY_TEAM[item.slug];return `<article class="uniform-card"><div class="uniform-visual"><img class="poster" src="${lockerPoster(item.slug)}" alt="${lockerEsc(item.team)} team artwork" loading="lazy"><span class="jersey-mark" style="--jersey:${item.colors[0]}">${lockerEsc(lockerTeam(item.slug)?.tag||'W')}</span></div><div class="uniform-copy"><small>${lockerEsc(item.years)} · ${lockerEsc(item.team)}</small><h3>${lockerEsc(item.era)}</h3>${swatches(item.colors)}<p>${lockerEsc(item.story)}</p>${archive?`<div class="archive-look-list" aria-label="Documented jersey editions">${archive.looks.map(look=>`<span>${lockerEsc(look)}</span>`).join('')}</div><a class="archive-source-link" href="${archive.url}" target="_blank" rel="noopener">Jersey records and images ↗</a>`:''}${lockerRoute(item.slug)}</div></article>`}).join('');
+}
+
+function renderJerseyLanguage(){
+  const host=document.getElementById('jerseyLanguage'); if(!host)return;
+  host.innerHTML=JERSEY_LANGUAGE.map(item=>`<article class="jersey-language-card"><span>${lockerEsc(item.years)}</span><h3>${lockerEsc(item.title)}</h3><p>${lockerEsc(item.copy)}</p></article>`).join('');
+}
+
+function renderArchivePicks(){
+  const host=document.getElementById('archivePicks'); if(!host)return;
+  host.innerHTML=ARCHIVE_FAN_PICKS.map(item=>`<a class="archive-pick" href="${item.url}" target="_blank" rel="noopener" style="--pick:${item.color}"><span class="archive-rank">${item.rank}</span><span class="mini-jersey" aria-hidden="true">${lockerEsc(lockerTeam(item.slug)?.tag||'W')}</span><span><small>${lockerEsc(item.team)}</small><strong>${lockerEsc(item.name)}</strong></span><b>${lockerEsc(item.rating)}<small>${lockerEsc(item.votes)}</small></b></a>`).join('');
+}
+
+function renderAllStarUniforms(){
+  const host=document.getElementById('allStarUniformGrid'); if(!host)return;
+  host.innerHTML=ALL_STAR_UNIFORM_ERAS.map(item=>`<article class="allstar-uniform-card"><img src="${item.image}" alt="${lockerEsc(item.year)} WNBA All Star uniforms" loading="lazy" referrerpolicy="no-referrer"><div><span>${lockerEsc(item.year)}</span><h3>${lockerEsc(item.title)}</h3><p>${lockerEsc(item.copy)}</p><small>Photo: ${lockerEsc(item.credit)} · Source: ESPN</small></div></article>`).join('');
 }
 
 function renderIdentities(){
@@ -41,6 +56,9 @@ function renderTree(){
 document.querySelectorAll('[data-locker-updated]').forEach(el=>el.textContent=LOCKER_UPDATED);
 renderLockerParent();
 renderUniforms();
+renderJerseyLanguage();
+renderArchivePicks();
+renderAllStarUniforms();
 renderIdentities();
 renderChanges();
 renderTree();

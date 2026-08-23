@@ -8,8 +8,15 @@
   const posterBySlug={
     'atlanta-dream':'17989.png','chicago-sky':'17990.png','connecticut-sun':'17991.png','dallas-wings':'17992.png','golden-state-valkyries':'17993.png','indiana-fever':'17994.png','las-vegas-aces':'17995.png','los-angeles-sparks':'17998.png','minnesota-lynx':'17997.png','new-york-liberty':'17996.png','phoenix-mercury':'17999.png','portland-fire':'18000.png','seattle-storm':'18001.png','toronto-tempo':'18174.jpg','washington-mystics':'18172.jpg'
   };
+  const officialCoachPhotos={
+    'Lynne Roberts':{
+      image:'https://cdn.wnba.com/headshots/wnba/latest/260x190/1642749.png',
+      sourceUrl:'https://sparks.wnba.com/roster',
+      credit:'Official Los Angeles Sparks headshot'
+    }
+  };
   function photo(name,type,team,source){
-    const key=encodeURIComponent(name); const colors=`--team:${team.primary};--team2:${team.secondary}`;
+    const colors=`--team:${team.primary};--team2:${team.secondary}`;
     return `<div class="culture-photo" style="${colors}" data-media-name="${escape(name)}" data-media-type="${type}" data-media-source="${escape(source||'')}" data-fallback="${escape(posterBySlug[team.slug]?`/assets/images/${posterBySlug[team.slug]}`:'')}"><div class="culture-initials">${initials(name)}</div></div>`;
   }
   function card({name,team:teamName,summary,source,label,role,path},type){
@@ -19,12 +26,18 @@
   async function loadOne(el){
     const name=el.dataset.mediaName,type=el.dataset.mediaType,source=el.dataset.mediaSource;
     let payload=null,image='',credit='',creditUrl=source;
-    if(source&&(type==='mascot'||type==='celebrity')){try{const response=await fetch(`/api/culture-image?url=${encodeURIComponent(source)}`);const preview=await response.json();if(preview?.found){image=preview.image;credit=type==='mascot'?'Official team image':'Courtside photo source';creditUrl=preview.sourceUrl;}}catch{}}
+    if(type==='coach'&&officialCoachPhotos[name]){
+      const official=officialCoachPhotos[name];
+      image=official.image;
+      credit=official.credit;
+      creditUrl=official.sourceUrl;
+    }
+    if(!image&&source&&(type==='mascot'||type==='celebrity')){try{const response=await fetch(`/api/culture-image?url=${encodeURIComponent(source)}`);const preview=await response.json();if(preview?.found){image=preview.image;credit=type==='mascot'?'Official team image':'Courtside photo source';creditUrl=preview.sourceUrl;}}catch{}}
     if(!image){try{const response=await fetch(`/api/media?type=${encodeURIComponent(type)}&name=${encodeURIComponent(name)}`);payload=await response.json();}catch{}if(payload?.found){image=payload.item?.image||'';credit=payload.item?.creator||'';creditUrl=payload.item?.sourceUrl||source;}}
     if(!image&&source){try{const response=await fetch(`/api/culture-image?url=${encodeURIComponent(source)}`);const preview=await response.json();if(preview?.found){image=preview.image;credit='Official/source image';creditUrl=preview.sourceUrl;}}catch{}}
     if(!image&&el.dataset.fallback){image=el.dataset.fallback;credit='Team artwork';creditUrl=teamFor(el.closest('.culture-card')?.querySelector('.culture-kicker')?.textContent||'').href;}
     if(!image)return;
-    const img=document.createElement('img');img.src=image;img.alt=`${name} — ${type}`;img.loading='lazy';img.decoding='async';if(!payload?.found)img.className='is-fallback';
+    const img=document.createElement('img');img.src=image;img.alt=`${name} — ${type}`;img.loading='lazy';img.decoding='async';if(!payload?.found&&!(type==='coach'&&officialCoachPhotos[name]))img.className='is-fallback';
     img.addEventListener('error',()=>img.remove(),{once:true});el.querySelector('.culture-initials')?.remove();el.prepend(img);
     if(creditUrl){const a=document.createElement('a');a.className='culture-photo-credit';a.href=creditUrl;a.target='_blank';a.rel='noopener';a.textContent=credit||'Photo source';el.appendChild(a);}
   }

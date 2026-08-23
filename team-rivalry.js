@@ -11,13 +11,24 @@
 
   const css=document.createElement('link');
   css.rel='stylesheet';
-  css.href='/rivalry.css?v=20260823-v6';
+  css.href='/rivalry.css?v=20260823-v7';
   document.head.appendChild(css);
 
   function edge(record={wins:0,losses:0}){
     if(record.wins>record.losses)return 'Leading';
     if(record.losses>record.wins)return 'Trailing';
     return record.wins+record.losses?'Even':'No meetings';
+  }
+  function seriesClass(record={wins:0,losses:0}){
+    const wins=Number(record.wins||0),losses=Number(record.losses||0);
+    if(wins+losses===0)return 'no-meeting';
+    if(wins>losses)return 'series-win';
+    if(losses>wins)return 'series-loss';
+    return 'series-even';
+  }
+  function rowClass(record={wins:0,losses:0}){
+    const cls=seriesClass(record);
+    return cls==='series-win'?'row-win':cls==='series-loss'?'row-loss':cls==='series-even'?'row-even':'row-no-meeting';
   }
   function lossPct(record={wins:0,losses:0}){
     const total=Number(record.wins||0)+Number(record.losses||0);
@@ -76,9 +87,9 @@
     const body=document.getElementById('teamRivalryBody');
     if(!body)return;
     if(!rows.length){body.innerHTML='<div class="page-note"><strong>No rivalry rows were returned.</strong><p>This team did not match the current rivalry feed.</p></div>';return;}
-    body.innerHTML=`<div class="team-rivalry-row head"><span>Opponent</span><span>2026</span><span>2026 edge</span><span>All time</span><span>All-time edge</span><span>Struggle meter</span></div>${rows.map(r=>{const pct=lossPct(r.season);return `<div class="team-rivalry-row"><a class="team-rivalry-opponent" href="/team.html?team=${encodeURIComponent(r.opponent.slug)}"><strong>${esc(r.opponent.name)}</strong><span>→</span></a><strong>${r.season.wins}-${r.season.losses}</strong><span>${esc(r.season.edge||edge(r.season))}</span><strong>—</strong><span>Archive rebuild</span><div class="struggle-meter"><div class="struggle-track" title="${pct}% of 2026 meetings are losses"><div class="struggle-fill" style="width:${Math.max(0,Math.min(100,pct))}%"></div></div><small>${pct}% · ${esc(label(pct))} · 2026 only</small></div></div>`;}).join('')}`;
+    body.innerHTML=`<div class="team-rivalry-row head"><span>Opponent</span><span>2026</span><span>2026 edge</span><span>All time</span><span>All-time edge</span><span>Struggle meter</span></div>${rows.map(r=>{const pct=lossPct(r.season),cls=seriesClass(r.season),row=rowClass(r.season),meetings=Number(r.season.wins||0)+Number(r.season.losses||0),meterText=meetings?`${pct}% · ${esc(label(pct))} · 2026 only`:'No meetings yet · 2026';return `<div class="team-rivalry-row ${row}"><a class="team-rivalry-opponent" href="/team.html?team=${encodeURIComponent(r.opponent.slug)}"><strong>${esc(r.opponent.name)}</strong><span>→</span></a><strong><span class="series-pill ${cls}">${r.season.wins}-${r.season.losses}</span></strong><span><span class="series-edge-pill ${cls}">${esc(r.season.edge||edge(r.season))}</span></span><strong>—</strong><span>Archive rebuild</span><div class="struggle-meter"><div class="struggle-track" title="${meetings?`${pct}% of 2026 meetings are losses`:'No 2026 meetings yet'}"><div class="struggle-fill" style="width:${meetings?Math.max(0,Math.min(100,pct)):0}%"></div></div><small>${meterText}</small></div></div>`;}).join('')}`;
     const games=Number(coverage.seasonGameCount||0);
-    body.insertAdjacentHTML('beforeend',`<div class="page-note"><strong>${games} completed 2026 regular-season games connected.</strong><p>${fallback?'Live Stats fallback is active. ':''}The all-time archive is intentionally withheld here until its historical source is reliable, rather than showing false 0-0 records.</p></div>`);
+    body.insertAdjacentHTML('beforeend',`<div class="page-note"><strong>${games} completed 2026 regular-season games connected.</strong><p>${fallback?'Live Stats fallback is active. ':''}Green means this team leads the series, red means it trails, yellow means the series is tied, and gray means the teams have not met yet in 2026. The all-time archive is intentionally withheld until its historical source is reliable.</p></div>`);
   }
 
   const section=ensureSection();

@@ -40,7 +40,7 @@ module.exports=async function handler(req,res){
         id:String(athlete.id||''),name:playerName(athlete),team:team.displayName||team.name||'',startYear:startYearFor(athlete,season)
       })).filter(item=>item.name);
     }));
-    const players=results.filter(r=>r.status==='fulfilled').flatMap(r=>r.value).map(item=>({...item,label:item.startYear?`WNBA ${item.startYear}–present`:'WNBA · current'}));
+    const players=results.filter(r=>r.status==='fulfilled').flatMap(r=>r.value).map(item=>({...item,label:item.startYear?`${item.startYear}–`:''}));
     return res.status(200).json({updatedAt:new Date().toISOString(),season,players,partial:results.some(r=>r.status==='rejected'),source:'ESPN public WNBA roster pages via WeHoop-compatible feed'});
   }catch(error){return res.status(502).json({error:error.message||'Player experience feed unavailable'});}
 };

@@ -8,5 +8,19 @@
         { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
       ]
     }
+  ],
+  "crons": [
+    {
+      "path": "/api/player-movement",
+      "schedule": "0 9 * * *"
+    },
+    {
+      "path": "/api/players",
+      "schedule": "5 9 * * *"
+    },
+    {
+      "path": "/api/availability",
+      "schedule": "*/30 * * * *"
+    }
   ]
 }

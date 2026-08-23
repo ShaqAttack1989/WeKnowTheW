@@ -12,7 +12,7 @@ function renderLockerParent(){
 
 function renderUniforms(){
   const host=document.getElementById('uniformGrid'); if(!host)return;
-  host.innerHTML=OLD_UNIFORM_ERAS.map(item=>`<article class="uniform-card"><div class="uniform-visual"><img class="poster" src="${lockerPoster(item.slug)}" alt="${lockerEsc(item.team)} visual" loading="lazy"><span class="jersey-mark" style="--jersey:${item.colors[0]}">${lockerEsc(lockerTeam(item.slug)?.tag||'W')}</span>${item.photo?`<img class="legend" src="${item.photo}" alt="${lockerEsc(item.legend)}" loading="lazy" onerror="this.remove()">`:''}</div><div class="uniform-copy"><small>${lockerEsc(item.years)} · ${lockerEsc(item.team)}</small><h3>${lockerEsc(item.era)}</h3>${swatches(item.colors)}<p>${lockerEsc(item.story)}</p>${lockerRoute(item.slug)}</div></article>`).join('');
+  host.innerHTML=OLD_UNIFORM_ERAS.map(item=>`<article class="uniform-card"><div class="uniform-visual"><img class="poster" src="${lockerPoster(item.slug)}" alt="${lockerEsc(item.team)} team artwork" loading="lazy"><span class="jersey-mark" style="--jersey:${item.colors[0]}">${lockerEsc(lockerTeam(item.slug)?.tag||'W')}</span></div><div class="uniform-copy"><small>${lockerEsc(item.years)} · ${lockerEsc(item.team)}</small><h3>${lockerEsc(item.era)}</h3>${swatches(item.colors)}<p>${lockerEsc(item.story)}</p>${lockerRoute(item.slug)}</div></article>`).join('');
 }
 
 function renderIdentities(){

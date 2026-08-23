@@ -4,6 +4,7 @@ const V2_ROOT = 'https://www.thesportsdb.com/api/v2/json';
 const FREE_KEY = '123';
 const {
   getWnbaScoreboard,
+  getWnbaLiveScoreboard,
   getWnbaStandings,
   scoreboardToSportsDbShape
 } = require('../lib/wehoop-espn');
@@ -282,6 +283,21 @@ function liveGames(events, limit = 16) {
     .map(event => gameShape(event, 'Live'));
 }
 
+function addScheduleContext(games, schedule) {
+  return games.map(game => {
+    const match = schedule.find(event =>
+      normalizedName(event.strHomeTeam) === normalizedName(game.homeTeam) &&
+      normalizedName(event.strAwayTeam) === normalizedName(game.awayTeam)
+    );
+    if (!match) return game;
+    return {
+      ...game,
+      venue: game.venue || match.strVenue || '',
+      broadcasts: game.broadcasts.length ? game.broadcasts : (Array.isArray(match.strBroadcasts) ? match.strBroadcasts : [])
+    };
+  });
+}
+
 function upcomingGames(events, limit = 64) {
   const now = Date.now();
   return events
@@ -305,6 +321,7 @@ module.exports = async function handler(req, res) {
   let apiVersion = productionKey ? 'v2' : 'v1-free';
   let espnEvents = [];
   let espnStandings = [];
+  let officialLiveEvents = [];
 
   try {
     const result = await getSeasonSchedule(season, productionKey);
@@ -314,14 +331,17 @@ module.exports = async function handler(req, res) {
     providerErrors.push({ source: 'TheSportsDB', message: error.message, status: error.status || null });
   }
 
-  const [scoreboardResult, standingsResult] = await Promise.allSettled([
+  const [scoreboardResult, standingsResult, officialLiveResult] = await Promise.allSettled([
     getWnbaScoreboard(season),
-    getWnbaStandings(season)
+    getWnbaStandings(season),
+    getWnbaLiveScoreboard()
   ]);
   if (scoreboardResult.status === 'fulfilled') espnEvents = scoreboardResult.value;
   else providerErrors.push({ source: 'SportsDataverse/WeHoop ESPN scoreboard', message: scoreboardResult.reason.message, status: scoreboardResult.reason.status || null });
   if (standingsResult.status === 'fulfilled') espnStandings = standingsResult.value;
   else providerErrors.push({ source: 'SportsDataverse/WeHoop ESPN standings', message: standingsResult.reason.message, status: standingsResult.reason.status || null });
+  if (officialLiveResult.status === 'fulfilled') officialLiveEvents = officialLiveResult.value;
+  else providerErrors.push({ source: 'Official WNBA live scoreboard', message: officialLiveResult.reason.message, status: officialLiveResult.reason.status || null });
 
   const sportsDbRegular = sportsDbEvents.filter(event => inRegularSeason(event, season));
   const espnRegular = espnEvents.map(scoreboardToSportsDbShape).filter(event => inRegularSeason(event, season));
@@ -373,7 +393,7 @@ module.exports = async function handler(req, res) {
   };
 
   const completedGames = pastGames(primaryEvents);
-  const currentGames = liveGames(espnRegular.length ? espnRegular : primaryEvents);
+  const currentGames = addScheduleContext(liveGames(officialLiveEvents.length ? officialLiveEvents : espnRegular.length ? espnRegular : primaryEvents), primaryEvents);
   const scheduledGames = upcomingGames(primaryEvents);
   const fullSeasonAccess = sportsDbComplete || espnComplete || standingsData.overall.length >= 10;
 
@@ -390,8 +410,9 @@ module.exports = async function handler(req, res) {
   return res.status(200).json({
     configured: Boolean(productionKey),
     source: sportsDbComplete ? 'TheSportsDB + SportsDataverse/WeHoop ESPN backup' : 'SportsDataverse/WeHoop ESPN bridge + TheSportsDB backup',
-    sources: ['TheSportsDB', 'SportsDataverse/WeHoop ESPN bridge'],
+    sources: ['TheSportsDB', 'Official WNBA live scoreboard', 'SportsDataverse/WeHoop ESPN bridge'],
     eventSource,
+    liveSource: officialLiveEvents.length ? 'Official WNBA live scoreboard' : espnRegular.length ? 'SportsDataverse/WeHoop ESPN bridge' : eventSource,
     standingsSource,
     wehoopFallbackActive: !sportsDbComplete && (espnRegular.length > 0 || espnStandings.length > 0),
     apiVersion,

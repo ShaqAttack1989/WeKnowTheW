@@ -98,7 +98,7 @@ function postMarkup(post) {
 
 function archiveMarkup(posts, activeSlug) {
   return posts.map(post => `
-    <a class="archive-card" href="/snack-shaq.html?post=${encodeURIComponent(post.slug)}#latest" ${post.slug === activeSlug ? 'aria-current="page"' : ''}>
+    <a class="archive-card" href="/snack-shak.html?post=${encodeURIComponent(post.slug)}#latest" ${post.slug === activeSlug ? 'aria-current="page"' : ''}>
       <span>${snackSafe(formatDate(post.published))}</span>
       <strong>${snackSafe(post.title)}</strong>
       <p>${snackSafe(post.dek || '')}</p>
@@ -113,22 +113,22 @@ async function loadSnackShaq() {
     const response = await fetch('/snack-shaq-posts.json', { headers: { Accept: 'application/json' } });
     const payload = await response.json();
     const posts = Array.isArray(payload.posts) ? payload.posts : [];
-    if (!posts.length) throw new Error('No Snack Shaq posts have been published yet.');
+    if (!posts.length) throw new Error('No Snack Shak posts have been published yet.');
 
     posts.sort((a, b) => {
       if (a.type === 'intro' && b.type !== 'intro') return 1;
       if (b.type === 'intro' && a.type !== 'intro') return -1;
       return String(b.published || '').localeCompare(String(a.published || ''));
     });
-    const requested = new URLSearchParams(location.search).get('post');
+    const requested = new URLSearchParams(location.search).get('post')?.replaceAll('snack-shaq', 'snack-shak');
     const active = posts.find(post => post.slug === requested) || posts[0];
 
     latest.classList.remove('snack-loading');
     latest.innerHTML = postMarkup(active);
     archive.innerHTML = archiveMarkup(posts, active.slug);
-    document.title = `${active.title} | Snack Shaq`;
+    document.title = `${active.title} | Snack Shak`;
   } catch (error) {
-    latest.innerHTML = `<div class="error-box"><strong>Snack Shaq could not load.</strong><span>${snackSafe(error.message)}</span></div>`;
+    latest.innerHTML = `<div class="error-box"><strong>Snack Shak could not load.</strong><span>${snackSafe(error.message)}</span></div>`;
     archive.innerHTML = '';
   }
 }

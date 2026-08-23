@@ -21,7 +21,7 @@ const structuredNav = `
       <a href="/around-the-w.html"><strong>Franchise Hubs</strong></a>
       <a class="nav-nested" href="/around-the-w.html#team-pages">All Current Teams</a>
       <a class="nav-nested" href="/team.html?team=cleveland-sirens">Cleveland Sirens · 2028</a>
-      <a href="/snack-shaq.html"><strong>Seasoned Notes · Snack Shaq</strong></a>
+      <a href="/snack-shak.html"><strong>Seasoned Notes · Snack Shak</strong></a>
     </div>
   </div>
   <div class="nav-group">
@@ -135,6 +135,7 @@ const hierarchyMap = {
   '/player-movement.html': { parent: 'Live Stats', parentHref: '/live-stats.html', current: 'Player Movement' },
   '/availability-report.html': { parent: 'Live Stats', parentHref: '/live-stats.html', current: 'Availability Report' },
   '/around-the-w.html': { parent: 'Around the W', parentHref: '/around-the-w.html', current: 'Team Pages' },
+  '/snack-shak.html': { parent: 'Around the W', parentHref: '/around-the-w.html', current: 'Seasoned Notes' },
   '/snack-shaq.html': { parent: 'Around the W', parentHref: '/around-the-w.html', current: 'Seasoned Notes' },
   '/herstory.html': { parent: 'Playerpedia', parentHref: '/playerpedia.html', current: 'Herstory' },
   '/herstory-education.html': { parent: 'Herstory', parentHref: '/herstory.html', current: 'Education' },
@@ -180,7 +181,7 @@ const searchStaticIndex = [
   {title:'Player Movement',type:'Live Stats',href:'/player-movement.html',keywords:'trades signings waives contracts transactions roster wire'},
   {title:'Availability Report',type:'Live Stats',href:'/availability-report.html',keywords:'injuries out day to day season ending return'},
   {title:'Team Pages',type:'Around the W',href:'/around-the-w.html',keywords:'franchises teams roster history'},
-  {title:'Seasoned Notes · Snack Shaq',type:'Around the W',href:'/snack-shaq.html',keywords:'weekly blog power rankings monday spicy'},
+  {title:'Seasoned Notes · Snack Shak',type:'Around the W',href:'/snack-shak.html',keywords:'weekly blog power rankings monday spicy'},
   {title:'Playerpedia',type:'Section',href:'/playerpedia.html',keywords:'players roster bios stats photos'},
   {title:'Herstory · Education',type:'Playerpedia',href:'/herstory-education.html',keywords:'degrees college graduate academic learning'},
   {title:'Herstory · Entrepreneurship',type:'Playerpedia',href:'/herstory-entrepreneurship.html',keywords:'business brands investments ownership companies'},

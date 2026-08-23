@@ -1,11 +1,11 @@
 {
-  "site": "Snack Shaq",
+  "site": "Snack Shak",
   "tagline": "Where the food gets seasoned, the rankings get debated, and everybody gets served.",
   "posts": [
     {
-      "slug": "snack-shaq-byte-2026-08-17",
+      "slug": "snack-shak-byte-2026-08-17",
       "type": "byte",
-      "title": "Snack Shaq Byte: Aug. 10–16",
+      "title": "Snack Shak Byte: Aug. 10–16",
       "published": "2026-08-17",
       "week": "Games from Aug. 10–16, 2026",
       "dek": "The top two held their seats, Indiana jumped into the top three, Washington slid, and the bottom of the board reshuffled again.",
@@ -30,7 +30,7 @@
         {
           "title": "The Byte",
           "paragraphs": [
-            "This recovered edition keeps the original weekly ranking board from the Aug. 10–16 Snack Shaq update in the archive so the movement from week to week does not disappear.",
+            "This recovered edition keeps the original weekly ranking board from the Aug. 10–16 Snack Shak update in the archive so the movement from week to week does not disappear.",
             "The point of keeping these old boards is not to pretend every take aged perfectly. It is to keep the receipts."
           ]
         }
@@ -38,7 +38,7 @@
       "sources": []
     },
     {
-      "slug": "snack-shaq-byte-2026-08-10",
+      "slug": "snack-shak-byte-2026-08-10",
       "type": "byte",
       "title": "Washington brought the seven-alarm heat",
       "published": "2026-08-10",
@@ -77,7 +77,7 @@
       "sources": []
     },
     {
-      "slug": "snack-shaq-w-reset-2026-07-18",
+      "slug": "snack-shak-w-reset-2026-07-18",
       "type": "byte",
       "title": "Standings sizzling, defense in the air fryer",
       "published": "2026-07-18",
@@ -128,9 +128,9 @@
       "sources": []
     },
     {
-      "slug": "welcome-to-snack-shaq",
+      "slug": "welcome-to-snack-shak",
       "type": "intro",
-      "title": "Welcome to Snack Shaq",
+      "title": "Welcome to Snack Shak",
       "published": "2026-08-18",
       "week": "The weekly W check-in",
       "dek": "Pull up a chair. We’re talking hoops like we talk hoops in real life: with receipts, opinions, a little side-eye and something cooking on the stove.",
@@ -138,7 +138,7 @@
         {
           "title": "What this is",
           "paragraphs": [
-            "Snack Shaq is the weekly temperature check for the W. We’ll move through the power rankings, talk about who is cooking, who needs to get out of the kitchen for a minute, and which storylines deserve more attention than they’re getting.",
+            "Snack Shak is the weekly temperature check for the W. We’ll move through the power rankings, talk about who is cooking, who needs to get out of the kitchen for a minute, and which storylines deserve more attention than they’re getting.",
             "The numbers still matter. So do injuries, roster changes, matchups and the stuff that doesn’t fit neatly in a box score. But this is not supposed to read like somebody copied a press release into a robot. It should sound like basketball talk — because that’s what it is."
           ]
         },
@@ -157,7 +157,7 @@
       ],
       "foodSegment": {
         "title": "Setting the Table",
-        "script": "Welcome to Snack Shaq, where the food gets seasoned, the rankings get debated, and everybody gets served. Every week we’re checking the standings, the streaks, the stars, the role players and the teams somebody swore were cooked three games ago. Bring your receipts, because the rankings are hot and I am absolutely going to ask who needs more seasoning. Keep your takes spicy and your turnovers low."
+        "script": "Welcome to Snack Shak, where the food gets seasoned, the rankings get debated, and everybody gets served. Every week we’re checking the standings, the streaks, the stars, the role players and the teams somebody swore were cooked three games ago. Bring your receipts, because the rankings are hot and I am absolutely going to ask who needs more seasoning. Keep your takes spicy and your turnovers low."
       },
       "sources": []
     }

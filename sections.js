@@ -190,8 +190,8 @@ function installSnackShaq() {
   const nav = document.getElementById('navLinks');
   if (nav && !nav.querySelector('[data-snack-shaq-link]')) {
     const link = document.createElement('a');
-    link.href = '/snack-shaq.html';
-    link.textContent = 'Snack Shaq';
+    link.href = '/snack-shak.html';
+    link.textContent = 'Snack Shak';
     link.dataset.snackShaqLink = 'true';
     nav.appendChild(link);
   }
@@ -205,9 +205,9 @@ function installSnackShaq() {
       <div class="callout">
         <div>
           <p class="kicker">FRESH EVERY MONDAY</p>
-          <h2>Snack Shaq</h2>
+          <h2>Snack Shak</h2>
           <p>The weekly W temperature check: power rankings, who’s cooking, who needs more seasoning, standout performances, roster watch and the spicy debate board.</p>
-          <a class="button primary" href="/snack-shaq.html">Read the latest Snack Shaq</a>
+          <a class="button primary" href="/snack-shak.html">Read the latest Snack Shak</a>
         </div>
         <div class="big-w" aria-hidden="true">🌶️</div>
       </div>

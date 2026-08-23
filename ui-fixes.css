@@ -85,7 +85,8 @@
     opacity: 1 !important;
     visibility: visible !important;
     pointer-events: auto !important;
-    max-height: 420px !important;
+    max-height: min(780px, 68dvh) !important;
+    overflow-y: auto !important;
     margin-bottom: 8px !important;
     padding: 6px 0 6px 10px !important;
   }

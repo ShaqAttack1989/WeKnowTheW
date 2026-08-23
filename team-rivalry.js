@@ -73,7 +73,7 @@
   }
 
   async function historyPayload(){
-    const response=await fetch(`/api/rivalries?season=2026&team=${encodeURIComponent(teamSlug)}&v=20260823-v5`,{headers:{Accept:'application/json'}});
+    const response=await fetch(`/api/rivalries?season=2026&team=${encodeURIComponent(teamSlug)}&v=20260823-v6&cb=${Date.now()}`,{headers:{Accept:'application/json','Cache-Control':'no-cache'},cache:'no-store'});
     const data=await response.json().catch(()=>({}));
     if(!response.ok||!Number(data?.coverage?.allGameCount))throw new Error(data.error||'Historical rivalry archive unavailable');
     return data;
@@ -88,22 +88,26 @@
       const old=historyByOpponent.get(row.opponent.slug);
       let allTime=old?.allTime?{wins:Number(old.allTime.wins||0),losses:Number(old.allTime.losses||0)}:{wins:0,losses:0};
       if(!includes2026)allTime=addRecords(allTime,row.season);
-      return {...row,allTime:{...allTime,edge:edge(allTime)},strugglePct:lossPct(allTime)};
+      return {...row,allTime:{...allTime,edge:edge(allTime)},strugglePct:lossPct(allTime),historyAvailable:true};
     });
   }
 
-  function render(rows=[],currentCoverage={},history=null,fallback=false){
+  function render(rows=[],currentCoverage={},history=null,fallback=false,historyError=''){
     const body=document.getElementById('teamRivalryBody');
     if(!body)return;
     if(!rows.length){body.innerHTML='<div class="page-note"><strong>No rivalry rows were returned.</strong><p>This team did not match the current rivalry feed.</p></div>';return;}
     body.innerHTML=`<div class="team-rivalry-row head"><span>Opponent</span><span>2026</span><span>2026 edge</span><span>All time</span><span>All-time edge</span><span>Struggle meter</span></div>${rows.map(r=>{
-      const seasonCls=seriesClass(r.season),allCls=seriesClass(r.allTime),row=rowClass(r.season),pct=lossPct(r.allTime),allMeetings=Number(r.allTime.wins||0)+Number(r.allTime.losses||0);
-      const meterText=allMeetings?`${pct}% · ${esc(label(pct))} · all time`:'No all-time meetings';
-      return `<div class="team-rivalry-row ${row}"><a class="team-rivalry-opponent" href="/team.html?team=${encodeURIComponent(r.opponent.slug)}"><strong>${esc(r.opponent.name)}</strong><span>→</span></a><strong><span class="series-pill ${seasonCls}">${r.season.wins}-${r.season.losses}</span></strong><span><span class="series-edge-pill ${seasonCls}">${esc(r.season.edge||edge(r.season))}</span></span><strong><span class="series-pill ${allCls}">${r.allTime.wins}-${r.allTime.losses}</span></strong><span><span class="series-edge-pill ${allCls}">${esc(r.allTime.edge||edge(r.allTime))}</span></span><div class="struggle-meter"><div class="struggle-track" title="${allMeetings?`${pct}% of all-time regular-season meetings are losses`:'No all-time meetings'}"><div class="struggle-fill" style="width:${allMeetings?Math.max(0,Math.min(100,pct)):0}%"></div></div><small>${meterText}</small></div></div>`;
+      const seasonCls=seriesClass(r.season),row=rowClass(r.season),hasHistory=r.historyAvailable&&r.allTime;
+      const allCls=hasHistory?seriesClass(r.allTime):'no-meeting';
+      const pct=hasHistory?lossPct(r.allTime):0,allMeetings=hasHistory?Number(r.allTime.wins||0)+Number(r.allTime.losses||0):0;
+      const allRecord=hasHistory?`${r.allTime.wins}-${r.allTime.losses}`:'—';
+      const allEdge=hasHistory?(r.allTime.edge||edge(r.allTime)):'Archive unavailable';
+      const meterText=hasHistory?(allMeetings?`${pct}% · ${esc(label(pct))} · all time`:'No all-time meetings'):'All-time archive unavailable';
+      return `<div class="team-rivalry-row ${row}"><a class="team-rivalry-opponent" href="/team.html?team=${encodeURIComponent(r.opponent.slug)}"><strong>${esc(r.opponent.name)}</strong><span>→</span></a><strong><span class="series-pill ${seasonCls}">${r.season.wins}-${r.season.losses}</span></strong><span><span class="series-edge-pill ${seasonCls}">${esc(r.season.edge||edge(r.season))}</span></span><strong><span class="series-pill ${allCls}">${allRecord}</span></strong><span><span class="series-edge-pill ${allCls}">${esc(allEdge)}</span></span><div class="struggle-meter"><div class="struggle-track" title="${hasHistory&&allMeetings?`${pct}% of all-time regular-season meetings are losses`:esc(meterText)}"><div class="struggle-fill" style="width:${hasHistory&&allMeetings?Math.max(0,Math.min(100,pct)):0}%"></div></div><small>${meterText}</small></div></div>`;
     }).join('')}`;
     const games=Number(currentCoverage.seasonGameCount||0),allGames=Number(history?.coverage?.allGameCount||0),missing=Array.isArray(history?.coverage?.missingYears)?history.coverage.missingYears:[];
-    const archiveNote=history?`${allGames} historical regular-season games connected across ${Number(history.coverage?.completedYears?.length||0)} seasons${missing.length?` · partial archive, missing ${missing.join(', ')}`:''}.`:'Historical archive could not be connected on this load.';
-    body.insertAdjacentHTML('beforeend',`<div class="page-note"><strong>${games} completed 2026 regular-season games connected.</strong><p>${fallback?'Live Stats fallback is active. ':''}${esc(archiveNote)} Green means the selected team leads that series, red means it trails, yellow means tied, and gray means no meetings.</p></div>`);
+    const archiveNote=history?`${allGames} historical regular-season games connected across ${Number(history.coverage?.completedYears?.length||0)} seasons${missing.length?` · partial archive, missing ${missing.join(', ')}`:''}.`:`All-time archive could not be connected on this load${historyError?`: ${historyError}`:''}.`;
+    body.insertAdjacentHTML('beforeend',`<div class="page-note"><strong>${games} completed 2026 regular-season games connected.</strong><p>${fallback?'Live Stats fallback is active. ':''}${esc(archiveNote)} Green means the selected team leads that series, red means it trails, yellow means tied, and gray means no meetings or unavailable history.</p></div>`);
   }
 
   const section=ensureSection();
@@ -111,12 +115,12 @@
 
   (async()=>{
     const current=await currentPayload();
-    let history=null;
-    try{history=await historyPayload();}catch(error){console.warn('Historical rivalry archive:',error);}
-    const rows=history?mergeRows(current,history):(current.rows?.[teamSlug]||[]).map(row=>({...row,allTime:{wins:0,losses:0,edge:'No meetings'}}));
-    render(rows,current.coverage||{},history,Boolean(current.fallback));
+    let history=null,historyError='';
+    try{history=await historyPayload();}catch(error){historyError=error.message||'Historical rivalry archive unavailable';console.warn('Historical rivalry archive:',error);}
+    const rows=history?mergeRows(current,history):(current.rows?.[teamSlug]||[]).map(row=>({...row,allTime:null,historyAvailable:false}));
+    render(rows,current.coverage||{},history,Boolean(current.fallback),historyError);
   })().catch(error=>{
     const body=document.getElementById('teamRivalryBody');
-    if(body)body.innerHTML=`<div class="page-note"><strong>Rivalry records are temporarily unavailable.</strong><p>${esc(error.message||'Try again shortly.')}</p><a href="/no-love-lost.html">Open the league rivalry board →</a></div>`;
+    if(body)body.innerHTML=`<div class="page-note"><strong>2026 rivalry records are temporarily unavailable.</strong><p>${esc(error.message||'Try again shortly.')}</p><a href="/no-love-lost.html">Open the league rivalry board →</a></div>`;
   });
 })();

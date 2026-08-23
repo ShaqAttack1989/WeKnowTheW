@@ -88,8 +88,16 @@
     historyTitle.textContent = `${award.current.year} selections`;
     historyLead.textContent = 'Meet the full group selected for the most recent completed season.';
     history.className = 'award-team-blocks';
-    const groups = [['first','First Team'],['second','Second Team']].filter(([group]) => award.teams[group]);
-    history.innerHTML = groups.map(([group,label]) => `<article class="award-team-block"><h3>${label}</h3><div class="award-player-list">${award.teams[group].map(name => `<div class="award-player"><img src="${headshot(name)}" alt="${name}" loading="lazy"><strong>${name}</strong></div>`).join('')}</div></article>`).join('');
+    const groups = [['first',key === 'allRookie' ? 'All Rookie Team' : 'First Team'],['second','Second Team']].filter(([group]) => award.teams[group]);
+    const currentTeams = groups.map(([group,label]) => `<article class="award-team-block"><h3>${label}</h3><div class="award-player-list">${award.teams[group].map(name => `<div class="award-player"><img src="${headshot(name)}" alt="${name}" loading="lazy"><strong>${name}</strong></div>`).join('')}</div></article>`).join('');
+    const fullHistory = window.TROPHY_SELECTION_HISTORY?.[key] || [];
+    const archive = fullHistory.filter(season => season.year !== award.current.year);
+    const seasonGroup = (label, players = []) => players.length ? `<div class="selection-team"><h4>${label}</h4><ul>${players.map(player => `<li>${player}</li>`).join('')}</ul></div>` : '';
+    const archiveMarkup = archive.length ? `<section class="selection-archive" aria-labelledby="selectionArchiveTitle">
+      <div class="selection-archive-heading"><p class="kicker">COMPLETE HISTORY</p><h3 id="selectionArchiveTitle">Every season, ${archive.at(-1).year} to ${archive[0].year}</h3><p>Open a year to see every selection and the team represented at the time of the honor.</p></div>
+      <div class="selection-season-list">${archive.map((season,index) => `<details class="selection-season"${index < 2 ? ' open' : ''}><summary><b>${season.year}</b><span>${season.first.length + (season.second?.length || 0)} selections</span></summary><div class="selection-season-teams">${seasonGroup(key === 'allRookie' ? 'All Rookie Team' : 'First Team',season.first)}${seasonGroup('Second Team',season.second)}</div></details>`).join('')}</div>
+    </section>` : '';
+    history.innerHTML = currentTeams + archiveMarkup;
   }
 
   const sources = document.getElementById('awardSources');

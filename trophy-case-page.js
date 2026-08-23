@@ -51,12 +51,19 @@
     });
   }
 
-  const recentFinals = data.champions.slice(0, 6);
+  const finalsByPlayer = new Map();
+  data.champions.forEach(season => {
+    const existing = finalsByPlayer.get(season.finalsMvp) || {name:season.finalsMvp,years:[],teams:[]};
+    existing.years.push(season.year);
+    if (!existing.teams.includes(season.champion)) existing.teams.push(season.champion);
+    finalsByPlayer.set(season.finalsMvp, existing);
+  });
+  const finalsLegends = [...finalsByPlayer.values()];
   const finalsMvpGrid = document.getElementById('finalsMvpGrid');
-  if (finalsMvpGrid) finalsMvpGrid.innerHTML = recentFinals.map(season => `
+  if (finalsMvpGrid) finalsMvpGrid.innerHTML = finalsLegends.map(player => `
     <article class="finals-mvp-card">
-      <img src="${data.finalsMvpPhotos[season.finalsMvp]}" alt="${season.finalsMvp}" loading="lazy">
-      <div class="finals-mvp-copy"><span>${season.year} FINALS MVP</span><strong>${season.finalsMvp}</strong><small>${season.champion}</small></div>
+      <img src="${data.finalsMvpPhotos[player.name]}" alt="${player.name}" loading="lazy">
+      <div class="finals-mvp-copy"><span>${player.years.join(' + ')} FINALS MVP</span><strong>${player.name}</strong><small>${player.teams.join(' · ')}</small></div>
     </article>`).join('');
 
   const dynastyGrid = document.getElementById('dynastyGrid');

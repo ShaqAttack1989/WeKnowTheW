@@ -39,7 +39,22 @@ window.TROPHY_DATA = (() => {
     'Chelsea Gray': headshot('203833'),
     'Kahleah Copper': headshot('1627674'),
     'Breanna Stewart': headshot('1627668'),
-    'Emma Meesseman': headshot('1628242')
+    'Emma Meesseman': headshot('1628242'),
+    'Sylvia Fowles': headshot('201480'),
+    'Candace Parker': headshot('201496'),
+    'Diana Taurasi': headshot('100940'),
+    'Maya Moore': headshot('202632'),
+    'Tamika Catchings': headshot('100646'),
+    'Seimone Augustus': headshot('200671'),
+    'Lauren Jackson': headshot('100682'),
+    'Katie Smith': headshot('100404'),
+    'Cappie Pondexter': headshot('200665'),
+    'Deanna Nolan': headshot('100639'),
+    'Yolanda Griffith': headshot('100419'),
+    'Betty Lennox': headshot('100484'),
+    'Ruth Riley': headshot('100656'),
+    'Lisa Leslie': headshot('100003'),
+    'Cynthia Cooper': headshot('100073')
   };
 
   const dynasties = [

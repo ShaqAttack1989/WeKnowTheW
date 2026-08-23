@@ -27,6 +27,24 @@
       ]
     },
     {
+      "source": "/team-dna.js",
+      "headers": [
+        { "key": "Cache-Control", "value": "no-store, max-age=0" }
+      ]
+    },
+    {
+      "source": "/team-dna.css",
+      "headers": [
+        { "key": "Cache-Control", "value": "no-store, max-age=0" }
+      ]
+    },
+    {
+      "source": "/api/team-dna",
+      "headers": [
+        { "key": "Cache-Control", "value": "no-store, max-age=0" }
+      ]
+    },
+    {
       "source": "/api/rivalries",
       "headers": [
         { "key": "Cache-Control", "value": "no-store, max-age=0" }

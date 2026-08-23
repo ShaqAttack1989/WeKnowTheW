@@ -1,0 +1,59 @@
+(() => {
+  const data = window.TROPHY_DATA;
+  if (!data) return;
+
+  const championTimeline = document.getElementById('championTimeline');
+  const seasonRow = (season, index) => `
+    <article class="champion-season${index === 0 ? ' is-featured' : ''}">
+      <div class="champion-year">${season.year}</div>
+      <div class="champion-name"><strong>${season.champion}</strong><span>Champion · defeated ${season.runnerUp}</span></div>
+      <div class="champion-mvp"><strong>${season.finalsMvp}</strong><span>Finals MVP</span></div>
+      <div class="champion-result">${season.result}</div>
+    </article>`;
+
+  if (championTimeline) {
+    const initialCount = 10;
+    championTimeline.innerHTML = data.champions.slice(0, initialCount).map(seasonRow).join('') +
+      `<button class="champion-more" type="button" aria-expanded="false">Show every champion, 1997 to 2025</button>`;
+    championTimeline.querySelector('.champion-more')?.addEventListener('click', event => {
+      championTimeline.innerHTML = data.champions.map(seasonRow).join('');
+      event.currentTarget?.setAttribute('aria-expanded', 'true');
+    });
+  }
+
+  const recentFinals = data.champions.slice(0, 6);
+  const finalsMvpGrid = document.getElementById('finalsMvpGrid');
+  if (finalsMvpGrid) finalsMvpGrid.innerHTML = recentFinals.map(season => `
+    <article class="finals-mvp-card">
+      <img src="${data.finalsMvpPhotos[season.finalsMvp]}" alt="${season.finalsMvp}" loading="lazy">
+      <div class="finals-mvp-copy"><span>${season.year} FINALS MVP</span><strong>${season.finalsMvp}</strong><small>${season.champion}</small></div>
+    </article>`).join('');
+
+  const dynastyGrid = document.getElementById('dynastyGrid');
+  if (dynastyGrid) dynastyGrid.innerHTML = data.dynasties.map((item, index) => `
+    <article class="dynasty-card" style="--dynasty-tone:${item.tone}" data-count="${index + 1}">
+      <span>${item.years.toUpperCase()}</span><h3>${item.team}</h3><b>${item.titles}</b><p>${item.note}</p>
+    </article>`).join('');
+
+  const countGrid = document.getElementById('franchiseCountGrid');
+  if (countGrid) countGrid.innerHTML = data.franchiseCounts.map(item => `
+    <article class="franchise-count-card">
+      <div class="count">${item.count}</div>
+      <div><strong>${item.name}</strong><span>${item.years}</span><small>${item.status}</small></div>
+    </article>`).join('');
+
+  const mediaMarkup = current => {
+    const images = current.photos || [current.photo || current.image];
+    return `<div class="award-placard-media${images.length > 1 ? ' multi' : ''}">${images.slice(0, 2).map((src, index) => `<img src="${src}" alt="${index ? '' : current.name}" loading="lazy">`).join('')}</div>`;
+  };
+
+  const directory = document.getElementById('awardDirectory');
+  if (directory) directory.innerHTML = data.awardOrder.map(key => {
+    const award = data.awardPages[key];
+    return `<a class="award-placard" href="/${award.slug}">
+      ${mediaMarkup(award.current)}
+      <div><span class="portal-label">${award.eyebrow}</span><strong>${award.title}</strong><p>${award.description}</p></div>
+      <span class="award-placard-arrow" aria-hidden="true">→</span>
+    </a>`;
+  }).join('');
+})();

@@ -49,8 +49,13 @@ const structuredNav = `
       <a class="nav-nested" href="/film-room.html#watch-like-a-coach">Watch Like a Coach</a>
       <a class="nav-nested" href="/basketball-dictionary.html">Basketball Dictionary</a>
       <a href="/trophy-case.html"><strong>The Trophy Room</strong></a>
-      <a class="nav-nested" href="/trophy-case.html#championships">Championships</a>
-      <a class="nav-nested" href="/trophy-case.html#awards">And the W Goes To…</a>
+      <a class="nav-nested" href="/trophy-case.html#championships">Championship Journey</a>
+      <a class="nav-nested" href="/trophy-case.html#finals-mvp">Finals MVPs</a>
+      <a class="nav-nested" href="/trophy-case.html#dynasties">Dynasties + Title Counts</a>
+      <a href="/trophy-case.html#awards"><strong>And the W Goes To…</strong></a>
+      <a class="nav-nested" href="/award-mvp.html">MVP</a>
+      <a class="nav-nested" href="/award-dpoy.html">DPOY</a>
+      <a class="nav-nested" href="/trophy-case.html#awards">All Award Pages</a>
       <a class="nav-nested" href="/locker-room.html">The Locker Room</a>
     </div>
   </div>
@@ -147,6 +152,16 @@ const hierarchyMap = {
   '/film-room.html': { parent: 'The W Vault', parentHref: '/w-vault.html', current: 'The Film Room' },
   '/basketball-dictionary.html': { parent: 'The Film Room', parentHref: '/film-room.html', current: 'Basketball Dictionary' },
   '/trophy-case.html': { parent: 'The W Vault', parentHref: '/w-vault.html', current: 'The Trophy Room' },
+  '/award-mvp.html': { parent: 'The Trophy Room', parentHref: '/trophy-case.html', current: 'MVP' },
+  '/award-dpoy.html': { parent: 'The Trophy Room', parentHref: '/trophy-case.html', current: 'DPOY' },
+  '/award-mip.html': { parent: 'The Trophy Room', parentHref: '/trophy-case.html', current: 'MIP' },
+  '/award-sixth-player.html': { parent: 'The Trophy Room', parentHref: '/trophy-case.html', current: 'Sixth Player' },
+  '/award-roy.html': { parent: 'The Trophy Room', parentHref: '/trophy-case.html', current: 'ROY' },
+  '/award-coy.html': { parent: 'The Trophy Room', parentHref: '/trophy-case.html', current: 'COY' },
+  '/commissioners-cup.html': { parent: 'The Trophy Room', parentHref: '/trophy-case.html', current: 'Commissioner’s Cup' },
+  '/all-wnba.html': { parent: 'The Trophy Room', parentHref: '/trophy-case.html', current: 'All WNBA' },
+  '/all-defensive.html': { parent: 'The Trophy Room', parentHref: '/trophy-case.html', current: 'All Defensive' },
+  '/all-rookie.html': { parent: 'The Trophy Room', parentHref: '/trophy-case.html', current: 'All Rookie' },
   '/locker-room.html': { parent: 'The Trophy Room', parentHref: '/trophy-case.html', current: 'The Locker Room' },
   '/mascots.html': { parent: 'Courtside Culture', parentHref: '/courtside-culture.html', current: 'Mascots' },
   '/coaches.html': { parent: 'Courtside Culture', parentHref: '/courtside-culture.html', current: 'Coaches' },
@@ -201,6 +216,16 @@ const searchStaticIndex = [
   {title:'Basketball Dictionary',type:'W Vault',href:'/basketball-dictionary.html',keywords:'glossary ice hedge drop nail short roll spain ghost screen horns'},
   {title:'The Trophy Room · Championships',type:'W Vault',href:'/trophy-case.html#championships',keywords:'titles finals dynasties finals mvp champions'},
   {title:'And the W Goes To…',type:'W Vault',href:'/trophy-case.html#awards',keywords:'mvp dpoy mip sixth player rookie coach all wnba all defensive all rookie commissioners cup'},
+  {title:'Most Valuable Player · MVP',type:'The Trophy Room',href:'/award-mvp.html',keywords:'mvp most valuable player aja wilson award history'},
+  {title:'Defensive Player of the Year · DPOY',type:'The Trophy Room',href:'/award-dpoy.html',keywords:'dpoy defense defensive player award history'},
+  {title:'Most Improved Player · MIP',type:'The Trophy Room',href:'/award-mip.html',keywords:'mip improved player veronica burton award history'},
+  {title:'Sixth Player of the Year',type:'The Trophy Room',href:'/award-sixth-player.html',keywords:'sixth player reserve bench naz hillmon award history'},
+  {title:'Rookie of the Year · ROY',type:'The Trophy Room',href:'/award-roy.html',keywords:'roy rookie paige bueckers award history'},
+  {title:'Coach of the Year · COY',type:'The Trophy Room',href:'/award-coy.html',keywords:'coy coach natalie nakase award history'},
+  {title:'Commissioner’s Cup',type:'The Trophy Room',href:'/commissioners-cup.html',keywords:'commissioners cup champion mvp breanna stewart new york liberty'},
+  {title:'All WNBA Teams',type:'The Trophy Room',href:'/all-wnba.html',keywords:'all wnba first team second team selections'},
+  {title:'All Defensive Teams',type:'The Trophy Room',href:'/all-defensive.html',keywords:'all defensive first team second team selections'},
+  {title:'All Rookie Team',type:'The Trophy Room',href:'/all-rookie.html',keywords:'all rookie team selections first year players'},
   {title:'The Locker Room',type:'W Vault',href:'/locker-room.html',keywords:'uniforms retired numbers colors symbols rebrands relocations franchise family tree'},
   {title:'Courtside Culture · Mascots',type:'Courtside Culture',href:'/mascots.html',keywords:'mascot bios personalities ellie violet freddy blaze skye'},
   {title:'Courtside Culture · Coaches',type:'Courtside Culture',href:'/coaches.html',keywords:'head coach assistant coaches bench'},

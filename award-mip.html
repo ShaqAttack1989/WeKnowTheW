@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Explore Most Improved Player winners, recent history and league records in The Trophy Room at We Know the W.">
+  <title>Most Improved Player | The Trophy Room | We Know the W</title>
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/landing.css">
+  <link rel="stylesheet" href="/trophy-room.css">
+</head>
+<body class="section-page trophy-page award-page" data-award-key="mip">
+  <header class="subhero award-hero">
+    <nav class="nav shell">
+      <a class="brand" href="/"><span class="brand-mark">W</span><span>WE KNOW THE W</span></a>
+      <button class="menu-button" id="menuButton" aria-expanded="false" aria-controls="navLinks">Menu</button>
+      <div class="nav-links" id="navLinks"></div>
+    </nav>
+    <div class="page-shell award-hero-grid" id="awardHero"></div>
+  </header>
+  <main>
+    <section class="page-section award-records">
+      <div class="page-shell">
+        <div class="trophy-section-heading">
+          <div><p class="kicker">THE LATEST CHAPTER</p><h2>Why this honor matters</h2></div>
+          <p id="awardCurrentNote"></p>
+        </div>
+        <div class="award-record-grid" id="awardRecordGrid"></div>
+      </div>
+    </section>
+    <section class="page-section award-content">
+      <div class="page-shell">
+        <div class="trophy-section-heading">
+          <div><p class="kicker">THE RECORD BOOK</p><h2 id="awardHistoryTitle">Award history</h2></div>
+          <p id="awardHistoryLead"></p>
+        </div>
+        <div id="awardHistory"></div>
+        <div class="award-sources" id="awardSources"></div>
+      </div>
+    </section>
+    <section class="page-section award-family">
+      <div class="page-shell">
+        <div class="trophy-section-heading">
+          <div><p class="kicker">KEEP EXPLORING</p><h2>And the W Goes To…</h2></div>
+          <p>Move across every award page or return to the parent Trophy Room for champions, Finals MVPs, dynasties and franchise title counts.</p>
+        </div>
+        <nav class="award-sibling-nav" id="awardSiblingNav" aria-label="Trophy Room award pages"></nav>
+      </div>
+    </section>
+  </main>
+  <script src="/site.js"></script>
+  <script src="/trophy-data.js"></script>
+  <script src="/award-page.js"></script>
+</body>
+</html>
+

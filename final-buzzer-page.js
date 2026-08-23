@@ -8,8 +8,8 @@ const confirmedRetirements=[
     season:'2026',
     status:'Confirmed final season',
     note:'Ogwumike announced that she will retire at the end of the 2026 WNBA season, closing a Hall-of-Fame-caliber career that includes the 2016 MVP award, a WNBA championship and years of leadership as WNBPA president.',
-    source:'https://www.silverscreenandroll.com/los-angeles-sparks-wnba/125272/nneka-ogwumike-la-sparks-retire-announcement',
-    sourceLabel:'Retirement announcement coverage',
+    source:'https://sparks.wnba.com/news/nneka-ogwumike-announces-retirement-from-the-wnba-following-the-2026-season',
+    sourceLabel:'Los Angeles Sparks · official announcement',
     photo:finalHeadshot('203014'),
     slug:'los-angeles-sparks'
   }
@@ -18,19 +18,33 @@ const confirmedRetirements=[
 const retirementWatch=[];
 
 const retiredLegends=[
-  {name:'Sue Bird',year:'2022',team:'Seattle Storm',slug:'seattle-storm',photo:finalHeadshot('100659'),fact:'Retired after a 21-year WNBA career spent entirely with Seattle; four-time WNBA champion and the league’s all-time assists leader.',source:'https://sports.yahoo.com/sue-bird-vs-diana-taurasi-191546050.html'},
+  {name:'Sue Bird',year:'2022',team:'Seattle Storm',slug:'seattle-storm',photo:finalHeadshot('100659'),fact:'Retired after a 21-year WNBA career spent entirely with Seattle; four-time WNBA champion and the league’s all-time assists leader.',source:'https://www.wnba.com/news/w25-greatest-players-in-wnba-history'},
   {name:'Tamika Catchings',year:'2016',team:'Indiana Fever',slug:'indiana-fever',photo:finalHeadshot('100646'),fact:'Closed her playing career as the defining player in Fever history; Indiana retired No. 24 in 2017.',source:'https://fever.wnba.com/news/player/100646/tamika-catchings'},
   {name:'Maya Moore',year:'2023',team:'Minnesota Lynx',slug:'minnesota-lynx',photo:finalHeadshot('202632'),fact:'Made her retirement official after stepping away from the WNBA following the 2018 season; four-time champion and 2014 MVP.',source:'https://www.wnba.com/news/wnba-statement-regarding-maya-moores-retirement'},
-  {name:'Sylvia Fowles',year:'2022',team:'Minnesota Lynx',slug:'minnesota-lynx',photo:finalHeadshot('201480'),fact:'Retired as one of the most dominant centers in league history and a two-time WNBA champion with Minnesota.',source:'https://www.wnba.com/news/2023-wnba-preseason-power-rankings'},
+  {name:'Sylvia Fowles',year:'2022',team:'Chicago Sky · Minnesota Lynx',slug:'minnesota-lynx',photo:finalHeadshot('201480'),fact:'Retired as one of the most dominant centers in league history and a two-time WNBA champion with Minnesota; the Lynx retired No. 34.',source:'https://lynx.wnba.com/news/minnesota-lynx-greats-sylvia-fowles-and-maya-moore-announced-as-naismith-basketball-hall-of-fame-inductees-for-the-class-of-2025'},
   {name:'Candace Parker',year:'2024',team:'Los Angeles Sparks · Chicago Sky · Las Vegas Aces',slug:'los-angeles-sparks',photo:finalHeadshot('201496'),fact:'Three-time WNBA champion and two-time MVP; later became the second player in league history to have her jersey retired by two WNBA franchises.',source:'https://aces.wnba.com/candace-parker-bio'},
   {name:'Diana Taurasi',year:'2025',team:'Phoenix Mercury',slug:'phoenix-mercury',photo:finalHeadshot('100940'),fact:'Retired after 20 seasons, all with Phoenix, as the WNBA’s all-time leading scorer.',source:'https://www.wnba.com/news/cathy-engelbert-statement-diana-taurasi-retirement'},
-  {name:'Elena Delle Donne',year:'2025',team:'Chicago Sky · Washington Mystics',slug:'washington-mystics',photo:finalHeadshot('203399'),fact:'Two-time MVP and 2019 WNBA champion; retired after 11 seasons and moved into an advisory role with Monumental Basketball.',source:'https://mystics.wnba.com/news/wnba-champion-elena-delle-donne-retires'}
+  {name:'Elena Delle Donne',year:'2025',team:'Chicago Sky · Washington Mystics',slug:'washington-mystics',photo:finalHeadshot('203399'),fact:'Two-time MVP and 2019 WNBA champion; retired after 11 seasons and moved into an advisory role with Monumental Basketball.',source:'https://mystics.wnba.com/news/wnba-champion-elena-delle-donne-retires'},
+  {name:'Tina Charles',year:'2026',team:'Connecticut · New York · Washington · Phoenix · Seattle · Atlanta',slug:'connecticut-sun',fact:'Retired in May 2026 as the WNBA’s all-time leading rebounder and second-leading scorer.',source:'https://www.wnba.com/news/tina-charles-retirement-statement'},
+  {name:'Becky Hammon',year:'2014',team:'New York Liberty · San Antonio Stars',slug:'las-vegas-aces',fact:'Six-time All-Star guard whose No. 25 was retired by San Antonio in 2016 and by the Las Vegas Aces in 2021.',source:'https://aces.wnba.com/becky-hammon-bio'},
+  {name:'Lisa Leslie',year:'2009',team:'Los Angeles Sparks',slug:'los-angeles-sparks',fact:'Three-time MVP, two-time champion and one of the foundational superstars of the WNBA.',source:'https://www.wnba.com/news/wnba-pioneers'},
+  {name:'Sheryl Swoopes',year:'2011',team:'Houston Comets · Seattle Storm · Tulsa Shock',fact:'Three-time MVP and four-time champion who helped make Houston the league’s first dynasty.',source:'https://www.wnba.com/news/wnba-pioneers'}
 ];
 
 const retiredNumbers=[
   {team:'Chicago Sky',number:'3',player:'Candace Parker',year:'2025'},
   {team:'Chicago Sky',number:'14',player:'Allie Quigley',year:'2025'},
+  {team:'Connecticut Sun',number:'5',player:'Jasmine Thomas',year:'2026'},
+  {team:'Connecticut Sun',number:'11',player:'Taj McWilliams-Franklin',year:'2023'},
+  {team:'Connecticut Sun',number:'12',player:'Margo Dydek',year:'Legacy'},
+  {team:'Connecticut Sun',number:'13',player:'Lindsay Whalen',year:'2019'},
+  {team:'Connecticut Sun',number:'15',player:'Asjha Jones',year:'2022'},
+  {team:'Connecticut Sun',number:'23',player:'Katie Douglas',year:'2015'},
+  {team:'Connecticut Sun',number:'25',player:'Alyssa Thomas',year:'2026'},
+  {team:'Connecticut Sun',number:'35',player:'Jonquel Jones',year:'2026'},
+  {team:'Connecticut Sun',number:'42',player:'Nykesha Sales',year:'Legacy'},
   {team:'Indiana Fever',number:'24',player:'Tamika Catchings',year:'2017'},
+  {team:'Las Vegas Aces',number:'25',player:'Becky Hammon',year:'2021'},
   {team:'Los Angeles Sparks',number:'3',player:'Candace Parker',year:'2025'},
   {team:'Los Angeles Sparks',number:'9',player:'Lisa Leslie',year:'2010'},
   {team:'Los Angeles Sparks',number:'11',player:'Penny Toler',year:'2017'},
@@ -49,7 +63,7 @@ const retiredNumbers=[
 ];
 
 function esc(v=''){return String(v).replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[ch]));}
-const retiredTeamSlugs={'Chicago Sky':'chicago-sky','Indiana Fever':'indiana-fever','Los Angeles Sparks':'los-angeles-sparks','Minnesota Lynx':'minnesota-lynx','Phoenix Mercury':'phoenix-mercury','Seattle Storm':'seattle-storm'};
+const retiredTeamSlugs={'Chicago Sky':'chicago-sky','Connecticut Sun':'connecticut-sun','Indiana Fever':'indiana-fever','Las Vegas Aces':'las-vegas-aces','Los Angeles Sparks':'los-angeles-sparks','Minnesota Lynx':'minnesota-lynx','Phoenix Mercury':'phoenix-mercury','Seattle Storm':'seattle-storm'};
 function finalTeamLink(team,slug){return slug?`<a class="final-team-link" href="/team.html?team=${esc(slug)}">${esc(team)}</a>`:esc(team);}
 
 function renderRetirementWatch(){

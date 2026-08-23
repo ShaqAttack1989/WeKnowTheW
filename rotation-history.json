@@ -91,8 +91,6 @@
     {
       "week": "2026-08-10",
       "approved": true,
-      "partial": true,
-      "note": "Confirmed Sixth Woman selection. Complete six-player archiving begins with the August 17 rotation.",
       "picks": [
         {
           "role": "Sixth Woman",
@@ -100,6 +98,41 @@
           "name": "Janelle Salaun",
           "statLine": "Golden State Valkyries · Forward",
           "why": "Last week’s approved Sixth Woman selection."
+        },
+        {
+          "role": "Microwave Scorer",
+          "roleId": "microwave",
+          "name": "Sydney Taylor",
+          "statLine": "Chicago Sky · Guard",
+          "why": "Last week’s instant-offense selection."
+        },
+        {
+          "role": "3 & D Wing",
+          "roleId": "three-d",
+          "name": "Azzi Fudd",
+          "statLine": "Dallas Wings · Guard",
+          "why": "Last week’s approved 3 & D selection."
+        },
+        {
+          "role": "Glue Player · Floor General",
+          "roleId": "glue",
+          "name": "Natasha Cloud",
+          "statLine": "Chicago Sky · Guard",
+          "why": "Last week’s connective guard and stabilizer."
+        },
+        {
+          "role": "Backup Floor General",
+          "roleId": "backup-pg",
+          "name": "Tiffany Hayes",
+          "statLine": "Golden State Valkyries · Guard",
+          "why": "Last week’s second-unit playmaking selection."
+        },
+        {
+          "role": "Energy Big",
+          "roleId": "energy-big",
+          "name": "Madina Okot",
+          "statLine": "Atlanta Dream · Center",
+          "why": "Last week’s rebounding and rim-protection selection."
         }
       ]
     }

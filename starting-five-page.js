@@ -68,7 +68,7 @@ async function renderStartingFive(){
   try{
     const [playersResponse,historyResponse]=await Promise.all([
       fetch('/api/players?headshots=transparent-v1',{headers:{Accept:'application/json'}}),
-      fetch('/rotation-history.json?rev=20260822-rotation-copy-v2',{headers:{Accept:'application/json'}})
+      fetch(`/rotation-history.json?rev=20260822-rotation-live-v3&ts=${Date.now()}`,{cache:'no-store',headers:{Accept:'application/json','Cache-Control':'no-cache'}})
     ]);
     const playersPayload=await playersResponse.json().catch(()=>({}));
     const historyPayload=await historyResponse.json().catch(()=>({}));

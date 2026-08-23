@@ -84,10 +84,10 @@ async function loadBenchMob(){
   const methodology=document.getElementById('benchMobMethod');
   const archive=document.getElementById('benchMobArchive');
   if(!grid)return;
-  const revision='20260822-rotation-copy-v2';
+  const revision='20260822-rotation-live-v3';
   try{
     const [historyRes,playersRes]=await Promise.all([
-      fetch(`/rotation-history.json?rev=${revision}`,{headers:{Accept:'application/json'}}),
+      fetch(`/rotation-history.json?rev=${revision}&ts=${Date.now()}`,{cache:'no-store',headers:{Accept:'application/json','Cache-Control':'no-cache'}}),
       fetch(`/api/players?rev=${revision}`,{headers:{Accept:'application/json'}})
     ]);
     const history=await historyRes.json().catch(()=>({}));

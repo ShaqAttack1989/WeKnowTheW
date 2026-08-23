@@ -18,6 +18,8 @@
 .wire-copy strong{display:block;font-size:1rem;line-height:1.28;margin:3px 0 4px;color:#17131f;}
 .wire-copy p{margin:0;color:#7a6878;font-size:.9rem;line-height:1.4;}
 .wire-asof{color:#9a8492;}
+.wire-crosscheck{display:block;margin-top:7px;color:#4f7a5c;font-size:.72rem;font-weight:850;line-height:1.35;}
+.wire-crosscheck:before{content:'✓ ';}
 .wire-chip,.wire-status{display:inline-flex;align-items:center;justify-content:center;width:max-content;max-width:100%;border-radius:999px;padding:5px 9px;font-size:.67rem;line-height:1;font-weight:950;letter-spacing:.04em;text-transform:uppercase;}
 .wire-chip{background:#efe7ff;color:#6321cf;}
 .wire-chip.signed,.wire-chip.re-signed,.wire-chip.developmental,.wire-chip.converted{background:#efe7ff;color:#6321cf;}
@@ -37,7 +39,8 @@
 .wire-empty{padding:22px 0;color:#6f6879;}
 @media(max-width:640px){
   .wire-card{padding:20px 18px 8px;border-radius:22px;}
-  .wire-card-topline{align-items:flex-start;}
+  .wire-card-topline{align-items:flex-start;flex-direction:column;gap:6px;}
+  .wire-card-updated{white-space:normal;}
   .wire-row.movement-row{grid-template-columns:42px minmax(0,1fr);}
   .wire-row.availability-row{grid-template-columns:1fr;gap:8px;}
   .wire-status{justify-self:start;}

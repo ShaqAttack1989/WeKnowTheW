@@ -105,12 +105,42 @@ function hasFinalScore(event) {
   return home !== null && away !== null && home !== away;
 }
 
+function isLive(event) {
+  if (event.boolCompleted === true) return false;
+  if (String(event.strState || '').toLowerCase() === 'in') return true;
+  const status = String(event.strStatus || '').trim().toUpperCase();
+  if (!status) return false;
+  return /(^|\s)(Q[1-4]|[1-4](ST|ND|RD|TH)|OT|HALF(TIME)?)(\s|$)|END\s+(Q[1-4]|[1-4](ST|ND|RD|TH))|IN\s*PROGRESS/.test(status);
+}
+
 function isFinished(event) {
   if (!hasFinalScore(event)) return false;
+  if (isLive(event)) return false;
+  if (event.boolCompleted === true) return true;
   const status = String(event.strStatus || '').toUpperCase();
   if (['FT', 'AET', 'FINAL', 'MATCH FINISHED'].some(value => status.includes(value))) return true;
   const timestamp = eventTimestamp(event);
   return Number.isFinite(timestamp) && timestamp < Date.now();
+}
+
+function gameShape(event, fallbackStatus) {
+  return {
+    id: event.idEvent,
+    startTimeUtc: event.strTimestamp || '',
+    date: event.dateEvent,
+    time: event.strTime || '',
+    homeTeam: event.strHomeTeam,
+    awayTeam: event.strAwayTeam,
+    homeScore: scoreValue(event.intHomeScore),
+    awayScore: scoreValue(event.intAwayScore),
+    venue: event.strVenue || '',
+    status: event.strStatus || fallbackStatus,
+    state: event.strState || '',
+    period: scoreValue(event.intPeriod),
+    clock: event.strClock || '',
+    broadcasts: Array.isArray(event.strBroadcasts) ? event.strBroadcasts : [],
+    completed: event.boolCompleted === true
+  };
 }
 
 function teamFromEvent(event, side) {
@@ -241,36 +271,24 @@ function pastGames(events, limit = 64) {
   return events.filter(event => isFinished(event) && hasFinalScore(event))
     .sort((a, b) => eventTimestamp(b) - eventTimestamp(a))
     .slice(0, limit)
-    .map(event => ({
-      id: event.idEvent,
-      startTimeUtc: event.strTimestamp || '',
-      date: event.dateEvent,
-      time: event.strTime || '',
-      homeTeam: event.strHomeTeam,
-      awayTeam: event.strAwayTeam,
-      homeScore: scoreValue(event.intHomeScore),
-      awayScore: scoreValue(event.intAwayScore),
-      venue: event.strVenue || '',
-      status: event.strStatus || 'Final'
-    }));
+    .map(event => gameShape(event, 'Final'));
+}
+
+function liveGames(events, limit = 16) {
+  return events
+    .filter(event => isLive(event))
+    .sort((a, b) => eventTimestamp(a) - eventTimestamp(b))
+    .slice(0, limit)
+    .map(event => gameShape(event, 'Live'));
 }
 
 function upcomingGames(events, limit = 64) {
   const now = Date.now();
   return events
-    .filter(event => !isFinished(event) && Number.isFinite(eventTimestamp(event)) && eventTimestamp(event) >= now)
+    .filter(event => !isFinished(event) && !isLive(event) && Number.isFinite(eventTimestamp(event)) && eventTimestamp(event) >= now)
     .sort((a, b) => eventTimestamp(a) - eventTimestamp(b))
     .slice(0, limit)
-    .map(event => ({
-      id: event.idEvent,
-      startTimeUtc: event.strTimestamp || '',
-      date: event.dateEvent,
-      time: event.strTime || '',
-      homeTeam: event.strHomeTeam,
-      awayTeam: event.strAwayTeam,
-      venue: event.strVenue || '',
-      status: event.strStatus || 'Scheduled'
-    }));
+    .map(event => gameShape(event, 'Scheduled'));
 }
 
 module.exports = async function handler(req, res) {
@@ -282,8 +300,6 @@ module.exports = async function handler(req, res) {
   const requestedSeason = Number(req.query.season);
   const season = Number.isInteger(requestedSeason) && requestedSeason >= 1997 && requestedSeason <= 2100 ? requestedSeason : new Date().getFullYear();
   const productionKey = String(process.env.THESPORTSDB_API_KEY || '').trim();
-  res.setHeader('Cache-Control', 's-maxage=300, stale-while-revalidate=900');
-
   const providerErrors = [];
   let sportsDbEvents = [];
   let apiVersion = productionKey ? 'v2' : 'v1-free';
@@ -298,14 +314,14 @@ module.exports = async function handler(req, res) {
     providerErrors.push({ source: 'TheSportsDB', message: error.message, status: error.status || null });
   }
 
-  try {
-    [espnEvents, espnStandings] = await Promise.all([
-      getWnbaScoreboard(season),
-      getWnbaStandings(season)
-    ]);
-  } catch (error) {
-    providerErrors.push({ source: 'SportsDataverse/WeHoop ESPN bridge', message: error.message, status: error.status || null });
-  }
+  const [scoreboardResult, standingsResult] = await Promise.allSettled([
+    getWnbaScoreboard(season),
+    getWnbaStandings(season)
+  ]);
+  if (scoreboardResult.status === 'fulfilled') espnEvents = scoreboardResult.value;
+  else providerErrors.push({ source: 'SportsDataverse/WeHoop ESPN scoreboard', message: scoreboardResult.reason.message, status: scoreboardResult.reason.status || null });
+  if (standingsResult.status === 'fulfilled') espnStandings = standingsResult.value;
+  else providerErrors.push({ source: 'SportsDataverse/WeHoop ESPN standings', message: standingsResult.reason.message, status: standingsResult.reason.status || null });
 
   const sportsDbRegular = sportsDbEvents.filter(event => inRegularSeason(event, season));
   const espnRegular = espnEvents.map(scoreboardToSportsDbShape).filter(event => inRegularSeason(event, season));
@@ -357,6 +373,7 @@ module.exports = async function handler(req, res) {
   };
 
   const completedGames = pastGames(primaryEvents);
+  const currentGames = liveGames(espnRegular.length ? espnRegular : primaryEvents);
   const scheduledGames = upcomingGames(primaryEvents);
   const fullSeasonAccess = sportsDbComplete || espnComplete || standingsData.overall.length >= 10;
 
@@ -369,6 +386,7 @@ module.exports = async function handler(req, res) {
     });
   }
 
+  res.setHeader('Cache-Control', currentGames.length ? 's-maxage=15, stale-while-revalidate=30' : 's-maxage=300, stale-while-revalidate=900');
   return res.status(200).json({
     configured: Boolean(productionKey),
     source: sportsDbComplete ? 'TheSportsDB + SportsDataverse/WeHoop ESPN backup' : 'SportsDataverse/WeHoop ESPN bridge + TheSportsDB backup',
@@ -386,6 +404,7 @@ module.exports = async function handler(req, res) {
     conferenceStandings: standingsData.conferences,
     pastGames: completedGames,
     recentResults: completedGames,
+    liveGames: currentGames,
     upcomingGames: scheduledGames,
     providerErrors,
     providerMessage: fullSeasonAccess

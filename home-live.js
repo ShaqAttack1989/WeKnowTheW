@@ -75,10 +75,15 @@ function upcomingGamesMarkup(items=[]){
   return window.WGameCards?WGameCards.render(items,'upcoming',{limit:8,standings:livePayload?.standings||[]}):'';
 }
 
+function liveGamesMarkup(items=[]){
+  return window.WGameCards?WGameCards.render(items,'live',{limit:8,standings:livePayload?.standings||[]}):'';
+}
+
 let livePayload=null;
 let liveMode='overall';
-let gameMode='upcoming';
+let gameMode='live';
 let gameTeam='all';
+let homeLiveRefreshActive=false;
 
 function renderLiveStandings(){
   const table=document.getElementById('homeStandings');
@@ -104,29 +109,39 @@ function renderGamePanel(){
   const title=document.getElementById('gamesPanelTitle');
   const pastButton=document.getElementById('pastGamesToggle');
   const upcomingButton=document.getElementById('upcomingGamesToggle');
+  const liveButton=document.getElementById('liveGamesToggle');
   if(!results||!livePayload)return;
+  const liveItems=window.WGameCards?WGameCards.filter(livePayload.liveGames||[],gameTeam):(livePayload.liveGames||[]);
   const upcomingItems=window.WGameCards?WGameCards.filter(livePayload.upcomingGames||[],gameTeam):(livePayload.upcomingGames||[]);
   const pastItems=window.WGameCards?WGameCards.filter(livePayload.pastGames||livePayload.recentResults||[],gameTeam):(livePayload.pastGames||livePayload.recentResults||[]);
-  if(gameMode==='upcoming'){
+  [liveButton,upcomingButton,pastButton].forEach(button=>{button?.classList.remove('active');button?.setAttribute('aria-pressed','false');});
+  liveButton?.classList.toggle('has-live',Boolean((livePayload.liveGames||[]).length));
+  if(liveButton)liveButton.innerHTML=`<span class="live-tab-dot" aria-hidden="true"></span>Live Games${(livePayload.liveGames||[]).length?` <b>${livePayload.liveGames.length}</b>`:''}`;
+  if(gameMode==='live'){
+    title.textContent='Happening now';
+    results.innerHTML=liveGamesMarkup(liveItems);
+    liveButton?.classList.add('active');liveButton?.setAttribute('aria-pressed','true');
+  }else if(gameMode==='upcoming'){
     title.textContent="What's next?";
     results.innerHTML=upcomingGamesMarkup(upcomingItems);
-    pastButton?.classList.remove('active');upcomingButton?.classList.add('active');
-    pastButton?.setAttribute('aria-pressed','false');upcomingButton?.setAttribute('aria-pressed','true');
+    upcomingButton?.classList.add('active');upcomingButton?.setAttribute('aria-pressed','true');
   }else{
     title.textContent='What just happened?';
     results.innerHTML=pastGamesMarkup(pastItems);
-    pastButton?.classList.add('active');upcomingButton?.classList.remove('active');
-    pastButton?.setAttribute('aria-pressed','true');upcomingButton?.setAttribute('aria-pressed','false');
+    pastButton?.classList.add('active');pastButton?.setAttribute('aria-pressed','true');
   }
 }
 
 document.getElementById('overallToggle')?.addEventListener('click',()=>{liveMode='overall';renderLiveStandings();});
 document.getElementById('conferenceToggle')?.addEventListener('click',()=>{liveMode='conference';renderLiveStandings();});
+document.getElementById('liveGamesToggle')?.addEventListener('click',()=>{gameMode='live';renderGamePanel();});
 document.getElementById('pastGamesToggle')?.addEventListener('click',()=>{gameMode='past';renderGamePanel();});
 document.getElementById('upcomingGamesToggle')?.addEventListener('click',()=>{gameMode='upcoming';renderGamePanel();});
 document.getElementById('homeGamesTeamFilter')?.addEventListener('change',event=>{gameTeam=event.target.value||'all';renderGamePanel();});
 
-async function loadHomeLive(){
+async function loadHomeLive(initial=false){
+  if(homeLiveRefreshActive)return;
+  homeLiveRefreshActive=true;
   const table=document.getElementById('homeStandings');
   const results=document.getElementById('homeResults');
   const status=document.getElementById('homeLiveStatus');
@@ -135,18 +150,26 @@ async function loadHomeLive(){
     const response=await fetch('/api/stats?season=2026',{headers:{Accept:'application/json'},cache:'no-store'});
     const payload=await response.json().catch(()=>({}));
     if(!response.ok)throw new Error(payload.error||'Live data unavailable');
+    if(!Array.isArray(payload.liveGames)||!payload.liveGames.length)payload.liveGames=await window.WGameCards?.fetchLiveGames?.()||[];
     livePayload=payload;
+    if(initial&&gameMode==='live'&&!payload.liveGames.length)gameMode='upcoming';
     window.WGameCards?.populateFilter(document.getElementById('homeGamesTeamFilter'),payload);
     renderLiveStandings();
     renderGamePanel();
-    window.WGameCards?.loadArtwork().then(renderGamePanel);
+    if(initial)window.WGameCards?.loadArtwork().then(renderGamePanel);
     const updated=formatEasternUpdatedAt(payload.updatedAt);
-    status.textContent=payload.fullSeasonAccess?`Live via independent feed${updated?` • updated ${updated} ET`:''}`:'Independent feed connected';
+    const liveNote=payload.liveGames.length?` • ${payload.liveGames.length} ${payload.liveGames.length===1?'game':'games'} live`:' • no games in progress';
+    status.textContent=payload.fullSeasonAccess?`Live via independent feed${liveNote}${updated?` • updated ${updated} ET`:''}`:`Independent feed connected${liveNote}`;
   }catch(error){
-    table.innerHTML='<div class="card-pad"><strong>Live standings could not load.</strong><p>Try again shortly.</p></div>';
-    results.innerHTML='<div class="home-result"><strong>Game schedule unavailable.</strong></div>';
-    status.textContent='Live data temporarily unavailable';
+    if(!livePayload){
+      table.innerHTML='<div class="card-pad"><strong>Live standings could not load.</strong><p>Try again shortly.</p></div>';
+      results.innerHTML='<div class="home-result"><strong>Game schedule unavailable.</strong></div>';
+      status.textContent='Live data temporarily unavailable';
+    }
+  }finally{
+    homeLiveRefreshActive=false;
   }
 }
 
-loadHomeLive();
+loadHomeLive(true);
+setInterval(()=>{if(!document.hidden)loadHomeLive(false);},30000);

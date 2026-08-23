@@ -7,7 +7,7 @@
   <meta name="description" content="We Know the W — a colorful women’s basketball encyclopedia for live stats, players, teams, history, culture, college basketball and weekly Seasoned Notes updates.">
   <title>We Know the W | Women’s Basketball Encyclopedia</title>
   <link rel="stylesheet" href="/styles.css">
-  <link rel="stylesheet" href="/landing.css?v=20260822-schedule-cards-v1">
+  <link rel="stylesheet" href="/landing.css?v=20260822-live-games-v1">
 </head>
 <body>
   <header class="hub-hero" id="top">
@@ -77,14 +77,15 @@
           <div class="home-live-card games-card-wide">
             <div class="card-pad">
               <div class="games-toolbar">
-                <div class="standings-toggle" role="group" aria-label="Games view">
-                  <button type="button" class="active" id="upcomingGamesToggle" aria-pressed="true">Upcoming Games</button>
+                <div class="standings-toggle games-view-toggle" role="group" aria-label="Games view">
+                  <button type="button" class="active" id="liveGamesToggle" aria-pressed="true"><span class="live-tab-dot" aria-hidden="true"></span>Live Games</button>
+                  <button type="button" id="upcomingGamesToggle" aria-pressed="false">Upcoming Games</button>
                   <button type="button" id="pastGamesToggle" aria-pressed="false">Past Games</button>
                 </div>
                 <label class="game-team-filter" for="homeGamesTeamFilter"><span>Filter by team</span><select id="homeGamesTeamFilter"><option value="all">All teams</option></select></label>
               </div>
-              <h3 id="gamesPanelTitle">What’s next?</h3>
-              <div id="homeResults" class="home-live-results game-schedule-list compact"><div class="home-result"><strong>Loading games…</strong></div></div>
+              <h3 id="gamesPanelTitle">Happening now</h3>
+              <div id="homeResults" class="home-live-results game-schedule-list compact" aria-live="polite"><div class="home-result"><strong>Loading games…</strong></div></div>
             </div>
           </div>
         </div>
@@ -113,7 +114,7 @@
   <footer class="footer"><div class="shell footer-inner"><div><strong>WE KNOW THE W</strong><p>An independent, fan-built women’s basketball encyclopedia. Not affiliated with or endorsed by the WNBA.</p></div><a href="#top">Back to top ↑</a></div></footer>
   <script src="/site.js"></script>
   <script src="/team-data.js"></script>
-  <script src="/game-cards.js?v=20260822-schedule-cards-v1"></script>
-  <script src="/home-live.js?v=20260822-schedule-cards-v1"></script>
+  <script src="/game-cards.js?v=20260822-live-games-v1"></script>
+  <script src="/home-live.js?v=20260822-live-games-v1"></script>
 </body>
 </html>

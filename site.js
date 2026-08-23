@@ -176,7 +176,7 @@ document.querySelectorAll('[data-current-year]').forEach(el => {
 const searchStaticIndex = [
   {title:'Around the W',type:'Section',href:'/around-the-w.html',keywords:'teams current season standings roster'},
   {title:'Live Stats',type:'Around the W',href:'/live-stats.html',keywords:'overall conference standings daily'},
-  {title:'Games',type:'Live Stats',href:'/games.html',keywords:'past upcoming scores schedule tip time venue'},
+  {title:'Games',type:'Live Stats',href:'/games.html',keywords:'live current in progress scores clock quarter past upcoming schedule tip time broadcast venue'},
   {title:'Player Movement',type:'Live Stats',href:'/player-movement.html',keywords:'trades signings waives contracts transactions roster wire'},
   {title:'Availability Report',type:'Live Stats',href:'/availability-report.html',keywords:'injuries out day to day season ending return'},
   {title:'Team Pages',type:'Around the W',href:'/around-the-w.html',keywords:'franchises teams roster history'},

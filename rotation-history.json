@@ -1,0 +1,107 @@
+{
+  "updatedAt": "2026-08-18T12:00:00-04:00",
+  "timezone": "America/New_York",
+  "startingFive": [
+    {
+      "week": "2026-08-17",
+      "approved": true,
+      "picks": [
+        {
+          "name": "Kelsey Mitchell",
+          "label": "1 · PG",
+          "role": "Point Guard",
+          "copy": "The lead guard in Shak’s five — pace, pressure, scoring gravity and the first decision-maker in the offense."
+        },
+        {
+          "name": "Paige Bueckers",
+          "label": "2 · SG",
+          "role": "Shooting Guard",
+          "copy": "A secondary creator at the two, bringing craft, shot-making, movement and another elite playmaking option."
+        },
+        {
+          "name": "Napheesa Collier",
+          "label": "3 · SF",
+          "role": "Small Forward",
+          "copy": "The two-way connector on the wing — versatile enough to score, defend across matchups and keep the lineup balanced."
+        },
+        {
+          "name": "Breanna Stewart",
+          "label": "4 · PF",
+          "role": "Power Forward",
+          "copy": "Length, skill and versatility at the four, stretching the floor while creating matchup problems inside and out."
+        },
+        {
+          "name": "A'ja Wilson",
+          "label": "5 · C",
+          "role": "Center",
+          "copy": "The anchor at the five — interior scoring, rim protection, rebounding and championship-level presence in the middle."
+        }
+      ]
+    }
+  ],
+  "benchMob": [
+    {
+      "week": "2026-08-17",
+      "approved": true,
+      "picks": [
+        {
+          "role": "Sixth Woman",
+          "roleId": "sixth-woman",
+          "name": "Kiki Rice",
+          "statLine": "12.0 PPG · 26.1 MPG · 60% starts · PER 16.6",
+          "why": "The strongest blend of bench scoring, efficiency and all-around impact in this week’s season-to-date pool."
+        },
+        {
+          "role": "Microwave Scorer",
+          "roleId": "microwave",
+          "name": "Sydney Taylor",
+          "statLine": "25.6 points per 36 · 58.7% true shooting · 3.7 threes per 36",
+          "why": "Her scoring rate and efficiency jump off the page when production is adjusted for minutes."
+        },
+        {
+          "role": "3 & D Wing",
+          "roleId": "three-d",
+          "name": "Azzi Fudd",
+          "statLine": "39.7% from three · 1.7 steals · 0.8 blocks",
+          "why": "She grades best at combining real three-point volume with disruptive perimeter defense."
+        },
+        {
+          "role": "Glue Player · Floor General",
+          "roleId": "glue",
+          "name": "Natasha Cloud",
+          "statLine": "5.0 assists · 2.17 assist-to-turnover ratio · 1.1 steals",
+          "why": "Her assist creation, ball security and connective guard play make her the board’s stabilizer."
+        },
+        {
+          "role": "Backup Floor General",
+          "roleId": "backup-pg",
+          "name": "Tiffany Hayes",
+          "statLine": "2.5 assists · 2.27 assist-to-turnover ratio · 3% starts",
+          "why": "Among true bench guards, she gives the best mix of playmaking, control and efficient decision-making."
+        },
+        {
+          "role": "Energy Big",
+          "roleId": "energy-big",
+          "name": "Madina Okot",
+          "statLine": "13.3 rebounds per 36 · 4.5 offensive rebounds per 36 · 1.1 blocks per 36",
+          "why": "Her per-minute rebounding and rim protection create the kind of bench energy that changes possessions."
+        }
+      ]
+    },
+    {
+      "week": "2026-08-10",
+      "approved": true,
+      "partial": true,
+      "note": "Confirmed Sixth Woman selection. Complete six-player archiving begins with the August 17 rotation.",
+      "picks": [
+        {
+          "role": "Sixth Woman",
+          "roleId": "sixth-woman",
+          "name": "Janelle Salaun",
+          "statLine": "Golden State Valkyries · Forward",
+          "why": "Last week’s approved Sixth Woman selection."
+        }
+      ]
+    }
+  ]
+}

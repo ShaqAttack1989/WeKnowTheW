@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Shak’s Bench Mob | We Know the W</title>
   <link rel="stylesheet" href="/styles.css?v=20260822-transparent-headshots-v1">
-  <link rel="stylesheet" href="/landing.css">
+  <link rel="stylesheet" href="/landing.css?v=20260822-weekly-rotations-v1">
 </head>
 <body class="section-page">
   <header class="subhero">
@@ -18,12 +18,13 @@
       <p class="eyebrow">SHAK’S MONDAY ROLE-PLAYER BOARD</p>
       <h1>SHAK’S BENCH <em>MOB</em></h1>
       <p>Six role-player picks driven by the current season’s numbers. The board refreshes each Monday, then holds that week’s picks so the roles do not bounce around every night.</p>
+      <div class="rotation-jump-nav" aria-label="Bench Mob page sections"><a href="#current-rotation">Current rotation</a><a href="#rotation-archive">Rotation archive</a><a href="/starting-five.html">Starting Five</a></div>
       <div class="page-crumbs"><a href="/">Home</a><span>›</span><b>Shak’s Bench Mob</b></div>
     </div>
   </header>
 
   <main>
-    <section class="page-section">
+    <section class="page-section" id="current-rotation">
       <div class="page-shell">
         <div class="page-heading">
           <p class="kicker">THIS WEEK’S SIX</p>
@@ -35,12 +36,21 @@
 
         <div class="page-note" id="benchMobMethod">Season-to-date scoring is loading.</div>
 
+        <section class="rotation-archive" id="rotation-archive" aria-labelledby="benchMobArchiveTitle">
+          <div class="page-heading compact-heading">
+            <p class="kicker">ROTATION ARCHIVE</p>
+            <h2 id="benchMobArchiveTitle">Past Bench Mobs</h2>
+            <p>Approved Monday role-player boards stay here, including each week’s Sixth Woman.</p>
+          </div>
+          <div id="benchMobArchive" class="rotation-archive-list"></div>
+        </section>
+
         <div class="page-footer-nav"><a href="/starting-five.html">← Shak’s Starting Five</a><a href="/film-room.html">Learn the roles in The Film Room →</a></div>
       </div>
     </section>
   </main>
 
-  <script src="/site.js"></script>
-  <script src="/bench-mob-page.js?v=20260822-transparent-headshots-v1"></script>
+  <script src="/site.js?v=20260822-weekly-rotations-v1"></script>
+  <script src="/bench-mob-page.js?v=20260822-weekly-rotations-v1"></script>
 </body>
 </html>

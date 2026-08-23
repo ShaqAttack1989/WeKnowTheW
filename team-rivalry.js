@@ -24,7 +24,7 @@
     section=document.createElement('section');
     section.className='team-content team-rivalry-section';
     section.id='head-to-head';
-    section.innerHTML='<div class="team-section-heading"><p class="kicker">NO LOVE LOST · HEAD TO HEAD</p><h2>Who has the upper hand?</h2><p>2026 season series beside the all-time regular-season franchise line. The Struggle Meter measures how much of the historical matchup has gone the other way.</p></div><div id="teamRivalryBody" class="team-rivalry-table"><div class="page-note"><strong>Loading rivalry history…</strong><p>Checking the current season and franchise series.</p></div></div><div class="dream-source-row"><a href="/no-love-lost.html">Open the league rivalry board →</a><a href="https://www.espn.com/wnba/schedule" target="_blank" rel="noopener">Schedule cross-check ↗</a></div>';
+    section.innerHTML='<div class="team-section-heading"><p class="kicker">NO LOVE LOST · HEAD TO HEAD</p><h2>Who has the upper hand?</h2><p>2026 season series beside the all-time franchise line. The Struggle Meter measures how much of the historical matchup has gone the other way.</p></div><div id="teamRivalryBody" class="team-rivalry-table"><div class="page-note"><strong>Loading rivalry history…</strong><p>Checking the current season and franchise series.</p></div></div><div class="dream-source-row"><a href="/no-love-lost.html">Open the league rivalry board →</a><a href="https://www.espn.com/wnba/schedule" target="_blank" rel="noopener">Schedule cross-check ↗</a></div>';
     live.insertAdjacentElement('afterend',section);
     const nav=document.querySelector('.team-local-nav-inner');
     if(nav&&!nav.querySelector('a[href="#head-to-head"]')){
@@ -40,7 +40,7 @@
     const body=document.getElementById('teamRivalryBody');
     if(!body)return;
     if(!rows.length){
-      body.innerHTML='<div class="page-note"><strong>No rivalry rows were returned.</strong><p>The data feed is available, but this franchise did not match the current team list.</p></div>';
+      body.innerHTML='<div class="page-note"><strong>No rivalry rows were returned.</strong><p>The feed loaded, but this franchise did not match the current team list.</p></div>';
       return;
     }
     body.innerHTML=`<div class="team-rivalry-row head"><span>Opponent</span><span>2026</span><span>2026 edge</span><span>All time</span><span>All-time edge</span><span>Struggle meter</span></div>${rows.map(r=>`<div class="team-rivalry-row"><a class="team-rivalry-opponent" href="/team.html?team=${encodeURIComponent(r.opponent.slug)}"><strong>${esc(r.opponent.name)}</strong><span>→</span></a><strong>${r.season.wins}-${r.season.losses}</strong><span>${esc(r.season.edge)}</span><strong>${r.allTime.wins}-${r.allTime.losses}</strong><span>${esc(r.allTime.edge)}</span><div class="struggle-meter"><div class="struggle-track" title="${r.strugglePct}% of all-time meetings are losses"><div class="struggle-fill" style="width:${Math.max(0,Math.min(100,r.strugglePct))}%"></div></div><small>${r.strugglePct}% · ${esc(label(r.strugglePct))}</small></div></div>`).join('')}`;
@@ -51,7 +51,7 @@
 
   (async()=>{
     try{
-      const response=await fetch(`/api/rivalries?season=2026&team=${encodeURIComponent(teamSlug)}&v=20260823-3`,{headers:{Accept:'application/json'},cache:'no-store'});
+      const response=await fetch(`/api/rivalries?season=2026&team=${encodeURIComponent(teamSlug)}&v=20260823-4`,{headers:{Accept:'application/json'},cache:'no-store'});
       const payload=await response.json();
       if(!response.ok)throw new Error(payload.error||'Rivalry history unavailable');
       render(Array.isArray(payload.rows)?payload.rows:[]);
@@ -62,7 +62,7 @@
       }
     }catch(error){
       const body=document.getElementById('teamRivalryBody');
-      if(body)body.innerHTML=`<div class="page-note"><strong>Rivalry history is changing trains.</strong><p>${esc(error.message||'Try again shortly.')}</p><a href="/no-love-lost.html">Open No Love Lost →</a></div>`;
+      if(body)body.innerHTML=`<div class="page-note"><strong>Rivalry records are temporarily unavailable.</strong><p>${esc(error.message||'Try again shortly.')}</p><a href="/no-love-lost.html">Open No Love Lost →</a></div>`;
     }
   })();
 })();

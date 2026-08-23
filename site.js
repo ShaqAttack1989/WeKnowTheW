@@ -36,6 +36,7 @@ const structuredNav = `
       <a class="nav-nested" href="/herstory.html#profile-connection">Profile Connection</a>
       <a href="/starting-five.html"><strong>Shak’s Starting Five</strong></a>
       <a href="/bench-mob.html"><strong>Shak’s Bench Mob</strong></a>
+      <a href="/retired-players.html"><strong>Retired Players</strong></a>
     </div>
   </div>
   <div class="nav-group">
@@ -155,6 +156,7 @@ const hierarchyMap = {
   '/herstory-life-chapters.html': { parent: 'Herstory', parentHref: '/herstory.html', current: 'Life Chapters' },
   '/starting-five.html': { parent: 'Playerpedia', parentHref: '/playerpedia.html', current: 'Shak’s Starting Five' },
   '/bench-mob.html': { parent: 'Playerpedia', parentHref: '/playerpedia.html', current: 'Shak’s Bench Mob' },
+  '/retired-players.html': { parent: 'Playerpedia', parentHref: '/playerpedia.html', current: 'Retired Players' },
   '/film-room.html': { parent: 'The W Vault', parentHref: '/w-vault.html', current: 'The Film Room' },
   '/basketball-dictionary.html': { parent: 'The Film Room', parentHref: '/film-room.html', current: 'Basketball Dictionary' },
   '/trophy-case.html': { parent: 'The W Vault', parentHref: '/w-vault.html', current: 'The Trophy Room' },
@@ -210,6 +212,7 @@ const searchStaticIndex = [
   {title:'Team Pages',type:'Around the W',href:'/around-the-w.html',keywords:'franchises teams roster history'},
   {title:'Seasoned Notes · Snack Shak',type:'Around the W',href:'/snack-shak.html',keywords:'weekly blog power rankings monday spicy'},
   {title:'Playerpedia',type:'Section',href:'/playerpedia.html',keywords:'players roster bios stats photos'},
+  {title:'Retired Players',type:'Playerpedia',href:'/retired-players.html',keywords:'retired legends pioneers team history years played jersey career legacy'},
   {title:'Herstory · Education',type:'Playerpedia',href:'/herstory-education.html',keywords:'degrees college graduate academic learning'},
   {title:'Herstory · Entrepreneurship',type:'Playerpedia',href:'/herstory-entrepreneurship.html',keywords:'business brands investments ownership companies'},
   {title:'Herstory · Community',type:'Playerpedia',href:'/herstory-community.html',keywords:'foundation philanthropy advocacy giving back'},
@@ -244,7 +247,7 @@ const searchStaticIndex = [
   {title:'The Final Buzzer',type:'The Locker Room',href:'/final-buzzer.html',keywords:'retired players final season retired numbers rafters legends'},
   {title:'Colors & Symbols',type:'The Locker Room',href:'/colors-symbols.html',keywords:'team colors logos marks icons visual identity palettes'},
   {title:'Franchise Changes',type:'The Locker Room',href:'/franchise-changes.html',keywords:'relocation rebrand expansion folded teams changes timeline'},
-  {title:'Franchise Family Tree',type:'The Locker Room',href:'/franchise-family-tree.html',keywords:'lineage branches franchise history detroit tulsa dallas utah san antonio las vegas orlando connecticut'},
+  {title:'Franchise Family Tree',type:'The Locker Room',href:'/franchise-family-tree.html',keywords:'lineage branches franchise history detroit tulsa dallas utah san antonio las vegas orlando connecticut houston comets'},
   {title:'Courtside Culture · Mascots',type:'Courtside Culture',href:'/mascots.html',keywords:'mascot bios personalities ellie violet freddy blaze skye'},
   {title:'Courtside Culture · Coaches',type:'Courtside Culture',href:'/coaches.html',keywords:'head coach assistant coaches bench'},
   {title:'Court to Clipboard',type:'Courtside Culture',href:'/coaches.html#court-to-clipboard',keywords:'former players coaches moved to bench'},
@@ -257,7 +260,7 @@ const searchStaticIndex = [
   {title:'Expansion Watch',type:'Who Got Next?',href:'/expansion-watch.html',keywords:'cleveland detroit philadelphia expansion draft future teams'},
   {title:'Atlanta Dream',type:'Team',href:'/team.html?team=atlanta-dream',keywords:'atlanta dream history roster players awards championships finals uniforms jerseys retired numbers coaches owners gateway center'},
   {title:'Chicago Sky',type:'Team',href:'/team.html?team=chicago-sky',keywords:'chicago sky'},
-  {title:'Connecticut Sun',type:'Team',href:'/team.html?team=connecticut-sun',keywords:'connecticut sun uncasville'},
+  {title:'Connecticut Sun',type:'Team',href:'/team.html?team=connecticut-sun',keywords:'connecticut sun uncasville houston comets relocation 2027'},
   {title:'Dallas Wings',type:'Team',href:'/team.html?team=dallas-wings',keywords:'dallas wings'},
   {title:'Golden State Valkyries',type:'Team',href:'/team.html?team=golden-state-valkyries',keywords:'golden state valkyries'},
   {title:'Indiana Fever',type:'Team',href:'/team.html?team=indiana-fever',keywords:'indiana fever'},

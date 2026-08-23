@@ -5,37 +5,172 @@
     {
       "slug": "snack-shak-byte-2026-08-17",
       "type": "byte",
-      "title": "Snack Shak Byte: Aug. 10–16",
+      "title": "Indiana Turns Up the Heat",
       "published": "2026-08-17",
-      "week": "Games from Aug. 10–16, 2026",
-      "dek": "The top two held their seats, Indiana jumped into the top three, Washington slid, and the bottom of the board reshuffled again.",
+      "week": "Games from Aug. 10 through 16, 2026",
+      "dek": "Indiana brought the full three course feast, Minnesota remained the head chef, and Washington discovered that Las Vegas keeps a fire extinguisher specifically for hot streaks.",
       "rankings": [
-        { "rank": 1, "team": "Minnesota Lynx", "movement": "Same", "note": "Still holding the top spot." },
-        { "rank": 2, "team": "Golden State Valkyries", "movement": "Same", "note": "Still right behind Minnesota." },
-        { "rank": 3, "team": "Indiana Fever", "movement": "Up 3", "note": "Biggest jump near the top of the board." },
-        { "rank": 4, "team": "Las Vegas Aces", "movement": "Up 1", "note": "Moved back into the top four." },
-        { "rank": 5, "team": "New York Liberty", "movement": "Down 1", "note": "One spot down from the previous Byte." },
-        { "rank": 6, "team": "Atlanta Dream", "movement": "Up 1", "note": "Back above Washington." },
-        { "rank": 7, "team": "Washington Mystics", "movement": "Down 4", "note": "The sharpest fall from the previous week." },
-        { "rank": 8, "team": "Dallas Wings", "movement": "Same", "note": "Holding steady in the middle." },
-        { "rank": 9, "team": "Portland Fire", "movement": "Same", "note": "Still sitting ninth." },
-        { "rank": 10, "team": "Phoenix Mercury", "movement": "Up 3", "note": "A three-place climb into the top ten." },
-        { "rank": 11, "team": "Chicago Sky", "movement": "Down 1", "note": "One spot lower this week." },
-        { "rank": 12, "team": "Los Angeles Sparks", "movement": "Down 1", "note": "Slipped one place." },
-        { "rank": 13, "team": "Seattle Storm", "movement": "Up 2", "note": "Moved out of the basement." },
-        { "rank": 14, "team": "Connecticut Sun", "movement": "Down 2", "note": "Dropped two places." },
-        { "rank": 15, "team": "Toronto Tempo", "movement": "Down 1", "note": "This week’s No. 15." }
+        {
+          "rank": 1,
+          "team": "Minnesota Lynx",
+          "movement": "Same",
+          "note": "29 wins, 7 losses. Minnesota beat Portland and Las Vegas while improving to 15 wins and 2 losses on the road. Still the league’s most complete meal."
+        },
+        {
+          "rank": 2,
+          "team": "Golden State Valkyries",
+          "movement": "Same",
+          "note": "24 wins, 9 losses. Golden State extended its winning streak to five by routing Chicago, 91 to 71, despite missing key rotation players. Quietly terrifying."
+        },
+        {
+          "rank": 3,
+          "team": "Indiana Fever",
+          "movement": "Up 3",
+          "note": "23 wins, 12 losses. Indiana swept New York, Dallas, and Atlanta. Four straight victories have moved the Fever from exciting contender to legitimate championship threat."
+        },
+        {
+          "rank": 4,
+          "team": "Las Vegas Aces",
+          "movement": "Up 1",
+          "note": "24 wins, 12 losses. Las Vegas ended Washington’s seven game streak twice before falling to Minnesota. The veteran machinery remains dangerous."
+        },
+        {
+          "rank": 5,
+          "team": "New York Liberty",
+          "movement": "Down 1",
+          "note": "22 wins, 14 losses. New York recovered from a 106 to 92 loss to Indiana with victories over Los Angeles and Connecticut. Its depth is carrying the team through significant absences."
+        },
+        {
+          "rank": 6,
+          "team": "Atlanta Dream",
+          "movement": "Up 1",
+          "note": "21 wins, 13 losses. Atlanta crushed Connecticut by 35 before losing an overtime thriller to Indiana. Strong, but still searching for consistency against the league’s top teams."
+        },
+        {
+          "rank": 7,
+          "team": "Washington Mystics",
+          "movement": "Down 4",
+          "note": "20 wins, 14 losses. Las Vegas swept the two game series and cooled Washington’s seven game streak. A win over Los Angeles stopped the slide."
+        },
+        {
+          "rank": 8,
+          "team": "Dallas Wings",
+          "movement": "Same",
+          "note": "20 wins, 15 losses. Dallas completed a season sweep of Toronto, then surrendered 98 points to Indiana. Injuries matter, but a stretch of 3 wins and 7 losses raises real concerns."
+        },
+        {
+          "rank": 9,
+          "team": "Portland Fire",
+          "movement": "Same",
+          "note": "15 wins, 20 losses. Portland pushed Minnesota before beating Seattle and Phoenix. The Fire may be outside the playoff field, but nobody should want them on the schedule."
+        },
+        {
+          "rank": 10,
+          "team": "Phoenix Mercury",
+          "movement": "Up 3",
+          "note": "13 wins, 23 losses. Phoenix beat Los Angeles but surrendered an eight point fourth quarter lead to Portland during Diana Taurasi’s jersey retirement night."
+        },
+        {
+          "rank": 11,
+          "team": "Chicago Sky",
+          "movement": "Down 1",
+          "note": "13 wins, 22 losses. Chicago lost badly to Golden State and split two close games with Seattle. Still alive mathematically, but the burner is barely on."
+        },
+        {
+          "rank": 12,
+          "team": "Los Angeles Sparks",
+          "movement": "Down 1",
+          "note": "12 wins, 22 losses. Los Angeles competed with New York before falling to Washington. Four straight losses have left the Sparks serving cold leftovers."
+        },
+        {
+          "rank": 13,
+          "team": "Seattle Storm",
+          "movement": "Up 2",
+          "note": "7 wins, 30 losses. Seattle snapped an 11 game losing streak with 97 points against Chicago, then lost two games by a combined four points. Small progress still counts."
+        },
+        {
+          "rank": 14,
+          "team": "Connecticut Sun",
+          "movement": "Down 2",
+          "note": "8 wins, 25 losses. Connecticut lost by 35 to Atlanta and by seven to New York. Its offense remains the plain oatmeal of this week’s rankings."
+        },
+        {
+          "rank": 15,
+          "team": "Toronto Tempo",
+          "movement": "Down 1",
+          "note": "10 wins, 23 losses. Toronto has lost ten consecutive games. The expansion wall is now reinforced concrete."
+        }
       ],
       "sections": [
         {
-          "title": "The Byte",
+          "title": "This week’s plate",
           "paragraphs": [
-            "This recovered edition keeps the original weekly ranking board from the Aug. 10–16 Snack Shak update in the archive so the movement from week to week does not disappear.",
-            "The point of keeping these old boards is not to pretend every take aged perfectly. It is to keep the receipts."
+            "The Fever delivered the week’s strongest statement by defeating New York, Dallas, and Atlanta while scoring at least 95 points in every game. Minnesota continued to set the league’s standard, Golden State quietly collected its fifth consecutive victory, and Portland strengthened its case as the most dangerous team currently outside the playoff picture.",
+            "Minnesota continued to lead the league with 29 wins and 7 losses, followed by Golden State with 24 wins and 9 losses. Indiana climbed within half a game of third place Las Vegas, while eighth place Dallas maintained a six game cushion over Portland."
+          ]
+        },
+        {
+          "title": "The main course, Indiana is no longer just promising",
+          "paragraphs": [
+            "The Fever entered the week surrounded by questions about whether their explosive offense could consistently defeat playoff caliber opponents. Three victories later, Indiana supplied a rather loud answer.",
+            "Caitlin Clark recorded 29 points and 10 assists against Dallas before producing 26 points and nine assists in Indiana’s 95 to 91 overtime win over Atlanta. Kelsey Mitchell extended her WNBA record single season streak to 19 consecutive games with at least 20 points.",
+            "Mitchell provides the reliable scoring pressure. Clark controls the pace and creates opportunities. Aliyah Boston gives Indiana a steady interior option. Together, they have transformed the Fever into something more dangerous than a fun offensive team. Indiana now looks capable of surviving different types of games, and that matters much more in the playoffs than simply piling up regular season points."
+          ]
+        },
+        {
+          "title": "Players who brought the flavor",
+          "paragraphs": [
+            "Olivia Miles continued to make her rookie season look suspiciously veteran. She finished with 23 points and eight assists in Minnesota’s 92 to 87 victory over Las Vegas. Napheesa Collier added 19 points, while Natasha Howard contributed 13 points and 11 rebounds. Minnesota did not merely beat another contender, it demonstrated how many different players can carry the plate.",
+            "A’ja Wilson still delivered 32 points and seven rebounds in the loss. Las Vegas may have fallen short, but Wilson reminded everyone that a close playoff game can change quickly when she starts demanding the ball.",
+            "Golden State received an unexpected burst from Tiffany Hayes, who scored a season high 22 points in only 17 minutes during the Valkyries’ 91 to 71 win over Chicago. Golden State was missing Kiah Stokes and Janelle Salaün, yet still won by 20. That is the kind of depth that travels well in the postseason.",
+            "Allisha Gray poured in 32 points against Indiana, while Angel Reese produced 15 points, 14 rebounds, and six assists. Atlanta had two opportunities to win at the end of regulation but could not convert, allowing the Fever to take control in overtime.",
+            "Portland rookie Carla Leite added another chapter to her impressive season by playing through discomfort and finishing with 21 points and five assists against Phoenix. The Fire erased an eight point fourth quarter deficit and escaped with an 88 to 85 victory."
+          ]
+        },
+        {
+          "title": "Injury and roster radar",
+          "paragraphs": [
+            "Indiana added veteran center Mercedes Russell through a season ending injury exception after Damiris Dantas underwent surgery for a torn meniscus. Russell brings size, frontcourt flexibility, and experience from two WNBA championship teams.",
+            "Clark briefly left the Dallas game after appearing to turn her ankle, but she returned after halftime, finished with 29 points and 10 assists, and played in the following game against Atlanta. It remains something to watch, but it was not a confirmed absence.",
+            "New York continued to navigate more serious concerns. Satou Sabally stepped away from the team while experiencing lingering effects from a head injury. Sabrina Ionescu missed the Connecticut game with a foot issue, while Leonie Fiebich remained unavailable.",
+            "Dallas faced Indiana without Azzi Fudd, Jessica Shepard, and Aziaha James. Shepard appeared to be approaching a return, but Fudd remained sidelined with a right knee injury.",
+            "Portland added Nigerian international Amy Okonkwo on a rest of season hardship contract, while Toronto signed guard Zaay Green to a player development contract."
           ]
         }
       ],
-      "sources": []
+      "debates": [
+        "Does Indiana have two legitimate MVP candidates in Caitlin Clark and Kelsey Mitchell?",
+        "Is Golden State being overlooked because Minnesota has been so dominant?",
+        "Did Las Vegas expose Washington as a hot team that is still one tier below the true championship contenders?",
+        "Can Dallas be trusted in the playoffs while injuries and recent defensive struggles continue to pile up?",
+        "Is Portland building the strongest long term foundation among the league’s newest teams?"
+      ],
+      "foodSegment": {
+        "title": "The Three Course Fever Feast",
+        "script": "Welcome back to Snack Shak, where the rankings are hot and Indiana just ordered the full three course meal! First course, the Liberty. The Fever dropped 106 points and sent New York home with a doggie bag. Second course, Dallas. Caitlin Clark served 29 points and 10 assists, while Kelsey Mitchell kept her historic scoring streak cooking. Then came dessert in Atlanta, an overtime win that pushed Indiana’s streak to four. Minnesota still owns the kitchen, and Golden State has reservations at the championship table. But Indiana is no longer serving promising young team. This is contender cuisine. Can Clark, Mitchell, and Aliyah Boston keep feeding everybody during the playoffs, or will an experienced defense finally send the check? Either way, the Fever are cooking, and somebody forgot to turn off the stove."
+      },
+      "sources": [
+        {
+          "label": "Official WNBA standings",
+          "url": "https://www.wnba.com/standings"
+        },
+        {
+          "label": "Fever and Dream recap",
+          "url": "https://fever.wnba.com/news/game-recap-fever-dream-260816"
+        },
+        {
+          "label": "Fever and Wings coverage",
+          "url": "https://www.wnba.com/news/team/1611661321/wings"
+        },
+        {
+          "label": "Lynx and Aces recap",
+          "url": "https://www.espn.com/wnba/recap?gameId=401857147"
+        },
+        {
+          "label": "WNBA transactions",
+          "url": "https://www.wnba.com/players/transactions"
+        }
+      ]
     },
     {
       "slug": "snack-shak-byte-2026-08-10",
@@ -45,21 +180,96 @@
       "week": "Games from Aug. 3–9, 2026",
       "dek": "Washington brought the seven-alarm heat, Golden State quietly kept cooking, and Las Vegas finished an exhausting road trip looking like somebody unplugged the air fryer.",
       "rankings": [
-        { "rank": 1, "team": "Minnesota Lynx", "movement": "—", "note": "No. 1 for this edition." },
-        { "rank": 2, "team": "Golden State Valkyries", "movement": "—", "note": "Still cooking near the top." },
-        { "rank": 3, "team": "Washington Mystics", "movement": "—", "note": "The seven-alarm week." },
-        { "rank": 4, "team": "New York Liberty", "movement": "—", "note": "Top-four position in this Byte." },
-        { "rank": 5, "team": "Las Vegas Aces", "movement": "—", "note": "Road-trip fatigue was part of the conversation." },
-        { "rank": 6, "team": "Indiana Fever", "movement": "—", "note": "Sixth on this week’s board." },
-        { "rank": 7, "team": "Atlanta Dream", "movement": "—", "note": "Seventh in the Aug. 3–9 reset." },
-        { "rank": 8, "team": "Dallas Wings", "movement": "—", "note": "Holding the middle." },
-        { "rank": 9, "team": "Portland Fire", "movement": "—", "note": "Expansion team sitting ninth." },
-        { "rank": 10, "team": "Chicago Sky", "movement": "—", "note": "Rounded out the top ten." },
-        { "rank": 11, "team": "Los Angeles Sparks", "movement": "—", "note": "Eleventh this week." },
-        { "rank": 12, "team": "Connecticut Sun", "movement": "—", "note": "Twelfth this week." },
-        { "rank": 13, "team": "Phoenix Mercury", "movement": "—", "note": "Thirteenth this week." },
-        { "rank": 14, "team": "Toronto Tempo", "movement": "—", "note": "Fourteenth this week." },
-        { "rank": 15, "team": "Seattle Storm", "movement": "—", "note": "Fifteenth this week." }
+        {
+          "rank": 1,
+          "team": "Minnesota Lynx",
+          "movement": "—",
+          "note": "No. 1 for this edition."
+        },
+        {
+          "rank": 2,
+          "team": "Golden State Valkyries",
+          "movement": "—",
+          "note": "Still cooking near the top."
+        },
+        {
+          "rank": 3,
+          "team": "Washington Mystics",
+          "movement": "—",
+          "note": "The seven-alarm week."
+        },
+        {
+          "rank": 4,
+          "team": "New York Liberty",
+          "movement": "—",
+          "note": "Top-four position in this Byte."
+        },
+        {
+          "rank": 5,
+          "team": "Las Vegas Aces",
+          "movement": "—",
+          "note": "Road-trip fatigue was part of the conversation."
+        },
+        {
+          "rank": 6,
+          "team": "Indiana Fever",
+          "movement": "—",
+          "note": "Sixth on this week’s board."
+        },
+        {
+          "rank": 7,
+          "team": "Atlanta Dream",
+          "movement": "—",
+          "note": "Seventh in the Aug. 3–9 reset."
+        },
+        {
+          "rank": 8,
+          "team": "Dallas Wings",
+          "movement": "—",
+          "note": "Holding the middle."
+        },
+        {
+          "rank": 9,
+          "team": "Portland Fire",
+          "movement": "—",
+          "note": "Expansion team sitting ninth."
+        },
+        {
+          "rank": 10,
+          "team": "Chicago Sky",
+          "movement": "—",
+          "note": "Rounded out the top ten."
+        },
+        {
+          "rank": 11,
+          "team": "Los Angeles Sparks",
+          "movement": "—",
+          "note": "Eleventh this week."
+        },
+        {
+          "rank": 12,
+          "team": "Connecticut Sun",
+          "movement": "—",
+          "note": "Twelfth this week."
+        },
+        {
+          "rank": 13,
+          "team": "Phoenix Mercury",
+          "movement": "—",
+          "note": "Thirteenth this week."
+        },
+        {
+          "rank": 14,
+          "team": "Toronto Tempo",
+          "movement": "—",
+          "note": "Fourteenth this week."
+        },
+        {
+          "rank": 15,
+          "team": "Seattle Storm",
+          "movement": "—",
+          "note": "Fifteenth this week."
+        }
       ],
       "sections": [
         {
@@ -84,21 +294,96 @@
       "week": "Midseason W reset",
       "dek": "Standings, streaks, stars, snubs, and who looked like a contender versus who still looked like they were reading the instructions.",
       "rankings": [
-        { "rank": 1, "team": "Minnesota Lynx", "movement": "—", "note": "19-6, W4, with the best scoring margin in the scouting reset." },
-        { "rank": 2, "team": "Golden State Valkyries", "movement": "—", "note": "18-7, W8, and the best opponent-points defense in the reset." },
-        { "rank": 3, "team": "Las Vegas Aces", "movement": "—", "note": "Dynasty and drama at the same time." },
-        { "rank": 4, "team": "Dallas Wings", "movement": "—", "note": "The transformation story of the season at that point." },
-        { "rank": 5, "team": "Atlanta Dream", "movement": "—", "note": "Three All-Stars and a loud starter-snub conversation." },
-        { "rank": 6, "team": "Indiana Fever", "movement": "—", "note": "Elite scoring with a defense that kept the debate spicy." },
-        { "rank": 7, "team": "New York Liberty", "movement": "—", "note": "Talented, but wobbling." },
-        { "rank": 8, "team": "Washington Mystics", "movement": "—", "note": "Rebound everything, score later." },
-        { "rank": 9, "team": "Portland Fire", "movement": "—", "note": "Expansion with personality." },
-        { "rank": 10, "team": "Los Angeles Sparks", "movement": "—", "note": "Offense without enough stops." },
-        { "rank": 11, "team": "Toronto Tempo", "movement": "—", "note": "Expansion pace and personality." },
-        { "rank": 12, "team": "Chicago Sky", "movement": "—", "note": "A roster still under construction." },
-        { "rank": 13, "team": "Phoenix Mercury", "movement": "—", "note": "A proud name in reset mode." },
-        { "rank": 14, "team": "Connecticut Sun", "movement": "—", "note": "Rebuilding and trying to manufacture offense." },
-        { "rank": 15, "team": "Seattle Storm", "movement": "—", "note": "The future was clearer than the present." }
+        {
+          "rank": 1,
+          "team": "Minnesota Lynx",
+          "movement": "—",
+          "note": "19-6, W4, with the best scoring margin in the scouting reset."
+        },
+        {
+          "rank": 2,
+          "team": "Golden State Valkyries",
+          "movement": "—",
+          "note": "18-7, W8, and the best opponent-points defense in the reset."
+        },
+        {
+          "rank": 3,
+          "team": "Las Vegas Aces",
+          "movement": "—",
+          "note": "Dynasty and drama at the same time."
+        },
+        {
+          "rank": 4,
+          "team": "Dallas Wings",
+          "movement": "—",
+          "note": "The transformation story of the season at that point."
+        },
+        {
+          "rank": 5,
+          "team": "Atlanta Dream",
+          "movement": "—",
+          "note": "Three All-Stars and a loud starter-snub conversation."
+        },
+        {
+          "rank": 6,
+          "team": "Indiana Fever",
+          "movement": "—",
+          "note": "Elite scoring with a defense that kept the debate spicy."
+        },
+        {
+          "rank": 7,
+          "team": "New York Liberty",
+          "movement": "—",
+          "note": "Talented, but wobbling."
+        },
+        {
+          "rank": 8,
+          "team": "Washington Mystics",
+          "movement": "—",
+          "note": "Rebound everything, score later."
+        },
+        {
+          "rank": 9,
+          "team": "Portland Fire",
+          "movement": "—",
+          "note": "Expansion with personality."
+        },
+        {
+          "rank": 10,
+          "team": "Los Angeles Sparks",
+          "movement": "—",
+          "note": "Offense without enough stops."
+        },
+        {
+          "rank": 11,
+          "team": "Toronto Tempo",
+          "movement": "—",
+          "note": "Expansion pace and personality."
+        },
+        {
+          "rank": 12,
+          "team": "Chicago Sky",
+          "movement": "—",
+          "note": "A roster still under construction."
+        },
+        {
+          "rank": 13,
+          "team": "Phoenix Mercury",
+          "movement": "—",
+          "note": "A proud name in reset mode."
+        },
+        {
+          "rank": 14,
+          "team": "Connecticut Sun",
+          "movement": "—",
+          "note": "Rebuilding and trying to manufacture offense."
+        },
+        {
+          "rank": 15,
+          "team": "Seattle Storm",
+          "movement": "—",
+          "note": "The future was clearer than the present."
+        }
       ],
       "sections": [
         {

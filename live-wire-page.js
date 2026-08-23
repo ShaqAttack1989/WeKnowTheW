@@ -1,7 +1,9 @@
 function wSafe(v=''){return String(v).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;');}
 function wShortDate(value=''){
   if(!value)return '';
-  const d=new Date(String(value).slice(0,10)+'T12:00:00');
+  const raw=String(value).slice(0,10);
+  const iso=/^\d{4}-\d{2}-\d{2}$/.test(raw)?raw:(()=>{const m=String(value).match(/^(\d{2})\/(\d{2})\/(\d{4})/);return m?`${m[3]}-${m[1]}-${m[2]}`:raw;})();
+  const d=new Date(`${iso}T12:00:00`);
   return Number.isNaN(d.getTime())?String(value):d.toLocaleDateString([],{month:'short',day:'numeric'});
 }
 function wClass(value=''){
@@ -20,6 +22,32 @@ function visibleInjury(item={}){
   const status=String(item.status||'').toUpperCase();
   return !['AVAILABLE','ACTIVE','CLEARED'].includes(status);
 }
+function availabilityRow(item={},extraClass=''){
+  const team=wTeam(item.team);
+  const identity=[item.player||'Player',team].filter(Boolean).join(' · ');
+  const asOf=item.updated?` <span class="wire-asof">as of ${wSafe(wShortDate(item.updated))}</span>`:'';
+  const expected=item.returnDate?` · expected ${wSafe(wShortDate(item.returnDate))}`:'';
+  const context=[item.matchup,item.gameTime].filter(Boolean).join(' · ');
+  const source=item.crossCheckOnly?'<small class="wire-source-note">Cross-check feed, team is outside the current official report window</small>':item.seasonLongCarryover?'<small class="wire-source-note">Season-long absence carried from an official/team source</small>':'';
+  return `<article class="wire-row availability-row ${extraClass}">
+    <span class="wire-status ${wClass(item.status||'status')}">${wSafe(item.status||'STATUS')}</span>
+    <div class="wire-copy">
+      <strong>${wSafe(identity)}</strong>
+      <p>${wSafe(item.reason||'Availability update')}${asOf}${expected}</p>
+      ${context?`<small class="wire-report-context">${wSafe(context)}</small>`:''}${source}
+    </div>
+  </article>`;
+}
+function submissionRow(item={}){
+  const context=[item.matchup,item.gameTime].filter(Boolean).join(' · ');
+  return `<article class="wire-row availability-row submission-row">
+    <span class="wire-status not-yet-submitted">NOT SUBMITTED</span>
+    <div class="wire-copy"><strong>${wSafe(item.team||'Team')}</strong><p>The official WNBA report has not yet been submitted for this team.</p>${context?`<small class="wire-report-context">${wSafe(context)}</small>`:''}</div>
+  </article>`;
+}
+function sectionLabel(title,copy=''){
+  return `<div class="wire-section-label"><strong>${wSafe(title)}</strong>${copy?`<span>${wSafe(copy)}</span>`:''}</div>`;
+}
 
 (async()=>{
   const mode=document.body.dataset.wirePage||'movement';
@@ -33,24 +61,26 @@ function visibleInjury(item={}){
     if(!r.ok)throw new Error(p.error||'Live player feed unavailable');
 
     if(mode==='availability'){
-      const items=Array.isArray(p.injuries)
-        ? [...p.injuries].filter(visibleInjury).sort((a,b)=>String(b.updated||'').localeCompare(String(a.updated||''))||String(a.player||'').localeCompare(String(b.player||'')))
-        : [];
+      const items=Array.isArray(p.injuries)?p.injuries.filter(visibleInjury):[];
+      const officialItems=items.filter(item=>item.officialCurrentReport);
+      const additionalItems=items.filter(item=>!item.officialCurrentReport);
+      const submissions=Array.isArray(p.teamStatuses)?p.teamStatuses:[];
       if(updated)updated.textContent=`Checked ${wChecked(p.checkedAt)||'recently'} · every 30 min`;
-      list.innerHTML=items.length?items.map(item=>{
-        const team=wTeam(item.team);
-        const identity=[item.player||'Player',team].filter(Boolean).join(' · ');
-        const asOf=item.updated?` <span class="wire-asof">as of ${wSafe(wShortDate(item.updated))}</span>`:'';
-        const expected=item.returnDate?` · expected ${wSafe(wShortDate(item.returnDate))}`:'';
-        return `<article class="wire-row availability-row">
-          <span class="wire-status ${wClass(item.status||'status')}">${wSafe(item.status||'STATUS')}</span>
-          <div class="wire-copy">
-            <strong>${wSafe(identity)}</strong>
-            <p>${wSafe(item.reason||'Availability update')}${asOf}${expected}</p>
-          </div>
-        </article>`;
-      }).join(''):'<div class="wire-empty"><strong>No current availability updates returned.</strong></div>';
-      if(status){status.hidden=false;status.innerHTML=`${items.length} current entries · latest source date ${wSafe(wShortDate(p.latestReportDate)||'current')} · checks every 30 minutes · <a href="https://www.wnba.com/wnba-injury-report" target="_blank" rel="noopener noreferrer">official WNBA Injury Report ↗</a>`;}
+      let html='';
+      html+=sectionLabel('CURRENT OFFICIAL WNBA REPORT',p.reportLabel||wShortDate(p.latestReportDate)||'Latest available PDF');
+      html+=officialItems.length?officialItems.map(item=>availabilityRow(item,'official-report-row')).join(''):'<div class="wire-empty"><strong>No named players in the current official report.</strong></div>';
+      if(submissions.length){
+        html+=sectionLabel('TEAM REPORT STATUS','Teams whose official report is still pending');
+        html+=submissions.map(submissionRow).join('');
+      }
+      if(additionalItems.length){
+        html+=sectionLabel('ADDITIONAL TRACKED ABSENCES','Teams outside the current report window');
+        html+=additionalItems.map(item=>availabilityRow(item,'additional-report-row')).join('');
+      }
+      list.innerHTML=html;
+      const reportHref=p.officialPdf||p.officialSource||'https://www.wnba.com/wnba-injury-report';
+      const reportLabel=p.officialPdfLive?'latest official PDF ↗':'official WNBA Injury Report ↗';
+      if(status){status.hidden=false;status.innerHTML=`${officialItems.length} named players in the latest official report · ${submissions.length} team reports pending · <a href="${wSafe(reportHref)}" target="_blank" rel="noopener noreferrer">${reportLabel}</a>`;}
     }else{
       const items=Array.isArray(p.transactions)?p.transactions:[];
       if(updated)updated.textContent=`Checked ${wChecked(p.checkedAt)||'recently'} · newest move ${wShortDate(p.latestTransactionDate)||'—'}`;

@@ -1,0 +1,59 @@
+:root{--retired-ink:#130a2d;--retired-purple:#6c2ad9;--retired-lime:#d8ff4f;--retired-paper:#fffaf0;--retired-line:#e6dfea}
+.retired-player-page{background:var(--retired-paper);color:#21182a}
+.retired-player-hero{position:relative;overflow:hidden;background:linear-gradient(128deg,#09060f 0%,#241044 58%,#6c2ad9 100%)}
+.retired-player-hero:after{content:"24";position:absolute;right:-30px;bottom:-90px;font-size:23rem;font-weight:1000;line-height:1;color:rgba(216,255,79,.07);pointer-events:none}
+.retired-player-hero .subhero-inner{position:relative;z-index:2}
+.retired-player-hero h1 em{color:var(--retired-lime)}
+.retired-jump{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px}
+.retired-jump a{padding:10px 14px;border-radius:999px;background:#fff;color:var(--retired-ink);font-size:.78rem;font-weight:950;text-decoration:none}
+.retired-jump a:first-child{background:var(--retired-lime)}
+.retired-intro{padding:54px 0;background:#f2edf6}
+.retired-intro-grid{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(250px,.65fr);gap:34px;align-items:center}
+.retired-intro h2{margin:.25rem 0 .6rem;font-size:clamp(2rem,5vw,4rem);line-height:.96;letter-spacing:-.05em}
+.retired-intro p{max-width:780px;color:#6a6270;line-height:1.62}
+.retired-stat-card{padding:24px;border-radius:24px;background:var(--retired-ink);color:#fff;box-shadow:0 18px 38px rgba(19,10,45,.15)}
+.retired-stat-card strong{display:block;font-size:4rem;line-height:.9;color:var(--retired-lime)}
+.retired-stat-card span{display:block;margin-top:10px;color:#ddd5e3;line-height:1.45}
+.retired-stat-card a{display:inline-flex;margin-top:17px;color:#fff;font-size:.8rem;font-weight:950;text-decoration:none}
+.retired-directory-head{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:26px;align-items:end}
+.retired-tools{display:flex;flex-wrap:wrap;gap:10px;justify-content:flex-end;align-items:end}
+.retired-tools label{display:grid;gap:5px;font-size:.67rem;font-weight:950;letter-spacing:.08em;color:#665b6e;text-transform:uppercase}
+.retired-tools input,.retired-tools select{min-width:190px;padding:11px 12px;border:1px solid #d9cfdf;border-radius:12px;background:#fff;color:#21182a;font:inherit;font-size:.85rem;text-transform:none;letter-spacing:0}
+.retired-tools button{padding:12px 15px;border:0;border-radius:12px;background:var(--retired-ink);color:#fff;font-weight:900;cursor:pointer}
+.retired-status{margin:0 0 18px;color:#766c7d;font-size:.82rem;font-weight:800}
+.retired-player-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.retired-card{display:flex;flex-direction:column;min-height:100%;overflow:hidden;border:1px solid var(--retired-line);border-radius:24px;background:#fff;box-shadow:0 12px 30px rgba(20,10,47,.07)}
+.retired-card-top{display:flex;align-items:center;gap:14px;padding:18px 18px 13px;background:linear-gradient(135deg,#140a2f,#31115f);color:#fff}
+.retired-monogram{flex:0 0 58px;width:58px;height:58px;display:grid;place-items:center;border:2px solid rgba(255,255,255,.25);border-radius:50%;background:var(--retired-lime);color:var(--retired-ink);font-size:1rem;font-weight:1000}
+.retired-card-top small{display:block;color:#d7cee0;font-size:.66rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase}
+.retired-card-top h3{margin:3px 0 0;font-size:1.28rem;line-height:1.05}
+.retired-card-body{display:flex;flex-direction:column;flex:1;padding:18px}
+.retired-card-body>p{margin:0;color:#6c6372;line-height:1.5;font-size:.87rem}
+.retired-team-path{display:grid;gap:8px;margin:16px 0}
+.retired-team-stop{display:grid;grid-template-columns:38px minmax(0,1fr);gap:9px;align-items:center;padding:8px 9px;border-radius:14px;background:#f5f0f8}
+.retired-team-logo{position:relative;width:38px;height:38px;display:grid;place-items:center;border-radius:10px;background:#fff;border:1px solid #e3dae8;overflow:hidden}
+.retired-team-logo img{max-width:32px;max-height:32px;object-fit:contain}
+.retired-team-logo b{display:none;font-size:.58rem;color:#5b4b64}
+.retired-team-logo.logo-failed img{display:none}
+.retired-team-logo.logo-failed b{display:block}
+.retired-team-stop strong,.retired-team-stop span{display:block}
+.retired-team-stop strong{font-size:.79rem}
+.retired-team-stop span{margin-top:2px;color:#7c7183;font-size:.67rem;font-weight:800}
+.retired-card-source{margin-top:auto;padding-top:4px;color:#5d21ba;font-size:.73rem;font-weight:950;text-decoration:none}
+.retired-team-trails{background:#f2edf6}
+.retired-team-key{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}
+.retired-team-key-item{display:flex;align-items:center;gap:10px;padding:12px;border:1px solid #dfd5e5;border-radius:16px;background:#fff}
+.retired-team-key-item .retired-team-logo{flex:0 0 38px}
+.retired-team-key-item span{font-size:.75rem;font-weight:900;line-height:1.2}
+.retired-source-section{background:#140a2f;color:#fff}
+.retired-source-section .page-heading p{color:#d4cadd}
+.retired-source-section .kicker{color:var(--retired-lime)!important}
+.retired-source-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.retired-source-grid a{padding:17px;border:1px solid rgba(255,255,255,.13);border-radius:18px;background:rgba(255,255,255,.06);color:#fff;text-decoration:none}
+.retired-source-grid strong,.retired-source-grid span{display:block}
+.retired-source-grid span{margin-top:6px;color:#cec4d7;font-size:.78rem;line-height:1.45}
+.retired-footer-nav{display:flex;justify-content:space-between;gap:12px;margin-top:26px}
+.retired-footer-nav a{padding:11px 14px;border-radius:999px;background:#fff;color:#140a2f;text-decoration:none;font-weight:950}
+.retired-footer-nav a:last-child{background:var(--retired-lime)}
+@media(max-width:1000px){.retired-directory-head{grid-template-columns:1fr}.retired-tools{justify-content:flex-start}.retired-player-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.retired-team-key{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:700px){.retired-intro-grid{grid-template-columns:1fr}.retired-player-grid{grid-template-columns:1fr}.retired-tools{display:grid;grid-template-columns:1fr}.retired-tools label,.retired-tools input,.retired-tools select{width:100%;min-width:0}.retired-team-key{grid-template-columns:repeat(2,minmax(0,1fr))}.retired-source-grid{grid-template-columns:1fr}.retired-footer-nav{display:grid}.retired-footer-nav a{text-align:center}}

@@ -12,6 +12,7 @@
   let payload=null;
 
   function edge(record){if(record.wins>record.losses)return 'Leading';if(record.losses>record.wins)return 'Trailing';return record.wins+record.losses?'Even':'No meetings';}
+  function seriesClass(record={wins:0,losses:0}){const w=Number(record.wins||0),l=Number(record.losses||0);if(w+l===0)return 'no-meeting';if(w>l)return 'series-win';if(l>w)return 'series-loss';return 'series-even';}
   function record(a,b){return payload?.matrix?.[a]?.[b]||{wins:0,losses:0};}
   function isCupFinal(game={}){const date=String(game.date||game.startTimeUtc||'').slice(0,10);if(date!=='2026-06-30')return false;const pair=[norm(game.homeTeam),norm(game.awayTeam)].sort().join('|');return pair===[norm('Las Vegas Aces'),norm('New York Liberty')].sort().join('|');}
 
@@ -44,12 +45,12 @@
   function focusTable(slug){
     if(slug==='all'){focus.innerHTML='';return;}
     const team=payload.teams.find(t=>t.slug===slug),rows=payload.rows?.[slug]||[];
-    focus.innerHTML=`<section class="rivalry-focus"><div class="page-heading"><p class="kicker">${esc(team?.abbr||'TEAM')} SERIES</p><h2>${esc(team?.name||'Team')} vs. everybody</h2></div><div class="rivalry-focus-table"><div class="rivalry-row head"><span>Opponent</span><span>2026</span><span>Edge</span></div>${rows.map(r=>`<a class="rivalry-row" href="/team.html?team=${encodeURIComponent(r.opponent.slug)}"><strong>${esc(r.opponent.name)}</strong><span>${r.season.wins}-${r.season.losses}</span><span class="${r.season.wins>r.season.losses?'win':r.season.losses>r.season.wins?'loss':'even'}">${esc(r.season.edge)}</span></a>`).join('')}</div></section>`;
+    focus.innerHTML=`<section class="rivalry-focus"><div class="page-heading"><p class="kicker">${esc(team?.abbr||'TEAM')} SERIES</p><h2>${esc(team?.name||'Team')} vs. everybody</h2></div><div class="rivalry-focus-table"><div class="rivalry-row head"><span>Opponent</span><span>2026</span><span>Edge</span></div>${rows.map(r=>{const cls=seriesClass(r.season);return `<a class="rivalry-row" href="/team.html?team=${encodeURIComponent(r.opponent.slug)}"><strong>${esc(r.opponent.name)}</strong><span class="${cls}">${r.season.wins}-${r.season.losses}</span><span class="${cls}">${esc(r.season.edge)}</span></a>`;}).join('')}</div></section>`;
   }
 
   function render(){
     const teams=payload.teams||[];
-    matrix.innerHTML=`<div class="rivalry-matrix"><div class="rivalry-matrix-row head"><span>TEAM</span>${teams.map(t=>`<span title="${esc(t.name)}">${esc(t.abbr)}</span>`).join('')}</div>${teams.map(team=>`<div class="rivalry-matrix-row"><a href="/team.html?team=${encodeURIComponent(team.slug)}"><strong>${esc(team.abbr)}</strong><small>${esc(team.name)}</small></a>${teams.map(opp=>{if(team.slug===opp.slug)return '<span class="self">—</span>';const r=record(team.slug,opp.slug);return `<span class="${r.wins>r.losses?'win':r.losses>r.wins?'loss':'even'}" title="${esc(team.name)} vs ${esc(opp.name)}">${r.wins}-${r.losses}</span>`;}).join('')}</div>`).join('')}</div>`;
+    matrix.innerHTML=`<div class="rivalry-matrix"><div class="rivalry-matrix-row head"><span>TEAM</span>${teams.map(t=>`<span title="${esc(t.name)}">${esc(t.abbr)}</span>`).join('')}</div>${teams.map(team=>`<div class="rivalry-matrix-row"><a href="/team.html?team=${encodeURIComponent(team.slug)}"><strong>${esc(team.abbr)}</strong><small>${esc(team.name)}</small></a>${teams.map(opp=>{if(team.slug===opp.slug)return '<span class="self">—</span>';const r=record(team.slug,opp.slug);return `<span class="${seriesClass(r)}" title="${esc(team.name)} vs ${esc(opp.name)}">${r.wins}-${r.losses}</span>`;}).join('')}</div>`).join('')}</div>`;
     focusTable(select.value||'all');
   }
 

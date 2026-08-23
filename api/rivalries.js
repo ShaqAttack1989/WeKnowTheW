@@ -14,11 +14,19 @@ const ALIASES=new Map([
 ]);
 function canonical(name,year){const slug=ALIASES.get(norm(name))||null;if(slug==='portland-fire'&&year<2026)return null;if(slug==='toronto-tempo'&&year<2026)return null;if(slug==='golden-state-valkyries'&&year<2025)return null;return slug;}
 function scoreValue(value){if(value===null||value===undefined||value==='')return null;const raw=typeof value==='object'?(value.value??value.displayValue??value.score):value;const n=Number(raw);return Number.isFinite(n)?n:null;}
-function isCupFinal(game){if(game.year!==2026||game.date!=='2026-06-30')return false;return [game.home,game.away].sort().join('|')===['las-vegas-aces','new-york-liberty'].sort().join('|');}
+function isCupChampionship(game){
+  const label=norm(game.label||'');
+  if(label.includes('commissionerscup')&&(label.includes('championship')||label.includes('final')))return true;
+  if(game.year===2026&&game.date==='2026-06-30')return [game.home,game.away].sort().join('|')===['las-vegas-aces','new-york-liberty'].sort().join('|');
+  return false;
+}
 
 async function fetchRegularSeasonYear(year){
-  const url=`${ESPN_ROOT}?limit=1000&dates=${encodeURIComponent(year)}&seasontype=2`;
-  const response=await fetch(url,{headers:{Accept:'application/json','User-Agent':'Mozilla/5.0 (compatible; WeKnowTheW/1.0)',Referer:'https://www.espn.com/'},signal:AbortSignal.timeout(9000)});
+  // ESPN's scoreboard archive expects a full YYYYMMDD date or date range.
+  // Passing only the 4-digit season silently returns no historical games.
+  const dates=`${year}0101-${year}1231`;
+  const url=`${ESPN_ROOT}?limit=1000&dates=${dates}&seasontype=2`;
+  const response=await fetch(url,{headers:{Accept:'application/json','User-Agent':'Mozilla/5.0 (compatible; WeKnowTheW/1.0)',Referer:'https://www.espn.com/'},signal:AbortSignal.timeout(12000)});
   if(!response.ok)throw new Error(`ESPN ${year} returned ${response.status}`);
   const body=await response.json();
   const games=(Array.isArray(body.events)?body.events:[]).map(event=>{
@@ -28,8 +36,17 @@ async function fetchRegularSeasonYear(year){
     const away=competitors.find(item=>item.homeAway==='away')||competitors[1]||{};
     const status=event.status?.type||competition.status?.type||{};
     const date=String(event.date||competition.date||'').slice(0,10);
-    return {year,date,home:canonical(home.team?.displayName||home.team?.shortDisplayName||home.team?.name||'',year),away:canonical(away.team?.displayName||away.team?.shortDisplayName||away.team?.name||'',year),homeScore:scoreValue(home.score),awayScore:scoreValue(away.score),completed:Boolean(status.completed)||String(status.state||'').toLowerCase()==='post'};
-  }).filter(game=>game.completed&&game.home&&game.away&&game.homeScore!==null&&game.awayScore!==null&&game.homeScore!==game.awayScore&&!isCupFinal(game));
+    const notes=(Array.isArray(competition.notes)?competition.notes:[]).map(note=>note?.headline||note?.text||'').join(' ');
+    const label=[event.name,event.shortName,competition.name,notes].filter(Boolean).join(' ');
+    const seasonType=Number(event.season?.type??competition.type?.id??competition.type?.type??0);
+    return {
+      year,date,label,seasonType,
+      home:canonical(home.team?.displayName||home.team?.shortDisplayName||home.team?.name||'',year),
+      away:canonical(away.team?.displayName||away.team?.shortDisplayName||away.team?.name||'',year),
+      homeScore:scoreValue(home.score),awayScore:scoreValue(away.score),
+      completed:Boolean(status.completed)||String(status.state||'').toLowerCase()==='post'
+    };
+  }).filter(game=>game.completed&&game.home&&game.away&&game.homeScore!==null&&game.awayScore!==null&&game.homeScore!==game.awayScore&&(!game.seasonType||game.seasonType===2)&&!isCupChampionship(game));
   if(!games.length)throw new Error(`No completed regular-season games returned for ${year}`);
   return games;
 }
@@ -45,13 +62,14 @@ module.exports=async function handler(req,res){
   if(req.method!=='GET'){res.setHeader('Allow','GET');return res.status(405).json({error:'Method not allowed'});}
   const season=Number(req.query.season)||2026;
   const focus=String(req.query.team||'').trim();
-  res.setHeader('Cache-Control','public, s-maxage=3600, stale-while-revalidate=86400');
+  // Never cache a failed archive response. A successful result is cached below.
+  res.setHeader('Cache-Control','no-store, max-age=0');
   const years=Array.from({length:season-1997+1},(_,i)=>1997+i);
   const results=await Promise.allSettled(years.map(fetchRegularSeasonYear));
   const completedYears=years.filter((_,i)=>results[i].status==='fulfilled');
   const missingYears=years.filter((_,i)=>results[i].status!=='fulfilled');
   const allGames=results.filter(r=>r.status==='fulfilled').flatMap(r=>r.value);
-  if(!allGames.length)return res.status(503).json({error:'The historical rivalry archive did not return any completed regular-season games.',coverage:{start:1997,end:season,completedYears,missingYears},sourceVersion:'20260823-rivalries-v5'});
+  if(!allGames.length)return res.status(503).json({error:'The historical rivalry archive did not return any completed regular-season games.',coverage:{start:1997,end:season,completedYears,missingYears},sourceVersion:'20260823-rivalries-v6'});
 
   const allRecords=build(allGames);
   const seasonRecords=build(allGames.filter(game=>game.year===season));
@@ -67,12 +85,13 @@ module.exports=async function handler(req,res){
     });
   }
 
+  res.setHeader('Cache-Control','public, s-maxage=21600, stale-while-revalidate=86400');
   return res.status(200).json({
     updatedAt:new Date().toISOString(),season,teams:CURRENT_TEAMS,matrix,allTimeMatrix,
     rows:focus?teamRows[focus]||[]:teamRows,focusTeam:focus||null,
     coverage:{start:1997,end:season,completedYears,missingYears,seasonGameCount:allGames.filter(game=>game.year===season).length,allGameCount:allGames.length},
     partial:missingYears.length>0,
     allTimeDefinition:'Regular-season franchise series from 1997 through the current season. Relocations stay connected to the current franchise line: Orlando to Connecticut, Detroit/Tulsa to Dallas, and Utah/San Antonio to Las Vegas. The original Portland Fire remains separate from the 2026 expansion Portland Fire.',
-    source:'ESPN public WNBA regular-season scoreboard archive',sourceVersion:'20260823-rivalries-v5'
+    source:'ESPN public WNBA regular-season scoreboard archive',sourceVersion:'20260823-rivalries-v6'
   });
 };

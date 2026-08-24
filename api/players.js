@@ -67,6 +67,9 @@ function baseFromLive(raw, staticItem, teamIds) {
     photoSource: official?.url ? 'Official WNBA headshot CDN' : 'ESPN roster feed',
     photoSourceUrl: staticItem?.sourceUrl || '',
     rosterSourceUrl: staticItem?.sourceUrl || '',
+    currentRoster: true,
+    lastWnbaSeason: 2026,
+    lastTeam: raw.team || staticItem?.team || '',
     dataSources: ['Live ESPN WNBA roster feed', ...(staticItem ? ['Official WNBA roster snapshot cross-check'] : [])]
   };
 }
@@ -99,7 +102,26 @@ function baseFromStatic(item, teamIds) {
     photoSourceUrl: item.sourceUrl || '',
     rosterSourceUrl: item.sourceUrl || '',
     officialRosterSnapshot: true,
+    currentRoster: true,
+    lastWnbaSeason: 2026,
+    lastTeam: item.team,
     dataSources: ['Official WNBA roster snapshot fallback']
+  };
+}
+function baseFromRecent(raw, teamIds, season = 2025) {
+  const base = baseFromLive(raw, null, teamIds);
+  const lastTeam = raw.team || base.team || '';
+  return {
+    ...base,
+    teamId: teamIds.get(key(lastTeam)) || String(raw.teamId || ''),
+    team: lastTeam ? `Free Agent · last: ${lastTeam}` : 'Recent WNBA player',
+    currentRoster: false,
+    recentPlayerpedia: true,
+    lastWnbaSeason: season,
+    lastTeam,
+    liveStatus: 'recent',
+    liveNote: `Played in the WNBA in ${season}; retained in Playerpedia even when not on the current-season roster.`,
+    dataSources: [...new Set([...(base.dataSources || []), `${season} ESPN WNBA roster archive`])]
   };
 }
 function applyOverride(player, override, teamIds) {
@@ -110,18 +132,30 @@ function applyOverride(player, override, teamIds) {
     next.name = override.name; next.firstName = parts.firstName; next.lastName = parts.lastName;
   }
   if (override.team !== undefined) {
-    next.team = override.team || '';
-    next.teamId = override.team ? (teamIds.get(key(override.team)) || next.teamId) : '';
+    if (override.team) {
+      next.team = override.team;
+      next.lastTeam = override.team;
+      next.teamId = teamIds.get(key(override.team)) || next.teamId;
+    } else if (['waived','released','inactive'].includes(String(override.status || '').toLowerCase())) {
+      const lastTeam = next.lastTeam || next.team || '';
+      next.lastTeam = lastTeam;
+      next.team = lastTeam ? `Free Agent · last: ${lastTeam}` : 'Free Agent';
+      next.currentRoster = false;
+    } else {
+      next.team = '';
+      next.teamId = '';
+    }
   }
   if (override.position) next.position = override.position;
   if (override.number !== undefined && override.number !== null) next.number = String(override.number);
   next.liveStatus = override.status || 'active';
   next.liveEffectiveDate = override.effectiveDate || '';
   next.liveNote = override.reason || '';
+  if (['active','development'].includes(String(next.liveStatus).toLowerCase())) next.currentRoster = true;
   next.dataSources = [...new Set([...(next.dataSources || []), 'Curated transaction/roster correction'])];
   return next;
 }
-function buildRoster(rosterData = {}) {
+function buildRoster(rosterData = {}, recentRosterData = {}, recentSeason = 2025) {
   const teamIds = teamMapFromRosters(rosterData);
   const staticMap = staticByName();
   const overrideMap = curatedOverrideMap();
@@ -132,13 +166,19 @@ function buildRoster(rosterData = {}) {
     : OFFICIAL_ROSTER_SNAPSHOT.map(item => baseFromStatic(item, teamIds));
 
   const byName = new Map(players.map(player => [key(player.name), player]));
+
+  const recent = Array.isArray(recentRosterData.players)
+    ? recentRosterData.players.filter(player => player?.name && !staffLike(player.position))
+    : [];
+  for (const raw of recent) {
+    const playerKey = key(raw.name);
+    if (!playerKey || byName.has(playerKey)) continue;
+    byName.set(playerKey, baseFromRecent(raw, teamIds, recentSeason));
+  }
+
   for (const [playerKey, override] of overrideMap.entries()) {
     const status = String(override.status || '').toLowerCase();
     const existing = byName.get(playerKey);
-    if (['waived','released','inactive'].includes(status) && !override.team) {
-      if (existing) byName.delete(playerKey);
-      continue;
-    }
     if (existing) {
       byName.set(playerKey, applyOverride(existing, override, teamIds));
       continue;
@@ -200,25 +240,29 @@ module.exports = async function handler(req, res) {
   res.setHeader('Cache-Control', 's-maxage=1800, stale-while-revalidate=300');
   const checkedAt = new Date().toISOString();
   const errors = [];
-  const [rostersResult, injuriesResult, transactionsResult] = await Promise.allSettled([
-    getWnbaRosters(2026), getWnbaInjuries(), getWnbaTransactions(2026,250)
+  const [rostersResult, recentRostersResult, injuriesResult, transactionsResult] = await Promise.allSettled([
+    getWnbaRosters(2026), getWnbaRosters(2025), getWnbaInjuries(), getWnbaTransactions(2026,250)
   ]);
   const rosterData = rostersResult.status === 'fulfilled' ? rostersResult.value : { teams: [], players: [], failedRosters: 15 };
+  const recentRosterData = recentRostersResult.status === 'fulfilled' ? recentRostersResult.value : { teams: [], players: [], failedRosters: 13 };
   const providerInjuries = injuriesResult.status === 'fulfilled' ? injuriesResult.value : [];
   const providerTransactions = transactionsResult.status === 'fulfilled' ? transactionsResult.value : [];
   if (rostersResult.status === 'rejected') errors.push(`Roster feed: ${rostersResult.reason?.message || 'unavailable'}`);
+  if (recentRostersResult.status === 'rejected') errors.push(`2025 Playerpedia archive: ${recentRostersResult.reason?.message || 'unavailable'}`);
   if (injuriesResult.status === 'rejected') errors.push(`Availability feed: ${injuriesResult.reason?.message || 'unavailable'}`);
   if (transactionsResult.status === 'rejected') errors.push(`Transaction feed: ${transactionsResult.reason?.message || 'unavailable'}`);
 
-  const players = buildRoster(rosterData);
-  const teams = [...new Map(players.map(player => [key(player.team), { id: player.teamId || key(player.team), name: player.team }])).values()].sort((a,b)=>a.name.localeCompare(b.name));
+  const players = buildRoster(rosterData, recentRosterData, 2025);
+  const currentPlayers = players.filter(player => player.currentRoster !== false);
+  const recentPlayers = players.filter(player => player.currentRoster === false);
+  const teams = [...new Map(currentPlayers.filter(player => player.team && !/^Free Agent/i.test(player.team)).map(player => [key(player.team), { id: player.teamId || key(player.team), name: player.team }])).values()].sort((a,b)=>a.name.localeCompare(b.name));
   const transactions = mergeTransactions(providerTransactions);
   const injuries = mergeInjuries(providerInjuries);
   if (!players.length) return res.status(502).json({ error: 'No roster provider returned usable WNBA players.', checkedAt, errors });
 
   return res.status(200).json({
-    source: 'Live ESPN WNBA roster feed + official WNBA roster snapshot fallback + curated transaction corrections',
-    sources: ['Live ESPN WNBA roster feed','Official WNBA roster snapshot fallback','WNBA Transactions Report cross-check','Curated transaction corrections'],
+    source: 'Live 2026 ESPN WNBA rosters + 2025 Playerpedia archive + official WNBA roster snapshot fallback + curated transaction corrections',
+    sources: ['Live ESPN WNBA roster feed','2025 ESPN WNBA roster archive','Official WNBA roster snapshot fallback','WNBA Transactions Report cross-check','Curated transaction corrections'],
     leagueId: 4516,
     updatedAt: checkedAt,
     rosterCheckedAt: checkedAt,
@@ -227,14 +271,18 @@ module.exports = async function handler(req, res) {
     teams,
     players,
     playerCount: players.length,
+    currentPlayerCount: currentPlayers.length,
+    recentPlayerCount: recentPlayers.length,
+    playerpediaCoverage: { currentSeason: 2026, recentArchiveSeason: 2025, rule: 'Players from the prior WNBA season remain searchable in Playerpedia even when they are not on a current roster.' },
     transactions,
     transactionCount: transactions.length,
     injuries,
     injuryCount: injuries.length,
     officialRosterSnapshot: { refreshedAt: '2026-08-22', players: OFFICIAL_ROSTER_SNAPSHOT.length, teams: new Set(OFFICIAL_ROSTER_SNAPSHOT.map(item => item.team)).size, fallbackOnly: true },
     liveRosterCoverage: { players: (rosterData.players || []).length, teams: (rosterData.teams || []).length, failedRosters: Number(rosterData.failedRosters || 0) },
+    recentRosterCoverage: { season: 2025, players: (recentRosterData.players || []).length, teams: (recentRosterData.teams || []).length, failedRosters: Number(recentRosterData.failedRosters || 0) },
     partial: errors.length > 0,
     providerErrors: errors,
-    artworkPolicy: 'Official transparent WNBA headshots are preferred when a verified player ID is available; live roster photos remain as fallbacks.'
+    artworkPolicy: 'Official transparent WNBA headshots are preferred when a verified player ID is available; live and recent-roster photos remain as fallbacks.'
   });
 };

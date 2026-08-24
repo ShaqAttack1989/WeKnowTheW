@@ -70,7 +70,7 @@
     if(history&&!force)return history;
     if(historyPromise&&!force)return historyPromise;
     historyPromise=(async()=>{
-      const response=await fetch(`/api/rivalries?season=2026&v=20260823-v6&cb=${Date.now()}`,{headers:{Accept:'application/json','Cache-Control':'no-cache'},cache:'no-store'});
+      const response=await fetch(`/api/rivalries?season=2026&v=20260824-v7&cb=${Date.now()}`,{headers:{Accept:'application/json','Cache-Control':'no-cache'},cache:'no-store'});
       const data=await response.json().catch(()=>({}));
       if(!response.ok||!Number(data?.coverage?.allGameCount))throw new Error(data.error||'Historical rivalry archive unavailable');
       history=data;historyError='';buildAllTime();return data;

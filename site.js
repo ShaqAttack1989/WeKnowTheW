@@ -44,7 +44,7 @@ const structuredNav=`
   <a class="nav-parent" href="/around-the-w.html">Around the W <span aria-hidden="true">▾</span></a>
   <div class="nav-submenu">
     ${accordion('Live Stats','/live-stats.html',[
-      ['Games','/games.html'],['No Love Lost · Rivalry Board','/no-love-lost.html'],['Player Movement','/player-movement.html'],['Availability Report','/availability-report.html']
+      ['The Stat Kitchen · Weekly Awards + Leaders','/stat-kitchen.html'],['Games','/games.html'],['No Love Lost · Rivalry Board','/no-love-lost.html'],['Player Movement','/player-movement.html'],['Availability Report','/availability-report.html']
     ])}
     ${accordion('Franchise Hubs','/around-the-w.html',[
       ['All Current Teams','/around-the-w.html#team-pages'],['Cleveland Sirens · 2028','/team.html?team=cleveland-sirens']
@@ -187,6 +187,7 @@ mobileNav.addEventListener?.('change',event=>{if(!event.matches)setMobileMenuSta
 
 const hierarchyMap={
   '/live-stats.html':['Around the W','/around-the-w.html','Live Stats'],
+  '/stat-kitchen.html':['Live Stats','/live-stats.html','The Stat Kitchen'],
   '/games.html':['Live Stats','/live-stats.html','Games'],
   '/no-love-lost.html':['Live Stats','/live-stats.html','No Love Lost'],
   '/player-movement.html':['Live Stats','/live-stats.html','Player Movement'],
@@ -248,6 +249,7 @@ document.querySelectorAll('[data-current-year]').forEach(el=>el.textContent=new 
 const coreSearch=[
   ['Around the W','Section','/around-the-w.html','teams season standings'],
   ['Live Stats','Around the W','/live-stats.html','overall conference commissioner cup playoffs standings'],
+  ['The Stat Kitchen','Live Stats','/stat-kitchen.html','players of the week east west points assists rebounds steals blocks turnovers top five leaders'],
   ['Games','Live Stats','/games.html','scores schedule playoffs commissioners cup'],
   ['No Love Lost','Live Stats','/no-love-lost.html','rivalry head to head wins losses struggle meter'],
   ['Player Movement','Live Stats','/player-movement.html','trades signings waives transactions'],

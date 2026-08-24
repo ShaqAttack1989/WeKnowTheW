@@ -47,7 +47,7 @@ const structuredNav=`
       ['The Stat Kitchen · Weekly Awards + Leaders','/stat-kitchen.html'],['Games','/games.html'],['No Love Lost · Rivalry Board','/no-love-lost.html'],['Player Movement','/player-movement.html'],['Availability Report','/availability-report.html']
     ])}
     ${accordion('Franchise Hubs','/around-the-w.html',[
-      ['All Current Teams','/around-the-w.html#team-pages'],['Cleveland Sirens · 2028','/team.html?team=cleveland-sirens']
+      ['All Current Teams','/around-the-w.html#team-pages'],['Franchise Footprints','/franchise-footprints.html'],['Cleveland Sirens · 2028','/team.html?team=cleveland-sirens']
     ])}
     <a class="nav-direct-link" href="/snack-shak.html">Seasoned Notes · Snack Shak</a>
   </div>
@@ -79,7 +79,7 @@ const structuredNav=`
       ['MVP','/award-mvp.html'],['DPOY','/award-dpoy.html'],['All Award Pages','/trophy-case.html#awards']
     ])}
     ${accordion('The Locker Room','/locker-room.html',[
-      ['Legends Locker · Retired Players','/retired-players.html'],['Old Uniforms','/old-uniforms.html'],['All Star Uniforms','/all-star-uniforms.html'],['The Final Buzzer','/final-buzzer.html'],['Colors & Symbols','/colors-symbols.html'],['Franchise Changes','/franchise-changes.html'],['Franchise Family Tree','/franchise-family-tree.html']
+      ['Legends Locker · Retired Players','/retired-players.html'],['Old Uniforms','/old-uniforms.html'],['All Star Uniforms','/all-star-uniforms.html'],['The Final Buzzer','/final-buzzer.html'],['Colors & Symbols','/colors-symbols.html'],['Franchise Changes','/franchise-changes.html'],['Franchise Family Tree','/franchise-family-tree.html'],['Franchise Footprints','/franchise-footprints.html']
     ])}
   </div>
 </div>
@@ -195,6 +195,7 @@ const hierarchyMap={
   '/player-movement.html':['Live Stats','/live-stats.html','Player Movement'],
   '/availability-report.html':['Live Stats','/live-stats.html','Availability Report'],
   '/around-the-w.html':['Around the W','/around-the-w.html','Team Pages'],
+  '/franchise-footprints.html':['Around the W','/around-the-w.html','Franchise Footprints'],
   '/snack-shak.html':['Around the W','/around-the-w.html','Seasoned Notes'],
   '/snack-shaq.html':['Around the W','/around-the-w.html','Seasoned Notes'],
   '/playerpedia.html':['Playerpedia','/playerpedia.html','On the Floor'],
@@ -252,6 +253,7 @@ document.querySelectorAll('[data-current-year]').forEach(el=>el.textContent=new 
 
 const coreSearch=[
   ['Around the W','Section','/around-the-w.html','teams season standings'],
+  ['Franchise Footprints','Franchise Hubs','/franchise-footprints.html','original eight charter teams defunct folded relocated lineage Charlotte Sting Cleveland Rockers Houston Comets Sacramento Monarchs Utah Starzz Las Vegas Aces'],
   ['Live Stats','Around the W','/live-stats.html','overall conference commissioner cup playoffs standings'],
   ['The Stat Kitchen','Live Stats','/stat-kitchen.html','players of the week east west points assists rebounds steals blocks turnovers top five leaders'],
   ['Games','Live Stats','/games.html','scores schedule playoffs commissioners cup'],

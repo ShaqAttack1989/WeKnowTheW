@@ -24,6 +24,7 @@
     const season=seasonFor(player);if(!season)return null;
     const map=snapshotBySeason.get(season);return map?.get(key(player.name))||null;
   }
+  function signature(player,snapshot){return [key(player?.name),seasonFor(player),snapshot?.score,snapshot?.ppg,snapshot?.rpg,snapshot?.apg,snapshot?.spg,snapshot?.bpg,snapshot?.games,snapshot?.per,snapshot?.tsPct].join('|');}
   function photoCandidate(player={}){
     const direct=[player.officialHeadshot,player.photoCutout,player.photo,player.photoThumb,player.headshot].find(value=>/^https?:\/\//i.test(String(value||'').trim()));
     if(direct)return String(direct).trim();
@@ -78,9 +79,11 @@
       const player=playerFor(name);if(!player||!isHistorical(player))return;
       card.classList.add('player-history-card');
       ensureAvatar(card.querySelector('.player-avatar'),player);
-      const season=seasonFor(player);const snapshot=snapshotFor(player);
+      const season=seasonFor(player);const snapshot=snapshotFor(player);const sig=signature(player,snapshot);
       let history=card.querySelector('.player-history-card-meta');
+      if(history?.dataset.historySignature===sig)return;
       if(!history){history=document.createElement('span');history.className='player-history-card-meta';const arrow=card.querySelector('.player-card-arrow');if(arrow)card.insertBefore(history,arrow);else card.appendChild(history);}
+      history.dataset.historySignature=sig;
       history.innerHTML=`<span class="player-history-season">${season?`${season} · LAST ACTIVE`:'LAST ACTIVE SEASON'}</span><span class="player-history-grade">${gradeMarkup(snapshot,season||'')}</span><span class="player-history-stats">${statsMarkup(snapshot)}</span>`;
     });
   }
@@ -95,30 +98,27 @@
     if(modalBody.querySelector('.profile-loading'))return;
     const title=modalBody.querySelector('#playerModalTitle');if(!title)return;
     const player=playerFor(title.textContent.trim());if(!player||!isHistorical(player))return;
-    const snapshot=snapshotFor(player);const season=seasonFor(player);
+    const snapshot=snapshotFor(player);const season=seasonFor(player);const sig=signature(player,snapshot);
     modalBody.classList.add('player-history-modal');
     ensureAvatar(modalBody.querySelector('.player-avatar'),player);
     const gradeLine=modalBody.querySelector('.profile-grade-line');
-    if(gradeLine)gradeLine.innerHTML=gradeMarkup(snapshot,season||'');
+    if(gradeLine&&gradeLine.dataset.historySignature!==sig){gradeLine.dataset.historySignature=sig;gradeLine.innerHTML=gradeMarkup(snapshot,season||'');}
     const metrics=modalBody.querySelector('.playerpedia-metrics-block');
-    if(metrics){
+    if(metrics&&metrics.dataset.historySignature!==sig){
+      metrics.dataset.historySignature=sig;
       metrics.innerHTML=`<h4>${safe(season||'Last active')} efficiency · last active season</h4><div class="playerpedia-metrics-grid"><div class="playerpedia-metric"><span>PLAYER EFFICIENCY RATING</span><strong>${one(snapshot?.per)}</strong><small>PER from the player’s last WNBA season</small></div><div class="playerpedia-metric"><span>TRUE SHOOTING</span><strong>${pct(snapshot?.tsPct)}</strong><small>TS% from the player’s last WNBA season</small></div></div>`;
     }
     let history=modalBody.querySelector('.player-history-profile');
-    if(!history){
-      const wrap=document.createElement('div');wrap.innerHTML=modalHistoryMarkup(player,snapshot);history=wrap.firstElementChild;
-      const metricsBlock=modalBody.querySelector('.playerpedia-metrics-block');
-      if(metricsBlock)metricsBlock.insertAdjacentElement('afterend',history);
-      else modalBody.querySelector('.profile-facts')?.insertAdjacentElement('afterend',history);
-    }else{
-      const wrap=document.createElement('div');wrap.innerHTML=modalHistoryMarkup(player,snapshot);history.replaceWith(wrap.firstElementChild);
-    }
+    if(history?.dataset.historySignature===sig)return;
+    const wrap=document.createElement('div');wrap.innerHTML=modalHistoryMarkup(player,snapshot);const next=wrap.firstElementChild;if(!next)return;next.dataset.historySignature=sig;
+    if(history)history.replaceWith(next);
+    else{const metricsBlock=modalBody.querySelector('.playerpedia-metrics-block');if(metricsBlock)metricsBlock.insertAdjacentElement('afterend',next);else modalBody.querySelector('.profile-facts')?.insertAdjacentElement('afterend',next);}
   }
   function scheduleModal(){clearTimeout(modalTimer);modalTimer=setTimeout(decorateModal,140);}
 
   async function fetchSeason(season){
     try{
-      const response=await fetch(`/api/player-season-snapshot?season=${encodeURIComponent(season)}&cb=20260824-v1`,{headers:{Accept:'application/json'}});
+      const response=await fetch(`/api/player-season-snapshot?season=${encodeURIComponent(season)}&cb=20260824-v2`,{headers:{Accept:'application/json'}});
       const payload=await response.json().catch(()=>({}));
       if(!response.ok||!Array.isArray(payload.players))return;
       snapshotBySeason.set(season,new Map(payload.players.map(item=>[key(item.name),item])));
@@ -126,7 +126,7 @@
   }
   async function load(){
     try{
-      const response=await fetch('/api/players?playerHistory=20260824-v1',{headers:{Accept:'application/json'},cache:'no-store'});
+      const response=await fetch('/api/players?playerHistory=20260824-v2',{headers:{Accept:'application/json'},cache:'no-store'});
       const payload=await response.json().catch(()=>({}));if(!response.ok)throw new Error(payload.error||'Player history unavailable');
       roster=Array.isArray(payload.players)?payload.players:[];rosterByName=new Map(roster.map(player=>[key(player.name),player]));
       const seasons=[...new Set(roster.filter(isHistorical).map(seasonFor).filter(Boolean))].sort((a,b)=>b-a);

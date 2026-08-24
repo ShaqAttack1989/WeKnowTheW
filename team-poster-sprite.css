@@ -133,3 +133,142 @@
   .team-poster-footer{min-height:50px;padding:0 14px;gap:10px;font-size:.74rem;}
   .directory-expansion-label{align-items:flex-start;flex-direction:column;gap:3px;margin-top:8px;}
 }
+
+
+/* Franchise Footprints legacy team cards */
+.legacy-team-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:26px;
+  align-items:start;
+}
+.legacy-team-card{
+  background:
+    radial-gradient(circle at 82% 20%,color-mix(in srgb,var(--team-accent) 30%,transparent) 0 2px,transparent 3px),
+    linear-gradient(135deg,var(--team-secondary),var(--team-primary));
+}
+.legacy-team-card::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  z-index:0;
+  background:linear-gradient(115deg,rgba(255,255,255,.13),transparent 38%,rgba(0,0,0,.2));
+}
+.legacy-team-card::after{
+  content:'';
+  position:absolute;
+  right:-12%;
+  top:-42%;
+  width:62%;
+  aspect-ratio:1;
+  border:2px solid rgba(255,255,255,.14);
+  border-radius:50%;
+  box-shadow:0 0 0 34px rgba(255,255,255,.05),0 0 0 68px rgba(255,255,255,.025);
+}
+.legacy-card-era{
+  position:absolute;
+  top:18px;
+  left:20px;
+  z-index:4;
+  padding:7px 10px;
+  border-radius:999px;
+  background:rgba(9,7,16,.72);
+  color:var(--team-accent);
+  font-size:.66rem;
+  font-weight:1000;
+  letter-spacing:.1em;
+}
+.legacy-city-word{
+  position:absolute;
+  left:-.035em;
+  bottom:32px;
+  z-index:0;
+  color:rgba(255,255,255,.075);
+  font-size:clamp(3.5rem,8vw,7.2rem);
+  font-weight:1000;
+  letter-spacing:-.08em;
+  line-height:.72;
+  white-space:nowrap;
+}
+.legacy-team-logo-wrap{
+  position:absolute;
+  left:7%;
+  top:24%;
+  z-index:3;
+  width:31%;
+  aspect-ratio:1;
+  display:grid;
+  place-items:center;
+  overflow:hidden;
+  padding:14px;
+  border-radius:24px;
+  background:rgba(255,255,255,.94);
+  box-shadow:0 16px 30px rgba(0,0,0,.24);
+}
+.legacy-team-logo-wrap>span{
+  color:var(--team-secondary);
+  font-size:1.45rem;
+  font-weight:1000;
+  letter-spacing:.04em;
+}
+.legacy-team-logo{
+  position:absolute;
+  inset:10px;
+  width:calc(100% - 20px);
+  height:calc(100% - 20px);
+  object-fit:contain;
+}
+.legacy-team-copy{
+  position:absolute;
+  right:6%;
+  top:34%;
+  z-index:3;
+  width:51%;
+  display:grid;
+  justify-items:end;
+  text-align:right;
+  color:#fff;
+  text-shadow:0 4px 16px rgba(0,0,0,.4);
+}
+.legacy-team-copy small{
+  color:var(--team-accent);
+  font-size:.72rem;
+  font-weight:1000;
+  letter-spacing:.14em;
+}
+.legacy-team-copy strong{
+  max-width:100%;
+  margin-top:5px;
+  font-size:clamp(1.65rem,4vw,3.35rem);
+  line-height:.88;
+  letter-spacing:-.055em;
+}
+.legacy-team-card .team-poster-footer{z-index:5}
+.legacy-team-card.legacy-starzz{
+  grid-column:1/-1;
+  aspect-ratio:21/9;
+}
+.legacy-team-card.legacy-starzz .legacy-team-logo-wrap{
+  width:22%;
+  left:11%;
+  top:17%;
+}
+.legacy-team-card.legacy-starzz .legacy-team-copy{
+  right:12%;
+  top:31%;
+  width:48%;
+}
+@media(max-width:900px){
+  .legacy-team-grid{grid-template-columns:1fr;gap:22px}
+  .legacy-team-card.legacy-starzz{grid-column:auto;aspect-ratio:16/9}
+  .legacy-team-card.legacy-starzz .legacy-team-logo-wrap{width:31%;left:7%;top:24%}
+  .legacy-team-card.legacy-starzz .legacy-team-copy{right:6%;top:34%;width:51%}
+}
+@media(max-width:520px){
+  .legacy-card-era{top:12px;left:13px;font-size:.56rem;padding:6px 8px}
+  .legacy-team-logo-wrap{left:5%;top:25%;width:32%;padding:8px;border-radius:17px}
+  .legacy-team-copy{right:5%;top:36%;width:56%}
+  .legacy-team-copy small{font-size:.6rem}
+  .legacy-team-copy strong{font-size:clamp(1.35rem,8vw,2.2rem)}
+  .legacy-city-word{font-size:3.3rem}
+}

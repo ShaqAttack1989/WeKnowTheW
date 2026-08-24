@@ -1,4 +1,5 @@
-body.team-page{--team-on-primary:#fff;--team-on-secondary:#fff;--team-on-accent:#17131f;--team-primary-text:#5720a3;--team-secondary-on-dark:#8fd1ff;background:#fffaf0;color:#17131f;}
+:root{--team-on-primary:#fff;--team-on-secondary:#fff;--team-on-accent:#17131f;--team-primary-text:#5720a3;--team-secondary-on-dark:#8fd1ff;}
+body.team-page{background:#fffaf0;color:#17131f;}
 .team-hero{--team-primary:#6c2ad9;--team-secondary:#140a2f;--team-accent:#d8ff4f;--team-text:#fff;position:relative;overflow:hidden;background:linear-gradient(118deg,#111217 0%,#202126 27%,rgba(255,255,255,.98) 27%,rgba(255,255,255,.94) 67%,var(--team-primary) 150%);color:#17131f;padding-bottom:58px;isolation:isolate;}
 .team-hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,.02),transparent 46%,rgba(0,0,0,.18));z-index:-5;}
 .team-hero .nav{position:relative;z-index:8;color:#fff;}

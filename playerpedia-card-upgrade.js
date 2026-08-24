@@ -9,7 +9,7 @@
   const safe=value=>String(value??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[ch]));
   const has=value=>value!==null&&value!==undefined&&String(value).trim()!=='';
   const fmtTs=value=>{const n=Number(value);if(!Number.isFinite(n))return '—';return `${(Math.abs(n)<=1?n*100:n).toFixed(1)}%`;};
-  const gradeClass=letter=>`grade-${String(letter||'NR').charAt(0).toLowerCase()||'nr'}`;
+  const gradeClass=letter=>{const value=String(letter||'NR').toUpperCase();return value==='NR'?'grade-nr':`grade-${value.charAt(0).toLowerCase()}`;};
 
   let roster=[];
   let rosterByName=new Map();
@@ -31,7 +31,7 @@
     const position=String(player.position||'Player').trim()||'Player';
     return `${position}${player.number?` · #${player.number}`:''}`;
   }
-  function gradeMarkup(grade={},hero=false){
+  function gradeMarkup(grade={}){
     const letter=grade?.letter||'NR';
     const score=Number.isFinite(Number(grade?.score))?`${Math.round(Number(grade.score))}%`:'—';
     const provisional=grade?.provisional&&letter!=='NR'?'<span class="player-grade-provisional">PROV</span>':'';
@@ -58,7 +58,7 @@
   async function fetchDetail(name,team){
     const cacheKey=`${key(name)}|${key(team)}`;
     if(detailCache.has(cacheKey))return detailCache.get(cacheKey);
-    const promise=fetch(`/api/player?name=${encodeURIComponent(name)}&team=${encodeURIComponent(team||'')}&playerpedia2k=20260824-v1`,{headers:{Accept:'application/json'}})
+    const promise=fetch(`/api/player?name=${encodeURIComponent(name)}&team=${encodeURIComponent(team||'')}&playerpedia2k=20260824-v2`,{headers:{Accept:'application/json'}})
       .then(async response=>{const payload=await response.json().catch(()=>({}));return response.ok?(payload.player||{}):{};})
       .catch(()=>({}));
     detailCache.set(cacheKey,promise);
@@ -93,7 +93,7 @@
       const picks=await draftClass(draftYear);
       const match=picks.find(item=>key(item.player)===key(name));
       if(match){draftPick=Number(match.pick)||null;round=Number(match.round)||round;}
-      else if(picks.length) return {undrafted:true,draftYear};
+      else if(picks.length)return {undrafted:true,draftYear};
     }
     if(draftYear||draftPick)return {draftYear,draftPick,round};
     return {undrafted:true,draftYear:null};
@@ -169,8 +169,8 @@
       copy.querySelector('.profile-position-line')?.remove();
       copy.querySelector('.profile-team-name')?.remove();
       copy.querySelector('.profile-grade-line')?.remove();
-      title.insertAdjacentHTML('beforebegin',`<p class="profile-position-line">${safe(positionLine({...player,...detail,name}))}</p>`);
-      title.insertAdjacentHTML('afterend',`<p class="profile-team-name">${safe(player.team||detail.team||'Current roster')}</p><div class="profile-grade-line">${gradeMarkup(grade,true)}</div>`);
+      title.insertAdjacentHTML('beforebegin',`<p class="profile-position-line">${safe(positionLine({...detail,...player,name}))}</p>`);
+      title.insertAdjacentHTML('afterend',`<p class="profile-team-name">${safe(player.team||detail.team||'Current roster')}</p><div class="profile-grade-line">${gradeMarkup(grade)}</div>`);
     }
 
     factsHost.classList.add('playerpedia-core-facts');
@@ -198,9 +198,9 @@
 
   async function loadData(){
     const requests=[
-      fetch('/api/players?playerpedia2k=20260824-v1',{headers:{Accept:'application/json'},cache:'no-store'}).then(r=>r.json()),
+      fetch('/api/players?playerpedia2k=20260824-v2',{headers:{Accept:'application/json'},cache:'no-store'}).then(r=>r.json()),
       fetch(`/api/player-grades?season=2026&cb=${Date.now()}`,{headers:{Accept:'application/json'},cache:'no-store'}).then(r=>r.json()),
-      fetch('/api/player-years?season=2026&playerpedia2k=20260824-v1',{headers:{Accept:'application/json'}}).then(r=>r.json()),
+      fetch('/api/player-years?season=2026&playerpedia2k=20260824-v2',{headers:{Accept:'application/json'}}).then(r=>r.json()),
       ...factFiles.map(url=>fetch(url,{headers:{Accept:'application/json'}}).then(r=>r.json()).catch(()=>({})))
     ];
     const results=await Promise.allSettled(requests);

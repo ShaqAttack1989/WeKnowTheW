@@ -22,6 +22,7 @@
     const name=card.querySelector('h3')?.textContent?.trim()||'';
     return bySeason.get(season)?.get(key(name))||null;
   }
+  function signature(card,snapshot){return [finalSeason(card),snapshot?.score,snapshot?.ppg,snapshot?.rpg,snapshot?.apg,snapshot?.spg,snapshot?.games,snapshot?.per,snapshot?.tsPct].join('|');}
   function ensurePhoto(card){
     const name=card.querySelector('h3')?.textContent?.trim()||'';
     const media=window.W_RETIRED_MEDIA?.[name];
@@ -42,11 +43,12 @@
   function decorate(){
     grid.querySelectorAll('.retired-card').forEach(card=>{
       ensurePhoto(card);
-      const snapshot=snapshotFor(card);
+      const snapshot=snapshotFor(card);const sig=signature(card,snapshot);
       const existing=card.querySelector('.retired-last-season');
+      if(existing?.dataset.historySignature===sig)return;
       const body=card.querySelector('.retired-card-body');if(!body)return;
       const wrap=document.createElement('div');wrap.innerHTML=historyMarkup(card,snapshot);const next=wrap.firstElementChild;
-      if(!next)return;
+      if(!next)return;next.dataset.historySignature=sig;
       if(existing)existing.replaceWith(next);
       else{const source=body.querySelector('.retired-card-source');if(source)body.insertBefore(next,source);else body.appendChild(next);}
     });
@@ -54,7 +56,7 @@
   function schedule(){clearTimeout(timer);timer=setTimeout(decorate,80);}
   async function fetchSeason(season){
     try{
-      const response=await fetch(`/api/player-season-snapshot?season=${encodeURIComponent(season)}&legacy=20260824-v1`,{headers:{Accept:'application/json'}});
+      const response=await fetch(`/api/player-season-snapshot?season=${encodeURIComponent(season)}&legacy=20260824-v2`,{headers:{Accept:'application/json'}});
       const payload=await response.json().catch(()=>({}));if(!response.ok||!Array.isArray(payload.players))return;
       bySeason.set(season,new Map(payload.players.map(item=>[key(item.name),item])));
     }catch{}

@@ -67,6 +67,8 @@ const structuredNav=`
 <div class="nav-group">
   <a class="nav-parent" href="/w-vault.html">The W Vault <span aria-hidden="true">▾</span></a>
   <div class="nav-submenu">
+    <a class="nav-direct-link" href="/league-origins.html">League Origins</a>
+    <a class="nav-direct-link" href="/milestone-moments.html">Milestone Moments</a>
     ${accordion('The Film Room','/film-room.html',[
       ['Positions','/film-room.html#positions'],['Offense','/film-room.html#offense'],['Defense','/film-room.html#defense'],['Strategy','/film-room.html#strategy'],['Watch Like a Coach','/film-room.html#watch-like-a-coach'],['Basketball Dictionary','/basketball-dictionary.html']
     ])}
@@ -204,6 +206,8 @@ const hierarchyMap={
   '/herstory-life-chapters.html':['Herstory','/herstory.html','Life Chapters'],
   '/starting-five.html':['Playerpedia','/playerpedia.html','Shak’s Starting Five'],
   '/bench-mob.html':['Playerpedia','/playerpedia.html','Shak’s Bench Mob'],
+  '/league-origins.html':['The W Vault','/w-vault.html','League Origins'],
+  '/milestone-moments.html':['The W Vault','/w-vault.html','Milestone Moments'],
   '/film-room.html':['The W Vault','/w-vault.html','The Film Room'],
   '/basketball-dictionary.html':['The Film Room','/film-room.html','Basketball Dictionary'],
   '/trophy-case.html':['The W Vault','/w-vault.html','The Trophy Room'],
@@ -259,6 +263,8 @@ const coreSearch=[
   ['Herstory','Playerpedia','/herstory.html','education business advocacy family'],
   ['Shak’s Starting Five','Playerpedia','/starting-five.html','featured players rotation'],
   ['Shak’s Bench Mob','Playerpedia','/bench-mob.html','role players sixth woman'],
+  ['League Origins','W Vault','/league-origins.html','1996 1997 original eight inaugural season first game draft charter teams'],
+  ['Milestone Moments','W Vault','/milestone-moments.html','firsts breakthroughs barrier breakers social justice charter expansion history'],
   ['The Film Room','W Vault','/film-room.html','positions offense defense strategy'],
   ['Basketball Dictionary','W Vault','/basketball-dictionary.html','glossary basketball terms'],
   ['The Trophy Room','W Vault','/trophy-case.html','championships awards mvp dpoy'],

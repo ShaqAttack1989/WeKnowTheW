@@ -2,6 +2,8 @@ const CURRENT_TEAMS=[
   ['atlanta-dream','Atlanta Dream','ATL'],['chicago-sky','Chicago Sky','CHI'],['connecticut-sun','Connecticut Sun','CON'],['dallas-wings','Dallas Wings','DAL'],['golden-state-valkyries','Golden State Valkyries','GSV'],['indiana-fever','Indiana Fever','IND'],['las-vegas-aces','Las Vegas Aces','LVA'],['los-angeles-sparks','Los Angeles Sparks','LAS'],['minnesota-lynx','Minnesota Lynx','MIN'],['new-york-liberty','New York Liberty','NYL'],['phoenix-mercury','Phoenix Mercury','PHX'],['portland-fire','Portland Fire','PDX'],['seattle-storm','Seattle Storm','SEA'],['toronto-tempo','Toronto Tempo','TOR'],['washington-mystics','Washington Mystics','WAS']
 ].map(([slug,name,abbr])=>({slug,name,abbr}));
 
+const HISTORY_SNAPSHOT=require('../data/rivalry-history.json');
+
 const ESPN_ROOT='https://site.api.espn.com/apis/site/v2/sports/basketball/wnba/scoreboard';
 
 function norm(v=''){return String(v).normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]/g,'');}
@@ -62,24 +64,22 @@ module.exports=async function handler(req,res){
   if(req.method!=='GET'){res.setHeader('Allow','GET');return res.status(405).json({error:'Method not allowed'});}
   const season=Number(req.query.season)||2026;
   const focus=String(req.query.team||'').trim();
-  // Never cache a failed archive response. A successful result is cached below.
   res.setHeader('Cache-Control','no-store, max-age=0');
-  const years=Array.from({length:season-1997+1},(_,i)=>1997+i);
-  const results=await Promise.allSettled(years.map(fetchRegularSeasonYear));
-  const completedYears=years.filter((_,i)=>results[i].status==='fulfilled');
-  const missingYears=years.filter((_,i)=>results[i].status!=='fulfilled');
-  const allGames=results.filter(r=>r.status==='fulfilled').flatMap(r=>r.value);
-  if(!allGames.length)return res.status(503).json({error:'The historical rivalry archive did not return any completed regular-season games.',coverage:{start:1997,end:season,completedYears,missingYears},sourceVersion:'20260823-rivalries-v6'});
-
-  const allRecords=build(allGames);
-  const seasonRecords=build(allGames.filter(game=>game.year===season));
+  let currentGames=[];
+  const providerErrors=[];
+  if(season>Number(HISTORY_SNAPSHOT.through||2025)){
+    try{currentGames=await fetchRegularSeasonYear(season);}catch(error){providerErrors.push(error.message||'Current season archive unavailable');}
+  }
+  const seasonRecords=build(currentGames);
   const teamRows={};
   const allTimeMatrix={};
   const matrix={};
   for(const team of CURRENT_TEAMS){
     allTimeMatrix[team.slug]={};matrix[team.slug]={};
     teamRows[team.slug]=CURRENT_TEAMS.filter(opponent=>opponent.slug!==team.slug).map(opponent=>{
-      const current=rec(seasonRecords,team.slug,opponent.slug),allTime=rec(allRecords,team.slug,opponent.slug);
+      const current=rec(seasonRecords,team.slug,opponent.slug);
+      const archived=HISTORY_SNAPSHOT.matrix?.[team.slug]?.[opponent.slug]||blank();
+      const allTime={wins:Number(archived.wins||0)+Number(current.wins||0),losses:Number(archived.losses||0)+Number(current.losses||0)};
       allTimeMatrix[team.slug][opponent.slug]=allTime;matrix[team.slug][opponent.slug]=current;
       return {opponent,season:{...current,edge:edge(current)},allTime:{...allTime,edge:edge(allTime)},strugglePct:struggle(allTime)};
     });
@@ -89,9 +89,10 @@ module.exports=async function handler(req,res){
   return res.status(200).json({
     updatedAt:new Date().toISOString(),season,teams:CURRENT_TEAMS,matrix,allTimeMatrix,
     rows:focus?teamRows[focus]||[]:teamRows,focusTeam:focus||null,
-    coverage:{start:1997,end:season,completedYears,missingYears,seasonGameCount:allGames.filter(game=>game.year===season).length,allGameCount:allGames.length},
-    partial:missingYears.length>0,
-    allTimeDefinition:'Regular-season franchise series from 1997 through the current season. Relocations stay connected to the current franchise line: Orlando to Connecticut, Detroit/Tulsa to Dallas, and Utah/San Antonio to Las Vegas. The original Portland Fire remains separate from the 2026 expansion Portland Fire.',
-    source:'ESPN public WNBA regular-season scoreboard archive',sourceVersion:'20260823-rivalries-v6'
+    coverage:{start:1998,end:season,completedYears:[...Array.from({length:Math.max(0,Math.min(season,Number(HISTORY_SNAPSHOT.through||2025))-1998+1)},(_,i)=>1998+i),...(currentGames.length&&season>Number(HISTORY_SNAPSHOT.through||2025)?[season]:[])],missingYears:HISTORY_SNAPSHOT.missingYears||[],seasonGameCount:currentGames.length,allGameCount:Number(HISTORY_SNAPSHOT.gameCount||0)+currentGames.length},
+    partial:providerErrors.length>0,
+    providerErrors,
+    allTimeDefinition:'Regular-season franchise series from the scored historical archive through the current season. Relocations stay connected to the current franchise line: Orlando to Connecticut, Detroit and Tulsa to Dallas, and Utah and San Antonio to Las Vegas. The original Portland Fire remains separate from the 2026 expansion Portland Fire.',
+    source:'Bundled ESPN historical WNBA scoreboard archive with the current ESPN season feed',sourceVersion:'20260824-rivalries-v7'
   });
 };

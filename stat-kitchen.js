@@ -1,55 +1,45 @@
 function skSafe(value=''){return String(value).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;').replaceAll("'",'&#039;');}
 
 const weeklyAwards=[
-  {week:12,dates:'Aug. 10 through 16',east:{name:'Caitlin Clark',team:'Indiana Fever',line:'25.7 PPG · 9.7 APG · 3.3 RPG',source:'https://fever.wnba.com/news/indiana-fever-guard-caitlin-clark-named-eastern-conference-player-of-the-week-3'},west:{name:'Olivia Miles',team:'Minnesota Lynx',line:'18.0 PPG · 7.5 APG · 4.5 RPG',source:'https://lynx.wnba.com/news/minnesota-lynx-guard-olivia-miles-named-western-conference-player-of-the-week'}},
-  {week:11,dates:'Aug. 3 through 9',east:{name:'Shakira Austin',team:'Washington Mystics',line:'22.3 PPG · 11.7 RPG · 2.3 BPG',source:'https://mystics.wnba.com/news/shakira-austin-named-wnba-eastern-conference-player-of-the-week'},west:{name:'Kayla McBride',team:'Minnesota Lynx',line:'24.3 PPG · 1.7 RPG · 1.0 SPG',source:'https://www.wnba.com/watch/video/potw-kayla-mcbride-2'}},
-  {week:10,dates:'July 27 through Aug. 2',east:{name:'Caitlin Clark',team:'Indiana Fever',line:'25.7 PPG · 9.0 APG · 5.0 RPG',source:'https://www.wnba.com/watch/video/potw-caitlin-clark-week-10'},west:{name:'A’ja Wilson',team:'Las Vegas Aces',line:'32.3 PPG · 12.0 RPG · 4.7 APG',source:'https://www.wnba.com/watch/video/potw-aja-wilson-2'}}
+  {week:12,dates:'Aug. 10 through 16',east:{name:'Caitlin Clark',team:'Indiana Fever',line:'25.7 PPG · 9.7 APG · 3.3 RPG',source:'https://www.wnba.com/watch/video/potw-caitlin-clark-week-12'},west:{name:'Olivia Miles',team:'Minnesota Lynx',line:'18.0 PPG · 7.5 APG · 4.5 RPG',source:'https://www.wnba.com/watch/video/potw-olivia-miles-mix'}},
+  {week:11,dates:'Aug. 3 through 9',east:{name:'Shakira Austin',team:'Washington Mystics',line:'22.3 PPG · 11.7 RPG · 2.3 BPG',source:'https://www.wnba.com/watch/video/potw-shakira-austin'},west:{name:'Kayla McBride',team:'Minnesota Lynx',line:'24.3 PPG · 1.7 RPG · 1.0 SPG',source:'https://www.wnba.com/watch/video/potw-kayla-mcbride-2'}},
+  {week:10,dates:'July 27 through Aug. 2',east:{name:'Caitlin Clark',team:'Indiana Fever',line:'25.7 PPG · 9.0 APG · 5.0 RPG',source:'https://www.wnba.com/watch/video/potw-caitlin-clark-week-10'},west:{name:'A’ja Wilson',team:'Las Vegas Aces',line:'32.3 PPG · 12.0 RPG · 4.7 APG',source:'https://www.wnba.com/watch/video/potw-aja-wilson-2'}},
+  {week:9,dates:'July 13 through 19',east:{name:'Caitlin Clark',team:'Indiana Fever',line:'25.0 PPG · 7.7 APG · 2.3 RPG',source:'https://www.wnba.com/watch/video/potw-caitlin-clark-2'},west:{name:'Kayla McBride',team:'Minnesota Lynx',line:'28.3 PPG · 3.3 RPG · 1.7 SPG',source:'https://www.wnba.com/watch/video/potw-kayla-mcbride'}},
+  {week:8,dates:'July 2 through 12',east:{name:'Kelsey Mitchell',team:'Indiana Fever',line:'28.0 PPG · 4.3 APG · 2.8 RPG',source:'https://www.wnba.com/watch/video/potw-kelsey-mitchell'},west:{name:'Paige Bueckers',team:'Dallas Wings',line:'23.6 PPG · 7.4 APG · 5.8 RPG',source:'https://www.wnba.com/watch/video/potw-paige-bueckers'}},
+  {week:7,dates:'June 22 through 28',east:{name:'Marina Mabrey',team:'Connecticut Sun',line:'38.0 PPG · 5.0 RPG · 3.0 APG',source:'https://www.wnba.com/watch/video/potw-marina-mabrey'},west:{name:'Natasha Howard',team:'Minnesota Lynx',line:'21.0 PPG · 14.5 RPG · 2.5 SPG',source:'https://www.wnba.com/watch/video/potw-natasha-howard'}},
+  {week:6,dates:'June 15 through 21',east:{name:'Sonia Citron',team:'Washington Mystics',line:'21.0 PPG · 6.7 RPG · 4.7 APG',source:'https://www.wnba.com/watch/video/potw-sonia-citron'},west:{name:'Jessica Shepard',team:'Dallas Wings',line:'16.7 PPG · 11.0 RPG · 5.3 APG',source:'https://www.wnba.com/watch/video/potw-shepard'}},
+  {week:5,dates:'June 8 through 14',east:{name:'Caitlin Clark',team:'Indiana Fever',line:'25.3 PPG · 6.7 APG · 4.3 RPG',source:'https://www.wnba.com/watch/video/potw-caitlin-clark'},west:{name:'A’ja Wilson',team:'Las Vegas Aces',line:'30.0 PPG · 9.0 RPG · 2.7 BPG',source:'https://www.wnba.com/watch/video/potw-aja-wilson'}},
+  {week:4,dates:'June 1 through 7',east:{name:'Breanna Stewart',team:'New York Liberty',line:'24.5 PPG · 8.5 RPG · 3.0 APG',source:'https://liberty.wnba.com/news/breanna-stewart-named-eastern-conference-player-of-the-week-for-second-time-in-2026'},west:{name:'Olivia Miles',team:'Minnesota Lynx',line:'22.0 PPG · 7.7 APG · 4.7 RPG',source:'https://www.wnba.com/watch/video/week-4-western-conference-player-of-the-week-olivia-miles'}},
+  {week:3,dates:'May 25 through 31',east:{name:'Marina Mabrey',team:'Connecticut Sun',line:'21.0 PPG · 5.5 APG · 3.5 RPG',source:'https://www.wnba.com/watch/video/week-3-eastern-conference-player-of-the-week-marina-mabrey'},west:{name:'Jessica Shepard',team:'Dallas Wings',line:'22.0 PPG · 20.0 RPG · 10.0 APG',source:'https://www.wnba.com/watch/video/week-3-western-conference-player-of-the-week-jessica-shepard'}},
+  {week:2,dates:'May 18 through 24',east:{name:'Rhyne Howard',team:'Atlanta Dream',line:'23.0 PPG · 6.0 RPG · 4.0 APG',source:'https://www.wnba.com/watch/video/week-2-eastern-conference-player-of-the-week-rhyne-howard'},west:{name:'Kelsey Plum',team:'Los Angeles Sparks',line:'27.0 PPG · 8.0 APG · 2.5 RPG',source:'https://www.wnba.com/watch/video/week-2-western-conference-player-of-the-week-kelsey-plum'}},
+  {week:1,dates:'May 8 through 17',east:{name:'Breanna Stewart',team:'New York Liberty',line:'23.0 PPG · 9.0 RPG · 2.0 BPG',source:'https://www.wnba.com/watch/video/week-1-eastern-conference-player-of-the-week'},west:{name:'A’ja Wilson',team:'Las Vegas Aces',line:'25.0 PPG · 5.6 RPG · 2.0 BPG',source:'https://www.wnba.com/watch/video/week-1-western-conference-player-of-the-week'}}
 ];
 
-function awardCard(conference,award,latest=false){
+const normalizeName=value=>String(value||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[’']/g,'').toLowerCase().replace(/[^a-z0-9]/g,'');
+const playerPhotos=new Map();
+function winNumber(name,week){return weeklyAwards.filter(item=>item.week<=week&&[item.east.name,item.west.name].some(candidate=>normalizeName(candidate)===normalizeName(name))).length;}
+function ordinal(number){const mod100=number%100;if(mod100>=11&&mod100<=13)return `${number}TH`;return `${number}${number%10===1?'ST':number%10===2?'ND':number%10===3?'RD':'TH'}`;}
+function photoMarkup(name){const player=playerPhotos.get(normalizeName(name));const photo=player?.photo||player?.photoThumb||player?.headshot||'';const initials=String(name).split(/\s+/).map(part=>part[0]).join('').slice(0,2);return `<div class="award-photo"><span>${skSafe(initials)}</span>${photo?`<img src="${skSafe(photo)}" alt="${skSafe(name)}" loading="lazy" decoding="async" onerror="this.remove()">`:''}</div>`;}
+
+function awardCard(conference,award,week,latest=false){
   const conferenceName=conference==='East'?'EASTERN':'WESTERN';
-  return `<article class="award-card ${conference.toLowerCase()} ${latest?'latest':''}"><span class="award-conference">${conferenceName} CONFERENCE</span><div class="award-flame" aria-hidden="true">${conference==='East'?'E':'W'}</div><div><small>${latest?'CURRENT WINNER':'WINNER'}</small><h3>${skSafe(award.name)}</h3><strong>${skSafe(award.team)}</strong><p>${skSafe(award.line)}</p><a href="${skSafe(award.source)}" target="_blank" rel="noopener noreferrer">Official receipt <span aria-hidden="true">→</span></a></div></article>`;
+  const count=winNumber(award.name,week);
+  const repeat=count>1;
+  return `<article class="award-card ${conference.toLowerCase()} ${latest?'latest':''} ${repeat?'repeat-winner':'first-winner'}"><span class="award-conference">${conferenceName} CONFERENCE</span>${photoMarkup(award.name)}<div class="award-copy"><small>${latest?'CURRENT WINNER':'WINNER'}</small><h3>${skSafe(award.name)}</h3><strong>${skSafe(award.team)}</strong><div class="award-badges"><span class="win-badge ${repeat?'repeat':''}">${repeat?'♨ REPEAT HEAT':'● FIRST SERVING'}</span><span>${ordinal(count)} WIN</span></div><p>${skSafe(award.line)}</p><a href="${skSafe(award.source)}" target="_blank" rel="noopener noreferrer">Official receipt <span aria-hidden="true">→</span></a></div></article>`;
 }
 
-function renderAwards(){
-  const latest=weeklyAwards[0];
-  document.getElementById('weeklyAwards').innerHTML=`<div class="award-week-label"><span>WEEK ${latest.week}</span><strong>${skSafe(latest.dates)}, 2026</strong></div>${awardCard('East',latest.east,true)}${awardCard('West',latest.west,true)}`;
-  document.getElementById('awardsArchive').innerHTML=`<h3>Still warm, previous winners</h3>${weeklyAwards.slice(1).map(item=>`<details class="award-history"><summary><span>Week ${item.week}</span><strong>${skSafe(item.dates)}</strong></summary><div class="award-history-grid">${awardCard('East',item.east)}${awardCard('West',item.west)}</div></details>`).join('')}`;
-}
+function weekBlock(item,latest=false){return `<section class="award-season-week ${latest?'current-week':''}"><div class="award-week-label"><span>WEEK ${item.week}</span><strong>${skSafe(item.dates)}, 2026</strong>${latest?'<b>LATEST</b>':''}</div><div class="award-week-grid">${awardCard('East',item.east,item.week,latest)}${awardCard('West',item.west,item.week,latest)}</div></section>`;}
+function renderAwards(){document.getElementById('awardLegend').innerHTML='<strong>HEAT KEY</strong><span><i class="legend-dot first"></i> First Serving, first weekly win of 2026</span><span><i class="legend-dot repeat"></i> Repeat Heat, won in an earlier week</span><span><i class="legend-dot current"></i> Latest winners</span>';document.getElementById('weeklyAwards').innerHTML=weeklyAwards.map((item,index)=>weekBlock(item,index===0)).join('');}
+async function loadPlayerPhotos(){try{const response=await fetch('/api/players',{headers:{Accept:'application/json'}});const payload=await response.json();const players=Array.isArray(payload)?payload:(payload.players||[]);players.forEach(player=>playerPhotos.set(normalizeName(player.name),player));renderAwards();}catch{}}
 
 let leaderPayload=null;
 let activeCategory='pts';
 const categoryOrder=['pts','trb','ast','stl','blk','tov','3p'];
-
 function valueLabel(value,unit){return `${Number(value).toFixed(1)} ${unit}`;}
-function renderTabs(){
-  const box=document.getElementById('statCategoryTabs');
-  box.innerHTML=categoryOrder.map(key=>{const category=leaderPayload?.categories?.[key];if(!category)return '';const active=key===activeCategory;return `<button type="button" role="tab" data-stat-category="${key}" aria-selected="${active}" class="${active?'active':''}">${skSafe(category.label)}</button>`;}).join('');
-}
-function renderLeaders(){
-  const category=leaderPayload?.categories?.[activeCategory];
-  if(!category)return;
-  renderTabs();
-  const leaders=category.leaders||[];
-  document.getElementById('leaderboard').innerHTML=`<div class="leaderboard-head"><span>Rank</span><span>Player</span><span>Team</span><span>${skSafe(category.unit)}</span></div>${leaders.map(player=>`<article class="leader-row ${player.rank===1?'number-one':''}"><span class="leader-rank">${player.rank}</span><div><strong>${skSafe(player.name)}</strong>${player.rank===1?'<small>HEAD CHEF</small>':''}</div><span>${skSafe(player.team||'WNBA')}</span><b>${skSafe(valueLabel(player.value,category.unit))}</b></article>`).join('')}`;
-  document.querySelectorAll('[data-stat-category]').forEach(button=>button.addEventListener('click',()=>{activeCategory=button.dataset.statCategory;renderLeaders();}));
-}
-
-async function loadLeaders(){
-  const status=document.getElementById('leaderStatus');
-  try{
-    const response=await fetch('/api/leaderboard?season=2026',{headers:{Accept:'application/json'},cache:'no-store'});
-    const payload=await response.json().catch(()=>({}));
-    if(!response.ok||payload.error)throw new Error(payload.error||'Leaderboards unavailable');
-    leaderPayload=payload;
-    renderLeaders();
-    const updated=new Date(payload.updatedAt||Date.now());
-    status.textContent=`Updated ${updated.toLocaleString([],{month:'short',day:'numeric',hour:'numeric',minute:'2-digit'})}`;
-  }catch(error){
-    document.getElementById('leaderboard').innerHTML=`<div class="leader-error"><strong>The Stat Kitchen is between servings.</strong><p>${skSafe(error.message)} Try again shortly.</p></div>`;
-    status.textContent='Feed temporarily unavailable';
-  }
-}
+function renderTabs(){const box=document.getElementById('statCategoryTabs');box.innerHTML=categoryOrder.map(key=>{const category=leaderPayload?.categories?.[key];if(!category)return '';const active=key===activeCategory;return `<button type="button" role="tab" data-stat-category="${key}" aria-selected="${active}" class="${active?'active':''}">${skSafe(category.label)}</button>`;}).join('');}
+function renderLeaders(){const category=leaderPayload?.categories?.[activeCategory];if(!category)return;renderTabs();const leaders=category.leaders||[];document.getElementById('leaderboard').innerHTML=`<div class="leaderboard-head"><span>Rank</span><span>Player</span><span>Team</span><span>${skSafe(category.unit)}</span></div>${leaders.map(player=>`<article class="leader-row ${player.rank===1?'number-one':''}"><span class="leader-rank">${player.rank}</span><div><strong>${skSafe(player.name)}</strong>${player.rank===1?'<small>HEAD CHEF</small>':''}</div><span>${skSafe(player.team||'WNBA')}</span><b>${skSafe(valueLabel(player.value,category.unit))}</b></article>`).join('')}`;document.querySelectorAll('[data-stat-category]').forEach(button=>button.addEventListener('click',()=>{activeCategory=button.dataset.statCategory;renderLeaders();}));}
+async function loadLeaders(){const status=document.getElementById('leaderStatus');try{const response=await fetch('/api/leaderboard?season=2026',{headers:{Accept:'application/json'},cache:'no-store'});const payload=await response.json().catch(()=>({}));if(!response.ok||payload.error)throw new Error(payload.error||'Leaderboards unavailable');leaderPayload=payload;renderLeaders();const updated=new Date(payload.updatedAt||Date.now());status.textContent=`Updated ${updated.toLocaleString([],{month:'short',day:'numeric',hour:'numeric',minute:'2-digit'})}`;}catch(error){document.getElementById('leaderboard').innerHTML=`<div class="leader-error"><strong>The Stat Kitchen is between servings.</strong><p>${skSafe(error.message)} Try again shortly.</p></div>`;status.textContent='Feed temporarily unavailable';}}
 
 renderAwards();
+loadPlayerPhotos();
 loadLeaders();

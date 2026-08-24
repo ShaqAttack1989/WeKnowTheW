@@ -16,7 +16,7 @@ const accordionCss=`
 .nav-submenu .nav-accordion-panel{display:none;padding:2px 0 8px 12px;margin:0 7px 4px;border-left:2px solid #d7c7ea}
 .nav-submenu .nav-accordion-item.open>.nav-accordion-panel{display:grid}
 .nav-submenu .nav-accordion-panel a{display:block;padding:8px 10px!important;font-size:.84rem!important;font-weight:750!important;color:#62566f!important;text-decoration:none;border-radius:9px}
-.nav-submenu .nav-accordion-panel a:hover,.nav-submenu .nav-accordion-panel a:focus{background:#f3ecfb!important;color:#5c1fc1!important}
+.nav-submenu .nav-accordion-panel a:hover,.nav-submenu .nav-accordion-panel a:focus{background:#f3ecfb;color:#5c1fc1!important;outline:none}
 .nav-submenu .nav-accordion-panel a.nav-open-parent{font-weight:900!important;color:#3c2a4c!important}
 .nav-submenu>.nav-direct-link{display:block;padding:11px 12px;font-weight:900;text-decoration:none;border-radius:12px}
 .nav-submenu>.nav-direct-link:hover,.nav-submenu>.nav-direct-link:focus{background:#f3ecfb}
@@ -374,3 +374,79 @@ function addTransferLinks(){
   add(courtside,'/wnba-fits.html','The Fits');
 }
 if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',addTransferLinks); else addTransferLinks();
+
+/* Public copy polish: remove punctuation dashes without disturbing compound words,
+   numeric ranges, URLs or code. Also prevent obvious internal build notes from
+   leaking into public-facing copy. */
+const INTERNAL_PUBLIC_COPY_PATTERNS=[
+  /\bthis (?:section|page|card|area) should\b/i,
+  /\b(?:section|page|card|area) should (?:include|have|show|list|be|use)\b/i,
+  /\bplaceholder (?:copy|text|content)\b/i,
+  /\b(?:todo|internal note|implementation note|developer note)\b/i,
+  /\buse this (?:section|page|card|area) (?:to|for)\b/i,
+  /\bcreate (?:a|the|this) (?:section|page|card|area)\b/i,
+  /\bbuild (?:a|the|this) (?:section|page|card|area)\b/i,
+  /\bmake sure (?:the|this) (?:section|page|card|area)\b/i
+];
+function polishPublicCopyValue(value=''){
+  return String(value)
+    .replace(/\s*—\s*/g,', ')
+    .replace(/\s+–\s+/g,', ')
+    .replace(/,\s*,+/g,', ')
+    .replace(/\s+,/g,',');
+}
+function isInternalPublicCopy(value=''){
+  const text=String(value).replace(/\s+/g,' ').trim();
+  return text.length>0&&INTERNAL_PUBLIC_COPY_PATTERNS.some(pattern=>pattern.test(text));
+}
+function removeInternalCopyNode(node){
+  const parent=node.parentElement;
+  if(!parent)return;
+  if(['P','SMALL','LI'].includes(parent.tagName)||parent.matches('.page-note,.small-note,.scout-disclaimer,.notice-box,.info-strip')){
+    parent.remove();
+  }else{
+    node.nodeValue='';
+  }
+}
+function polishPublicCopyTree(root=document.body){
+  if(!root)return;
+  const skipSelector='script,style,code,pre,textarea,select,option,svg,noscript';
+  const walkNode=node=>{
+    if(node.nodeType===Node.TEXT_NODE){
+      if(node.parentElement?.closest(skipSelector))return;
+      const current=node.nodeValue||'';
+      if(isInternalPublicCopy(current)){removeInternalCopyNode(node);return;}
+      const next=polishPublicCopyValue(current);
+      if(next!==current)node.nodeValue=next;
+      return;
+    }
+    if(node.nodeType!==Node.ELEMENT_NODE||node.matches?.(skipSelector))return;
+    const walker=document.createTreeWalker(node,NodeFilter.SHOW_TEXT);
+    const textNodes=[];
+    let textNode;
+    while((textNode=walker.nextNode()))textNodes.push(textNode);
+    textNodes.forEach(walkNode);
+  };
+  walkNode(root);
+}
+function startPublicCopyPolish(){
+  polishPublicCopyTree(document.body);
+  const observer=new MutationObserver(records=>{
+    records.forEach(record=>record.addedNodes.forEach(node=>{
+      if(node.nodeType===Node.TEXT_NODE){
+        if(!node.parentElement?.closest('script,style,code,pre,textarea,select,option,svg,noscript')){
+          const current=node.nodeValue||'';
+          if(isInternalPublicCopy(current))removeInternalCopyNode(node);
+          else{
+            const next=polishPublicCopyValue(current);
+            if(next!==current)node.nodeValue=next;
+          }
+        }
+      }else if(node.nodeType===Node.ELEMENT_NODE){
+        polishPublicCopyTree(node);
+      }
+    }));
+  });
+  observer.observe(document.body,{childList:true,subtree:true});
+}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',startPublicCopyPolish,{once:true});else startPublicCopyPolish();

@@ -1,5 +1,35 @@
 function tSafe(value=''){return String(value).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;').replaceAll("'",'&#039;');}
 function tNorm(value=''){return String(value).toLowerCase().replace(/[^a-z0-9]/g,'');}
+function tRgb(value='#000000'){
+  const hex=String(value).trim().replace('#','');
+  const normalized=hex.length===3?hex.split('').map(character=>character+character).join(''):hex;
+  if(!/^[0-9a-f]{6}$/i.test(normalized))return [0,0,0];
+  return [0,2,4].map(index=>parseInt(normalized.slice(index,index+2),16));
+}
+function tHex(rgb=[]){return `#${rgb.map(value=>Math.max(0,Math.min(255,Math.round(value))).toString(16).padStart(2,'0')).join('')}`;}
+function tMix(color,target,amount){
+  const source=tRgb(color);const destination=tRgb(target);
+  return tHex(source.map((value,index)=>value+(destination[index]-value)*amount));
+}
+function tLuminance(color){
+  const channels=tRgb(color).map(value=>{const channel=value/255;return channel<=.04045?channel/12.92:((channel+.055)/1.055)**2.4;});
+  return .2126*channels[0]+.7152*channels[1]+.0722*channels[2];
+}
+function tContrast(first,second){const brighter=Math.max(tLuminance(first),tLuminance(second));const darker=Math.min(tLuminance(first),tLuminance(second));return (brighter+.05)/(darker+.05);}
+function tOnColor(background){return tContrast(background,'#17131f')>=tContrast(background,'#ffffff')?'#17131f':'#ffffff';}
+function tAccessibleTone(color,background,toward){
+  if(tContrast(color,background)>=4.5)return color;
+  for(let amount=.08;amount<=1;amount+=.08){const candidate=tMix(color,toward,amount);if(tContrast(candidate,background)>=4.5)return candidate;}
+  return toward;
+}
+function applyTeamAccessibility(teamData={}){
+  const root=document.documentElement;
+  root.style.setProperty('--team-on-primary',tOnColor(teamData.primary));
+  root.style.setProperty('--team-on-secondary',tOnColor(teamData.secondary));
+  root.style.setProperty('--team-on-accent',tOnColor(teamData.accent));
+  root.style.setProperty('--team-primary-text',tAccessibleTone(teamData.primary,'#ffffff','#17131f'));
+  root.style.setProperty('--team-secondary-on-dark',tAccessibleTone(teamData.secondary,'#111217','#ffffff'));
+}
 function rosterPhoto(player={}){
   const cutout=[player.officialHeadshot,player.photoCutout].find(value=>/^https?:\/\//i.test(String(value||'').trim()));
   if(cutout)return String(cutout).trim();
@@ -207,6 +237,7 @@ if(!team){
   document.getElementById('teamRecord').textContent='—';document.getElementById('teamPct').textContent='No team selected';
 }else{
   document.documentElement.style.setProperty('--team-primary',team.primary);document.documentElement.style.setProperty('--team-secondary',team.secondary);document.documentElement.style.setProperty('--team-accent',team.accent);document.documentElement.style.setProperty('--team-text',team.text);
+  applyTeamAccessibility(team);
   const hero=document.getElementById('teamHero');['primary','secondary','accent','text'].forEach(key=>hero.style.setProperty(`--team-${key}`,team[key]));
   applyHeaderBackdrop();document.title=`${team.name} | Around the W`;
   document.getElementById('teamName').textContent=team.name;document.getElementById('teamIntro').textContent=`${team.city} · current season, roster, history and culture in one franchise home.`;

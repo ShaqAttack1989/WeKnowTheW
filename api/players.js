@@ -4,6 +4,22 @@ const { officialHeadshot } = require('../lib/wnba-headshots');
 const { OFFICIAL_ROSTER_SNAPSHOT } = require('../lib/official-roster-snapshot');
 const { getWnbaRosters, getWnbaInjuries, getWnbaTransactions } = require('../lib/wehoop-espn');
 
+// Players who must remain searchable even when a provider's historical roster
+// endpoint stops returning them. This is intentionally a retention layer, not
+// a current-roster claim.
+const RETAINED_PLAYERPEDIA = [
+  {
+    name: 'Sydney Colson',
+    wnbaId: '202641',
+    lastTeam: 'Indiana Fever',
+    position: 'Guard',
+    number: '51',
+    status: 'free-agent',
+    lastWnbaSeason: 2025,
+    reason: '2026 unrestricted free agent; last played for Indiana in 2025 and remains in Playerpedia while pursuing a return to the WNBA.'
+  }
+];
+
 function key(value = '') {
   return String(value).normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]/g, '');
 }
@@ -17,6 +33,9 @@ function staffLike(position = '') {
 function cleanUrl(value = '') {
   const url = String(value || '').trim();
   return /^https?:\/\//i.test(url) ? url : '';
+}
+function freeAgentLike(status = '') {
+  return ['waived', 'released', 'inactive', 'free-agent', 'free agent', 'ufa'].includes(String(status).trim().toLowerCase());
 }
 function teamMapFromRosters(rosterData = {}) {
   return new Map((rosterData.teams || []).map(team => [key(team.name), String(team.id || '')]));
@@ -34,6 +53,18 @@ function curatedOverrideMap() {
     for (const name of [item.name, ...(Array.isArray(item.aliases) ? item.aliases : [])]) {
       if (name) map.set(key(name), item);
     }
+  }
+  return map;
+}
+function movementLastTeamMap() {
+  const map = new Map();
+  const movement = [CURRENT_MOVEMENT_PATCH, liveUpdates.transactions || []].flat();
+  for (const item of movement) {
+    const type = String(item.type || '').toLowerCase();
+    if (!/(waiv|release)/.test(type)) continue;
+    const playerName = item.player || item.name || '';
+    const team = item.team || item.fromTeam || '';
+    if (playerName && team) map.set(key(playerName), team);
   }
   return map;
 }
@@ -124,22 +155,50 @@ function baseFromRecent(raw, teamIds, season = 2025) {
     dataSources: [...new Set([...(base.dataSources || []), `${season} ESPN WNBA roster archive`])]
   };
 }
+function baseFromRetained(item, teamIds, season = 2025) {
+  const lastTeam = item.lastTeam || '';
+  const base = baseFromStatic({
+    name: item.name,
+    team: lastTeam || 'Free Agent',
+    position: item.position || 'Player',
+    number: item.number || '',
+    wnbaId: item.wnbaId || '',
+    sourceUrl: item.sourceUrl || ''
+  }, teamIds);
+  return {
+    ...base,
+    teamId: '',
+    team: lastTeam ? `Free Agent · last: ${lastTeam}` : 'Free Agent',
+    currentRoster: false,
+    recentPlayerpedia: true,
+    retainedPlayerpedia: true,
+    lastWnbaSeason: Number(item.lastWnbaSeason || season),
+    lastTeam,
+    liveStatus: item.status || 'free-agent',
+    liveEffectiveDate: item.effectiveDate || '',
+    liveNote: item.reason || 'Retained in Playerpedia after leaving a current WNBA roster.',
+    dataSources: [...new Set([...(base.dataSources || []), 'Playerpedia retained-player safeguard'])]
+  };
+}
 function applyOverride(player, override, teamIds) {
   if (!override) return player;
   const next = { ...player };
+  const status = String(override.status || '').toLowerCase();
   if (override.name && key(override.name) !== key(next.name)) {
     const parts = splitName(override.name);
     next.name = override.name; next.firstName = parts.firstName; next.lastName = parts.lastName;
   }
+  if (override.lastTeam) next.lastTeam = override.lastTeam;
   if (override.team !== undefined) {
-    if (override.team) {
+    if (override.team && !freeAgentLike(status)) {
       next.team = override.team;
       next.lastTeam = override.team;
       next.teamId = teamIds.get(key(override.team)) || next.teamId;
-    } else if (['waived','released','inactive'].includes(String(override.status || '').toLowerCase())) {
-      const lastTeam = next.lastTeam || next.team || '';
-      next.lastTeam = lastTeam;
-      next.team = lastTeam ? `Free Agent · last: ${lastTeam}` : 'Free Agent';
+    } else if (freeAgentLike(status)) {
+      const lastTeam = override.lastTeam || next.lastTeam || (override.team && !/^Free Agent/i.test(override.team) ? override.team : '') || next.team || '';
+      next.lastTeam = lastTeam.replace(/^Free Agent\s*·\s*last:\s*/i, '');
+      next.team = next.lastTeam ? `Free Agent · last: ${next.lastTeam}` : 'Free Agent';
+      next.teamId = '';
       next.currentRoster = false;
     } else {
       next.team = '';
@@ -148,10 +207,12 @@ function applyOverride(player, override, teamIds) {
   }
   if (override.position) next.position = override.position;
   if (override.number !== undefined && override.number !== null) next.number = String(override.number);
+  if (override.lastWnbaSeason) next.lastWnbaSeason = Number(override.lastWnbaSeason);
   next.liveStatus = override.status || 'active';
   next.liveEffectiveDate = override.effectiveDate || '';
   next.liveNote = override.reason || '';
-  if (['active','development'].includes(String(next.liveStatus).toLowerCase())) next.currentRoster = true;
+  if (['active','development'].includes(status)) next.currentRoster = true;
+  if (freeAgentLike(status)) next.currentRoster = false;
   next.dataSources = [...new Set([...(next.dataSources || []), 'Curated transaction/roster correction'])];
   return next;
 }
@@ -159,6 +220,7 @@ function buildRoster(rosterData = {}, recentRosterData = {}, recentSeason = 2025
   const teamIds = teamMapFromRosters(rosterData);
   const staticMap = staticByName();
   const overrideMap = curatedOverrideMap();
+  const lastTeamByMovement = movementLastTeamMap();
   const live = Array.isArray(rosterData.players) ? rosterData.players.filter(p => p?.name && !staffLike(p.position) && p.active !== false) : [];
   const liveReliable = (rosterData.teams || []).length >= 12 && live.length >= 120;
   const players = liveReliable
@@ -176,11 +238,23 @@ function buildRoster(rosterData = {}, recentRosterData = {}, recentSeason = 2025
     byName.set(playerKey, baseFromRecent(raw, teamIds, recentSeason));
   }
 
+  for (const retained of RETAINED_PLAYERPEDIA) {
+    const playerKey = key(retained.name);
+    if (!playerKey || byName.has(playerKey)) continue;
+    byName.set(playerKey, baseFromRetained(retained, teamIds, recentSeason));
+  }
+
   for (const [playerKey, override] of overrideMap.entries()) {
     const status = String(override.status || '').toLowerCase();
     const existing = byName.get(playerKey);
     if (existing) {
       byName.set(playerKey, applyOverride(existing, override, teamIds));
+      continue;
+    }
+    if (freeAgentLike(status)) {
+      const lastTeam = override.lastTeam || lastTeamByMovement.get(playerKey) || '';
+      if (!lastTeam && !override.retainInPlayerpedia) continue;
+      byName.set(playerKey, baseFromRetained({ ...override, lastTeam, lastWnbaSeason: override.lastWnbaSeason || 2026 }, teamIds, recentSeason));
       continue;
     }
     if (!override.team || !['active','development'].includes(status)) continue;
@@ -261,8 +335,8 @@ module.exports = async function handler(req, res) {
   if (!players.length) return res.status(502).json({ error: 'No roster provider returned usable WNBA players.', checkedAt, errors });
 
   return res.status(200).json({
-    source: 'Live 2026 ESPN WNBA rosters + 2025 Playerpedia archive + official WNBA roster snapshot fallback + curated transaction corrections',
-    sources: ['Live ESPN WNBA roster feed','2025 ESPN WNBA roster archive','Official WNBA roster snapshot fallback','WNBA Transactions Report cross-check','Curated transaction corrections'],
+    source: 'Live 2026 ESPN WNBA rosters + 2025 Playerpedia archive + retained free-agent safeguard + official WNBA roster snapshot fallback + curated transaction corrections',
+    sources: ['Live ESPN WNBA roster feed','2025 ESPN WNBA roster archive','Playerpedia retained-player safeguard','Official WNBA roster snapshot fallback','WNBA Transactions Report cross-check','Curated transaction corrections'],
     leagueId: 4516,
     updatedAt: checkedAt,
     rosterCheckedAt: checkedAt,
@@ -273,7 +347,7 @@ module.exports = async function handler(req, res) {
     playerCount: players.length,
     currentPlayerCount: currentPlayers.length,
     recentPlayerCount: recentPlayers.length,
-    playerpediaCoverage: { currentSeason: 2026, recentArchiveSeason: 2025, rule: 'Players from the prior WNBA season remain searchable in Playerpedia even when they are not on a current roster.' },
+    playerpediaCoverage: { currentSeason: 2026, recentArchiveSeason: 2025, retainedSafeguards: RETAINED_PLAYERPEDIA.length, rule: 'Once a player appears in the WNBA player pool, Playerpedia keeps her searchable through roster changes, free agency and archive-provider gaps.' },
     transactions,
     transactionCount: transactions.length,
     injuries,

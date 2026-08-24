@@ -1,5 +1,14 @@
 const CELEBRITY_SOURCES = [
   {
+    title:'Kanter Freedom ejected after confrontation with Sky’s Natasha Cloud',
+    href:'https://www.espnlacrosse.com/2026/08/23/kanter-freedom-tossed-after-clash-with-cloud/',
+    sourceType:'ESPN',
+    category:'Courtside incident',
+    team:'Chicago Sky',
+    date:'2026-08-23',
+    summary:'Former NBA player Enes Kanter Freedom was ejected from the Fever–Sky game after a courtside verbal confrontation with Chicago guard Natasha Cloud; security escorted him from the arena.'
+  },
+  {
     title:'Aubrey Plaza has become one of the W’s most visible celebrity fans',
     href:'https://www.si.com/wnba/pregnant-aubrey-plaza-roasting-caitlin-clark-practice-proves-best-wnba-fan',
     sourceType:'SPORTS ILLUSTRATED',
@@ -182,6 +191,6 @@ module.exports=async function handler(req,res){
   const type=String(req.query.type||'celebrity').toLowerCase();
   const source=type==='fan'?FAN_SOURCES:CELEBRITY_SOURCES;
   const items=await hydrate(source);
-  res.setHeader('Cache-Control','s-maxage=21600, stale-while-revalidate=86400');
+  res.setHeader('Cache-Control','s-maxage=900, stale-while-revalidate=3600');
   return res.status(200).json({type:type==='fan'?'fan':'celebrity',updatedAt:new Date().toISOString(),items});
 };

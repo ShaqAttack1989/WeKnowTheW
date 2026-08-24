@@ -1,0 +1,33 @@
+{
+  "updatedAt": "2026-08-24T06:47:00.000Z",
+  "retentionDays": 14,
+  "items": [
+    {
+      "id": "curated-kanter-cloud-20260823",
+      "title": "Kanter Freedom ejected after confrontation with Sky's Cloud",
+      "url": "https://www.espnlacrosse.com/2026/08/23/kanter-freedom-tossed-after-clash-with-cloud/",
+      "source": "ESPN",
+      "publishedAt": "2026-08-23T21:44:00-04:00",
+      "category": "Courtside incident",
+      "origin": "curated"
+    },
+    {
+      "id": "curated-wnba-money-20260821",
+      "title": "How WNBA players are balancing investments and splurges with new salaries",
+      "url": "https://www.espn.com/wnba/story/_/id/49662565/wnba-players-salary-investments-new-cars-money-cba",
+      "source": "ESPN",
+      "publishedAt": "2026-08-21T08:20:00-04:00",
+      "category": "Money and business",
+      "origin": "curated"
+    },
+    {
+      "id": "curated-nneka-retirement-20260820",
+      "title": "How Ogwumike's retirement impacts WNBA, players' union and Sparks",
+      "url": "https://www.espn.com/wnba/story/_/id/49664478/nneka-ogwumike-retire-wnba-2026-legacy-wnbpa-leadership",
+      "source": "ESPN",
+      "publishedAt": "2026-08-20T08:00:00-04:00",
+      "category": "Legacy",
+      "origin": "curated"
+    }
+  ]
+}

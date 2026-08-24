@@ -196,6 +196,7 @@ const hierarchyMap={
   '/availability-report.html':['Live Stats','/live-stats.html','Availability Report'],
   '/around-the-w.html':['Around the W','/around-the-w.html','Team Pages'],
   '/franchise-footprints.html':['Around the W','/around-the-w.html','Franchise Footprints'],
+  '/dewanna-bonner-buyout.html':['Around the W','/around-the-w.html','One More Run'],
   '/snack-shak.html':['Around the W','/around-the-w.html','Seasoned Notes'],
   '/snack-shaq.html':['Around the W','/around-the-w.html','Seasoned Notes'],
   '/playerpedia.html':['Playerpedia','/playerpedia.html','On the Floor'],
@@ -254,6 +255,7 @@ document.querySelectorAll('[data-current-year]').forEach(el=>el.textContent=new 
 const coreSearch=[
   ['Around the W','Section','/around-the-w.html','teams season standings'],
   ['Franchise Footprints','Franchise Hubs','/franchise-footprints.html','original eight charter teams defunct folded relocated lineage Charlotte Sting Cleveland Rockers Houston Comets Sacramento Monarchs Utah Starzz Las Vegas Aces'],
+  ['One More Run: DeWanna Bonner Buyout','Around the W','/dewanna-bonner-buyout.html','DeWanna Bonner Phoenix Mercury contract buyout championship playoffs final season New York Liberty landing spot player movement'],
   ['Live Stats','Around the W','/live-stats.html','overall conference commissioner cup playoffs standings'],
   ['The Stat Kitchen','Live Stats','/stat-kitchen.html','players of the week east west points assists rebounds steals blocks turnovers top five leaders'],
   ['Games','Live Stats','/games.html','scores schedule playoffs commissioners cup'],

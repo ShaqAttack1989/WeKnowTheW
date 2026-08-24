@@ -17,7 +17,10 @@
   const monthKey=value=>{const d=new Date(value);return Number.isNaN(d.getTime())?'Undated':d.toLocaleDateString('en-US',{month:'long',year:'numeric'});};
   function card(item){
     const href=safeUrl(item.url);
-    return `<article class="wire-card" data-category="${escape(item.category||'League news')}"><div class="wire-card-top"><span class="wire-badge">${escape(item.category||'League news')}</span><time datetime="${escape(item.publishedAt||'')}">${escape(formatDate(item.publishedAt))}</time></div><h3>${escape(item.title)}</h3><div class="wire-card-meta"><span class="wire-source">${escape(item.source||'Source')}</span>${href?`<a href="${escape(href)}" target="_blank" rel="noopener noreferrer">Read source ↗</a>`:''}</div></article>`;
+    const original=item.origin==='original';
+    const linkAttrs=original?'':` target="_blank" rel="noopener noreferrer"`;
+    const linkLabel=original?'Read our story →':'Read source ↗';
+    return `<article class="wire-card" data-category="${escape(item.category||'League news')}"><div class="wire-card-top"><span class="wire-badge">${escape(item.category||'League news')}</span><time datetime="${escape(item.publishedAt||'')}">${escape(formatDate(item.publishedAt))}</time></div><h3>${escape(item.title)}</h3><div class="wire-card-meta"><span class="wire-source">${escape(item.source||'Source')}</span>${href?`<a href="${escape(href)}"${linkAttrs}>${linkLabel}</a>`:''}</div></article>`;
   }
   function render(){
     const list=filtered.slice(0,visible);

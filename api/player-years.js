@@ -16,9 +16,19 @@ function flattenAthletes(value=[]){
   return out;
 }
 function cleanYear(value){const n=Number(value);return Number.isInteger(n)&&n>=1997&&n<=2100?n:null;}
+function cleanPositive(value){const n=Number(value);return Number.isInteger(n)&&n>0?n:null;}
 function playerName(athlete={}){return athlete.displayName||athlete.fullName||[athlete.firstName,athlete.lastName].filter(Boolean).join(' ');}
+function draftInfo(athlete={}){
+  const draft=athlete.draft||athlete.draftInfo||{};
+  return {
+    draftYear:cleanYear(draft.year||athlete.draftYear||athlete.wnbaDraftYear),
+    draftRound:cleanPositive(draft.round||draft.roundNumber||athlete.draftRound),
+    draftPick:cleanPositive(draft.selection||draft.pick||draft.overallPick||draft.overall||athlete.draftPick||athlete.draftSelection)
+  };
+}
 function startYearFor(athlete={},season=2026){
-  const direct=cleanYear(athlete.debutYear||athlete.wnbaDebutYear||athlete.draft?.year);
+  const info=draftInfo(athlete);
+  const direct=cleanYear(athlete.debutYear||athlete.wnbaDebutYear||info.draftYear);
   if(direct)return direct;
   const experience=Number(athlete.experience?.years??athlete.experience);
   if(Number.isFinite(experience)&&experience>=0&&experience<40){
@@ -36,9 +46,10 @@ module.exports=async function handler(req,res){
     const teams=(teamsBody?.sports?.[0]?.leagues?.[0]?.teams||[]).map(item=>item?.team||item).filter(team=>team?.id);
     const results=await Promise.allSettled(teams.map(async team=>{
       const roster=await fetchJson(`${SITE_ROOT}/wnba/teams/${encodeURIComponent(team.id)}/roster?season=${encodeURIComponent(season)}`);
-      return flattenAthletes(roster.athletes).map(athlete=>({
-        id:String(athlete.id||''),name:playerName(athlete),team:team.displayName||team.name||'',startYear:startYearFor(athlete,season)
-      })).filter(item=>item.name);
+      return flattenAthletes(roster.athletes).map(athlete=>{
+        const draft=draftInfo(athlete);const startYear=startYearFor(athlete,season);
+        return {id:String(athlete.id||''),name:playerName(athlete),team:team.displayName||team.name||'',startYear,draftYear:draft.draftYear,draftRound:draft.draftRound,draftPick:draft.draftPick};
+      }).filter(item=>item.name);
     }));
     const players=results.filter(r=>r.status==='fulfilled').flatMap(r=>r.value).map(item=>({...item,label:item.startYear?`${item.startYear}–`:''}));
     return res.status(200).json({updatedAt:new Date().toISOString(),season,players,partial:results.some(r=>r.status==='rejected'),source:'ESPN public WNBA roster pages via WeHoop-compatible feed'});

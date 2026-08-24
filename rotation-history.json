@@ -1,7 +1,42 @@
 {
-  "updatedAt": "2026-08-18T12:00:00-04:00",
+  "updatedAt": "2026-08-24T08:00:00-04:00",
   "timezone": "America/New_York",
   "startingFive": [
+    {
+      "week": "2026-08-24",
+      "picks": [
+        {
+          "name": "Paige Bueckers",
+          "label": "1 · PG",
+          "role": "Point Guard",
+          "copy": "The lead creator in Shak’s five, combining scoring craft, pace control and playmaking from the point."
+        },
+        {
+          "name": "Kelsey Mitchell",
+          "label": "2 · SG",
+          "role": "Shooting Guard",
+          "copy": "A relentless scoring threat at the two, stretching defenses with speed, movement and elite shot making."
+        },
+        {
+          "name": "Napheesa Collier",
+          "label": "3 · SF",
+          "role": "Small Forward",
+          "copy": "The two way connector on the wing, bringing efficient scoring, defensive versatility and lineup balance."
+        },
+        {
+          "name": "Angel Reese",
+          "label": "4 · PF",
+          "role": "Power Forward",
+          "copy": "Relentless rebounding, physicality and second chance pressure give the frontcourt its motor at the four."
+        },
+        {
+          "name": "A'ja Wilson",
+          "label": "5 · C",
+          "role": "Center",
+          "copy": "The anchor at the five, pairing dominant interior scoring with rim protection, rebounding and championship presence."
+        }
+      ]
+    },
     {
       "week": "2026-08-17",
       "picks": [
@@ -39,6 +74,53 @@
     }
   ],
   "benchMob": [
+    {
+      "week": "2026-08-24",
+      "picks": [
+        {
+          "role": "Sixth Woman",
+          "roleId": "sixth-woman",
+          "name": "Kiki Rice",
+          "statLine": "12.0 PPG · 26.1 MPG · 60% starts · PER 16.6",
+          "why": "Her efficient scoring, composure and all around production give this week’s group its first lift off the bench."
+        },
+        {
+          "role": "Microwave Scorer",
+          "roleId": "microwave",
+          "name": "Sydney Taylor",
+          "statLine": "14.5 PPG · 20.4 MPG · 2.1 threes per game",
+          "why": "She supplies instant offense with scoring volume and three point pressure in a compact minutes load."
+        },
+        {
+          "role": "3 & D Wing",
+          "roleId": "three-d",
+          "name": "Janelle Salaun",
+          "statLine": "13.1 PPG · 39.0% from three · 0 starts",
+          "why": "Her shooting gravity, wing size and defensive versatility remain an ideal match for the role."
+        },
+        {
+          "role": "Glue Player · Floor General",
+          "roleId": "glue",
+          "name": "Natasha Cloud",
+          "statLine": "5.0 assists · 2.17 assist to turnover ratio · 1.1 steals",
+          "why": "Her organization, ball pressure and connective passing keep every unit settled and purposeful."
+        },
+        {
+          "role": "Backup Floor General",
+          "roleId": "backup-pg",
+          "name": "Tiffany Hayes",
+          "statLine": "2.5 assists · 2.27 assist to turnover ratio · 3% starts",
+          "why": "She combines veteran control with efficient decision making and enough scoring threat to run the second unit."
+        },
+        {
+          "role": "Energy Big",
+          "roleId": "energy-big",
+          "name": "Madina Okot",
+          "statLine": "13.6 rebounds per 36 · 4.5 offensive rebounds per 36 · 8% starts",
+          "why": "Her per minute rebounding, paint activity and extra effort possessions bring true bench energy to the frontcourt."
+        }
+      ]
+    },
     {
       "week": "2026-08-17",
       "picks": [

@@ -17,13 +17,13 @@ function sWeekLabel(key){
 }
 
 const fallbackRotation={
-  week:'2026-08-17',
+  week:'2026-08-24',
   picks:[
-    {name:'Kelsey Mitchell',label:'1 · PG',role:'Point Guard',copy:'The lead guard in Shak’s five — pace, pressure, scoring gravity and the first decision-maker in the offense.'},
-    {name:'Paige Bueckers',label:'2 · SG',role:'Shooting Guard',copy:'A secondary creator at the two, bringing craft, shot-making, movement and another elite playmaking option.'},
-    {name:'Napheesa Collier',label:'3 · SF',role:'Small Forward',copy:'The two-way connector on the wing — versatile enough to score, defend across matchups and keep the lineup balanced.'},
-    {name:'Breanna Stewart',label:'4 · PF',role:'Power Forward',copy:'Length, skill and versatility at the four, stretching the floor while creating matchup problems inside and out.'},
-    {name:"A'ja Wilson",label:'5 · C',role:'Center',copy:'The anchor at the five — interior scoring, rim protection, rebounding and championship-level presence in the middle.'}
+    {name:'Paige Bueckers',label:'1 · PG',role:'Point Guard',copy:'The lead creator in Shak’s five, combining scoring craft, pace control and playmaking from the point.'},
+    {name:'Kelsey Mitchell',label:'2 · SG',role:'Shooting Guard',copy:'A relentless scoring threat at the two, stretching defenses with speed, movement and elite shot making.'},
+    {name:'Napheesa Collier',label:'3 · SF',role:'Small Forward',copy:'The two way connector on the wing, bringing efficient scoring, defensive versatility and lineup balance.'},
+    {name:'Angel Reese',label:'4 · PF',role:'Power Forward',copy:'Relentless rebounding, physicality and second chance pressure give the frontcourt its motor at the four.'},
+    {name:"A'ja Wilson",label:'5 · C',role:'Center',copy:'The anchor at the five, pairing dominant interior scoring with rim protection, rebounding and championship presence.'}
   ]
 };
 

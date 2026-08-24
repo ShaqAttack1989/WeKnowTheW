@@ -16,6 +16,11 @@
   let gradesByName=new Map();
   let yearsByName=new Map();
   let facts=new Map();
+  let draftByName=new Map();
+  let draftAliases=new Map();
+  let verifiedUndraftedNames=new Set();
+  let careerStatusByName=new Map();
+  let draftHistoryReady=false;
   let gradesReady=false;
   let cardTimer=null;
   let modalTimer=null;
@@ -27,6 +32,7 @@
   function gradeFor(name){return gradesByName.get(key(name))||null;}
   function yearsFor(name){return yearsByName.get(key(name))||null;}
   function factFor(name){return facts.get(key(name))||'';}
+  function careerStatusFor(name){return careerStatusByName.get(key(name))||null;}
   function positionLine(player={}){
     const position=String(player.position||'Player').trim()||'Player';
     return `${position}${player.number?` · #${player.number}`:''}`;
@@ -36,6 +42,11 @@
     const score=Number.isFinite(Number(grade?.score))?`${Math.round(Number(grade.score))}%`:'—';
     const provisional=grade?.provisional&&letter!=='NR'?'<span class="player-grade-provisional">PROV</span>':'';
     return `<span class="player-grade-badge ${gradeClass(letter)}">${safe(letter)}</span><span class="player-grade-score">${safe(score)} weighted league grade</span>${provisional}`;
+  }
+  function careerBadge(name){
+    const item=careerStatusFor(name);
+    if(!item||item.status!=='returned')return '';
+    return `<span class="player-return-badge" title="${safe(item.summary||'Returned after retirement')}"><span aria-hidden="true">${safe(item.icon||'↩')}</span> ${safe(item.label||'RETIRED + RETURNED')}</span>`;
   }
 
   function decorateCards(){
@@ -47,7 +58,8 @@
       const copy=card.querySelector('.player-card-copy');
       if(!copy)return;
       const grade=gradeFor(existingName)||{};
-      copy.innerHTML=`<span class="player-card-topline">${safe(positionLine(player))}</span><strong class="player-card-name">${safe(player.name||existingName)}</strong><span class="player-card-team">${safe(player.team||'Current roster')}</span><span class="player-card-grade">${gradeMarkup(grade)}</span>`;
+      const timeline=careerBadge(existingName);
+      copy.innerHTML=`<span class="player-card-topline">${safe(positionLine(player))}</span><strong class="player-card-name">${safe(player.name||existingName)}</strong><span class="player-card-team">${safe(player.team||'Current roster')}</span>${timeline?`<span class="player-card-career-status">${timeline}</span>`:''}<span class="player-card-grade">${gradeMarkup(grade)}</span>`;
       card.querySelectorAll('.player-card-years,.player-card-efficiency').forEach(node=>node.remove());
       card.dataset.gradeReady='true';
     });
@@ -58,7 +70,7 @@
   async function fetchDetail(name,team){
     const cacheKey=`${key(name)}|${key(team)}`;
     if(detailCache.has(cacheKey))return detailCache.get(cacheKey);
-    const promise=fetch(`/api/player?name=${encodeURIComponent(name)}&team=${encodeURIComponent(team||'')}&playerpedia2k=20260824-v2`,{headers:{Accept:'application/json'}})
+    const promise=fetch(`/api/player?name=${encodeURIComponent(name)}&team=${encodeURIComponent(team||'')}&playerpedia2k=20260824-v3`,{headers:{Accept:'application/json'}})
       .then(async response=>{const payload=await response.json().catch(()=>({}));return response.ok?(payload.player||{}):{};})
       .catch(()=>({}));
     detailCache.set(cacheKey,promise);
@@ -83,6 +95,9 @@
     return null;
   }
   async function resolveDraft(name,years={}){
+    const alias=draftAliases.get(key(name));
+    const history=draftByName.get(key(alias||name));
+    if(history)return {...history,verified:true};
     const factDraft=draftFromFact(name);
     if(factDraft?.draftPick)return {...factDraft,round:factDraft.draftPick<=12?1:factDraft.draftPick<=24?2:3};
     if(factDraft?.undrafted)return {undrafted:true,draftYear:years.draftYear||years.startYear||null};
@@ -96,7 +111,7 @@
       else if(picks.length)return {undrafted:true,draftYear};
     }
     if(draftYear||draftPick)return {draftYear,draftPick,round};
-    return {undrafted:true,draftYear:null};
+    return verifiedUndraftedNames.has(key(name))?{undrafted:true,verified:true}:{unavailable:true};
   }
 
   function findSection(title){
@@ -116,19 +131,31 @@
     if(!has(value))return '';
     return `<div class="profile-fact ${extraClass}"><span>${safe(label)}</span><strong>${safe(value)}</strong>${badge}</div>`;
   }
-  function buildFacts(player,detail,draft){
-    const draftYear=draft?.undrafted?'Undrafted':draft?.draftYear||'';
-    const draftPick=draft?.undrafted?'Undrafted':draft?.draftPick?`No. ${draft.draftPick} overall`:'';
-    const top10=Number(draft?.draftPick)>=1&&Number(draft?.draftPick)<=10;
+  function buildFacts(player,detail,draft,statusItem){
+    const draftYear=draft?.undrafted?'Undrafted':draft?.year||draft?.draftYear||'';
+    const draftPick=draft?.pick||draft?.draftPick;
+    const top10=Number(draftPick)>=1&&Number(draftPick)<=10;
     const badge=top10?'<span class="top10-draft-badge">TOP 10 PICK</span>':'';
+    const round=draft?.round?`Round ${draft.round}${draft.roundPick?` · pick ${draft.roundPick}`:''}`:'';
+    const overall=draftPick?`No. ${draftPick} overall`:'';
+    const draftingTeam=draft?.team||'';
+    const careerTimeline=statusItem?.status==='returned'?`Retired ${statusItem.retiredYear||''} · Returned ${statusItem.returnedYear||''}`:'';
     return [
       factTile('From',detail.birthPlace||player.birthPlace||''),
       factTile('Nationality',detail.nationality||player.nationality||''),
       factTile('Born',detail.birthDate||player.birthDate||''),
       factTile('Height',detail.height||player.height||''),
       factTile('Year drafted',draftYear),
-      factTile('Draft pick',draftPick,top10?'draft-top10':'',badge)
+      factTile('Draft round',round),
+      factTile('Overall pick',overall,top10?'draft-top10':'',badge),
+      factTile('Drafted by',draftingTeam),
+      factTile('Career timeline',careerTimeline,'career-return-fact')
     ].join('');
+  }
+  function draftSourceMarkup(draft){
+    if(!draft?.source)return '';
+    const note=draft.note?`<span>${safe(draft.note)}</span>`:'';
+    return `<p class="playerpedia-draft-source"><span>Draft record</span><a href="${safe(draft.source)}" target="_blank" rel="noopener">${safe(draft.sourceLabel||'View source')} ↗</a>${note}</p>`;
   }
   function metricsBlock(name,grade){
     const per=Number.isFinite(Number(grade?.per))?Number(grade.per).toFixed(1):'—';
@@ -157,6 +184,7 @@
     const player=playerFor(name)||{name,team:(modalBody.querySelector('.profile-teamline')?.textContent||'').split(' · ')[0]||''};
     const grade=gradeFor(name)||{};
     const years=yearsFor(name)||{};
+    const careerStatus=careerStatusFor(name);
     const [detail,draft]=await Promise.all([fetchDetail(name,player.team),resolveDraft(name,years)]);
     if(key(modalBody.querySelector('#playerModalTitle')?.textContent)!==key(name))return;
 
@@ -168,13 +196,15 @@
       copy.querySelector('.profile-teamline')?.remove();
       copy.querySelector('.profile-position-line')?.remove();
       copy.querySelector('.profile-team-name')?.remove();
+      copy.querySelector('.profile-career-status')?.remove();
       copy.querySelector('.profile-grade-line')?.remove();
       title.insertAdjacentHTML('beforebegin',`<p class="profile-position-line">${safe(positionLine({...detail,...player,name}))}</p>`);
-      title.insertAdjacentHTML('afterend',`<p class="profile-team-name">${safe(player.team||detail.team||'Current roster')}</p><div class="profile-grade-line">${gradeMarkup(grade)}</div>`);
+      title.insertAdjacentHTML('afterend',`<p class="profile-team-name">${safe(player.team||detail.team||'Current roster')}</p>${careerStatus?`<div class="profile-career-status">${careerBadge(name)}</div>`:''}<div class="profile-grade-line">${gradeMarkup(grade)}</div>`);
     }
 
     factsHost.classList.add('playerpedia-core-facts');
-    factsHost.innerHTML=buildFacts(player,detail,draft);
+    factsHost.innerHTML=buildFacts(player,detail,draft,careerStatus);
+    modalBody.querySelector('.playerpedia-draft-source')?.remove();
 
     const quickBio=ensureQuickBio(player,detail);
     const honors=findSection('Honors & awards');
@@ -185,6 +215,8 @@
     modalBody.querySelectorAll('.playerpedia-metrics-block,.profile-fun-fact').forEach(node=>node.remove());
 
     factsHost.insertAdjacentElement('afterend',quickBio);
+    const draftSource=draftSourceMarkup(draft);
+    if(draftSource)factsHost.insertAdjacentHTML('afterend',draftSource);
     quickBio.insertAdjacentElement('afterend',metrics);
     metrics.insertAdjacentElement('afterend',fun);
     if(honors)fun.insertAdjacentElement('afterend',honors);
@@ -198,9 +230,11 @@
 
   async function loadData(){
     const requests=[
-      fetch('/api/players?playerpedia2k=20260824-v2',{headers:{Accept:'application/json'},cache:'no-store'}).then(r=>r.json()),
+      fetch('/api/players?playerpedia2k=20260824-v3',{headers:{Accept:'application/json'},cache:'no-store'}).then(r=>r.json()),
       fetch(`/api/player-grades?season=2026&cb=${Date.now()}`,{headers:{Accept:'application/json'},cache:'no-store'}).then(r=>r.json()),
-      fetch('/api/player-years?season=2026&playerpedia2k=20260824-v2',{headers:{Accept:'application/json'}}).then(r=>r.json()),
+      fetch('/api/player-years?season=2026&playerpedia2k=20260824-v3',{headers:{Accept:'application/json'}}).then(r=>r.json()),
+      fetch('/data/wnba-draft-history.json',{headers:{Accept:'application/json'}}).then(r=>r.json()),
+      fetch('/data/playerpedia-career-status.json',{headers:{Accept:'application/json'}}).then(r=>r.json()),
       ...factFiles.map(url=>fetch(url,{headers:{Accept:'application/json'}}).then(r=>r.json()).catch(()=>({})))
     ];
     const results=await Promise.allSettled(requests);
@@ -214,8 +248,16 @@
     gradesReady=grades.length>0;
     const years=Array.isArray(yearsPayload.players)?yearsPayload.players:[];
     yearsByName=new Map(years.map(item=>[key(item.name),item]));
+    const draftPayload=results[3].status==='fulfilled'?results[3].value:{};
+    const draftPicks=Array.isArray(draftPayload.picks)?draftPayload.picks:[];
+    draftByName=new Map(draftPicks.map(item=>[key(item.player),item]));
+    draftAliases=new Map(Object.entries(draftPayload.aliases||{}).map(([alias,target])=>[key(alias),target]));
+    verifiedUndraftedNames=new Set((draftPayload.undrafted||[]).map(key));
+    draftHistoryReady=draftPicks.length>0;
+    const careerPayload=results[4].status==='fulfilled'?results[4].value:{};
+    careerStatusByName=new Map(Object.entries(careerPayload||{}).map(([name,item])=>[key(name),item]));
     facts=new Map();
-    results.slice(3).forEach(result=>{if(result.status==='fulfilled'&&result.value&&typeof result.value==='object')Object.entries(result.value).forEach(([name,fact])=>facts.set(key(name),String(fact||'')));});
+    results.slice(5).forEach(result=>{if(result.status==='fulfilled'&&result.value&&typeof result.value==='object')Object.entries(result.value).forEach(([name,fact])=>facts.set(key(name),String(fact||'')));});
     scheduleCards();scheduleModal();
     if(status){
       const base=status.textContent.replace(/ · 2K-style grade.*$/,'');

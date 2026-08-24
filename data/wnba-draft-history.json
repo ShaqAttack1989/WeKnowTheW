@@ -1,0 +1,1736 @@
+{
+  "generatedAt": "2026-08-24T12:58:31.005Z",
+  "coverage": {
+    "from": 1997,
+    "through": 2026
+  },
+  "audit": {
+    "players": 212,
+    "drafted": 170,
+    "undrafted": 42
+  },
+  "sourceNote": "Every current and retained Playerpedia entry was cross-checked against WNBA draft classes from 1997 through 2026. Official WNBA draft boards are used from 2017 through 2026. Basketball Reference draft records cover 1997 through 2016.",
+  "aliases": {
+    "Awa Fam": "Awa Fam Thiam",
+    "Grace VanSlooten": "Grace VanSlootoen",
+    "Megan DiLeo": "Megan Gustafson"
+  },
+  "picks": [
+    {
+      "player": "DeWanna Bonner",
+      "year": 2009,
+      "round": 1,
+      "pick": 5,
+      "team": "Phoenix Mercury",
+      "source": "https://www.basketball-reference.com/wnba/draft/2009.html",
+      "sourceLabel": "Basketball Reference draft record"
+    },
+    {
+      "player": "Alysha Clark",
+      "year": 2010,
+      "round": 2,
+      "pick": 17,
+      "team": "San Antonio Silver Stars",
+      "source": "https://www.basketball-reference.com/wnba/draft/2010.html",
+      "sourceLabel": "Basketball Reference draft record"
+    },
+    {
+      "player": "Courtney Vandersloot",
+      "year": 2011,
+      "round": 1,
+      "pick": 3,
+      "team": "Chicago Sky",
+      "source": "https://www.basketball-reference.com/wnba/draft/2011.html",
+      "sourceLabel": "Basketball Reference draft record"
+    },
+    {
+      "player": "Sydney Colson",
+      "year": 2011,
+      "round": 2,
+      "roundPick": 4,
+      "pick": 16,
+      "team": "Connecticut Sun",
+      "source": "https://www.wnba.com/webview/draft/2011",
+      "sourceLabel": "Official 2011 WNBA Draft results",
+      "note": "Traded to the New York Liberty on draft night."
+    },
+    {
+      "player": "Nneka Ogwumike",
+      "year": 2012,
+      "round": 1,
+      "pick": 1,
+      "team": "Los Angeles Sparks",
+      "source": "https://www.basketball-reference.com/wnba/draft/2012.html",
+      "sourceLabel": "Basketball Reference draft record"
+    },
+    {
+      "player": "Tiffany Hayes",
+      "year": 2012,
+      "round": 2,
+      "pick": 14,
+      "team": "Atlanta Dream",
+      "source": "https://www.basketball-reference.com/wnba/draft/2012.html",
+      "sourceLabel": "Basketball Reference draft record"
+    },
+    {
+      "player": "Brittney Griner",
+      "year": 2013,
+      "round": 1,
+      "pick": 1,
+      "team": "Phoenix Mercury",
+      "source": "https://www.basketball-reference.com/wnba/draft/2013.html",
+      "sourceLabel": "Basketball Reference draft record"
+    },
+    {
+      "player": "Skylar Diggins",
+      "year": 2013,
+      "round": 1,
+      "pick": 3,
+      "team": "Tulsa Shock",
+      "source": "https://www.basketball-reference.com/wnba/draft/2013.html",
+      "sourceLabel": "Basketball Reference draft record"
+    },
+    {
+      "player": "Odyssey Sims",
+      "year": 2014,
+      "round": 1,
+      "pick": 2,
+      "team": "Tulsa Shock",
+      "source": "https://www.basketball-reference.com/wnba/draft/2014.html",
+      "sourceLabel": "Basketball Reference draft record"
+    },
+    {
+      "player": "Kayla McBride",
+      "year": 2014,
+      "round": 1,
+      "pick": 3,
+      "team": "San Antonio Stars",
+      "source": "https://www.basketball-reference.com/wnba/draft/2014.html",
+      "sourceLabel": "Basketball Reference draft record"
+    },
+    {
+      "player": "Alyssa Thomas",
+      "year": 2014,
+      "round": 1,
+      "pick": 4,
+      "team": "New York Liberty",
+      "source": "https://www.basketball-reference.com/wnba/draft/2014.html",
+      "sourceLabel": "Basketball Reference draft record"
+    },
+    {
+      "player": "Natasha Howard",
+      "year": 2014,
+      "round": 1,
+      "pick": 5,
+      "team": "Indiana Fever",
+      "source": "https://www.basketball-reference.com/wnba/draft/2014.html",
+      "sourceLabel": "Basketball Reference draft record"
+    },
+    {
+      "player": "Stefanie Dolson",
+      "year": 2014,
+      "round": 1,
+      "pick": 6,
+      "team": "Washington Mystics",
+      "source": "https://www.basketball-reference.com/wnba/draft/2014.html",
+      "sourceLabel": "Basketball Reference draft record"
+    },
+    {
+      "player": "Chelsea Gray",
+      "year": 2014,
+      "round": 1,
+      "pick": 11,
+      "team": "Connecticut Sun",
+      "source": "https://www.basketball-reference.com/wnba/draft/2014.html",
+      "sourceLabel": "Basketball Reference draft record"
+    },
+    {
+      "player": "Stephanie Talbot",
+      "year": 2014,
+      "round": 3,
+      "pick": 33,
+      "team": "Phoenix Mercury",
+      "source": "https://www.basketball-reference.com/wnba/draft/2014.html",
+      "sourceLabel": "Basketball Reference draft record"
+    },
+    {
+      "player": "Jewell Loyd",
+      "year": 2015,
+      "round": 1,
+      "pick": 1,
+      "team": "Seattle Storm",
+      "source": "https://www.basketball-reference.com/wnba/draft/2015.html",
+      "sourceLabel": "Basketball Reference draft record"
+    },
+    {
+      "player": "Elizabeth Williams",
+      "year": 2015,
+      "round": 1,
+      "pick": 4,
+      "team": "Connecticut Sun",
+      "source": "https://www.basketball-reference.com/wnba/draft/2015.html",
+      "sourceLabel": "Basketball Reference draft record"
+    },
+    {
+      "player": "Cheyenne Parker-Tyus",
+      "year": 2015,
+      "round": 1,
+      "pick": 5,
+      "team": "Chicago Sky",
+      "source": "https://www.basketball-reference.com/wnba/draft/2015.html",
+      "sourceLabel": "Basketball Reference draft record"
+    },
+    {
+      "player": "Dearica Hamby",
+      "year": 2015,
+      "round": 1,
+      "pick": 6,
+      "team": "San Antonio Stars",
+      "source": "https://www.basketball-reference.com/wnba/draft/2015.html",
+      "sourceLabel": "Basketball Reference draft record"
+    },
+    {
+      "player": "Kiah Stokes",
+      "year": 2015,
+      "round": 1,
+      "pick": 11,
+      "team": "New York Liberty",
+      "source": "https://www.basketball-reference.com/wnba/draft/2015.html",
+      "sourceLabel": "Basketball Reference draft record"
+    },
+    {
+      "player": "Isabelle Harrison",
+      "year": 2015,
+      "round": 1,
+      "pick": 12,
+      "team": "Phoenix Mercury",
+      "source": "https://www.basketball-reference.com/wnba/draft/2015.html",
+      "sourceLabel": "Basketball Reference draft record"
+    },
+    {
+      "player": "Natasha Cloud",
+      "year": 2015,
+      "round": 2,
+      "pick": 15,
+      "team": "Washington Mystics",
+      "source": "https://www.basketball-reference.com/wnba/draft/2015.html",
+      "sourceLabel": "Basketball Reference draft record"
+    },
+    {
+      "player": "Betnijah Laney-Hamilton",
+      "year": 2015,
+      "round": 2,
+      "pick": 17,
+      "team": "Chicago Sky",
+      "source": "https://www.basketball-reference.com/wnba/draft/2015.html",
+      "sourceLabel": "Basketball Reference draft record"
+    },
+    {
+      "player": "Breanna Stewart",
+      "year": 2016,
+      "round": 1,
+      "pick": 1,
+      "team": "Seattle Storm",
+      "source": "https://www.basketball-reference.com/wnba/draft/2016.html",
+      "sourceLabel": "Basketball Reference draft record"
+    },
+    {
+      "player": "Rachel Banham",
+      "year": 2016,
+      "round": 1,
+      "pick": 4,
+      "team": "Connecticut Sun",
+      "source": "https://www.basketball-reference.com/wnba/draft/2016.html",
+      "sourceLabel": "Basketball Reference draft record"
+    },
+    {
+      "player": "Jonquel Jones",
+      "year": 2016,
+      "round": 1,
+      "pick": 6,
+      "team": "Los Angeles Sparks",
+      "source": "https://www.basketball-reference.com/wnba/draft/2016.html",
+      "sourceLabel": "Basketball Reference draft record"
+    },
+    {
+      "player": "Kahleah Copper",
+      "year": 2016,
+      "round": 1,
+      "pick": 7,
+      "team": "Washington Mystics",
+      "source": "https://www.basketball-reference.com/wnba/draft/2016.html",
+      "sourceLabel": "Basketball Reference draft record"
+    },
+    {
+      "player": "Courtney Williams",
+      "year": 2016,
+      "round": 1,
+      "pick": 8,
+      "team": "Phoenix Mercury",
+      "source": "https://www.basketball-reference.com/wnba/draft/2016.html",
+      "sourceLabel": "Basketball Reference draft record"
+    },
+    {
+      "player": "Julie Allemand",
+      "year": 2016,
+      "round": 3,
+      "pick": 33,
+      "team": "Indiana Fever",
+      "source": "https://www.basketball-reference.com/wnba/draft/2016.html",
+      "sourceLabel": "Basketball Reference draft record"
+    },
+    {
+      "player": "Temi Fagbenle",
+      "year": 2016,
+      "round": 3,
+      "pick": 35,
+      "team": "Minnesota Lynx",
+      "source": "https://www.basketball-reference.com/wnba/draft/2016.html",
+      "sourceLabel": "Basketball Reference draft record"
+    },
+    {
+      "player": "Kelsey Plum",
+      "year": 2017,
+      "round": 1,
+      "roundPick": 1,
+      "pick": 1,
+      "team": "San Antonio Stars",
+      "source": "https://www.wnba.com/draft/2017/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Allisha Gray",
+      "year": 2017,
+      "round": 1,
+      "roundPick": 4,
+      "pick": 4,
+      "team": "Dallas Wings",
+      "source": "https://www.wnba.com/draft/2017/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Nia Coffey",
+      "year": 2017,
+      "round": 1,
+      "roundPick": 5,
+      "pick": 5,
+      "team": "San Antonio Stars",
+      "source": "https://www.wnba.com/draft/2017/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Shatori Walker-Kimbrough",
+      "year": 2017,
+      "round": 1,
+      "roundPick": 6,
+      "pick": 6,
+      "team": "Washington Mystics",
+      "source": "https://www.wnba.com/draft/2017/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Brittney Sykes",
+      "year": 2017,
+      "round": 1,
+      "roundPick": 7,
+      "pick": 7,
+      "team": "Atlanta Dream",
+      "source": "https://www.wnba.com/draft/2017/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Brionna Jones",
+      "year": 2017,
+      "round": 1,
+      "roundPick": 8,
+      "pick": 8,
+      "team": "Connecticut Sun",
+      "source": "https://www.wnba.com/draft/2017/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "A'ja Wilson",
+      "year": 2018,
+      "round": 1,
+      "roundPick": 1,
+      "pick": 1,
+      "team": "Las Vegas Aces",
+      "source": "https://www.wnba.com/draft/2018/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Kelsey Mitchell",
+      "year": 2018,
+      "round": 1,
+      "roundPick": 2,
+      "pick": 2,
+      "team": "Indiana Fever",
+      "source": "https://www.wnba.com/draft/2018/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Gabby Williams",
+      "year": 2018,
+      "round": 1,
+      "roundPick": 4,
+      "pick": 4,
+      "team": "Chicago Sky",
+      "source": "https://www.wnba.com/draft/2018/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Jordin Canada",
+      "year": 2018,
+      "round": 1,
+      "roundPick": 5,
+      "pick": 5,
+      "team": "Seattle Storm",
+      "source": "https://www.wnba.com/draft/2018/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Azura Stevens",
+      "year": 2018,
+      "round": 1,
+      "roundPick": 6,
+      "pick": 6,
+      "team": "Dallas Wings",
+      "source": "https://www.wnba.com/draft/2018/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Ariel Atkins",
+      "year": 2018,
+      "round": 1,
+      "roundPick": 7,
+      "pick": 7,
+      "team": "Washington Mystics",
+      "source": "https://www.wnba.com/draft/2018/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Kia Nurse",
+      "year": 2018,
+      "round": 1,
+      "roundPick": 10,
+      "pick": 10,
+      "team": "New York Liberty",
+      "source": "https://www.wnba.com/draft/2018/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Monique Billings",
+      "year": 2018,
+      "round": 2,
+      "roundPick": 3,
+      "pick": 15,
+      "team": "Atlanta Dream",
+      "source": "https://www.wnba.com/draft/2018/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Myisha Hines-Allen",
+      "year": 2018,
+      "round": 2,
+      "roundPick": 7,
+      "pick": 19,
+      "team": "Washington Mystics",
+      "source": "https://www.wnba.com/draft/2018/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Mercedes Russell",
+      "year": 2018,
+      "round": 2,
+      "roundPick": 10,
+      "pick": 22,
+      "team": "New York Liberty",
+      "source": "https://www.wnba.com/draft/2018/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Jackie Young",
+      "year": 2019,
+      "round": 1,
+      "roundPick": 1,
+      "pick": 1,
+      "team": "Las Vegas Aces",
+      "source": "https://www.wnba.com/draft/2019/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Katie Lou Samuelson",
+      "year": 2019,
+      "round": 1,
+      "roundPick": 4,
+      "pick": 4,
+      "team": "Chicago Sky",
+      "source": "https://www.wnba.com/draft/2019/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Arike Ogunbowale",
+      "year": 2019,
+      "round": 1,
+      "roundPick": 5,
+      "pick": 5,
+      "team": "Dallas Wings",
+      "source": "https://www.wnba.com/draft/2019/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Napheesa Collier",
+      "year": 2019,
+      "round": 1,
+      "roundPick": 6,
+      "pick": 6,
+      "team": "Minnesota Lynx",
+      "source": "https://www.wnba.com/draft/2019/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Alanna Smith",
+      "year": 2019,
+      "round": 1,
+      "roundPick": 8,
+      "pick": 8,
+      "team": "Phoenix Mercury",
+      "source": "https://www.wnba.com/draft/2019/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Brianna Turner",
+      "year": 2019,
+      "round": 1,
+      "roundPick": 11,
+      "pick": 11,
+      "team": "Atlanta Dream",
+      "source": "https://www.wnba.com/draft/2019/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Ezi Magbegor",
+      "year": 2019,
+      "round": 1,
+      "roundPick": 12,
+      "pick": 12,
+      "team": "Seattle Storm",
+      "source": "https://www.wnba.com/draft/2019/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Sophie Cunningham",
+      "year": 2019,
+      "round": 2,
+      "roundPick": 1,
+      "pick": 13,
+      "team": "Phoenix Mercury",
+      "source": "https://www.wnba.com/draft/2019/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Han Xu",
+      "year": 2019,
+      "round": 2,
+      "roundPick": 2,
+      "pick": 14,
+      "team": "New York Liberty",
+      "source": "https://www.wnba.com/draft/2019/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Jessica Shepard",
+      "year": 2019,
+      "round": 2,
+      "roundPick": 4,
+      "pick": 16,
+      "team": "Minnesota Lynx",
+      "source": "https://www.wnba.com/draft/2019/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Megan Gustafson",
+      "year": 2019,
+      "round": 2,
+      "roundPick": 5,
+      "pick": 17,
+      "team": "Dallas Wings",
+      "source": "https://www.wnba.com/draft/2019/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Natisha Hiedeman",
+      "year": 2019,
+      "round": 2,
+      "roundPick": 6,
+      "pick": 18,
+      "team": "Minnesota Lynx",
+      "source": "https://www.wnba.com/draft/2019/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Marina Mabrey",
+      "year": 2019,
+      "round": 2,
+      "roundPick": 7,
+      "pick": 19,
+      "team": "Los Angeles Sparks",
+      "source": "https://www.wnba.com/draft/2019/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Bridget Carleton",
+      "year": 2019,
+      "round": 2,
+      "roundPick": 9,
+      "pick": 21,
+      "team": "Connecticut Sun",
+      "source": "https://www.wnba.com/draft/2019/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Kennedy Burke",
+      "year": 2019,
+      "round": 2,
+      "roundPick": 10,
+      "pick": 22,
+      "team": "Dallas Wings",
+      "source": "https://www.wnba.com/draft/2019/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Maria Conde",
+      "year": 2019,
+      "round": 3,
+      "roundPick": 3,
+      "pick": 27,
+      "team": "Chicago Sky",
+      "source": "https://www.wnba.com/draft/2019/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Li Yueru",
+      "year": 2019,
+      "round": 3,
+      "roundPick": 11,
+      "pick": 35,
+      "team": "Atlanta Dream",
+      "source": "https://www.wnba.com/draft/2019/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Sabrina Ionescu",
+      "year": 2020,
+      "round": 1,
+      "roundPick": 1,
+      "pick": 1,
+      "team": "New York Liberty",
+      "source": "https://www.wnba.com/draft/2020/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Satou Sabally",
+      "year": 2020,
+      "round": 1,
+      "roundPick": 2,
+      "pick": 2,
+      "team": "Dallas Wings",
+      "source": "https://www.wnba.com/draft/2020/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Chennedy Carter",
+      "year": 2020,
+      "round": 1,
+      "roundPick": 4,
+      "pick": 4,
+      "team": "Atlanta Dream",
+      "source": "https://www.wnba.com/draft/2020/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Tyasha Harris",
+      "year": 2020,
+      "round": 1,
+      "roundPick": 7,
+      "pick": 7,
+      "team": "Dallas Wings",
+      "source": "https://www.wnba.com/draft/2020/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Luisa Geiselsöder",
+      "year": 2020,
+      "round": 2,
+      "roundPick": 9,
+      "pick": 21,
+      "team": "Dallas Wings",
+      "source": "https://www.wnba.com/draft/2020/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Leonie Fiebich",
+      "year": 2020,
+      "round": 2,
+      "roundPick": 10,
+      "pick": 22,
+      "team": "Los Angeles Sparks",
+      "source": "https://www.wnba.com/draft/2020/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Kaila Charles",
+      "year": 2020,
+      "round": 2,
+      "roundPick": 11,
+      "pick": 23,
+      "team": "Connecticut Sun",
+      "source": "https://www.wnba.com/draft/2020/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Sug Sutton",
+      "year": 2020,
+      "round": 3,
+      "roundPick": 12,
+      "pick": 36,
+      "team": "Washington Mystics",
+      "source": "https://www.wnba.com/draft/2020/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Awak Kuier",
+      "year": 2021,
+      "round": 1,
+      "roundPick": 2,
+      "pick": 2,
+      "team": "Dallas Wings",
+      "source": "https://www.wnba.com/draft/2021/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Michaela Onyenwere",
+      "year": 2021,
+      "round": 1,
+      "roundPick": 6,
+      "pick": 6,
+      "team": "New York Liberty",
+      "source": "https://www.wnba.com/draft/2021/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Iliana Rupert",
+      "year": 2021,
+      "round": 1,
+      "roundPick": 12,
+      "pick": 12,
+      "team": "Las Vegas Aces",
+      "source": "https://www.wnba.com/draft/2021/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Dana Evans",
+      "year": 2021,
+      "round": 2,
+      "roundPick": 1,
+      "pick": 13,
+      "team": "Dallas Wings",
+      "source": "https://www.wnba.com/draft/2021/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Raquel Carrera",
+      "year": 2021,
+      "round": 2,
+      "roundPick": 3,
+      "pick": 15,
+      "team": "Atlanta Dream",
+      "source": "https://www.wnba.com/draft/2021/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Natasha Mack",
+      "year": 2021,
+      "round": 2,
+      "roundPick": 4,
+      "pick": 16,
+      "team": "Chicago Sky",
+      "source": "https://www.wnba.com/draft/2021/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Kiana Williams",
+      "year": 2021,
+      "round": 2,
+      "roundPick": 6,
+      "pick": 18,
+      "team": "Seattle Storm",
+      "source": "https://www.wnba.com/draft/2021/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "DiJonai Carrington",
+      "year": 2021,
+      "round": 2,
+      "roundPick": 8,
+      "pick": 20,
+      "team": "Connecticut Sun",
+      "source": "https://www.wnba.com/draft/2021/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Marine Fauthoux",
+      "year": 2021,
+      "round": 3,
+      "roundPick": 5,
+      "pick": 29,
+      "team": "New York Liberty",
+      "source": "https://www.wnba.com/draft/2021/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Maya Caldwell",
+      "year": 2021,
+      "round": 3,
+      "roundPick": 9,
+      "pick": 33,
+      "team": "Indiana Fever",
+      "source": "https://www.wnba.com/draft/2021/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Rhyne Howard",
+      "year": 2022,
+      "round": 1,
+      "roundPick": 1,
+      "pick": 1,
+      "team": "Atlanta Dream",
+      "source": "https://www.wnba.com/draft/2022/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "NaLyssa Smith",
+      "year": 2022,
+      "round": 1,
+      "roundPick": 2,
+      "pick": 2,
+      "team": "Indiana Fever",
+      "source": "https://www.wnba.com/draft/2022/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Shakira Austin",
+      "year": 2022,
+      "round": 1,
+      "roundPick": 3,
+      "pick": 3,
+      "team": "Washington Mystics",
+      "source": "https://www.wnba.com/draft/2022/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Emily Engstler",
+      "year": 2022,
+      "round": 1,
+      "roundPick": 4,
+      "pick": 4,
+      "team": "Indiana Fever",
+      "source": "https://www.wnba.com/draft/2022/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Nyara Sabally",
+      "year": 2022,
+      "round": 1,
+      "roundPick": 5,
+      "pick": 5,
+      "team": "New York Liberty",
+      "source": "https://www.wnba.com/draft/2022/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Lexie Hull",
+      "year": 2022,
+      "round": 1,
+      "roundPick": 6,
+      "pick": 6,
+      "team": "Indiana Fever",
+      "source": "https://www.wnba.com/draft/2022/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Veronica Burton",
+      "year": 2022,
+      "round": 1,
+      "roundPick": 7,
+      "pick": 7,
+      "team": "Dallas Wings",
+      "source": "https://www.wnba.com/draft/2022/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Rae Burrell",
+      "year": 2022,
+      "round": 1,
+      "roundPick": 9,
+      "pick": 9,
+      "team": "Los Angeles Sparks",
+      "source": "https://www.wnba.com/draft/2022/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Kierstan Bell",
+      "year": 2022,
+      "round": 1,
+      "roundPick": 11,
+      "pick": 11,
+      "team": "Las Vegas Aces",
+      "source": "https://www.wnba.com/draft/2022/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Christyn Williams",
+      "year": 2022,
+      "round": 2,
+      "roundPick": 2,
+      "pick": 14,
+      "team": "Washington Mystics",
+      "source": "https://www.wnba.com/draft/2022/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Naz Hillmon",
+      "year": 2022,
+      "round": 2,
+      "roundPick": 3,
+      "pick": 15,
+      "team": "Atlanta Dream",
+      "source": "https://www.wnba.com/draft/2022/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Olivia Nelson-Ododa",
+      "year": 2022,
+      "round": 2,
+      "roundPick": 7,
+      "pick": 19,
+      "team": "Los Angeles Sparks",
+      "source": "https://www.wnba.com/draft/2022/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Sika Koné",
+      "year": 2022,
+      "round": 3,
+      "roundPick": 5,
+      "pick": 29,
+      "team": "New York Liberty",
+      "source": "https://www.wnba.com/draft/2022/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Jade Melbourne",
+      "year": 2022,
+      "round": 3,
+      "roundPick": 9,
+      "pick": 33,
+      "team": "Seattle Storm",
+      "source": "https://www.wnba.com/draft/2022/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Aliyah Boston",
+      "year": 2023,
+      "round": 1,
+      "roundPick": 1,
+      "pick": 1,
+      "team": "Indiana Fever",
+      "source": "https://www.wnba.com/draft/2023/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Diamond Miller",
+      "year": 2023,
+      "round": 1,
+      "roundPick": 2,
+      "pick": 2,
+      "team": "Minnesota Lynx",
+      "source": "https://www.wnba.com/draft/2023/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Maddy Siegrist",
+      "year": 2023,
+      "round": 1,
+      "roundPick": 3,
+      "pick": 3,
+      "team": "Dallas Wings",
+      "source": "https://www.wnba.com/draft/2023/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Haley Jones",
+      "year": 2023,
+      "round": 1,
+      "roundPick": 6,
+      "pick": 6,
+      "team": "Atlanta Dream",
+      "source": "https://www.wnba.com/draft/2023/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Laeticia Amihere",
+      "year": 2023,
+      "round": 1,
+      "roundPick": 8,
+      "pick": 8,
+      "team": "Atlanta Dream",
+      "source": "https://www.wnba.com/draft/2023/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Jordan Horston",
+      "year": 2023,
+      "round": 1,
+      "roundPick": 9,
+      "pick": 9,
+      "team": "Seattle Storm",
+      "source": "https://www.wnba.com/draft/2023/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Zia Cooke",
+      "year": 2023,
+      "round": 1,
+      "roundPick": 10,
+      "pick": 10,
+      "team": "Los Angeles Sparks",
+      "source": "https://www.wnba.com/draft/2023/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Dorka Juhász",
+      "year": 2023,
+      "round": 2,
+      "roundPick": 4,
+      "pick": 16,
+      "team": "Minnesota Lynx",
+      "source": "https://www.wnba.com/draft/2023/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Ashten Prechtel",
+      "year": 2023,
+      "round": 3,
+      "roundPick": 10,
+      "pick": 34,
+      "team": "Connecticut Sun",
+      "source": "https://www.wnba.com/draft/2023/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Caitlin Clark",
+      "year": 2024,
+      "round": 1,
+      "roundPick": 1,
+      "pick": 1,
+      "team": "Indiana Fever",
+      "source": "https://www.wnba.com/draft/2024/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Cameron Brink",
+      "year": 2024,
+      "round": 1,
+      "roundPick": 2,
+      "pick": 2,
+      "team": "Los Angeles Sparks",
+      "source": "https://www.wnba.com/draft/2024/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Kamilla Cardoso",
+      "year": 2024,
+      "round": 1,
+      "roundPick": 3,
+      "pick": 3,
+      "team": "Chicago Sky",
+      "source": "https://www.wnba.com/draft/2024/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Jacy Sheldon",
+      "year": 2024,
+      "round": 1,
+      "roundPick": 5,
+      "pick": 5,
+      "team": "Dallas Wings",
+      "source": "https://www.wnba.com/draft/2024/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Aaliyah Edwards",
+      "year": 2024,
+      "round": 1,
+      "roundPick": 6,
+      "pick": 6,
+      "team": "Washington Mystics",
+      "source": "https://www.wnba.com/draft/2024/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Angel Reese",
+      "year": 2024,
+      "round": 1,
+      "roundPick": 7,
+      "pick": 7,
+      "team": "Chicago Sky",
+      "source": "https://www.wnba.com/draft/2024/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Alissa Pili",
+      "year": 2024,
+      "round": 1,
+      "roundPick": 8,
+      "pick": 8,
+      "team": "Minnesota Lynx",
+      "source": "https://www.wnba.com/draft/2024/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Carla Leite",
+      "year": 2024,
+      "round": 1,
+      "roundPick": 9,
+      "pick": 9,
+      "team": "Dallas Wings",
+      "source": "https://www.wnba.com/draft/2024/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Leila Lacan",
+      "year": 2024,
+      "round": 1,
+      "roundPick": 10,
+      "pick": 10,
+      "team": "Connecticut Sun",
+      "source": "https://www.wnba.com/draft/2024/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Nyadiew Puoch",
+      "year": 2024,
+      "round": 1,
+      "roundPick": 12,
+      "pick": 12,
+      "team": "Atlanta Dream",
+      "source": "https://www.wnba.com/draft/2024/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Kate Martin",
+      "year": 2024,
+      "round": 2,
+      "roundPick": 6,
+      "pick": 18,
+      "team": "Las Vegas Aces",
+      "source": "https://www.wnba.com/draft/2024/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Isobel Borlase",
+      "year": 2024,
+      "round": 2,
+      "roundPick": 8,
+      "pick": 20,
+      "team": "Atlanta Dream",
+      "source": "https://www.wnba.com/draft/2024/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Mackenzie Holmes",
+      "year": 2024,
+      "round": 3,
+      "roundPick": 2,
+      "pick": 26,
+      "team": "Seattle Storm",
+      "source": "https://www.wnba.com/draft/2024/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Paige Bueckers",
+      "year": 2025,
+      "round": 1,
+      "roundPick": 1,
+      "pick": 1,
+      "team": "Dallas Wings",
+      "source": "https://www.wnba.com/draft/2025/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Dominique Malonga",
+      "year": 2025,
+      "round": 1,
+      "roundPick": 2,
+      "pick": 2,
+      "team": "Seattle Storm",
+      "source": "https://www.wnba.com/draft/2025/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Sonia Citron",
+      "year": 2025,
+      "round": 1,
+      "roundPick": 3,
+      "pick": 3,
+      "team": "Washington Mystics",
+      "source": "https://www.wnba.com/draft/2025/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Kiki Iriafen",
+      "year": 2025,
+      "round": 1,
+      "roundPick": 4,
+      "pick": 4,
+      "team": "Washington Mystics",
+      "source": "https://www.wnba.com/draft/2025/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Justė Jocytė",
+      "year": 2025,
+      "round": 1,
+      "roundPick": 5,
+      "pick": 5,
+      "team": "Golden State Valkyries",
+      "source": "https://www.wnba.com/draft/2025/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Georgia Amoore",
+      "year": 2025,
+      "round": 1,
+      "roundPick": 6,
+      "pick": 6,
+      "team": "Washington Mystics",
+      "source": "https://www.wnba.com/draft/2025/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Aneesah Morrow",
+      "year": 2025,
+      "round": 1,
+      "roundPick": 7,
+      "pick": 7,
+      "team": "Connecticut Sun",
+      "source": "https://www.wnba.com/draft/2025/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Saniya Rivers",
+      "year": 2025,
+      "round": 1,
+      "roundPick": 8,
+      "pick": 8,
+      "team": "Connecticut Sun",
+      "source": "https://www.wnba.com/draft/2025/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Hailey Van Lith",
+      "year": 2025,
+      "round": 1,
+      "roundPick": 11,
+      "pick": 11,
+      "team": "Chicago Sky",
+      "source": "https://www.wnba.com/draft/2025/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Aziaha James",
+      "year": 2025,
+      "round": 1,
+      "roundPick": 12,
+      "pick": 12,
+      "team": "Dallas Wings",
+      "source": "https://www.wnba.com/draft/2025/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Aaliyah Nye",
+      "year": 2025,
+      "round": 2,
+      "roundPick": 1,
+      "pick": 13,
+      "team": "Las Vegas Aces",
+      "source": "https://www.wnba.com/draft/2025/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Anastasiia Olairi Kosu",
+      "year": 2025,
+      "round": 2,
+      "roundPick": 3,
+      "pick": 15,
+      "team": "Minnesota Lynx",
+      "source": "https://www.wnba.com/draft/2025/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Maddy Westbeld",
+      "year": 2025,
+      "round": 2,
+      "roundPick": 4,
+      "pick": 16,
+      "team": "Chicago Sky",
+      "source": "https://www.wnba.com/draft/2025/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Te-Hina Paopao",
+      "year": 2025,
+      "round": 2,
+      "roundPick": 6,
+      "pick": 18,
+      "team": "Atlanta Dream",
+      "source": "https://www.wnba.com/draft/2025/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Makayla Timpson",
+      "year": 2025,
+      "round": 2,
+      "roundPick": 7,
+      "pick": 19,
+      "team": "Indiana Fever",
+      "source": "https://www.wnba.com/draft/2025/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Bree Hall",
+      "year": 2025,
+      "round": 2,
+      "roundPick": 8,
+      "pick": 20,
+      "team": "Indiana Fever",
+      "source": "https://www.wnba.com/draft/2025/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Sania Feagin",
+      "year": 2025,
+      "round": 2,
+      "roundPick": 9,
+      "pick": 21,
+      "team": "Los Angeles Sparks",
+      "source": "https://www.wnba.com/draft/2025/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Aicha Coulibaly",
+      "year": 2025,
+      "round": 2,
+      "roundPick": 10,
+      "pick": 22,
+      "team": "Chicago Sky",
+      "source": "https://www.wnba.com/draft/2025/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Lucy Olsen",
+      "year": 2025,
+      "round": 2,
+      "roundPick": 11,
+      "pick": 23,
+      "team": "Washington Mystics",
+      "source": "https://www.wnba.com/draft/2025/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Rayah Marshall",
+      "year": 2025,
+      "round": 2,
+      "roundPick": 13,
+      "pick": 25,
+      "team": "Connecticut Sun",
+      "source": "https://www.wnba.com/draft/2025/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Liatu King",
+      "year": 2025,
+      "round": 3,
+      "roundPick": 3,
+      "pick": 28,
+      "team": "Los Angeles Sparks",
+      "source": "https://www.wnba.com/draft/2025/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Kaitlyn Chen",
+      "year": 2025,
+      "round": 3,
+      "roundPick": 5,
+      "pick": 30,
+      "team": "Golden State Valkyries",
+      "source": "https://www.wnba.com/draft/2025/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Zaay Green",
+      "year": 2025,
+      "round": 3,
+      "roundPick": 7,
+      "pick": 32,
+      "team": "Washington Mystics",
+      "source": "https://www.wnba.com/draft/2025/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Taylor Thierry",
+      "year": 2025,
+      "round": 3,
+      "roundPick": 11,
+      "pick": 36,
+      "team": "Atlanta Dream",
+      "source": "https://www.wnba.com/draft/2025/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Azzi Fudd",
+      "year": 2026,
+      "round": 1,
+      "roundPick": 1,
+      "pick": 1,
+      "team": "Dallas Wings",
+      "source": "https://www.wnba.com/draft/2026/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Olivia Miles",
+      "year": 2026,
+      "round": 1,
+      "roundPick": 2,
+      "pick": 2,
+      "team": "Minnesota Lynx",
+      "source": "https://www.wnba.com/draft/2026/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Awa Fam Thiam",
+      "year": 2026,
+      "round": 1,
+      "roundPick": 3,
+      "pick": 3,
+      "team": "Seattle Storm",
+      "source": "https://www.wnba.com/draft/2026/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Lauren Betts",
+      "year": 2026,
+      "round": 1,
+      "roundPick": 4,
+      "pick": 4,
+      "team": "Washington Mystics",
+      "source": "https://www.wnba.com/draft/2026/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Gabriela Jaquez",
+      "year": 2026,
+      "round": 1,
+      "roundPick": 5,
+      "pick": 5,
+      "team": "Chicago Sky",
+      "source": "https://www.wnba.com/draft/2026/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Kiki Rice",
+      "year": 2026,
+      "round": 1,
+      "roundPick": 6,
+      "pick": 6,
+      "team": "Toronto Tempo",
+      "source": "https://www.wnba.com/draft/2026/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Flau'jae Johnson",
+      "year": 2026,
+      "round": 1,
+      "roundPick": 8,
+      "pick": 8,
+      "team": "Golden State Valkyries",
+      "source": "https://www.wnba.com/draft/2026/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Angela Dugalić",
+      "year": 2026,
+      "round": 1,
+      "roundPick": 9,
+      "pick": 9,
+      "team": "Washington Mystics",
+      "source": "https://www.wnba.com/draft/2026/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Raven Johnson",
+      "year": 2026,
+      "round": 1,
+      "roundPick": 10,
+      "pick": 10,
+      "team": "Indiana Fever",
+      "source": "https://www.wnba.com/draft/2026/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Cotie McMahon",
+      "year": 2026,
+      "round": 1,
+      "roundPick": 11,
+      "pick": 11,
+      "team": "Washington Mystics",
+      "source": "https://www.wnba.com/draft/2026/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Nell Angloma",
+      "year": 2026,
+      "round": 1,
+      "roundPick": 12,
+      "pick": 12,
+      "team": "Connecticut Sun",
+      "source": "https://www.wnba.com/draft/2026/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Madina Okot",
+      "year": 2026,
+      "round": 1,
+      "roundPick": 13,
+      "pick": 13,
+      "team": "Atlanta Dream",
+      "source": "https://www.wnba.com/draft/2026/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Taina Mair",
+      "year": 2026,
+      "round": 1,
+      "roundPick": 14,
+      "pick": 14,
+      "team": "Seattle Storm",
+      "source": "https://www.wnba.com/draft/2026/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Gianna Kneepkens",
+      "year": 2026,
+      "round": 1,
+      "roundPick": 15,
+      "pick": 15,
+      "team": "Connecticut Sun",
+      "source": "https://www.wnba.com/draft/2026/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Marta Suárez",
+      "year": 2026,
+      "round": 2,
+      "roundPick": 1,
+      "pick": 16,
+      "team": "Seattle Storm",
+      "source": "https://www.wnba.com/draft/2026/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Frieda Bühner",
+      "year": 2026,
+      "round": 2,
+      "roundPick": 2,
+      "pick": 17,
+      "team": "Portland Fire",
+      "source": "https://www.wnba.com/draft/2026/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Charlisse Leger-Walker",
+      "year": 2026,
+      "round": 2,
+      "roundPick": 3,
+      "pick": 18,
+      "team": "Connecticut Sun",
+      "source": "https://www.wnba.com/draft/2026/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Cassandre Prosper",
+      "year": 2026,
+      "round": 2,
+      "roundPick": 4,
+      "pick": 19,
+      "team": "Washington Mystics",
+      "source": "https://www.wnba.com/draft/2026/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Ta'Niya Latson",
+      "year": 2026,
+      "round": 2,
+      "roundPick": 5,
+      "pick": 20,
+      "team": "Los Angeles Sparks",
+      "source": "https://www.wnba.com/draft/2026/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Teonni Key",
+      "year": 2026,
+      "round": 2,
+      "roundPick": 7,
+      "pick": 22,
+      "team": "Toronto Tempo",
+      "source": "https://www.wnba.com/draft/2026/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Ashlon Jackson",
+      "year": 2026,
+      "round": 2,
+      "roundPick": 8,
+      "pick": 23,
+      "team": "Golden State Valkyries",
+      "source": "https://www.wnba.com/draft/2026/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Chance Gray",
+      "year": 2026,
+      "round": 2,
+      "roundPick": 9,
+      "pick": 24,
+      "team": "Los Angeles Sparks",
+      "source": "https://www.wnba.com/draft/2026/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Justine Pissott",
+      "year": 2026,
+      "round": 2,
+      "roundPick": 10,
+      "pick": 25,
+      "team": "Indiana Fever",
+      "source": "https://www.wnba.com/draft/2026/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Indya Nivar",
+      "year": 2026,
+      "round": 2,
+      "roundPick": 13,
+      "pick": 28,
+      "team": "Atlanta Dream",
+      "source": "https://www.wnba.com/draft/2026/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Darianna Littlepage-Buggs",
+      "year": 2026,
+      "round": 2,
+      "roundPick": 15,
+      "pick": 30,
+      "team": "Washington Mystics",
+      "source": "https://www.wnba.com/draft/2026/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Tonie Morgan",
+      "year": 2026,
+      "round": 3,
+      "roundPick": 2,
+      "pick": 32,
+      "team": "Chicago Sky",
+      "source": "https://www.wnba.com/draft/2026/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Serah Williams",
+      "year": 2026,
+      "round": 3,
+      "roundPick": 3,
+      "pick": 33,
+      "team": "Connecticut Sun",
+      "source": "https://www.wnba.com/draft/2026/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Rori Harmon",
+      "year": 2026,
+      "round": 3,
+      "roundPick": 4,
+      "pick": 34,
+      "team": "Washington Mystics",
+      "source": "https://www.wnba.com/draft/2026/board",
+      "sourceLabel": "Official WNBA draft board"
+    },
+    {
+      "player": "Grace VanSlootoen",
+      "year": 2026,
+      "round": 3,
+      "roundPick": 9,
+      "pick": 39,
+      "team": "Seattle Storm",
+      "source": "https://www.wnba.com/draft/2026/board",
+      "sourceLabel": "Official WNBA draft board"
+    }
+  ],
+  "undrafted": [
+    "Alicia Flórez Getino",
+    "Amy Okonkwo",
+    "Anneli Maley",
+    "Antonia Delaere",
+    "Cecilia Zandalasini",
+    "Chloe Bibby",
+    "Costanza Verona",
+    "Elena Buenavida",
+    "Eliska Joklova",
+    "Elizabeth Balogun",
+    "Emma Cannon",
+    "Erica Wheeler",
+    "Holly Winterburn",
+    "Janelle Salaun",
+    "Jaylyn Sherrod",
+    "Jihyun Park",
+    "Jordan Harrison",
+    "Jovana Nogic",
+    "Kara Dunn",
+    "Karlie Samuelson",
+    "Kayla Thornton",
+    "Kyara Linskens",
+    "Laura Juskaite",
+    "Lexi Held",
+    "Mai Yamamoto",
+    "Marine Johannes",
+    "Michelle Onyiah",
+    "Miela Sowah",
+    "Monique Akoa Makani",
+    "Morgan Maly",
+    "Nadia Fingall",
+    "Noemie Brochant",
+    "Ornella Bankole",
+    "Pauline Astier",
+    "Raegan Beers",
+    "Rebecca Allen",
+    "Rebekah Gardner",
+    "Sami Whitcomb",
+    "Shay Ciezki",
+    "Sydney Taylor",
+    "Teja Oblak",
+    "Valeriane Ayayi"
+  ]
+}

@@ -263,11 +263,19 @@ function buildRoster(rosterData = {}, recentRosterData = {}, recentSeason = 2025
   }
 
   const photoRules = new Map((liveUpdates.photoRules || []).map(item => [key(item.name), item]));
-  return [...byName.values()].map(player => {
+  const normalized = [...byName.values()].map(player => {
     const rule = photoRules.get(key(player.name));
     if (!rule?.blockRosterApiPhoto) return player;
     return { ...player, photo: '', photoThumb: '', photoCutout: '', headshot: '', photoSource: '', photoSourceUrl: '', photoNeedsDetail: Boolean(rule.preferDetailApiPhoto), photoRuleNote: rule.reason || '' };
-  }).filter(player => player.name && player.team)
+  }).filter(player => player.name && player.team);
+  const canonicalPlayers = new Map();
+  const completeness = player => [player.wnbaId, player.officialHeadshot, player.photo, player.position && player.position !== 'Player', player.number].filter(Boolean).length;
+  for (const player of normalized) {
+    const playerKey = key(player.name);
+    const existing = canonicalPlayers.get(playerKey);
+    if (!existing || completeness(player) > completeness(existing)) canonicalPlayers.set(playerKey, player);
+  }
+  return [...canonicalPlayers.values()]
     .sort((a,b) => a.lastName.localeCompare(b.lastName) || a.firstName.localeCompare(b.firstName));
 }
 function normalizeTransaction(item = {}) {

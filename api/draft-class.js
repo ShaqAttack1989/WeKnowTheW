@@ -25,8 +25,8 @@ function cell(row,stat){const rx=new RegExp(`<(?:th|td)[^>]*data-stat=["']${stat
 function parseHtml(raw=''){
   const rows=[];
   for(const m of String(raw).matchAll(/<tr[^>]*>([\s\S]*?)<\/tr>/gi)){
-    const r=m[1];const player=clean(cell(r,'player'));const pick=num(clean(cell(r,'pick_overall')||cell(r,'pick')));if(!player||!pick)continue;
-    rows.push({player,pick,round:num(clean(cell(r,'round')||cell(r,'draft_round'))),team:clean(cell(r,'team_name_abbr')||cell(r,'team_id'))});
+    const r=m[1];const player=clean(cell(r,'player'));const pick=num(clean(cell(r,'pick_overall')||cell(r,'pick')));if(!player||!pick||/^(player|per game|advanced)$/i.test(player))continue;
+    rows.push({player,pick,round:num(clean(cell(r,'round')||cell(r,'draft_round'))),team:clean(cell(r,'team')||cell(r,'team_name_abbr')||cell(r,'team_id'))});
   }
   return rows;
 }

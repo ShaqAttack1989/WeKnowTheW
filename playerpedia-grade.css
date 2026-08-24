@@ -5,6 +5,8 @@
 .player-card-copy .player-card-name{font-size:1.08rem;line-height:1.18;font-weight:950;color:#17131f;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 .player-card-copy .player-card-team{font-size:.88rem;color:#6f6879;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 .player-card-grade{display:flex;align-items:center;gap:8px;margin-top:3px;min-height:27px;}
+.player-card-career-status{display:flex;margin-top:2px;}
+.player-return-badge{display:inline-flex;align-items:center;gap:5px;width:max-content;padding:5px 8px;border-radius:999px;background:#140a2f;color:#d8ff4f;font-size:.59rem;font-weight:1000;letter-spacing:.06em;line-height:1;text-transform:uppercase;}
 .player-grade-badge{display:inline-flex;align-items:center;justify-content:center;min-width:39px;height:25px;padding:0 7px;border-radius:999px;background:#eee6fb;color:#5b22b7;font-size:.73rem;font-weight:1000;letter-spacing:.02em;}
 .player-grade-badge.grade-a{background:#d8ff4f;color:#140a2f;}
 .player-grade-badge.grade-b{background:#e8dcff;color:#4d1d97;}
@@ -21,11 +23,16 @@
 .profile-identity-lines h3{margin:0!important;}
 .profile-team-name{margin:0;color:#6f6879;font-weight:850;font-size:1rem;}
 .profile-grade-line{display:flex;align-items:center;gap:8px;margin-top:4px;}
+.profile-career-status{display:flex;margin-top:4px;}
+.profile-career-status .player-return-badge{padding:7px 10px;font-size:.66rem;}
 .profile-grade-line .player-grade-badge{height:30px;min-width:46px;font-size:.82rem;}
 .profile-grade-line .player-grade-score{font-size:.88rem;}
 
 .profile-facts.playerpedia-core-facts{grid-template-columns:repeat(3,minmax(0,1fr));}
 .profile-fact.draft-top10{background:#d8ff4f;border-color:#d8ff4f;position:relative;}
+.profile-fact.career-return-fact{background:#140a2f;border-color:#140a2f;}
+.profile-fact.career-return-fact span,.profile-fact.career-return-fact strong{color:#fff;}
+.profile-fact.career-return-fact span{color:#d8ff4f;}
 .profile-fact.draft-top10 span,.profile-fact.draft-top10 strong{color:#17131f;}
 .top10-draft-badge{display:inline-flex;width:max-content;margin-top:5px;padding:4px 7px;border-radius:999px;background:#140a2f;color:#d8ff4f!important;font-size:.58rem!important;font-weight:950!important;letter-spacing:.08em;}
 
@@ -42,6 +49,10 @@
 .profile-fun-fact p{margin:0;font-size:1.02rem;line-height:1.6;color:#fff;}
 .profile-subsection.playerpedia-quick-bio p{color:#514a5c;line-height:1.7;margin:0;}
 .playerpedia-grade-source{margin-top:8px;color:#807787;font-size:.76rem;}
+.playerpedia-draft-source{display:flex;align-items:center;flex-wrap:wrap;gap:7px 10px;margin:10px 0 0;color:#706778;font-size:.76rem;line-height:1.45;}
+.playerpedia-draft-source>span:first-child{color:#6c2ad9;font-weight:950;letter-spacing:.07em;text-transform:uppercase;}
+.playerpedia-draft-source a{color:#40137d;font-weight:900;text-decoration:none;border-bottom:2px solid #2aa780;}
+.playerpedia-draft-source a:hover,.playerpedia-draft-source a:focus-visible{color:#6c2ad9;}
 
 @media(max-width:680px){
   .player-card{min-height:138px;grid-template-columns:62px minmax(0,1fr) 18px;padding:14px;}

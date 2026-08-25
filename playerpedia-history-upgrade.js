@@ -20,35 +20,44 @@
   function seasonFor(player={}){const season=Number(player.lastWnbaSeason);return Number.isInteger(season)&&season>=2024&&season<=2026?season:null;}
   function historical(player={}){return player.currentRoster===false&&Boolean(seasonFor(player));}
   function snapshotFor(player={}){return snapshotBySeason.get(seasonFor(player))?.get(key(player.name))||null;}
-  function gradeMarkup(snapshot,season){
+  function inlineGrade(snapshot,season){
     const letter=snapshot?.letter||'NR';
     const score=num(snapshot?.score);
-    return `<span class="player-history-grade-badge ${gradeClass(letter)}">${safe(letter)}</span><span><strong>${score===null?'—':`${Math.round(score)}%`}</strong><small>${safe(season||'Last')} last-active grade</small></span>`;
+    return `<span class="player-grade-badge ${gradeClass(letter)}">${safe(letter)}</span><span class="player-grade-score">${score===null?'—':`${Math.round(score)}%`} · ${safe(season)} last-active grade</span>`;
   }
-  function statsMarkup(snapshot){
-    if(!snapshot)return '<span class="player-history-stat-unavailable">Last-season stats are reconnecting.</span>';
-    return `<span><b>${one(snapshot.ppg)}</b> PTS</span><span><b>${one(snapshot.rpg)}</b> REB</span><span><b>${one(snapshot.apg)}</b> AST</span>`;
+  function modalGrade(snapshot,season){
+    const letter=snapshot?.letter||'NR';
+    const score=num(snapshot?.score);
+    return `<span class="player-history-grade"><span class="player-history-grade-badge ${gradeClass(letter)}">${safe(letter)}</span><span><strong>${score===null?'—':`${Math.round(score)}%`}</strong><small>${safe(season||'Last')} last-active grade</small></span></span>`;
+  }
+  function compactStats(snapshot,season){
+    const parts=[];
+    if(snapshot){parts.push(`${one(snapshot.ppg)} PTS`,`${one(snapshot.rpg)} REB`,`${one(snapshot.apg)} AST`);}
+    return `<span class="player-card-history-label">${safe(season)} · LAST ACTIVE</span>${parts.length?`<span class="player-card-history-stats">${parts.map(x=>`<b>${safe(x)}</b>`).join('')}</span>`:''}`;
   }
 
   function decorateCards(){
     if(!ready)return;
     grid.querySelectorAll('.player-card[data-player-id]').forEach(card=>{
-      const name=card.querySelector('.player-card-name')?.textContent?.trim()||card.querySelector('.player-card-copy strong')?.textContent?.trim()||'';
+      const copy=card.querySelector('.player-card-copy');
+      const name=copy?.querySelector('.player-card-name')?.textContent?.trim()||copy?.querySelector('strong')?.textContent?.trim()||'';
       const player=rosterByName.get(key(name));
-      if(!player||!historical(player))return;
+      if(!copy||!player||!historical(player))return;
       const season=seasonFor(player),snapshot=snapshotFor(player);
-      const sig=`${season}:${snapshot?.letter||'NR'}:${Math.round(Number(snapshot?.score)||0)}`;
-      let history=card.querySelector('.player-history-card-meta');
-      if(history?.dataset.historySignature===sig)return;
+      const sig=`${season}:${snapshot?.letter||'NR'}:${Math.round(Number(snapshot?.score)||0)}:${snapshot?.ppg??''}:${snapshot?.rpg??''}:${snapshot?.apg??''}`;
       card.classList.add('player-history-card');
-      if(!history){
-        history=document.createElement('span');
-        history.className='player-history-card-meta';
-        const arrow=card.querySelector('.player-card-arrow');
-        if(arrow)card.insertBefore(history,arrow);else card.appendChild(history);
+      card.querySelector('.player-history-card-meta')?.remove();
+
+      let grade=copy.querySelector('.player-card-grade');
+      if(!grade){grade=document.createElement('span');grade.className='player-card-grade';copy.appendChild(grade);}
+      if(grade.dataset.historySignature!==sig){
+        grade.dataset.historySignature=sig;
+        grade.innerHTML=inlineGrade(snapshot,season);
       }
-      history.dataset.historySignature=sig;
-      history.innerHTML=`<span class="player-history-season">${safe(season)} · LAST ACTIVE</span><span class="player-history-grade">${gradeMarkup(snapshot,season)}</span><span class="player-history-stats">${statsMarkup(snapshot)}</span>`;
+
+      let note=copy.querySelector('.player-card-history-inline');
+      if(!note){note=document.createElement('span');note.className='player-card-history-inline';copy.appendChild(note);}
+      if(note.dataset.historySignature!==sig){note.dataset.historySignature=sig;note.innerHTML=compactStats(snapshot,season);}
     });
   }
   function scheduleCards(){clearTimeout(cardTimer);cardTimer=setTimeout(decorateCards,120);}
@@ -64,7 +73,7 @@
     if(history?.dataset.historySignature===sig)return;
     const lastTeam=player.lastTeam||String(player.team||'').replace(/^Free Agent\s*·\s*last:\s*/i,'')||'WNBA';
     const wrap=document.createElement('div');
-    wrap.innerHTML=`<section class="player-history-profile" data-history-signature="${safe(sig)}"><div class="player-history-profile-head"><div><span>LAST ACTIVE SEASON</span><h4>${safe(season)} · ${safe(lastTeam)}</h4></div><div class="player-history-profile-grade">${gradeMarkup(snapshot,season)}</div></div><div class="player-history-profile-stats"><div><span>PTS</span><strong>${one(snapshot?.ppg)}</strong></div><div><span>REB</span><strong>${one(snapshot?.rpg)}</strong></div><div><span>AST</span><strong>${one(snapshot?.apg)}</strong></div><div><span>STL</span><strong>${one(snapshot?.spg)}</strong></div><div><span>BLK</span><strong>${one(snapshot?.bpg)}</strong></div><div><span>G</span><strong>${snapshot?.games??'—'}</strong></div></div><div class="player-history-profile-eff"><span><b>PER</b> ${one(snapshot?.per)}</span><span><b>TS%</b> ${pct(snapshot?.tsPct)}</span></div><p>This profile keeps the player’s most recent WNBA season instead of replacing her production with zeroes.</p></section>`;
+    wrap.innerHTML=`<section class="player-history-profile" data-history-signature="${safe(sig)}"><div class="player-history-profile-head"><div><span>LAST ACTIVE SEASON</span><h4>${safe(season)} · ${safe(lastTeam)}</h4></div><div class="player-history-profile-grade">${modalGrade(snapshot,season)}</div></div><div class="player-history-profile-stats"><div><span>PTS</span><strong>${one(snapshot?.ppg)}</strong></div><div><span>REB</span><strong>${one(snapshot?.rpg)}</strong></div><div><span>AST</span><strong>${one(snapshot?.apg)}</strong></div><div><span>STL</span><strong>${one(snapshot?.spg)}</strong></div><div><span>BLK</span><strong>${one(snapshot?.bpg)}</strong></div><div><span>G</span><strong>${snapshot?.games??'—'}</strong></div></div><div class="player-history-profile-eff"><span><b>PER</b> ${one(snapshot?.per)}</span><span><b>TS%</b> ${pct(snapshot?.tsPct)}</span></div><p>This profile keeps the player’s most recent WNBA season instead of replacing her production with zeroes.</p></section>`;
     const next=wrap.firstElementChild;if(!next)return;
     if(history)history.replaceWith(next);
     else (modal.querySelector('.playerpedia-metrics-block')||modal.querySelector('.profile-facts'))?.insertAdjacentElement('afterend',next);

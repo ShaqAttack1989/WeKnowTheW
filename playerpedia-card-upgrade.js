@@ -25,19 +25,29 @@
     return `<span class="player-grade-badge ${gradeClass(letter)}">${safe(letter)}</span><span class="player-grade-score">${safe(score)} weighted league grade</span>${provisional}`;
   }
 
+  function normalizeCardStructure(copy){
+    if(!copy)return {proSlot:null,gradeHost:null};
+    let proSlot=copy.querySelector('.player-card-pro-slot');
+    if(!proSlot){proSlot=document.createElement('span');proSlot.className='player-card-pro-slot';}
+    let gradeHost=copy.querySelector('.player-card-grade');
+    if(!gradeHost){gradeHost=document.createElement('span');gradeHost.className='player-card-grade';}
+    copy.appendChild(proSlot);
+    copy.appendChild(gradeHost);
+    return {proSlot,gradeHost};
+  }
+
   function decorateCards(){
     grid.querySelectorAll('.player-card[data-player-id]').forEach(card=>{
       const copy=card.querySelector('.player-card-copy');
       const name=copy?.querySelector('.player-card-name')?.textContent?.trim()||copy?.querySelector('strong')?.textContent?.trim();
       if(!copy||!name)return;
-      const grade=gradesByName.get(key(name));
-      if(!grade)return;
-      const sig=`${grade.letter||'NR'}:${Math.round(Number(grade.score)||0)}:${grade.provisional?'p':'f'}`;
-      let host=copy.querySelector('.player-card-grade');
-      if(host?.dataset.gradeSignature===sig)return;
-      if(!host){host=document.createElement('span');host.className='player-card-grade';copy.appendChild(host);}
-      host.dataset.gradeSignature=sig;
-      host.innerHTML=gradeMarkup(grade);
+      const grade=gradesByName.get(key(name))||{};
+      const {gradeHost}=normalizeCardStructure(copy);
+      if(!gradeHost)return;
+      const sig=`${grade.letter||'NR'}:${Number.isFinite(Number(grade.score))?Math.round(Number(grade.score)):'na'}:${grade.provisional?'p':'f'}`;
+      if(gradeHost.dataset.gradeSignature===sig)return;
+      gradeHost.dataset.gradeSignature=sig;
+      gradeHost.innerHTML=gradeMarkup(grade);
     });
   }
   function scheduleCards(){clearTimeout(cardTimer);cardTimer=setTimeout(decorateCards,60);}
@@ -50,7 +60,7 @@
       gradesByName=new Map(players.map(item=>[key(item.name),item]));
       decorateCards();
       if(status&&players.length&&!/weighted league grade/i.test(status.textContent))status.textContent=`${status.textContent} · weighted league grade connected`;
-    }catch{}
+    }catch{decorateCards();}
   }
 
   function yearsData(){
@@ -153,5 +163,6 @@
 
   new MutationObserver(scheduleCards).observe(grid,{childList:true});
   new MutationObserver(scheduleModal).observe(modal,{childList:true});
+  decorateCards();
   idle(loadGrades,700);
 })();

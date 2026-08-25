@@ -44,14 +44,21 @@
 
   function signature(name){return affiliationsFor(name).map(item=>`${item.league}:${item.team}:${item.label}`).join('|');}
 
+  function cardSlot(copy){
+    let slot=copy?.querySelector('.player-card-pro-slot');
+    if(!slot&&copy){slot=document.createElement('span');slot.className='player-card-pro-slot';const grade=copy.querySelector('.player-card-grade');if(grade)copy.insertBefore(slot,grade);else copy.appendChild(slot);}
+    return slot;
+  }
+
   function decorateCard(card){
     const copy=card.querySelector('.player-card-copy');
-    const name=copy?.querySelector('.player-card-name,.player-card-copy strong')?.textContent?.trim()||copy?.querySelector('strong')?.textContent?.trim();
+    const name=copy?.querySelector('.player-card-name')?.textContent?.trim()||copy?.querySelector('strong')?.textContent?.trim();
     if(!copy||!name)return;
+    const slot=cardSlot(copy);if(!slot)return;
     const sig=signature(name);
-    if(card.dataset.proAffiliationSignature===sig)return;
-    copy.querySelector('.pro-affiliations')?.remove();
-    if(sig)copy.insertAdjacentHTML('beforeend',markup(name));
+    if(card.dataset.proAffiliationSignature===sig&&slot.dataset.affiliationSignature===sig)return;
+    slot.innerHTML=sig?markup(name):'';
+    slot.dataset.affiliationSignature=sig;
     card.dataset.proAffiliationSignature=sig;
   }
 

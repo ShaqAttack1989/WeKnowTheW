@@ -30,11 +30,6 @@
     const score=num(snapshot?.score);
     return `<span class="player-history-grade"><span class="player-history-grade-badge ${gradeClass(letter)}">${safe(letter)}</span><span><strong>${score===null?'—':`${Math.round(score)}%`}</strong><small>${safe(season||'Last')} last-active grade</small></span></span>`;
   }
-  function compactStats(snapshot,season){
-    const parts=[];
-    if(snapshot){parts.push(`${one(snapshot.ppg)} PTS`,`${one(snapshot.rpg)} REB`,`${one(snapshot.apg)} AST`);}
-    return `<span class="player-card-history-label">${safe(season)} · LAST ACTIVE</span>${parts.length?`<span class="player-card-history-stats">${parts.map(x=>`<b>${safe(x)}</b>`).join('')}</span>`:''}`;
-  }
 
   function decorateCards(){
     if(!ready)return;
@@ -44,9 +39,10 @@
       const player=rosterByName.get(key(name));
       if(!copy||!player||!historical(player))return;
       const season=seasonFor(player),snapshot=snapshotFor(player);
-      const sig=`${season}:${snapshot?.letter||'NR'}:${Math.round(Number(snapshot?.score)||0)}:${snapshot?.ppg??''}:${snapshot?.rpg??''}:${snapshot?.apg??''}`;
+      const sig=`${season}:${snapshot?.letter||'NR'}:${Math.round(Number(snapshot?.score)||0)}`;
       card.classList.add('player-history-card');
       card.querySelector('.player-history-card-meta')?.remove();
+      copy.querySelector('.player-card-history-inline')?.remove();
 
       let grade=copy.querySelector('.player-card-grade');
       if(!grade){grade=document.createElement('span');grade.className='player-card-grade';copy.appendChild(grade);}
@@ -54,10 +50,6 @@
         grade.dataset.historySignature=sig;
         grade.innerHTML=inlineGrade(snapshot,season);
       }
-
-      let note=copy.querySelector('.player-card-history-inline');
-      if(!note){note=document.createElement('span');note.className='player-card-history-inline';copy.appendChild(note);}
-      if(note.dataset.historySignature!==sig){note.dataset.historySignature=sig;note.innerHTML=compactStats(snapshot,season);}
     });
   }
   function scheduleCards(){clearTimeout(cardTimer);cardTimer=setTimeout(decorateCards,120);}

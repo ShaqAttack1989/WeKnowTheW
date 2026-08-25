@@ -8,6 +8,7 @@
   <title>We Know the W | Women’s Basketball Encyclopedia</title>
   <link rel="stylesheet" href="/styles.css">
   <link rel="stylesheet" href="/landing.css?v=20260822-live-games-v1">
+  <link rel="stylesheet" href="/homepage-hub.css?v=20260825-v1">
 </head>
 <body>
   <header class="hub-hero" id="top">
@@ -22,8 +23,8 @@
         <h1>Know the players.<br>Know the history.<br><em>Know the W.</em></h1>
         <p class="hero-copy">An independent, fan-built women’s basketball encyclopedia organized around the current league, the players, the archive, the culture, the pipeline and the pros who keep hooping when the W season ends.</p>
         <div class="hero-actions">
-          <a class="button primary" href="/around-the-w.html">Around the W</a>
-          <a class="button ghost" href="#sections">Explore the W</a>
+          <a class="button primary" href="#sitewide-search">Search the W</a>
+          <a class="button ghost" href="#this-week">This Week in the W</a>
         </div>
       </div>
       <aside class="hero-card" aria-label="Current edition">
@@ -36,6 +37,74 @@
   </header>
 
   <main>
+    <section class="home-command-section" id="sitewide-search">
+      <div class="page-shell">
+        <div class="home-search-card">
+          <div class="home-search-head">
+            <div>
+              <p class="kicker">SITEWIDE SEARCH</p>
+              <h2>The whole W.<br>One field.</h2>
+              <p>Search players, teams, coaches, awards, basketball terms, franchises, and articles from one field. An encyclopedia this deep needs a librarian. Preferably one who does not shush people during overtime.</p>
+            </div>
+            <aside class="home-search-side"><strong>WHAT IT SEARCHES</strong>Playerpedia, all current franchises, coaches, Trophy Room awards, Basketball Dictionary terms, franchise history, league hubs and Snack Shak articles.</aside>
+          </div>
+          <div class="home-search-box">
+            <div class="home-search-input-wrap">
+              <span class="home-search-icon" aria-hidden="true">⌕</span>
+              <input id="homeSiteSearch" type="search" autocomplete="off" placeholder="Try A’ja Wilson, Becky Hammon, DPOY, drop coverage, Detroit…" aria-label="Search the We Know the W encyclopedia">
+              <button class="home-search-clear" id="homeSearchClear" type="button">Clear</button>
+            </div>
+            <div class="home-search-chips" aria-label="Search examples">
+              <button type="button" data-home-search-chip="players">Players</button>
+              <button type="button" data-home-search-chip="coaches">Coaches</button>
+              <button type="button" data-home-search-chip="awards">Awards</button>
+              <button type="button" data-home-search-chip="basketball">Basketball terms</button>
+              <button type="button" data-home-search-chip="franchise">Franchises</button>
+              <button type="button" data-home-search-chip="Snack Shak">Articles</button>
+            </div>
+            <div id="homeSearchResults" class="home-search-results" aria-live="polite"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="page-section home-week-section" id="this-week">
+      <div class="page-shell">
+        <div class="home-week-heading">
+          <div>
+            <p class="kicker">THIS WEEK IN THE W</p>
+            <h2>Five things before tipoff.</h2>
+            <p>Big games, milestone watch, national TV, the newest Snack Shak plate and Monday’s featured rotations in one compact board.</p>
+          </div>
+          <span class="home-week-stamp" id="homeWeekStamp">This week</span>
+        </div>
+        <div class="home-week-grid">
+          <article class="home-week-card games">
+            <span class="home-week-label">🏀 BIGGEST GAMES</span>
+            <h3>The week’s pressure points</h3>
+            <div id="homeWeekGames" class="home-week-loading">Loading the next big matchups…</div>
+          </article>
+          <article class="home-week-card milestone">
+            <span class="home-week-label">📈 MILESTONE WATCH</span>
+            <div id="homeWeekMilestone" class="home-week-loading">Checking the record chases…</div>
+          </article>
+          <article class="home-week-card broadcast">
+            <span class="home-week-label">📺 NATIONAL BROADCASTS</span>
+            <h3>Appointment viewing</h3>
+            <div id="homeWeekBroadcasts" class="home-week-loading">Checking network tags…</div>
+          </article>
+          <article class="home-week-card snack">
+            <span class="home-week-label">🌶️ SNACK SHAK RELEASE</span>
+            <div id="homeWeekSnack" class="home-week-loading">Heating up the latest plate…</div>
+          </article>
+          <article class="home-week-card rotations">
+            <span class="home-week-label">🔄 MONDAY ROTATIONS</span>
+            <div id="homeWeekRotations" class="home-week-loading">Setting the five and the bench…</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <section class="page-section home-live" id="live">
       <div class="page-shell">
         <div class="page-heading live-heading-row">
@@ -113,9 +182,10 @@
   </main>
 
   <footer class="footer"><div class="shell footer-inner"><div><strong>WE KNOW THE W</strong><p>An independent, fan-built women’s basketball encyclopedia. Not affiliated with or endorsed by the WNBA.</p></div><a href="#top">Back to top ↑</a></div></footer>
-  <script src="/site.js?v=20260825-nav-v2"></script>
+  <script src="/site.js?v=20260825-home-hub-v1"></script>
   <script src="/team-data.js"></script>
   <script src="/game-cards.js?v=20260822-live-games-v1"></script>
+  <script src="/homepage-hub.js?v=20260825-v1"></script>
   <script src="/home-live.js?v=20260824-playoff-marks-v2"></script>
 </body>
 </html>

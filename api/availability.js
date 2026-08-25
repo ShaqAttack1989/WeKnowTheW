@@ -26,9 +26,9 @@ function normalizeProvider(item = {}) {
   };
 }
 
-function currentCuratedLongTerm() {
+function currentCuratedCarryovers() {
   const items = Array.isArray(liveUpdates.injuries) ? liveUpdates.injuries : [];
-  return items.filter(item => String(item.status || '').toUpperCase().includes('SEASON'));
+  return items.filter(item => item.carryover === true || String(item.status || '').toUpperCase().includes('SEASON'));
 }
 
 function mergeAvailability(officialReport = {}, provider = []) {
@@ -57,15 +57,15 @@ function mergeAvailability(officialReport = {}, provider = []) {
     combined.push(item);
   }
 
-  for (const item of currentCuratedLongTerm()) {
+  for (const item of currentCuratedCarryovers()) {
     if (!item?.player || seen.has(key(item.player))) continue;
-    if (coveredTeams.has(key(item.team))) continue;
     seen.add(key(item.player));
     combined.push({
       ...item,
       source: item.source || 'WNBA Injury Report / team release',
       officialCurrentReport: false,
-      seasonLongCarryover: true
+      trackedCarryover: true,
+      seasonLongCarryover: String(item.status || '').toUpperCase().includes('SEASON')
     });
   }
 

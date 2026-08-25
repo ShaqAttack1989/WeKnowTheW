@@ -1,3 +1,5 @@
+const { getOfficialLeagueLeaders } = require('../lib/wnba-official-stats');
+
 function decode(value=''){
   return String(value).replace(/&amp;/g,'&').replace(/&quot;/g,'"').replace(/&#39;|&#x27;/g,"'").replace(/&nbsp;/g,' ').replace(/&lt;/g,'<').replace(/&gt;/g,'>');
 }
@@ -120,6 +122,23 @@ module.exports=async function handler(req,res){
   let rows=[];
   let resolvedBy='';
   res.setHeader('Cache-Control','s-maxage=1800, stale-while-revalidate=21600');
+  try{
+    const official=await getOfficialLeagueLeaders(season,'PerGame',5);
+    const categories=official.categories||{};
+    if(Object.keys(categories).length===7){
+      return res.status(200).json({
+        season,
+        source:'Official WNBA statistics',
+        sourceUrl:'https://stats.wnba.com/players/traditional/',
+        resolvedBy:'Official WNBA qualified league leaders',
+        updatedAt:new Date().toISOString(),
+        refreshSeconds:1800,
+        categories,
+        diagnostics:{errors:official.errors||[]}
+      });
+    }
+    errors.push(...(official.errors||[]));
+  }catch(error){errors.push(`Official WNBA statistics: ${error.message}`);}
   const attempts=await Promise.allSettled(readerUrls.map(url=>fetchText(url,{Accept:'text/plain','User-Agent':'Mozilla/5.0 (compatible; WeKnowTheW/1.0)'})));
   attempts.forEach((result,index)=>{
     if(result.status==='fulfilled'){

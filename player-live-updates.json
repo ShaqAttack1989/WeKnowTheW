@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-22T22:15:00Z",
+  "updatedAt": "2026-08-25T08:00:00Z",
   "note": "Current-player movement and availability layer. Player Movement is maintained from the official WNBA Transactions report; Availability is maintained from the official WNBA Injury Report, with WNBA team releases used to confirm longer-term statuses.",
   "rosterOverrides": [
     {"name":"Brittney Griner","team":"Connecticut Sun","position":"Center","number":"42","status":"active","effectiveDate":"2026-04-11","reason":"Signed a one-year contract with Connecticut; confirmed on the current official Sun roster."},
@@ -48,6 +48,9 @@
     {"date":"2026-07-07","type":"WAIVED","player":"Chennedy Carter","team":"Las Vegas Aces","detail":"Waived by Las Vegas.","source":"WNBA Transactions Report"}
   ],
   "injuries": [
+    {"player":"Aneesah Morrow","team":"Toronto Tempo","status":"OUT FOR SEASON","reason":"Left knee · ruled out for the remainder of the 2026 season","updated":"2026-08-23","source":"Toronto Tempo / Sandy Brondello","carryover":true},
+    {"player":"Brittney Sykes","team":"Toronto Tempo","status":"OUT FOR SEASON","reason":"Left foot · ruled out for the remainder of the 2026 season","updated":"2026-08-23","source":"Toronto Tempo / Sandy Brondello","carryover":true},
+    {"player":"NaLyssa Smith","team":"Las Vegas Aces","status":"OUT","reason":"Left knee · left the Aug. 23 game and did not return; evaluation pending","updated":"2026-08-23","source":"Las Vegas Aces game report","carryover":true},
     {"player":"Azzi Fudd","team":"Dallas Wings","status":"OUT FOR SEASON","reason":"Right knee · arthroscopic procedure; will miss the remainder of the 2026 season","updated":"2026-08-19","source":"WNBA Injury Report / Dallas Wings"},
     {"player":"Rickea Jackson","team":"Chicago Sky","status":"OUT FOR SEASON","reason":"Left knee · torn ACL","updated":"2026-05-19","source":"WNBA Injury Report"},
     {"player":"Janiah Barker","team":"Las Vegas Aces","status":"OUT FOR SEASON","reason":"Leg","updated":"2026-07-15","source":"WNBA Injury Report"},

@@ -1,5 +1,5 @@
 window.TROPHY_RECORDS_DATA = {
-  updatedAt: '2026-08-23',
+  updatedAt: '2026-08-25',
   scopeNote: 'Regular season unless a board says otherwise. Game means a single-game total, Season means a single-season total, Rookie means a rookie-season total, and Career means an all-time career total.',
   playerBoards: [
     {
@@ -15,24 +15,23 @@ window.TROPHY_RECORDS_DATA = {
         ],
         season: [
           {rank:'1',name:"A'ja Wilson",value:'1,021',detail:'2024',activeAtSnapshot:true},
-          {rank:'2',name:'Jewell Loyd',value:'939',detail:'2023',activeAtSnapshot:true},
-          {rank:'3',name:"A'ja Wilson",value:'937',detail:'2025',activeAtSnapshot:true},
-          {rank:'4',name:'Breanna Stewart',value:'919',detail:'2023',activeAtSnapshot:true},
-          {rank:'T5',name:"A'ja Wilson",value:'912',detail:'2023',activeAtSnapshot:true},
-          {rank:'T5',name:'Kelsey Mitchell',value:'912',detail:'2026 · ongoing',activeAtSnapshot:true}
+          {rank:'2',name:'Kelsey Mitchell',value:'967',detail:'2026 · ongoing',activeAtSnapshot:true},
+          {rank:'3',name:'Jewell Loyd',value:'939',detail:'2023',activeAtSnapshot:true},
+          {rank:'4',name:"A'ja Wilson",value:'937',detail:'2025',activeAtSnapshot:true},
+          {rank:'5',name:'Breanna Stewart',value:'919',detail:'2023',activeAtSnapshot:true}
         ],
         rookie: [
           {rank:'1',name:'Caitlin Clark',value:'769',detail:'2024 · Indiana',activeAtSnapshot:true},
           {rank:'2',name:'Seimone Augustus',value:'744',detail:'2006 · Minnesota'},
-          {rank:'3',name:'Olivia Miles',value:'720',detail:'2026 · Minnesota · ongoing',activeAtSnapshot:true},
+          {rank:'3',name:'Olivia Miles',value:'728',detail:'2026 · Minnesota · ongoing',activeAtSnapshot:true},
           {rank:'4',name:'Paige Bueckers',value:'692',detail:'2025 · Dallas',activeAtSnapshot:true},
           {rank:'5',name:"A'ja Wilson",value:'682',detail:'2018 · Las Vegas',activeAtSnapshot:true}
         ],
         career: [
           {rank:'1',name:'Diana Taurasi',value:'10,646',detail:'Phoenix'},
           {rank:'2',name:'Tina Charles',value:'8,396',detail:'Career total'},
-          {rank:'3',name:'DeWanna Bonner',value:'8,188',detail:'Career total',activeAtSnapshot:true},
-          {rank:'4',name:'Nneka Ogwumike',value:'7,890',detail:'Career total',activeAtSnapshot:true},
+          {rank:'3',name:'DeWanna Bonner',value:'8,200',detail:'Career total',activeAtSnapshot:true},
+          {rank:'4',name:'Nneka Ogwumike',value:'7,928',detail:'Career total',activeAtSnapshot:true},
           {rank:'5',name:'Tina Thompson',value:'7,488',detail:'Career total'}
         ]
       }
@@ -52,8 +51,9 @@ window.TROPHY_RECORDS_DATA = {
           {rank:'1',name:'Sabrina Ionescu',value:'128',detail:'2023',activeAtSnapshot:true},
           {rank:'2',name:'Caitlin Clark',value:'122',detail:'2024',activeAtSnapshot:true},
           {rank:'3',name:'Diana Taurasi',value:'121',detail:'2006'},
-          {rank:'4',name:'Arike Ogunbowale',value:'117',detail:'2023',activeAtSnapshot:true},
-          {rank:'5',name:'Jewell Loyd',value:'115',detail:'2023',activeAtSnapshot:true}
+          {rank:'4',name:'Rhyne Howard',value:'120',detail:'2026 · ongoing',activeAtSnapshot:true},
+          {rank:'T5',name:'Arike Ogunbowale',value:'117',detail:'2023',activeAtSnapshot:true},
+          {rank:'T5',name:'Kelsey Mitchell',value:'117',detail:'2026 · ongoing',activeAtSnapshot:true}
         ],
         rookie:[
           {rank:'1',name:'Caitlin Clark',value:'122',detail:'2024 · Indiana',activeAtSnapshot:true},
@@ -66,7 +66,7 @@ window.TROPHY_RECORDS_DATA = {
           {rank:'1',name:'Diana Taurasi',value:'1,447',detail:'Career total'},
           {rank:'2',name:'Sue Bird',value:'1,001',detail:'Career total'},
           {rank:'3',name:'Katie Smith',value:'906',detail:'Career total'},
-          {rank:'4',name:'Kayla McBride',value:'830',detail:'Career total',activeAtSnapshot:true},
+          {rank:'4',name:'Kayla McBride',value:'836',detail:'Career total',activeAtSnapshot:true},
           {rank:'5',name:'Becky Hammon',value:'829',detail:'Career total'}
         ]
       }
@@ -76,16 +76,16 @@ window.TROPHY_RECORDS_DATA = {
       source:'https://www.basketball-reference.com/wnba/leaders/trb_career.html',
       scopes:{
         game:[
-          {rank:'1',name:'Chamique Holdsclaw',value:'24',detail:'Washington · May 23, 2003'},
-          {rank:'T2',name:'Tina Charles',value:'23',detail:'Connecticut · Jun. 28, 2011'},
-          {rank:'T2',name:'Tina Charles',value:'23',detail:'Connecticut · Jun. 25, 2010'},
-          {rank:'T2',name:'Michelle Snow',value:'23',detail:'Houston · Aug. 4, 2006'},
-          {rank:'5',name:'Angel Reese',value:'22',detail:'Chicago · Aug. 25, 2024',activeAtSnapshot:true}
+          {rank:'1',name:'Angel Reese',value:'26',detail:'Atlanta · Aug. 24, 2026',activeAtSnapshot:true},
+          {rank:'2',name:'Chamique Holdsclaw',value:'24',detail:'Washington · May 23, 2003'},
+          {rank:'T3',name:'Tina Charles',value:'23',detail:'Connecticut · Jun. 28, 2011'},
+          {rank:'T3',name:'Tina Charles',value:'23',detail:'Connecticut · Jun. 25, 2010'},
+          {rank:'T3',name:'Michelle Snow',value:'23',detail:'Houston · Aug. 4, 2006'}
         ],
         season:[
-          {rank:'1',name:"A'ja Wilson",value:'451',detail:'2024',activeAtSnapshot:true},
-          {rank:'2',name:'Angel Reese',value:'446',detail:'2024',activeAtSnapshot:true},
-          {rank:'3',name:'Angel Reese',value:'418',detail:'2026 · ongoing',activeAtSnapshot:true},
+          {rank:'1',name:'Angel Reese',value:'458',detail:'2026 · ongoing',activeAtSnapshot:true},
+          {rank:'2',name:"A'ja Wilson",value:'451',detail:'2024',activeAtSnapshot:true},
+          {rank:'3',name:'Angel Reese',value:'446',detail:'2024',activeAtSnapshot:true},
           {rank:'4',name:"A'ja Wilson",value:'407',detail:'2025',activeAtSnapshot:true},
           {rank:'5',name:'Sylvia Fowles',value:'404',detail:'2018'}
         ],
@@ -99,9 +99,9 @@ window.TROPHY_RECORDS_DATA = {
         career:[
           {rank:'1',name:'Tina Charles',value:'4,262',detail:'Career total'},
           {rank:'2',name:'Sylvia Fowles',value:'4,006',detail:'Career total'},
-          {rank:'3',name:'Nneka Ogwumike',value:'3,565',detail:'Career total',activeAtSnapshot:true},
+          {rank:'3',name:'Nneka Ogwumike',value:'3,598',detail:'Career total',activeAtSnapshot:true},
           {rank:'4',name:'Candace Parker',value:'3,467',detail:'Career total'},
-          {rank:'5',name:'DeWanna Bonner',value:'3,420',detail:'Career total',activeAtSnapshot:true}
+          {rank:'5',name:'DeWanna Bonner',value:'3,429',detail:'Career total',activeAtSnapshot:true}
         ]
       }
     },
@@ -126,16 +126,16 @@ window.TROPHY_RECORDS_DATA = {
         rookie:[
           {rank:'1',name:'Caitlin Clark',value:'337',detail:'2024 · Indiana',activeAtSnapshot:true},
           {rank:'2',name:'Ticha Penicheiro',value:'224',detail:'1998 · Sacramento'},
-          {rank:'3',name:'Olivia Miles',value:'223',detail:'2026 · Minnesota · ongoing',activeAtSnapshot:true},
+          {rank:'3',name:'Olivia Miles',value:'228',detail:'2026 · Minnesota · ongoing',activeAtSnapshot:true},
           {rank:'4',name:'Paige Bueckers',value:'194',detail:'2025 · Dallas',activeAtSnapshot:true},
           {rank:'5',name:'Sue Bird',value:'191',detail:'2002 · Seattle'}
         ],
         career:[
           {rank:'1',name:'Sue Bird',value:'3,234',detail:'Career total'},
-          {rank:'2',name:'Courtney Vandersloot',value:'2,979',detail:'Career total',activeAtSnapshot:true},
+          {rank:'2',name:'Courtney Vandersloot',value:'2,992',detail:'Career total',activeAtSnapshot:true},
           {rank:'3',name:'Ticha Penicheiro',value:'2,599',detail:'Career total'},
           {rank:'4',name:'Diana Taurasi',value:'2,394',detail:'Career total'},
-          {rank:'5',name:'Lindsay Whalen',value:'2,345',detail:'Career total'}
+          {rank:'5',name:'Lindsay Whalen',value:'2,348',detail:'Career total'}
         ]
       }
     },
@@ -168,7 +168,7 @@ window.TROPHY_RECORDS_DATA = {
           {rank:'1',name:'Tamika Catchings',value:'1,074',detail:'Career total'},
           {rank:'2',name:'Ticha Penicheiro',value:'764',detail:'Career total'},
           {rank:'3',name:'Sue Bird',value:'724',detail:'Career total'},
-          {rank:'4',name:'Alana Beard',value:'709',detail:'Career total'},
+          {rank:'4',name:'Alana Beard',value:'710',detail:'Career total'},
           {rank:'5',name:'Nneka Ogwumike',value:'707',detail:'Career total',activeAtSnapshot:true}
         ]
       }
@@ -221,7 +221,7 @@ window.TROPHY_RECORDS_DATA = {
         ],
         season:[
           {rank:'1',name:'Caitlin Clark',value:'223',detail:'2024',activeAtSnapshot:true},
-          {rank:'2',name:'Caitlin Clark',value:'154',detail:'2026 · ongoing',activeAtSnapshot:true},
+          {rank:'2',name:'Caitlin Clark',value:'161',detail:'2026 · ongoing',activeAtSnapshot:true},
           {rank:'3',name:'Alyssa Thomas',value:'145',detail:'2024',activeAtSnapshot:true},
           {rank:'4',name:'Alyssa Thomas',value:'137',detail:'2023',activeAtSnapshot:true},
           {rank:'T5',name:'Ticha Penicheiro',value:'135',detail:'1999'},
@@ -231,7 +231,7 @@ window.TROPHY_RECORDS_DATA = {
           {rank:'1',name:'Caitlin Clark',value:'223',detail:'2024 · Indiana',activeAtSnapshot:true},
           {rank:'2',name:'Chantel Tremitiere',value:'122',detail:'1997 · Sacramento'},
           {rank:'3',name:'Ticha Penicheiro',value:'116',detail:'1998 · Sacramento'},
-          {rank:'4',name:'Olivia Miles',value:'111',detail:'2026 · Minnesota · ongoing',activeAtSnapshot:true},
+          {rank:'4',name:'Olivia Miles',value:'115',detail:'2026 · Minnesota · ongoing',activeAtSnapshot:true},
           {rank:'T5',name:'Sue Bird',value:'109',detail:'2002 · Seattle'},
           {rank:'T5',name:'Cynthia Cooper',value:'109',detail:'1997 · Houston'}
         ],
@@ -248,7 +248,7 @@ window.TROPHY_RECORDS_DATA = {
   careerOnlyBoards: [
     {key:'games',title:'Most Games Played',eyebrow:'IRON WOMEN',unit:'G',source:'https://www.basketball-reference.com/wnba/leaders/g_career.html',entries:[
       {rank:'1',name:'Sue Bird',value:'580',detail:'Career games'},
-      {rank:'2',name:'DeWanna Bonner',value:'571',detail:'Career games',activeAtSnapshot:true},
+      {rank:'2',name:'DeWanna Bonner',value:'572',detail:'Career games',activeAtSnapshot:true},
       {rank:'3',name:'Diana Taurasi',value:'565',detail:'Career games'},
       {rank:'4',name:'DeLisha Milton-Jones',value:'499',detail:'Career games'},
       {rank:'5',name:'Tina Thompson',value:'496',detail:'Career games'}
@@ -263,7 +263,7 @@ window.TROPHY_RECORDS_DATA = {
     {key:'minutes',title:'Most Minutes Played',eyebrow:'CLOCKED IN',unit:'MIN',source:'https://www.basketball-reference.com/wnba/leaders/mp_career.html',entries:[
       {rank:'1',name:'Sue Bird',value:'18,080',detail:'Career minutes'},
       {rank:'2',name:'Diana Taurasi',value:'17,322',detail:'Career minutes'},
-      {rank:'3',name:'DeWanna Bonner',value:'17,017',detail:'Career minutes',activeAtSnapshot:true},
+      {rank:'3',name:'DeWanna Bonner',value:'17,048',detail:'Career minutes',activeAtSnapshot:true},
       {rank:'4',name:'Tina Thompson',value:'16,089',detail:'Career minutes'},
       {rank:'5',name:'Katie Smith',value:'15,725',detail:'Career minutes'}
     ]},

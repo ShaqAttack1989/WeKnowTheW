@@ -8,12 +8,18 @@ const {
   getWnbaStandings,
   scoreboardToSportsDbShape
 } = require('../lib/wehoop-espn');
+const { getOfficialStandings } = require('../lib/wnba-official-stats');
 
 const REGULAR_SEASON_WINDOWS = {
   2026: { start: '2026-05-08', end: '2026-09-24' }
 };
 const REGULAR_SEASON_GAME_COUNTS = { 2026: 44 };
 const PLAYOFF_BERTHS = 8;
+const SPECIAL_EVENT_EXCLUSIONS = {
+  2026: [
+    { date: '2026-06-30', teams: ['Las Vegas Aces', 'New York Liberty'] }
+  ]
+};
 
 const CONFERENCES_2026 = {
   eastern: [
@@ -89,7 +95,12 @@ function inRegularSeason(event, season) {
   const eventDate = asDate(event.dateEvent);
   const start = asDate(window.start);
   const end = asDate(window.end);
-  return Boolean(eventDate && start && end && eventDate >= start && eventDate <= end);
+  if (!(eventDate && start && end && eventDate >= start && eventDate <= end)) return false;
+  const eventTeams = [event.strHomeTeam, event.strAwayTeam].map(normalizedName).sort();
+  return !(SPECIAL_EVENT_EXCLUSIONS[season] || []).some(exclusion =>
+    event.dateEvent === exclusion.date &&
+    exclusion.teams.map(normalizedName).sort().every((team, index) => team === eventTeams[index])
+  );
 }
 
 function scoreValue(value) {
@@ -250,6 +261,21 @@ function standingsFromRecords(records) {
   return { overall, conferences: { eastern, western } };
 }
 
+function standingsFromOfficialRecords(records) {
+  const overall = [...records]
+    .sort((a, b) => Number(a.overall_rank || 999) - Number(b.overall_rank || 999))
+    .map((record, index) => ({ ...record, overall_rank: Number(record.overall_rank) || index + 1, playoff_seed: Number(record.overall_rank) || index + 1 }));
+  const conferenceRows = conference => overall
+    .filter(record => record.conference === conference)
+    .sort((a, b) => Number(a.conference_rank || 999) - Number(b.conference_rank || 999))
+    .map((record, index) => ({
+      ...record,
+      conference_rank: Number(record.conference_rank) || index + 1,
+      games_back: Number.isFinite(Number(record.conference_games_back)) ? Number(record.conference_games_back) : gamesBack(overall[0], record)
+    }));
+  return { overall, conferences: { eastern: conferenceRows('Eastern'), western: conferenceRows('Western') } };
+}
+
 function guaranteedPlayoffStatuses(records, season) {
   const seasonGames = REGULAR_SEASON_GAME_COUNTS[season];
   if (!seasonGames || records.length < PLAYOFF_BERTHS) return new Map();
@@ -321,6 +347,7 @@ module.exports = async function handler(req, res) {
   let apiVersion = productionKey ? 'v2' : 'v1-free';
   let espnEvents = [];
   let espnStandings = [];
+  let officialStandings = [];
   let officialLiveEvents = [];
 
   try {
@@ -331,15 +358,18 @@ module.exports = async function handler(req, res) {
     providerErrors.push({ source: 'TheSportsDB', message: error.message, status: error.status || null });
   }
 
-  const [scoreboardResult, standingsResult, officialLiveResult] = await Promise.allSettled([
+  const [scoreboardResult, standingsResult, officialStandingsResult, officialLiveResult] = await Promise.allSettled([
     getWnbaScoreboard(season),
     getWnbaStandings(season),
+    getOfficialStandings(season),
     getWnbaLiveScoreboard()
   ]);
   if (scoreboardResult.status === 'fulfilled') espnEvents = scoreboardResult.value;
   else providerErrors.push({ source: 'SportsDataverse/WeHoop ESPN scoreboard', message: scoreboardResult.reason.message, status: scoreboardResult.reason.status || null });
   if (standingsResult.status === 'fulfilled') espnStandings = standingsResult.value;
   else providerErrors.push({ source: 'SportsDataverse/WeHoop ESPN standings', message: standingsResult.reason.message, status: standingsResult.reason.status || null });
+  if (officialStandingsResult.status === 'fulfilled') officialStandings = officialStandingsResult.value;
+  else providerErrors.push({ source: 'Official WNBA statistics standings', message: officialStandingsResult.reason.message, status: officialStandingsResult.reason.status || null });
   if (officialLiveResult.status === 'fulfilled') officialLiveEvents = officialLiveResult.value;
   else providerErrors.push({ source: 'Official WNBA live scoreboard', message: officialLiveResult.reason.message, status: officialLiveResult.reason.status || null });
 
@@ -352,7 +382,10 @@ module.exports = async function handler(req, res) {
 
   let standingsData;
   let standingsSource;
-  if (sportsDbComplete) {
+  if (officialStandings.length >= 12) {
+    standingsData = standingsFromOfficialRecords(officialStandings);
+    standingsSource = 'Official WNBA statistics';
+  } else if (sportsDbComplete) {
     standingsData = deriveStandings(sportsDbRegular);
     standingsSource = 'TheSportsDB';
   } else if (espnStandings.length) {
@@ -409,8 +442,10 @@ module.exports = async function handler(req, res) {
   res.setHeader('Cache-Control', currentGames.length ? 's-maxage=15, stale-while-revalidate=30' : 's-maxage=300, stale-while-revalidate=900');
   return res.status(200).json({
     configured: Boolean(productionKey),
-    source: sportsDbComplete ? 'TheSportsDB + SportsDataverse/WeHoop ESPN backup' : 'SportsDataverse/WeHoop ESPN bridge + TheSportsDB backup',
-    sources: ['TheSportsDB', 'Official WNBA live scoreboard', 'SportsDataverse/WeHoop ESPN bridge'],
+    source: officialStandings.length >= 12
+      ? 'Official WNBA statistics + TheSportsDB schedule + SportsDataverse/WeHoop ESPN backup'
+      : sportsDbComplete ? 'TheSportsDB + SportsDataverse/WeHoop ESPN backup' : 'SportsDataverse/WeHoop ESPN bridge + TheSportsDB backup',
+    sources: ['Official WNBA statistics', 'TheSportsDB', 'Official WNBA live scoreboard', 'SportsDataverse/WeHoop ESPN bridge'],
     eventSource,
     liveSource: officialLiveEvents.length ? 'Official WNBA live scoreboard' : espnRegular.length ? 'SportsDataverse/WeHoop ESPN bridge' : eventSource,
     standingsSource,

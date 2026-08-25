@@ -1,3 +1,5 @@
+const { getOfficialPlayerPerGame } = require('../lib/wnba-official-stats');
+
 function decodeEntities(value=''){
   return String(value)
     .replace(/&amp;/g,'&').replace(/&quot;/g,'"').replace(/&#39;|&#x27;/g,"'")
@@ -168,6 +170,7 @@ module.exports=async function handler(req,res){
   let rows=[];
   let resolvedBy='';
   const errors=[];
+  const officialPromise=getOfficialPlayerPerGame(season).catch(error=>{errors.push(`Official WNBA statistics: ${error.message}`);return [];});
 
   const readerResults=await Promise.allSettled(readerUrls.map(url=>fetchText(url,{Accept:'text/plain','User-Agent':'Mozilla/5.0 (compatible; WeKnowTheW/1.0)'})));
   readerResults.forEach((result,index)=>{
@@ -200,9 +203,14 @@ module.exports=async function handler(req,res){
     });
   }
 
-  const players=addRanks(chooseBestRows(rows)).sort((a,b)=>a.name.localeCompare(b.name));
+  const official=await officialPromise;
+  const officialMap=new Map(official.map(row=>[nameKey(row.name),row]));
+  const players=addRanks(chooseBestRows(rows).map(row=>{
+    const live=officialMap.get(nameKey(row.name));
+    return live?{...row,team:live.team||row.team,games:String(live.games),minutes:String(live.minutes)}:row;
+  })).sort((a,b)=>a.name.localeCompare(b.name));
   return res.status(200).json({
-    source:'Basketball-Reference',
+    source:official.length>=10?'Basketball-Reference advanced metrics + Official WNBA participation':'Basketball-Reference',
     sourceUrl,
     resolvedBy:resolvedBy||'Basketball-Reference',
     season,

@@ -1,3 +1,5 @@
+const { getOfficialStandings } = require('../lib/wnba-official-stats');
+
 function decodeEntities(value=''){
   return String(value)
     .replace(/&amp;/g,'&').replace(/&quot;/g,'"').replace(/&#39;|&#x27;/g,"'")
@@ -193,6 +195,7 @@ module.exports=async function handler(req,res){
   const sourceUrl=`https://www.basketball-reference.com/wnba/years/${season}.html`;
   const readers=[`https://r.jina.ai/http://www.basketball-reference.com/wnba/years/${season}.html`,`https://r.jina.ai/https://www.basketball-reference.com/wnba/years/${season}.html`];
   const errors=[];let teams=[];let resolvedBy='';
+  const officialStandingsPromise=getOfficialStandings(season).catch(error=>{errors.push(`Official WNBA standings: ${error.message}`);return [];});
   const results=await Promise.allSettled(readers.map(url=>fetchText(url,{Accept:'text/plain','User-Agent':'Mozilla/5.0 (compatible; WeKnowTheW/1.0)'})));
   results.forEach((result,index)=>{
     if(result.status==='fulfilled'){
@@ -208,7 +211,13 @@ module.exports=async function handler(req,res){
     }catch(error){errors.push(`Direct source: ${error.message}`);}
   }
   if(teams.length<12){res.setHeader('Cache-Control','no-store, max-age=0');return res.status(502).json({error:'Team DNA metrics are temporarily unavailable.',detail:errors.join(' | '),season,source:sourceUrl});}
+  const officialStandings=await officialStandingsPromise;
+  const recordMap=new Map(officialStandings.map(record=>[key(record.team?.full_name),record]));
+  teams=teams.filter(team=>key(team.name)!=='leagueaverage').map(team=>{
+    const live=recordMap.get(key(team.name));
+    return live?{...team,wins:live.wins,losses:live.losses,games:live.games_played,winPct:live.win_percentage}:team;
+  });
   teams=addRanks(teams).sort((a,b)=>Number(a.overallRank||99)-Number(b.overallRank||99)||a.name.localeCompare(b.name));
   res.setHeader('Cache-Control','s-maxage=1800, stale-while-revalidate=21600');
-  return res.status(200).json({source:'Basketball-Reference',sourceUrl,resolvedBy:resolvedBy||'Basketball-Reference',season,updatedAt:new Date().toISOString(),refreshSeconds:1800,teamCount:teams.length,teams,diagnostics:{readerAttempts:readers.length,errors}});
+  return res.status(200).json({source:officialStandings.length>=12?'Official WNBA records + Basketball-Reference team metrics':'Basketball-Reference',sourceUrl,resolvedBy:resolvedBy||'Basketball-Reference',season,updatedAt:new Date().toISOString(),refreshSeconds:1800,teamCount:teams.length,teams,diagnostics:{readerAttempts:readers.length,errors}});
 };

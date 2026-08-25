@@ -1,42 +1,94 @@
 (()=>{
+  const grid=document.getElementById('playerGrid');
+  const modal=document.getElementById('playerModalBody');
+  if(!grid&&!modal)return;
+
   const normalize=v=>String(v||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]/g,'');
   const aliases=new Map([
-    ['skylardigginssmith','skylardiggins'],['temifagbenle','temifagbenle'],['flaujaejohnson','flaujaejohnson'],['li yueru','liyueru']
+    ['skylardigginssmith','skylardiggins'],
+    ['temifagbenle','temifagbenle'],
+    ['flaujaejohnson','flaujaejohnson'],
+    ['liyueru','liyueru']
   ]);
   const key=v=>aliases.get(normalize(v))||normalize(v);
-  let data=null,unrivaled=new Map(),future=new Map(),au=new Map();
-  function buildMaps(payload){
-    data=payload||{};
+  const safe=v=>String(v??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[ch]));
+
+  let data=null;
+  let unrivaled=new Map();
+  let future=new Map();
+  let au=new Map();
+  let cardTimer=null;
+  let modalTimer=null;
+
+  function buildMaps(payload={}){
+    data=payload;
     unrivaled=new Map((payload?.unrivaled?.players||[]).map(([name,team])=>[key(name),team]));
     future=new Map((payload?.unrivaled?.season3Signed||[]).map(([name,team])=>[key(name),team]));
     au=new Map((payload?.athletesUnlimited?.players||[]).map(([name,team])=>[key(name),team]));
   }
-  function badgeMarkup(name){
-    if(!data)return '';
+
+  function affiliationsFor(name){
+    if(!data)return [];
     const k=key(name),items=[];
-    if(unrivaled.has(k))items.push(`<span class="pro-affiliation unrivaled"><img src="${data.logos.unrivaled}" alt="Unrivaled"><span class="pro-affiliation-copy"><b>${unrivaled.get(k)}</b><small>2026 club</small></span></span>`);
-    else if(future.has(k))items.push(`<span class="pro-affiliation unrivaled"><img src="${data.logos.unrivaled}" alt="Unrivaled"><span class="pro-affiliation-copy"><b>${future.get(k)}</b><small>signed for 2027</small></span></span>`);
-    if(au.has(k))items.push(`<span class="pro-affiliation au"><img src="${data.logos.au}" alt="Athletes Unlimited"><span class="pro-affiliation-copy"><b>${au.get(k)}</b><small>2026 Week 4</small></span></span>`);
-    return items.length?`<span class="pro-affiliations" aria-label="Other professional league affiliations">${items.join('')}</span>`:'';
+    if(unrivaled.has(k))items.push({league:'unrivaled',team:unrivaled.get(k),label:'2026 club',logo:data?.logos?.unrivaled||''});
+    else if(future.has(k))items.push({league:'unrivaled',team:future.get(k),label:'signed for 2027',logo:data?.logos?.unrivaled||''});
+    if(au.has(k))items.push({league:'au',team:au.get(k),label:'2026 Week 4',logo:data?.logos?.au||''});
+    return items;
   }
+
+  function markup(name,modalMode=false){
+    const items=affiliationsFor(name);
+    if(!items.length)return '';
+    return `<span class="pro-affiliations"${modalMode?' data-modal-affiliation="true"':''} aria-label="Other professional league affiliations">${items.map(item=>`<span class="pro-affiliation ${safe(item.league)}">${item.logo?`<img src="${safe(item.logo)}" alt="" loading="lazy" decoding="async">`:''}<span class="pro-affiliation-copy"><b>${safe(item.team)}</b><small>${safe(item.label)}</small></span></span>`).join('')}</span>`;
+  }
+
+  function signature(name){return affiliationsFor(name).map(item=>`${item.league}:${item.team}:${item.label}`).join('|');}
+
   function decorateCard(card){
-    if(card.dataset.proAffiliations==='done')return;
-    const name=card.querySelector('.player-card-copy strong')?.textContent?.trim();
-    if(!name)return;
-    const markup=badgeMarkup(name);
-    if(markup){const copy=card.querySelector('.player-card-copy');copy?.insertAdjacentHTML('beforeend',markup)}
-    card.dataset.proAffiliations='done';
+    const copy=card.querySelector('.player-card-copy');
+    const name=copy?.querySelector('.player-card-name,.player-card-copy strong')?.textContent?.trim()||copy?.querySelector('strong')?.textContent?.trim();
+    if(!copy||!name)return;
+    const sig=signature(name);
+    if(card.dataset.proAffiliationSignature===sig)return;
+    copy.querySelector('.pro-affiliations')?.remove();
+    if(sig)copy.insertAdjacentHTML('beforeend',markup(name));
+    card.dataset.proAffiliationSignature=sig;
   }
+
+  function decorateCards(){
+    if(!data||!grid)return;
+    grid.querySelectorAll('.player-card[data-player-id]').forEach(decorateCard);
+  }
+
   function decorateModal(){
-    const body=document.getElementById('playerModalBody');
-    const title=body?.querySelector('#playerModalTitle, h2, h3');
-    if(!body||!title)return;
+    if(!data||!modal||modal.querySelector('.profile-loading'))return;
+    const title=modal.querySelector('#playerModalTitle');
+    if(!title)return;
     const name=title.textContent.trim();
-    const existing=body.querySelector('.pro-affiliations[data-modal-affiliation="true"]');
-    if(existing)existing.remove();
-    const markup=badgeMarkup(name);
-    if(markup){const wrap=document.createElement('div');wrap.innerHTML=markup;const node=wrap.firstElementChild;if(node){node.dataset.modalAffiliation='true';title.insertAdjacentElement('afterend',node)}}
+    const sig=signature(name);
+    const existing=modal.querySelector('.pro-affiliations[data-modal-affiliation="true"]');
+    if(existing?.dataset.affiliationSignature===sig)return;
+    existing?.remove();
+    if(!sig)return;
+    const wrap=document.createElement('div');
+    wrap.innerHTML=markup(name,true);
+    const node=wrap.firstElementChild;
+    if(!node)return;
+    node.dataset.affiliationSignature=sig;
+    title.insertAdjacentElement('afterend',node);
   }
-  function decorateAll(){document.querySelectorAll('#playerGrid .player-card').forEach(decorateCard);decorateModal()}
-  fetch('/pro-offseason-affiliations.json',{headers:{Accept:'application/json'},cache:'no-store'}).then(r=>r.json()).then(payload=>{buildMaps(payload);decorateAll();const grid=document.getElementById('playerGrid'),modal=document.getElementById('playerModalBody');if(grid)new MutationObserver(()=>decorateAll()).observe(grid,{childList:true,subtree:true});if(modal)new MutationObserver(()=>decorateModal()).observe(modal,{childList:true,subtree:true})}).catch(()=>{});
+
+  function scheduleCards(){clearTimeout(cardTimer);cardTimer=setTimeout(decorateCards,60);}
+  function scheduleModal(){clearTimeout(modalTimer);modalTimer=setTimeout(decorateModal,80);}
+
+  fetch('/pro-offseason-affiliations.json',{headers:{Accept:'application/json'}})
+    .then(r=>r.ok?r.json():Promise.reject(new Error('Affiliations unavailable')))
+    .then(payload=>{
+      buildMaps(payload);
+      decorateCards();
+      decorateModal();
+      if(grid)new MutationObserver(scheduleCards).observe(grid,{childList:true});
+      if(modal)new MutationObserver(scheduleModal).observe(modal,{childList:true});
+    })
+    .catch(()=>{});
 })();

@@ -1,30 +1,65 @@
 {
-  "updatedAt":"2026-08-22T07:11:00Z",
-  "league":"UPSHOT League",
-  "season":2026,
-  "label":"WNBA pipeline tracker",
-  "note":"Public-source snapshot. Records and leaderboards are timestamped because the UPSHOT League does not currently expose a public stats API used by this site.",
-  "teams":[
-    {"team":"Jacksonville Waves","record":"17-4","asOf":"2026-07-22","status":"Last verified public record"},
-    {"team":"Charlotte Crown","record":"13-10","asOf":"2026-07-28","status":"Last verified public record"},
-    {"team":"Greensboro Groove","record":"8-15","asOf":"2026-07-22","status":"Last verified public record"},
-    {"team":"Savannah Steel","record":"7-15","asOf":"2026-07-22","status":"Last verified public record"}
+  "updatedAt": "2026-08-25T10:30:00Z",
+  "league": "UPSHOT League",
+  "season": 2026,
+  "label": "Inaugural season league hub",
+  "note": "Public-source snapshot. The 2026 regular season is complete. Team standings metrics are from the official UPSHOT standings page; player snapshots remain date-stamped because rosters changed during the season.",
+  "championship": {
+    "date": "2026-08-29",
+    "time": "7:00 PM ET",
+    "venue": "VyStar Veterans Memorial Arena",
+    "city": "Jacksonville, FL",
+    "teamA": "Charlotte Crown",
+    "teamB": "Jacksonville Waves",
+    "format": "Top two regular-season teams · winner-take-all inaugural championship"
+  },
+  "teams": [
+    {"rank":1,"team":"Jacksonville Waves","short":"Waves","city":"Jacksonville, FL","record":"25-9","wins":25,"losses":9,"pct":0.735,"gb":"—","home":"13-4","away":"12-5","streak":"L1","l10":"6-4","l10Wins":6,"ppg":82.6,"oppg":78.2,"diff":4.4,"coach":"Jessica Bogia","arena":"VyStar Veterans Memorial Arena","tagline":"Rise with us","accent":"#04747f","light":"#b6e7ef","qualified":true,"note":"The regular-season pace setter. Jacksonville finished first, paired the league's best defensive scoring mark with 25 wins, and earned the right to play the inaugural title game on its home floor.","officialUrl":"https://upshotleague.com/teams/jacksonville-waves/"},
+    {"rank":2,"team":"Charlotte Crown","short":"Crown","city":"Charlotte, NC","record":"23-11","wins":23,"losses":11,"pct":0.676,"gb":"2","home":"12-5","away":"11-6","streak":"W4","l10":"9-1","l10Wins":9,"ppg":84.9,"oppg":79.8,"diff":5.1,"coach":"Trisha Stafford-Odom","arena":"Bojangles Coliseum","tagline":"The Queen City in motion","accent":"#8c57ff","light":"#d8c7ff","qualified":true,"note":"Charlotte hit the championship runway hot: a four-game winning streak, a 9-1 finish over the last ten, the league's best scoring average and the best point differential in the final table.","officialUrl":"https://upshotleague.com/teams/charlotte-crown/"},
+    {"rank":3,"team":"Greensboro Groove","short":"Groove","city":"Greensboro, NC","record":"11-23","wins":11,"losses":23,"pct":0.324,"gb":"14","home":"6-11","away":"5-12","streak":"L3","l10":"2-8","l10Wins":2,"ppg":78.1,"oppg":83.4,"diff":-5.3,"coach":"Janice M. Washington","arena":"Novant Health Fieldhouse / First Horizon Coliseum","tagline":"We are the beat","accent":"#0077b6","light":"#3be29a","qualified":false,"note":"Greensboro finished third in year one. The Groove's inaugural season included statement wins and a roster that produced one of the league's first WNBA call-ups in Christyn Williams.","officialUrl":"https://upshotleague.com/teams/greensboro-groove/"},
+    {"rank":4,"team":"Savannah Steel","short":"Steel","city":"Savannah, GA","record":"9-25","wins":9,"losses":25,"pct":0.265,"gb":"16","home":"7-10","away":"2-15","streak":"W1","l10":"2-8","l10Wins":2,"ppg":76.2,"oppg":80.4,"diff":-4.2,"coach":"Coretta Brown","arena":"Enmarket Arena","tagline":"Strength in motion","accent":"#a40a93","light":"#ff9df5","qualified":false,"note":"Savannah closed the regular season with a 92-90 win over first-place Jacksonville, a fitting reminder that the final table did not tell the whole story of the Steel's fight in year one.","officialUrl":"https://upshotleague.com/teams/savannah-steel/"}
   ],
-  "leaders":[
+  "leaders": [
     {"player":"Deja Kelly","team":"Charlotte Crown","stat":"17.7","metric":"PPG","asOf":"2026-07-23","photo":"https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Deja_Kelly_Oregon_%28cropped%29.jpg/500px-Deja_Kelly_Oregon_%28cropped%29.jpg"},
     {"player":"Deja Kelly","team":"Charlotte Crown","stat":"4.1","metric":"APG","asOf":"2026-07-23","photo":"https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Deja_Kelly_Oregon_%28cropped%29.jpg/500px-Deja_Kelly_Oregon_%28cropped%29.jpg"},
     {"player":"Michelle Onyiah","team":"Charlotte Crown","stat":"6.9","metric":"RPG","asOf":"2026-07-31","photo":"https://a.espncdn.com/i/headshots/womens-college-basketball/players/full/4433744.png"},
     {"player":"Michelle Onyiah","team":"Charlotte Crown","stat":"1.1","metric":"BPG","asOf":"2026-07-31","photo":"https://a.espncdn.com/i/headshots/womens-college-basketball/players/full/4433744.png"}
   ],
-  "callUps":[
-    {"player":"Michelle Onyiah","from":"Charlotte Crown","to":"Indiana Fever","date":"2026-07-31","contract":"Developmental player contract","stats":"9.6 PPG · 6.9 RPG · 1.1 BPG · 52.8 FG% in 21 games","milestone":"First UPSHOT League player to earn a WNBA contract.","photo":"https://a.espncdn.com/i/headshots/womens-college-basketball/players/full/4433744.png"},
-    {"player":"Christyn Williams","from":"Greensboro Groove","to":"Dallas Wings","date":"2026-08-14","contract":"Developmental player contract","stats":"9.6 PPG · 3.0 RPG · 1.9 APG · 41.1 FG% in 14 games","milestone":"Second UPSHOT League player from the inaugural season to earn a WNBA contract."}
+  "callUps": [
+    {"player":"Michelle Onyiah","from":"Charlotte Crown","to":"Indiana Fever","date":"2026-07-31","contract":"Developmental player contract","stats":"9.6 PPG · 6.9 RPG · 1.1 BPG · 52.8 FG% in 21 UPSHOT games","milestone":"First UPSHOT League player to earn a WNBA contract.","photo":"https://a.espncdn.com/i/headshots/womens-college-basketball/players/full/4433744.png"},
+    {"player":"Christyn Williams","from":"Greensboro Groove","to":"Dallas Wings","date":"2026-08-14","contract":"Developmental player contract","stats":"9.6 PPG · 3.0 RPG · 1.9 APG · 41.1 FG% in 14 UPSHOT games","milestone":"Second UPSHOT League player from the inaugural season to earn a WNBA contract."}
   ],
-  "next":"The inaugural UPSHOT championship is scheduled for Aug. 29 in Jacksonville, with the top two regular-season teams advancing.",
-  "sources":[
+  "recentGames": [
+    {"date":"2026-08-21","away":"Charlotte Crown","awayScore":101,"home":"Savannah Steel","homeScore":98,"venue":"Enmarket Arena"},
+    {"date":"2026-08-22","away":"Jacksonville Waves","awayScore":70,"home":"Savannah Steel","homeScore":60,"venue":"Enmarket Arena"},
+    {"date":"2026-08-22","away":"Greensboro Groove","awayScore":72,"home":"Charlotte Crown","homeScore":88,"venue":"Bojangles Coliseum"},
+    {"date":"2026-08-23","away":"Greensboro Groove","awayScore":84,"home":"Charlotte Crown","homeScore":89,"venue":"Bojangles Coliseum"},
+    {"date":"2026-08-23","away":"Jacksonville Waves","awayScore":90,"home":"Savannah Steel","homeScore":92,"venue":"Enmarket Arena"}
+  ],
+  "facts": [
+    {"label":"Founding Four","value":"4 teams","detail":"Jacksonville, Charlotte, Greensboro and Savannah"},
+    {"label":"Roster model","value":"11 athletes","detail":"Per team in the inaugural league model"},
+    {"label":"Regular season","value":"34 games","detail":"17 home and 17 away per team"},
+    {"label":"Game format","value":"4 × 10","detail":"Four 10-minute quarters with a 24-second shot clock"}
+  ],
+  "timeline": [
+    {"date":"Jan. 27, 2025","title":"The league is announced","detail":"Zawyer Sports & Entertainment announces a new professional women's basketball league headquartered in Jacksonville, with play targeted for May 2026."},
+    {"date":"Fall 2025","title":"The Founding Four get identities","detail":"Savannah Steel, Jacksonville Waves, Charlotte Crown and Greensboro Groove are unveiled as the inaugural clubs."},
+    {"date":"May 15, 2026","title":"Opening tip","detail":"UPSHOT's first regular-season games are played: Savannah at Greensboro and Charlotte at Jacksonville."},
+    {"date":"July 31, 2026","title":"First WNBA call-up","detail":"Charlotte Crown forward Michelle Onyiah becomes the first UPSHOT player to earn a WNBA contract."},
+    {"date":"Aug. 14, 2026","title":"A second door opens","detail":"Greensboro guard Christyn Williams signs with the Dallas Wings, becoming the second inaugural-season UPSHOT-to-WNBA move."},
+    {"date":"Aug. 23, 2026","title":"Regular season complete","detail":"Jacksonville finishes first at 25-9, Charlotte second at 23-11, and the championship field is set."},
+    {"date":"Aug. 29, 2026","title":"The first championship","detail":"Jacksonville and Charlotte meet at VyStar Veterans Memorial Arena for the league's inaugural title."}
+  ],
+  "next": "Jacksonville Waves vs. Charlotte Crown · Inaugural UPSHOT Championship · Saturday, Aug. 29 · 7 PM ET · VyStar Veterans Memorial Arena, Jacksonville.",
+  "sources": [
     {"label":"UPSHOT League","url":"https://upshotleague.com/"},
-    {"label":"Jacksonville Today","url":"https://jaxtoday.org/2026/07/22/upshot-league-championship-announcement/"},
-    {"label":"The IX Basketball","url":"https://www.theixsports.com/features/upshot-notebook-deja-kelly-embraces-the-grind-as-she-continues-to-work-toward-wnba/"},
-    {"label":"CT Insider","url":"https://www.ctinsider.com/sports/uconn-womens-basketball/article/christyn-williams-dallas-wings-bueckers-fudd-22389063.php"}
+    {"label":"Official standings","url":"https://upshotleague.com/standings/"},
+    {"label":"Official games archive","url":"https://upshotleague.com/games/"},
+    {"label":"UPSHOT Join the League FAQ","url":"https://upshotleague.com/join-the-league/"},
+    {"label":"Jacksonville Waves","url":"https://upshotleague.com/teams/jacksonville-waves/"},
+    {"label":"Charlotte Crown","url":"https://upshotleague.com/teams/charlotte-crown/"},
+    {"label":"Greensboro Groove","url":"https://upshotleague.com/teams/greensboro-groove/"},
+    {"label":"Savannah Steel","url":"https://upshotleague.com/teams/savannah-steel/"}
   ]
 }

@@ -1,10 +1,10 @@
-const UI_FIXES_HREF='/ui-fixes.css?v=20260825-nav-v2';
+const UI_FIXES_HREF='/ui-fixes.css?v=20260825-nav-v3';
 if(!document.querySelector('link[data-ui-fixes]')){
-  const l=document.createElement('link');
-  l.rel='stylesheet';
-  l.href=UI_FIXES_HREF;
-  l.dataset.uiFixes='true';
-  document.head.appendChild(l);
+  const link=document.createElement('link');
+  link.rel='stylesheet';
+  link.href=UI_FIXES_HREF;
+  link.dataset.uiFixes='true';
+  document.head.appendChild(link);
 }
 
 const navStyle=`
@@ -27,8 +27,7 @@ const navStyle=`
   .nav-links.open .nav-accordion-panel{margin:0 4px 4px 10px;padding-left:8px}
   .nav-links.open .nav-direct-link{color:#41384d!important;padding:10px 12px!important;font-size:.92rem!important}
   .who-got-next-menu,.no-offseason-menu{min-width:0!important}
-}
-`;
+}`;
 if(!document.querySelector('style[data-nav-accordion]')){
   const style=document.createElement('style');
   style.dataset.navAccordion='true';
@@ -126,11 +125,10 @@ const structuredNav=`
     <a class="nav-direct-link" href="/no-offseason.html"><strong>Open No Offseason</strong></a>
     <a class="nav-direct-link" href="/unrivaled.html">Unrivaled · 3 on 3</a>
     <a class="nav-direct-link" href="/athletes-unlimited.html">Athletes Unlimited · Pro Basketball</a>
-    <a class="nav-direct-link" href="/playerpedia.html">Playerpedia · Winter League Badges</a>
   </div>
 </div>
 <button class="nav-search-button" id="globalSearchButton" type="button" aria-haspopup="dialog">⌕ Search</button>`;
-if(navLinks) navLinks.innerHTML=structuredNav;
+if(navLinks)navLinks.innerHTML=structuredNav;
 
 function closeAccordionSiblings(item){
   const submenu=item.closest('.nav-submenu');
@@ -154,7 +152,7 @@ document.querySelectorAll('.nav-accordion-trigger').forEach(button=>{
 });
 
 const mobileNav=window.matchMedia('(max-width:1100px)');
-function isMobileNav(){return mobileNav.matches;}
+const isMobileNav=()=>mobileNav.matches;
 function closeNestedAccordions(scope=document){
   scope.querySelectorAll?.('.nav-accordion-item.open').forEach(item=>{
     item.classList.remove('open');
@@ -170,32 +168,20 @@ function setMobileMenuState(open){
     closeNestedAccordions(navLinks||document);
   }
 }
-menuButton?.addEventListener('click',event=>{
-  event.stopPropagation();
-  setMobileMenuState(!navLinks?.classList.contains('open'));
-});
+menuButton?.addEventListener('click',event=>{event.stopPropagation();setMobileMenuState(!navLinks?.classList.contains('open'));});
 document.querySelectorAll('.nav-group').forEach(group=>{
   group.querySelector('.nav-parent')?.addEventListener('click',event=>{
     if(!isMobileNav())return;
-    event.preventDefault();
-    event.stopPropagation();
+    event.preventDefault();event.stopPropagation();
     const open=group.classList.contains('submenu-open');
-    document.querySelectorAll('.nav-group.submenu-open').forEach(other=>{
-      if(other!==group){other.classList.remove('submenu-open');closeNestedAccordions(other);}
-    });
+    document.querySelectorAll('.nav-group.submenu-open').forEach(other=>{if(other!==group){other.classList.remove('submenu-open');closeNestedAccordions(other);}});
     group.classList.toggle('submenu-open',!open);
     if(open)closeNestedAccordions(group);
   });
 });
-document.addEventListener('click',event=>{
-  if(isMobileNav()&&navLinks?.classList.contains('open')&&!event.target.closest('#navLinks')&&!event.target.closest('#menuButton'))setMobileMenuState(false);
-});
-navLinks?.addEventListener('click',event=>{
-  if(isMobileNav()&&!event.target.closest('.nav-parent')&&!event.target.closest('.nav-accordion-trigger')&&(event.target.closest('a')||event.target.closest('button')))setMobileMenuState(false);
-});
-document.addEventListener('keydown',event=>{
-  if(event.key==='Escape'&&navLinks?.classList.contains('open')){setMobileMenuState(false);menuButton?.focus();}
-});
+document.addEventListener('click',event=>{if(isMobileNav()&&navLinks?.classList.contains('open')&&!event.target.closest('#navLinks')&&!event.target.closest('#menuButton'))setMobileMenuState(false);});
+navLinks?.addEventListener('click',event=>{if(isMobileNav()&&!event.target.closest('.nav-parent')&&!event.target.closest('.nav-accordion-trigger')&&(event.target.closest('a')||event.target.closest('button')))setMobileMenuState(false);});
+document.addEventListener('keydown',event=>{if(event.key==='Escape'&&navLinks?.classList.contains('open')){setMobileMenuState(false);menuButton?.focus();}});
 mobileNav.addEventListener?.('change',event=>{if(!event.matches)setMobileMenuState(false);});
 
 const hierarchyMap={
@@ -207,9 +193,7 @@ const hierarchyMap={
   '/availability-report.html':['Live Stats','/live-stats.html','Availability Report'],
   '/around-the-w.html':['Around the W','/around-the-w.html','Team Pages'],
   '/franchise-footprints.html':['Around the W','/around-the-w.html','Franchise Footprints'],
-  '/dewanna-bonner-buyout.html':['Around the W','/around-the-w.html','One More Run'],
   '/snack-shak.html':['Around the W','/around-the-w.html','Seasoned Notes'],
-  '/snack-shaq.html':['Around the W','/around-the-w.html','Seasoned Notes'],
   '/playerpedia.html':['Playerpedia','/playerpedia.html','On the Floor'],
   '/retired-players.html':['Playerpedia','/playerpedia.html','Legends Lounge'],
   '/herstory.html':['Playerpedia','/playerpedia.html','Herstory'],
@@ -265,15 +249,12 @@ const hierarchyMap={
 };
 const h=hierarchyMap[location.pathname];
 const crumbs=document.querySelector('.page-crumbs');
-if(crumbs&&h&&location.pathname!=='/around-the-w.html'&&location.pathname!=='/playerpedia.html'&&location.pathname!=='/who-got-next.html'&&location.pathname!=='/no-offseason.html'){
-  crumbs.innerHTML=`<a href="/">Home</a><span>›</span><a href="${h[1]}">${h[0]}</a><span>›</span><b>${h[2]}</b>`;
-}
+if(crumbs&&h&&!['/around-the-w.html','/playerpedia.html','/who-got-next.html','/no-offseason.html'].includes(location.pathname))crumbs.innerHTML=`<a href="/">Home</a><span>›</span><a href="${h[1]}">${h[0]}</a><span>›</span><b>${h[2]}</b>`;
 document.querySelectorAll('[data-current-year]').forEach(el=>el.textContent=new Date().getFullYear());
 
 const coreSearch=[
   ['Around the W','Section','/around-the-w.html','teams season standings'],
   ['Franchise Footprints','Franchise Hubs','/franchise-footprints.html','original eight charter teams defunct folded relocated lineage'],
-  ['One More Run: DeWanna Bonner Buyout','Around the W','/dewanna-bonner-buyout.html','DeWanna Bonner Phoenix Mercury contract buyout championship playoffs'],
   ['Live Stats','Around the W','/live-stats.html','overall conference commissioner cup playoffs standings'],
   ['The Stat Kitchen','Live Stats','/stat-kitchen.html','players of the week points assists rebounds steals blocks turnovers leaders'],
   ['Games','Live Stats','/games.html','scores schedule playoffs commissioners cup'],
@@ -291,7 +272,7 @@ const coreSearch=[
   ['Basketball Dictionary','W Vault','/basketball-dictionary.html','glossary basketball terms'],
   ['The Trophy Room','W Vault','/trophy-case.html','championships awards mvp dpoy'],
   ['The Locker Room','W Vault','/locker-room.html','uniforms retired players mascots colors franchise'],
-  ['Mascots','Courtside Culture','/mascots.html','ellie blaze skye prowl retired mascots'],
+  ['Mascots','Courtside Culture','/mascots.html','mascots team culture'],
   ['Coaches','Courtside Culture','/coaches.html','coaches court clipboard'],
   ['Owners','Courtside Culture','/owners.html','owners investors'],
   ['The Fits','Courtside Culture','/wnba-fits.html','fashion tunnel style'],
@@ -310,33 +291,28 @@ const coreSearch=[
 const teamSearch=[
   ['Atlanta Dream','atlanta-dream'],['Chicago Sky','chicago-sky'],['Connecticut Sun','connecticut-sun'],['Dallas Wings','dallas-wings'],['Golden State Valkyries','golden-state-valkyries'],['Indiana Fever','indiana-fever'],['Las Vegas Aces','las-vegas-aces'],['Los Angeles Sparks','los-angeles-sparks'],['Minnesota Lynx','minnesota-lynx'],['New York Liberty','new-york-liberty'],['Phoenix Mercury','phoenix-mercury'],['Portland Fire','portland-fire'],['Seattle Storm','seattle-storm'],['Toronto Tempo','toronto-tempo'],['Washington Mystics','washington-mystics'],['Cleveland Sirens','cleveland-sirens']
 ];
-const searchStaticIndex=[
-  ...coreSearch.map(([title,type,href,keywords])=>({title,type,href,keywords})),
-  ...teamSearch.map(([title,slug])=>({title,type:'Team',href:`/team.html?team=${slug}`,keywords:`${title} roster history rivalry mascot fanbase`}))
-];
+const searchStaticIndex=[...coreSearch.map(([title,type,href,keywords])=>({title,type,href,keywords})),...teamSearch.map(([title,slug])=>({title,type:'Team',href:`/team.html?team=${slug}`,keywords:`${title} roster history rivalry mascot fanbase`}))];
 let globalSearchPlayers=null;
 let globalSearchLoading=false;
-function normalizeSearch(v=''){
-  return String(v).normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,' ').trim();
-}
+const normalizeSearch=v=>String(v||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,' ').trim();
 function buildSearchDialog(){
   if(document.getElementById('globalSearchDialog'))return;
-  const d=document.createElement('dialog');
-  d.id='globalSearchDialog';
-  d.className='global-search-dialog';
-  d.innerHTML='<div class="global-search-shell"><div class="global-search-head"><div><span>WE KNOW THE W</span><strong>Search the encyclopedia</strong></div><button type="button" id="globalSearchClose" aria-label="Close search">×</button></div><label class="global-search-field"><span>Search</span><input id="globalSearchInput" type="search" autocomplete="off" placeholder="Players, teams, leagues, awards, coaches…"></label><div id="globalSearchResults" class="global-search-results"><div class="global-search-empty">Type at least 2 letters to search the W.</div></div></div>';
-  document.body.appendChild(d);
-  d.addEventListener('click',event=>{if(event.target===d)d.close();});
-  d.querySelector('#globalSearchClose')?.addEventListener('click',()=>d.close());
-  d.querySelector('#globalSearchInput')?.addEventListener('input',renderGlobalSearch);
+  const dialog=document.createElement('dialog');
+  dialog.id='globalSearchDialog';
+  dialog.className='global-search-dialog';
+  dialog.innerHTML='<div class="global-search-shell"><div class="global-search-head"><div><span>WE KNOW THE W</span><strong>Search the encyclopedia</strong></div><button type="button" id="globalSearchClose" aria-label="Close search">×</button></div><label class="global-search-field"><span>Search</span><input id="globalSearchInput" type="search" autocomplete="off" placeholder="Players, teams, leagues, awards, coaches…"></label><div id="globalSearchResults" class="global-search-results"><div class="global-search-empty">Type at least 2 letters to search the W.</div></div></div>';
+  document.body.appendChild(dialog);
+  dialog.addEventListener('click',event=>{if(event.target===dialog)dialog.close();});
+  dialog.querySelector('#globalSearchClose')?.addEventListener('click',()=>dialog.close());
+  dialog.querySelector('#globalSearchInput')?.addEventListener('input',renderGlobalSearch);
 }
 async function loadSearchPlayers(){
   if(globalSearchPlayers||globalSearchLoading)return;
   globalSearchLoading=true;
   try{
-    const r=await fetch('/api/players',{headers:{Accept:'application/json'}});
-    const p=await r.json();
-    globalSearchPlayers=r.ok&&Array.isArray(p.players)?p.players.map(x=>({title:x.name,type:`Player · ${x.team||'WNBA'}`,href:`/playerpedia.html?search=${encodeURIComponent(x.name)}`,keywords:`${x.name} ${x.team||''} ${x.position||''}`})):[];
+    const response=await fetch('/api/players',{headers:{Accept:'application/json'}});
+    const payload=await response.json().catch(()=>({}));
+    globalSearchPlayers=response.ok&&Array.isArray(payload.players)?payload.players.map(player=>({title:player.name,type:`Player · ${player.team||'WNBA'}`,href:`/playerpedia.html?search=${encodeURIComponent(player.name)}`,keywords:`${player.name} ${player.team||''} ${player.position||''}`})):[];
   }catch{globalSearchPlayers=[];}
   globalSearchLoading=false;
   renderGlobalSearch();
@@ -349,39 +325,29 @@ function renderGlobalSearch(){
   if(q.length<2){results.innerHTML='<div class="global-search-empty">Type at least 2 letters to search the W.</div>';return;}
   const terms=q.split(/\s+/).filter(Boolean);
   const all=[...searchStaticIndex,...(globalSearchPlayers||[])];
-  const matches=all.filter(item=>{
-    const hay=normalizeSearch(`${item.title} ${item.type} ${item.keywords||''}`);
-    return terms.every(term=>hay.includes(term));
-  }).slice(0,14);
-  const safeValue=input.value.replaceAll('<','&lt;').replaceAll('>','&gt;');
-  results.innerHTML=matches.length?matches.map(item=>`<a class="global-search-result" href="${item.href}"><span>${item.type}</span><strong>${item.title}</strong><b>→</b></a>`).join(''):`<div class="global-search-empty">No match yet for “${safeValue}”.</div>`;
+  const matches=all.filter(item=>{const hay=normalizeSearch(`${item.title} ${item.type} ${item.keywords||''}`);return terms.every(term=>hay.includes(term));}).slice(0,14);
+  const shown=input.value.replaceAll('<','&lt;').replaceAll('>','&gt;');
+  results.innerHTML=matches.length?matches.map(item=>`<a class="global-search-result" href="${item.href}"><span>${item.type}</span><strong>${item.title}</strong><b>→</b></a>`).join(''):`<div class="global-search-empty">No match yet for “${shown}”.</div>`;
 }
 function openGlobalSearch(){
   buildSearchDialog();
-  const d=document.getElementById('globalSearchDialog');
-  if(typeof d.showModal==='function')d.showModal();else d.setAttribute('open','');
+  const dialog=document.getElementById('globalSearchDialog');
+  if(typeof dialog.showModal==='function')dialog.showModal();else dialog.setAttribute('open','');
   setTimeout(()=>document.getElementById('globalSearchInput')?.focus(),30);
   loadSearchPlayers();
 }
 document.getElementById('globalSearchButton')?.addEventListener('click',openGlobalSearch);
 document.addEventListener('keydown',event=>{
-  if(event.key==='/'&&!event.metaKey&&!event.ctrlKey&&!event.altKey&&!['INPUT','TEXTAREA','SELECT'].includes(document.activeElement?.tagName||'')){
-    event.preventDefault();openGlobalSearch();
-  }
+  if(event.key==='/'&&!event.metaKey&&!event.ctrlKey&&!event.altKey&&!['INPUT','TEXTAREA','SELECT'].includes(document.activeElement?.tagName||'')){event.preventDefault();openGlobalSearch();}
 });
 
 function addTransferLinks(){
-  if(location.pathname!=='/'&&location.pathname!=='/index.html')return;
+  if(!['/','/index.html'].includes(location.pathname))return;
   const cards=[...document.querySelectorAll('.family-card')];
   const around=cards.find(card=>card.querySelector('h3')?.textContent.trim()==='Around the W');
   const players=cards.find(card=>card.querySelector('h3')?.textContent.trim()==='Playerpedia');
   const courtside=cards.find(card=>card.querySelector('h3')?.textContent.trim()==='Courtside Culture');
-  const add=(card,href,label,icon='→')=>{
-    const box=card?.querySelector('.family-links');
-    if(box&&!box.querySelector(`a[href="${href}"]`)){
-      const a=document.createElement('a');a.href=href;a.innerHTML=`<span>${label}</span><span>${icon}</span>`;box.appendChild(a);
-    }
-  };
+  const add=(card,href,label,icon='→')=>{const box=card?.querySelector('.family-links');if(box&&!box.querySelector(`a[href="${href}"]`)){const a=document.createElement('a');a.href=href;a.innerHTML=`<span>${label}</span><span>${icon}</span>`;box.appendChild(a);}};
   add(around,'/no-love-lost.html','No Love Lost');
   add(players,'/retired-players.html','Legends Lounge');
   add(courtside,'/mascots.html','Mascots');
@@ -389,58 +355,27 @@ function addTransferLinks(){
   add(courtside,'/owners.html','Owners');
   add(courtside,'/wnba-fits.html','The Fits');
 }
-if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',addTransferLinks);else addTransferLinks();
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',addTransferLinks,{once:true});else addTransferLinks();
 
-const INTERNAL_PUBLIC_COPY_PATTERNS=[
-  /\bthis (?:section|page|card|area) should\b/i,
-  /\b(?:section|page|card|area) should (?:include|have|show|list|be|use)\b/i,
-  /\bplaceholder (?:copy|text|content)\b/i,
-  /\b(?:todo|internal note|implementation note|developer note)\b/i,
-  /\buse this (?:section|page|card|area) (?:to|for)\b/i,
-  /\bcreate (?:a|the|this) (?:section|page|card|area)\b/i,
-  /\bbuild (?:a|the|this) (?:section|page|card|area)\b/i,
-  /\bmake sure (?:the|this) (?:section|page|card|area)\b/i
-];
-function polishPublicCopyValue(value=''){
-  return String(value).replace(/\s*—\s*/g,', ').replace(/\s+–\s+/g,', ').replace(/,\s*,+/g,', ').replace(/\s+,/g,',');
-}
-function isInternalPublicCopy(value=''){
-  const text=String(value).replace(/\s+/g,' ').trim();
-  return text.length>0&&INTERNAL_PUBLIC_COPY_PATTERNS.some(pattern=>pattern.test(text));
-}
-function removeInternalCopyNode(node){
-  const parent=node.parentElement;if(!parent)return;
-  if(['P','SMALL','LI'].includes(parent.tagName)||parent.matches('.page-note,.small-note,.scout-disclaimer,.notice-box,.info-strip'))parent.remove();else node.nodeValue='';
-}
+const INTERNAL_PUBLIC_COPY_PATTERNS=[/\bthis (?:section|page|card|area) should\b/i,/\b(?:section|page|card|area) should (?:include|have|show|list|be|use)\b/i,/\bplaceholder (?:copy|text|content)\b/i,/\b(?:todo|internal note|implementation note|developer note)\b/i,/\buse this (?:section|page|card|area) (?:to|for)\b/i,/\bcreate (?:a|the|this) (?:section|page|card|area)\b/i,/\bbuild (?:a|the|this) (?:section|page|card|area)\b/i,/\bmake sure (?:the|this) (?:section|page|card|area)\b/i];
 function polishPublicCopyTree(root=document.body){
   if(!root)return;
-  const skipSelector='script,style,code,pre,textarea,select,option,svg,noscript';
-  const walkNode=node=>{
-    if(node.nodeType===Node.TEXT_NODE){
-      if(node.parentElement?.closest(skipSelector))return;
-      const current=node.nodeValue||'';
-      if(isInternalPublicCopy(current)){removeInternalCopyNode(node);return;}
-      const next=polishPublicCopyValue(current);if(next!==current)node.nodeValue=next;return;
+  const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,{acceptNode(node){return node.parentElement?.closest('script,style,code,pre,textarea,select,option,svg,noscript')?NodeFilter.FILTER_REJECT:NodeFilter.FILTER_ACCEPT;}});
+  const nodes=[];let node;
+  while((node=walker.nextNode()))nodes.push(node);
+  nodes.forEach(textNode=>{
+    const value=textNode.nodeValue||'';
+    const compact=value.replace(/\s+/g,' ').trim();
+    if(compact&&INTERNAL_PUBLIC_COPY_PATTERNS.some(pattern=>pattern.test(compact))){
+      const parent=textNode.parentElement;
+      if(parent&&(['P','SMALL','LI'].includes(parent.tagName)||parent.matches('.page-note,.small-note,.scout-disclaimer,.notice-box,.info-strip')))parent.remove();else textNode.nodeValue='';
+      return;
     }
-    if(node.nodeType!==Node.ELEMENT_NODE||node.matches?.(skipSelector))return;
-    const walker=document.createTreeWalker(node,NodeFilter.SHOW_TEXT);const textNodes=[];let textNode;
-    while((textNode=walker.nextNode()))textNodes.push(textNode);
-    textNodes.forEach(walkNode);
-  };
-  walkNode(root);
-}
-function startPublicCopyPolish(){
-  polishPublicCopyTree(document.body);
-  const observer=new MutationObserver(records=>{
-    records.forEach(record=>record.addedNodes.forEach(node=>{
-      if(node.nodeType===Node.TEXT_NODE){
-        if(!node.parentElement?.closest('script,style,code,pre,textarea,select,option,svg,noscript')){
-          const current=node.nodeValue||'';
-          if(isInternalPublicCopy(current))removeInternalCopyNode(node);else{const next=polishPublicCopyValue(current);if(next!==current)node.nodeValue=next;}
-        }
-      }else if(node.nodeType===Node.ELEMENT_NODE)polishPublicCopyTree(node);
-    }));
+    textNode.nodeValue=value.replace(/\s*—\s*/g,', ').replace(/\s+–\s+/g,', ').replace(/,\s*,+/g,', ').replace(/\s+,/g,',');
   });
-  observer.observe(document.body,{childList:true,subtree:true});
 }
-if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',startPublicCopyPolish,{once:true});else startPublicCopyPolish();
+function runCopyPolish(){
+  const run=()=>polishPublicCopyTree(document.body);
+  if(window.requestIdleCallback)requestIdleCallback(run,{timeout:1200});else setTimeout(run,350);
+}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',runCopyPolish,{once:true});else runCopyPolish();

@@ -54,11 +54,18 @@ module.exports = async function handler(req, res) {
   const season = Number.isFinite(requested) && requested >= 1997 && requested <= 2100 ? requested : 2026;
   res.setHeader('Cache-Control', 's-maxage=1800, stale-while-revalidate=21600');
   try {
-    const [allTime, seasonTotals, rookieTotals] = await Promise.all([
+    const results = await Promise.allSettled([
       getOfficialAllTimeLeaders(5),
       getOfficialLeagueLeaders(season, 'Totals', 5),
       getOfficialRookieTotals(season)
     ]);
+    const allTime = results[0].status === 'fulfilled' ? results[0].value : {};
+    const seasonTotals = results[1].status === 'fulfilled' ? results[1].value : { categories: {}, errors: [] };
+    const rookieTotals = results[2].status === 'fulfilled' ? results[2].value : [];
+    const errors = results.flatMap((result, index) => result.status === 'rejected'
+      ? [`${['All-time leaders', 'Season leaders', 'Rookie leaders'][index]}: ${result.reason?.message || 'unavailable'}`]
+      : []);
+    errors.push(...(seasonTotals.errors || []));
     const career = {};
     const currentSeason = {};
     const rookie = {};
@@ -84,7 +91,8 @@ module.exports = async function handler(req, res) {
       currentSeason,
       rookie,
       careerOnly: { games, 'personal-fouls': personalFouls },
-      diagnostics: { errors: seasonTotals.errors || [] }
+      partial: errors.length > 0,
+      diagnostics: { errors }
     });
   } catch (error) {
     return res.status(502).json({ error: 'Official WNBA record leaders are temporarily unavailable.', detail: error.message, season });

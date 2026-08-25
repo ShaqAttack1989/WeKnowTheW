@@ -1,4 +1,4 @@
-const UI_FIXES_HREF='/ui-fixes.css?v=20260822-mobile-nav-v1';
+const UI_FIXES_HREF='/ui-fixes.css?v=20260825-nav-v2';
 if(!document.querySelector('link[data-ui-fixes]')){
   const l=document.createElement('link');
   l.rel='stylesheet';
@@ -7,7 +7,7 @@ if(!document.querySelector('link[data-ui-fixes]')){
   document.head.appendChild(l);
 }
 
-const accordionCss=`
+const navStyle=`
 .nav-submenu .nav-accordion-item{display:block;border-radius:12px;overflow:hidden}
 .nav-submenu .nav-accordion-trigger{width:100%;display:flex;align-items:center;justify-content:space-between;gap:12px;border:0;background:transparent;color:#352a42;padding:11px 12px;text-align:left;font:inherit;font-weight:900;cursor:pointer}
 .nav-submenu .nav-accordion-trigger:hover,.nav-submenu .nav-accordion-trigger:focus-visible{background:#f3ecfb;color:#5c1fc1;outline:none}
@@ -21,22 +21,23 @@ const accordionCss=`
 .nav-submenu>.nav-direct-link{display:block;padding:11px 12px;font-weight:900;text-decoration:none;border-radius:12px}
 .nav-submenu>.nav-direct-link:hover,.nav-submenu>.nav-direct-link:focus{background:#f3ecfb}
 .nav-paren{font-weight:500!important;opacity:.82}
+.who-got-next-menu,.no-offseason-menu{min-width:280px!important}
 @media(max-width:1100px){
   .nav-links.open .nav-accordion-trigger{min-height:44px;color:#352a42!important;font-size:.94rem!important;padding:10px 12px!important}
   .nav-links.open .nav-accordion-panel{margin:0 4px 4px 10px;padding-left:8px}
   .nav-links.open .nav-direct-link{color:#41384d!important;padding:10px 12px!important;font-size:.92rem!important}
+  .who-got-next-menu,.no-offseason-menu{min-width:0!important}
 }
 `;
 if(!document.querySelector('style[data-nav-accordion]')){
   const style=document.createElement('style');
   style.dataset.navAccordion='true';
-  style.textContent=accordionCss;
+  style.textContent=navStyle;
   document.head.appendChild(style);
 }
 
 const navLinks=document.getElementById('navLinks');
 const menuButton=document.getElementById('menuButton');
-
 const accordion=(label,href,links)=>`<div class="nav-accordion-item"><button class="nav-accordion-trigger" type="button" aria-expanded="false"><span>${label}</span><span class="nav-accordion-caret" aria-hidden="true">▾</span></button><div class="nav-accordion-panel"><a class="nav-open-parent" href="${href}">Open ${label.replace(/<[^>]+>/g,'')} →</a>${links.map(([text,url])=>`<a href="${url}">${text}</a>`).join('')}</div></div>`;
 
 const structuredNav=`
@@ -44,10 +45,16 @@ const structuredNav=`
   <a class="nav-parent" href="/around-the-w.html">Around the W <span aria-hidden="true">▾</span></a>
   <div class="nav-submenu">
     ${accordion('Live Stats','/live-stats.html',[
-      ['The Stat Kitchen · Weekly Awards + Leaders','/stat-kitchen.html'],['Games','/games.html'],['No Love Lost · Rivalry Board','/no-love-lost.html'],['Player Movement','/player-movement.html'],['Availability Report','/availability-report.html']
+      ['The Stat Kitchen · Weekly Awards + Leaders','/stat-kitchen.html'],
+      ['Games','/games.html'],
+      ['No Love Lost · Rivalry Board','/no-love-lost.html'],
+      ['Player Movement','/player-movement.html'],
+      ['Availability Report','/availability-report.html']
     ])}
     ${accordion('Franchise Hubs','/around-the-w.html',[
-      ['All Current Teams','/around-the-w.html#team-pages'],['Franchise Footprints','/franchise-footprints.html'],['Cleveland Sirens · 2028','/team.html?team=cleveland-sirens']
+      ['All Current Teams','/around-the-w.html#team-pages'],
+      ['Franchise Footprints','/franchise-footprints.html'],
+      ['Cleveland Sirens · 2028','/team.html?team=cleveland-sirens']
     ])}
     <a class="nav-direct-link" href="/snack-shak.html">Seasoned Notes · Snack Shak</a>
   </div>
@@ -58,7 +65,11 @@ const structuredNav=`
     <a class="nav-direct-link" href="/playerpedia.html#playerpedia-directory"><strong>On the Floor</strong> <span class="nav-paren">(Current Players)</span></a>
     <a class="nav-direct-link" href="/retired-players.html"><strong>Legends Lounge</strong> <span class="nav-paren">(Retired Players)</span></a>
     ${accordion('Herstory','/herstory.html',[
-      ['Education','/herstory-education.html'],['Entrepreneurship','/herstory-entrepreneurship.html'],['Community','/herstory-community.html'],['Life Chapters','/herstory-life-chapters.html'],['Profile Connection','/herstory.html#profile-connection']
+      ['Education','/herstory-education.html'],
+      ['Entrepreneurship','/herstory-entrepreneurship.html'],
+      ['Community','/herstory-community.html'],
+      ['Life Chapters','/herstory-life-chapters.html'],
+      ['Profile Connection','/herstory.html#profile-connection']
     ])}
     <a class="nav-direct-link" href="/starting-five.html">Shak’s Starting Five</a>
     <a class="nav-direct-link" href="/bench-mob.html">Shak’s Bench Mob</a>
@@ -87,12 +98,8 @@ const structuredNav=`
   <a class="nav-parent" href="/courtside-culture.html">Courtside Culture <span aria-hidden="true">▾</span></a>
   <div class="nav-submenu">
     <a class="nav-direct-link" href="/courtside-culture.html">Open Courtside Culture</a>
-    ${accordion('Mascots','/mascots.html',[
-      ['Retired Mascots','/mascots.html#retired-mascots']
-    ])}
-    ${accordion('Coaches','/coaches.html',[
-      ['Court to Clipboard','/coaches.html#court-to-clipboard']
-    ])}
+    ${accordion('Mascots','/mascots.html',[['Retired Mascots','/mascots.html#retired-mascots']])}
+    ${accordion('Coaches','/coaches.html',[['Court to Clipboard','/coaches.html#court-to-clipboard']])}
     <a class="nav-direct-link" href="/owners.html">Owners</a>
     <a class="nav-direct-link" href="/celebrity-fans.html">Celebrity Fans</a>
     <a class="nav-direct-link" href="/gameday-vibes.html">Gameday Vibes</a>
@@ -102,31 +109,43 @@ const structuredNav=`
 <div class="nav-group">
   <a class="nav-parent" href="/who-got-next.html">Who Got Next? <span aria-hidden="true">▾</span></a>
   <div class="nav-submenu who-got-next-menu">
-    <a class="nav-direct-link" href="/who-got-next.html">Who Got Next?</a>
+    <a class="nav-direct-link" href="/who-got-next.html"><strong>Open Who Got Next?</strong></a>
     <a class="nav-direct-link" href="/class-is-in-session.html">Class Is in Session · NCAAW</a>
     <a class="nav-direct-link" href="/the-call-up.html">The Call Up · UPSHOT</a>
-    <a class="nav-direct-link" href="/expansion-watch.html">Expansion Watch</a>
+    ${accordion('Expansion Watch','/expansion-watch.html',[
+      ['The W · Road to 18','/expansion-w.html'],
+      ['UPSHOT · Founding Four to Six','/expansion-upshot.html'],
+      ['Unrivaled · Six Clubs to Eight','/expansion-unrivaled.html'],
+      ['Athletes Unlimited · Evolution','/expansion-athletes-unlimited.html']
+    ])}
+  </div>
+</div>
+<div class="nav-group">
+  <a class="nav-parent" href="/no-offseason.html">No Offseason <span aria-hidden="true">▾</span></a>
+  <div class="nav-submenu no-offseason-menu">
+    <a class="nav-direct-link" href="/no-offseason.html"><strong>Open No Offseason</strong></a>
+    <a class="nav-direct-link" href="/unrivaled.html">Unrivaled · 3 on 3</a>
+    <a class="nav-direct-link" href="/athletes-unlimited.html">Athletes Unlimited · Pro Basketball</a>
+    <a class="nav-direct-link" href="/playerpedia.html">Playerpedia · Winter League Badges</a>
   </div>
 </div>
 <button class="nav-search-button" id="globalSearchButton" type="button" aria-haspopup="dialog">⌕ Search</button>`;
-
 if(navLinks) navLinks.innerHTML=structuredNav;
 
 function closeAccordionSiblings(item){
   const submenu=item.closest('.nav-submenu');
   submenu?.querySelectorAll('.nav-accordion-item.open').forEach(other=>{
-    if(other===item) return;
+    if(other===item)return;
     other.classList.remove('open');
     other.querySelector('.nav-accordion-trigger')?.setAttribute('aria-expanded','false');
   });
 }
-
 document.querySelectorAll('.nav-accordion-trigger').forEach(button=>{
   button.addEventListener('click',event=>{
     event.preventDefault();
     event.stopPropagation();
     const item=button.closest('.nav-accordion-item');
-    if(!item) return;
+    if(!item)return;
     const willOpen=!item.classList.contains('open');
     closeAccordionSiblings(item);
     item.classList.toggle('open',willOpen);
@@ -155,35 +174,27 @@ menuButton?.addEventListener('click',event=>{
   event.stopPropagation();
   setMobileMenuState(!navLinks?.classList.contains('open'));
 });
-
 document.querySelectorAll('.nav-group').forEach(group=>{
   group.querySelector('.nav-parent')?.addEventListener('click',event=>{
-    if(!isMobileNav()) return;
+    if(!isMobileNav())return;
     event.preventDefault();
     event.stopPropagation();
     const open=group.classList.contains('submenu-open');
     document.querySelectorAll('.nav-group.submenu-open').forEach(other=>{
-      if(other!==group){
-        other.classList.remove('submenu-open');
-        closeNestedAccordions(other);
-      }
+      if(other!==group){other.classList.remove('submenu-open');closeNestedAccordions(other);}
     });
     group.classList.toggle('submenu-open',!open);
-    if(open) closeNestedAccordions(group);
+    if(open)closeNestedAccordions(group);
   });
 });
-
 document.addEventListener('click',event=>{
-  if(isMobileNav()&&navLinks?.classList.contains('open')&&!event.target.closest('#navLinks')&&!event.target.closest('#menuButton')) setMobileMenuState(false);
+  if(isMobileNav()&&navLinks?.classList.contains('open')&&!event.target.closest('#navLinks')&&!event.target.closest('#menuButton'))setMobileMenuState(false);
 });
 navLinks?.addEventListener('click',event=>{
-  if(isMobileNav()&&!event.target.closest('.nav-parent')&&!event.target.closest('.nav-accordion-trigger')&&(event.target.closest('a')||event.target.closest('button'))) setMobileMenuState(false);
+  if(isMobileNav()&&!event.target.closest('.nav-parent')&&!event.target.closest('.nav-accordion-trigger')&&(event.target.closest('a')||event.target.closest('button')))setMobileMenuState(false);
 });
 document.addEventListener('keydown',event=>{
-  if(event.key==='Escape'&&navLinks?.classList.contains('open')){
-    setMobileMenuState(false);
-    menuButton?.focus();
-  }
+  if(event.key==='Escape'&&navLinks?.classList.contains('open')){setMobileMenuState(false);menuButton?.focus();}
 });
 mobileNav.addEventListener?.('change',event=>{if(!event.matches)setMobileMenuState(false);});
 
@@ -239,53 +250,62 @@ const hierarchyMap={
   '/class-is-in-session.html':['Who Got Next?','/who-got-next.html','Class Is in Session'],
   '/the-call-up.html':['Who Got Next?','/who-got-next.html','The Call Up'],
   '/expansion-watch.html':['Who Got Next?','/who-got-next.html','Expansion Watch'],
-  '/cleveland-sirens.html':['Expansion Watch','/expansion-watch.html','Cleveland Sirens'],
-  '/detroit-expansion.html':['Expansion Watch','/expansion-watch.html','Detroit 2029'],
-  '/philadelphia-expansion.html':['Expansion Watch','/expansion-watch.html','Philadelphia 2030'],
-  '/expansion-draft-101.html':['Expansion Watch','/expansion-watch.html','Expansion Draft 101'],
-  '/past-expansion-waves.html':['Expansion Watch','/expansion-watch.html','Past Expansion Waves']
+  '/expansion-w.html':['Expansion Watch','/expansion-watch.html','The W'],
+  '/expansion-upshot.html':['Expansion Watch','/expansion-watch.html','UPSHOT League'],
+  '/expansion-unrivaled.html':['Expansion Watch','/expansion-watch.html','Unrivaled'],
+  '/expansion-athletes-unlimited.html':['Expansion Watch','/expansion-watch.html','Athletes Unlimited'],
+  '/cleveland-sirens.html':['Expansion Watch','/expansion-w.html','Cleveland Sirens'],
+  '/detroit-expansion.html':['Expansion Watch','/expansion-w.html','Detroit 2029'],
+  '/philadelphia-expansion.html':['Expansion Watch','/expansion-w.html','Philadelphia 2030'],
+  '/expansion-draft-101.html':['Expansion Watch','/expansion-w.html','Expansion Draft 101'],
+  '/past-expansion-waves.html':['Expansion Watch','/expansion-w.html','Past Expansion Waves'],
+  '/no-offseason.html':['No Offseason','/no-offseason.html','Pro Winter Basketball'],
+  '/unrivaled.html':['No Offseason','/no-offseason.html','Unrivaled'],
+  '/athletes-unlimited.html':['No Offseason','/no-offseason.html','Athletes Unlimited']
 };
 const h=hierarchyMap[location.pathname];
 const crumbs=document.querySelector('.page-crumbs');
-if(crumbs&&h&&location.pathname!=='/around-the-w.html'&&location.pathname!=='/playerpedia.html'){
+if(crumbs&&h&&location.pathname!=='/around-the-w.html'&&location.pathname!=='/playerpedia.html'&&location.pathname!=='/who-got-next.html'&&location.pathname!=='/no-offseason.html'){
   crumbs.innerHTML=`<a href="/">Home</a><span>›</span><a href="${h[1]}">${h[0]}</a><span>›</span><b>${h[2]}</b>`;
 }
 document.querySelectorAll('[data-current-year]').forEach(el=>el.textContent=new Date().getFullYear());
 
 const coreSearch=[
   ['Around the W','Section','/around-the-w.html','teams season standings'],
-  ['Franchise Footprints','Franchise Hubs','/franchise-footprints.html','original eight charter teams defunct folded relocated lineage Charlotte Sting Cleveland Rockers Houston Comets Sacramento Monarchs Utah Starzz Las Vegas Aces'],
-  ['One More Run: DeWanna Bonner Buyout','Around the W','/dewanna-bonner-buyout.html','DeWanna Bonner Phoenix Mercury contract buyout championship playoffs final season New York Liberty landing spot player movement'],
+  ['Franchise Footprints','Franchise Hubs','/franchise-footprints.html','original eight charter teams defunct folded relocated lineage'],
+  ['One More Run: DeWanna Bonner Buyout','Around the W','/dewanna-bonner-buyout.html','DeWanna Bonner Phoenix Mercury contract buyout championship playoffs'],
   ['Live Stats','Around the W','/live-stats.html','overall conference commissioner cup playoffs standings'],
-  ['The Stat Kitchen','Live Stats','/stat-kitchen.html','players of the week east west points assists rebounds steals blocks turnovers top five leaders'],
+  ['The Stat Kitchen','Live Stats','/stat-kitchen.html','players of the week points assists rebounds steals blocks turnovers leaders'],
   ['Games','Live Stats','/games.html','scores schedule playoffs commissioners cup'],
   ['No Love Lost','Live Stats','/no-love-lost.html','rivalry head to head wins losses struggle meter'],
   ['Player Movement','Live Stats','/player-movement.html','trades signings waives transactions'],
   ['Availability Report','Live Stats','/availability-report.html','injury availability out questionable'],
-  ['On the Floor (Current Players)','Playerpedia','/playerpedia.html#playerpedia-directory','players roster bios stats'],
+  ['On the Floor (Current Players)','Playerpedia','/playerpedia.html#playerpedia-directory','players roster bios stats unrivaled athletes unlimited'],
   ['Legends Lounge (Retired Players)','Playerpedia','/retired-players.html','retired legends pioneers years career'],
   ['Herstory','Playerpedia','/herstory.html','education business advocacy family'],
   ['Shak’s Starting Five','Playerpedia','/starting-five.html','featured players rotation'],
   ['Shak’s Bench Mob','Playerpedia','/bench-mob.html','role players sixth woman'],
   ['League Origins','W Vault','/league-origins.html','1996 1997 original eight inaugural season first game draft charter teams'],
-  ['Milestone Moments','W Vault','/milestone-moments.html','firsts breakthroughs barrier breakers social justice charter expansion history'],
+  ['Milestone Moments','W Vault','/milestone-moments.html','firsts breakthroughs barrier breakers social justice history'],
   ['The Film Room','W Vault','/film-room.html','positions offense defense strategy'],
   ['Basketball Dictionary','W Vault','/basketball-dictionary.html','glossary basketball terms'],
   ['The Trophy Room','W Vault','/trophy-case.html','championships awards mvp dpoy'],
-  ['MVP','Trophy Room','/award-mvp.html','most valuable player'],
-  ['DPOY','Trophy Room','/award-dpoy.html','defensive player'],
-  ['Commissioner’s Cup','Trophy Room','/commissioners-cup.html','cup champion mvp'],
   ['The Locker Room','W Vault','/locker-room.html','uniforms retired players mascots colors franchise'],
-  ['Old Uniforms','Locker Room','/old-uniforms.html','jerseys uniforms'],
-  ['The Final Buzzer','Locker Room','/final-buzzer.html','retirement retired numbers'],
-  ['Franchise Family Tree','Locker Room','/franchise-family-tree.html','relocation franchise lineage'],
   ['Mascots','Courtside Culture','/mascots.html','ellie blaze skye prowl retired mascots'],
   ['Coaches','Courtside Culture','/coaches.html','coaches court clipboard'],
   ['Owners','Courtside Culture','/owners.html','owners investors'],
   ['The Fits','Courtside Culture','/wnba-fits.html','fashion tunnel style'],
-  ['Class Is in Session','Who Got Next?','/class-is-in-session.html','ncaaw college'],
-  ['The Call Up','Who Got Next?','/the-call-up.html','upshot development'],
-  ['Expansion Watch','Who Got Next?','/expansion-watch.html','cleveland detroit philadelphia']
+  ['Who Got Next?','Pipeline','/who-got-next.html','wnba pipeline college upshot expansion next prospects callups'],
+  ['Class Is in Session','Who Got Next?','/class-is-in-session.html','ncaaw college draft radar prospects'],
+  ['The Call Up','Who Got Next?','/the-call-up.html','upshot development callups standings teams'],
+  ['Expansion Watch','Who Got Next?','/expansion-watch.html','wnba upshot unrivaled athletes unlimited expansion growth'],
+  ['The W Expansion','Expansion Watch','/expansion-w.html','cleveland detroit philadelphia road to 18'],
+  ['UPSHOT Expansion','Expansion Watch','/expansion-upshot.html','baltimore nashville founding four six'],
+  ['Unrivaled Expansion','Expansion Watch','/expansion-unrivaled.html','breeze hive six eight clubs 2025 2026'],
+  ['Athletes Unlimited Evolution','Expansion Watch','/expansion-athletes-unlimited.html','au named teams redraft 2027 pause'],
+  ['No Offseason','Section','/no-offseason.html','established pros winter basketball unrivaled athletes unlimited'],
+  ['Unrivaled','No Offseason','/unrivaled.html','3 on 3 clubs standings playoffs one on one'],
+  ['Athletes Unlimited','No Offseason','/athletes-unlimited.html','au pro basketball weekly redraft leaderboard teams']
 ];
 const teamSearch=[
   ['Atlanta Dream','atlanta-dream'],['Chicago Sky','chicago-sky'],['Connecticut Sun','connecticut-sun'],['Dallas Wings','dallas-wings'],['Golden State Valkyries','golden-state-valkyries'],['Indiana Fever','indiana-fever'],['Las Vegas Aces','las-vegas-aces'],['Los Angeles Sparks','los-angeles-sparks'],['Minnesota Lynx','minnesota-lynx'],['New York Liberty','new-york-liberty'],['Phoenix Mercury','phoenix-mercury'],['Portland Fire','portland-fire'],['Seattle Storm','seattle-storm'],['Toronto Tempo','toronto-tempo'],['Washington Mystics','washington-mystics'],['Cleveland Sirens','cleveland-sirens']
@@ -300,43 +320,33 @@ function normalizeSearch(v=''){
   return String(v).normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,' ').trim();
 }
 function buildSearchDialog(){
-  if(document.getElementById('globalSearchDialog')) return;
+  if(document.getElementById('globalSearchDialog'))return;
   const d=document.createElement('dialog');
   d.id='globalSearchDialog';
   d.className='global-search-dialog';
-  d.innerHTML='<div class="global-search-shell"><div class="global-search-head"><div><span>WE KNOW THE W</span><strong>Search the encyclopedia</strong></div><button type="button" id="globalSearchClose" aria-label="Close search">×</button></div><label class="global-search-field"><span>Search</span><input id="globalSearchInput" type="search" autocomplete="off" placeholder="Players, teams, awards, coaches, mascots…"></label><div id="globalSearchResults" class="global-search-results"><div class="global-search-empty">Type at least 2 letters to search the W.</div></div></div>';
+  d.innerHTML='<div class="global-search-shell"><div class="global-search-head"><div><span>WE KNOW THE W</span><strong>Search the encyclopedia</strong></div><button type="button" id="globalSearchClose" aria-label="Close search">×</button></div><label class="global-search-field"><span>Search</span><input id="globalSearchInput" type="search" autocomplete="off" placeholder="Players, teams, leagues, awards, coaches…"></label><div id="globalSearchResults" class="global-search-results"><div class="global-search-empty">Type at least 2 letters to search the W.</div></div></div>';
   document.body.appendChild(d);
   d.addEventListener('click',event=>{if(event.target===d)d.close();});
   d.querySelector('#globalSearchClose')?.addEventListener('click',()=>d.close());
   d.querySelector('#globalSearchInput')?.addEventListener('input',renderGlobalSearch);
 }
 async function loadSearchPlayers(){
-  if(globalSearchPlayers||globalSearchLoading) return;
+  if(globalSearchPlayers||globalSearchLoading)return;
   globalSearchLoading=true;
   try{
     const r=await fetch('/api/players',{headers:{Accept:'application/json'}});
     const p=await r.json();
-    globalSearchPlayers=r.ok&&Array.isArray(p.players)?p.players.map(x=>({
-      title:x.name,
-      type:`Player · ${x.team||'WNBA'}`,
-      href:`/playerpedia.html?search=${encodeURIComponent(x.name)}`,
-      keywords:`${x.name} ${x.team||''} ${x.position||''}`
-    })):[];
-  }catch{
-    globalSearchPlayers=[];
-  }
+    globalSearchPlayers=r.ok&&Array.isArray(p.players)?p.players.map(x=>({title:x.name,type:`Player · ${x.team||'WNBA'}`,href:`/playerpedia.html?search=${encodeURIComponent(x.name)}`,keywords:`${x.name} ${x.team||''} ${x.position||''}`})):[];
+  }catch{globalSearchPlayers=[];}
   globalSearchLoading=false;
   renderGlobalSearch();
 }
 function renderGlobalSearch(){
   const input=document.getElementById('globalSearchInput');
   const results=document.getElementById('globalSearchResults');
-  if(!input||!results) return;
+  if(!input||!results)return;
   const q=normalizeSearch(input.value);
-  if(q.length<2){
-    results.innerHTML='<div class="global-search-empty">Type at least 2 letters to search the W.</div>';
-    return;
-  }
+  if(q.length<2){results.innerHTML='<div class="global-search-empty">Type at least 2 letters to search the W.</div>';return;}
   const terms=q.split(/\s+/).filter(Boolean);
   const all=[...searchStaticIndex,...(globalSearchPlayers||[])];
   const matches=all.filter(item=>{
@@ -349,20 +359,19 @@ function renderGlobalSearch(){
 function openGlobalSearch(){
   buildSearchDialog();
   const d=document.getElementById('globalSearchDialog');
-  if(typeof d.showModal==='function') d.showModal(); else d.setAttribute('open','');
+  if(typeof d.showModal==='function')d.showModal();else d.setAttribute('open','');
   setTimeout(()=>document.getElementById('globalSearchInput')?.focus(),30);
   loadSearchPlayers();
 }
 document.getElementById('globalSearchButton')?.addEventListener('click',openGlobalSearch);
 document.addEventListener('keydown',event=>{
   if(event.key==='/'&&!event.metaKey&&!event.ctrlKey&&!event.altKey&&!['INPUT','TEXTAREA','SELECT'].includes(document.activeElement?.tagName||'')){
-    event.preventDefault();
-    openGlobalSearch();
+    event.preventDefault();openGlobalSearch();
   }
 });
 
 function addTransferLinks(){
-  if(location.pathname!=='/'&&location.pathname!=='/index.html') return;
+  if(location.pathname!=='/'&&location.pathname!=='/index.html')return;
   const cards=[...document.querySelectorAll('.family-card')];
   const around=cards.find(card=>card.querySelector('h3')?.textContent.trim()==='Around the W');
   const players=cards.find(card=>card.querySelector('h3')?.textContent.trim()==='Playerpedia');
@@ -370,10 +379,7 @@ function addTransferLinks(){
   const add=(card,href,label,icon='→')=>{
     const box=card?.querySelector('.family-links');
     if(box&&!box.querySelector(`a[href="${href}"]`)){
-      const a=document.createElement('a');
-      a.href=href;
-      a.innerHTML=`<span>${label}</span><span>${icon}</span>`;
-      box.appendChild(a);
+      const a=document.createElement('a');a.href=href;a.innerHTML=`<span>${label}</span><span>${icon}</span>`;box.appendChild(a);
     }
   };
   add(around,'/no-love-lost.html','No Love Lost');
@@ -383,11 +389,8 @@ function addTransferLinks(){
   add(courtside,'/owners.html','Owners');
   add(courtside,'/wnba-fits.html','The Fits');
 }
-if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',addTransferLinks); else addTransferLinks();
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',addTransferLinks);else addTransferLinks();
 
-/* Public copy polish: remove punctuation dashes without disturbing compound words,
-   numeric ranges, URLs or code. Also prevent obvious internal build notes from
-   leaking into public-facing copy. */
 const INTERNAL_PUBLIC_COPY_PATTERNS=[
   /\bthis (?:section|page|card|area) should\b/i,
   /\b(?:section|page|card|area) should (?:include|have|show|list|be|use)\b/i,
@@ -399,24 +402,15 @@ const INTERNAL_PUBLIC_COPY_PATTERNS=[
   /\bmake sure (?:the|this) (?:section|page|card|area)\b/i
 ];
 function polishPublicCopyValue(value=''){
-  return String(value)
-    .replace(/\s*—\s*/g,', ')
-    .replace(/\s+–\s+/g,', ')
-    .replace(/,\s*,+/g,', ')
-    .replace(/\s+,/g,',');
+  return String(value).replace(/\s*—\s*/g,', ').replace(/\s+–\s+/g,', ').replace(/,\s*,+/g,', ').replace(/\s+,/g,',');
 }
 function isInternalPublicCopy(value=''){
   const text=String(value).replace(/\s+/g,' ').trim();
   return text.length>0&&INTERNAL_PUBLIC_COPY_PATTERNS.some(pattern=>pattern.test(text));
 }
 function removeInternalCopyNode(node){
-  const parent=node.parentElement;
-  if(!parent)return;
-  if(['P','SMALL','LI'].includes(parent.tagName)||parent.matches('.page-note,.small-note,.scout-disclaimer,.notice-box,.info-strip')){
-    parent.remove();
-  }else{
-    node.nodeValue='';
-  }
+  const parent=node.parentElement;if(!parent)return;
+  if(['P','SMALL','LI'].includes(parent.tagName)||parent.matches('.page-note,.small-note,.scout-disclaimer,.notice-box,.info-strip'))parent.remove();else node.nodeValue='';
 }
 function polishPublicCopyTree(root=document.body){
   if(!root)return;
@@ -426,14 +420,10 @@ function polishPublicCopyTree(root=document.body){
       if(node.parentElement?.closest(skipSelector))return;
       const current=node.nodeValue||'';
       if(isInternalPublicCopy(current)){removeInternalCopyNode(node);return;}
-      const next=polishPublicCopyValue(current);
-      if(next!==current)node.nodeValue=next;
-      return;
+      const next=polishPublicCopyValue(current);if(next!==current)node.nodeValue=next;return;
     }
     if(node.nodeType!==Node.ELEMENT_NODE||node.matches?.(skipSelector))return;
-    const walker=document.createTreeWalker(node,NodeFilter.SHOW_TEXT);
-    const textNodes=[];
-    let textNode;
+    const walker=document.createTreeWalker(node,NodeFilter.SHOW_TEXT);const textNodes=[];let textNode;
     while((textNode=walker.nextNode()))textNodes.push(textNode);
     textNodes.forEach(walkNode);
   };
@@ -446,15 +436,9 @@ function startPublicCopyPolish(){
       if(node.nodeType===Node.TEXT_NODE){
         if(!node.parentElement?.closest('script,style,code,pre,textarea,select,option,svg,noscript')){
           const current=node.nodeValue||'';
-          if(isInternalPublicCopy(current))removeInternalCopyNode(node);
-          else{
-            const next=polishPublicCopyValue(current);
-            if(next!==current)node.nodeValue=next;
-          }
+          if(isInternalPublicCopy(current))removeInternalCopyNode(node);else{const next=polishPublicCopyValue(current);if(next!==current)node.nodeValue=next;}
         }
-      }else if(node.nodeType===Node.ELEMENT_NODE){
-        polishPublicCopyTree(node);
-      }
+      }else if(node.nodeType===Node.ELEMENT_NODE)polishPublicCopyTree(node);
     }));
   });
   observer.observe(document.body,{childList:true,subtree:true});

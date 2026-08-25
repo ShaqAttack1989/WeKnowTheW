@@ -1,3 +1,5 @@
+const { getOfficialPlayerPerGame } = require('../lib/wnba-official-stats');
+
 function text(value=''){
   return String(value??'')
     .replace(/\[([^\]]+)\]\([^)]+\)/g,'$1')
@@ -116,10 +118,22 @@ function gradePlayer(player,defs,pools){
 module.exports=async function handler(req,res){
   if(req.method!=='GET'){res.setHeader('Allow','GET');return res.status(405).json({error:'Method not allowed'});}
   const requested=Number.parseInt(String(req.query.season||'2026'),10);const season=Number.isFinite(requested)&&requested>=1997&&requested<=2100?requested:2026;
-  res.setHeader('Cache-Control','s-maxage=21600, stale-while-revalidate=86400');
+  res.setHeader('Cache-Control',season===2026?'s-maxage=1800, stale-while-revalidate=21600':'s-maxage=86400, stale-while-revalidate=604800');
   try{
-    const [pg,adv]=await Promise.all([sourceRows(season,'per_game',parsePerGameMarkdown,parsePerGameHtml),sourceRows(season,'advanced',parseAdvancedMarkdown,parseAdvancedHtml)]);
-    const perGame=chooseBest(pg.rows),advanced=chooseBest(adv.rows),advancedMap=new Map(advanced.map(row=>[key(row.name),row]));
+    const [pg,adv,official]=await Promise.all([
+      sourceRows(season,'per_game',parsePerGameMarkdown,parsePerGameHtml),
+      sourceRows(season,'advanced',parseAdvancedMarkdown,parseAdvancedHtml),
+      getOfficialPlayerPerGame(season).catch(()=>[])
+    ]);
+    let perGame=chooseBest(pg.rows);
+    if(official.length>=10){
+      const officialMap=new Map(official.map(row=>[key(row.name),row]));
+      perGame=perGame.map(row=>{
+        const live=officialMap.get(key(row.name));
+        return live?{...row,team:live.team||row.team,position:live.position||row.position,g:live.games,mpg:live.minutes,trb:live.trb,ast:live.ast,stl:live.stl,blk:live.blk,tov:live.tov,pts:live.pts}:row;
+      });
+    }
+    const advanced=chooseBest(adv.rows),advancedMap=new Map(advanced.map(row=>[key(row.name),row]));
     const merged=perGame.map(row=>({...row,...(advancedMap.get(key(row.name))||{})}));
     const maxGames=Math.max(...merged.map(player=>safe(player.g)),1);const minGames=Math.max(5,Math.min(12,Math.ceil(maxGames*.25)));
     const qualified=merged.filter(player=>safe(player.g)>=minGames&&safe(player.mpg)>=8&&(Number.isFinite(player.per)||Number.isFinite(player.pts)));
@@ -128,6 +142,6 @@ module.exports=async function handler(req,res){
       const grade=gradePlayer(player,defs,pools);
       return {season,name:player.name,team:player.team,position:player.position,games:player.g,minutes:player.mpg,ppg:player.pts,rpg:player.trb,apg:player.ast,spg:player.stl,bpg:player.blk,topg:player.tov,per:player.per,tsPct:player.tsPct,score:grade.score,letter:grade.letter,provisional:safe(player.g)<minGames||safe(player.mpg)<8};
     }).sort((a,b)=>(b.score||0)-(a.score||0)||a.name.localeCompare(b.name));
-    return res.status(200).json({season,updatedAt:new Date().toISOString(),source:'Basketball-Reference',sourceUrls:[pg.source,adv.source],minGames,methodology:'Same We Know the W weighted league-relative grade used for active players, paired with that season’s per-game and advanced statistics.',players});
+    return res.status(200).json({season,updatedAt:new Date().toISOString(),source:official.length>=10?'Official WNBA statistics + Basketball-Reference advanced metrics':'Basketball-Reference',sourceUrls:['https://stats.wnba.com/players/traditional/',pg.source,adv.source],minGames,methodology:'Same We Know the W weighted league-relative grade used for active players, paired with current official per-game statistics and league-relative advanced metrics.',players});
   }catch(error){return res.status(502).json({error:error.message||'Player season snapshot unavailable',season});}
 };

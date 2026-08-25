@@ -52,7 +52,7 @@ document.getElementById('recordsGrid').innerHTML = curatedRecords.map(item => `
 
 function standingsMarkup(items) {
   if (!items?.length) {
-    return `<div class="notice-box"><strong>Live standings are not available yet.</strong><span>The independent data feed did not return a complete standings set.</span></div>`;
+    return `<div class="notice-box"><strong>Live standings are not available yet.</strong><span>The connected statistics feeds did not return a complete standings set.</span></div>`;
   }
 
   return `

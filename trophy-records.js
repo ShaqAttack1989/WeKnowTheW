@@ -68,10 +68,62 @@
     </article>`;
   }
 
-  if (playerBoardsRoot) playerBoardsRoot.innerHTML = data.playerBoards.map(renderScopeBoard).join('');
-  if (careerBoardsRoot) careerBoardsRoot.innerHTML = data.careerOnlyBoards.map(renderCareerBoard).join('');
-  if (teamBoardsRoot) teamBoardsRoot.innerHTML = data.teamBoards.map(renderTeamBoard).join('');
-  if (checked) checked.textContent = `Snapshot updated ${new Date(`${data.updatedAt}T12:00:00`).toLocaleDateString([], {month:'long',day:'numeric',year:'numeric'})}`;
+  function renderRecordBoards() {
+    if (playerBoardsRoot) playerBoardsRoot.innerHTML = data.playerBoards.map(renderScopeBoard).join('');
+    if (careerBoardsRoot) careerBoardsRoot.innerHTML = data.careerOnlyBoards.map(renderCareerBoard).join('');
+    if (teamBoardsRoot) teamBoardsRoot.innerHTML = data.teamBoards.map(renderTeamBoard).join('');
+    if (checked) checked.textContent = `Records checked ${new Date(data.updatedAt.includes('T') ? data.updatedAt : `${data.updatedAt}T12:00:00`).toLocaleString([], {month:'long',day:'numeric',year:'numeric',hour:'numeric',minute:'2-digit'})}`;
+    applyActiveState();
+    hydrateTeamLogos();
+  }
+
+  function valueNumber(entry = {}) {
+    const value = Number(String(entry.value || '').replace(/,/g,''));
+    return Number.isFinite(value) ? value : -Infinity;
+  }
+
+  function rankTopFive(entries = []) {
+    const sorted = [...entries].sort((a,b) => valueNumber(b) - valueNumber(a) || String(a.name).localeCompare(String(b.name)));
+    const cutoff = sorted[4] ? valueNumber(sorted[4]) : -Infinity;
+    const kept = sorted.filter((entry,index) => index < 5 || valueNumber(entry) === cutoff);
+    const counts = new Map(kept.map(entry => [valueNumber(entry), (kept.filter(other => valueNumber(other) === valueNumber(entry)).length)]));
+    return kept.map((entry,index) => {
+      const first = kept.findIndex(other => valueNumber(other) === valueNumber(entry)) + 1;
+      return {...entry,rank:`${counts.get(valueNumber(entry)) > 1 ? 'T' : ''}${first}`};
+    });
+  }
+
+  function mergeDynamicRecords(payload = {}) {
+    for (const board of data.playerBoards) {
+      if (Array.isArray(payload.career?.[board.key])) board.scopes.career = payload.career[board.key];
+      const liveSeason = payload.currentSeason?.[board.key];
+      if (Array.isArray(liveSeason) && liveSeason.length) {
+        const historical = (board.scopes.season || []).filter(entry => !/^2026\b/.test(String(entry.detail || '')));
+        board.scopes.season = rankTopFive([...historical,...liveSeason]);
+      }
+      const liveRookie = payload.rookie?.[board.key];
+      if (Array.isArray(liveRookie) && liveRookie.length) {
+        const historical = (board.scopes.rookie || []).filter(entry => !/^2026\b/.test(String(entry.detail || '')));
+        board.scopes.rookie = rankTopFive([...historical,...liveRookie]);
+      }
+    }
+    for (const board of data.careerOnlyBoards) {
+      if (Array.isArray(payload.careerOnly?.[board.key])) board.entries = payload.careerOnly[board.key];
+    }
+    if (payload.updatedAt) data.updatedAt = payload.updatedAt;
+  }
+
+  async function refreshOfficialRecords() {
+    try {
+      const response = await fetch(`/api/record-leaders?season=2026&cb=${Date.now()}`, {headers:{Accept:'application/json','Cache-Control':'no-cache'},cache:'no-store'});
+      const payload = await response.json();
+      if (!response.ok || payload.error) return;
+      mergeDynamicRecords(payload);
+      renderRecordBoards();
+    } catch { /* The verified static snapshot remains visible. */ }
+  }
+
+  renderRecordBoards();
 
   document.addEventListener('click', event => {
     const button = event.target.closest('[data-record-scope]');
@@ -136,4 +188,5 @@
 
   refreshActivePlayers();
   refreshTeamLogos();
+  refreshOfficialRecords();
 })();

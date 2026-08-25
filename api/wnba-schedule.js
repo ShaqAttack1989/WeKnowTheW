@@ -33,7 +33,7 @@ function broadcasterLabels(broadcasters = {}) {
     if (seenObjects.has(value)) return;
     seenObjects.add(value);
 
-    const media = String(value.broadcasterMedia || value.media || '').toLowerCase();
+    const media = `${value.broadcasterMedia || value.media || ''} ${value.type || ''}`.toLowerCase();
     if (!/radio|audio/.test(media)) {
       const label = value.broadcasterDisplay || value.broadcasterAbbreviation || value.broadcasterDescription || value.displayName || value.name;
       if (label) values.push(String(label).trim());
@@ -67,8 +67,8 @@ function normalizeGame(game = {}, groupDate = '') {
     homeTeam,
     awayTeam,
     venue: arena.arenaName || game.arenaName || '',
-    arenaCity: arena.arenaCity || '',
-    arenaState: arena.arenaState || '',
+    arenaCity: arena.arenaCity || game.arenaCity || '',
+    arenaState: arena.arenaState || game.arenaState || '',
     broadcasts: broadcasterLabels(game.broadcasters),
     seasonType: String(game.gameLabel || game.gameSubtype || game.seriesText || ''),
     status: Number(game.gameStatus) || null,

@@ -9,6 +9,24 @@
       ]
     },
     {
+      "source": "/site.js",
+      "headers": [
+        { "key": "Cache-Control", "value": "no-store, max-age=0" }
+      ]
+    },
+    {
+      "source": "/who-got-next.html",
+      "headers": [
+        { "key": "Cache-Control", "value": "no-store, max-age=0" }
+      ]
+    },
+    {
+      "source": "/index.html",
+      "headers": [
+        { "key": "Cache-Control", "value": "no-store, max-age=0" }
+      ]
+    },
+    {
       "source": "/team.html",
       "headers": [
         { "key": "Cache-Control", "value": "no-store, max-age=0" }

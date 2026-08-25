@@ -29,15 +29,24 @@
     if(low.includes('nba tv')||low.includes('nbatv'))return ['NBA TV','nba-tv'];
     if(low.includes('cbs sports'))return ['CBS Sports','cbs-sports'];
     if(low.includes('cbs'))return ['CBS','cbs'];
-    if(low.includes('prime'))return ['Prime','prime'];
+    if(low.includes('paramount'))return ['Paramount+','paramount'];
+    if(low.includes('prime'))return ['Prime Video','prime'];
     if(low.includes('peacock'))return ['Peacock','peacock'];
+    if(low.includes('nbcsn'))return ['NBCSN','nbcsn'];
+    if(low==='nbc'||/\bnbc\b/.test(low))return ['NBC','nbc'];
+    if(low.includes('usa network')||low==='usa')return ['USA','usa'];
+    if(low.includes('league pass'))return ['League Pass','league-pass'];
+    if(low.includes('tsn+'))return ['TSN+','tsn-plus'];
+    if(low==='tsn'||/\btsn\b/.test(low))return ['TSN','tsn'];
+    if(low.includes('crave'))return ['Crave','crave'];
     return [raw,raw.toLowerCase().replace(/[^a-z0-9]+/g,'-')];
   }
   function gameNetworks(game={}){
     const values=[...(Array.isArray(game.broadcasts)?game.broadcasts:[]),game.broadcast,game.network,game.tv].flat().filter(Boolean),seen=new Set();
-    return values.map(networkInfo).filter(([label])=>label&&!seen.has(label.toLowerCase())&&seen.add(label.toLowerCase())).slice(0,2);
+    return values.map(networkInfo).filter(([label])=>label&&!seen.has(label.toLowerCase())&&seen.add(label.toLowerCase())).slice(0,6);
   }
   function networkBadges(game={}){
+    if(window.WGameBroadcasts?.badges)return WGameBroadcasts.badges(game);
     const items=gameNetworks(game);
     return items.length?items.map(([label,cls])=>`<span class="network-icon network-${safe(cls)}">${safe(label)}</span>`).join(''):'<span class="network-icon network-tbd">TV TBD</span>';
   }
@@ -79,15 +88,19 @@
     const gamesHost=document.getElementById('homeWeekGamesLive'),milestoneHost=document.getElementById('homeWeekMilestoneLive'),snackHost=document.getElementById('homeWeekSnackLive'),rotationHost=document.getElementById('homeWeekRotationsLive'),stamp=document.getElementById('homeWeekStampLive');
     try{
       const cb=Date.now();
-      const [statsR,rotR,snackR]=await Promise.allSettled([
+      const [statsR,rotR,snackR,officialR]=await Promise.allSettled([
         fetch(`/api/stats?season=2026&cb=${cb}`,{headers:{Accept:'application/json','Cache-Control':'no-cache'},cache:'no-store'}).then(r=>r.ok?r.json():{}),
         fetch(`/rotation-history.json?cb=${cb}`,{headers:{Accept:'application/json','Cache-Control':'no-cache'},cache:'no-store'}).then(r=>r.ok?r.json():{}),
-        fetch(`/snack-shaq-posts.json?cb=${cb}`,{headers:{Accept:'application/json','Cache-Control':'no-cache'},cache:'no-store'}).then(r=>r.ok?r.json():{})
+        fetch(`/snack-shaq-posts.json?cb=${cb}`,{headers:{Accept:'application/json','Cache-Control':'no-cache'},cache:'no-store'}).then(r=>r.ok?r.json():{}),
+        window.WGameBroadcasts?.loadOfficialSchedule?.()||Promise.resolve([])
       ]);
-      const stats=statsR.status==='fulfilled'?statsR.value:{},rotations=rotR.status==='fulfilled'?rotR.value:{},snack=snackR.status==='fulfilled'?snackR.value:{};
+      let stats=statsR.status==='fulfilled'?statsR.value:{};
+      const rotations=rotR.status==='fulfilled'?rotR.value:{},snack=snackR.status==='fulfilled'?snackR.value:{};
+      const officialGames=officialR.status==='fulfilled'&&Array.isArray(officialR.value)?officialR.value:[];
+      if(window.WGameBroadcasts?.enrichPayload)stats=WGameBroadcasts.enrichPayload(stats,officialGames);
       const posts=(Array.isArray(snack.posts)?snack.posts:[]).filter(p=>p.type!=='intro').sort((a,b)=>String(b.published||'').localeCompare(String(a.published||''))),latest=posts[0]||{};
       const games=bestGames(stats);
-      if(gamesHost)gamesHost.innerHTML=games.length?`<div class="week-game-list">${games.map(game=>`<div class="week-game-row"><span>${safe(when(game))}</span><div class="week-game-copy"><strong>${safe(game.awayTeam||'TBD')} @ ${safe(game.homeTeam||'TBD')}</strong><div class="week-game-watch"><span class="week-arena">${safe(game.venue||'Arena TBD')}</span>${networkBadges(game)}</div></div></div>`).join('')}</div><a href="/games.html">Open Games + where to watch →</a><p class="week-game-refresh-note">Auto-refreshing from the live schedule feed.</p>`:'<p>No upcoming games are currently loaded.</p><a href="/games.html">Open Games →</a>';
+      if(gamesHost)gamesHost.innerHTML=games.length?`<div class="week-game-list">${games.map(game=>`<div class="week-game-row"><span>${safe(when(game))}</span><div class="week-game-copy"><strong>${safe(game.awayTeam||'TBD')} @ ${safe(game.homeTeam||'TBD')}</strong><div class="week-game-watch"><span class="week-arena">${safe(game.venue||'Arena TBD')}</span>${networkBadges(game)}</div></div></div>`).join('')}</div><a href="/games.html">Open Games + where to watch →</a><p class="week-game-refresh-note">Auto-refreshing · where to watch synced from WNBA.com.</p>`:'<p>No upcoming games are currently loaded.</p><a href="/games.html">Open Games →</a>';
       const note=milestone(latest);
       if(milestoneHost)milestoneHost.innerHTML=note?`<h3>Milestone watch</h3><p>${safe(short(note,220))}</p><a href="/stat-kitchen.html">Track the numbers →</a>`:'<h3>Milestone watch</h3><p>Record chases and threshold moments will appear here with the weekly update.</p><a href="/milestone-moments.html">Open Milestone Moments →</a>';
       if(snackHost)snackHost.innerHTML=latest.title?`<span class="week-snack-date">Released ${safe(fmtDate(latest.published))}</span><strong class="week-snack-title">${safe(latest.title)}</strong><p>${safe(short(latest.dek,180))}</p><a href="/snack-shak.html?post=${encodeURIComponent(latest.slug)}#latest">Read this week’s plate →</a>`:'<p>The next Snack Shak plate is still in the kitchen.</p><a href="/snack-shak.html">Open Snack Shak →</a>';

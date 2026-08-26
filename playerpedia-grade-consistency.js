@@ -74,11 +74,12 @@
     if(!grid)return;
     grid.querySelectorAll('.player-history-card .player-card-grade').forEach(host=>{
       if(host.textContent.includes('last-active grade'))return;
-      if(host.dataset.historySignature){
-        host.removeAttribute('data-grade-signature');
-        const card=host.closest('.player-card');
-        card?.dispatchEvent(new CustomEvent('playerpedia-history-resync',{bubbles:true}));
-      }
+      const parts=String(host.dataset.historySignature||'').split(':');
+      if(parts.length<3)return;
+      const [season,letter,score]=parts;
+      const grade={letter:letter||'NR',score:score&&score!=='0'?`${score}%`:'—'};
+      host.removeAttribute('data-grade-signature');
+      host.innerHTML=canonicalMarkup(grade,`${season} last-active grade`);
     });
   }
 

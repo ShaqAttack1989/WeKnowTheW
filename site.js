@@ -55,6 +55,11 @@ const structuredNav=`
       ['Franchise Footprints','/franchise-footprints.html'],
       ['Cleveland Sirens · 2028','/team.html?team=cleveland-sirens']
     ])}
+    ${accordion('Features + Analysis','/around-the-w.html#features',[
+      ['Tina Charles · No. 31 Rises','/tina-charles-sun-legend.html'],
+      ['30 Seasons of Legendary Duos','/legendary-wnba-duos.html'],
+      ['DeWanna Bonner · One More Run','/dewanna-bonner-buyout.html']
+    ])}
     <a class="nav-direct-link" href="/snack-shak.html">Seasoned Notes · Snack Shak</a>
   </div>
 </div>
@@ -192,6 +197,9 @@ const hierarchyMap={
   '/player-movement.html':['Live Stats','/live-stats.html','Player Movement'],
   '/availability-report.html':['Live Stats','/live-stats.html','Availability Report'],
   '/around-the-w.html':['Around the W','/around-the-w.html','Team Pages'],
+  '/tina-charles-sun-legend.html':['Around the W','/around-the-w.html#features','Tina Charles Honored'],
+  '/legendary-wnba-duos.html':['Around the W','/around-the-w.html#features','Legendary Duos'],
+  '/dewanna-bonner-buyout.html':['Around the W','/around-the-w.html#features','One More Run'],
   '/franchise-footprints.html':['Around the W','/around-the-w.html','Franchise Footprints'],
   '/snack-shak.html':['Around the W','/around-the-w.html','Seasoned Notes'],
   '/playerpedia.html':['Playerpedia','/playerpedia.html','On the Floor'],
@@ -261,6 +269,9 @@ const coreSearch=[
   ['No Love Lost','Live Stats','/no-love-lost.html','rivalry head to head wins losses struggle meter'],
   ['Player Movement','Live Stats','/player-movement.html','trades signings waives transactions'],
   ['Availability Report','Live Stats','/availability-report.html','injury availability out questionable'],
+  ['Tina Charles: No. 31 Rises','Around the W · Feature','/tina-charles-sun-legend.html','connecticut sun legend honoring ceremony retirement jersey rafters number 31'],
+  ['Legendary WNBA Duos','Around the W · Feature','/legendary-wnba-duos.html','best pairs partners 30 seasons rankings maya moore seimone augustus dynasties'],
+  ['DeWanna Bonner: One More Run','Around the W · Feature','/dewanna-bonner-buyout.html','phoenix mercury buyout veteran postseason landing spots'],
   ['On the Floor (Current Players)','Playerpedia','/playerpedia.html#playerpedia-directory','players roster bios stats unrivaled athletes unlimited'],
   ['Legends Lounge (Retired Players)','Playerpedia','/retired-players.html','retired legends pioneers years career'],
   ['Herstory','Playerpedia','/herstory.html','education business advocacy family'],

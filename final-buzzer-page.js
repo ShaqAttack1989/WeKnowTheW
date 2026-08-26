@@ -1,4 +1,4 @@
-const FINAL_BUZZER_UPDATED='Aug 23, 2026';
+const FINAL_BUZZER_UPDATED='Aug 26, 2026';
 const finalHeadshot=id=>`https://cdn.wnba.com/headshots/wnba/latest/1040x760/${id}.png`;
 
 const confirmedRetirements=[
@@ -41,6 +41,7 @@ const retiredNumbers=[
   {team:'Connecticut Sun',number:'15',player:'Asjha Jones',year:'2022'},
   {team:'Connecticut Sun',number:'23',player:'Katie Douglas',year:'2015'},
   {team:'Connecticut Sun',number:'25',player:'Alyssa Thomas',year:'2026'},
+  {team:'Connecticut Sun',number:'31',player:'Tina Charles',year:'2026'},
   {team:'Connecticut Sun',number:'35',player:'Jonquel Jones',year:'2026'},
   {team:'Connecticut Sun',number:'42',player:'Nykesha Sales',year:'Legacy'},
   {team:'Indiana Fever',number:'24',player:'Tamika Catchings',year:'2017'},

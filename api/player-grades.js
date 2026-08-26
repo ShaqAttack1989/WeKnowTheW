@@ -174,7 +174,7 @@ module.exports=async function handler(req,res){
     const merged=perGame.map(row=>{
       const advancedRow=advMap.get(key(row.name))||{};
       const tsPct=Number.isFinite(advancedRow.tsPct)?advancedRow.tsPct:row.officialTsPct;
-      return {...row,...advancedRow,tsPct};
+      return {...row,...advancedRow,name:row.name||advancedRow.name,team:row.team||advancedRow.team,position:row.position||advancedRow.position,tsPct};
     });
     const maxGames=Math.max(...merged.map(p=>safe(p.g)),1);const minGames=Math.max(5,Math.min(12,Math.ceil(maxGames*.25)));
     const qualified=merged.filter(p=>safe(p.g)>=minGames&&safe(p.mpg)>=8&&(Number.isFinite(p.per)||Number.isFinite(p.pts)));

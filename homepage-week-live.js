@@ -51,7 +51,7 @@
       const sf=[...(rotations.startingFive||[])].sort((a,b)=>String(b.week).localeCompare(String(a.week)))[0]||{};
       const bm=[...(rotations.benchMob||[])].sort((a,b)=>String(b.week).localeCompare(String(a.week)))[0]||{};
       await ensurePlayers();
-      rotationHost.innerHTML=`<div class="week-rotation-intro"><div><strong>Shak’s mock weekly rotation</strong><p>My five starters and six-player bench for the week, based on current form, fit and what I’m seeing around the league.</p></div><span>EDITORIAL PICKS</span></div><div class="week-rotation-shell">${rotationGroup('Shak’s Starting Five','MOCK STARTING FIVE',sf,'/starting-five.html','starting')}${rotationGroup('Shak’s Bench Mob','MOCK BENCH MOB',bm,'/bench-mob.html','bench')}</div>`;
+      rotationHost.innerHTML=`<div class="week-rotation-intro"><p><strong>Editorial mock picks.</strong> Five starters and a six-player bench based on current form, fit and what I’m seeing around the league.</p><span>SHAK’S PICKS</span></div><div class="week-rotation-shell">${rotationGroup('Shak’s Starting Five','MOCK STARTING FIVE',sf,'/starting-five.html','starting')}${rotationGroup('Shak’s Bench Mob','MOCK BENCH MOB',bm,'/bench-mob.html','bench')}</div>`;
       const latestWeek=sf.week||bm.week;
       if(stamp){stamp.classList.add('live-refresh');stamp.textContent=latestWeek?`Week of ${fmtWeek(latestWeek)}`:'This week';stamp.title=`Rotations refreshed ${new Date().toLocaleTimeString([],{hour:'numeric',minute:'2-digit'})}`;}
     }catch{

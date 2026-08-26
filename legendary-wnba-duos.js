@@ -10,9 +10,25 @@ const DUO_HEADSHOTS={
   'Katie Douglas':'100666','Olivia Miles':'1643426'
 };
 
+const DUO_PHOTOS={
+  'Cynthia Cooper':'https://iv1.lisimg.com/image/19211184/740full-cynthia-cooper--dyke.jpg',
+  'Sheryl Swoopes':'https://www.basketball-reference.com/req/202106291/images/headshots/swoopsh01w.jpg',
+  'Lauren Jackson':'https://www.basketball-reference.com/req/202106291/images/headshots/jacksla01w.jpg',
+  'Lisa Leslie':'https://www.basketball-reference.com/req/202106291/images/headshots/leslili01w.jpg',
+  'Nikki Teasley':'https://www.basketball-reference.com/req/202106291/images/headshots/teaslni01w.jpg',
+  'Mwadi Mabika':'https://www.basketball-reference.com/req/202106291/images/headshots/mabikmw01w.jpg',
+  'Yolanda Griffith':'https://www.basketball-reference.com/req/202106291/images/headshots/griffyo01w.jpg',
+  'Ticha Penicheiro':'https://www.movenoticias.com/wp-content/uploads/2016/06/ticha-penicheiro-625x500.jpg',
+  'Katie Smith':'https://www.basketball-reference.com/req/202106291/images/headshots/smithka01w.jpg',
+  'Deanna Nolan':'https://www.basketball-reference.com/req/202106291/images/headshots/nolande01w.jpg',
+  'Tina Thompson':'https://www.basketball-reference.com/req/202106291/images/headshots/thompti01w.jpg',
+  'Tamika Catchings':'https://www.basketball-reference.com/req/202106291/images/headshots/catchta01w.jpg',
+  'Katie Douglas':'https://www.basketball-reference.com/req/202106291/images/headshots/douglka01w.jpg'
+};
+
 const RETIRED_LOUNGE=new Set(['Cynthia Cooper','Sheryl Swoopes','Tina Thompson','Lisa Leslie','Lauren Jackson','Sue Bird','Yolanda Griffith','Ticha Penicheiro','Katie Smith','Diana Taurasi','Cappie Pondexter','Seimone Augustus','Maya Moore','Tamika Catchings','Sylvia Fowles','Candace Parker','Elena Delle Donne']);
 const CURRENT_PLAYERPEDIA=new Set(['Brittney Griner','Nneka Ogwumike','Breanna Stewart','Jewell Loyd','Kahleah Copper',"A'ja Wilson",'Chelsea Gray','Jackie Young','Jonquel Jones','Napheesa Collier','Olivia Miles']);
-const H=name=>`https://cdn.wnba.com/headshots/wnba/latest/1040x760/${DUO_HEADSHOTS[name]}.png`;
+const H=name=>DUO_PHOTOS[name]||`https://cdn.wnba.com/headshots/wnba/latest/1040x760/${DUO_HEADSHOTS[name]}.png`;
 
 const DUOS=[
   {rank:1,year:2000,a:'Cynthia Cooper',b:'Sheryl Swoopes',team:'Houston Comets',href:'/franchise-footprints.html#houston',tone:'#b42039',result:'WNBA champions · 27–5',why:'Swoopes won MVP and Defensive Player of the Year; Cooper won a fourth straight Finals MVP. The original dynasty closed its four-peat with the league’s most decorated one-two finish.'},
@@ -57,26 +73,38 @@ const HONORABLE=[
 
 const duoSafe=value=>String(value??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[ch]));
 const duoInitials=name=>name.split(/\s+/).map(part=>part[0]).slice(0,2).join('');
+const APPEARANCES=DUOS.reduce((counts,item)=>{
+  counts[item.a]=(counts[item.a]||0)+1;
+  counts[item.b]=(counts[item.b]||0)+1;
+  return counts;
+},{});
+const HONORABLE_BY_YEAR=new Map(HONORABLE.map(item=>[item.year,item.pairs]));
 function playerHref(name){
   if(RETIRED_LOUNGE.has(name))return `/retired-players.html?search=${encodeURIComponent(name)}#legend-directory`;
   if(CURRENT_PLAYERPEDIA.has(name))return `/playerpedia.html?search=${encodeURIComponent(name)}#playerpedia-directory`;
   return '';
 }
-function playerName(name){const href=playerHref(name);return href?`<a href="${href}">${duoSafe(name)}</a>`:`<span>${duoSafe(name)}</span>`;}
+function playerName(name){
+  const href=playerHref(name);
+  const label=href?`<a href="${href}">${duoSafe(name)}</a>`:`<span>${duoSafe(name)}</span>`;
+  const repeat=APPEARANCES[name]>1?`<mark class="duo-repeat-badge" title="Selected in ${APPEARANCES[name]} seasons">${APPEARANCES[name]}×</mark>`:'';
+  return `<span class="duo-player-name">${label}${repeat}</span>`;
+}
 function portrait(name){
   const src=DUO_HEADSHOTS[name]?`<img src="${H(name)}" alt="${duoSafe(name)}" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.remove()">`:'';
   return `<span class="duo-portrait"><b>${duoSafe(duoInitials(name))}</b>${src}</span>`;
 }
 function duoCard(item){
   const featured=item.rank<=10?' featured':'';
-  return `<article class="duo-rank-card${featured}" style="--duo-tone:${item.tone}">
+  const honorable=HONORABLE_BY_YEAR.get(item.year);
+  const honorableColumn=honorable?`<aside class="duo-honorable-column"><span>HONORABLE MENTION${honorable.length>1?'S':''}</span>${honorable.map(pair=>`<p>${duoSafe(pair)}</p>`).join('')}</aside>`:'';
+  return `<article class="duo-rank-card${featured}${honorable?' has-honorable':''}" style="--duo-tone:${item.tone}">
     <div class="duo-rank-number"><span>RANK</span><strong>${item.rank}</strong><b>${item.year}${item.year===2026?'*':''}</b></div>
     <div class="duo-rank-portraits">${portrait(item.a)}<i>+</i>${portrait(item.b)}</div>
     <div class="duo-rank-copy"><span class="duo-team-label">${duoSafe(item.team)}</span><h3>${playerName(item.a)} <i>+</i> ${playerName(item.b)}</h3><strong>${duoSafe(item.result)}</strong><p>${duoSafe(item.why)}</p><a href="${item.href}">Open the ${duoSafe(item.team)} history →</a></div>
+    ${honorableColumn}
   </article>`;
 }
 
 const ranking=document.getElementById('duoRanking');
 if(ranking)ranking.innerHTML=DUOS.map(duoCard).join('');
-const honorable=document.getElementById('duoHonorable');
-if(honorable)honorable.innerHTML=HONORABLE.map(item=>`<article><strong>${item.year}</strong>${item.pairs.map(pair=>`<p>${duoSafe(pair)}</p>`).join('')}</article>`).join('');

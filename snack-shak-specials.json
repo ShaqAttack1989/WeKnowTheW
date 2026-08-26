@@ -88,7 +88,7 @@
         {"label": "Minnesota at New York, July 3", "url": "https://www.wnba.com/game/min-vs-nyl-1022600148"},
         {"label": "Connecticut at Minnesota, July 6", "url": "https://www.wnba.com/game/1022600155/CON-vs-MIN"},
         {"label": "Sparks defeat Lynx, Aug. 6", "url": "https://www.wnba.com/webview/watch/video/game-recap-los-angeles-sparks-89-minnesota-lynx-82-08-06-2026"},
-        {"label": "Valkyries review of first win over Minnesota", "url": "https://valkyries.wnba.com/news/gameday-preview-20260826"},
+        {"label": "Valkyries defeat Lynx, Aug. 24", "url": "https://valkyries.wnba.com/news/gameday-recap-20260824"},
         {"label": "Napheesa Collier injury update", "url": "https://lynx.wnba.com/news/napheesa-collier-injury-update-3"}
       ]
     },
@@ -97,68 +97,79 @@
       "type": "feature",
       "priority": 10,
       "seriesLabel": "MILESTONE MOMENTS",
-      "title": "A’ja Hits 100: Wilson Joins Taurasi in the WNBA’s 25-Point Century Club",
+      "title": "A’ja Enters the Century Club: Wilson Joins Taurasi in Rare 25-Point Company",
       "published": "2026-08-26",
-      "week": "Milestone reached Aug. 23, 2026",
-      "dek": "A 27-point night against Toronto was not just another A’ja Wilson box score. It made her only the second player in WNBA history to reach 100 career games with at least 25 points.",
+      "week": "Scoring milestone check after Aug. 23, 2026",
+      "dek": "The headline is true when career means regular season plus playoffs, but the stat deserves a clean label: Wilson has 99 regular-season 25+ point games and 16 more in the postseason, putting her comfortably beyond 100 combined WNBA games.",
       "storyTable": {
-        "columns": ["Century Club", "Career 25+ point games", "Why it matters"],
+        "columns": ["A’ja Wilson 25+ point games", "Total", "What the number means"],
         "rows": [
-          ["Diana Taurasi", "140", "The long-standing all-time benchmark"],
-          ["A’ja Wilson", "100", "Only the second player in league history to reach triple digits"]
+          ["Regular season", "99", "Current total through Aug. 23, 2026"],
+          ["Playoffs", "16", "Career postseason games with at least 25 points"],
+          ["Combined WNBA career", "115", "Regular season plus playoffs"],
+          ["Diana Taurasi regular-season benchmark", "140", "The long-standing regular-season standard"]
         ]
       },
       "sections": [
         {
-          "title": "One hundred is not a hot streak",
+          "title": "First, clean up the stat",
           "paragraphs": [
-            "A’ja Wilson scored 27 points, grabbed seven rebounds and handed out seven assists in Las Vegas’ 88 to 78 win over Toronto on Aug. 23. Somewhere inside another MVP-shaped stat line was a round number with real historical weight: career 25-point game number 100.",
-            "That moved Wilson into a club that previously had one member. Diana Taurasi is the WNBA’s historical standard for 25-point games, with 140 documented in Aces historical game notes. Wilson reaching triple digits is less about one huge scoring night than it is about repetition. Twenty-five points once is a heater. Twenty-five points 100 times is an era."
+            "The viral graphic says A’ja Wilson has joined Diana Taurasi as the only players in WNBA history with 100 career 25-point games. The spirit of the claim is right, but the definition matters. Current regular-season game logs put Wilson at 99 games with at least 25 points through her 27-point performance in Toronto. She also owns 16 postseason games with at least 25, giving her 115 when regular-season and playoff games are combined.",
+            "So Aug. 23 was not Wilson’s 100th regular-season 25-point game. It was another high-level scoring night that pushed the conversation back into view. The clean version is even more interesting: Wilson is one regular-season 25-point performance away from a separate 100-game threshold, while her full WNBA résumé has already cleared the century mark."
           ]
         },
         {
-          "title": "Why the 25-point threshold tells a different story",
+          "title": "One hundred is not a hot streak",
           "paragraphs": [
-            "Career points reward longevity. Single-game scoring records reward explosions. The 25-point benchmark lives in the middle. It measures how often a player can carry premium scoring volume without requiring a once-in-a-lifetime night.",
-            "Wilson has built that volume while being asked to do almost everything else too. She rebounds, anchors the paint defensively, protects the rim and often becomes Las Vegas’ emergency offense when a possession has gone nowhere. Her scoring résumé does not sit beside her two-way impact. It is happening inside it."
+            "Wilson scored 27 points, grabbed seven rebounds and handed out seven assists in Las Vegas’ 88 to 78 win over Toronto on Aug. 23. It looked like a normal A’ja line because she has made abnormal production routine.",
+            "Twenty-five points once is a heater. Doing it across triple-digit career games is a body of work. The threshold sits in a useful middle ground: career scoring totals reward longevity, while single-game records reward explosions. Repeated 25-point games measure how often a player can carry premium scoring volume without needing a once-in-a-lifetime night."
+          ]
+        },
+        {
+          "title": "The regular-season chase is now one game away",
+          "paragraphs": [
+            "Official Aces historical notes listed Wilson at 80 career regular-season games with at least 25 points at the end of the 2025 regular season, behind Diana Taurasi’s 140. Wilson has stacked 19 more in 2026 through the Toronto game, bringing the regular-season total to 99.",
+            "That means the next 25-point night has its own clean milestone attached to it: 100 in the regular season. Taurasi remains the historical benchmark, but Wilson is now the only active player sitting on the doorstep of triple digits."
+          ]
+        },
+        {
+          "title": "The postseason strengthens the case",
+          "paragraphs": [
+            "Wilson has already produced 16 playoff games with at least 25 points, including eight during Las Vegas’ 2025 championship run. Add those to her 99 regular-season games and the combined career count is 115.",
+            "That distinction is worth preserving rather than flattening. Regular-season and playoff records answer different questions. One measures sustained production across the calendar. The other measures whether that scoring travels when opponents have time to scheme for you. Wilson has volume in both columns."
           ]
         },
         {
           "title": "Different routes to the same rare air",
           "paragraphs": [
-            "Taurasi’s path to 140 was built through unmatched perimeter confidence, longevity and a career spent treating difficult shots like suggestions. Wilson’s path has been more interior-out. She can overpower a smaller matchup, face up a slower big, live at the foul line and now stretch defenses farther from the rim than she did early in her career.",
-            "The comparison does not require pretending they are the same scorer. The milestone is interesting precisely because they are not. Two very different offensive ecosystems have produced the only two triple-digit totals the league has seen."
+            "Taurasi built her scoring résumé through unmatched perimeter confidence, longevity and a career spent treating difficult shots like suggestions. Wilson’s route is more interior-out. She can overpower a smaller matchup, face up a slower big, live at the foul line and now stretch defenses farther from the rim than she did early in her career.",
+            "The comparison does not require pretending they are the same scorer. The milestone is compelling precisely because they are not. Two completely different offensive ecosystems have produced sustained scoring volume that almost nobody else has matched."
           ]
         },
         {
-          "title": "The milestone landed in the middle of another title chase",
+          "title": "History keeps arriving during a title chase",
           "paragraphs": [
-            "Las Vegas left Toronto at 26 wins and 13 losses with its playoff berth already secured. Wilson’s 27-point, seven-rebound, seven-assist night was not ceremonial scoring after the race was decided. The Aces still need every bit of her production while fighting for seeding and trying to make another postseason run.",
+            "Las Vegas left Toronto at 26 wins and 13 losses with its playoff berth secured. Wilson’s 27-point, seven-rebound, seven-assist night was not ceremonial scoring after the race was decided. The Aces still need every bit of her production while fighting for seeding and trying to make another postseason run.",
             "That is the strange thing about Wilson’s résumé now. History keeps arriving in the middle of normal business. A milestone flashes on the screen, everybody applauds, and then the next possession still asks her to switch onto a guard, clean the glass and go get another bucket."
-          ]
-        },
-        {
-          "title": "The bigger conversation is getting harder to avoid",
-          "paragraphs": [
-            "Wilson does not need the 100-game milestone to validate her place among the league’s greats. What it does is add another category where her peak is beginning to accumulate the kind of volume usually associated with much longer careers.",
-            "Taurasi still owns the all-time 25-point standard. Wilson has now crossed the threshold that makes the chase visible. One hundred down. Forty between her and the historical mark. Whether she ever gets there is a future question. The present one is simpler: there are now only two names on this particular menu."
           ]
         }
       ],
       "debates": [
-        "Which is more impressive: Taurasi’s longevity at 140 or the pace at which Wilson reached 100?",
+        "Should regular-season and playoff scoring milestones always be displayed separately?",
+        "Which is more impressive: Taurasi’s longevity at 140 regular-season 25-point games or the pace at which Wilson is approaching 100?",
         "How should Wilson’s two-way workload change the way her scoring milestones are evaluated?",
         "At what point does Wilson’s combination of peak dominance and accumulating volume reshape all-time WNBA conversations?"
       ],
       "foodSegment": {
-        "title": "The Century Plate",
-        "script": "A’ja Wilson just ordered off the secret menu. Twenty-five points is usually a full entrée. She has served it 100 times. The only other player who has ever reached that counter is Diana Taurasi, who built the original 140-plate tasting menu. Different kitchens, different recipes, same rare table. And the wild part is A’ja did it with 27, seven and seven in a game Las Vegas actually needed. No ceremonial cupcake. Full meal, playoff stakes, history for dessert."
+        "title": "Count the Plates Before You Serve Them",
+        "script": "A’ja Wilson is absolutely in the century club, but Snack Shak checks the receipt before the plate hits the table. Regular season? Ninety-nine 25-point games. Playoffs? Sixteen more. Combined? One hundred fifteen. So the viral graphic has the right destination, but it skipped a turn on the way there. The fun part is that A’ja is now one regular-season 25-point night away from another clean milestone anyway. No need to season the number when the actual résumé already tastes this good."
       },
       "sources": [
         {"label": "Aces vs. Tempo gallery, Aug. 23, 2026", "url": "https://aces.wnba.com/news/gallery-aces-tempo-8-23-2026"},
         {"label": "Las Vegas at Toronto game", "url": "https://www.wnba.com/game/lva-vs-tor-1022600281"},
-        {"label": "Aces historical game notes with career 25-point leaderboard", "url": "https://aces.wnba.com/wp-content/uploads/sites/4/2025/09/LVA-Game-Notes-9-13-25.pdf"},
-        {"label": "WNBA standings", "url": "https://www.wnba.com/standings"}
+        {"label": "Aces historical regular-season 25-point leaderboard", "url": "https://cdn.wnba.com/sites/1611661319/2025/09/2025-09-23-Aces-SF-G2-Notes-FINAL.pdf"},
+        {"label": "Wilson current regular-season 25+ game count", "url": "https://www.statmuse.com/wnba/ask/aja-25-pt-career-games"},
+        {"label": "Wilson career playoff 25+ game count", "url": "https://www.statmuse.com/wnba/ask?q=how+many+times+did++a%27ja+wilson+scored+25%2Bpoints+in+a+playoff+game"}
       ]
     }
   ]

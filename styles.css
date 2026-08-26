@@ -33,6 +33,52 @@ h1, h2, h3, h4, .brand, .nav-parent, .nav-direct, .button {
 a { color: inherit; }
 .shell { width: min(1160px, calc(100% - 40px)); margin-inline: auto; }
 
+/* Sitewide playoff status markers: same compact icon everywhere. */
+.playoff-marker {
+  display: inline-grid !important;
+  place-items: center !important;
+  width: 16px !important;
+  height: 16px !important;
+  min-width: 16px !important;
+  flex: 0 0 16px !important;
+  margin-left: 7px !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 50% !important;
+  color: #fff !important;
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif !important;
+  font-size: 10px !important;
+  font-weight: 1000 !important;
+  line-height: 1 !important;
+  letter-spacing: 0 !important;
+  vertical-align: -2px !important;
+  box-shadow: none !important;
+  overflow: hidden !important;
+}
+.playoff-marker.clinched { background: #118a57 !important; }
+.playoff-marker.eliminated { background: #cf2638 !important; }
+.playoff-marker svg {
+  display: block !important;
+  width: 16px !important;
+  height: 16px !important;
+  overflow: visible !important;
+}
+.playoff-marker svg circle { fill: transparent !important; stroke: none !important; }
+.playoff-marker svg path {
+  fill: none !important;
+  stroke: #fff !important;
+  stroke-width: 2.25 !important;
+  stroke-linecap: round !important;
+  stroke-linejoin: round !important;
+}
+.live-team-cell .playoff-marker,
+.team-name .playoff-marker,
+.standing-row .playoff-marker,
+.standings-row .playoff-marker {
+  align-self: center !important;
+  justify-self: start !important;
+}
+
 .hero {
   color: var(--white);
   min-height: 720px;
@@ -181,4 +227,13 @@ h2 { font-size: clamp(2.2rem, 4.2vw, 4rem); line-height: 1; letter-spacing: -.04
   .callout { grid-template-columns: 1fr; padding: 28px; }
   .big-w { font-size: 7rem; text-align: left; }
   .footer-inner { align-items: flex-start; flex-direction: column; }
+  .playoff-marker {
+    width: 15px !important;
+    height: 15px !important;
+    min-width: 15px !important;
+    flex-basis: 15px !important;
+    margin-left: 6px !important;
+    font-size: 9px !important;
+  }
+  .playoff-marker svg { width: 15px !important; height: 15px !important; }
 }

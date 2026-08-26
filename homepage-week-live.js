@@ -6,6 +6,15 @@
   let playerCacheAt=0;
   let refreshActive=false;
 
+  function normalizeWeeklyBoard(){
+    document.querySelector('.home-week-card.games')?.remove();
+    const heading=document.querySelector('.home-week-heading h2');
+    const deck=document.querySelector('.home-week-heading h2 + p');
+    if(heading)heading.textContent='Three things to know this week.';
+    if(deck)deck.textContent='Milestone watch, the newest Snack Shak feature, and Shak’s mock weekly Starting Five and Bench Mob, all in one easy-to-scan board.';
+    const rotationCard=document.querySelector('.home-week-card.rotations .home-week-label');
+    if(rotationCard)rotationCard.textContent='🏀 SHAK’S MOCK WEEKLY ROTATIONS';
+  }
   function playerPhoto(player={}){
     const direct=[player.officialHeadshot,player.photoCutout,player.photo,player.photoThumb,player.headshot].find(value=>/^https?:\/\//i.test(String(value||'').trim()));
     if(direct)return String(direct).trim();
@@ -50,6 +59,7 @@
     }finally{refreshActive=false;}
   }
 
+  normalizeWeeklyBoard();
   refreshRotations();
   setInterval(()=>{if(!document.hidden)refreshRotations();},120000);
   window.addEventListener('focus',refreshRotations);

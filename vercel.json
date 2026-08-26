@@ -21,6 +21,24 @@
       ]
     },
     {
+      "source": "/homepage-week-live.css",
+      "headers": [
+        { "key": "Cache-Control", "value": "no-store, max-age=0" }
+      ]
+    },
+    {
+      "source": "/homepage-week-live.js",
+      "headers": [
+        { "key": "Cache-Control", "value": "no-store, max-age=0" }
+      ]
+    },
+    {
+      "source": "/homepage-specials.js",
+      "headers": [
+        { "key": "Cache-Control", "value": "no-store, max-age=0" }
+      ]
+    },
+    {
       "source": "/who-got-next.html",
       "headers": [
         { "key": "Cache-Control", "value": "no-store, max-age=0" }

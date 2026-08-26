@@ -1,4 +1,4 @@
-let gamesPayload=null,competitionPayload=null,gamesMode='live',gamesTeam='all',gamesCompetition='season',gamesRefreshActive=false;
+let gamesPayload=null,competitionPayload=null,gamesMode='live',gamesTeam='all',gamesCompetition='season',gamesRefreshActive=false,liveRefreshActive=false;
 
 const CUP_2026_CLIENT_FALLBACK=[
   {id:'2026-commissioners-cup-final',date:'2026-06-30',startTimeUtc:'2026-06-30T20:00:00-04:00',homeTeam:'New York Liberty',awayTeam:'Las Vegas Aces',homeScore:93,awayScore:85,status:'Final',state:'post',completed:true,officialFallback:true,broadcasts:['Prime Video']},
@@ -22,7 +22,6 @@ function mergeUnique(primary=[],fallback=[]){
   }
   return [...map.values()];
 }
-
 function compGames(){
   if(gamesCompetition==='cup'){
     const apiGames=[...(competitionPayload?.cup?.poolGames||[]),...(competitionPayload?.cup?.championshipGames||[])];
@@ -31,7 +30,6 @@ function compGames(){
   if(gamesCompetition==='playoffs')return competitionPayload?.playoffs?.games||[];
   return null;
 }
-
 function gameTime(g={}){const t=Date.parse(g.startTimeUtc||`${g.date}T12:00:00Z`);return Number.isFinite(t)?t:0;}
 function temporal(items=[]){
   const now=Date.now();
@@ -43,7 +41,6 @@ function temporal(items=[]){
   });
   return filtered.sort((a,b)=>gamesMode==='past'?gameTime(b)-gameTime(a):gameTime(a)-gameTime(b));
 }
-
 function renderGames(){
   const list=document.getElementById('gamesList'),title=document.getElementById('gamesTitle'),past=document.getElementById('gamesPastToggle'),upcoming=document.getElementById('gamesUpcomingToggle'),live=document.getElementById('gamesLiveToggle');
   if(!list||!gamesPayload||!window.WGameCards)return;
@@ -59,8 +56,33 @@ function renderGames(){
   if(!items.length&&gamesCompetition==='playoffs'&&!competitionPayload?.playoffs?.started){list.innerHTML='<div class="schedule-empty"><strong>Playoffs begin Sept. 27.</strong><p>The postseason schedule and results will populate here as soon as they are published.</p></div>';return;}
   list.innerHTML=WGameCards.render(items,gamesMode,{limit:60,standings:gamesPayload.standings||[]});
 }
+function setStatus(note=''){
+  const status=document.getElementById('gamesStatus');if(!status||!gamesPayload)return;
+  const liveCount=(gamesPayload.liveGames||[]).length;
+  status.textContent=liveCount?`${liveCount} live now · fresh game states checked every 10 seconds · ${note||'where to watch synced to WNBA.com'} · Eastern Time`:`No regular-season games live right now · ${note||'schedule connected'} · Eastern Time`;
+}
+async function fetchFreshLive(cacheBust=Date.now()){
+  const response=await fetch(`/api/live-games?cb=${cacheBust}`,{headers:{Accept:'application/json','Cache-Control':'no-cache'},cache:'no-store'}),payload=await response.json().catch(()=>({}));
+  if(!response.ok||!Array.isArray(payload.games))throw new Error(payload.error||'Fresh live feed unavailable');
+  return payload;
+}
+async function refreshLiveGames(){
+  if(liveRefreshActive||!gamesPayload)return;
+  liveRefreshActive=true;
+  try{
+    const payload=await fetchFreshLive();
+    gamesPayload.liveGames=window.WGameBroadcasts?.enrichGames?WGameBroadcasts.enrichGames(payload.games):payload.games;
+    if(gamesCompetition==='season'&&gamesMode==='live')renderGames();
+    setStatus('official WNBA live boxscores + ESPN backup');
+  }catch{
+    try{
+      const browserLive=await WGameCards.fetchLiveGames();
+      if(Array.isArray(browserLive)){gamesPayload.liveGames=window.WGameBroadcasts?.enrichGames?WGameBroadcasts.enrichGames(browserLive):browserLive;if(gamesCompetition==='season'&&gamesMode==='live')renderGames();setStatus('live backup connected');}
+    }catch{}
+  }finally{liveRefreshActive=false;}
+}
 
-document.getElementById('gamesLiveToggle')?.addEventListener('click',()=>{gamesMode='live';renderGames();});
+document.getElementById('gamesLiveToggle')?.addEventListener('click',()=>{gamesMode='live';renderGames();refreshLiveGames();});
 document.getElementById('gamesUpcomingToggle')?.addEventListener('click',()=>{gamesMode='upcoming';renderGames();});
 document.getElementById('gamesPastToggle')?.addEventListener('click',()=>{gamesMode='past';renderGames();});
 document.getElementById('gamesTeamFilter')?.addEventListener('change',e=>{gamesTeam=e.target.value||'all';renderGames();});
@@ -80,28 +102,28 @@ async function loadGames(initial=false){
   const status=document.getElementById('gamesStatus');
   try{
     const cacheBust=Date.now();
-    const [statsResult,compResult,officialScheduleResult]=await Promise.allSettled([
+    const [statsResult,compResult,officialScheduleResult,liveResult]=await Promise.allSettled([
       fetch(`/api/stats?season=2026&cb=${cacheBust}`,{headers:{Accept:'application/json','Cache-Control':'no-cache'},cache:'no-store'}).then(async r=>{const p=await r.json().catch(()=>({}));if(!r.ok||p.error)throw new Error(p.error||'Stats unavailable');return p;}),
       fetch(`/api/competition?season=2026&v=20260823-3&cb=${cacheBust}`,{headers:{Accept:'application/json','Cache-Control':'no-cache'},cache:'no-store'}).then(async r=>{const p=await r.json().catch(()=>({}));if(!r.ok)throw new Error(p.error||'Competition feed unavailable');return p;}),
-      window.WGameBroadcasts?.loadOfficialSchedule?.(initial)||Promise.resolve([])
+      window.WGameBroadcasts?.loadOfficialSchedule?.(initial)||Promise.resolve([]),
+      fetchFreshLive(cacheBust)
     ]);
     if(statsResult.status!=='fulfilled')throw statsResult.reason;
     let stats=statsResult.value;
     const officialGames=officialScheduleResult.status==='fulfilled'&&Array.isArray(officialScheduleResult.value)?officialScheduleResult.value:[];
     if(window.WGameBroadcasts?.enrichPayload)stats=WGameBroadcasts.enrichPayload(stats,officialGames);
+    if(liveResult.status==='fulfilled')stats.liveGames=liveResult.value.games;
+    else {
+      const browserLive=await WGameCards.fetchLiveGames();
+      if(Array.isArray(browserLive))stats.liveGames=browserLive;
+    }
+    if(window.WGameBroadcasts?.enrichGames)stats.liveGames=WGameBroadcasts.enrichGames(stats.liveGames||[],officialGames);
     gamesPayload=stats;
     competitionPayload=compResult.status==='fulfilled'?compResult.value:{cup:{poolGames:[],championshipGames:[]},playoffs:{games:[],started:false}};
-    if(!Array.isArray(stats.liveGames)||!stats.liveGames.length){
-      stats.liveGames=await WGameCards.fetchLiveGames();
-      if(window.WGameBroadcasts?.enrichGames)stats.liveGames=WGameBroadcasts.enrichGames(stats.liveGames,officialGames);
-    }
     if(initial&&gamesMode==='live'&&!stats.liveGames.length)gamesMode='upcoming';
     WGameCards.populateFilter(document.getElementById('gamesTeamFilter'),stats);
     renderGames();
-    const officialConnected=officialGames.length>0;
-    status.textContent=stats.liveGames.length
-      ?`${stats.liveGames.length} live now · ${officialConnected?'where to watch synced to official WNBA schedule':'broadcast feed reconnecting'} · refreshes automatically · Eastern Time`
-      :`${officialConnected?'Official WNBA where-to-watch schedule connected':'Schedule connected'} · no regular-season games live right now · Eastern Time`;
+    setStatus(officialGames.length?'where to watch synced to official WNBA schedule':'broadcast schedule reconnecting');
     if(initial)WGameCards.loadArtwork().then(renderGames);
   }catch(error){
     if(!gamesPayload){
@@ -113,4 +135,8 @@ async function loadGames(initial=false){
   }finally{gamesRefreshActive=false;}
 }
 
-loadGames(true);setInterval(()=>{if(!document.hidden)loadGames(false);},30000);
+loadGames(true);
+setInterval(()=>{if(!document.hidden)refreshLiveGames();},10000);
+setInterval(()=>{if(!document.hidden)loadGames(false);},60000);
+window.addEventListener('focus',refreshLiveGames);
+document.addEventListener('visibilitychange',()=>{if(!document.hidden)refreshLiveGames();});

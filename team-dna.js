@@ -3,6 +3,21 @@
   const team=new URLSearchParams(location.search).get('team')||'';
   if(!team)return;
 
+  if(!document.querySelector('link[data-team-story-pathway]')){
+    const style=document.createElement('link');
+    style.rel='stylesheet';
+    style.href='/team-story-pathway.css?v=20260826-v1';
+    style.dataset.teamStoryPathway='true';
+    document.head.appendChild(style);
+  }
+  if(!document.querySelector('script[data-team-story-pathway]')){
+    const pathway=document.createElement('script');
+    pathway.src='/team-story-pathway.js?v=20260826-v1';
+    pathway.defer=true;
+    pathway.dataset.teamStoryPathway='true';
+    document.body.appendChild(pathway);
+  }
+
   const REFRESH_MS=30*60*1000;
   const RETURN_REFRESH_MS=10*60*1000;
   let lastRefresh=Date.now();

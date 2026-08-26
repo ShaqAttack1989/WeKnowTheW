@@ -41,6 +41,23 @@ function rankingsMarkup(rankings = []) {
   `;
 }
 
+function storyTableMarkup(table = {}) {
+  const columns = Array.isArray(table.columns) ? table.columns : [];
+  const rows = Array.isArray(table.rows) ? table.rows : [];
+  if (!columns.length || !rows.length) return '';
+  const columnCount = Math.max(1, columns.length);
+  return `
+    <section class="snack-section story-table-section">
+      <div class="story-table-scroll">
+        <div class="story-table" style="--story-cols:${columnCount}">
+          <div class="story-table-row head">${columns.map(column => `<span>${snackSafe(column)}</span>`).join('')}</div>
+          ${rows.map(row => `<div class="story-table-row">${row.map((cell, index) => index === 1 ? `<strong>${snackSafe(cell)}</strong>` : `<span>${snackSafe(cell)}</span>`).join('')}</div>`).join('')}
+        </div>
+      </div>
+    </section>
+  `;
+}
+
 function sectionsMarkup(sections = []) {
   return sections.map(section => `
     <section class="snack-section">
@@ -83,12 +100,14 @@ function sourcesMarkup(sources = []) {
 
 function postMarkup(post) {
   return `
-    <header class="snack-post-header">
+    <header class="snack-post-header ${post.type === 'feature' ? 'feature-header' : ''}">
+      ${post.seriesLabel ? `<span class="snack-series-label">${snackSafe(post.seriesLabel)}</span>` : ''}
       <div class="meta"><span>${snackSafe(formatDate(post.published))}</span><span>•</span><span>${snackSafe(post.week || 'Weekly update')}</span></div>
       <h2>${snackSafe(post.title)}</h2>
       <p class="dek">${snackSafe(post.dek || '')}</p>
     </header>
     ${rankingsMarkup(post.rankings)}
+    ${storyTableMarkup(post.storyTable)}
     ${sectionsMarkup(post.sections)}
     ${debatesMarkup(post.debates)}
     ${foodMarkup(post.foodSegment)}
@@ -98,7 +117,8 @@ function postMarkup(post) {
 
 function archiveMarkup(posts, activeSlug) {
   return posts.map(post => `
-    <a class="archive-card" href="/snack-shak.html?post=${encodeURIComponent(post.slug)}#latest" ${post.slug === activeSlug ? 'aria-current="page"' : ''}>
+    <a class="archive-card ${post.type === 'feature' ? 'feature-card' : ''}" href="/snack-shak.html?post=${encodeURIComponent(post.slug)}#latest" ${post.slug === activeSlug ? 'aria-current="page"' : ''}>
+      ${post.seriesLabel ? `<em>${snackSafe(post.seriesLabel)}</em>` : ''}
       <span>${snackSafe(formatDate(post.published))}</span>
       <strong>${snackSafe(post.title)}</strong>
       <p>${snackSafe(post.dek || '')}</p>
@@ -106,20 +126,40 @@ function archiveMarkup(posts, activeSlug) {
   `).join('');
 }
 
+function sortPosts(posts = []) {
+  return [...posts].sort((a, b) => {
+    if (a.type === 'intro' && b.type !== 'intro') return 1;
+    if (b.type === 'intro' && a.type !== 'intro') return -1;
+    const date = String(b.published || '').localeCompare(String(a.published || ''));
+    if (date) return date;
+    return Number(b.priority || 0) - Number(a.priority || 0);
+  });
+}
+
+async function fetchPostFile(url) {
+  const response = await fetch(url, { headers: { Accept: 'application/json' }, cache: 'no-store' });
+  if (!response.ok) return [];
+  const payload = await response.json().catch(() => ({}));
+  return Array.isArray(payload.posts) ? payload.posts : [];
+}
+
 async function loadSnackShaq() {
   const latest = document.getElementById('latestPost');
   const archive = document.getElementById('archiveGrid');
   try {
-    const response = await fetch('/snack-shaq-posts.json', { headers: { Accept: 'application/json' } });
-    const payload = await response.json();
-    const posts = Array.isArray(payload.posts) ? payload.posts : [];
+    const [specialResult, archiveResult] = await Promise.allSettled([
+      fetchPostFile('/snack-shak-specials.json'),
+      fetchPostFile('/snack-shaq-posts.json')
+    ]);
+    const specials = specialResult.status === 'fulfilled' ? specialResult.value : [];
+    const weekly = archiveResult.status === 'fulfilled' ? archiveResult.value : [];
+    const bySlug = new Map();
+    [...weekly, ...specials].forEach(post => {
+      if (post?.slug) bySlug.set(post.slug, post);
+    });
+    const posts = sortPosts([...bySlug.values()]);
     if (!posts.length) throw new Error('No Snack Shak posts have been published yet.');
 
-    posts.sort((a, b) => {
-      if (a.type === 'intro' && b.type !== 'intro') return 1;
-      if (b.type === 'intro' && a.type !== 'intro') return -1;
-      return String(b.published || '').localeCompare(String(a.published || ''));
-    });
     const requested = new URLSearchParams(location.search).get('post')?.replaceAll('snack-shaq', 'snack-shak');
     const active = posts.find(post => post.slug === requested) || posts[0];
 

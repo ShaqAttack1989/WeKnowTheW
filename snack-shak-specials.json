@@ -1,0 +1,165 @@
+{
+  "site": "Snack Shak",
+  "posts": [
+    {
+      "slug": "food-for-thought-title-is-the-lynxs-to-lose",
+      "type": "feature",
+      "priority": 20,
+      "seriesLabel": "FOOD FOR THOUGHT",
+      "title": "The Title Is the Lynx’s to Lose",
+      "published": "2026-08-26",
+      "week": "Playoff picture through Aug. 25, 2026",
+      "dek": "Minnesota owns the league’s best record and the deepest résumé, but eight losses have left a scouting report. The real question is which lessons still apply now that Napheesa Collier is back.",
+      "storyTable": {
+        "columns": ["Date", "Who beat Minnesota", "Score", "What worked"],
+        "rows": [
+          ["May 9", "Atlanta Dream", "91–90", "A 19-point comeback, five double-digit scorers and clutch rim defense"],
+          ["May 17", "Chicago Sky", "86–79", "Physical interior play and a 28–10 bench scoring edge"],
+          ["June 13", "Las Vegas Aces", "100–97", "A 32-point first quarter, star shot-making and a 22–7 bench edge"],
+          ["June 21", "Washington Mystics", "84–79", "A 12–0 closing run and second-unit pressure"],
+          ["July 3", "New York Liberty", "99–86", "Breanna Stewart’s shot creation plus paint and transition pressure"],
+          ["July 6", "Connecticut Sun", "90–89", "Brittney Griner’s interior gravity and Kennedy Burke’s late threes"],
+          ["Aug. 6", "Los Angeles Sparks", "89–82", "Ball movement, a 46–28 paint advantage and an 8–0 finish"],
+          ["Aug. 24", "Golden State Valkyries", "80–66", "Turnover pressure, five scorers in double figures and half-court strangulation"]
+        ]
+      },
+      "sections": [
+        {
+          "title": "Eight losses are a scouting report, not a verdict",
+          "paragraphs": [
+            "Minnesota enters the final stretch at 31 wins and 8 losses with the league’s best record and the best overall statistical profile. The Lynx are second in scoring, top three defensively, and sit first in net rating. That is why this title is theirs to lose. It is not a prediction that nobody can beat them. It is a statement about burden of proof. Everybody else has to show they can solve Minnesota four times before Minnesota has to explain anything.",
+            "The eight teams that have done it once are Atlanta, Chicago, Las Vegas, Washington, New York, Connecticut, Los Angeles and Golden State. The variety matters. There is no single magic trick. Minnesota has been beaten by comeback basketball, bench production, paint pressure, elite individual shot-making, transition scoring, late-game execution and, most recently, suffocating half-court defense."
+          ]
+        },
+        {
+          "title": "The first six losses need an asterisk",
+          "paragraphs": [
+            "The loudest caveat is Napheesa Collier. Minnesota’s first six losses all came before her July 22 season debut. The Lynx were already the league’s best team without their best player, which makes those early defeats useful as film but imperfect as a playoff blueprint.",
+            "Collier changes the geometry. She gives Minnesota another scorer who can punish switches, another rebounder who ends defensive possessions and another defender who can erase a mistake without the scheme collapsing. The version of Minnesota that Atlanta, Chicago, Las Vegas, Washington, New York and Connecticut beat is not the version a playoff opponent will see if the Lynx are healthy."
+          ]
+        },
+        {
+          "title": "The two losses that matter most now",
+          "paragraphs": [
+            "Los Angeles supplied the first post-Collier warning. The Sparks shot 50 percent, moved the ball for 27 assists, won the paint 46 to 28 and closed the game on an 8 to 0 run. Minnesota’s defense could not simply load up on one creator because the ball kept finding the next advantage. That is a playoff lesson: make the Lynx guard movement, not just a star.",
+            "Golden State supplied the sharper defensive blueprint. The Valkyries held Minnesota to a season-low 66 points, forced 18 turnovers and used a 14 to 1 fourth-quarter run to break the game open. Veronica Burton had five steals, five Valkyries scored in double figures and no Lynx player scored more than 13. Courtney Williams was out with a right ankle injury, so this was not a full-strength Minnesota backcourt, but the pressure points were unmistakable. Make Minnesota start offense late. Crowd the first action. Turn every loose pass into a possession you do not have to defend."
+          ]
+        },
+        {
+          "title": "What has actually beaten Minnesota",
+          "paragraphs": [
+            "First, somebody has to win the possession battle. Chicago and Washington flipped games with bench production. Golden State created 18 Minnesota turnovers. Los Angeles turned paint touches into assists and second-side attacks. A challenger cannot give the Lynx extra possessions and expect talent to cover the bill.",
+            "Second, the rim has to matter. Connecticut used Brittney Griner. Los Angeles won the paint by 18. New York repeatedly created advantages inside before spraying the ball back out. Minnesota is too connected defensively to beat with jumpers alone for a full series. The defense has to be made to collapse.",
+            "Third, closing possessions have to belong to the challenger. Atlanta came back from 19 down. Washington ended on a 12 to 0 run. Connecticut hit late threes. Los Angeles finished 8 to 0. Golden State broke open the fourth quarter. Minnesota’s consistency means a good first 35 minutes is only an invitation to lose respectably."
+          ]
+        },
+        {
+          "title": "Which playoff teams can reproduce the recipe?",
+          "paragraphs": [
+            "Golden State has already shown the most repeatable defensive formula: length at the point of attack, multiple switchable defenders and enough balanced scoring that Minnesota cannot hide a weaker matchup. Las Vegas has the most obvious late-game answer in A’ja Wilson and Chelsea Gray. Atlanta has the size, athleticism and multiple creators to turn a series physical. New York has Breanna Stewart and Jonquel Jones, which means it can manufacture elite possessions even when the first action dies.",
+            "Indiana can make any opponent survive an offensive track meet, Washington has already shown it can win with young legs and bench pressure, and Dallas has enough shot creation to make a favorite uncomfortable now that its playoff ticket is punched. None of that changes the hierarchy. It only explains why the bracket is not a coronation route."
+          ]
+        },
+        {
+          "title": "The verdict",
+          "paragraphs": [
+            "Minnesota should be the championship favorite. The record says it. The net rating says it. The roster says it. Collier’s late arrival makes the full-strength version more dangerous than the season-long record can even show.",
+            "But the eight losses have left ingredients on the counter for everybody else. Pressure the guards. Win the paint. Bring more than one creator. Get real production from the bench. Close the game instead of merely surviving it. A contender probably needs three or four of those things in the same night, and then needs to repeat the recipe in a series. That is why the title is the Lynx’s to lose, not the Lynx’s to be handed."
+          ]
+        }
+      ],
+      "debates": [
+        "Is Golden State’s defensive pressure the most repeatable playoff blueprint against Minnesota?",
+        "How much should the six pre-Collier losses matter when judging the current Lynx?",
+        "Which playoff opponent can combine paint pressure, perimeter shot-making and bench production for an entire series?",
+        "Would Minnesota’s biggest vulnerability be a team with one unstoppable star, or a team with five interchangeable threats?"
+      ],
+      "foodSegment": {
+        "title": "The Lynx Plate Is Still the One to Beat",
+        "script": "Minnesota still owns the kitchen, but eight teams have left recipe cards on the counter. Atlanta brought the comeback. Chicago brought the bench. Vegas brought star power. Washington brought the late squeeze. New York and Connecticut attacked the paint. Los Angeles kept the ball moving. Golden State turned the whole thing into a pressure cooker. The problem for everybody else is that most of those recipes were cooked before Napheesa Collier even walked into the restaurant. So yes, the title is the Lynx’s to lose. But if somebody can mix Golden State pressure, Los Angeles ball movement and Vegas-level shot creation in the same pan, Minnesota might finally have to share the stove."
+      },
+      "sources": [
+        {"label": "WNBA standings", "url": "https://www.wnba.com/standings"},
+        {"label": "Dallas Wings clinch the eighth 2026 playoff berth", "url": "https://wings.wnba.com/news/dallas-wings-clinch-2026-playoff-berth"},
+        {"label": "Minnesota at Atlanta, May 9", "url": "https://www.wnba.com/game/1022600010"},
+        {"label": "Chicago at Minnesota, May 17", "url": "https://www.wnba.com/game/1022600025"},
+        {"label": "Minnesota at Las Vegas, June 13", "url": "https://www.wnba.com/game/1022600098/min-vs-lva"},
+        {"label": "Minnesota at Washington, June 21", "url": "https://www.wnba.com/game/1022600121"},
+        {"label": "Minnesota at New York, July 3", "url": "https://www.wnba.com/game/min-vs-nyl-1022600148"},
+        {"label": "Connecticut at Minnesota, July 6", "url": "https://www.wnba.com/game/1022600155/CON-vs-MIN"},
+        {"label": "Sparks defeat Lynx, Aug. 6", "url": "https://www.wnba.com/webview/watch/video/game-recap-los-angeles-sparks-89-minnesota-lynx-82-08-06-2026"},
+        {"label": "Valkyries review of first win over Minnesota", "url": "https://valkyries.wnba.com/news/gameday-preview-20260826"},
+        {"label": "Napheesa Collier injury update", "url": "https://lynx.wnba.com/news/napheesa-collier-injury-update-3"}
+      ]
+    },
+    {
+      "slug": "aja-wilson-100-career-25-point-games",
+      "type": "feature",
+      "priority": 10,
+      "seriesLabel": "MILESTONE MOMENTS",
+      "title": "A’ja Hits 100: Wilson Joins Taurasi in the WNBA’s 25-Point Century Club",
+      "published": "2026-08-26",
+      "week": "Milestone reached Aug. 23, 2026",
+      "dek": "A 27-point night against Toronto was not just another A’ja Wilson box score. It made her only the second player in WNBA history to reach 100 career games with at least 25 points.",
+      "storyTable": {
+        "columns": ["Century Club", "Career 25+ point games", "Why it matters"],
+        "rows": [
+          ["Diana Taurasi", "140", "The long-standing all-time benchmark"],
+          ["A’ja Wilson", "100", "Only the second player in league history to reach triple digits"]
+        ]
+      },
+      "sections": [
+        {
+          "title": "One hundred is not a hot streak",
+          "paragraphs": [
+            "A’ja Wilson scored 27 points, grabbed seven rebounds and handed out seven assists in Las Vegas’ 88 to 78 win over Toronto on Aug. 23. Somewhere inside another MVP-shaped stat line was a round number with real historical weight: career 25-point game number 100.",
+            "That moved Wilson into a club that previously had one member. Diana Taurasi is the WNBA’s historical standard for 25-point games, with 140 documented in Aces historical game notes. Wilson reaching triple digits is less about one huge scoring night than it is about repetition. Twenty-five points once is a heater. Twenty-five points 100 times is an era."
+          ]
+        },
+        {
+          "title": "Why the 25-point threshold tells a different story",
+          "paragraphs": [
+            "Career points reward longevity. Single-game scoring records reward explosions. The 25-point benchmark lives in the middle. It measures how often a player can carry premium scoring volume without requiring a once-in-a-lifetime night.",
+            "Wilson has built that volume while being asked to do almost everything else too. She rebounds, anchors the paint defensively, protects the rim and often becomes Las Vegas’ emergency offense when a possession has gone nowhere. Her scoring résumé does not sit beside her two-way impact. It is happening inside it."
+          ]
+        },
+        {
+          "title": "Different routes to the same rare air",
+          "paragraphs": [
+            "Taurasi’s path to 140 was built through unmatched perimeter confidence, longevity and a career spent treating difficult shots like suggestions. Wilson’s path has been more interior-out. She can overpower a smaller matchup, face up a slower big, live at the foul line and now stretch defenses farther from the rim than she did early in her career.",
+            "The comparison does not require pretending they are the same scorer. The milestone is interesting precisely because they are not. Two very different offensive ecosystems have produced the only two triple-digit totals the league has seen."
+          ]
+        },
+        {
+          "title": "The milestone landed in the middle of another title chase",
+          "paragraphs": [
+            "Las Vegas left Toronto at 26 wins and 13 losses with its playoff berth already secured. Wilson’s 27-point, seven-rebound, seven-assist night was not ceremonial scoring after the race was decided. The Aces still need every bit of her production while fighting for seeding and trying to make another postseason run.",
+            "That is the strange thing about Wilson’s résumé now. History keeps arriving in the middle of normal business. A milestone flashes on the screen, everybody applauds, and then the next possession still asks her to switch onto a guard, clean the glass and go get another bucket."
+          ]
+        },
+        {
+          "title": "The bigger conversation is getting harder to avoid",
+          "paragraphs": [
+            "Wilson does not need the 100-game milestone to validate her place among the league’s greats. What it does is add another category where her peak is beginning to accumulate the kind of volume usually associated with much longer careers.",
+            "Taurasi still owns the all-time 25-point standard. Wilson has now crossed the threshold that makes the chase visible. One hundred down. Forty between her and the historical mark. Whether she ever gets there is a future question. The present one is simpler: there are now only two names on this particular menu."
+          ]
+        }
+      ],
+      "debates": [
+        "Which is more impressive: Taurasi’s longevity at 140 or the pace at which Wilson reached 100?",
+        "How should Wilson’s two-way workload change the way her scoring milestones are evaluated?",
+        "At what point does Wilson’s combination of peak dominance and accumulating volume reshape all-time WNBA conversations?"
+      ],
+      "foodSegment": {
+        "title": "The Century Plate",
+        "script": "A’ja Wilson just ordered off the secret menu. Twenty-five points is usually a full entrée. She has served it 100 times. The only other player who has ever reached that counter is Diana Taurasi, who built the original 140-plate tasting menu. Different kitchens, different recipes, same rare table. And the wild part is A’ja did it with 27, seven and seven in a game Las Vegas actually needed. No ceremonial cupcake. Full meal, playoff stakes, history for dessert."
+      },
+      "sources": [
+        {"label": "Aces vs. Tempo gallery, Aug. 23, 2026", "url": "https://aces.wnba.com/news/gallery-aces-tempo-8-23-2026"},
+        {"label": "Las Vegas at Toronto game", "url": "https://www.wnba.com/game/lva-vs-tor-1022600281"},
+        {"label": "Aces historical game notes with career 25-point leaderboard", "url": "https://aces.wnba.com/wp-content/uploads/sites/4/2025/09/LVA-Game-Notes-9-13-25.pdf"},
+        {"label": "WNBA standings", "url": "https://www.wnba.com/standings"}
+      ]
+    }
+  ]
+}

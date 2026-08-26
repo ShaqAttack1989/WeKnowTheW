@@ -1,22 +1,7 @@
 const retiredLogo = code => `https://a.espncdn.com/i/teamlogos/wnba/500/${code}.png`;
 
 const RETIRED_TEAMS = {
-  'Atlanta Dream':{code:'atl',abbr:'ATL'},
-  'Chicago Sky':{code:'chi',abbr:'CHI'},
-  'Connecticut Sun':{code:'con',abbr:'CON'},
-  'Detroit Shock':{code:'det',abbr:'DET'},
-  'Houston Comets':{code:'hou',abbr:'HOU'},
-  'Indiana Fever':{code:'ind',abbr:'IND'},
-  'Las Vegas Aces':{code:'lv',abbr:'LVA'},
-  'Los Angeles Sparks':{code:'la',abbr:'LAS'},
-  'Minnesota Lynx':{code:'min',abbr:'MIN'},
-  'New York Liberty':{code:'ny',abbr:'NYL'},
-  'Phoenix Mercury':{code:'phx',abbr:'PHX'},
-  'Sacramento Monarchs':{code:'sac',abbr:'SAC'},
-  'San Antonio Stars':{code:'sa',abbr:'SAS'},
-  'Seattle Storm':{code:'sea',abbr:'SEA'},
-  'Tulsa Shock':{code:'tul',abbr:'TUL'},
-  'Washington Mystics':{code:'wsh',abbr:'WAS'}
+  'Atlanta Dream':{code:'atl',abbr:'ATL'},'Charlotte Sting':{code:'cha',abbr:'CHA'},'Chicago Sky':{code:'chi',abbr:'CHI'},'Connecticut Sun':{code:'con',abbr:'CON'},'Dallas Wings':{code:'dal',abbr:'DAL'},'Detroit Shock':{code:'det',abbr:'DET'},'Houston Comets':{code:'hou',abbr:'HOU'},'Indiana Fever':{code:'ind',abbr:'IND'},'Las Vegas Aces':{code:'lv',abbr:'LVA'},'Los Angeles Sparks':{code:'la',abbr:'LAS'},'Miami Sol':{abbr:'MIA'},'Minnesota Lynx':{code:'min',abbr:'MIN'},'New York Liberty':{code:'ny',abbr:'NYL'},'Phoenix Mercury':{code:'phx',abbr:'PHX'},'Sacramento Monarchs':{code:'sac',abbr:'SAC'},'San Antonio Stars':{code:'sa',abbr:'SAS'},'Seattle Storm':{code:'sea',abbr:'SEA'},'Tulsa Shock':{code:'tul',abbr:'TUL'},'Washington Mystics':{code:'wsh',abbr:'WAS'}
 };
 
 const W25='https://www.wnba.com/news/w25-greatest-players-in-wnba-history';
@@ -27,10 +12,16 @@ const retiredPlayers = [
   {name:'Candace Parker',retired:'2024',fact:'Two-time MVP and three-time champion who won titles with three different franchises.',teams:[['Los Angeles Sparks','2008–2020'],['Chicago Sky','2021–2022'],['Las Vegas Aces','2023']],source:W25,sourceLabel:'WNBA · W25'},
   {name:'Tamika Catchings',retired:'2016',fact:'MVP, champion and the defining two-way star of the Indiana Fever’s first era.',teams:[['Indiana Fever','2002–2016']],source:W25,sourceLabel:'WNBA · W25'},
   {name:'Maya Moore',retired:'2023',fact:'Four-time champion and 2014 MVP whose Minnesota run helped define a dynasty.',teams:[['Minnesota Lynx','2011–2018']],source:'https://www.wnba.com/news/wnba-statement-regarding-maya-moores-retirement',sourceLabel:'WNBA · retirement statement'},
-  {name:'Sylvia Fowles',retired:'2022',fact:'Two-time champion, Finals MVP and one of the most dominant rebounders and rim protectors in league history.',teams:[['Chicago Sky','2008–2014'],['Minnesota Lynx','2015–2022']],source:W25,sourceLabel:'WNBA · W25'},
+  {name:'Sylvia Fowles',retired:'2022',fact:'Two-time champion, Finals MVP and one of the most dominant rebounders and rim protectors in league history. Now connected to Court to Clipboard as a Portland Fire assistant coach.',teams:[['Chicago Sky','2008–2014'],['Minnesota Lynx','2015–2022']],source:W25,sourceLabel:'WNBA · W25'},
   {name:'Seimone Augustus',retired:'2021',fact:'Four-time champion and smooth-scoring cornerstone of Minnesota’s championship era.',teams:[['Minnesota Lynx','2006–2019'],['Los Angeles Sparks','2020']],source:W25,sourceLabel:'WNBA · W25'},
   {name:'Lindsay Whalen',retired:'2018',fact:'Elite point guard who reached the Finals in Connecticut before winning four championships back home in Minnesota.',teams:[['Connecticut Sun','2004–2009'],['Minnesota Lynx','2010–2018']],source:W25,sourceLabel:'WNBA · W25'},
-  {name:'Becky Hammon',retired:'2014',fact:'Six-time All-Star guard whose No. 25 was retired by San Antonio and later by Las Vegas.',teams:[['New York Liberty','1999–2006'],['San Antonio Stars','2007–2014']],source:'https://aces.wnba.com/becky-hammon-bio',sourceLabel:'Las Vegas Aces · official bio'},
+  {name:'Becky Hammon',retired:'2014',fact:'Six-time All-Star guard whose No. 25 was retired by San Antonio and later by Las Vegas. Her playing career now cross-references her championship coaching career in Court to Clipboard.',teams:[['New York Liberty','1999–2006'],['San Antonio Stars','2007–2014']],source:'https://aces.wnba.com/head-coach-becky-hammon',sourceLabel:'Las Vegas Aces · official bio'},
+  {name:'Stephanie White',retired:'2004',fact:'Five-season WNBA guard who became an Indiana Fever leader on the sideline after beginning her playing career with Charlotte.',teams:[['Charlotte Sting','1999'],['Indiana Fever','2000–2004']],source:'https://www.wnba.com/news/indiana-fever-hire-stephanie-white-as-head-coach',sourceLabel:'WNBA · coaching bio'},
+  {name:'Sandy Brondello',retired:'2003',fact:'WNBA All-Star guard whose playing career with Detroit, Miami and Seattle became the foundation for a championship coaching career.',teams:[['Detroit Shock','1998–1999'],['Miami Sol','2001–2002'],['Seattle Storm','2003']],source:'https://tempo.wnba.com/news/toronto-tempo-names-sandy-brondello-head-coach',sourceLabel:'Toronto Tempo · coaching bio'},
+  {name:'Natalie Achonwa',retired:'2023',fact:'Nine-season WNBA forward, community leader and Canadian Olympian who moved into coaching and player development.',teams:[['Indiana Fever','2015–2020'],['Minnesota Lynx','2021–2023']],source:'https://www.wnba.com/player/203831',sourceLabel:'WNBA · player profile'},
+  {name:'Courtney Paris',retired:'2019',fact:'WNBA champion and two-time league rebounding leader whose professional career stretched across Sacramento, Atlanta, Tulsa/Dallas and Seattle.',teams:[['Sacramento Monarchs','2009'],['Atlanta Dream','2011'],['Tulsa Shock','2012–2015'],['Dallas Wings','2016–2017'],['Seattle Storm','2018–2019']],source:'https://www.wnba.com/player/201907/courtney-paris/bio',sourceLabel:'WNBA · player bio'},
+  {name:'Ebony Hoffman',retired:'2014',fact:'Eleven-season WNBA forward and 2008 Most Improved Player who later moved into professional coaching.',teams:[['Indiana Fever','2004–2010'],['Los Angeles Sparks','2011–2013'],['Connecticut Sun','2014']],source:'https://sparks.wnba.com/news/la-sparks-finalize-coaching-staff-for-2026-season',sourceLabel:'Los Angeles Sparks · coaching staff'},
+  {name:'Sugar Rodgers',retired:'2020',fact:'WNBA champion, All-Star and Sixth Player award winner who moved from the backcourt to the coaching bench.',teams:[['Minnesota Lynx','2013'],['New York Liberty','2014–2018'],['Las Vegas Aces','2019–2020']],source:'https://www.wnba.com/player/203411/sugar-rodgers/bio',sourceLabel:'WNBA · player bio'},
   {name:'Lisa Leslie',retired:'2009',fact:'Three-time MVP, two-time champion and the first player to dunk in a WNBA game.',teams:[['Los Angeles Sparks','1997–2009']],source:PIONEERS,sourceLabel:'WNBA · Pioneers'},
   {name:'Sheryl Swoopes',retired:'2011',fact:'Three-time MVP and four-time champion who helped establish Houston as the league’s first dynasty.',teams:[['Houston Comets','1997–2007'],['Seattle Storm','2008'],['Tulsa Shock','2011']],source:PIONEERS,sourceLabel:'WNBA · Pioneers'},
   {name:'Cynthia Cooper',retired:'2003',fact:'The engine of Houston’s four straight championships and the first great Finals closer of the WNBA era.',teams:[['Houston Comets','1997–2000, 2003']],source:PIONEERS,sourceLabel:'WNBA · Pioneers'},
@@ -47,40 +38,12 @@ const retiredPlayers = [
 const escRetired=(value='')=>String(value).replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[ch]));
 const normRetired=(value='')=>String(value).normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
 function initials(name){return name.split(/\s+/).map(p=>p[0]).slice(0,2).join('');}
-function teamLogo(team){
-  const meta=RETIRED_TEAMS[team]||{abbr:team.slice(0,3).toUpperCase()};
-  return `<span class="retired-team-logo"><img src="${meta.code?retiredLogo(meta.code):''}" alt="${escRetired(team)} logo" loading="lazy" onerror="this.parentElement.classList.add('logo-failed')"><b>${escRetired(meta.abbr)}</b></span>`;
-}
+function teamLogo(team){const meta=RETIRED_TEAMS[team]||{abbr:team.slice(0,3).toUpperCase()};return `<span class="retired-team-logo"><img src="${meta.code?retiredLogo(meta.code):''}" alt="${escRetired(team)} logo" loading="lazy" onerror="this.parentElement.classList.add('logo-failed')"><b>${escRetired(meta.abbr)}</b></span>`;}
 function teamStop([team,years]){return `<div class="retired-team-stop">${teamLogo(team)}<div><strong>${escRetired(team)}</strong><span>${escRetired(years)}</span></div></div>`;}
 function card(player){return `<article class="retired-card"><div class="retired-card-top"><span class="retired-monogram">${escRetired(initials(player.name))}</span><div><small>Retired ${escRetired(player.retired)}</small><h3>${escRetired(player.name)}</h3></div></div><div class="retired-card-body"><p>${escRetired(player.fact)}</p><div class="retired-team-path">${player.teams.map(teamStop).join('')}</div><a class="retired-card-source" href="${escRetired(player.source)}" target="_blank" rel="noopener">${escRetired(player.sourceLabel)} →</a></div></article>`;}
-
 const teamNames=[...new Set(retiredPlayers.flatMap(player=>player.teams.map(([team])=>team)))].sort();
-const search=document.getElementById('retiredSearch');
-const filter=document.getElementById('retiredTeamFilter');
-const reset=document.getElementById('retiredReset');
-const grid=document.getElementById('retiredPlayerGrid');
-const status=document.getElementById('retiredStatus');
+const search=document.getElementById('retiredSearch'),filter=document.getElementById('retiredTeamFilter'),reset=document.getElementById('retiredReset'),grid=document.getElementById('retiredPlayerGrid'),status=document.getElementById('retiredStatus');
 if(filter)filter.innerHTML='<option value="">All teams</option>'+teamNames.map(team=>`<option value="${escRetired(team)}">${escRetired(team)}</option>`).join('');
-
-function renderRetired(){
-  if(!grid)return;
-  const query=normRetired(search?.value||'').trim();
-  const team=filter?.value||'';
-  const visible=retiredPlayers.filter(player=>{
-    const hay=normRetired(`${player.name} ${player.fact} ${player.teams.map(stop=>stop.join(' ')).join(' ')}`);
-    return (!query||hay.includes(query))&&(!team||player.teams.some(([name])=>name===team));
-  });
-  grid.innerHTML=visible.map(card).join('')||'<div class="page-note">No retired-player match yet. Try another name or team.</div>';
-  if(status)status.textContent=`Showing ${visible.length} of ${retiredPlayers.length} featured retired players.`;
-}
-
-function renderTeamKey(){
-  const host=document.getElementById('retiredTeamKey');if(!host)return;
-  host.innerHTML=teamNames.map(team=>`<div class="retired-team-key-item">${teamLogo(team)}<span>${escRetired(team)}</span></div>`).join('');
-}
-search?.addEventListener('input',renderRetired);
-filter?.addEventListener('change',renderRetired);
-reset?.addEventListener('click',()=>{if(search)search.value='';if(filter)filter.value='';renderRetired();});
-document.getElementById('retiredPlayerCount').textContent=String(retiredPlayers.length);
-renderRetired();
-renderTeamKey();
+function renderRetired(){if(!grid)return;const query=normRetired(search?.value||'').trim(),team=filter?.value||'';const visible=retiredPlayers.filter(player=>{const hay=normRetired(`${player.name} ${player.fact} ${player.teams.map(stop=>stop.join(' ')).join(' ')}`);return (!query||hay.includes(query))&&(!team||player.teams.some(([name])=>name===team));});grid.innerHTML=visible.map(card).join('')||'<div class="page-note">No retired-player match yet. Try another name or team.</div>';if(status)status.textContent=`Showing ${visible.length} of ${retiredPlayers.length} retired players.`;}
+function renderTeamKey(){const host=document.getElementById('retiredTeamKey');if(!host)return;host.innerHTML=teamNames.map(team=>`<div class="retired-team-key-item">${teamLogo(team)}<span>${escRetired(team)}</span></div>`).join('');}
+search?.addEventListener('input',renderRetired);filter?.addEventListener('change',renderRetired);reset?.addEventListener('click',()=>{if(search)search.value='';if(filter)filter.value='';renderRetired();});document.getElementById('retiredPlayerCount').textContent=String(retiredPlayers.length);renderRetired();renderTeamKey();

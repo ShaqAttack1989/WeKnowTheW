@@ -81,6 +81,11 @@
     const picks=Array.isArray(rotation?.picks)?rotation.picks:[];
     return `<section class="week-rotation-group ${safe(cls)}"><div class="week-rotation-head"><div><strong>${safe(title)}</strong><div class="week-rotation-date">${rotation?.week?`Week of ${safe(fmtWeek(rotation.week))}`:'Next rotation pending'}</div></div><a href="${safe(href)}">Open →</a></div><div class="week-player-strip">${picks.length?picks.map(playerTile).join(''):'<span>Next rotation pending.</span>'}</div></section>`;
   }
+  async function freshLive(){
+    const response=await fetch(`/api/live-games?cb=${Date.now()}`,{headers:{Accept:'application/json','Cache-Control':'no-cache'},cache:'no-store'}),payload=await response.json().catch(()=>({}));
+    if(!response.ok||!Array.isArray(payload.games))throw new Error(payload.error||'Fresh live games unavailable');
+    return payload.games;
+  }
 
   async function refreshWeek(){
     if(refreshActive)return;
@@ -88,19 +93,21 @@
     const gamesHost=document.getElementById('homeWeekGamesLive'),milestoneHost=document.getElementById('homeWeekMilestoneLive'),snackHost=document.getElementById('homeWeekSnackLive'),rotationHost=document.getElementById('homeWeekRotationsLive'),stamp=document.getElementById('homeWeekStampLive');
     try{
       const cb=Date.now();
-      const [statsR,rotR,snackR,officialR]=await Promise.allSettled([
+      const [statsR,rotR,snackR,officialR,liveR]=await Promise.allSettled([
         fetch(`/api/stats?season=2026&cb=${cb}`,{headers:{Accept:'application/json','Cache-Control':'no-cache'},cache:'no-store'}).then(r=>r.ok?r.json():{}),
         fetch(`/rotation-history.json?cb=${cb}`,{headers:{Accept:'application/json','Cache-Control':'no-cache'},cache:'no-store'}).then(r=>r.ok?r.json():{}),
         fetch(`/snack-shaq-posts.json?cb=${cb}`,{headers:{Accept:'application/json','Cache-Control':'no-cache'},cache:'no-store'}).then(r=>r.ok?r.json():{}),
-        window.WGameBroadcasts?.loadOfficialSchedule?.()||Promise.resolve([])
+        window.WGameBroadcasts?.loadOfficialSchedule?.()||Promise.resolve([]),
+        freshLive()
       ]);
       let stats=statsR.status==='fulfilled'?statsR.value:{};
       const rotations=rotR.status==='fulfilled'?rotR.value:{},snack=snackR.status==='fulfilled'?snackR.value:{};
       const officialGames=officialR.status==='fulfilled'&&Array.isArray(officialR.value)?officialR.value:[];
+      if(liveR.status==='fulfilled')stats.liveGames=liveR.value;
       if(window.WGameBroadcasts?.enrichPayload)stats=WGameBroadcasts.enrichPayload(stats,officialGames);
       const posts=(Array.isArray(snack.posts)?snack.posts:[]).filter(p=>p.type!=='intro').sort((a,b)=>String(b.published||'').localeCompare(String(a.published||''))),latest=posts[0]||{};
       const games=bestGames(stats);
-      if(gamesHost)gamesHost.innerHTML=games.length?`<div class="week-game-list">${games.map(game=>`<div class="week-game-row"><span>${safe(when(game))}</span><div class="week-game-copy"><strong>${safe(game.awayTeam||'TBD')} @ ${safe(game.homeTeam||'TBD')}</strong><div class="week-game-watch"><span class="week-arena">${safe(game.venue||'Arena TBD')}</span>${networkBadges(game)}</div></div></div>`).join('')}</div><a href="/games.html">Open Games + where to watch →</a><p class="week-game-refresh-note">Auto-refreshing · where to watch synced from WNBA.com.</p>`:'<p>No upcoming games are currently loaded.</p><a href="/games.html">Open Games →</a>';
+      if(gamesHost)gamesHost.innerHTML=games.length?`<div class="week-game-list">${games.map(game=>`<div class="week-game-row"><span>${safe(when(game))}</span><div class="week-game-copy"><strong>${safe(game.awayTeam||'TBD')} @ ${safe(game.homeTeam||'TBD')}</strong><div class="week-game-watch"><span class="week-arena">${safe(game.venue||'Arena TBD')}</span>${networkBadges(game)}</div></div></div>`).join('')}</div><a href="/games.html">Open Games + where to watch →</a><p class="week-game-refresh-note">Auto-refreshing · live game states checked every minute · where to watch synced from WNBA.com.</p>`:'<p>No upcoming games are currently loaded.</p><a href="/games.html">Open Games →</a>';
       const note=milestone(latest);
       if(milestoneHost)milestoneHost.innerHTML=note?`<h3>Milestone watch</h3><p>${safe(short(note,220))}</p><a href="/stat-kitchen.html">Track the numbers →</a>`:'<h3>Milestone watch</h3><p>Record chases and threshold moments will appear here with the weekly update.</p><a href="/milestone-moments.html">Open Milestone Moments →</a>';
       if(snackHost)snackHost.innerHTML=latest.title?`<span class="week-snack-date">Released ${safe(fmtDate(latest.published))}</span><strong class="week-snack-title">${safe(latest.title)}</strong><p>${safe(short(latest.dek,180))}</p><a href="/snack-shak.html?post=${encodeURIComponent(latest.slug)}#latest">Read this week’s plate →</a>`:'<p>The next Snack Shak plate is still in the kitchen.</p><a href="/snack-shak.html">Open Snack Shak →</a>';
@@ -115,7 +122,7 @@
   }
 
   refreshWeek();
-  setInterval(()=>{if(!document.hidden)refreshWeek();},120000);
+  setInterval(()=>{if(!document.hidden)refreshWeek();},60000);
   window.addEventListener('focus',refreshWeek);
   document.addEventListener('visibilitychange',()=>{if(!document.hidden)refreshWeek();});
 })();

@@ -39,6 +39,30 @@
       ]
     },
     {
+      "source": "/playerpedia.html",
+      "headers": [
+        { "key": "Cache-Control", "value": "no-store, max-age=0" }
+      ]
+    },
+    {
+      "source": "/playerpedia-research-desk.js",
+      "headers": [
+        { "key": "Cache-Control", "value": "no-store, max-age=0" }
+      ]
+    },
+    {
+      "source": "/playerpedia-research-desk.css",
+      "headers": [
+        { "key": "Cache-Control", "value": "no-store, max-age=0" }
+      ]
+    },
+    {
+      "source": "/legendary-wnba-duos.html",
+      "headers": [
+        { "key": "Cache-Control", "value": "no-store, max-age=0" }
+      ]
+    },
+    {
       "source": "/who-got-next.html",
       "headers": [
         { "key": "Cache-Control", "value": "no-store, max-age=0" }

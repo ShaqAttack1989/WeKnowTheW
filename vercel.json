@@ -1,134 +1,38 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "headers": [
-    {
-      "source": "/(.*)",
-      "headers": [
-        { "key": "X-Content-Type-Options", "value": "nosniff" },
-        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
-      ]
-    },
-    {
-      "source": "/styles.css",
-      "headers": [
-        { "key": "Cache-Control", "value": "no-store, max-age=0" }
-      ]
-    },
-    {
-      "source": "/site.js",
-      "headers": [
-        { "key": "Cache-Control", "value": "no-store, max-age=0" }
-      ]
-    },
-    {
-      "source": "/homepage-week-live.css",
-      "headers": [
-        { "key": "Cache-Control", "value": "no-store, max-age=0" }
-      ]
-    },
-    {
-      "source": "/homepage-week-live.js",
-      "headers": [
-        { "key": "Cache-Control", "value": "no-store, max-age=0" }
-      ]
-    },
-    {
-      "source": "/homepage-specials.js",
-      "headers": [
-        { "key": "Cache-Control", "value": "no-store, max-age=0" }
-      ]
-    },
-    {
-      "source": "/playerpedia.html",
-      "headers": [
-        { "key": "Cache-Control", "value": "no-store, max-age=0" }
-      ]
-    },
-    {
-      "source": "/playerpedia-research-desk.js",
-      "headers": [
-        { "key": "Cache-Control", "value": "no-store, max-age=0" }
-      ]
-    },
-    {
-      "source": "/playerpedia-research-desk.css",
-      "headers": [
-        { "key": "Cache-Control", "value": "no-store, max-age=0" }
-      ]
-    },
-    {
-      "source": "/legendary-wnba-duos.html",
-      "headers": [
-        { "key": "Cache-Control", "value": "no-store, max-age=0" }
-      ]
-    },
-    {
-      "source": "/who-got-next.html",
-      "headers": [
-        { "key": "Cache-Control", "value": "no-store, max-age=0" }
-      ]
-    },
-    {
-      "source": "/index.html",
-      "headers": [
-        { "key": "Cache-Control", "value": "no-store, max-age=0" }
-      ]
-    },
-    {
-      "source": "/team.html",
-      "headers": [
-        { "key": "Cache-Control", "value": "no-store, max-age=0" }
-      ]
-    },
-    {
-      "source": "/team-rivalry.js",
-      "headers": [
-        { "key": "Cache-Control", "value": "no-store, max-age=0" }
-      ]
-    },
-    {
-      "source": "/team-culture-identity.js",
-      "headers": [
-        { "key": "Cache-Control", "value": "no-store, max-age=0" }
-      ]
-    },
-    {
-      "source": "/team-dna.js",
-      "headers": [
-        { "key": "Cache-Control", "value": "no-store, max-age=0" }
-      ]
-    },
-    {
-      "source": "/team-dna.css",
-      "headers": [
-        { "key": "Cache-Control", "value": "no-store, max-age=0" }
-      ]
-    },
-    {
-      "source": "/api/team-dna",
-      "headers": [
-        { "key": "Cache-Control", "value": "no-store, max-age=0" }
-      ]
-    },
-    {
-      "source": "/api/rivalries",
-      "headers": [
-        { "key": "Cache-Control", "value": "no-store, max-age=0" }
-      ]
-    }
+    {"source":"/(.*)","headers":[{"key":"X-Content-Type-Options","value":"nosniff"},{"key":"Referrer-Policy","value":"strict-origin-when-cross-origin"}]},
+    {"source":"/styles.css","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},
+    {"source":"/site.js","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},
+    {"source":"/homepage-week-live.css","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},
+    {"source":"/homepage-week-live.js","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},
+    {"source":"/homepage-specials.js","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},
+    {"source":"/playerpedia.html","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},
+    {"source":"/playerpedia-research-desk.js","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},
+    {"source":"/playerpedia-research-desk.css","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},
+    {"source":"/retired-players.html","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},
+    {"source":"/retired-players.js","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},
+    {"source":"/retired-player-upgrade.js","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},
+    {"source":"/retired-stats-upgrade.js","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},
+    {"source":"/coaches.html","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},
+    {"source":"/courtside-page.js","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},
+    {"source":"/courtside-culture.css","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},
+    {"source":"/locker-room.html","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},
+    {"source":"/locker-player-transfer.js","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},
+    {"source":"/legendary-wnba-duos.html","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},
+    {"source":"/who-got-next.html","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},
+    {"source":"/index.html","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},
+    {"source":"/team.html","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},
+    {"source":"/team-rivalry.js","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},
+    {"source":"/team-culture-identity.js","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},
+    {"source":"/team-dna.js","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},
+    {"source":"/team-dna.css","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},
+    {"source":"/api/team-dna","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},
+    {"source":"/api/rivalries","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]}
   ],
   "crons": [
-    {
-      "path": "/api/player-movement",
-      "schedule": "0 9 * * *"
-    },
-    {
-      "path": "/api/players",
-      "schedule": "5 9 * * *"
-    },
-    {
-      "path": "/api/availability",
-      "schedule": "*/30 * * * *"
-    }
+    {"path":"/api/player-movement","schedule":"0 9 * * *"},
+    {"path":"/api/players","schedule":"5 9 * * *"},
+    {"path":"/api/availability","schedule":"*/30 * * * *"}
   ]
 }

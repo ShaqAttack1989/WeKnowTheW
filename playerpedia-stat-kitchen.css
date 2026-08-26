@@ -1,0 +1,26 @@
+.playerpedia-heading{display:flex;justify-content:space-between;gap:22px;align-items:flex-end!important}
+.playerpedia-kitchen-link{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;min-height:46px;border-radius:999px;background:#140a2f;padding:11px 15px;color:#d8ff4f;text-decoration:none;font-size:.8rem;font-weight:950}
+.playerpedia-kitchen-link:hover,.playerpedia-kitchen-link:focus-visible{background:#5c1fc1;color:#fff;outline:3px solid #d8ff4f;outline-offset:2px}
+.player-card-kitchen-badge{display:inline-flex!important;width:max-content;max-width:100%;margin-top:4px;border-radius:999px;background:#140a2f;padding:5px 8px;color:#d8ff4f!important;font-size:.59rem!important;font-weight:1000;line-height:1.1;letter-spacing:.045em;white-space:normal!important}
+.playerpedia-connected-stats{margin:22px 0 6px;padding:22px;border-radius:24px;background:linear-gradient(135deg,#140a2f 0%,#2a1551 100%);color:#fff;box-shadow:0 16px 36px rgba(20,10,47,.16)}
+.playerpedia-connected-heading{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:14px}
+.playerpedia-connected-heading>div{display:grid;gap:3px}
+.playerpedia-connected-heading span{color:#d8ff4f;font-size:.66rem;font-weight:1000;letter-spacing:.1em;text-transform:uppercase}
+.playerpedia-connected-heading strong{color:#fff;font-size:1.18rem;line-height:1.2}
+.playerpedia-connected-heading small{color:rgba(255,255,255,.72);font-weight:850}
+.playerpedia-connected-heading>a{flex:0 0 auto;color:#d8ff4f;font-size:.75rem;font-weight:950;text-decoration:none;border-bottom:2px solid #d8ff4f}
+.playerpedia-season-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.playerpedia-season-grid>div,.playerpedia-efficiency-row>div{display:grid;gap:3px;min-width:0;border:1px solid rgba(255,255,255,.16);border-radius:15px;background:rgba(255,255,255,.08);padding:12px}
+.playerpedia-season-grid span,.playerpedia-efficiency-row span{color:#d8ff4f;font-size:.62rem;font-weight:1000;letter-spacing:.08em}
+.playerpedia-season-grid strong{color:#fff;font-size:1.35rem;line-height:1}
+.playerpedia-efficiency-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:8px}
+.playerpedia-efficiency-row strong{color:#fff;font-size:1rem;line-height:1.15}
+.playerpedia-kitchen-connections{margin-top:22px;padding-top:18px;border-top:1px solid rgba(255,255,255,.18)}
+.playerpedia-kitchen-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.playerpedia-kitchen-connection{display:grid;gap:3px;border-radius:16px;background:#fff;padding:13px;color:#140a2f;text-decoration:none}
+.playerpedia-kitchen-connection span{color:#6b2bd9;font-size:.6rem;font-weight:1000;letter-spacing:.08em}
+.playerpedia-kitchen-connection strong{font-size:1rem;line-height:1.15}
+.playerpedia-kitchen-connection small{color:#655b70;font-size:.7rem;line-height:1.35}
+.playerpedia-kitchen-connection:hover,.playerpedia-kitchen-connection:focus-visible{outline:3px solid #d8ff4f;outline-offset:-3px;background:#f9ffdf}
+.playerpedia-connected-source{margin:14px 0 0!important;color:rgba(255,255,255,.72)!important;font-size:.74rem;line-height:1.45}
+@media(max-width:680px){.playerpedia-heading{align-items:flex-start!important;flex-direction:column}.playerpedia-kitchen-link{width:100%}.playerpedia-connected-stats{margin-left:-6px;margin-right:-6px;padding:17px;border-radius:20px}.playerpedia-connected-heading{align-items:flex-start;flex-direction:column;gap:8px}.playerpedia-season-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.playerpedia-efficiency-row{grid-template-columns:1fr}.playerpedia-kitchen-grid{grid-template-columns:1fr}.playerpedia-connected-heading>a{align-self:flex-start}}

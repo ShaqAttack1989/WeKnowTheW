@@ -70,7 +70,9 @@ function movementLastTeamMap() {
 }
 function baseFromLive(raw, staticItem, teamIds) {
   const name = raw.name || staticItem?.name || '';
-  const { firstName, lastName } = splitName(name);
+  const split = splitName(name);
+  const firstName = raw.firstName || split.firstName;
+  const lastName = raw.lastName || split.lastName;
   const espnId = String(raw.id || '').replace(/[^0-9]/g, '');
   const official = officialHeadshot(name);
   const photo = official?.url || cleanUrl(raw.headshot) || (espnId ? `https://a.espncdn.com/i/headshots/wnba/players/full/${espnId}.png` : '');

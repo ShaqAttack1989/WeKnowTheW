@@ -34,6 +34,14 @@ function numeric(value=''){
   return value!==''&&Number.isFinite(n)?n:null;
 }
 
+function officialTrueShooting(row={}){
+  const points=numeric(row.pts);
+  const attempts=numeric(row.fga);
+  const freeThrows=numeric(row.fta);
+  const denominator=2*((attempts||0)+.44*(freeThrows||0));
+  return points!==null&&denominator>0?points/denominator:null;
+}
+
 function tableCells(raw=''){
   const cells=String(raw).split('|').map(cell=>cell.trim());
   if(cells[0]==='')cells.shift();
@@ -193,7 +201,8 @@ module.exports=async function handler(req,res){
     }catch(error){errors.push(`Direct source: ${error.message}`);}
   }
 
-  if(rows.length<10){
+  const official=await officialPromise;
+  if(rows.length<10&&official.length<10){
     res.setHeader('Cache-Control','no-store, max-age=0');
     return res.status(502).json({
       error:'Advanced player metrics are temporarily unavailable.',
@@ -203,16 +212,27 @@ module.exports=async function handler(req,res){
     });
   }
 
-  const official=await officialPromise;
-  const officialMap=new Map(official.map(row=>[nameKey(row.name),row]));
-  const players=addRanks(chooseBestRows(rows).map(row=>{
-    const live=officialMap.get(nameKey(row.name));
-    return live?{...row,team:live.team||row.team,games:String(live.games),minutes:String(live.minutes)}:row;
-  })).sort((a,b)=>a.name.localeCompare(b.name));
+  const combined=new Map(chooseBestRows(rows).map(row=>[nameKey(row.name),row]));
+  for(const live of official){
+    const playerKey=nameKey(live.name);
+    if(!playerKey)continue;
+    const existing=combined.get(playerKey)||{};
+    const calculatedTs=officialTrueShooting(live);
+    combined.set(playerKey,{
+      ...existing,
+      name:live.name||existing.name,
+      team:live.team||existing.team||'',
+      games:String(live.games??existing.games??''),
+      minutes:String(live.minutes??existing.minutes??''),
+      per:existing.per??'',
+      tsPct:numeric(existing.tsPct)!==null?existing.tsPct:(calculatedTs===null?'':calculatedTs)
+    });
+  }
+  const players=addRanks([...combined.values()]).sort((a,b)=>a.name.localeCompare(b.name));
   return res.status(200).json({
-    source:official.length>=10?'Basketball-Reference advanced metrics + Official WNBA participation':'Basketball-Reference',
+    source:rows.length>=10&&official.length>=10?'Basketball-Reference advanced metrics + Official WNBA statistics':official.length>=10?'Official WNBA statistics':'Basketball-Reference',
     sourceUrl,
-    resolvedBy:resolvedBy||'Basketball-Reference',
+    resolvedBy:resolvedBy||(official.length>=10?'Official WNBA statistics':'Basketball-Reference'),
     season,
     updatedAt:new Date().toISOString(),
     refreshSeconds:1800,

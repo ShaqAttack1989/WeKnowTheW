@@ -43,7 +43,23 @@ let advancedUpdatedAt='';
 const letters='ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
 azGrid.innerHTML=['<button type="button" class="active" data-letter="">All</button>',...letters.map(l=>`<button type="button" data-letter="${l}">${l}</button>`)].join('');
 
-function filtered(){const q=playerSearch.value.trim().toLowerCase(),team=playerTeamFilter.value;return allPlayers.filter(p=>(!letter||String(p.lastName||'').toUpperCase().startsWith(letter))&&(!team||String(p.teamId)===team)&&(!q||`${p.name} ${p.team} ${p.position}`.toLowerCase().includes(q)));}
+function playerSurname(player={}){
+  const supplied=String(player.lastName||'').trim();
+  if(supplied)return supplied;
+  const parts=String(player.name||'').trim().split(/\s+/).filter(Boolean);
+  return parts[parts.length-1]||'';
+}
+function activateLetter(value=''){
+  letter=value;
+  azGrid.querySelectorAll('button').forEach(button=>button.classList.toggle('active',(button.dataset.letter||'')===letter));
+}
+function clearSearchUrl(){
+  const url=new URL(location.href);
+  if(!url.searchParams.has('search'))return;
+  url.searchParams.delete('search');
+  history.replaceState({},'',`${url.pathname}${url.search}${url.hash}`);
+}
+function filtered(){const q=normalizeText(playerSearch.value),qKey=playerKey(playerSearch.value),team=playerTeamFilter.value;return allPlayers.filter(p=>{const haystack=`${p.name} ${p.team} ${p.position}`;return (!letter||playerSurname(p).toUpperCase().startsWith(letter))&&(!team||String(p.teamId)===team)&&(!q||normalizeText(haystack).includes(q)||playerKey(haystack).includes(qKey));});}
 
 function render(){
   const list=filtered();
@@ -96,12 +112,12 @@ async function load(){
     if(wantedTeam){const option=[...playerTeamFilter.options].find(item=>item.textContent.trim().toLowerCase()===wantedTeam.trim().toLowerCase());if(option)playerTeamFilter.value=option.value;}
     render();
     if(wanted){
-      const directMatch=allPlayers.find(player=>normalizeText(player.name)===normalizeText(wanted));
+      const directMatch=allPlayers.find(player=>playerKey(player.name)===playerKey(wanted));
       if(directMatch)openProfile(directMatch.id);
     }
     const partialText=payload.partial?' · some roster feeds retrying later':'';
     const photoCount=allPlayers.filter(player=>playerPhoto(player)).length;
-    status.textContent=`${allPlayers.length} current players · ${photoCount} player photos connected · ${advancedFeedReady?'live PER + TS% connected':'advanced metrics retrying'}${partialText}`;
+    status.textContent=`${allPlayers.length} current players · ${photoCount} player photos connected · ${advancedFeedReady?'live efficiency metrics connected':'advanced metrics retrying'}${partialText}`;
   }catch(e){
     playerGrid.innerHTML=`<div class="error-box"><strong>Playerpedia roster feed could not load.</strong><span>${pSafe(e.message)}</span></div>`;
     if(transactionFeed)transactionFeed.innerHTML='<div class="wire-row"><strong>Player movement feed unavailable.</strong></div>';
@@ -110,10 +126,10 @@ async function load(){
   }
 }
 
-azGrid.addEventListener('click',e=>{const b=e.target.closest('[data-letter]');if(!b)return;letter=b.dataset.letter||'';azGrid.querySelectorAll('button').forEach(x=>x.classList.toggle('active',x===b));render();});
-playerSearch.addEventListener('input',render);
+azGrid.addEventListener('click',e=>{const b=e.target.closest('[data-letter]');if(!b)return;activateLetter(b.dataset.letter||'');playerSearch.value='';clearSearchUrl();render();});
+playerSearch.addEventListener('input',()=>{if(letter)activateLetter('');render();});
 playerTeamFilter.addEventListener('change',render);
-reset.addEventListener('click',()=>{letter='';playerSearch.value='';playerTeamFilter.value='';azGrid.querySelectorAll('button').forEach((x,i)=>x.classList.toggle('active',i===0));render();});
+reset.addEventListener('click',()=>{activateLetter('');playerSearch.value='';playerTeamFilter.value='';clearSearchUrl();render();});
 
 function facts(player){return [['Jersey',player.number?`#${player.number}`:''],['Born',player.birthDate],['From',player.birthPlace],['Nationality',player.nationality],['Height',player.height],['College',player.college]].filter(x=>x[1]).map(([l,v])=>`<div class="profile-fact"><span>${pSafe(l)}</span><strong>${pSafe(v)}</strong></div>`).join('');}
 
@@ -193,10 +209,10 @@ async function openProfile(id){
   const honors=(payload.honours||[]).map(itemText).filter(Boolean).slice(0,12);
   const liveNote=roster?.liveNote?`<section class="profile-subsection live-profile-note"><h4>Current roster note</h4><p>${pSafe(roster.liveNote)}</p></section>`:'';
   const fact=amazingFact(payload,p,name,honors);
-  const detailsNote=detailUnavailable?'<p class="profile-data-note">Detailed bio service is temporarily unavailable; roster and advanced-stat information remain active.</p>':'';
+  const detailsNote=detailUnavailable?'<p class="profile-data-note">Some biographical details are still loading; current roster and season information remain available.</p>':'';
   const refreshed=advancedUpdatedAt?new Date(advancedUpdatedAt):null;
   const refreshedText=refreshed&&!Number.isNaN(refreshed.getTime())?` Last refreshed ${refreshed.toLocaleString([],{month:'short',day:'numeric',hour:'numeric',minute:'2-digit'})}.`:'';
-  const statNote=advancedFeedReady?`<p class="why-source">2026 PER and TS% refresh automatically through the We Know the W advanced-stats API backed by Basketball-Reference.${pSafe(refreshedText)}</p>`:'<p class="why-source">Advanced metrics are temporarily unavailable and will repopulate automatically when the stats API reconnects.</p>';
+  const statNote=advancedFeedReady?`<p class="why-source">2026 efficiency metrics refresh with official WNBA season data and available advanced-stat sources.${pSafe(refreshedText)}</p>`:'<p class="why-source">Advanced metrics are temporarily unavailable and will repopulate automatically when the season feed reconnects.</p>';
 
   modalBody.innerHTML=`<div class="profile-hero">${avatarMarkup({...p,name},true)}<div><p class="kicker">PLAYERPEDIA</p><h3 id="playerModalTitle">${pSafe(name)}</h3><p class="profile-teamline">${pSafe([p.team||roster?.team,p.position||roster?.position].filter(Boolean).join(' · '))}</p></div></div><div class="profile-facts">${facts(p)}</div>${liveNote}${p.description?`<section class="profile-subsection"><h4>Quick bio</h4><p>${pSafe(p.description)}</p></section>`:''}${honors.length?`<section class="profile-subsection"><h4>Honors & awards</h4><div class="profile-tags">${honors.map(h=>`<span>${pSafe(h)}</span>`).join('')}</div></section>`:''}<section class="why-we-know-her"><span>WHY WE KNOW HER</span><strong>${pSafe(name)} · the numbers + the story.</strong>${metricsMarkup(name)}<div class="amazing-fact"><span>AMAZING FACT</span><p>${pSafe(fact)}</p></div>${statNote}</section>${detailsNote}`;
 }

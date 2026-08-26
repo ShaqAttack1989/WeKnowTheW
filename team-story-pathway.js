@@ -18,9 +18,17 @@
   let ready=false;
   let appendTimer=null;
 
-  function rosterNames(){
-    return [...roster.querySelectorAll('.team-roster-card strong')].map(node=>node.textContent.trim()).filter(Boolean);
+  function rosterPeople(){
+    const map=new Map();
+    roster.querySelectorAll('.team-roster-card').forEach(card=>{
+      const name=card.querySelector('strong')?.textContent?.trim();
+      if(!name)return;
+      map.set(name,{name,photo:card.querySelector('img')?.getAttribute('src')||''});
+    });
+    return map;
   }
+
+  function rosterNames(){return [...rosterPeople().keys()];}
 
   function collectStrings(value,out=[]){
     if(value===null||value===undefined)return out;
@@ -38,18 +46,34 @@
     });
   }
 
-  function postCard(post,players=[]){
+  function playerChip(name,people){
+    const person=people.get(name)||{name,photo:''};
+    return `<a href="/playerpedia.html?search=${encodeURIComponent(name)}">${person.photo?`<img src="${safe(person.photo)}" alt="" loading="lazy" decoding="async" onerror="this.remove()">`:'<span class="team-editorial-dot" aria-hidden="true">●</span>'}<span>${safe(name)}</span></a>`;
+  }
+
+  function postCard(post,players=[],people=new Map()){
     const label=post.seriesLabel||(/byte/i.test(post.type||'')?'SNACK SHAK BYTE':'SEASONED NOTES');
     const href=`/snack-shak.html?post=${encodeURIComponent(post.slug)}#latest`;
-    return `<article class="team-editorial-update" data-team-editorial-story="${safe(post.slug)}"><div class="team-editorial-top"><span>WE KNOW THE W · ${safe(label)}</span><time>${safe(fmtDate(post.published))}</time></div><strong><a href="${safe(href)}">${safe(post.title||'Read the story')}</a></strong><p>${safe(short(post.dek||'',205))}</p><div class="team-editorial-players">${players.map(name=>`<a href="/playerpedia.html?search=${encodeURIComponent(name)}"><span aria-hidden="true">●</span>${safe(name)}</a>`).join('')}</div><a class="team-editorial-read" href="${safe(href)}">Read the full story →</a></article>`;
+    return `<article class="team-editorial-update" data-team-editorial-story="${safe(post.slug)}"><div class="team-editorial-top"><span>WE KNOW THE W · ${safe(label)}</span><time>${safe(fmtDate(post.published))}</time></div><strong><a href="${safe(href)}">${safe(post.title||'Read the story')}</a></strong><p>${safe(short(post.dek||'',205))}</p><div class="team-editorial-players">${players.map(name=>playerChip(name,people)).join('')}</div><a class="team-editorial-read" href="${safe(href)}">Read the full story →</a></article>`;
+  }
+
+  function updateEmptyState(){
+    const clear=host.querySelector('.dream-wire-clear');
+    if(!clear||!host.querySelector('[data-team-editorial-story]'))return;
+    const strong=clear.querySelector('strong');
+    const copy=clear.querySelector('p');
+    if(strong)strong.textContent=`No active ${teamData.name} roster or availability alerts.`;
+    if(copy)copy.textContent='Player mentions from We Know the W are shown above. Roster and availability alerts will appear here when posted.';
   }
 
   function appendStories(){
     if(!ready||!stories.length||!host.isConnected)return;
+    const people=rosterPeople();
     const existing=new Set([...host.querySelectorAll('[data-team-editorial-story]')].map(node=>node.dataset.teamEditorialStory));
-    const markup=stories.filter(item=>!existing.has(item.post.slug)).map(item=>postCard(item.post,item.players)).join('');
+    const markup=stories.filter(item=>!existing.has(item.post.slug)).map(item=>postCard(item.post,item.players,people)).join('');
     if(markup)host.insertAdjacentHTML('afterbegin',markup);
     host.classList.toggle('has-editorial-stories',Boolean(host.querySelector('[data-team-editorial-story]')));
+    updateEmptyState();
   }
 
   function scheduleAppend(){clearTimeout(appendTimer);appendTimer=setTimeout(appendStories,90);}
@@ -78,6 +102,6 @@
   rosterObserver.observe(roster,{childList:true,subtree:true});
   if(rosterNames().length){rosterObserver.disconnect();idle(loadStories,1200);}
 
-  const hostObserver=new MutationObserver(()=>{if(ready&&stories.length&&!host.querySelector('[data-team-editorial-story]'))scheduleAppend();});
+  const hostObserver=new MutationObserver(()=>{if(ready&&stories.length&&!host.querySelector('[data-team-editorial-story]'))scheduleAppend();else if(ready&&stories.length)updateEmptyState();});
   hostObserver.observe(host,{childList:true});
 })();

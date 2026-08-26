@@ -8,6 +8,9 @@
   const teamData=typeof teamBySlug==='function'?teamBySlug(slug):null;
   if(!teamData||slug==='cleveland-sirens')return;
 
+  const wireLabel=document.querySelector('.dream-roster-wire .dream-panel-heading span');
+  if(wireLabel)wireLabel.textContent='ROSTER · AVAILABILITY · STORIES';
+
   const safe=value=>String(value??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[ch]));
   const norm=value=>String(value||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[’‘]/g,"'").toLowerCase().replace(/[^a-z0-9']+/g,' ').replace(/\s+/g,' ').trim();
   const fmtDate=value=>{const d=new Date(`${String(value||'').slice(0,10)}T12:00:00`);return Number.isNaN(d.getTime())?String(value||''):d.toLocaleDateString([],{month:'short',day:'numeric',year:'numeric'});};

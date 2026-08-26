@@ -1,5 +1,5 @@
 (()=>{
-  const safe=value=>String(value??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[ch]));
+  const safe=value=>String(value??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot',"'":'&#039;'}[ch]));
   const norm=value=>String(value||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,' ').trim();
   const short=(value='',limit=180)=>{const text=String(value||'').replace(/\s+/g,' ').trim();return text.length<=limit?text:`${text.slice(0,limit).replace(/\s+\S*$/,'').trim()}…`;};
   const fmtDate=value=>{const date=new Date(`${String(value||'').slice(0,10)}T12:00:00`);return Number.isNaN(date.getTime())?String(value||''):date.toLocaleDateString([],{month:'short',day:'numeric'});};
@@ -25,10 +25,10 @@
     const latest=posts[0];
     const milestone=posts.find(post=>norm(post.seriesLabel).includes('milestone'));
     if(snackHost&&latest){
-      snackHost.innerHTML=`<span class="week-snack-date">${safe(latest.seriesLabel||'SPECIAL FEATURE')} · ${safe(fmtDate(latest.published))}</span><strong class="week-snack-title">${safe(latest.title)}</strong><p>${safe(short(latest.dek,185))}</p><a href="${safe(featureHref(latest))}">Read the full feature →</a>`;
+      snackHost.innerHTML=`<span class="week-feature-meta">${safe(latest.seriesLabel||'SPECIAL FEATURE')} · ${safe(fmtDate(latest.published))}</span><strong class="week-feature-title">${safe(latest.title)}</strong><p>${safe(short(latest.dek,185))}</p><a href="${safe(featureHref(latest))}">Read the full feature →</a>`;
     }
     if(milestoneHost&&milestone){
-      milestoneHost.innerHTML=`<h3>Milestone watch</h3><strong class="week-snack-title">${safe(milestone.title)}</strong><p>${safe(short(milestone.dek,210))}</p><a href="${safe(featureHref(milestone))}">Check the receipt →</a>`;
+      milestoneHost.innerHTML=`<span class="week-feature-meta">${safe(milestone.seriesLabel||'MILESTONE MOMENT')} · ${safe(fmtDate(milestone.published))}</span><strong class="week-feature-title">${safe(milestone.title)}</strong><p>${safe(short(milestone.dek,205))}</p><a href="${safe(featureHref(milestone))}">Check the receipt →</a>`;
     }
   }
   function searchableText(post={}){

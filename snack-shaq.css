@@ -10,6 +10,10 @@
 .snack-deck { max-width:760px; color:rgba(255,255,255,.82); font-size:clamp(1.1rem,2.4vw,1.45rem); }
 .snack-rule { display:inline-flex; gap:12px; align-items:center; margin-top:28px; padding:12px 16px; border:1px solid rgba(255,255,255,.24); border-radius:999px; background:rgba(255,255,255,.08); font-size:.78rem; letter-spacing:.08em; }
 .snack-rule strong { color:var(--lime); }
+.snack-food-thought .page-heading h2{color:#fff;}
+.snack-food-thought .page-heading .kicker{color:var(--lime);}
+.snack-food-thought .page-heading>p:not(.kicker){color:rgba(255,255,255,.76);max-width:760px;}
+.snack-food-thought-grid{border-bottom:1px solid #eadff0;}
 .snack-featured-band{background:linear-gradient(180deg,#f4effa 0%,#fffaf0 100%);border-bottom:1px solid #eadff0;}
 .snack-featured-heading{align-items:end;}
 .snack-featured-heading .small-note{max-width:520px;color:#6f6879;}

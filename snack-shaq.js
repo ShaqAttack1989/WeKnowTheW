@@ -166,14 +166,16 @@ async function loadSnackShaq() {
   const featured = document.getElementById('featuredGrid');
   const archive = document.getElementById('archiveGrid');
   try {
-    const [specialResult, archiveResult] = await Promise.allSettled([
+    const [breakingResult, specialResult, archiveResult] = await Promise.allSettled([
+      fetchPostFile('/snack-shak-breaking.json'),
       fetchPostFile('/snack-shak-specials.json'),
       fetchPostFile('/snack-shaq-posts.json')
     ]);
+    const breaking = breakingResult.status === 'fulfilled' ? breakingResult.value : [];
     const specials = specialResult.status === 'fulfilled' ? specialResult.value : [];
     const weekly = archiveResult.status === 'fulfilled' ? archiveResult.value : [];
     const bySlug = new Map();
-    [...weekly, ...specials].forEach(post => {
+    [...weekly, ...specials, ...breaking].forEach(post => {
       if (post?.slug) bySlug.set(post.slug, post);
     });
     const posts = sortPosts([...bySlug.values()]);

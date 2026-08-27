@@ -11,8 +11,9 @@ function normalizeProvider(item = {}) {
   const status = raw === 'OUT' ? 'OUT'
     : raw.includes('SEASON') ? 'OUT FOR SEASON'
       : raw.includes('QUESTION') ? 'QUESTIONABLE'
-        : raw.includes('DAY') ? 'DAY TO DAY'
-          : raw || 'STATUS';
+        : raw.includes('PROB') ? 'PROBABLE'
+          : raw.includes('DAY') ? 'DAY TO DAY'
+            : raw || 'STATUS';
   return {
     player: item.name || 'Player',
     team: item.team || 'WNBA',
@@ -32,8 +33,9 @@ function currentCuratedCarryovers() {
 }
 
 function mergeAvailability(officialReport = {}, provider = []) {
-  const official = Array.isArray(officialReport.injuries) ? officialReport.injuries : [];
-  const coveredTeams = new Set((officialReport.coveredTeams || []).map(key));
+  const usingFallback = Boolean(officialReport.fallback);
+  const official = usingFallback ? [] : (Array.isArray(officialReport.injuries) ? officialReport.injuries : []);
+  const coveredTeams = usingFallback ? new Set() : new Set((officialReport.coveredTeams || []).map(key));
   const seen = new Set();
   const combined = [];
 
@@ -103,7 +105,7 @@ module.exports = async function handler(req, res) {
   }
 
   const injuries = mergeAvailability(officialReport, provider);
-  const teamStatuses = Array.isArray(officialReport.teamStatuses) ? officialReport.teamStatuses : [];
+  const teamStatuses = officialReport.fallback ? [] : (Array.isArray(officialReport.teamStatuses) ? officialReport.teamStatuses : []);
 
   return res.status(200).json({
     checkedAt,
@@ -114,12 +116,12 @@ module.exports = async function handler(req, res) {
     officialSource: 'https://www.wnba.com/wnba-injury-report',
     officialPdf: officialReport.reportUrl || null,
     officialPdfLive: !officialReport.fallback,
-    officialCurrentReportCount: (officialReport.injuries || []).length,
+    officialCurrentReportCount: officialReport.fallback ? 0 : (officialReport.injuries || []).length,
     machineReadableCrossCheck: 'ESPN WNBA injury feed',
     injuryCount: injuries.length,
     injuries,
     teamStatuses,
-    coveredTeams: officialReport.coveredTeams || [],
+    coveredTeams: officialReport.fallback ? [] : (officialReport.coveredTeams || []),
     partial: Boolean(officialReport.fallback) || errors.length > 0,
     fallbackSnapshot: Boolean(officialReport.fallback),
     errors: [...errors, ...(officialReport.errors || [])]

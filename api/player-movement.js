@@ -42,7 +42,7 @@ function addRosterCrossCheck(items, rosterData) {
     const currentTeam = liveTeams.get(key(item.player)) || '';
     const type = String(item.type || '').toUpperCase();
     const destinationMove = /SIGNED|CLAIMED|TRADE|ACQUIRED|CONVERTED/.test(type);
-    const exitMove = /WAIVED|RELEASED/.test(type);
+    const exitMove = /WAIVED|RELEASED|BUYOUT/.test(type);
     let rosterCheck = 'Not independently confirmed in live roster feed';
     if (destinationMove && currentTeam && key(currentTeam) === key(item.team)) rosterCheck = `Current roster confirms ${currentTeam}`;
     else if (exitMove && (!currentTeam || key(currentTeam) !== key(item.team))) rosterCheck = currentTeam ? `Live roster now lists ${currentTeam}` : 'Live roster no longer lists player';
@@ -57,7 +57,7 @@ module.exports = async function handler(req, res) {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  res.setHeader('Cache-Control', 's-maxage=86400, stale-while-revalidate=3600');
+  res.setHeader('Cache-Control', 'no-store, max-age=0');
   const checkedAt = new Date().toISOString();
   const errors = [];
   const [transactionResult, rosterResult] = await Promise.allSettled([
@@ -76,7 +76,7 @@ module.exports = async function handler(req, res) {
   return res.status(200).json({
     checkedAt,
     latestTransactionDate,
-    refreshCadence: '24 hours',
+    refreshCadence: 'live on request · scheduled daily cross-check',
     officialSource: 'https://www.wnba.com/players/transactions?transaction=&team=all&month=0',
     crossCheckSources: [
       'Live WNBA roster feed via ESPN',

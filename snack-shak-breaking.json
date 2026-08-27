@@ -1,0 +1,88 @@
+{
+  "site": "Snack Shak",
+  "posts": [
+    {
+      "slug": "dewanna-bonner-chooses-atlanta-dream-playoff-push",
+      "type": "feature",
+      "priority": 40,
+      "seriesLabel": "ROSTER SHAKEUP",
+      "title": "DeWanna Bonner Chooses Atlanta. The Dream Were Already Dangerous.",
+      "published": "2026-08-26",
+      "week": "Atlanta playoff push · Aug. 26, 2026",
+      "teams": ["Atlanta Dream", "Phoenix Mercury"],
+      "players": ["DeWanna Bonner", "Angel Reese", "Allisha Gray", "Rhyne Howard"],
+      "dek": "Phoenix gave DeWanna Bonner the freedom to chase one more title. Atlanta gave her a team that did not need rescuing, only another veteran who knows exactly what playoff basketball asks for.",
+      "storyTable": {
+        "columns": ["What Atlanta adds", "Bonner brings", "Why it matters in a series"],
+        "rows": [
+          ["Playoff experience", "15 postseason appearances and two WNBA championships", "Atlanta adds a player who has already lived through every version of a long playoff run"],
+          ["Frontcourt flexibility", "6-foot-4 size with guard-forward mobility", "Bonner can play next to Angel Reese or slide across bigger wing and forward matchups"],
+          ["Rebounding", "6.1 rebounds per game with Phoenix in 2026", "Extra possessions matter more when every postseason possession gets expensive"],
+          ["Bench scoring", "10.6 points per game in 2026", "Atlanta does not have to ask its stars to carry every second-unit minute"],
+          ["Late-season urgency", "A veteran explicitly freed to chase a title", "The move arrives with Atlanta already in the playoff field rather than trying to sneak into it"]
+        ]
+      },
+      "sections": [
+        {
+          "title": "Phoenix opened the door. Atlanta walked through it.",
+          "paragraphs": [
+            "DeWanna Bonner's 2026 season changed direction in less than forty-eight hours. Phoenix and Bonner agreed to a contract buyout on Monday, with the Mercury framing the move as an opportunity for the six-time All-Star to pursue a title in what could be her final postseason. By Wednesday, ESPN's Alexa Philippou reported that Atlanta had signed Bonner to a $116,000 contract.",
+            "The destination matters because Atlanta is not a desperation landing spot. The Dream entered Wednesday at 25 wins and 13 losses, already holding a playoff berth and sitting fourth in the league standings. Bonner is joining a team with something to protect, not something to invent."
+          ]
+        },
+        {
+          "title": "The Dream did not need a savior. They added playoff insurance.",
+          "paragraphs": [
+            "Atlanta already has a clear identity. Allisha Gray gives the Dream perimeter scoring and two-way steadiness. Rhyne Howard supplies shot creation, length and defensive disruption. Angel Reese controls the glass so violently that she just set a WNBA single-game record with 26 rebounds and pushed the single-season rebounding record even higher. This is already a team that can win with pace, size, second chances and multiple creators.",
+            "That is exactly why Bonner fits. Atlanta does not need her to be the first option. It needs her to survive playoff possessions that turn ugly. It needs another 6-foot-4 body that can rebound, switch, attack a mismatch and score without needing the entire offense built around her. It needs somebody who can play twenty minutes one night and thirty-two the next without the role becoming the story."
+          ]
+        },
+        {
+          "title": "Her 2026 numbers are not the headline. Her postseason résumé is.",
+          "paragraphs": [
+            "Bonner averaged 10.6 points and 6.1 rebounds in 37 games for Phoenix this season. Her 39.4 percent shooting and 26.2 percent mark from three are real caveats; Atlanta is not adding a perfect floor spacer. The value is broader than that one column.",
+            "Bonner is a two-time WNBA champion, a six-time All-Star and the only three-time Sixth Player of the Year in league history. She is the WNBA's all-time postseason rebounding leader and has appeared in 15 postseasons. Last year alone, she came off the bench during Phoenix's run to the Finals and became the only player in league postseason history to record at least 90 points, 60 rebounds and 10 steals as a reserve in one postseason. That kind of utility is hard to manufacture in September."
+          ]
+        },
+        {
+          "title": "The most interesting fit is next to Angel Reese.",
+          "paragraphs": [
+            "Reese is the gravitational force on the glass. Bonner gives Atlanta another long rebounder who can operate outside the paint and defend multiple frontcourt shapes. Together, they can make the Dream enormous without making them stationary. One can crash while the other leaks into transition. One can switch onto a wing while the other protects the possession by ending it with the rebound.",
+            "There is also a quieter benefit. Reese does not need to carry every physical matchup for forty minutes. Bonner has spent seventeen WNBA seasons learning where playoff contact arrives and how officials let games change in September. For a team with championship ambition, that knowledge is not sentimental. It is rotational depth."
+          ]
+        },
+        {
+          "title": "Atlanta's problem is now finding minutes, which is a contender problem.",
+          "paragraphs": [
+            "The Dream already have established scorers, rebounders and role players. Adding Bonner means somebody's minutes will tighten. That can create friction on an ordinary team. On a contender, it can also create matchup options. Atlanta can choose size against Minnesota, extra switching against Golden State, another veteran creator against Las Vegas, or a more physical frontcourt against New York.",
+            "Bonner's arrival does not guarantee anything. Minnesota still owns the league's best record, Golden State has built the league's most disruptive defensive identity, and Las Vegas has A'ja Wilson. But Atlanta just added one of the most postseason-tested players in league history without needing her to become the center of the team. That is the kind of move contenders get to make when the foundation is already strong."
+          ]
+        },
+        {
+          "title": "The verdict: the Dream just became harder to solve.",
+          "paragraphs": [
+            "Phoenix gave Bonner a clean exit from an eliminated team. Atlanta gave her a playoff seat with a real chance to matter. The transaction works because the motivations line up: Bonner gets another shot at a title, and Atlanta gets a veteran who can help without asking the Dream to become something different.",
+            "The Dream were already dangerous. Now the bench has another scorer, the frontcourt has another rebounder, the locker room has another champion, and the coaching staff has another piece to move around the board. Atlanta did not make a rescue move. It made a luxury move. Those are usually the ones that become very annoying in May, June and July. In September, they can become the difference between a good season and a parade."
+          ]
+        }
+      ],
+      "debates": [
+        "Should Bonner close games for Atlanta, or is her best value as a matchup-dependent sixth player?",
+        "Does Bonner's rebounding and playoff experience matter more than her declining three-point percentage?",
+        "Which contender matchup benefits Atlanta most from adding another 6-foot-4 veteran forward?",
+        "Did Atlanta just become the most complete challenger to Minnesota?"
+      ],
+      "foodSegment": {
+        "title": "Atlanta Added a Veteran to an Already Full Plate",
+        "script": "Phoenix cleared the table and DeWanna Bonner went straight to a kitchen that was already serving. Atlanta did not need a new head chef. It already has Allisha Gray cooking, Rhyne Howard bringing the heat, and Angel Reese grabbing every plate before it hits the floor. Bonner is the veteran sous-chef who has worked fifteen postseason dinner rushes and already owns two championship recipes. The three-point seasoning has been light this year, but the rebounding, size and playoff memory still travel. Atlanta was already dangerous. Now the Dream have one more ingredient nobody wants to deal with in a seven-game series."
+      },
+      "sources": [
+        {"label": "Bleacher Report: Bonner reportedly signs with Atlanta", "url": "https://bleacherreport.com/articles/25489445-dewanna-bonner-reportedly-signs-dream-contract-latest-wnba-standings-angel-reese-atlanta"},
+        {"label": "Bleacher Report: Phoenix and Bonner agree to buyout", "url": "https://bleacherreport.com/articles/25481893-dewanna-bonner-lands-mercury-contract-buyout-top-landing-spots-wnba-star-amid-playoff-race"},
+        {"label": "Atlanta Dream clinches 2026 playoff berth", "url": "https://dream.wnba.com/news/atlanta-dream-clinches-fourth-consecutive-playoff-berth-first-and-second-round-playoff-tickets-on-sale-beginning-sept-1"},
+        {"label": "WNBA: DeWanna Bonner career bio and postseason history", "url": "https://www.wnba.com/player/201886/dewanna-bonner/bio"},
+        {"label": "Basketball Reference: DeWanna Bonner 2026 statistics", "url": "https://www.basketball-reference.com/wnba/players/b/bonnede01w.html"}
+      ]
+    }
+  ]
+}

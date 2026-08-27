@@ -18,6 +18,7 @@
   const idle=(fn,timeout=1600)=>window.requestIdleCallback?requestIdleCallback(fn,{timeout}):setTimeout(fn,Math.min(timeout,700));
 
   let stories=[];
+  let movements=[];
   let ready=false;
   let appendTimer=null;
 
@@ -60,13 +61,20 @@
     return `<article class="team-editorial-update" data-team-editorial-story="${safe(post.slug)}"><div class="team-editorial-top"><span>WE KNOW THE W · ${safe(label)}</span><time>${safe(fmtDate(post.published))}</time></div><strong><a href="${safe(href)}">${safe(post.title||'Read the story')}</a></strong><p>${safe(short(post.dek||'',205))}</p><div class="team-editorial-players">${players.map(name=>playerChip(name,people)).join('')}</div><a class="team-editorial-read" href="${safe(href)}">Read the full story →</a></article>`;
   }
 
+  function movementSignature(item={}){return `${String(item.date||'').slice(0,10)}|${norm(item.player)}|${norm(String(item.type||'TRANSACTION').toUpperCase())}`;}
+
+  function movementCard(item){
+    const type=String(item.type||'TRANSACTION').toUpperCase();
+    return `<article class="team-fresh-movement" data-team-fresh-movement="${safe(movementSignature(item))}"><div><span>${safe(type)}</span><time>${safe(fmtDate(item.date))}</time></div><strong>${safe(item.player||'Player update')}</strong><p>${safe(item.detail||'Roster update')}</p><a href="/player-movement.html">Open Player Movement →</a></article>`;
+  }
+
   function updateEmptyState(){
     const clear=host.querySelector('.dream-wire-clear');
-    if(!clear||!host.querySelector('[data-team-editorial-story]'))return;
+    if(!clear||(!host.querySelector('[data-team-editorial-story]')&&!host.querySelector('[data-team-fresh-movement]')))return;
     const strong=clear.querySelector('strong');
     const copy=clear.querySelector('p');
-    if(strong)strong.textContent=`No active ${teamData.name} roster or availability alerts.`;
-    if(copy)copy.textContent='Player mentions from We Know the W are shown above. Roster and availability alerts will appear here when posted.';
+    if(strong)strong.textContent=`No other active ${teamData.name} roster or availability alerts.`;
+    if(copy)copy.textContent='Recent movement and We Know the W player mentions are shown above. New roster and availability alerts will appear here when posted.';
   }
 
   function appendStories(){
@@ -76,35 +84,52 @@
     const markup=stories.filter(item=>!existing.has(item.post.slug)).map(item=>postCard(item.post,item.players,people)).join('');
     if(markup)host.insertAdjacentHTML('afterbegin',markup);
     host.classList.toggle('has-editorial-stories',Boolean(host.querySelector('[data-team-editorial-story]')));
-    updateEmptyState();
   }
 
-  function scheduleAppend(){clearTimeout(appendTimer);appendTimer=setTimeout(appendStories,90);}
+  function appendMovements(){
+    if(!ready||!movements.length||!host.isConnected)return;
+    const existing=new Set([...host.querySelectorAll('[data-team-fresh-movement]')].map(node=>node.dataset.teamFreshMovement));
+    const visibleText=norm(host.textContent);
+    const markup=movements.filter(item=>{
+      const sig=movementSignature(item);
+      if(existing.has(sig))return false;
+      const player=norm(item.player),type=norm(item.type);
+      return !(player&&visibleText.includes(player)&&(!type||visibleText.includes(type)));
+    }).map(movementCard).join('');
+    if(markup)host.insertAdjacentHTML('afterbegin',markup);
+    host.classList.toggle('has-fresh-movements',Boolean(host.querySelector('[data-team-fresh-movement]')));
+  }
 
-  async function loadStories(){
+  function appendExtras(){appendStories();appendMovements();updateEmptyState();}
+  function scheduleAppend(){clearTimeout(appendTimer);appendTimer=setTimeout(appendExtras,90);}
+
+  async function loadExtras(){
     const names=rosterNames();
     if(!names.length)return;
     try{
       const stamp=Date.now();
-      const [weeklyResult,specialResult]=await Promise.allSettled([
+      const [weeklyResult,specialResult,movementResult]=await Promise.allSettled([
         fetch(`/snack-shaq-posts.json?teamMentions=${stamp}`,{headers:{Accept:'application/json','Cache-Control':'no-cache'},cache:'no-store'}).then(r=>r.ok?r.json():{}),
-        fetch(`/snack-shak-specials.json?teamMentions=${stamp}`,{headers:{Accept:'application/json','Cache-Control':'no-cache'},cache:'no-store'}).then(r=>r.ok?r.json():{})
+        fetch(`/snack-shak-specials.json?teamMentions=${stamp}`,{headers:{Accept:'application/json','Cache-Control':'no-cache'},cache:'no-store'}).then(r=>r.ok?r.json():{}),
+        fetch(`/api/player-movement?teamHub=${stamp}`,{headers:{Accept:'application/json','Cache-Control':'no-cache'},cache:'no-store'}).then(r=>r.ok?r.json():{})
       ]);
       const weekly=weeklyResult.status==='fulfilled'&&Array.isArray(weeklyResult.value.posts)?weeklyResult.value.posts:[];
       const specials=specialResult.status==='fulfilled'&&Array.isArray(specialResult.value.posts)?specialResult.value.posts:[];
       const combined=[...specials,...weekly].filter(post=>post&&post.slug&&post.published);
       stories=combined.map(post=>({post,players:mentions(post,names)})).filter(item=>item.players.length).sort((a,b)=>String(b.post.published).localeCompare(String(a.post.published))||Number(b.post.priority||0)-Number(a.post.priority||0)).slice(0,4);
+      const transactionList=movementResult.status==='fulfilled'&&Array.isArray(movementResult.value.transactions)?movementResult.value.transactions:[];
+      movements=transactionList.filter(item=>norm(item.team)===norm(teamData.name)).sort((a,b)=>String(b.date||'').localeCompare(String(a.date||''))).slice(0,4);
       ready=true;
-      appendStories();
+      appendExtras();
     }catch{ready=true;}
   }
 
   const rosterObserver=new MutationObserver(()=>{
-    if(rosterNames().length){rosterObserver.disconnect();idle(loadStories,1200);}
+    if(rosterNames().length){rosterObserver.disconnect();idle(loadExtras,900);}
   });
   rosterObserver.observe(roster,{childList:true,subtree:true});
-  if(rosterNames().length){rosterObserver.disconnect();idle(loadStories,1200);}
+  if(rosterNames().length){rosterObserver.disconnect();idle(loadExtras,900);}
 
-  const hostObserver=new MutationObserver(()=>{if(ready&&stories.length&&!host.querySelector('[data-team-editorial-story]'))scheduleAppend();else if(ready&&stories.length)updateEmptyState();});
+  const hostObserver=new MutationObserver(()=>{if(ready&&(stories.length||movements.length))scheduleAppend();});
   hostObserver.observe(host,{childList:true});
 })();

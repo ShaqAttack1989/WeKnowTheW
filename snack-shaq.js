@@ -115,7 +115,25 @@ function postMarkup(post) {
   `;
 }
 
+function featuredMarkup(posts, activeSlug) {
+  return posts.map((post, index) => `
+    <a class="snack-feature-card ${post.type === 'feature' ? 'feature' : 'byte'} ${post.slug === activeSlug ? 'active' : ''}" href="/snack-shak.html?post=${encodeURIComponent(post.slug)}#latest" ${post.slug === activeSlug ? 'aria-current="page"' : ''}>
+      <span class="snack-feature-rank">${String(index + 1).padStart(2, '0')}</span>
+      <div class="snack-feature-copy">
+        <div class="snack-feature-meta">
+          <em>${snackSafe(post.seriesLabel || (post.type === 'feature' ? 'FEATURE' : 'SNACK SHAK BYTE'))}</em>
+          <span>${snackSafe(formatDate(post.published))}</span>
+        </div>
+        <strong>${snackSafe(post.title)}</strong>
+        <p>${snackSafe(post.dek || '')}</p>
+        <b>Read story →</b>
+      </div>
+    </a>
+  `).join('');
+}
+
 function archiveMarkup(posts, activeSlug) {
+  if (!posts.length) return '<div class="snack-archive-empty"><strong>The archive is caught up.</strong><p>Older stories will collect here as new plates are published.</p></div>';
   return posts.map(post => `
     <a class="archive-card ${post.type === 'feature' ? 'feature-card' : ''}" href="/snack-shak.html?post=${encodeURIComponent(post.slug)}#latest" ${post.slug === activeSlug ? 'aria-current="page"' : ''}>
       ${post.seriesLabel ? `<em>${snackSafe(post.seriesLabel)}</em>` : ''}
@@ -145,6 +163,7 @@ async function fetchPostFile(url) {
 
 async function loadSnackShaq() {
   const latest = document.getElementById('latestPost');
+  const featured = document.getElementById('featuredGrid');
   const archive = document.getElementById('archiveGrid');
   try {
     const [specialResult, archiveResult] = await Promise.allSettled([
@@ -158,17 +177,22 @@ async function loadSnackShaq() {
       if (post?.slug) bySlug.set(post.slug, post);
     });
     const posts = sortPosts([...bySlug.values()]);
-    if (!posts.length) throw new Error('No Snack Shak posts have been published yet.');
+    const stories = posts.filter(post => post.type !== 'intro');
+    if (!stories.length) throw new Error('No Snack Shak stories have been published yet.');
 
     const requested = new URLSearchParams(location.search).get('post')?.replaceAll('snack-shaq', 'snack-shak');
-    const active = posts.find(post => post.slug === requested) || posts[0];
+    const active = stories.find(post => post.slug === requested) || stories[0];
+    const featuredPosts = stories.slice(0, 4);
+    const archivedPosts = stories.slice(4);
 
     latest.classList.remove('snack-loading');
     latest.innerHTML = postMarkup(active);
-    archive.innerHTML = archiveMarkup(posts, active.slug);
+    featured.innerHTML = featuredMarkup(featuredPosts, active.slug);
+    archive.innerHTML = archiveMarkup(archivedPosts, active.slug);
     document.title = `${active.title} | Snack Shak`;
   } catch (error) {
     latest.innerHTML = `<div class="error-box"><strong>Snack Shak could not load.</strong><span>${snackSafe(error.message)}</span></div>`;
+    if (featured) featured.innerHTML = '';
     archive.innerHTML = '';
   }
 }

@@ -11,11 +11,22 @@
   let loadPromise=null;
 
   function sortPosts(items=[]){return [...items].sort((a,b)=>String(b.published||'').localeCompare(String(a.published||''))||Number(b.priority||0)-Number(a.priority||0));}
+  async function fetchPosts(url){
+    const response=await fetch(`${url}?cb=${Date.now()}`,{headers:{Accept:'application/json','Cache-Control':'no-cache'},cache:'no-store'});
+    if(!response.ok)return [];
+    const payload=await response.json().catch(()=>({}));
+    return Array.isArray(payload.posts)?payload.posts:[];
+  }
   async function loadSpecials(force=false){
     if(!force&&posts.length&&Date.now()-loadedAt<300000)return posts;
     if(loadPromise&&!force)return loadPromise;
-    loadPromise=fetch(`/snack-shak-specials.json?cb=${Date.now()}`,{headers:{Accept:'application/json','Cache-Control':'no-cache'},cache:'no-store'})
-      .then(async response=>{if(!response.ok)throw new Error('Special features unavailable');const payload=await response.json();posts=sortPosts(Array.isArray(payload.posts)?payload.posts:[]);loadedAt=Date.now();return posts;})
+    loadPromise=Promise.allSettled([fetchPosts('/snack-shak-breaking.json'),fetchPosts('/snack-shak-specials.json')])
+      .then(results=>{
+        const breaking=results[0].status==='fulfilled'?results[0].value:[];
+        const specials=results[1].status==='fulfilled'?results[1].value:[];
+        const bySlug=new Map();[...specials,...breaking].forEach(post=>{if(post?.slug)bySlug.set(post.slug,post);});
+        posts=sortPosts([...bySlug.values()]);loadedAt=Date.now();return posts;
+      })
       .catch(()=>posts)
       .finally(()=>{loadPromise=null;});
     return loadPromise;
@@ -30,7 +41,7 @@
     if(snackHost&&latest)snackHost.innerHTML=`<span class="week-feature-meta">${safe(latest.seriesLabel||'SPECIAL FEATURE')} · ${safe(fmtDate(latest.published))}</span><strong class="week-feature-title">${safe(latest.title)}</strong><p>${safe(short(latest.dek,185))}</p><a href="${safe(featureHref(latest))}">Read the full feature →</a>`;
     if(milestoneHost&&milestone)milestoneHost.innerHTML=`<span class="week-feature-meta">${safe(milestone.seriesLabel||'MILESTONE MOMENT')} · ${safe(fmtDate(milestone.published))}</span><strong class="week-feature-title">${safe(milestone.title)}</strong><p>${safe(short(milestone.dek,205))}</p><a href="${safe(featureHref(milestone))}">Check the receipt →</a>`;
   }
-  function searchableText(post={}){const sections=(post.sections||[]).flatMap(section=>[section.title,...(section.paragraphs||[])]).join(' ');return norm(`${post.title||''} ${post.seriesLabel||''} ${post.dek||''} ${post.week||''} ${sections}`);}
+  function searchableText(post={}){const sections=(post.sections||[]).flatMap(section=>[section.title,...(section.paragraphs||[])]).join(' ');return norm(`${post.title||''} ${post.seriesLabel||''} ${post.dek||''} ${post.week||''} ${(post.players||[]).join(' ')} ${(post.teams||[]).join(' ')} ${sections}`);}
   function appendSearchMatches(query){
     const host=document.getElementById('homeSearchResults');
     const q=norm(query),terms=q.split(/\s+/).filter(Boolean);

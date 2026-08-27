@@ -25,6 +25,15 @@
     }
   }
 
+  function loadTeamAvailability(){
+    if(location.pathname!=='/team.html'||!document.getElementById('dreamTeamUpdates'))return;
+    if(document.querySelector('script[data-team-availability]'))return;
+    const script=document.createElement('script');
+    script.src='/team-availability.js?v=20260826-live-v2';
+    script.dataset.teamAvailability='true';
+    document.body.appendChild(script);
+  }
+
   function rollCallCard(slug,item){
     const alias=item.arenaAlias?`<div class="homecourt-fact"><span>AKA</span><strong>${esc(item.arenaAlias)}</strong></div>`:'';
     const note=item.arenaNote?`<div class="homecourt-note">${esc(item.arenaNote)}</div>`:'';
@@ -38,5 +47,6 @@
   }
 
   renderTeamArena();
+  loadTeamAvailability();
   renderHub();
 })();

@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="/team-culture-identity.css?v=20260823-v5">
   <link rel="stylesheet" href="/homecourt-culture.css?v=20260826-v1">
   <link rel="stylesheet" href="/team-dna.css?v=20260823-v1">
+  <link rel="stylesheet" href="/team-stat-leaders.css?v=20260827-v1">
 </head>
 <body class="team-page">
   <header class="team-hero" id="teamHero">
@@ -57,6 +58,7 @@
       </div>
       <div class="team-local-nav-inner">
         <a href="#whats-happening">Now</a>
+        <a href="#team-stat-leaders">Stat leaders</a>
         <a href="#current-roster">Current players</a>
         <a href="#franchise-history">History</a>
         <a href="#titles-awards">Titles &amp; awards</a>
@@ -113,6 +115,15 @@
         </div>
       </section>
     </div>
+
+    <section class="team-content" id="team-stat-leaders" aria-labelledby="teamLeadersTitle" aria-busy="true">
+      <div class="team-leaders-heading"><div class="team-section-heading"><p class="kicker">WHO LEADS THE TEAM?</p><h2 id="teamLeadersTitle">Team stat leaders</h2><p id="teamLeadersScope">2026 regular season · Current roster · Only games played for this team count.</p></div><button type="button" id="teamLeadersRefresh">Refresh</button></div>
+      <p class="team-leaders-status" id="teamLeadersStatus" role="status" aria-live="polite">Checking team leaders…</p>
+      <div class="team-leaders-grid" id="teamLeadersGrid"><div class="team-leaders-message">Loading season statistics and current-roster leaders…</div></div>
+      <noscript><p>Enable JavaScript to load this team’s current leaders. <a href="https://www.basketball-reference.com/wnba/years/2026_totals.html">View the season statistics.</a></p></noscript>
+      <div class="team-leaders-notes" id="teamLeadersRules"><p><strong>Leader eligibility:</strong> At least 5 games with this team. Shooting leaders also need 50 field-goal attempts, 20 three-point attempts or 20 free-throw attempts, respectively. These are We Know the W’s team-dashboard minimums.</p><p>Rates are calculated from season totals. Exact ties share the lead; rounded values alone do not create a tie. A player’s production with a previous team is excluded.</p><p id="teamLeadersCoverage"></p><p>Statistics: <a href="https://www.basketball-reference.com/wnba/years/2026_totals.html" target="_blank" rel="noopener noreferrer">Basketball-Reference</a>. Roster membership is separate from <a href="/availability-report.html">game availability</a>.</p></div>
+      <nav class="team-leaders-links" aria-label="Team leader connections"><a id="teamLeadersPlayerpedia" href="/playerpedia.html">Team in Playerpedia →</a><a href="/stat-kitchen.html#stat-kitchen">League leaders in The Stat Kitchen →</a></nav>
+    </section>
 
     <section class="team-band" id="current-roster">
       <div class="team-content">
@@ -176,7 +187,9 @@
   <script src="/mascot-data.js?v=20260823-v1"></script>
   <script src="/mascot-refresh-20260823.js?v=20260823-v1"></script>
   <script src="/team-culture-data.js?v=20260826-v1"></script>
-  <script src="/team-page.js?v=20260827-playoff-board"></script>
+  <script src="/team-page.js?v=20260827-team-leaders"></script>
+  <script src="/team-stat-leaders-model.js?v=20260827-v1"></script>
+  <script src="/team-stat-leaders.js?v=20260827-v1"></script>
   <script src="/team-availability.js?v=20260826-live-v2"></script>
   <script src="/team-rivalry.js?v=20260824-v11" data-team-rivalry="true"></script>
   <script src="/team-dna.js?v=20260823-v1"></script>

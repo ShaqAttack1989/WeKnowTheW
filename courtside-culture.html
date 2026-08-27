@@ -4,12 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Courtside Culture | We Know the W</title>
-<meta name="description" content="Explore WNBA mascots, retired mascot history, coaches, owners, celebrity fans, game-night atmosphere and tunnel fashion.">
+<meta name="description" content="Explore WNBA mascots, fan communities, arenas, home-court nicknames, coaches, owners, celebrity fans, game-night atmosphere and tunnel fashion.">
 <link rel="stylesheet" href="/styles.css">
 <link rel="stylesheet" href="/landing.css">
 <link rel="stylesheet" href="/courtside-culture.css">
+<link rel="stylesheet" href="/homecourt-culture.css?v=20260826-v1">
 </head>
-<body class="section-page culture-page">
+<body class="section-page culture-page" data-culture-page="hub">
 <header class="subhero">
 <nav class="nav shell">
 <a class="brand" href="/"><span class="brand-mark">W</span><span>WE KNOW THE W</span></a>
@@ -19,11 +20,12 @@
 <div class="page-shell subhero-inner">
 <p class="eyebrow">THE WORLD AROUND THE GAME</p>
 <h1>COURTSIDE <em>CULTURE</em></h1>
-<p>The people, personalities, style and home-court rituals that turn a basketball team into a culture.</p>
+<p>The people, personalities, style, fan communities and home-court rituals that turn a basketball team into a culture.</p>
 <div class="page-crumbs"><a href="/">Home</a><span>›</span><b>Courtside Culture</b></div>
 </div>
 </header>
 <nav class="culture-subnav" aria-label="Courtside Culture sections"><div class="page-shell">
+<a href="#home-court-roll-call">Fanbases &amp; Arenas</a>
 <a href="/mascots.html">Mascots</a>
 <a href="/mascots.html#retired-mascots">Retired Mascots</a>
 <a href="/coaches.html">Coaches</a>
@@ -37,10 +39,11 @@
 <section class="page-section">
 <div class="page-shell">
 <div class="culture-intro">
-<div><p class="eyebrow">SEVEN DOORS INTO THE W</p><h2>The game has a whole world around it.</h2><p>Meet the characters in the stands, the minds on the sideline, the people behind each franchise and the fashion and rituals that travel far beyond the final buzzer.</p></div>
-<aside class="culture-note"><span>CONNECTED THROUGHOUT THE SITE</span><strong>Culture meets every franchise hub.</strong><span>Mascot bios now route directly to team pages, while retired characters connect back into the Locker Room archive.</span></aside>
+<div><p class="eyebrow">EIGHT DOORS INTO THE W</p><h2>The game has a whole world around it.</h2><p>Meet the characters in the stands, the minds on the sideline, the people behind each franchise and the fashion, fan language and rituals that travel far beyond the final buzzer.</p></div>
+<aside class="culture-note"><span>CONNECTED THROUGHOUT THE SITE</span><strong>Culture meets every franchise hub.</strong><span>Mascot bios, fanbase names and home-court identities now route directly into each team landing page.</span></aside>
 </div>
 <div class="culture-grid two">
+<a class="culture-portal" style="--card1:#cc4a32;--card2:#f4bb43" href="#home-court-roll-call"><span>FANBASES &amp; ARENAS</span><strong>Who fills the building?</strong><p>Fan community names, current arenas and the nicknames that make each home floor sound like its own place.</p><b>Open the home-court roll call →</b></a>
 <a class="culture-portal" style="--card1:#5b2bbf;--card2:#1b1420" href="/mascots.html"><span>CURRENT MASCOTS</span><strong>Bios that pop open</strong><p>Meet Ellie the Elephant, Lightning the Horse, Violet the Raven and the rest of the current arena personalities.</p><b>Meet the mascots →</b></a>
 <a class="culture-portal" style="--card1:#352139;--card2:#8a5d63" href="/mascots.html#retired-mascots"><span>RETIRED MASCOTS</span><strong>Characters from earlier eras</strong><p>Keep Star, Maddie, Sky Guy and future retired characters connected to the franchises they represented.</p><b>Open the mascot archive →</b></a>
 <a class="culture-portal" style="--card1:#114c71;--card2:#69d9b7" href="/coaches.html"><span>COACHES</span><strong>Voices on the sideline</strong><p>Every current head coach, plus the former players moving from court to clipboard.</p><b>Enter the coaches room →</b></a>
@@ -49,10 +52,22 @@
 <a class="culture-portal" style="--card1:#cc4a32;--card2:#f4bb43" href="/gameday-vibes.html"><span>GAMEDAY VIBES</span><strong>Every arena has a pulse</strong><p>Introductions, rituals, music, crowd identity and the details that make home feel different.</p><b>Feel the atmosphere →</b></a>
 <a class="culture-portal" style="--card1:#452f75;--card2:#ff66a4" href="/wnba-fits.html"><span>THE FITS</span><strong>WNBA fashion feed</strong><p>Tunnel style, sneakers, designer stories and player expression, refreshed from the source.</p><b>Open the gallery →</b></a>
 </div>
+
+<section class="homecourt-rollcall" id="home-court-roll-call" aria-labelledby="homeCourtHeading">
+<div class="culture-intro">
+<div><p class="eyebrow">HOME-COURT ROLL CALL</p><h2 id="homeCourtHeading">Fifteen teams. Fifteen fan identities. Fifteen places that sound different when the game gets tight.</h2><p>Use this as the culture map for the current league: who the crowd calls itself, where the team plays and the arena shorthand fans use when a building has earned one.</p></div>
+<aside class="culture-note"><span>FAN LANGUAGE MATTERS</span><strong>Not every nickname is official.</strong><span>Some names are fan-created, local shorthand or legacy language. Those distinctions are labeled instead of being presented as formal franchise branding.</span></aside>
+</div>
+<div class="homecourt-grid" id="homeCourtGrid" aria-live="polite"></div>
+<p class="homecourt-disclaimer">Fanbase names and arena aliases can be informal, historical or community-created. We Know the W preserves that language as part of game-day culture while distinguishing it from official venue names.</p>
+</section>
+
 <div class="page-footer-nav"><a href="/locker-room.html#retired-mascots">Locker Room mascot archive</a><a href="/around-the-w.html">Franchise hubs →</a></div>
 </div>
 </section>
 </main>
 <script src="/site.js"></script>
+<script src="/team-culture-data.js?v=20260826-v1"></script>
+<script src="/homecourt-culture.js?v=20260826-v1"></script>
 </body>
 </html>

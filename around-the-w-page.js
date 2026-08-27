@@ -6,6 +6,10 @@ function aroundStreakClass(value=''){return /^W/i.test(String(value))?'is-positi
 function aroundLastTenClass(value=''){const match=String(value).match(/(\d+)\s*-\s*(\d+)/);if(!match)return '';const wins=Number(match[1]),losses=Number(match[2]);return wins>losses?'is-positive':losses>wins?'is-negative':'is-even';}
 function aroundPlayoffIcon(status){if(status==='clinched')return '<span class="playoff-marker clinched" title="Clinched Playoffs Berth" aria-label="Clinched Playoffs Berth"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="8"/><path d="m6.3 10.1 2.4 2.4 5-5"/></svg></span>';if(status==='eliminated')return '<span class="playoff-marker eliminated" title="Eliminated from Playoffs contention" aria-label="Eliminated from Playoffs contention"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="8"/><path d="m7 7 6 6m0-6-6 6"/></svg></span>';return '';}
 
+function moveEditorialDeskToSnackShak(){
+  document.querySelectorAll('.around-feature-wrap,.around-editorial-strip').forEach(node=>node.remove());
+}
+
 function standingsDetails(){return `<div class="standings-info-grid around-standings-info"><aside class="standings-info-card" aria-labelledby="aroundLegendTitle"><h3 id="aroundLegendTitle">Legend</h3><div class="playoff-legend-item"><span class="playoff-marker clinched"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="8"/><path d="m6.3 10.1 2.4 2.4 5-5"/></svg></span><span>Clinched Playoffs Berth</span></div><div class="playoff-legend-item"><span class="playoff-marker eliminated"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="8"/><path d="m7 7 6 6m0-6-6 6"/></svg></span><span>Eliminated from Playoffs contention</span></div></aside><section class="standings-info-card tiebreak-card" aria-labelledby="aroundTiebreakTitle"><h3 id="aroundTiebreakTitle">Tiebreak Procedure</h3><p>The following tiebreak procedure shall be used to break ties for playoffs eligibility and home court advantage.</p><ol><li>Better record in head-to-head games</li><li>Better winning percentage against all teams with a .500 or better record at the end of the season</li><li>Better point differential in head-to-head games</li><li>Better point differential against all opponents</li></ol><p>If more than two teams are tied, as many teams as possible will be eliminated at each step. Once a team is eliminated, the process begins again at step one.</p></section></div>`;}
 
 function standingsMarkup(items=[]){
@@ -43,6 +47,7 @@ function renderDirectory(records=[]){
 }
 
 async function loadAround(){
+  moveEditorialDeskToSnackShak();
   const table=document.getElementById('aroundStandings');
   const status=document.getElementById('aroundStatus');
   renderDirectory();

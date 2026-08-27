@@ -9,3 +9,5 @@
 .about-portrait img{display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;object-position:center}
 .about-portrait figcaption{padding:14px 18px;color:#fff;font-size:.9rem;font-weight:700;line-height:1.5}
 @media(max-width:700px){.about-creator-side{max-width:520px;width:100%;margin-inline:auto}}
+
+.report-status:not(:empty){padding:16px;border-radius:10px;border:1px solid #7d62a0;background:#f4effa;line-height:1.6;color:#211139}.report-status[data-state="error"]{background:#fff3ed;border-color:#a13e26;color:#6f2010}.report-status[data-state="success"]{background:#e7f4ec;border-color:#386c4a;color:#17442a}.report-form button:disabled{opacity:.65;cursor:wait}.report-fallback{border-top:1px solid #d4c7e4;padding-top:20px}.report-fallback button{font:inherit;padding:12px 18px;border:1px solid #6023b5;border-radius:8px;background:white;color:#6023b5;cursor:pointer}.report-fallback textarea{width:100%;font:inherit;padding:12px;resize:vertical}.report-fallback [hidden]{display:none}.report-fallback :focus-visible{outline:3px solid #6023b5;outline-offset:3px}

@@ -55,14 +55,14 @@
           player:item.player||'Player update',
           detail:item.reason||'Availability update',
           date:shortDate(item.updated||item.gameDate),
-          context:[item.matchup,item.gameTime].filter(Boolean).join(' · '),
-          priority:item.officialCurrentReport?0:1
+          context:[item.matchup,item.gameTime,item.crossCheckOnly?'Cross-check feed':''].filter(Boolean).join(' · '),
+          priority:item.officialCurrentReport?0:item.crossCheckOnly?1:2
         }))
         .sort((a,b)=>a.priority-b.priority||a.player.localeCompare(b.player));
       const transactions=(Array.isArray(movement.transactions)?movement.transactions:[])
         .filter(item=>norm(item.team)===teamKey)
         .slice(0,2)
-        .map(item=>({kind:item.type||'Movement',player:item.player||'Team update',detail:item.detail||'Roster update',date:shortDate(item.date),context:'Player Movement',priority:2}));
+        .map(item=>({kind:item.type||'Movement',player:item.player||'Team update',detail:item.detail||'Roster update',date:shortDate(item.date),context:'Player Movement',priority:3}));
 
       let html='';
       if(pending){
@@ -71,12 +71,15 @@
       const updates=[...injuries,...transactions].slice(0,6);
       html+=updates.map(card).join('');
       if(!html){
-        html=`<div class="dream-wire-clear"><span aria-hidden="true">✓</span><div><strong>No active ${esc(teamName)} availability entries in the current official report.</strong><p>The team box checks the same WNBA report as the full Availability page every 30 minutes.</p></div></div>`;
+        html=availability.partial
+          ? `<div class="team-error"><strong>No current ${esc(teamName)} availability entries were returned by the partial feed.</strong><span>Do not treat this as an all-clear. Open the full report for the latest check.</span> <a href="/availability-report.html">Full report →</a></div>`
+          : `<div class="dream-wire-clear"><span aria-hidden="true">✓</span><div><strong>No active ${esc(teamName)} availability entries in the current official report.</strong><p>The team box checks the same WNBA report as the full Availability page every 30 minutes.</p></div></div>`;
       }
-      const source=`<div class="team-availability-source">Official availability ${availability.reportLabel?`· ${esc(availability.reportLabel)}`:''}${availability.checkedAt?` · checked ${esc(checked(availability.checkedAt))}`:''} · <a href="/availability-report.html">full report →</a></div>`;
+      const sourceLabel=availability.fallbackSnapshot?'Availability cross-check':'Official availability';
+      const source=`<div class="team-availability-source">${sourceLabel}${!availability.fallbackSnapshot&&availability.reportLabel?` · ${esc(availability.reportLabel)}`:''}${availability.checkedAt?` · checked ${esc(checked(availability.checkedAt))}`:''} · <a href="/availability-report.html">full report →</a></div>`;
       apply(html+source);
     }catch(error){
-      if(!authoritativeHtml)apply(`<div class="team-error">The official availability feed is temporarily unavailable. <a href="/availability-report.html">Open the full report →</a></div>`);
+      if(!authoritativeHtml)apply(`<div class="team-error">The availability feed is temporarily unavailable. <a href="/availability-report.html">Open the full report →</a></div>`);
     }
   }
 

@@ -14,6 +14,10 @@ function formatDate(value) {
     : date.toLocaleDateString([], { month: 'long', day: 'numeric', year: 'numeric' });
 }
 
+function displaySeries(post = {}) {
+  return post.type === 'feature' ? 'FOOD FOR THOUGHT' : (post.seriesLabel || 'SNACK SHAK BYTE');
+}
+
 function movementClass(value = '') {
   const text = String(value).toLowerCase();
   if (text.includes('up') || text.startsWith('+')) return 'up';
@@ -101,7 +105,7 @@ function sourcesMarkup(sources = []) {
 function postMarkup(post) {
   return `
     <header class="snack-post-header ${post.type === 'feature' ? 'feature-header' : ''}">
-      ${post.seriesLabel ? `<span class="snack-series-label">${snackSafe(post.seriesLabel)}</span>` : ''}
+      <span class="snack-series-label">${snackSafe(displaySeries(post))}</span>
       <div class="meta"><span>${snackSafe(formatDate(post.published))}</span><span>•</span><span>${snackSafe(post.week || 'Weekly update')}</span></div>
       <h2>${snackSafe(post.title)}</h2>
       <p class="dek">${snackSafe(post.dek || '')}</p>
@@ -121,12 +125,12 @@ function featuredMarkup(posts, activeSlug) {
       <span class="snack-feature-rank">${String(index + 1).padStart(2, '0')}</span>
       <div class="snack-feature-copy">
         <div class="snack-feature-meta">
-          <em>${snackSafe(post.seriesLabel || (post.type === 'feature' ? 'FEATURE' : 'SNACK SHAK BYTE'))}</em>
+          <em>${snackSafe(displaySeries(post))}</em>
           <span>${snackSafe(formatDate(post.published))}</span>
         </div>
         <strong>${snackSafe(post.title)}</strong>
         <p>${snackSafe(post.dek || '')}</p>
-        <b>Read story →</b>
+        <b>${post.type === 'feature' ? 'Read Food for Thought →' : 'Read story →'}</b>
       </div>
     </a>
   `).join('');
@@ -136,7 +140,7 @@ function archiveMarkup(posts, activeSlug) {
   if (!posts.length) return '<div class="snack-archive-empty"><strong>The archive is caught up.</strong><p>Older stories will collect here as new plates are published.</p></div>';
   return posts.map(post => `
     <a class="archive-card ${post.type === 'feature' ? 'feature-card' : ''}" href="/snack-shak.html?post=${encodeURIComponent(post.slug)}#latest" ${post.slug === activeSlug ? 'aria-current="page"' : ''}>
-      ${post.seriesLabel ? `<em>${snackSafe(post.seriesLabel)}</em>` : ''}
+      <em>${snackSafe(displaySeries(post))}</em>
       <span>${snackSafe(formatDate(post.published))}</span>
       <strong>${snackSafe(post.title)}</strong>
       <p>${snackSafe(post.dek || '')}</p>

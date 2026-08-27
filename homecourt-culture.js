@@ -27,7 +27,7 @@
 
   function loadTeamAvailability(){
     if(location.pathname!=='/team.html'||!document.getElementById('dreamTeamUpdates'))return;
-    if(document.querySelector('script[data-team-availability]'))return;
+    if(document.querySelector('script[src*="team-availability.js"]'))return;
     const script=document.createElement('script');
     script.src='/team-availability.js?v=20260826-live-v2';
     script.dataset.teamAvailability='true';

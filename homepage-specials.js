@@ -31,7 +31,7 @@
       .finally(()=>{loadPromise=null;});
     return loadPromise;
   }
-  function featureHref(post){return `/snack-shak.html?post=${encodeURIComponent(post.slug)}#latest`;}
+  function featureHref(post){return post.dashboardUrl==='/playoff-player-rankings.html'?post.dashboardUrl:`/snack-shak.html?post=${encodeURIComponent(post.slug)}#latest`;}
   function renderWeeklySpecials(){
     if(!posts.length)return;
     const snackHost=document.getElementById('homeWeekSnackLive');

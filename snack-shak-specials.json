@@ -2,6 +2,71 @@
   "site": "Snack Shak",
   "posts": [
     {
+      "slug": "2026-playoff-player-board",
+      "type": "feature",
+      "priority": 30,
+      "seriesLabel": "FOOD FOR THOUGHT",
+      "title": "Eight Teams. One Player Board.",
+      "published": "2026-08-27",
+      "week": "2026 playoff field · All eight teams clinched",
+      "dashboardUrl": "/playoff-player-rankings.html",
+      "dek": "Shak ranks the playoff field with the W composite: 112 roster entries, 105 published grades, and league-leader tiebreakers that put the receipts beside the rank.",
+      "players": [
+        "A’ja Wilson",
+        "Olivia Miles",
+        "Aliyah Boston",
+        "Jackie Young",
+        "Rhyne Howard",
+        "Kelsey Mitchell",
+        "Angel Reese",
+        "DeWanna Bonner"
+      ],
+      "teams": [
+        "Minnesota Lynx",
+        "Golden State Valkyries",
+        "Las Vegas Aces",
+        "Atlanta Dream",
+        "Indiana Fever",
+        "New York Liberty",
+        "Washington Mystics",
+        "Dallas Wings"
+      ],
+      "sections": [
+        {
+          "title": "The field is set. The player debate is open.",
+          "paragraphs": [
+            "All eight playoff teams have clinched. A’ja Wilson leads this August 27 W composite edition at 96, Olivia Miles follows at 95, and Aliyah Boston leads the crowded 94 group. The complete dashboard includes player photos, team logos, searchable rosters and a visible explanation for tied scores.",
+            "The same numeric W score is the starting point for a tie. A qualified league leader beats a non-leader, followed by the number of leading categories, PER, true shooting and games played. That puts Jackie Young first in the 93 group, Rhyne Howard first at 92 and Kelsey Mitchell first at 91."
+          ]
+        },
+        {
+          "title": "Current rosters, honest context",
+          "paragraphs": [
+            "DeWanna Bonner appears with Atlanta, with her Phoenix season statistics identified. Aaliyah Nye and Jaylyn Sherrod have been removed from Atlanta’s playoff roster after being waived. Dallas’s Kitija Laksa is included without a fabricated W grade; Azzi Fudd is excluded after being ruled out for the season.",
+            "This is a dated editorial snapshot, not final seeding or a game-availability prediction. The full article explains what the order says about the contenders and what a composite cannot tell us about a specific playoff matchup."
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "label": "Playoff Player Board · full article, rankings and methodology",
+          "url": "https://www.weknowthew.com/playoff-player-rankings.html"
+        },
+        {
+          "label": "Dallas clinches the final berth",
+          "url": "https://www.wnba.com/game/1022600285"
+        },
+        {
+          "label": "Atlanta announces Bonner and roster departures",
+          "url": "https://dream.wnba.com/news/atlanta-dream-signs-two-time-wnba-champion-dewanna-bonner"
+        },
+        {
+          "label": "Qualified league leaders",
+          "url": "https://www.basketball-reference.com/wnba/years/2026_leaders.html"
+        }
+      ]
+    },
+    {
       "slug": "food-for-thought-title-is-the-lynxs-to-lose",
       "type": "feature",
       "priority": 20,

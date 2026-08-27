@@ -245,6 +245,11 @@ if(!team){
   document.getElementById('rosterHeading').textContent=`${team.name} roster`;
   const playerpediaHref=`/playerpedia.html?team=${encodeURIComponent(team.name)}`;
   document.getElementById('teamPlayerpediaLink').href=playerpediaHref;document.getElementById('rosterPlayerpediaLink').href=playerpediaHref;document.getElementById('rosterPlayerpediaLink').textContent=`Open ${team.name} in Playerpedia →`;
+  const playoffClubs = ['Minnesota Lynx','Golden State Valkyries','Las Vegas Aces','Atlanta Dream','Indiana Fever','New York Liberty','Washington Mystics','Dallas Wings'];
+  if(playoffClubs.includes(team.name)){
+    const link=document.createElement('a');link.className='dream-heading-link';link.href=`/playoff-player-rankings.html?team=${encodeURIComponent(team.name)}#rankings`;link.textContent='Playoff player rankings →';
+    document.getElementById('rosterPlayerpediaLink').parentElement.appendChild(link);
+  }
   if(hasFranchiseHub){activateFranchiseHub();loadTeamPage();}
   else{document.getElementById('genericTeamOverview').hidden=false;loadTeamPage();}
 }

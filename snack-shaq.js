@@ -110,6 +110,7 @@ function postMarkup(post) {
       <h2>${snackSafe(post.title)}</h2>
       <p class="dek">${snackSafe(post.dek || '')}</p>
     </header>
+    ${post.dashboardUrl === '/playoff-player-rankings.html' ? '<section class="snack-section"><p><a href="/playoff-player-rankings.html"><strong>Read Shak’s full editorial and explore the Playoff Player Board →</strong></a></p></section>' : ''}
     ${rankingsMarkup(post.rankings)}
     ${storyTableMarkup(post.storyTable)}
     ${sectionsMarkup(post.sections)}
@@ -119,9 +120,13 @@ function postMarkup(post) {
   `;
 }
 
+function snackStoryHref(post) {
+  return post.dashboardUrl === '/playoff-player-rankings.html' ? post.dashboardUrl : `/snack-shak.html?post=${encodeURIComponent(post.slug)}#latest`;
+}
+
 function featuredMarkup(posts, activeSlug) {
   return posts.map((post, index) => `
-    <a class="snack-feature-card ${post.type === 'feature' ? 'feature' : 'byte'} ${post.slug === activeSlug ? 'active' : ''}" href="/snack-shak.html?post=${encodeURIComponent(post.slug)}#latest" ${post.slug === activeSlug ? 'aria-current="page"' : ''}>
+    <a class="snack-feature-card ${post.type === 'feature' ? 'feature' : 'byte'} ${post.slug === activeSlug ? 'active' : ''}" href="${snackSafe(snackStoryHref(post))}" ${post.slug === activeSlug ? 'aria-current="page"' : ''}>
       <span class="snack-feature-rank">${String(index + 1).padStart(2, '0')}</span>
       <div class="snack-feature-copy">
         <div class="snack-feature-meta">
@@ -139,7 +144,7 @@ function featuredMarkup(posts, activeSlug) {
 function archiveMarkup(posts, activeSlug) {
   if (!posts.length) return '<div class="snack-archive-empty"><strong>The archive is caught up.</strong><p>Older stories will collect here as new plates are published.</p></div>';
   return posts.map(post => `
-    <a class="archive-card ${post.type === 'feature' ? 'feature-card' : ''}" href="/snack-shak.html?post=${encodeURIComponent(post.slug)}#latest" ${post.slug === activeSlug ? 'aria-current="page"' : ''}>
+    <a class="archive-card ${post.type === 'feature' ? 'feature-card' : ''}" href="${snackSafe(snackStoryHref(post))}" ${post.slug === activeSlug ? 'aria-current="page"' : ''}>
       <em>${snackSafe(displaySeries(post))}</em>
       <span>${snackSafe(formatDate(post.published))}</span>
       <strong>${snackSafe(post.title)}</strong>

@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-25T08:00:00Z",
+  "updatedAt": "2026-08-27T21:52:51Z",
   "note": "Current-player movement and availability layer. Player Movement is maintained from the official WNBA Transactions report; Availability is maintained from the official WNBA Injury Report, with WNBA team releases used to confirm longer-term statuses.",
   "rosterOverrides": [
     {"name":"Brittney Griner","team":"Connecticut Sun","position":"Center","number":"42","status":"active","effectiveDate":"2026-04-11","reason":"Signed a one-year contract with Connecticut; confirmed on the current official Sun roster."},
@@ -9,7 +9,7 @@
     {"name":"Naz Hillmon","team":"Atlanta Dream","position":"Forward","number":"00","status":"active","effectiveDate":"2026-08-22","reason":"Confirmed on the current official Atlanta Dream roster."},
     {"name":"Te-Hina Paopao","team":"Atlanta Dream","position":"Guard","number":"2","status":"active","effectiveDate":"2026-08-22","reason":"Confirmed on the current official Atlanta Dream roster."},
     {"name":"Jordin Canada","team":"Atlanta Dream","position":"Guard","number":"3","status":"active","effectiveDate":"2026-08-22","reason":"Confirmed on the current official Atlanta Dream roster."},
-    {"name":"Jaylyn Sherrod","team":"Atlanta Dream","position":"Guard","number":"4","status":"development","effectiveDate":"2026-08-22","reason":"Confirmed as a developmental player on the current official Atlanta Dream roster."},
+    {"name": "Jaylyn Sherrod", "team": "", "position": "Guard", "number": "4", "status": "waived", "effectiveDate": "2026-08-27", "reason": "Waived by Atlanta in its announcement of DeWanna Bonner’s signing.", "lastTeam": "Atlanta Dream", "sourceUrl": "https://dream.wnba.com/news/atlanta-dream-signs-two-time-wnba-champion-dewanna-bonner"},
     {"name":"Angel Reese","team":"Atlanta Dream","position":"Forward","number":"5","status":"active","effectiveDate":"2026-08-22","reason":"Confirmed on the current official Atlanta Dream roster."},
     {"name":"Rhyne Howard","team":"Atlanta Dream","position":"Guard","number":"10","status":"active","effectiveDate":"2026-08-22","reason":"Confirmed on the current official Atlanta Dream roster."},
     {"name":"Madina Okot","team":"Atlanta Dream","position":"Center","number":"11","status":"active","effectiveDate":"2026-08-22","reason":"Confirmed on the current official Atlanta Dream roster."},
@@ -17,7 +17,7 @@
     {"name":"Isobel Borlase","team":"Atlanta Dream","position":"Guard","number":"20","status":"active","effectiveDate":"2026-08-22","reason":"Confirmed on the current official Atlanta Dream roster."},
     {"name":"Indya Nivar","team":"Atlanta Dream","position":"Guard","number":"21","status":"development","effectiveDate":"2026-08-22","reason":"Confirmed as a developmental player on the current official Atlanta Dream roster."},
     {"name":"Sika Kone","team":"Atlanta Dream","position":"Forward","number":"23","status":"active","effectiveDate":"2026-08-22","reason":"Confirmed on the current official Atlanta Dream roster."},
-    {"name":"Aaliyah Nye","team":"Atlanta Dream","position":"Guard-Forward","number":"32","status":"active","effectiveDate":"2026-08-22","reason":"Confirmed on the current official Atlanta Dream roster."},
+    {"name": "Aaliyah Nye", "team": "", "position": "Guard-Forward", "number": "32", "status": "waived", "effectiveDate": "2026-08-27", "reason": "Waived by Atlanta in its announcement of DeWanna Bonner’s signing.", "lastTeam": "Atlanta Dream", "sourceUrl": "https://dream.wnba.com/news/atlanta-dream-signs-two-time-wnba-champion-dewanna-bonner"},
     {"name":"Shatori Walker-Kimbrough","team":"Atlanta Dream","position":"Guard","number":"33","status":"active","effectiveDate":"2026-08-22","reason":"Confirmed on the current official Atlanta Dream roster."},
     {"name":"Brionna Jones","team":"Atlanta Dream","position":"Forward","number":"42","status":"active","effectiveDate":"2026-08-22","reason":"Confirmed on the current official Atlanta Dream roster."},
     {"name":"Betnijah Laney-Hamilton","team":"Washington Mystics","position":"Guard-Forward","status":"active","effectiveDate":"2026-08-08","reason":"Claimed off waivers after New York release."},

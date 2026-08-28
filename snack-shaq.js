@@ -7,6 +7,8 @@ function snackSafe(value = '') {
     .replaceAll("'", '&#039;');
 }
 
+if(!document.querySelector('script[data-snack-shak-nav]')){const s=document.createElement('script');s.src='/snack-shak-nav.js?v=20260828-v1';s.dataset.snackShakNav='true';s.defer=true;document.head.appendChild(s);}
+
 function formatDate(value) {
   const date = new Date(`${value}T12:00:00`);
   return Number.isNaN(date.getTime())
@@ -110,7 +112,7 @@ function postMarkup(post) {
       <h2>${snackSafe(post.title)}</h2>
       <p class="dek">${snackSafe(post.dek || '')}</p>
     </header>
-    ${post.dashboardUrl === '/playoff-player-rankings.html' ? '<section class="snack-section"><p><a href="/playoff-player-rankings.html"><strong>Read Shak’s full editorial and explore the Playoff Player Board →</strong></a></p></section>' : ''}
+    ${post.dashboardUrl ? `<section class="snack-section"><p><a href="${snackSafe(post.dashboardUrl)}"><strong>Read the full feature →</strong></a></p></section>` : ''}
     ${rankingsMarkup(post.rankings)}
     ${storyTableMarkup(post.storyTable)}
     ${sectionsMarkup(post.sections)}
@@ -121,7 +123,7 @@ function postMarkup(post) {
 }
 
 function snackStoryHref(post) {
-  return post.dashboardUrl === '/playoff-player-rankings.html' ? post.dashboardUrl : `/snack-shak.html?post=${encodeURIComponent(post.slug)}#latest`;
+  return post.dashboardUrl || `/snack-shak.html?post=${encodeURIComponent(post.slug)}#latest`;
 }
 
 function featuredMarkup(posts, activeSlug) {
@@ -164,10 +166,21 @@ function sortPosts(posts = []) {
 }
 
 async function fetchPostFile(url) {
-  const response = await fetch(url, { headers: { Accept: 'application/json' }, cache: 'no-store' });
+  const response = await fetch(`${url}?cb=${Date.now()}`, { headers: { Accept: 'application/json', 'Cache-Control':'no-cache' }, cache: 'no-store' });
   if (!response.ok) return [];
   const payload = await response.json().catch(() => ({}));
   return Array.isArray(payload.posts) ? payload.posts : [];
+}
+
+function updateFoodThoughtHero(posts=[]){
+  const latest=posts.find(post=>post.type==='feature');
+  const hero=document.querySelector('.around-feature-story');
+  if(!latest||!hero)return;
+  hero.href=snackStoryHref(latest);
+  const copy=hero.querySelector('.around-feature-copy');
+  const media=hero.querySelector('.around-feature-media');
+  if(copy)copy.innerHTML=`<span class="portal-label">FOOD FOR THOUGHT · LATEST</span><h2>${snackSafe(latest.title)}</h2><p>${snackSafe(latest.dek||'The newest long-form analysis from We Know the W.')}</p><strong>Read Food for Thought →</strong>`;
+  if(media){media.style.background='radial-gradient(circle at 70% 20%,rgba(216,255,79,.22),transparent 24%),linear-gradient(135deg,#080808,#5b246f)';media.innerHTML=`<div style="position:relative;z-index:1;text-align:center;padding:30px;color:#fff"><span style="display:block;color:#f2d8ff;font-size:.74rem;font-weight:1000;letter-spacing:.12em">PLAYOFF FILM · MINNESOTA</span><strong style="display:block;margin-top:10px;color:#d8ff4f;font-size:clamp(3rem,7vw,6rem);line-height:.9;letter-spacing:-.06em">18 TOV</strong><small style="display:block;margin-top:14px;color:rgba(255,255,255,.72);font-weight:900">THE PRESSURE BLUEPRINT</small></div><span class="around-feature-badge">${snackSafe(String(latest.published||'').toUpperCase())}</span>`;}
 }
 
 async function loadSnackShaq() {
@@ -175,22 +188,25 @@ async function loadSnackShaq() {
   const featured = document.getElementById('featuredGrid');
   const archive = document.getElementById('archiveGrid');
   try {
-    const [breakingResult, specialResult, archiveResult] = await Promise.allSettled([
+    const [latestResult, breakingResult, specialResult, archiveResult] = await Promise.allSettled([
+      fetchPostFile('/snack-shak-latest.json'),
       fetchPostFile('/snack-shak-breaking.json'),
       fetchPostFile('/snack-shak-specials.json'),
       fetchPostFile('/snack-shaq-posts.json')
     ]);
+    const latestPosts = latestResult.status === 'fulfilled' ? latestResult.value : [];
     const breaking = breakingResult.status === 'fulfilled' ? breakingResult.value : [];
     const specials = specialResult.status === 'fulfilled' ? specialResult.value : [];
     const weekly = archiveResult.status === 'fulfilled' ? archiveResult.value : [];
     const bySlug = new Map();
-    [...weekly, ...specials, ...breaking].forEach(post => {
+    [...weekly, ...specials, ...breaking, ...latestPosts].forEach(post => {
       if (post?.slug) bySlug.set(post.slug, post);
     });
     const posts = sortPosts([...bySlug.values()]);
     const stories = posts.filter(post => post.type !== 'intro');
     if (!stories.length) throw new Error('No Snack Shak stories have been published yet.');
 
+    updateFoodThoughtHero(stories);
     const requested = new URLSearchParams(location.search).get('post')?.replaceAll('snack-shaq', 'snack-shak');
     const active = stories.find(post => post.slug === requested) || stories[0];
     const featuredPosts = stories.slice(0, 4);

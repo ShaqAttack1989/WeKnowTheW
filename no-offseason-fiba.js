@@ -7,8 +7,15 @@
   const num=(value,digits=1)=>Number.isFinite(Number(value))?Number(value).toFixed(digits):'—';
   const pct=value=>Number.isFinite(Number(value))?`${Number(value).toFixed(1)}%`:'—';
   const phaseLabel=game=>game.group?`Group ${game.group}`:(game.phase||'Knockout');
+  const TOURNAMENT_START=Date.parse('2026-09-04T00:00:00+02:00');
+  const TOURNAMENT_END=Date.parse('2026-09-14T02:00:00+02:00');
+  const LIVE_REFRESH_MS=60*1000;
+  const IDLE_REFRESH_MS=15*60*1000;
 
   let gameFilter='all';
+  let latestData=null;
+  let refreshTimer=null;
+  let refreshing=false;
 
   function localTime(iso){
     if(!iso)return 'TBD';
@@ -22,17 +29,27 @@
     return new Intl.DateTimeFormat('en-US',{weekday:'short',month:'short',day:'numeric'}).format(date);
   }
 
+  function tournamentIsActive(){
+    const now=Date.now();
+    return now>=TOURNAMENT_START&&now<=TOURNAMENT_END;
+  }
+
+  function refreshInterval(){
+    return tournamentIsActive()?LIVE_REFRESH_MS:IDLE_REFRESH_MS;
+  }
+
   function statusCopy(data){
     const status=data.dataStatus||{};
-    if(status.livePlayerStats)return ['LIVE FIBA STATS','Official World Cup player statistics are connected.'];
-    if(status.liveResults)return ['RESULTS CONNECTED','Official FIBA results are refreshing.'];
-    if(status.liveStandings)return ['FIBA CONNECTED','Official standings are refreshing. World Cup player stats will appear after USA tips off.'];
+    if(status.livePlayerStats)return ['LIVE FIBA STATS','Official World Cup player statistics are connected and auto-refreshing.'];
+    if(status.liveResults)return ['RESULTS CONNECTED','Official FIBA results and standings are auto-refreshing.'];
+    if(status.liveStandings)return ['FIBA CONNECTED','Official standings are auto-refreshing. World Cup player stats will appear after USA tips off.'];
     return ['TOURNAMENT READY','Verified schedule and groups are loaded. Live box-score stats will populate when World Cup play begins.'];
   }
 
   function renderHeader(data){
     const [label,copy]=statusCopy(data);
-    $('fibaDataStatus').innerHTML=`<span>${safe(label)}</span><small>${safe(copy)}</small><small class="fiba-updated" id="fibaUpdated">Dashboard refresh: ${safe(new Intl.DateTimeFormat('en-US',{month:'short',day:'numeric',hour:'numeric',minute:'2-digit'}).format(new Date(data.updatedAt)))}</small>`;
+    const refreshLabel=tournamentIsActive()?'Auto-refresh: every 60 seconds':'Auto-refresh: every 15 minutes until tipoff';
+    $('fibaDataStatus').innerHTML=`<span>${safe(label)}</span><small>${safe(copy)}</small><small class="fiba-updated" id="fibaUpdated">Dashboard refresh: ${safe(new Intl.DateTimeFormat('en-US',{month:'short',day:'numeric',hour:'numeric',minute:'2-digit',second:'2-digit'}).format(new Date(data.updatedAt)))} · ${safe(refreshLabel)}</small>`;
     const usa=data.usa||{};
     $('fibaUsaRecord').textContent=`${usa.wins||0}-${usa.losses||0}`;
     $('fibaUsaGroup').textContent=`Group ${usa.group||'D'}`;
@@ -116,7 +133,7 @@
       <td>${safe(row.fg||'—')}</td><td>${pct(row.fgPct)}</td><td>${safe(row.three||'—')}</td><td>${pct(row.threePct)}</td><td>${pct(row.ftPct)}</td>
     </tr>`).join('');
     const live=Boolean(data.dataStatus?.livePlayerStats);
-    $('fibaStatsMode').innerHTML=live?'<b>WORLD CUP LIVE</b><span>Tournament stats · per game where labeled</span>':'<b>PRE-TOURNAMENT</b><span>GP stays 0 and rates stay — until USA plays</span>';
+    $('fibaStatsMode').innerHTML=live?'<b>WORLD CUP LIVE</b><span>Tournament stats · auto-refreshing</span>':'<b>PRE-TOURNAMENT</b><span>GP stays 0 and rates stay — until USA plays</span>';
     $('fibaQualifierForm').innerHTML=(data.qualifyingForm||[]).map(item=>`<span><b>${safe(item.player)}</b><small>${safe(item.label)}</small></span>`).join('');
   }
 
@@ -127,10 +144,11 @@
 
   function renderWarnings(data){
     const warnings=data.dataStatus?.warnings||[];
-    $('fibaFeedNotes').innerHTML=warnings.length?warnings.map(w=>`<span>${safe(w)}</span>`).join(''):'<span>Official FIBA sources connected.</span>';
+    $('fibaFeedNotes').innerHTML=warnings.length?warnings.map(w=>`<span>${safe(w)}</span>`).join(''):'<span>Official FIBA sources connected. Dashboard refreshes automatically.</span>';
   }
 
   function render(data){
+    latestData=data;
     renderHeader(data);
     renderUsaSchedule(data);
     renderStandings(data);
@@ -140,14 +158,39 @@
     renderRoster(data);
     renderWarnings(data);
     root.classList.add('fiba-loaded');
+    root.classList.remove('fiba-error');
   }
 
-  fetch('/api/fiba-world-cup',{headers:{Accept:'application/json'}})
-    .then(response=>response.ok?response.json():Promise.reject(new Error(`FIBA dashboard returned ${response.status}`)))
-    .then(render)
-    .catch(error=>{
-      $('fibaDataStatus').innerHTML='<span>FIBA SOURCE LINK READY</span><small>The dashboard feed could not refresh. Use the official FIBA schedule below.</small>';
-      $('fibaFeedNotes').innerHTML=`<span>${safe(error.message)}</span>`;
-      root.classList.add('fiba-error');
-    });
+  function scheduleRefresh(){
+    clearTimeout(refreshTimer);
+    refreshTimer=setTimeout(()=>loadDashboard({silent:true}),refreshInterval());
+  }
+
+  async function loadDashboard({silent=false}={}){
+    if(refreshing){scheduleRefresh();return;}
+    if(document.hidden){scheduleRefresh();return;}
+    refreshing=true;
+    try{
+      const response=await fetch('/api/fiba-world-cup',{headers:{Accept:'application/json'}});
+      if(!response.ok)throw new Error(`FIBA dashboard returned ${response.status}`);
+      const data=await response.json();
+      render(data);
+    }catch(error){
+      if(!silent||!latestData){
+        $('fibaDataStatus').innerHTML='<span>FIBA SOURCE LINK READY</span><small>The dashboard feed could not refresh. Use the official FIBA schedule below.</small>';
+        $('fibaFeedNotes').innerHTML=`<span>${safe(error.message)}</span>`;
+        root.classList.add('fiba-error');
+      }
+    }finally{
+      refreshing=false;
+      scheduleRefresh();
+    }
+  }
+
+  document.addEventListener('visibilitychange',()=>{
+    if(!document.hidden)loadDashboard({silent:true});
+  });
+  window.addEventListener('focus',()=>loadDashboard({silent:true}));
+
+  loadDashboard();
 })();

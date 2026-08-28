@@ -41,6 +41,8 @@ let advancedByName=new Map();
 let advancedFeedReady=false;
 let advancedUpdatedAt='';
 const letters='ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+const initialPlayerQuery=new URLSearchParams(location.search).get('search');
+if(initialPlayerQuery)playerSearch.value=initialPlayerQuery;
 azGrid.innerHTML=['<button type="button" class="active" data-letter="">All</button>',...letters.map(l=>`<button type="button" data-letter="${l}">${l}</button>`)].join('');
 
 function playerSurname(player={}){
@@ -108,10 +110,9 @@ async function load(){
     fillTeams();
     renderPlayerWire(payload);
     const query=new URLSearchParams(location.search),wanted=query.get('search'),wantedTeam=query.get('team');
-    if(wanted)playerSearch.value=wanted;
     if(wantedTeam){const option=[...playerTeamFilter.options].find(item=>item.textContent.trim().toLowerCase()===wantedTeam.trim().toLowerCase());if(option)playerTeamFilter.value=option.value;}
     render();
-    if(wanted){
+    if(wanted&&playerKey(playerSearch.value)===playerKey(wanted)&&!window.WPlayerpediaLegacy?.find(wanted)){
       const directMatch=allPlayers.find(player=>playerKey(player.name)===playerKey(wanted));
       if(directMatch)openProfile(directMatch.id);
     }
@@ -123,6 +124,8 @@ async function load(){
     if(transactionFeed)transactionFeed.innerHTML='<div class="wire-row"><strong>Player movement feed unavailable.</strong></div>';
     if(injuryFeed)injuryFeed.innerHTML='<div class="wire-row"><strong>Availability feed unavailable.</strong></div>';
     status.textContent='Roster feed unavailable';
+  }finally{
+    document.dispatchEvent(new CustomEvent('w:playerpedia-roster-ready'));
   }
 }
 

@@ -30,6 +30,7 @@
   let dictionary=[];
   let extrasPromise=null;
   async function loadExtras(){
+    window.loadWPlayerpediaLegacy?.().catch(()=>{});
     if(extrasPromise)return extrasPromise;
     extrasPromise=Promise.allSettled([
       fetch('/api/players',{headers:{Accept:'application/json'}}).then(r=>r.ok?r.json():{}),
@@ -61,7 +62,7 @@
   function resultsFor(query){
     const q=norm(query),terms=q.split(/\s+/).filter(Boolean);
     if(q.length<2)return [];
-    return [...staticIndex,...players,...articles,...dictionary]
+    return [...staticIndex,...(window.WPlayerpediaLegacy?.searchRecords()||[]),...players.filter(player=>!window.WPlayerpediaLegacy?.find(player.title)),...articles,...dictionary]
       .map(item=>({item,score:scoreItem(item,q,terms)})).filter(x=>x.score!==null)
       .sort((a,b)=>a.score-b.score||a.item.title.localeCompare(b.item.title)).slice(0,12).map(x=>x.item);
   }
@@ -75,6 +76,7 @@
   }
   const input=document.getElementById('homeSiteSearch'),clear=document.getElementById('homeSearchClear');
   let searchTimer=null;
+  document.addEventListener('w:legacy-ready',()=>renderSearch(input?.value||''));
   input?.addEventListener('input',()=>{clearTimeout(searchTimer);searchTimer=setTimeout(()=>renderSearch(input.value),70);if(input.value.trim().length>=2)loadExtras().then(()=>renderSearch(input.value));});
   input?.addEventListener('keydown',event=>{if(event.key==='Enter'){const first=document.querySelector('#homeSearchResults .home-search-result');if(first){event.preventDefault();location.href=first.href;}}});
   clear?.addEventListener('click',()=>{input.value='';renderSearch('');input.focus();});

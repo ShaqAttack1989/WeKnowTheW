@@ -78,7 +78,7 @@
   }
 
   function decorateModal(){
-    if(modalBody.querySelector('.profile-loading'))return;
+    if(modalBody.querySelector('.profile-loading,[data-retired-profile]'))return;
     const title=modalBody.querySelector('#playerModalTitle');
     const name=title?.textContent?.trim()||'';
     if(!name||name==='Loading…')return;

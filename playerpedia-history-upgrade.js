@@ -55,7 +55,7 @@
   function scheduleCards(){clearTimeout(cardTimer);cardTimer=setTimeout(decorateCards,120);}
 
   function decorateModal(){
-    if(!ready||modal.querySelector('.profile-loading'))return;
+    if(!ready||modal.querySelector('.profile-loading,[data-retired-profile]'))return;
     const title=modal.querySelector('#playerModalTitle');if(!title)return;
     const player=rosterByName.get(key(title.textContent.trim()));
     if(!player||!historical(player))return;

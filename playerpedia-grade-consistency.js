@@ -53,7 +53,7 @@
       const grade=parsedGrade(seasonSection,'retired');
       if(!grade){removeWrongCurrentGrade();return;}
       const season=seasonSection.querySelector('.research-retired-kicker')?.textContent?.match(/\b(?:19|20)\d{2}\b/)?.[0]||'Final season';
-      placeCanonical(title,grade,`${season} final-season weighted league grade`,'retired');
+      placeCanonical(title,grade,`${season} last-season weighted league grade`,'retired');
       return;
     }
 

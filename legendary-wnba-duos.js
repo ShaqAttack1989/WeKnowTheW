@@ -26,7 +26,7 @@ const DUO_PHOTOS={
   'Katie Douglas':'https://www.basketball-reference.com/req/202106291/images/headshots/douglka01w.jpg'
 };
 
-const RETIRED_LOUNGE=new Set(['Cynthia Cooper','Sheryl Swoopes','Tina Thompson','Lisa Leslie','Lauren Jackson','Sue Bird','Yolanda Griffith','Ticha Penicheiro','Katie Smith','Diana Taurasi','Cappie Pondexter','Seimone Augustus','Maya Moore','Tamika Catchings','Sylvia Fowles','Candace Parker','Elena Delle Donne']);
+const RETIRED_LOUNGE=new Set(['Swin Cash','Cynthia Cooper','Sheryl Swoopes','Tina Thompson','Lisa Leslie','Lauren Jackson','Sue Bird','Yolanda Griffith','Ticha Penicheiro','Katie Smith','Diana Taurasi','Cappie Pondexter','Seimone Augustus','Maya Moore','Tamika Catchings','Sylvia Fowles','Candace Parker','Elena Delle Donne']);
 const CURRENT_PLAYERPEDIA=new Set(['Brittney Griner','Nneka Ogwumike','Breanna Stewart','Jewell Loyd','Kahleah Copper',"A'ja Wilson",'Chelsea Gray','Jackie Young','Jonquel Jones','Napheesa Collier','Olivia Miles']);
 const H=name=>DUO_PHOTOS[name]||`https://cdn.wnba.com/headshots/wnba/latest/1040x760/${DUO_HEADSHOTS[name]}.png`;
 

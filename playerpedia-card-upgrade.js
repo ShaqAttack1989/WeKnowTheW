@@ -115,7 +115,7 @@
   }
 
   async function upgradeModal(){
-    if(modal.querySelector('.profile-loading'))return;
+    if(modal.querySelector('.profile-loading,[data-retired-profile]'))return;
     const title=modal.querySelector('#playerModalTitle');
     if(!title)return;
     const name=title.textContent.trim();
@@ -128,7 +128,7 @@
     const [detail,yearsPayload,draftPayload,careerPayload,factsPayload]=await Promise.all([
       detailData(name,team),yearsData(),draftData(),careerData(),factData(name)
     ]);
-    if(key(modal.querySelector('#playerModalTitle')?.textContent)!==key(name))return;
+    if(key(modal.querySelector('#playerModalTitle')?.textContent)!==key(name)||modal.querySelector('[data-retired-profile]'))return;
 
     const grade=gradesByName.get(key(name))||{};
     let gradeLine=modal.querySelector('.profile-grade-line');

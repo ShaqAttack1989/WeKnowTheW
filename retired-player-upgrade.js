@@ -1,6 +1,34 @@
-(()=>{const media={
-'Sue Bird':['100720','2002–2022'],'Diana Taurasi':['100940','2004–2024'],'Candace Parker':['201496','2008–2023'],'Tamika Catchings':['100646','2002–2016'],'Maya Moore':['202632','2011–2018'],'Sylvia Fowles':['201480','2008–2022'],'Seimone Augustus':['200671','2006–2020'],'Lindsay Whalen':['100915','2004–2018'],'Becky Hammon':['100342','1999–2014'],'Natalie Achonwa':['203831','2015–2023'],'Courtney Paris':['201907','2009–2019'],'Sugar Rodgers':['203411','2013–2020'],'Lisa Leslie':['100003','1997–2009'],'Sheryl Swoopes':['100072','1997–2011'],'Cynthia Cooper':['100073','1997–2003'],'Tina Thompson':['100076','1997–2013'],'Ticha Penicheiro':['100234','1998–2012'],'Yolanda Griffith':['100419','1999–2009'],'Katie Smith':['100404','1999–2013'],'Elena Delle Donne':['203399','2013–2023'],'Tina Charles':['202250','2010–2025'],'Lauren Jackson':['100682','2001–2012'],'Cappie Pondexter':['200665','2006–2018']};
-window.W_RETIRED_MEDIA=media;for(const player of retiredPlayers){const m=media[player.name];if(m){player.photo=`https://cdn.wnba.com/headshots/wnba/latest/1040x760/${m[0]}.png`;player.wnbaYears=m[1];}}
-async function resolveFallback(img,name){if(!img||img.dataset.fallbackTried==='1')return;img.dataset.fallbackTried='1';try{const r=await fetch(`/api/media?type=player&name=${encodeURIComponent(name)}`,{headers:{Accept:'application/json'}});const p=await r.json();const src=p?.found&&p?.item?.image?p.item.image:'';if(src){img.dataset.fallbackSource='media';img.src=src;return;}}catch{}img.style.display='none';}
-function wireFallbacks(){document.querySelectorAll('#retiredPlayerGrid .retired-player-photo img').forEach(img=>{if(img.dataset.fallbackWired==='1')return;img.dataset.fallbackWired='1';const card=img.closest('.retired-card'),name=card?.querySelector('h3')?.textContent?.trim()||img.alt||'';img.addEventListener('error',()=>resolveFallback(img,name));if(img.complete&&img.naturalWidth===0)resolveFallback(img,name);});}
-card=function(player){const photo=player.photo?`<img src="${escRetired(player.photo)}" alt="${escRetired(player.name)}" loading="lazy" decoding="async">`:'';const clipboard=['Becky Hammon','Stephanie White','Sandy Brondello','Natalie Achonwa','Courtney Paris','Ebony Hoffman','Sylvia Fowles','Sugar Rodgers'].includes(player.name)?`<a class="retired-card-playerpedia" href="/coaches.html#court-to-clipboard">Court to Clipboard →</a>`:'';return `<article class="retired-card"><div class="retired-card-top"><span class="retired-player-photo"><span>${escRetired(initials(player.name))}</span>${photo}</span><div><small>${escRetired(player.wnbaYears||'')}</small><h3>${escRetired(player.name)}</h3></div></div><div class="retired-card-body"><p>${escRetired(player.fact)}</p><div class="retired-team-path">${player.teams.map(teamStop).join('')}</div><div class="retired-card-links"><a class="retired-card-source" href="${escRetired(player.source)}" target="_blank" rel="noopener">${escRetired(player.sourceLabel)} →</a>${clipboard}</div></div></article>`;};renderRetired();wireFallbacks();if(!document.querySelector('script[data-legacy-team-assets]')){const legacy=document.createElement('script');legacy.src='/legacy-team-assets.js?v=20260823-v1';legacy.dataset.legacyTeamAssets='true';document.body.appendChild(legacy);}})();
+(()=>{
+  const catalog=window.WPlayerpediaLegacy;
+  window.W_RETIRED_MEDIA=Object.fromEntries(catalog.players.filter(player=>player.mediaId).map(player=>[player.name,[player.mediaId,player.years]]));
+  async function resolveFallback(img,name){
+    if(!img||img.dataset.fallbackTried==='1')return;
+    img.dataset.fallbackTried='1';
+    try{
+      const r=await fetch(`/api/media?type=player&name=${encodeURIComponent(name)}`,{headers:{Accept:'application/json'}}),p=await r.json();
+      if(p?.found&&p.item?.image){img.src=p.item.image;return;}
+    }catch{}
+    img.style.display='none';
+  }
+  function wireFallbacks(){
+    document.querySelectorAll('#retiredPlayerGrid .retired-player-photo img').forEach(img=>{
+      if(img.dataset.fallbackWired==='1')return;img.dataset.fallbackWired='1';
+      const name=img.closest('.retired-card')?.querySelector('h3')?.textContent?.trim()||img.alt||'';
+      img.addEventListener('error',()=>catalog.find(name)?.photoSource?img.style.display='none':resolveFallback(img,name));
+      if(img.complete&&img.naturalWidth===0&&!catalog.find(name)?.photoSource)resolveFallback(img,name);
+    });
+  }
+  card=function(player){
+    const esc=escRetired;
+    const photo=player.photo?`<img src="${esc(player.photo)}" alt="${esc(player.name)}" loading="lazy" decoding="async"${player.photoSource?' class="legacy-portrait"':''}>`:'';
+    const credit=player.photoSource?`<p class="legacy-photo-credit">Photo: <a href="${esc(player.photoSource)}" target="_blank" rel="noopener">${esc(player.photoCredit)}</a> · <a href="${esc(player.photoLicenseUrl)}" target="_blank" rel="noopener">${esc(player.photoLicense)}</a> · cropped to fit.</p>`:'';
+    const clipboard=player.clipboard?'<a class="retired-card-playerpedia" href="/coaches.html#court-to-clipboard">Court to Clipboard →</a>':'';
+    const career=player.careerStats?`<p class="legacy-career-summary"><strong>Career regular season</strong><br>${player.careerStats.games} games · ${player.careerStats.ppg.toFixed(1)} PPG · ${player.careerStats.rpg.toFixed(1)} RPG · ${player.careerStats.apg.toFixed(1)} APG</p>`:'';
+    return `<article class="retired-card"><div class="retired-card-top"><span class="retired-player-photo"><span>${esc(initials(player.name))}</span>${photo}</span><div><small>${esc(player.years)}</small><h3>${esc(player.name)}</h3><small>${esc(catalog.statusLabel(player))}</small></div></div><div class="retired-card-body">${credit}<p>${esc(player.fact)}</p>${career}<div class="retired-team-path">${player.teams.map(teamStop).join('')}</div><div class="retired-card-links"><a class="retired-card-playerpedia" href="${esc(catalog.profileHref(player))}">Playerpedia · stats and profile →</a><a class="retired-card-source" href="${esc(player.source)}" target="_blank" rel="noopener">${esc(player.sourceLabel)} ↗</a>${player.statsSource?`<a class="retired-card-source" href="${esc(player.statsSource)}" target="_blank" rel="noopener">Basketball-Reference · statistics ↗</a>`:''}${clipboard}</div></div></article>`;
+  };
+  const baseRender=renderRetired;
+  renderRetired=function(){baseRender();wireFallbacks();};
+  renderRetired();
+  new MutationObserver(wireFallbacks).observe(document.getElementById('retiredPlayerGrid'),{childList:true});
+  if(!document.querySelector('script[data-legacy-team-assets]')){const script=document.createElement('script');script.src='/legacy-team-assets.js?v=20260823-v1';script.dataset.legacyTeamAssets='true';document.body.appendChild(script);}
+})();

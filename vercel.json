@@ -13,6 +13,7 @@
     {"source":"/snack-shak-specials.json","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},
     {"source":"/snack-shaq-posts.json","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},
     {"source":"/playerpedia.html","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},
+    {"source":"/playerpedia-legacy.js","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},
     {"source":"/playerpedia-research-desk.js","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},
     {"source":"/playerpedia-research-desk.css","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},
     {"source":"/playerpedia-grade-consistency.js","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},

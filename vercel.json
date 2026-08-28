@@ -35,6 +35,7 @@
     {"source":"/team-dna.css","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},
     {"source":"/team-story-pathway.js","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},
     {"source":"/team-story-pathway.css","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},
+    {"source":"/no-offseason-fiba.js","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},
     {"source":"/api/players","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},
     {"source":"/api/player-movement","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},
     {"source":"/api/team-dna","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},
@@ -43,6 +44,7 @@
   "crons": [
     {"path":"/api/player-movement","schedule":"0 9 * * *"},
     {"path":"/api/players","schedule":"5 9 * * *"},
-    {"path":"/api/availability","schedule":"*/30 * * * *"}
+    {"path":"/api/availability","schedule":"*/30 * * * *"},
+    {"path":"/api/fiba-world-cup","schedule":"*/2 * 4-13 9 *"}
   ]
 }

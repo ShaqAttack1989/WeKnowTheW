@@ -5,6 +5,7 @@ const path = require('node:path');
 const root = path.resolve(__dirname, '..');
 const page = require(path.join(root, 'playoff-player-rankings.js'));
 const model = require(path.join(root, 'playoff-ranking-model.js'));
+const keys = require(path.join(root, 'dashboard-keys.js'));
 const data = JSON.parse(fs.readFileSync(path.join(root, 'data/playoff-player-rankings-2026.json'), 'utf8'));
 const safe = value => String(value).replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
 const file = path.join(root, 'playoff-player-rankings.html');
@@ -15,6 +16,7 @@ function replace(name, content) {
   html = html.replace(pattern, () => `<!-- ${name}:start -->${content}<!-- ${name}:end -->`);
 }
 replace('podium', page.podium(data));
+replace('dashboard-key', keys.render(keys.routes['playoff-player-rankings.html'][0], data));
 replace('teams', page.teams(data));
 replace('rows', page.rows(model.rankPlayers(data.players), data));
 replace('options', data.teams.map(team => `<option value="${safe(team.slug)}">${safe(team.name)}</option>`).join(''));

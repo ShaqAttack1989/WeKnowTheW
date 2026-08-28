@@ -17,6 +17,13 @@
     pathway.dataset.teamStoryPathway='true';
     document.body.appendChild(pathway);
   }
+  if(!document.querySelector('script[data-team-feed-updates]')){
+    const feed=document.createElement('script');
+    feed.src='/team-feed-updates.js?v=20260828-v1';
+    feed.defer=true;
+    feed.dataset.teamFeedUpdates='true';
+    document.body.appendChild(feed);
+  }
 
   const REFRESH_MS=30*60*1000;
   const RETURN_REFRESH_MS=10*60*1000;

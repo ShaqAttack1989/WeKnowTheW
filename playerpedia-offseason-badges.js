@@ -17,6 +17,7 @@
   let unrivaled=new Map();
   let future=new Map();
   let au=new Map();
+  let teamUSA=new Set();
   let cardTimer=null;
   let modalTimer=null;
 
@@ -25,11 +26,13 @@
     unrivaled=new Map((payload?.unrivaled?.players||[]).map(([name,team])=>[key(name),team]));
     future=new Map((payload?.unrivaled?.season3Signed||[]).map(([name,team])=>[key(name),team]));
     au=new Map((payload?.athletesUnlimited?.players||[]).map(([name,team])=>[key(name),team]));
+    teamUSA=new Set((payload?.teamUSA?.players||[]).map(name=>key(name)));
   }
 
   function affiliationsFor(name){
     if(!data)return [];
     const k=key(name),items=[];
+    if(teamUSA.has(k))items.push({league:'fiba-usa',team:'Team USA',label:'2026 FIBA World Cup',logo:''});
     if(unrivaled.has(k))items.push({league:'unrivaled',team:unrivaled.get(k),label:'2026 club',logo:data?.logos?.unrivaled||''});
     else if(future.has(k))items.push({league:'unrivaled',team:future.get(k),label:'signed for 2027',logo:data?.logos?.unrivaled||''});
     if(au.has(k))items.push({league:'au',team:au.get(k),label:'2026 Week 4',logo:data?.logos?.au||''});
@@ -39,7 +42,7 @@
   function markup(name,modalMode=false){
     const items=affiliationsFor(name);
     if(!items.length)return '';
-    return `<span class="pro-affiliations"${modalMode?' data-modal-affiliation="true"':''} aria-label="Other professional league affiliations">${items.map(item=>`<span class="pro-affiliation ${safe(item.league)}">${item.logo?`<img src="${safe(item.logo)}" alt="" loading="lazy" decoding="async">`:''}<span class="pro-affiliation-copy"><b>${safe(item.team)}</b><small>${safe(item.label)}</small></span></span>`).join('')}</span>`;
+    return `<span class="pro-affiliations"${modalMode?' data-modal-affiliation="true"':''} aria-label="Professional and national-team affiliations">${items.map(item=>`<span class="pro-affiliation ${safe(item.league)}">${item.logo?`<img src="${safe(item.logo)}" alt="" loading="lazy" decoding="async">`:item.league==='fiba-usa'?'<span class="pro-affiliation-flag" aria-hidden="true">🇺🇸</span>':''}<span class="pro-affiliation-copy"><b>${safe(item.team)}</b><small>${safe(item.label)}</small></span></span>`).join('')}</span>`;
   }
 
   function signature(name){return affiliationsFor(name).map(item=>`${item.league}:${item.team}:${item.label}`).join('|');}

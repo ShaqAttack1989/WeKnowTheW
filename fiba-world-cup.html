@@ -3,24 +3,24 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="Follow Team USA and the 2026 FIBA Women's Basketball World Cup in Berlin with auto-updating standings, schedules, results and individual USA player statistics from We Know the W.">
+<meta name="description" content="Follow Team USA and the 2026 FIBA Women's Basketball World Cup in Berlin with auto-updating standings, schedules, results, official FIBA world rankings and individual USA player statistics from We Know the W.">
 <title>FIBA Women's Basketball World Cup 2026 | We Know the W</title>
 <link rel="stylesheet" href="/styles.css">
 <link rel="stylesheet" href="/landing.css">
-<link rel="stylesheet" href="/no-offseason.css?v=20260828-fiba-child-v1">
-<link rel="stylesheet" href="/no-offseason-fiba.css?v=20260828-fiba-child-v1">
+<link rel="stylesheet" href="/no-offseason.css?v=20260828-fiba-rank-v1">
+<link rel="stylesheet" href="/no-offseason-fiba.css?v=20260828-fiba-rank-v1">
 </head>
 <body class="section-page no-offseason-page">
 <header class="subhero no-offseason-hero">
 <nav class="nav shell"><a class="brand" href="/"><span class="brand-mark">W</span><span>WE KNOW THE W</span></a><button class="menu-button" id="menuButton" aria-expanded="false" aria-controls="navLinks">Menu</button><div class="nav-links" id="navLinks"></div></nav>
-<div class="page-shell subhero-inner"><p class="eyebrow">NO OFFSEASON · WORLD STAGE · BERLIN 2026</p><h1>FIBA <em>WORLD CUP</em></h1><p>Team USA gets the spotlight while all 16 countries stay on the board. Follow the schedule, standings, results and individual USA tournament statistics as the World Cup unfolds.</p><div class="page-crumbs"><a href="/">Home</a><span>›</span><a href="/no-offseason.html">No Offseason</a><span>›</span><b>FIBA World Cup</b></div></div>
+<div class="page-shell subhero-inner"><p class="eyebrow">NO OFFSEASON · WORLD STAGE · BERLIN 2026</p><h1>FIBA <em>WORLD CUP</em></h1><p>Team USA gets the spotlight while all 16 countries stay on the board. Follow the schedule, standings, world rankings, results and individual USA tournament statistics as the World Cup unfolds.</p><div class="page-crumbs"><a href="/">Home</a><span>›</span><a href="/no-offseason.html">No Offseason</a><span>›</span><b>FIBA World Cup</b></div></div>
 </header>
 <main>
 <section class="fiba-world-cup-section" id="fiba-world-cup">
 <div class="page-shell" id="fibaWorldCupHub">
   <div class="fiba-world-cup-head">
-    <div><p class="kicker">FIBA WOMEN'S BASKETBALL WORLD CUP · BERLIN 2026</p><h2>THE WORLD IS WATCHING. <em>WE'RE WATCHING USA.</em></h2><p>All 16 countries stay on the board, but Team USA gets the spotlight: Group D, every USA game, tournament standings and individual World Cup statistics for the 2026 national-team roster.</p></div>
-    <div class="fiba-source-links"><a href="https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026/games" target="_blank" rel="noopener">Official FIBA Games ↗</a><a href="https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026/standings" target="_blank" rel="noopener">Official Standings ↗</a></div>
+    <div><p class="kicker">FIBA WOMEN'S BASKETBALL WORLD CUP · BERLIN 2026</p><h2>THE WORLD IS WATCHING. <em>WE'RE WATCHING USA.</em></h2><p>All 16 countries stay on the board, but Team USA gets the spotlight: Group D, every USA game, tournament standings, official world rankings and individual World Cup statistics for the 2026 national-team roster.</p></div>
+    <div class="fiba-source-links"><a href="https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026/games" target="_blank" rel="noopener">Official FIBA Games ↗</a><a href="https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026/standings" target="_blank" rel="noopener">Official Standings ↗</a><a href="https://www.fiba.basketball/en/ranking/women" target="_blank" rel="noopener">FIBA World Ranking ↗</a></div>
   </div>
   <div class="fiba-data-status" id="fibaDataStatus"><span>CONNECTING TO FIBA</span><small>Loading tournament schedule, standings and Team USA statistics…</small><small class="fiba-updated" id="fibaUpdated"></small></div>
 
@@ -42,9 +42,17 @@
   <div class="fiba-subhead"><div><h3>Team USA group schedule</h3><p>Berlin time plus your device-local game time.</p></div></div>
   <div class="fiba-usa-schedule" id="fibaUsaSchedule"><p class="fiba-empty">Loading Team USA games…</p></div>
 
+  <section class="fiba-panel fiba-world-ranking-panel" aria-label="FIBA world ranking for World Cup countries">
+    <div class="fiba-panel-head"><div><span>FIBA WORLD RANKING WOMEN · 16-TEAM FIELD</span><h3>How the World Cup countries rank globally</h3></div><small>Official FIBA world rank is separate from each country's position inside its World Cup group.</small></div>
+    <div class="fiba-world-ranking-meta" id="fibaWorldRankingMeta"><b>LOADING FIBA RANKING</b><span>Connecting to the official women’s world ranking.</span></div>
+    <div class="fiba-world-ranking-grid" id="fibaWorldRankingGrid"><p class="fiba-empty">Loading country rankings…</p></div>
+    <div class="fiba-world-ranking-key"><span><b>WR</b> FIBA World Rank</span><span><b>PTS</b> FIBA ranking points</span><span><b>Group</b> Berlin World Cup group</span><span><b>USA outline</b> Team USA spotlight</span></div>
+    <small id="fibaWorldRankingNote" class="fiba-roster-note">World rank is separate from tournament record.</small>
+  </section>
+
   <div class="fiba-dashboard-grid">
     <section class="fiba-panel">
-      <div class="fiba-panel-head"><div><span>16 COUNTRIES · FOUR GROUPS</span><h3>World Cup standings</h3></div><small>Group D is outlined for USA. W/L and points refresh from FIBA when available.</small></div>
+      <div class="fiba-panel-head"><div><span>16 COUNTRIES · FOUR GROUPS</span><h3>World Cup standings</h3></div><small>WR shows FIBA world rank. Group D is outlined for USA. W/L and points refresh from FIBA when available.</small></div>
       <div class="fiba-standings-grid" id="fibaStandingsGrid"><p class="fiba-empty">Loading standings…</p></div>
     </section>
     <section class="fiba-panel">
@@ -65,15 +73,16 @@
     <div class="fiba-qualifier-strip"><header><b>Entering Berlin · 2026 Qualifying form</b><small>Separate from World Cup stats · official FIBA qualifying leaders</small></header><div class="fiba-qualifier-form" id="fibaQualifierForm"></div></div>
     <div class="fiba-dashboard-key" aria-label="FIBA dashboard legend"><span><b>GP</b> games played</span><span><b>MPG</b> minutes per game</span><span><b>PPG</b> points per game</span><span><b>FG%</b> field-goal percentage</span><span><b>3P%</b> three-point percentage</span><span><b>—</b> tournament stat not available yet</span><span><b>Yellow row</b> current USA PPG leader</span></div>
     <div class="fiba-feed-notes" id="fibaFeedNotes"></div>
-    <div class="fiba-official-cta"><p>We Know the W organizes the dashboard for fast reading; FIBA remains the official source for schedule, results, standings and tournament statistics.</p><a href="https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026" target="_blank" rel="noopener">OPEN FIBA WORLD CUP ↗</a></div>
+    <div class="fiba-official-cta"><p>We Know the W organizes the dashboard for fast reading; FIBA remains the official source for world rankings, schedule, results, standings and tournament statistics.</p><a href="https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026" target="_blank" rel="noopener">OPEN FIBA WORLD CUP ↗</a></div>
   </section>
 
   <div class="page-footer-nav"><a href="/no-offseason.html">← No Offseason</a><a href="/unrivaled.html">Unrivaled</a><a href="/athletes-unlimited.html">Athletes Unlimited →</a></div>
 </div>
 </section>
 </main>
-<script src="/site.js?v=20260828-fiba-child-v1"></script>
-<script src="/no-offseason-nav.js?v=20260828-fiba-child-v1"></script>
-<script src="/no-offseason-fiba.js?v=20260828-fiba-child-v1"></script>
+<script src="/site.js?v=20260828-fiba-rank-v1"></script>
+<script src="/no-offseason-nav.js?v=20260828-fiba-rank-v1"></script>
+<script src="/no-offseason-fiba.js?v=20260828-fiba-rank-v1"></script>
+<script src="/fiba-world-rankings.js?v=20260828-fiba-rank-v1"></script>
 </body>
 </html>

@@ -36,6 +36,8 @@
     {"source":"/team-story-pathway.js","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},
     {"source":"/team-story-pathway.css","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},
     {"source":"/no-offseason-fiba.js","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},
+    {"source":"/no-offseason-nav.js","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},
+    {"source":"/fiba-world-cup.html","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},
     {"source":"/api/players","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},
     {"source":"/api/player-movement","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},
     {"source":"/api/team-dna","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},

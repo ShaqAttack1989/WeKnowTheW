@@ -19,4 +19,27 @@
 
   window.TEAM_CULTURE_IDENTITIES=Object.freeze(identities);
   window.TEAM_FANBASE_IDENTITIES=Object.freeze(Object.fromEntries(Object.entries(identities).map(([slug,item])=>[slug,{name:item.fanbase,kind:'Fan community',source:'/courtside-culture.html#home-court-roll-call'}])));
+
+  // Current franchise milestone: Kahleah Copper became the fastest Mercury player to 2,000 points on Aug. 27, 2026.
+  if(new URLSearchParams(location.search).get('team')==='phoenix-mercury'){
+    const mercuryGuide=window.TEAM_GUIDES?.['phoenix-mercury'];
+    if(mercuryGuide){
+      mercuryGuide.history.push(['2026','Kah reaches 2,000 in record time','Kahleah Copper scored 35 against Washington and became the fastest player in Mercury history to reach 2,000 franchise points, getting there in 103 games.']);
+      mercuryGuide.honors.unshift(['103','Games to 2,000 points','Kahleah Copper reached 2,000 Mercury points faster than any player in franchise history, one game quicker than Diana Taurasi and Cappie Pondexter.']);
+    }
+
+    const nowSection=document.getElementById('whats-happening');
+    const statGrid=document.getElementById('dreamStatGrid');
+    if(nowSection&&statGrid&&!document.getElementById('mercuryCopperMilestone')){
+      const card=document.createElement('section');
+      card.id='mercuryCopperMilestone';
+      card.setAttribute('aria-label','Kahleah Copper franchise milestone');
+      card.style.cssText='margin:0 0 24px;padding:22px;border-radius:24px;background:linear-gradient(135deg,#201747 0%,#4b2372 62%,#CB6015 150%);color:#fff;box-shadow:0 18px 45px rgba(32,23,71,.18);display:grid;grid-template-columns:minmax(0,1fr) auto;gap:18px;align-items:center';
+      card.innerHTML='<div><span style="display:block;font-size:.72rem;font-weight:1000;letter-spacing:.13em;color:#ffb35c;margin-bottom:8px">FRANCHISE MILESTONE · AUG. 27, 2026</span><strong style="display:block;font-size:clamp(1.45rem,4vw,2.35rem);line-height:1.02;letter-spacing:-.035em">Kah got to 2,000 first.</strong><p style="margin:10px 0 0;max-width:760px;color:rgba(255,255,255,.84);line-height:1.55">Kahleah Copper dropped 35 points against Washington and became the fastest player in Mercury history to score 2,000 points for the franchise. She did it in 103 games, one fewer than Diana Taurasi and Cappie Pondexter.</p><a href="https://abcnews.com/Sports/wireStory/georgia-amoore-scores-career-high-25-mystics-move-136022246" target="_blank" rel="noopener noreferrer" style="display:inline-block;margin-top:14px;color:#ffcf8f;font-weight:900;text-decoration:none">Milestone receipt ↗</a></div><div style="min-width:112px;text-align:center;padding:15px 16px;border-radius:20px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18)"><strong style="display:block;font-size:2.8rem;line-height:.9;color:#ff9f3f">2K</strong><span style="display:block;margin-top:8px;font-size:.72rem;font-weight:900;letter-spacing:.08em">103 GAMES</span></div>';
+      statGrid.parentNode.insertBefore(card,statGrid);
+      const mq=window.matchMedia('(max-width:680px)');
+      const sync=()=>{card.style.gridTemplateColumns=mq.matches?'1fr':'minmax(0,1fr) auto';};
+      sync();mq.addEventListener?.('change',sync);
+    }
+  }
 })();

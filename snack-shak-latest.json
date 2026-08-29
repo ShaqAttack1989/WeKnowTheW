@@ -2,6 +2,61 @@
   "site": "Snack Shak",
   "posts": [
     {
+      "slug": "kelsey-mitchell-1000-points",
+      "type": "byte",
+      "priority": 130,
+      "seriesLabel": "MILESTONE MOMENT",
+      "title": "Kelsey Mitchell Is the WNBA's First 1,000 Point Guard",
+      "published": "2026-08-29",
+      "week": "History watch · Aug. 29, 2026",
+      "dashboardUrl": "/kelsey-mitchell-1000-points.html",
+      "teams": ["Indiana Fever"],
+      "players": ["Kelsey Mitchell", "A'ja Wilson"],
+      "dek": "Mitchell's 34 against Connecticut pushed her to 1,001 points, making her the first guard and only the second player ever to score 1,000 in one WNBA season.",
+      "sections": [{"title":"The line moved","paragraphs":["A'ja Wilson created the 1,000 point season club. Kelsey Mitchell just became its first guard, reaching the mark with elite efficiency and a season that is still moving."]}],
+      "sources": [
+        {"label":"StatMuse season total","url":"https://www.statmuse.com/wnba/ask/kelsey-mitchell-points-this-season"},
+        {"label":"Reuters game report","url":"https://www.reuters.com/sports/caitlin-clark-kelsey-mitchell-combine-68-fever-trounce-sun--flm-2026-08-29/"}
+      ]
+    },
+    {
+      "slug": "aja-wilson-south-carolina-nike-deal",
+      "type": "byte",
+      "priority": 125,
+      "seriesLabel": "BUSINESS MOVES",
+      "title": "A’ja Wilson's Name Is Written Into South Carolina's Nike Deal",
+      "published": "2026-08-29",
+      "week": "Herstory business desk · Aug. 29, 2026",
+      "dashboardUrl": "/aja-wilson-south-carolina-nike-deal.html",
+      "teams": ["Las Vegas Aces"],
+      "players": ["A'ja Wilson"],
+      "dek": "South Carolina's 10 year Nike agreement formally prices A’ja Wilson signature shoes and Wilson related marketing into the benefits promised to the university.",
+      "sections": [{"title":"Boardroom leverage, with receipts","paragraphs":["The public record does not prove Wilson singlehandedly caused the Nike deal. It does show something unusually concrete: her signature product and marketing connection carry explicit contractual value inside a university wide agreement covering all 21 Gamecocks programs."]}],
+      "sources": [
+        {"label":"Nike and South Carolina term sheet","url":"https://sportstalksc.com/wp-content/uploads/2025/08/USC_NIKE-Term-Sheet.pdf"},
+        {"label":"Nike partnership launch","url":"https://about.nike.com/en/newsroom/releases/nike-signs-university-of-south-carolina-athletes-to-blue-ribbon-elite-nil-roster"},
+        {"label":"South Carolina Athletics","url":"https://gamecocksonline.com/news/2025/08/22/south-carolina-announces-10-year-partnership-with-nike/"}
+      ]
+    },
+    {
+      "slug": "rickea-jackson-unrivaled-status",
+      "type": "byte",
+      "priority": 120,
+      "seriesLabel": "NO OFFSEASON STATUS",
+      "title": "Rickea Is Still Unrivaled, but Season 3 Will Wait",
+      "published": "2026-08-29",
+      "week": "Unrivaled status check · Aug. 29, 2026",
+      "dashboardUrl": "/rickea-jackson-unrivaled-status.html",
+      "teams": ["Los Angeles Sparks", "Breeze"],
+      "players": ["Rickea Jackson"],
+      "dek": "Jackson remains part of Unrivaled on a multi year deal, but the current league update says injury will keep her out of the 2027 season. She is expected back for Season 4.",
+      "sections": [{"title":"Affiliation is not availability","paragraphs":["The return announcement and the injury status have to live together. Jackson remains Unrivaled, but she should not be listed as an active Season 3 player while the league says she will miss 2027."]}],
+      "sources": [
+        {"label":"Current Unrivaled status feed","url":"https://bleacherreport.com/unrivaled"},
+        {"label":"Official Rickea Jackson Unrivaled bio","url":"https://www.unrivaled.basketball/player/rickea-jackson-tuum4vu1htu2/bio"}
+      ]
+    },
+    {
       "slug": "lynx-playoff-blueprint-update",
       "type": "feature",
       "priority": 100,
@@ -13,18 +68,8 @@
       "teams": ["Minnesota Lynx", "Golden State Valkyries", "Atlanta Dream", "New York Liberty"],
       "players": ["Napheesa Collier", "Courtney Williams", "Olivia Miles", "Veronica Burton", "Angel Reese"],
       "dek": "Golden State's win over Minnesota looked like one ugly Lynx night. What the Valkyries have done since makes the pressure blueprint harder to shrug off.",
-      "sections": [
-        {
-          "title": "The pattern is getting harder to dismiss",
-          "paragraphs": [
-            "Golden State forced Minnesota into 18 turnovers and a season-low 66 points, then went on to smother another playoff team. The useful part of the film is what happens before Minnesota reaches its preferred actions: pressure the ball, crowd the first pass and make the Lynx begin offense later in the clock.",
-            "The catch is that the formula only travels if the opponent protects its own possessions, rebounds the stop and has enough bench production to keep the pressure alive for forty minutes."
-          ]
-        }
-      ],
-      "sources": [
-        {"label": "Full Food for Thought article", "url": "https://www.weknowthew.com/lynx-playoff-blueprint-update.html"}
-      ]
+      "sections": [{"title":"The pattern is getting harder to dismiss","paragraphs":["Golden State forced Minnesota into 18 turnovers and a season-low 66 points, then went on to smother another playoff team. The useful part of the film is what happens before Minnesota reaches its preferred actions: pressure the ball, crowd the first pass and make the Lynx begin offense later in the clock.","The catch is that the formula only travels if the opponent protects its own possessions, rebounds the stop and has enough bench production to keep the pressure alive for forty minutes."]}],
+      "sources": [{"label":"Full Food for Thought article","url":"https://www.weknowthew.com/lynx-playoff-blueprint-update.html"}]
     }
   ]
 }

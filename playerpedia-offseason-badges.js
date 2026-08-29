@@ -16,6 +16,7 @@
   let data=null;
   let unrivaled=new Map();
   let future=new Map();
+  let futureStatus=new Map();
   let au=new Map();
   let teamUSA=new Set();
   let cardTimer=null;
@@ -25,6 +26,7 @@
     data=payload;
     unrivaled=new Map((payload?.unrivaled?.players||[]).map(([name,team])=>[key(name),team]));
     future=new Map((payload?.unrivaled?.season3Signed||[]).map(([name,team])=>[key(name),team]));
+    futureStatus=new Map((payload?.unrivaled?.season3Statuses||[]).map(([name,status])=>[key(name),status]));
     au=new Map((payload?.athletesUnlimited?.players||[]).map(([name,team])=>[key(name),team]));
     teamUSA=new Set((payload?.teamUSA?.players||[]).map(name=>key(name)));
   }
@@ -33,8 +35,8 @@
     if(!data)return [];
     const k=key(name),items=[];
     if(teamUSA.has(k))items.push({league:'fiba-usa',team:'Team USA',label:'2026 FIBA World Cup',logo:''});
-    if(unrivaled.has(k))items.push({league:'unrivaled',team:unrivaled.get(k),label:'2026 club',logo:data?.logos?.unrivaled||''});
-    else if(future.has(k))items.push({league:'unrivaled',team:future.get(k),label:'signed for 2027',logo:data?.logos?.unrivaled||''});
+    if(unrivaled.has(k))items.push({league:'unrivaled',team:unrivaled.get(k),label:futureStatus.get(k)||'2026 club',logo:data?.logos?.unrivaled||''});
+    else if(future.has(k))items.push({league:'unrivaled',team:future.get(k),label:futureStatus.get(k)||'signed for 2027',logo:data?.logos?.unrivaled||''});
     if(au.has(k))items.push({league:'au',team:au.get(k),label:'2026 Week 4',logo:data?.logos?.au||''});
     return items;
   }

@@ -1,4 +1,5 @@
 const liveUpdates = require('../player-live-updates.json');
+const { CURRENT_AVAILABILITY_PATCH } = require('../lib/current-availability-patch');
 const { getWnbaInjuries } = require('../lib/wehoop-espn');
 const { fetchLatestOfficialReport } = require('../lib/wnba-injury-report');
 
@@ -28,8 +29,18 @@ function normalizeProvider(item = {}) {
 }
 
 function currentCuratedCarryovers() {
-  const items = Array.isArray(liveUpdates.injuries) ? liveUpdates.injuries : [];
-  return items.filter(item => item.carryover === true || String(item.status || '').toUpperCase().includes('SEASON'));
+  const items = [
+    ...(Array.isArray(CURRENT_AVAILABILITY_PATCH) ? CURRENT_AVAILABILITY_PATCH : []),
+    ...(Array.isArray(liveUpdates.injuries) ? liveUpdates.injuries : [])
+  ];
+  const seen = new Set();
+  return items.filter(item => {
+    if (!item?.player) return false;
+    const playerKey = key(item.player);
+    if (seen.has(playerKey)) return false;
+    seen.add(playerKey);
+    return item.carryover === true || String(item.status || '').toUpperCase().includes('SEASON');
+  });
 }
 
 function mergeAvailability(officialReport = {}, provider = []) {
@@ -39,8 +50,23 @@ function mergeAvailability(officialReport = {}, provider = []) {
   const seen = new Set();
   const combined = [];
 
-  for (const item of official) {
+  for (const item of Array.isArray(CURRENT_AVAILABILITY_PATCH) ? CURRENT_AVAILABILITY_PATCH : []) {
     if (!item?.player) continue;
+    const playerKey = key(item.player);
+    seen.add(playerKey);
+    combined.push({
+      ...item,
+      source: item.source || 'WNBA team announcement',
+      officialCurrentReport: false,
+      crossCheckOnly: false,
+      teamAnnouncementCurrent: true,
+      trackedCarryover: true,
+      seasonLongCarryover: String(item.status || '').toUpperCase().includes('SEASON')
+    });
+  }
+
+  for (const item of official) {
+    if (!item?.player || seen.has(key(item.player))) continue;
     const playerKey = key(item.player);
     seen.add(playerKey);
     combined.push({

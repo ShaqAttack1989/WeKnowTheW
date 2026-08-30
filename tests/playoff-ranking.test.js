@@ -111,11 +111,13 @@ async function rosterWithProvider(players=[],allTeams=snapshot.teams.map((t,i)=>
   const res={setHeader(){},status(code){this.code=code;return this;},json(body){this.body=body;return this;}};
   await context.module.exports({method:'GET'},res);assert.equal(res.code,200);return res.body;
 }
-test('shared roster API keeps waived players searchable but off Atlanta, including provider fallback', async () => {
+test('shared roster API applies the latest Sparks moves, including provider fallback', async () => {
   const response=await rosterWithProvider();
-  for(const name of ['Aaliyah Nye','Jaylyn Sherrod']){
-    const p=response.players.find(p=>p.name===name);assert.ok(p);assert.equal(p.currentRoster,false);assert.equal(p.liveStatus,'waived');assert.equal(p.lastTeam,'Atlanta Dream');
-  }
+  const sherrod=response.players.find(p=>p.name==='Jaylyn Sherrod');assert.ok(sherrod);assert.equal(sherrod.currentRoster,false);assert.equal(sherrod.liveStatus,'waived');assert.equal(sherrod.lastTeam,'Atlanta Dream');
+  const martin=response.players.find(p=>p.name==='Kate Martin');assert.equal(martin.liveStatus,'waived');assert.equal(martin.lastTeam,'Los Angeles Sparks');
+  const pili=response.players.find(p=>p.name==='Alissa Pili');assert.equal(pili.liveStatus,'released');assert.equal(pili.lastTeam,'Los Angeles Sparks');
+  const nye=response.players.find(p=>p.name==='Aaliyah Nye');assert.equal(nye.currentRoster,true);assert.equal(nye.liveStatus,'active');assert.equal(nye.team,'Los Angeles Sparks');
+  const mwenentanda=response.players.find(p=>p.name==='Ndjakalenga Mwenentanda');assert.equal(mwenentanda.currentRoster,true);assert.equal(mwenentanda.liveStatus,'development');assert.equal(mwenentanda.team,'Los Angeles Sparks');
   const bonner=response.players.find(p=>p.name==='DeWanna Bonner');assert.equal(bonner.currentRoster,true);assert.equal(bonner.team,'Atlanta Dream');assert.equal(bonner.number,'24');
   const laksa=response.players.find(p=>p.name==='Kitija Laksa');assert.equal(laksa.currentRoster,true);assert.equal(laksa.team,'Dallas Wings');assert.equal(laksa.wnbaId,'1629490');assert.match(laksa.photo,/1629490\.png$/);
 });
@@ -145,7 +147,10 @@ test('shared roster correction also overrides a complete but stale provider rost
   assert.ok(stale.length>=120 && teams.length>=12);
   const response=await rosterWithProvider(stale,teams);
   assert.equal(response.liveRosterCoverage.players,stale.length);
-  assert.equal(response.players.find(p=>p.name==='Aaliyah Nye').currentRoster,false);
+  assert.equal(response.players.find(p=>p.name==='Aaliyah Nye').currentRoster,true);
+  assert.equal(response.players.find(p=>p.name==='Aaliyah Nye').team,'Los Angeles Sparks');
+  assert.equal(response.players.find(p=>p.name==='Kate Martin').currentRoster,false);
+  assert.equal(response.players.find(p=>p.name==='Alissa Pili').currentRoster,false);
   assert.equal(response.players.find(p=>p.name==='Jaylyn Sherrod').currentRoster,false);
   assert.equal(response.players.find(p=>p.name==='DeWanna Bonner').team,'Atlanta Dream');
 });

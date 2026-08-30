@@ -11,7 +11,7 @@
     const heading=document.querySelector('.home-week-heading h2');
     const deck=document.querySelector('.home-week-heading h2 + p');
     if(heading)heading.textContent='Three things to know this week.';
-    if(deck)deck.textContent='Milestone watch, the newest Snack Shak feature, and Shak’s mock weekly Starting Five and Bench Mob, all in one easy-to-scan board.';
+    if(deck)deck.textContent='Milestone watch, a different Snack Shak story, and Shak’s mock weekly Starting Five and Bench Mob, all in one easy-to-scan board.';
     const rotationCard=document.querySelector('.home-week-card.rotations .home-week-label');
     if(rotationCard)rotationCard.textContent='🏀 SHAK’S MOCK WEEKLY ROTATIONS';
   }

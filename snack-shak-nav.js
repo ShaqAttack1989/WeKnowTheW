@@ -8,6 +8,8 @@
     const snackGroups=groups.filter(group=>group.querySelector('.nav-parent')?.getAttribute('href')==='/snack-shak.html');
     snackGroups.slice(1).forEach(group=>group.remove());
     let group=snackGroups[0];
+    // site.js now owns the clean global menu. Keep its grouped structure intact.
+    if(group?.querySelector('.nav-menu-section'))return;
     if(!group){
       group=document.createElement('div');
       group.className='nav-group';

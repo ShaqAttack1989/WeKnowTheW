@@ -1,7 +1,42 @@
 {
-  "updatedAt": "2026-08-24T08:00:00-04:00",
+  "updatedAt": "2026-08-30T21:30:00-04:00",
   "timezone": "America/New_York",
   "startingFive": [
+    {
+      "week": "2026-08-31",
+      "picks": [
+        {
+          "name": "Paige Bueckers",
+          "label": "1 · PG",
+          "role": "Point Guard",
+          "copy": "The lead creator in Shak’s five, pairing 20.6 points and 5.9 assists per game with scoring craft, pace control and playmaking from the point."
+        },
+        {
+          "name": "Kelsey Mitchell",
+          "label": "2 · SG",
+          "role": "Shooting Guard",
+          "copy": "A relentless scoring threat at the two, averaging 25.0 points per game after consecutive performances of 30 and 34 points."
+        },
+        {
+          "name": "Napheesa Collier",
+          "label": "3 · SF",
+          "role": "Small Forward",
+          "copy": "The two way connector on the wing, bringing 18.1 points and 7.4 rebounds per game with elite defensive versatility."
+        },
+        {
+          "name": "Angel Reese",
+          "label": "4 · PF",
+          "role": "Power Forward",
+          "copy": "The league’s leading rebounder brings 12.5 boards per game, historic double double production and relentless second chance pressure."
+        },
+        {
+          "name": "A'ja Wilson",
+          "label": "5 · C",
+          "role": "Center",
+          "copy": "The anchor at the five, averaging 26.0 points and 9.4 rebounds while pairing dominant interior scoring with rim protection."
+        }
+      ]
+    },
     {
       "week": "2026-08-24",
       "picks": [
@@ -74,6 +109,53 @@
     }
   ],
   "benchMob": [
+    {
+      "week": "2026-08-31",
+      "picks": [
+        {
+          "role": "Sixth Woman",
+          "roleId": "sixth-woman",
+          "name": "Kiki Rice",
+          "statLine": "24 points vs. Seattle · Fast scoring lift",
+          "why": "Her composure, efficient scoring and ability to change the pace give this week’s group its first lift off the bench."
+        },
+        {
+          "role": "Microwave Scorer",
+          "roleId": "microwave",
+          "name": "Tiffany Hayes",
+          "statLine": "22 PTS · 6 REB · 5 AST · 3 STL vs. Chicago",
+          "why": "A veteran scorer who can heat up quickly, attack gaps and bring immediate two way force to a second unit."
+        },
+        {
+          "role": "3 & D Wing",
+          "roleId": "three-d",
+          "name": "Allisha Gray",
+          "statLine": "23 PTS · 11 REB · 6 threes vs. Minnesota",
+          "why": "Her shooting, rebounding and dependable perimeter defense make her the strongest current fit for the two way wing role."
+        },
+        {
+          "role": "Glue Player · Floor General",
+          "roleId": "glue",
+          "name": "Natasha Cloud",
+          "statLine": "35 point high · Multiple 7 assist games",
+          "why": "Her organization, ball pressure and connective passing keep every unit settled while her scoring surge adds another dimension."
+        },
+        {
+          "role": "Backup Floor General",
+          "roleId": "backup-pg",
+          "name": "Veronica Burton",
+          "statLine": "13 AST · 0 turnovers vs. New York",
+          "why": "She supplies precise decision making, disruptive defense and the clean playmaking needed to organize a second unit."
+        },
+        {
+          "role": "Energy Big",
+          "roleId": "energy-big",
+          "name": "Awak Kuier",
+          "statLine": "7 blocks vs. Indiana · Stretch big versatility",
+          "why": "Her rim protection, mobility and floor spacing create the kind of high activity frontcourt minutes that swing possessions."
+        }
+      ]
+    },
     {
       "week": "2026-08-24",
       "picks": [

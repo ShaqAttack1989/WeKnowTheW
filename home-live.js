@@ -108,12 +108,17 @@ async function fetchFreshHomeLive(){
   if(!response.ok||!Array.isArray(payload.games))throw new Error(payload.error||'Fresh live games unavailable');
   return payload;
 }
+function mergeVerifiedHomeLive(current=[],fresh={}){
+  const games=Array.isArray(fresh.games)?fresh.games:[];
+  return games.length||fresh.liveStatusVerified===true?games:(Array.isArray(current)?current:[]);
+}
 async function refreshHomeLiveGames(){
   if(homeLiveGamesRefreshActive||!livePayload)return;
   homeLiveGamesRefreshActive=true;
   try{
     const fresh=await fetchFreshHomeLive();
-    livePayload.liveGames=window.WGameBroadcasts?.enrichGames?WGameBroadcasts.enrichGames(fresh.games):fresh.games;
+    const liveGames=mergeVerifiedHomeLive(livePayload.liveGames,fresh);
+    livePayload.liveGames=window.WGameBroadcasts?.enrichGames?WGameBroadcasts.enrichGames(liveGames):liveGames;
     homeLiveUpdatedAt=fresh.updatedAt||new Date().toISOString();
     if(gameMode==='live')renderGamePanel();else document.getElementById('liveGamesToggle')?.classList.toggle('has-live',Boolean(fresh.games.length));
     updateHomeLiveStatus('refreshes every 10 seconds');
@@ -143,7 +148,7 @@ async function loadHomeLive(initial=false){
     ]);
     if(statsResult.status!=='fulfilled')throw statsResult.reason;
     const payload=statsResult.value;
-    if(liveResult.status==='fulfilled'){payload.liveGames=liveResult.value.games;homeLiveUpdatedAt=liveResult.value.updatedAt||payload.updatedAt;}
+    if(liveResult.status==='fulfilled'){payload.liveGames=mergeVerifiedHomeLive(payload.liveGames,liveResult.value);homeLiveUpdatedAt=liveResult.value.updatedAt||payload.updatedAt;}
     else {const browserLive=await window.WGameCards?.fetchLiveGames?.();if(Array.isArray(browserLive))payload.liveGames=browserLive;homeLiveUpdatedAt=payload.updatedAt;}
     if(window.WGameBroadcasts?.enrichGames)payload.liveGames=WGameBroadcasts.enrichGames(payload.liveGames||[]);
     livePayload=payload;

@@ -102,14 +102,17 @@
   function easternDateParam(){const parts=new Intl.DateTimeFormat('en-US',{timeZone:TIME_ZONE,year:'numeric',month:'2-digit',day:'2-digit'}).formatToParts(new Date()),value=type=>parts.find(part=>part.type===type)?.value||'';return `${value('year')}${value('month')}${value('day')}`;}
 
   async function fetchLiveGames(){
-    try{
-      const response=await fetch(`https://site.api.espn.com/apis/site/v2/sports/basketball/wnba/scoreboard?dates=${easternDateParam()}&limit=100`,{headers:{Accept:'application/json'},cache:'no-store'}),payload=await response.json().catch(()=>({}));
-      if(!response.ok)return [];
-      return (Array.isArray(payload.events)?payload.events:[]).map(event=>{
+    const normalizeEvent=event=>{
         const competition=event.competitions?.[0]||{},competitors=Array.isArray(competition.competitors)?competition.competitors:[],home=competitors.find(item=>item.homeAway==='home')||{},away=competitors.find(item=>item.homeAway==='away')||{},type=event.status?.type||competition.status?.type||{},status=event.status||competition.status||{};
         return {id:String(event.id||competition.id||''),startTimeUtc:event.date||competition.date||'',homeTeam:home.team?.displayName||'',awayTeam:away.team?.displayName||'',homeScore:hasScore(home.score)?Number(home.score):null,awayScore:hasScore(away.score)?Number(away.score):null,venue:competition.venue?.fullName||'',status:type.shortDetail||type.detail||type.description||'',state:type.state||'',period:Number(status.period)||null,clock:status.displayClock||'',broadcasts:[...new Set((competition.broadcasts||[]).flatMap(item=>item.names||[]))],completed:Boolean(type.completed)};
-      }).filter(liveGame);
-    }catch{return [];}
+      };
+    const sources=[
+      [`https://cdn.espn.com/core/wnba/scoreboard?xhr=1&limit=50&dates=${easternDateParam()}`,payload=>payload?.content?.sbData?.events],
+      [`https://site.api.espn.com/apis/site/v2/sports/basketball/wnba/scoreboard?dates=${easternDateParam()}&limit=100`,payload=>payload?.events]
+    ];
+    const results=await Promise.allSettled(sources.map(async([url,events])=>{const response=await fetch(url,{headers:{Accept:'application/json'},cache:'no-store'}),payload=await response.json().catch(()=>({}));if(!response.ok)throw new Error('Live feed unavailable');return (Array.isArray(events(payload))?events(payload):[]).map(normalizeEvent).filter(liveGame);}));
+    const merged=new Map();results.forEach(result=>{if(result.status==='fulfilled')result.value.forEach(game=>merged.set(game.id||`${game.awayTeam}|${game.homeTeam}`,game));});
+    return [...merged.values()];
   }
 
   window.WGameCards={render,populateFilter,filter,loadArtwork,fetchLiveGames,finalGame,liveGame};

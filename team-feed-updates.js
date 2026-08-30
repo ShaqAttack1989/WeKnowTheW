@@ -5,7 +5,7 @@
   const slug=params.get('team')||'';
   if(!slug)return;
 
-  const VERSION='20260828-v1';
+  const VERSION='20260830-burton-v1';
   const CURATED={
     'seattle-storm':[
       {
@@ -28,6 +28,15 @@
       }
     ],
     'golden-state-valkyries':[
+      {
+        date:'2026-08-27',
+        kind:'WNBA FIRST',
+        player:'Veronica Burton',
+        detail:'Across the Aug. 26 and Aug. 27 back to back, Burton totaled 20 assists with zero turnovers, seven against Connecticut and 13 against New York. Golden State’s milestone graphic recognized the two game span as the first of its kind in WNBA history.',
+        sourceLabel:'Golden State Valkyries',
+        sourceUrl:'https://valkyries.wnba.com/news/player/1631007/veronica-burton',
+        priority:5
+      },
       {
         date:'2026-08-26',
         kind:'BENCH LEADER',

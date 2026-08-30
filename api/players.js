@@ -296,7 +296,10 @@ function buildRoster(rosterData = {}, recentRosterData = {}, recentSeason = 2025
     const existing = canonicalPlayers.get(playerKey);
     if (!existing || completeness(player) > completeness(existing)) canonicalPlayers.set(playerKey, player);
   }
-  return [...canonicalPlayers.values()]
+  return [...canonicalPlayers.values()].map(player => {
+    const filterTeam = player.currentRoster === false ? player.lastTeam : player.team;
+    return { ...player, teamId: player.teamId || (filterTeam ? key(filterTeam) : '') };
+  })
     .sort((a,b) => a.lastName.localeCompare(b.lastName) || a.firstName.localeCompare(b.firstName));
 }
 function normalizeTransaction(item = {}) {

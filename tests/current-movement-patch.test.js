@@ -31,12 +31,18 @@ test('latest Sparks moves update current rosters without removing Playerpedia hi
 
   assert.equal(byName.get('Kate Martin').currentRoster, false);
   assert.equal(byName.get('Kate Martin').team, 'Free Agent · last: Los Angeles Sparks');
+  assert.equal(byName.get('Kate Martin').teamId, 'losangelessparks');
   assert.equal(byName.get('Kate Martin').liveStatus, 'waived');
 
   assert.equal(byName.get('Alissa Pili').currentRoster, false);
   assert.equal(byName.get('Aaliyah Nye').team, 'Los Angeles Sparks');
   assert.equal(byName.get('Aaliyah Nye').currentRoster, true);
   assert.equal(byName.get('Ndjakalenga Mwenentanda').liveStatus, 'development');
+
+  for (const player of payload.players) {
+    const filterTeam = player.currentRoster === false ? player.lastTeam : player.team;
+    if (filterTeam) assert.ok(player.teamId, `${player.name} is missing a team filter ID`);
+  }
 
   assert.ok(payload.transactions.some(item => item.player === 'Kate Martin' && item.type === 'WAIVED'));
   assert.ok(payload.transactions.some(item => item.player === 'Aaliyah Nye' && item.type === 'CLAIMED'));

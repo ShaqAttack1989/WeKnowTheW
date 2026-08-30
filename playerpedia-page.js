@@ -61,7 +61,13 @@ function clearSearchUrl(){
   url.searchParams.delete('search');
   history.replaceState({},'',`${url.pathname}${url.search}${url.hash}`);
 }
-function filtered(){const q=normalizeText(playerSearch.value),qKey=playerKey(playerSearch.value),team=playerTeamFilter.value;return allPlayers.filter(p=>{const haystack=`${p.name} ${p.team} ${p.position}`;return (!letter||playerSurname(p).toUpperCase().startsWith(letter))&&(!team||String(p.teamId)===team)&&(!q||normalizeText(haystack).includes(q)||playerKey(haystack).includes(qKey));});}
+function playerMatchesTeam(player={},selected=''){
+  if(!selected)return true;
+  const selectedTeam=teams.find(team=>String(team.id)===String(selected));
+  const selectedKey=playerKey(selectedTeam?.name||selected);
+  return [player.teamId,player.team,player.lastTeam].some(value=>playerKey(value)===selectedKey);
+}
+function filtered(){const q=normalizeText(playerSearch.value),qKey=playerKey(playerSearch.value),team=playerTeamFilter.value;return allPlayers.filter(p=>{const haystack=`${p.name} ${p.team} ${p.position}`;return (!letter||playerSurname(p).toUpperCase().startsWith(letter))&&playerMatchesTeam(p,team)&&(!q||normalizeText(haystack).includes(q)||playerKey(haystack).includes(qKey));});}
 
 function render(){
   const list=filtered();

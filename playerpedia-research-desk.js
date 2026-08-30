@@ -66,7 +66,7 @@
     visible+=legacy.length;
     if(!visible)grid.innerHTML='<div class="player-empty"><strong>No players match those filters.</strong><span>Try All players or another name, letter or team.</span></div>';
     count.textContent=`${visible} ${visible===1?'player':'players'} shown`;
-    if(statusEl)statusEl.textContent=mode==='retired'?'Legends Lounge: career records, last WNBA season stats and grades, and franchise paths.':mode==='recent'?'Recently active players and free agents retain their last WNBA season.':mode==='current'?'Current WNBA roster players with team context, grades and season statistics.':`Search current, recent and archived careers together.${!rosterReady?' Career archive is ready; current rosters are loading.':!source().length?' Current roster feed is unavailable; the career archive remains searchable.':''}`;
+    if(statusEl)statusEl.textContent=mode==='retired'?'Legends Lounge retired players: career records, last WNBA season stats and grades, and franchise paths.':mode==='recent'?'Benched free agents retain their last WNBA season and last team context.':mode==='current'?'On the Floor current players have live team context, grades and season statistics.':`Search current players, benched free agents and retired players together.${!rosterReady?' Career archive is ready; current rosters are loading.':!source().length?' Current roster feed is unavailable; the career archive remains searchable.':''}`;
     updateTabCounts();
   }
   function setMode(next){

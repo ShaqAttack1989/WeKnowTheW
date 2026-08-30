@@ -27,6 +27,14 @@ test('aliases, accents, punctuation and career teams reach the same archive reco
   assert.ok(catalog.matches(catalog.find('Rebecca Lobo'),'Houston'));
   assert.ok(catalog.matches(catalog.find('Chamique Holdsclaw'),'San Antonio'));
 });
+test('career-stage labels keep their names and explanations separated by a middle dot',()=>{
+  const html=read('playerpedia.html');
+  assert.match(html,/On the Floor · Current Players/);
+  assert.match(html,/Benched · Free Agents/);
+  assert.match(html,/Legends Lounge · Retired Players/);
+  assert.doesNotMatch(html,/>Recent Players</);
+  assert.doesNotMatch(html,/Legends Lounge · Career Archive/);
+});
 test('historical archive requests skip the slower current-season feed',()=>{
   const {shouldUseOfficialStats}=snapshotApi._test;
   assert.equal(shouldUseOfficialStats(2026),true);

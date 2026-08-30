@@ -34,6 +34,16 @@ test('uses one white desktop bar and a bounded mobile accordion', () => {
   assert.match(site, /menuButton\.textContent=open\?'Close':'Menu'/);
 });
 
+test('keeps desktop menu labels readable and the homepage hero compact', () => {
+  const landing = fs.readFileSync(path.join(root, 'landing.css'), 'utf8');
+  const home = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
+  assert.match(css, /\.site-navigation \.nav-parent-label\s*\{[^}]*font-size:1em!important/s);
+  assert.match(css, /font-size:clamp\(\.88rem,\.82vw,\.96rem\)!important/);
+  assert.match(landing, /@media\(min-width:901px\)\{[\s\S]*\.hub-hero \.hero-inner\{[\s\S]*min-height:520px/);
+  assert.match(landing, /\.hub-hero h1\{[\s\S]*font-size:clamp\(4rem,4\.5vw,5\.35rem\)/);
+  assert.match(home, /landing\.css\?v=20260830-compact-hero-v1/);
+});
+
 test('older Snack Shak article helper cannot overwrite the new menu', () => {
   assert.match(legacySnackNav, /group\?\.querySelector\('\.nav-menu-section'\)\)return/);
 });

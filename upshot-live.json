@@ -1,35 +1,62 @@
 {
-  "updatedAt": "2026-08-25T10:30:00Z",
+  "updatedAt": "2026-08-30T14:38:18Z",
   "league": "UPSHOT League",
   "season": 2026,
-  "label": "Inaugural season league hub",
-  "note": "Public-source snapshot. The 2026 regular season is complete. Team standings metrics are from the official UPSHOT standings page; player snapshots remain date-stamped because rosters changed during the season.",
+  "label": "Complete inaugural season record",
+  "note": "Public-source snapshot. The 2026 regular season and inaugural championship are complete. Regular-season standings remain separated from the title-game result, and league honors are sourced from official UPSHOT team announcements.",
   "championship": {
+    "status": "Final",
     "date": "2026-08-29",
-    "time": "7:00 PM ET",
     "venue": "VyStar Veterans Memorial Arena",
     "city": "Jacksonville, FL",
     "teamA": "Charlotte Crown",
     "teamB": "Jacksonville Waves",
-    "format": "Top two regular-season teams · winner-take-all inaugural championship"
+    "champion": "Charlotte Crown",
+    "runnerUp": "Jacksonville Waves",
+    "score": "81-76",
+    "championScore": 81,
+    "runnerUpScore": 76,
+    "mvp": "Deja Kelly",
+    "mvpLine": "29 points · 6 rebounds",
+    "detail": "Charlotte erased a 10-point fourth-quarter deficit and outscored Jacksonville 32-19 in the final period.",
+    "format": "Inaugural UPSHOT championship · final",
+    "sourceUrl": "https://crownupshot.com/crown-pull-off-comeback-to-win-upshot-championship/"
   },
   "teams": [
-    {"rank":1,"team":"Jacksonville Waves","short":"Waves","city":"Jacksonville, FL","record":"25-9","wins":25,"losses":9,"pct":0.735,"gb":"—","home":"13-4","away":"12-5","streak":"L1","l10":"6-4","l10Wins":6,"ppg":82.6,"oppg":78.2,"diff":4.4,"coach":"Jessica Bogia","arena":"VyStar Veterans Memorial Arena","tagline":"Rise with us","accent":"#04747f","light":"#b6e7ef","qualified":true,"note":"The regular-season pace setter. Jacksonville finished first, paired the league's best defensive scoring mark with 25 wins, and earned the right to play the inaugural title game on its home floor.","officialUrl":"https://upshotleague.com/teams/jacksonville-waves/"},
-    {"rank":2,"team":"Charlotte Crown","short":"Crown","city":"Charlotte, NC","record":"23-11","wins":23,"losses":11,"pct":0.676,"gb":"2","home":"12-5","away":"11-6","streak":"W4","l10":"9-1","l10Wins":9,"ppg":84.9,"oppg":79.8,"diff":5.1,"coach":"Trisha Stafford-Odom","arena":"Bojangles Coliseum","tagline":"The Queen City in motion","accent":"#8c57ff","light":"#d8c7ff","qualified":true,"note":"Charlotte hit the championship runway hot: a four-game winning streak, a 9-1 finish over the last ten, the league's best scoring average and the best point differential in the final table.","officialUrl":"https://upshotleague.com/teams/charlotte-crown/"},
-    {"rank":3,"team":"Greensboro Groove","short":"Groove","city":"Greensboro, NC","record":"11-23","wins":11,"losses":23,"pct":0.324,"gb":"14","home":"6-11","away":"5-12","streak":"L3","l10":"2-8","l10Wins":2,"ppg":78.1,"oppg":83.4,"diff":-5.3,"coach":"Janice M. Washington","arena":"Novant Health Fieldhouse / First Horizon Coliseum","tagline":"We are the beat","accent":"#0077b6","light":"#3be29a","qualified":false,"note":"Greensboro finished third in year one. The Groove's inaugural season included statement wins and a roster that produced one of the league's first WNBA call-ups in Christyn Williams.","officialUrl":"https://upshotleague.com/teams/greensboro-groove/"},
-    {"rank":4,"team":"Savannah Steel","short":"Steel","city":"Savannah, GA","record":"9-25","wins":9,"losses":25,"pct":0.265,"gb":"16","home":"7-10","away":"2-15","streak":"W1","l10":"2-8","l10Wins":2,"ppg":76.2,"oppg":80.4,"diff":-4.2,"coach":"Coretta Brown","arena":"Enmarket Arena","tagline":"Strength in motion","accent":"#a40a93","light":"#ff9df5","qualified":false,"note":"Savannah closed the regular season with a 92-90 win over first-place Jacksonville, a fitting reminder that the final table did not tell the whole story of the Steel's fight in year one.","officialUrl":"https://upshotleague.com/teams/savannah-steel/"}
+    {"rank":1,"team":"Jacksonville Waves","short":"Waves","city":"Jacksonville, FL","record":"25-9","wins":25,"losses":9,"pct":0.735,"gb":"—","home":"13-4","away":"12-5","streak":"L1","l10":"6-4","l10Wins":6,"ppg":82.6,"oppg":78.2,"diff":4.4,"coach":"Jessica Bogia","arena":"VyStar Veterans Memorial Arena","tagline":"Rise with us","accent":"#04747f","light":"#b6e7ef","qualified":true,"seasonFinish":"Championship runner-up","note":"Jacksonville won the inaugural regular-season table and hosted the first championship. The Waves led Charlotte through three quarters before the Crown's fourth-quarter comeback ended the title game 81-76.","officialUrl":"https://wavesupshot.com/"},
+    {"rank":2,"team":"Charlotte Crown","short":"Crown","city":"Charlotte, NC","record":"23-11","wins":23,"losses":11,"pct":0.676,"gb":"2","home":"12-5","away":"11-6","streak":"W4","l10":"9-1","l10Wins":9,"ppg":84.9,"oppg":79.8,"diff":5.1,"coach":"Trisha Stafford-Odom","arena":"Bojangles Coliseum","tagline":"The Queen City in motion","accent":"#8c57ff","light":"#d8c7ff","qualified":true,"seasonFinish":"2026 UPSHOT champion","note":"Charlotte turned a 1-5 start into a championship story. The Crown closed the regular season 22-6 after Schaquilla Nunn joined, then rallied from 10 down in the fourth quarter to win the inaugural title 81-76.","officialUrl":"https://crownupshot.com/"},
+    {"rank":3,"team":"Greensboro Groove","short":"Groove","city":"Greensboro, NC","record":"11-23","wins":11,"losses":23,"pct":0.324,"gb":"14","home":"6-11","away":"5-12","streak":"L3","l10":"2-8","l10Wins":2,"ppg":78.1,"oppg":83.4,"diff":-5.3,"coach":"Janice M. Washington","arena":"Novant Health Fieldhouse / First Horizon Coliseum","tagline":"We are the beat","accent":"#0077b6","light":"#3be29a","qualified":false,"seasonFinish":"Third place","note":"Greensboro finished third in year one. The Groove's inaugural season included statement wins, All-UPSHOT guard Diamond Johnson and one of the league's first WNBA call-ups in Christyn Williams.","officialUrl":"https://grooveupshot.com/"},
+    {"rank":4,"team":"Savannah Steel","short":"Steel","city":"Savannah, GA","record":"9-25","wins":9,"losses":25,"pct":0.265,"gb":"16","home":"7-10","away":"2-15","streak":"W1","l10":"2-8","l10Wins":2,"ppg":76.2,"oppg":80.4,"diff":-4.2,"coach":"Coretta Brown","arena":"Enmarket Arena","tagline":"Strength in motion","accent":"#a40a93","light":"#ff9df5","qualified":false,"seasonFinish":"Fourth place","note":"Savannah closed the regular season with a 92-90 win over first-place Jacksonville. Lasha Petree gave the Steel a place on the inaugural All-UPSHOT Team.","officialUrl":"https://steelupshot.com/"}
+  ],
+  "expansionTeams": [
+    {"team":"UPSHOT Baltimore","city":"Baltimore, MD","firstSeason":2027,"arena":"Chesapeake Employers Insurance Arena","status":"Announced expansion franchise","detail":"The fifth UPSHOT franchise begins play in May 2027. Its permanent team name, logo, colors, uniforms, mascot and head coach remain pending.","officialUrl":"https://baltimoreupshot.com/"},
+    {"team":"UPSHOT Nashville","city":"Nashville, TN","firstSeason":2027,"arena":"Memorial Gymnasium","status":"Announced expansion franchise","detail":"The sixth UPSHOT franchise begins play in May 2027, with Nancy VanReece serving as president and CEO. Its permanent team identity remains pending.","officialUrl":"https://nashvilleupshot.com/"}
   ],
   "leaders": [
-    {"player":"Deja Kelly","team":"Charlotte Crown","stat":"17.7","metric":"PPG","asOf":"2026-07-23","photo":"https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Deja_Kelly_Oregon_%28cropped%29.jpg/500px-Deja_Kelly_Oregon_%28cropped%29.jpg"},
-    {"player":"Deja Kelly","team":"Charlotte Crown","stat":"4.1","metric":"APG","asOf":"2026-07-23","photo":"https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Deja_Kelly_Oregon_%28cropped%29.jpg/500px-Deja_Kelly_Oregon_%28cropped%29.jpg"},
-    {"player":"Michelle Onyiah","team":"Charlotte Crown","stat":"6.9","metric":"RPG","asOf":"2026-07-31","photo":"https://a.espncdn.com/i/headshots/womens-college-basketball/players/full/4433744.png"},
-    {"player":"Michelle Onyiah","team":"Charlotte Crown","stat":"1.1","metric":"BPG","asOf":"2026-07-31","photo":"https://a.espncdn.com/i/headshots/womens-college-basketball/players/full/4433744.png"}
+    {"player":"Deja Kelly","team":"Charlotte Crown","stat":"17.8","metric":"PPG","asOf":"2026-08-23","photo":"https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Deja_Kelly_Oregon_%28cropped%29.jpg/500px-Deja_Kelly_Oregon_%28cropped%29.jpg"},
+    {"player":"Deja Kelly","team":"Charlotte Crown","stat":"4.1","metric":"APG","asOf":"2026-08-23","photo":"https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Deja_Kelly_Oregon_%28cropped%29.jpg/500px-Deja_Kelly_Oregon_%28cropped%29.jpg"},
+    {"player":"Schaquilla Nunn","team":"Charlotte Crown","stat":"9.3","metric":"RPG","asOf":"2026-08-23","photo":""}
+  ],
+  "awards": [
+    {"award":"Ann Meyers Drysdale MVP","player":"Ariel Hearn","team":"Jacksonville Waves","detail":"15.1 PPG · 4.5 RPG · 3.0 APG · 1.6 SPG","sourceUrl":"https://wavesupshot.com/ariel-hearn-earns-upshot-league-mvp-honors/"},
+    {"award":"Defensive Player of the Year","player":"Schaquilla Nunn","team":"Charlotte Crown","detail":"League leader in rebounds and blocks per game","sourceUrl":"https://crownupshot.com/schaquilla-nunn-named-2026-defensive-player-of-the-year/"},
+    {"award":"Sixth Woman of the Year","player":"Taylor Soule","team":"Jacksonville Waves","detail":"7.1 PPG · 3.3 RPG · 49.7 FG% in 32 games","sourceUrl":"https://wavesupshot.com/guard-taylor-soule-earns-upshot-league-6th-woman-award/"},
+    {"award":"Championship MVP","player":"Deja Kelly","team":"Charlotte Crown","detail":"29 points · 6 rebounds in the 81-76 title win","sourceUrl":"https://crownupshot.com/crown-pull-off-comeback-to-win-upshot-championship/"}
+  ],
+  "allUpshot": [
+    {"player":"Ariel Hearn","team":"Jacksonville Waves","summary":"League MVP · 15.1 PPG"},
+    {"player":"Deja Kelly","team":"Charlotte Crown","summary":"Scoring and assists leader"},
+    {"player":"Diamond Johnson","team":"Greensboro Groove","summary":"16.0 PPG · 4.1 RPG · 3.2 APG"},
+    {"player":"Lasha Petree","team":"Savannah Steel","summary":"13.7 PPG · 4.1 RPG"},
+    {"player":"Rennia Davis","team":"Jacksonville Waves","summary":"13.8 PPG · 7.4 RPG"},
+    {"player":"Schaquilla Nunn","team":"Charlotte Crown","summary":"Defensive Player of the Year"}
   ],
   "callUps": [
     {"player":"Michelle Onyiah","from":"Charlotte Crown","to":"Indiana Fever","date":"2026-07-31","contract":"Developmental player contract","stats":"9.6 PPG · 6.9 RPG · 1.1 BPG · 52.8 FG% in 21 UPSHOT games","milestone":"First UPSHOT League player to earn a WNBA contract.","photo":"https://a.espncdn.com/i/headshots/womens-college-basketball/players/full/4433744.png"},
     {"player":"Christyn Williams","from":"Greensboro Groove","to":"Dallas Wings","date":"2026-08-14","contract":"Developmental player contract","stats":"9.6 PPG · 3.0 RPG · 1.9 APG · 41.1 FG% in 14 UPSHOT games","milestone":"Second UPSHOT League player from the inaugural season to earn a WNBA contract."}
   ],
   "recentGames": [
+    {"date":"2026-08-29","away":"Charlotte Crown","awayScore":81,"home":"Jacksonville Waves","homeScore":76,"venue":"VyStar Veterans Memorial Arena","stage":"Championship"},
     {"date":"2026-08-21","away":"Charlotte Crown","awayScore":101,"home":"Savannah Steel","homeScore":98,"venue":"Enmarket Arena"},
     {"date":"2026-08-22","away":"Jacksonville Waves","awayScore":70,"home":"Savannah Steel","homeScore":60,"venue":"Enmarket Arena"},
     {"date":"2026-08-22","away":"Greensboro Groove","awayScore":72,"home":"Charlotte Crown","homeScore":88,"venue":"Bojangles Coliseum"},
@@ -49,14 +76,19 @@
     {"date":"July 31, 2026","title":"First WNBA call-up","detail":"Charlotte Crown forward Michelle Onyiah becomes the first UPSHOT player to earn a WNBA contract."},
     {"date":"Aug. 14, 2026","title":"A second door opens","detail":"Greensboro guard Christyn Williams signs with the Dallas Wings, becoming the second inaugural-season UPSHOT-to-WNBA move."},
     {"date":"Aug. 23, 2026","title":"Regular season complete","detail":"Jacksonville finishes first at 25-9, Charlotte second at 23-11, and the championship field is set."},
-    {"date":"Aug. 29, 2026","title":"The first championship","detail":"Jacksonville and Charlotte meet at VyStar Veterans Memorial Arena for the league's inaugural title."}
+    {"date":"Aug. 29, 2026","title":"Charlotte wins the first championship","detail":"The Crown erase a 10-point fourth-quarter deficit, beat Jacksonville 81-76 and become the first UPSHOT champions. Deja Kelly earns Championship MVP with 29 points and six rebounds."},
+    {"date":"Aug. 29, 2026","title":"The inaugural honors are announced","detail":"Ariel Hearn wins league MVP, Schaquilla Nunn wins Defensive Player of the Year, Taylor Soule wins Sixth Woman and six players make the first All-UPSHOT Team."}
   ],
-  "next": "Jacksonville Waves vs. Charlotte Crown · Inaugural UPSHOT Championship · Saturday, Aug. 29 · 7 PM ET · VyStar Veterans Memorial Arena, Jacksonville.",
+  "next": "Charlotte Crown 81, Jacksonville Waves 76 · The Crown are the inaugural UPSHOT League champions.",
   "sources": [
     {"label":"UPSHOT League","url":"https://upshotleague.com/"},
     {"label":"Official standings","url":"https://upshotleague.com/standings/"},
     {"label":"Official games archive","url":"https://upshotleague.com/games/"},
-    {"label":"UPSHOT Join the League FAQ","url":"https://upshotleague.com/join-the-league/"},
+    {"label":"UPSHOT teams and final standings","url":"https://upshotleague.com/teams/"},
+    {"label":"Championship recap","url":"https://crownupshot.com/crown-pull-off-comeback-to-win-upshot-championship/"},
+    {"label":"All-UPSHOT Team","url":"https://wavesupshot.com/ariel-hearn-rennia-davis-earn-all-upshot-team-honors/"},
+    {"label":"UPSHOT Baltimore","url":"https://baltimoreupshot.com/"},
+    {"label":"UPSHOT Nashville","url":"https://nashvilleupshot.com/"},
     {"label":"Jacksonville Waves","url":"https://upshotleague.com/teams/jacksonville-waves/"},
     {"label":"Charlotte Crown","url":"https://upshotleague.com/teams/charlotte-crown/"},
     {"label":"Greensboro Groove","url":"https://upshotleague.com/teams/greensboro-groove/"},

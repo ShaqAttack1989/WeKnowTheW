@@ -1,5 +1,6 @@
 const ESPN_SCOREBOARD='https://site.api.espn.com/apis/site/v2/sports/basketball/wnba/scoreboard';
-const WNBA_SCHEDULE='https://cdn.wnba.com/static/json/staticData/scheduleLeagueV2.json';
+const WNBA_TODAY_SCOREBOARD='https://cdn.wnba.com/static/json/liveData/scoreboard/todaysScoreboard_10.json';
+const WNBA_SCHEDULE='https://cdn.wnba.com/static/json/staticData/scheduleLeagueV2_10.json';
 const WNBA_BOXSCORE_ROOT='https://cdn.wnba.com/static/json/liveData/boxscore';
 const TIME_ZONE='America/New_York';
 
@@ -46,23 +47,26 @@ function mergeGames(...lists){const map=new Map();lists.flat().forEach(game=>{if
 
 module.exports=async function handler(req,res){
   if(req.method!=='GET'){res.setHeader('Allow','GET');return res.status(405).json({error:'Method not allowed'});}
-  const errors=[];let espnLive=[],scheduleLive=[],officialLive=[];
+  const errors=[];let espnLive=[],scheduleLive=[],scoreboardLive=[],boxscoreLive=[];
   const stamp=Date.now();
-  const [espnResult,scheduleResult]=await Promise.allSettled([
+  const [scoreboardResult,espnResult,scheduleResult]=await Promise.allSettled([
+    fetchJson(WNBA_TODAY_SCOREBOARD),
     fetchJson(`${ESPN_SCOREBOARD}?dates=${espnDateParam()}&limit=100&_=${stamp}`),
-    fetchJson(`${WNBA_SCHEDULE}?_=${stamp}`)
+    fetchJson(WNBA_SCHEDULE)
   ]);
+  if(scoreboardResult.status==='fulfilled')scoreboardLive=(Array.isArray(scoreboardResult.value?.scoreboard?.games)?scoreboardResult.value.scoreboard.games:[]).map(normalizeOfficial).filter(g=>g.state==='in');else errors.push({source:'Official WNBA live scoreboard',message:scoreboardResult.reason.message});
   if(espnResult.status==='fulfilled')espnLive=(Array.isArray(espnResult.value.events)?espnResult.value.events:[]).map(normalizeEspn).filter(g=>g.state==='in');else errors.push({source:'ESPN',message:espnResult.reason.message});
   if(scheduleResult.status==='fulfilled'){
     const groups=Array.isArray(scheduleResult.value?.leagueSchedule?.gameDates)?scheduleResult.value.leagueSchedule.gameDates:[];
     scheduleLive=groups.flatMap(group=>(Array.isArray(group.games)?group.games:[]).map(game=>normalizeSchedule(game,group.gameDate))).filter(g=>g.state==='in');
     if(scheduleLive.length){
-      const boxResults=await Promise.allSettled(scheduleLive.map(game=>fetchJson(`${WNBA_BOXSCORE_ROOT}/boxscore_${encodeURIComponent(game.gameId)}.json?_=${stamp}`)));
-      officialLive=boxResults.map((result,index)=>result.status==='fulfilled'&&result.value?.game?normalizeOfficial(result.value.game,scheduleLive[index]):null).filter(Boolean).filter(g=>g.state==='in');
+      const boxResults=await Promise.allSettled(scheduleLive.map(game=>fetchJson(`${WNBA_BOXSCORE_ROOT}/boxscore_${encodeURIComponent(game.gameId)}.json`)));
+      boxscoreLive=boxResults.map((result,index)=>result.status==='fulfilled'&&result.value?.game?normalizeOfficial(result.value.game,scheduleLive[index]):null).filter(Boolean).filter(g=>g.state==='in');
       boxResults.forEach((result,index)=>{if(result.status==='rejected')errors.push({source:`WNBA boxscore ${scheduleLive[index]?.gameId||''}`,message:result.reason.message});});
     }
   }else errors.push({source:'Official WNBA schedule',message:scheduleResult.reason.message});
-  const games=mergeGames(espnLive,scheduleLive,officialLive);
+  const games=mergeGames(espnLive,scheduleLive,scoreboardLive,boxscoreLive);
+  const liveStatusVerified=[scoreboardResult,espnResult,scheduleResult].some(result=>result.status==='fulfilled');
   res.setHeader('Cache-Control','no-store, max-age=0');
-  return res.status(200).json({source:'Official WNBA live boxscores + ESPN live scoreboard backup',updatedAt:new Date().toISOString(),games,errors});
+  return res.status(200).json({source:'Official WNBA live scoreboard + boxscores + ESPN backup',updatedAt:new Date().toISOString(),liveStatusVerified,games,errors});
 };

@@ -66,12 +66,17 @@ async function fetchFreshLive(cacheBust=Date.now()){
   if(!response.ok||!Array.isArray(payload.games))throw new Error(payload.error||'Fresh live feed unavailable');
   return payload;
 }
+function mergeVerifiedLive(current=[],payload={}){
+  const fresh=Array.isArray(payload.games)?payload.games:[];
+  return fresh.length||payload.liveStatusVerified===true?fresh:(Array.isArray(current)?current:[]);
+}
 async function refreshLiveGames(){
   if(liveRefreshActive||!gamesPayload)return;
   liveRefreshActive=true;
   try{
     const payload=await fetchFreshLive();
-    gamesPayload.liveGames=window.WGameBroadcasts?.enrichGames?WGameBroadcasts.enrichGames(payload.games):payload.games;
+    const liveGames=mergeVerifiedLive(gamesPayload.liveGames,payload);
+    gamesPayload.liveGames=window.WGameBroadcasts?.enrichGames?WGameBroadcasts.enrichGames(liveGames):liveGames;
     if(gamesCompetition==='season'&&gamesMode==='live')renderGames();
     setStatus('official WNBA live boxscores + ESPN backup');
   }catch{
@@ -112,7 +117,7 @@ async function loadGames(initial=false){
     let stats=statsResult.value;
     const officialGames=officialScheduleResult.status==='fulfilled'&&Array.isArray(officialScheduleResult.value)?officialScheduleResult.value:[];
     if(window.WGameBroadcasts?.enrichPayload)stats=WGameBroadcasts.enrichPayload(stats,officialGames);
-    if(liveResult.status==='fulfilled')stats.liveGames=liveResult.value.games;
+    if(liveResult.status==='fulfilled')stats.liveGames=mergeVerifiedLive(stats.liveGames,liveResult.value);
     else {
       const browserLive=await WGameCards.fetchLiveGames();
       if(Array.isArray(browserLive))stats.liveGames=browserLive;

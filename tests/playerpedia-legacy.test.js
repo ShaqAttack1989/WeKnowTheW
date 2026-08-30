@@ -4,6 +4,7 @@ const fs=require('node:fs');
 const path=require('node:path');
 const vm=require('node:vm');
 const catalog=require('../playerpedia-legacy');
+const snapshotApi=require('../api/player-season-snapshot');
 const root=path.resolve(__dirname,'..');
 const read=file=>fs.readFileSync(path.join(root,file),'utf8');
 const additions=['Rebecca Lobo','Chamique Holdsclaw','Teresa Weatherspoon','Swin Cash','Angel McCoughtry'];
@@ -25,6 +26,17 @@ test('aliases, accents, punctuation and career teams reach the same archive reco
   assert.ok(catalog.matches(catalog.find('Ticha Penicheiro'),'Penichéiro'));
   assert.ok(catalog.matches(catalog.find('Rebecca Lobo'),'Houston'));
   assert.ok(catalog.matches(catalog.find('Chamique Holdsclaw'),'San Antonio'));
+});
+test('historical archive requests skip the slower current-season feed',()=>{
+  const {shouldUseOfficialStats}=snapshotApi._test;
+  assert.equal(shouldUseOfficialStats(2026),true);
+  for(const season of new Set(catalog.players.map(player=>player.lastWnbaSeason)))assert.equal(shouldUseOfficialStats(season),false,String(season));
+  assert.match(read('playerpedia-research-desk.js'),/setTimeout\(\(\)=>controller\.abort\(\),20000\)/);
+});
+test('last WNBA season means the final season played, not a later contract year',()=>{
+  const achonwa=catalog.find('Natalie Achonwa');
+  assert.equal(achonwa.lastWnbaSeason,2022);
+  assert.equal(achonwa.years,'2015–2023');
 });
 test('new records preserve sourced career averages separately from last-season grades',()=>{
   const expected={

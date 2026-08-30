@@ -265,7 +265,7 @@
     "clipboard": "Seattle Storm · Assistant coach",
     "careerState": "retired",
     "photo": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/203831.png",
-    "lastWnbaSeason": 2023
+    "lastWnbaSeason": 2022
   },
   {
     "name": "Courtney Paris",

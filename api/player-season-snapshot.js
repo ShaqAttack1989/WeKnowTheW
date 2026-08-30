@@ -1,4 +1,5 @@
 const { getOfficialPlayerPerGame } = require('../lib/wnba-official-stats');
+const CURRENT_WNBA_SEASON = 2026;
 
 function text(value=''){
   return String(value??'')
@@ -76,11 +77,10 @@ async function sourceRows(season,suffix,markdownParser,htmlParser){
   const source=`https://www.basketball-reference.com/wnba/years/${season}_${suffix}.html`;
   const readers=[`https://r.jina.ai/http://www.basketball-reference.com/wnba/years/${season}_${suffix}.html`,`https://r.jina.ai/https://www.basketball-reference.com/wnba/years/${season}_${suffix}.html`];
   const errors=[];let rows=[];
+  try{rows=htmlParser(await fetchText(source,{Accept:'text/html','User-Agent':'Mozilla/5.0 (compatible; WeKnowTheW/1.0)'}));}catch(error){errors.push(error.message);}
+  if(rows.length>=20)return {rows,source};
   for(const reader of readers){
     try{const parsed=markdownParser(await fetchText(reader,{Accept:'text/plain'}));if(parsed.length>rows.length)rows=parsed;if(rows.length>=20)break;}catch(error){errors.push(error.message);}
-  }
-  if(rows.length<20){
-    try{const parsed=htmlParser(await fetchText(source,{Accept:'text/html','User-Agent':'Mozilla/5.0 (compatible; WeKnowTheW/1.0)'}));if(parsed.length>rows.length)rows=parsed;}catch(error){errors.push(error.message);}
   }
   if(rows.length<10)throw new Error(`${suffix} stats unavailable: ${errors.join(' | ')}`);
   return {rows,source};
@@ -120,7 +120,8 @@ function officialTrueShooting(player={}){
   const denominator=2*((attempts||0)+.44*(freeThrows||0));
   return points!==null&&denominator>0?points/denominator:null;
 }
-module.exports=async function handler(req,res){
+function shouldUseOfficialStats(season){return season===CURRENT_WNBA_SEASON;}
+async function handler(req,res){
   if(req.method!=='GET'){res.setHeader('Allow','GET');return res.status(405).json({error:'Method not allowed'});}
   const requested=Number.parseInt(String(req.query.season||'2026'),10);const season=Number.isFinite(requested)&&requested>=1997&&requested<=2100?requested:2026;
   res.setHeader('Cache-Control',season===2026?'s-maxage=1800, stale-while-revalidate=21600':'s-maxage=86400, stale-while-revalidate=604800');
@@ -128,7 +129,7 @@ module.exports=async function handler(req,res){
     const [pgResult,advResult,officialResult]=await Promise.allSettled([
       sourceRows(season,'per_game',parsePerGameMarkdown,parsePerGameHtml),
       sourceRows(season,'advanced',parseAdvancedMarkdown,parseAdvancedHtml),
-      getOfficialPlayerPerGame(season)
+      shouldUseOfficialStats(season)?getOfficialPlayerPerGame(season):Promise.resolve([])
     ]);
     const pg=pgResult.status==='fulfilled'?pgResult.value:{rows:[],source:`https://www.basketball-reference.com/wnba/years/${season}_per_game.html`};
     const adv=advResult.status==='fulfilled'?advResult.value:{rows:[],source:`https://www.basketball-reference.com/wnba/years/${season}_advanced.html`};
@@ -165,6 +166,9 @@ module.exports=async function handler(req,res){
       return {season,name:player.name,team:player.team,position:player.position,games:player.g,minutes:player.mpg,ppg:player.pts,rpg:player.trb,apg:player.ast,spg:player.stl,bpg:player.blk,topg:player.tov,per:player.per,tsPct:player.tsPct,score:grade.score,letter:grade.letter,provisional:safe(player.g)<minGames||safe(player.mpg)<8};
     }).sort((a,b)=>(b.score||0)-(a.score||0)||a.name.localeCompare(b.name));
     const source=official.length>=10&&adv.rows.length>=10?'Official WNBA statistics + Basketball-Reference advanced metrics':official.length>=10?'Official WNBA statistics':'Basketball-Reference';
-    return res.status(200).json({season,updatedAt:new Date().toISOString(),source,sourceUrls:['https://stats.wnba.com/players/traditional/',pg.source,adv.source],minGames,methodology:'Same We Know the W weighted league-relative grade used for active players, paired with current official per-game statistics and available league-relative advanced metrics.',players});
+    const sourceUrls=[...(official.length>=10?['https://stats.wnba.com/players/traditional/']:[]),pg.source,adv.source];
+    return res.status(200).json({season,updatedAt:new Date().toISOString(),source,sourceUrls,minGames,methodology:'Same We Know the W weighted league-relative grade used for active players, paired with current official per-game statistics and available league-relative advanced metrics.',players});
   }catch(error){return res.status(502).json({error:error.message||'Player season snapshot unavailable',season});}
-};
+}
+module.exports=handler;
+module.exports._test={shouldUseOfficialStats};

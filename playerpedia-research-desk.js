@@ -78,7 +78,8 @@
     if(player.lastSeasonSnapshot)return player.lastSeasonSnapshot;
     const season=player.lastWnbaSeason;if(!season)return null;
     if(!snapshotCache.has(season))snapshotCache.set(season,(async()=>{
-      const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),8000);
+      // Historical seasons are assembled on demand and can need a little extra time on a cold request.
+      const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),20000);
       try{
         const response=await fetch(`/api/player-season-snapshot?season=${season}&playerpedia=archive-v3`,{headers:{Accept:'application/json'},signal:controller.signal});
         const payload=await response.json();

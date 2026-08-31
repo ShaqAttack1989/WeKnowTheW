@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="/landing.css">
   <link rel="stylesheet" href="/college.css?v=20260820-photos-v4">
   <link rel="stylesheet" href="/upshot-hub.css?v=20260830-finals-v1">
+  <link rel="stylesheet" href="/offseason-player-dashboard.css?v=20260830-v1">
 </head>
 <body class="section-page call-up-page">
 <header class="subhero call-up-hero" id="top">
@@ -27,7 +28,7 @@
 <main>
   <nav class="upshot-jump-nav" aria-label="UPSHOT page sections">
     <div class="page-shell">
-      <a href="#league-pulse">Championship</a><a href="#standings">Standings</a><a href="#teams">All Six Teams</a><a href="#upshot-kitchen">Stat Kitchen</a><a href="#results">Results</a><a href="#honors">Honors</a><a href="#pipeline">The Pipeline</a><a href="#history">History</a>
+      <a href="#league-pulse">Championship</a><a href="#standings">Standings</a><a href="#player-dashboard">Player Dashboard</a><a href="#teams">All Six Teams</a><a href="#upshot-kitchen">Stat Kitchen</a><a href="#results">Results</a><a href="#honors">Honors</a><a href="#pipeline">The Pipeline</a><a href="#history">History</a>
     </div>
   </nav>
   <section class="page-section upshot-section" id="league-pulse"><div class="page-shell">
@@ -38,6 +39,10 @@
   <section class="page-section upshot-standings-section" id="standings"><div class="page-shell">
     <div class="page-heading leader-heading"><div><p class="kicker">LIVE STATS, UPSHOT EDITION</p><h2>Final 2026 Regular-Season Standings</h2><p>Full table treatment with record, splits, form, scoring and point differential.</p></div><span class="upshot-data-status">34 games per team</span></div>
     <div class="upshot-table-shell"><div id="upshotStandings" class="upshot-standings" aria-live="polite"></div></div><div class="upshot-legend"><span><b class="seed-dot championship"></b> Championship qualifier</span><span><b class="seed-dot season-complete"></b> Regular season complete</span></div>
+  </div></section>
+  <section class="page-section player-stat-section" id="player-dashboard"><div class="page-shell">
+    <div class="page-heading leader-heading"><div><p class="kicker">PLAYER STAT DASHBOARD · UPSHOT 2026</p><h2>The inaugural player board, with receipts attached.</h2><p>Search and compare verified player stat lines from the regular season, award announcements and WNBA call-up snapshots. Missing public figures stay blank instead of being estimated.</p></div><span class="upshot-data-status">Verified public stats</span></div>
+    <div class="player-stat-dashboard" data-player-dashboard data-league="upshot" data-source="/data/upshot-player-stats-2026.json"></div>
   </div></section>
   <section class="page-section upshot-team-section" id="teams"><div class="page-shell">
     <div class="page-heading"><p class="kicker">THE COMPLETE LEAGUE MAP</p><h2>Four founding clubs. Two announced expansion franchises.</h2><p>Open each 2026 team room, then meet Baltimore and Nashville, the two announced franchises that grow UPSHOT to six teams in May 2027.</p></div>
@@ -64,5 +69,5 @@
     <div class="page-heading"><p class="kicker">UPSHOT 101 + HISTORY</p><h2>From announcement to first champion.</h2><p>The league’s complete inaugural-season story, plus the six-team map waiting in 2027.</p></div><div class="upshot-history-layout"><div id="upshotTimeline" class="upshot-timeline"></div><aside><div id="upshotLeagueFacts" class="upshot-fact-grid"></div><div class="upshot-expansion-card"><span>NEXT UP · 2027</span><strong>Baltimore + Nashville</strong><p>The Founding Four become six as UPSHOT moves into its first expansion season.</p><a href="/expansion-upshot.html">Open the six-team Expansion Watch →</a></div></aside></div><p id="upshotSourceNote" class="small-note upshot-source-note"></p><div class="page-footer-nav"><a href="/class-is-in-session.html">← Class Is in Session</a><a href="/who-got-next.html">Who Got Next?</a><a href="/expansion-upshot.html">UPSHOT Expansion →</a></div>
   </div></section>
 </main>
-<script src="/site.js"></script><script src="/the-call-up-page.js?v=20260830-finals-v1" defer></script>
+<script src="/site.js"></script><script src="/the-call-up-page.js?v=20260830-finals-v1" defer></script><script src="/offseason-player-dashboard.js?v=20260830-v1" defer></script>
 </body></html>

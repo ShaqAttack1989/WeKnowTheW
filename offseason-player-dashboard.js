@@ -24,10 +24,28 @@
     players.forEach(player=>{if(player.photo&&!map.has(norm(player.name)))map.set(norm(player.name),{photo:player.photo,cutout:false});});
     return map;
   };
+  const enrichAffiliations=async(payload,players)=>{
+    if(payload.league!=='Unrivaled')return;
+    try{
+      const response=await fetch('/pro-offseason-affiliations.json',{headers:{Accept:'application/json'},cache:'no-store'});
+      const data=await response.json().catch(()=>({}));
+      const rows=data?.unrivaled?.players;
+      if(!response.ok||!Array.isArray(rows))return;
+      const teams=new Map(rows.map(row=>[norm(row?.[0]),row?.[1]||'']));
+      players.forEach(player=>{if(!player.team)player.team=teams.get(norm(player.name))||'';});
+    }catch{}
+  };
   const leaderFor=(players,metric)=>[...players].filter(player=>num(player[metric.key])!==null&&!Number.isNaN(num(player[metric.key]))).sort((a,b)=>{
     const av=num(a[metric.key]),bv=num(b[metric.key]);
     return metric.sort==='asc'?av-bv:bv-av;
   })[0];
+  const syncUnrivaledLeaders=(players,metricMap)=>{
+    const target=document.getElementById('unrivaledPlayerLeaders');
+    if(!target)return;
+    const keys=['ppg','apg','rpg','spg','bpg'];
+    const rows=keys.map(key=>metricMap.get(key)).filter(Boolean).map(metric=>({metric,leader:leaderFor(players,metric)})).filter(row=>row.leader);
+    target.innerHTML=rows.map((row,index)=>`<div class="unrivaled-leader-row"><span>${index+1}</span><div><strong>${safe(row.leader.name)}</strong><small>${safe(row.metric.label)} · ${safe(row.leader.team||'Unrivaled')}</small></div><b>${safe(format(row.leader[row.metric.key],row.metric))}${row.metric.unit?` ${safe(row.metric.unit)}`:''}</b></div>`).join('');
+  };
   async function render(root){
     const source=root.dataset.source;
     if(!source)return;
@@ -37,6 +55,7 @@
       const payload=await response.json().catch(()=>({}));
       if(!response.ok||!Array.isArray(payload.players))throw new Error('Player stat data unavailable');
       const players=payload.players;
+      await enrichAffiliations(payload,players);
       const metrics=Array.isArray(payload.metrics)?payload.metrics:[];
       const columns=Array.isArray(payload.tableColumns)&&payload.tableColumns.length?payload.tableColumns:metrics.map(metric=>metric.key);
       const metricMap=new Map(metrics.map(metric=>[metric.key,metric]));
@@ -50,7 +69,7 @@
         <div class="ps-source-line"><div><strong>${safe(payload.scopeLabel||`${payload.season||''} ${payload.league||''} player stats`)}</strong><span class="ps-mini-count"> · ${players.length} players</span></div>${payload.sourceUrl?`<a href="${safe(payload.sourceUrl)}" target="_blank" rel="noopener noreferrer">${safe(payload.sourceLabel||'Official source')} ↗</a>`:''}</div>
         <div class="ps-leader-grid">${leaderMetrics.map(metric=>{const leader=leaderFor(players,metric);return `<article class="ps-leader-card"><span>${safe(metric.label)}</span><div><strong>${safe(leader?.name||'—')}</strong><small>${safe(leader?.team||payload.league||'')}</small></div><b>${leader?`${safe(format(leader[metric.key],metric))}${metric.unit?` ${safe(metric.unit)}`:''}`:'—'}</b></article>`}).join('')}</div>
         <div class="ps-controls"><input type="search" data-ps-search placeholder="Search player${teams.length?' or team':''}" aria-label="Search player stats">${teams.length?`<select data-ps-team aria-label="Filter by team"><option value="">All teams</option>${teams.map(item=>`<option value="${safe(item)}">${safe(item)}</option>`).join('')}</select>`:'<div></div>'}</div>
-        <div class="ps-metric-tabs" role="tablist" aria-label="Sort player dashboard">${metrics.map((metric,index)=>`<button type="button" role="tab" data-ps-metric="${safe(metric.key)}" aria-selected="${metric.key===activeKey?'true':'false'}"><span>${safe(metric.short||metric.label)}</span>${metric.unit?` · ${safe(metric.unit)}`:''}</button>`).join('')}</div>
+        <div class="ps-metric-tabs" role="tablist" aria-label="Sort player dashboard">${metrics.map(metric=>`<button type="button" role="tab" data-ps-metric="${safe(metric.key)}" aria-selected="${metric.key===activeKey?'true':'false'}"><span>${safe(metric.short||metric.label)}</span>${metric.unit?` · ${safe(metric.unit)}`:''}</button>`).join('')}</div>
         <div class="ps-table-shell"><table class="ps-table"><thead><tr><th>RK</th><th>Player</th>${columns.map(key=>{const metric=metricMap.get(key)||{label:key};return `<th data-ps-head="${safe(key)}">${safe(metric.short||metric.label)}</th>`}).join('')}</tr></thead><tbody data-ps-body></tbody></table></div>
         <p class="ps-footnote">${safe(payload.note||'Stats are organized by We Know the W from the cited public source.')}</p>`;
       const body=root.querySelector('[data-ps-body]');
@@ -81,6 +100,7 @@
       teamSelect?.addEventListener('change',()=>{team=teamSelect.value;draw();});
       buttons.forEach(button=>button.addEventListener('click',()=>{activeKey=button.dataset.psMetric;draw();}));
       draw();
+      if(payload.league==='Unrivaled')syncUnrivaledLeaders(players,metricMap);
     }catch(error){root.innerHTML='<div class="ps-empty">Player dashboard is temporarily unavailable.</div>';}
   }
   document.querySelectorAll('[data-player-dashboard]').forEach(render);

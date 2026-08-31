@@ -11,7 +11,7 @@
     ['liyueru','liyueru']
   ]);
   const key=v=>aliases.get(normalize(v))||normalize(v);
-  const safe=v=>String(v??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[ch]));
+  const safe=v=>String(v??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot',"'":'&#039;'}[ch]));
 
   let data=null;
   let unrivaled=new Map();
@@ -93,7 +93,7 @@
   function scheduleCards(){clearTimeout(cardTimer);cardTimer=setTimeout(decorateCards,60);}
   function scheduleModal(){clearTimeout(modalTimer);modalTimer=setTimeout(decorateModal,80);}
 
-  fetch('/pro-offseason-affiliations.json',{headers:{Accept:'application/json'}})
+  fetch(`/pro-offseason-affiliations.json?v=20260831-teamusa-v1&cb=${Date.now()}`,{headers:{Accept:'application/json','Cache-Control':'no-cache'},cache:'no-store'})
     .then(r=>r.ok?r.json():Promise.reject(new Error('Affiliations unavailable')))
     .then(payload=>{
       buildMaps(payload);

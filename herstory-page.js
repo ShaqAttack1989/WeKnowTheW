@@ -56,6 +56,28 @@ function hMedia(names,byName=new Map()){
   }).join('')}</div>`;
 }
 
+function addKelseyMitchellHerstorySpotlight(){
+  const educationCard=document.querySelector('#education.herstory-story-card');
+  if(!educationCard||educationCard.querySelector('[data-herstory-kelsey-mitchell]'))return;
+  const grid=educationCard.querySelector('.herstory-entry-grid');
+  if(!grid)return;
+
+  grid.insertAdjacentHTML('afterbegin',`
+    <section class="herstory-entry" data-herstory-kelsey-mitchell>
+      <span class="herstory-entry-tag">PH.D. IN PROGRESS</span>
+      <h4>Kelsey Mitchell</h4>
+      <p>Mitchell is pursuing a Ph.D. in educational leadership at Liberty University while producing one of the most prolific scoring stretches in WNBA history. In August 2026, she broke the league record for consecutive 20-point games and continued extending it.</p>
+      <div class="herstory-entry-links">
+        <a href="/playerpedia.html?search=Kelsey%20Mitchell#playerpedia-directory">Player profile</a>
+        <a href="https://www.cbssports.com/wnba/news/fever-guard-kelsey-mitchell-best-scoring-season-wnba-history/" target="_blank" rel="noopener noreferrer">Doctoral study source ↗</a>
+        <a href="https://fever.wnba.com/watch/video/mitchell-breaks-record" target="_blank" rel="noopener noreferrer">WNBA record source ↗</a>
+      </div>
+    </section>`);
+
+  const sourceNote=document.querySelector('.herstory-stories .herstory-source-note');
+  if(sourceNote)sourceNote.innerHTML='<strong>Herstory standard:</strong> This page includes only milestones players or credible public sources have shared. Sources are linked with each entry. Last editorial review: August 30, 2026.';
+}
+
 async function loadHerstoryPhotos(){
   const entries=[...document.querySelectorAll('.herstory-entry')];
   if(!entries.length)return;
@@ -63,7 +85,7 @@ async function loadHerstoryPhotos(){
   entries.forEach(entry=>entry.insertAdjacentHTML('afterbegin',hMedia(hNames(entry))));
 
   try{
-    const response=await fetch('/api/players?herstoryPhotos=20260822-transparent-v1',{headers:{Accept:'application/json'}});
+    const response=await fetch('/api/players?herstoryPhotos=20260830-kelsey-mitchell-v1',{headers:{Accept:'application/json'}});
     const payload=await response.json().catch(()=>({}));
     if(!response.ok||!Array.isArray(payload.players))throw new Error(payload.error||'Player photos unavailable');
     const byName=new Map(payload.players.map(player=>[hKey(player.name),player]));
@@ -76,4 +98,5 @@ async function loadHerstoryPhotos(){
   }
 }
 
+addKelseyMitchellHerstorySpotlight();
 loadHerstoryPhotos();

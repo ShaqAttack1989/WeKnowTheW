@@ -11,7 +11,7 @@
     ['liyueru','liyueru']
   ]);
   const key=v=>aliases.get(normalize(v))||normalize(v);
-  const safe=v=>String(v??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot',"'":'&#039;'}[ch]));
+  const safe=v=>String(v??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[ch]));
 
   let data=null;
   let unrivaled=new Map();

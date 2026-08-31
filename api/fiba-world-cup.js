@@ -6,7 +6,8 @@ const SOURCE_URLS = {
   stats: `${EVENT_BASE}/stats`,
   usa: `${EVENT_BASE}/teams/usa`,
   roster: `${EVENT_BASE}/news/roster-tracker-fiba-womens-basketball-world-cup-2026`,
-  usaBasketball: 'https://www.usab.com/news/2026/08/2026-usa-basketball-womens-national-team-announced'
+  usaBasketball: 'https://www.usab.com/news/2026/08/2026-usa-basketball-womens-national-team-announced',
+  rosterUpdate: 'https://www.foxsports.com/articles/wnba/us-stars-aja-wilson-and-kelsey-plum-to-miss-the-fiba-womens-world-cup'
 };
 
 const COUNTRY = {
@@ -25,8 +26,22 @@ const GROUPS = {
 
 const USA_ROSTER = [
   'Aliyah Boston', 'Paige Bueckers', 'Caitlin Clark', 'Napheesa Collier', 'Kahleah Copper', 'Chelsea Gray',
-  'Rhyne Howard', 'Kelsey Plum', 'Angel Reese', 'Breanna Stewart', "A'ja Wilson", 'Jackie Young'
+  'Rhyne Howard', 'Kiki Iriafen', 'Angel Reese', 'Breanna Stewart', 'Sonia Citron', 'Jackie Young'
 ];
+
+const USA_ROSTER_UPDATE = {
+  announced: '2026-08-31',
+  status: 'USA Basketball roster update',
+  reason: 'Health reasons',
+  out: [
+    { player: "A'ja Wilson", detail: 'Rest and recovery after a heavy WNBA workload ahead of the playoffs.' },
+    { player: 'Kelsey Plum', detail: 'Calf injury has not fully healed.' }
+  ],
+  in: [
+    { player: 'Kiki Iriafen', team: 'Washington Mystics', detail: 'Played for USA in the 2026 World Cup qualifying tournament in San Juan.' },
+    { player: 'Sonia Citron', team: 'Washington Mystics', detail: 'Added for Berlin after participating in USA Basketball camps; senior national-team debut.' }
+  ]
+};
 
 const GROUP_GAMES = [
   ['2026-09-04','09:30','A','JPN','MLI'], ['2026-09-04','09:30','C','AUS','PUR'],
@@ -53,7 +68,7 @@ const KNOCKOUT_ROUNDS = [
 const QUALIFYING_FORM = [
   { player: 'Caitlin Clark', label: '14.6 EFF · 11.6 PPG · 6.4 APG' },
   { player: 'Kahleah Copper', label: '12.8 PPG' },
-  { player: 'Kelsey Plum', label: '13.0 EFF · 11.2 PPG · 3.0 APG' },
+  { player: 'Kiki Iriafen', label: '5.4 PPG · 4.2 RPG · 80.0 FG%' },
   { player: 'Angel Reese', label: '8.0 RPG' },
   { player: 'Chelsea Gray', label: '4.8 APG · 0.6 BPG' },
   { player: 'Paige Bueckers', label: '1.8 SPG' },
@@ -324,8 +339,8 @@ module.exports = async function handler(req, res) {
     updatedAt: new Date().toISOString(),
     sources: SOURCE_URLS,
     dataStatus: { liveStandings, liveResults, livePlayerStats, warnings },
-    rosterStatus: 'USA Basketball announced national-team roster; FIBA notes federation-announced rosters may differ from the final event roster.',
-    usa: { ...usaSummary(standings), roster: USA_ROSTER },
+    rosterStatus: 'Updated Aug. 31: USA Basketball added Kiki Iriafen and Sonia Citron after A’ja Wilson and Kelsey Plum withdrew for health reasons. FIBA notes federation-announced rosters may differ from the final event roster.',
+    usa: { ...usaSummary(standings), roster: USA_ROSTER, rosterUpdate: USA_ROSTER_UPDATE },
     standings,
     games,
     knockoutRounds: KNOCKOUT_ROUNDS,

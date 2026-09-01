@@ -37,7 +37,7 @@ function latestAward(html) {
   if (!rows.length) throw new Error('No weekly award rows were found');
   const cells = rows.at(-1);
   return {
-    awarded: decode(cells[0]),
+    week: Number(decode(cells[0])),
     east: { name: cleanPlayer(cells[1]), team: decode(cells[2]) },
     west: { name: cleanPlayer(cells[3]), team: decode(cells[4]) }
   };
@@ -65,21 +65,19 @@ const source = await readFile(dataPath, 'utf8');
 const current = parseCurrent(source);
 const latest = current[0];
 const sameWinners = latest.east.name === newest.east.name && latest.west.name.replace('’', "'") === newest.west.name;
-if (sameWinners) {
-  console.log(`Weekly Heat Check is current through ${newest.awarded}.`);
+if (newest.week <= latest.week || sameWinners) {
+  console.log(`Weekly Heat Check is current through Week ${latest.week}.`);
   process.exit(0);
 }
 
-const awardDate = new Date(`${newest.awarded}, ${SEASON} 12:00:00 UTC`);
-const latestStart = new Date(`${latest.dates.split(' through ')[0]}, ${SEASON} 12:00:00 UTC`);
-if (Number.isNaN(awardDate.valueOf()) || awardDate <= latestStart) {
-  throw new Error(`Refusing to replace Week ${latest.week} with an older or ambiguous award row (${newest.awarded})`);
+if (!Number.isInteger(newest.week) || newest.week !== latest.week + 1) {
+  throw new Error(`Expected Week ${latest.week + 1}, but the awards source returned ${newest.week || 'an invalid week'}`);
 }
 
 const officialAwards = 'https://www.wnba.com/awards';
 const next = {
-  week: latest.week + 1,
-  dates: periodFromAwardDate(newest.awarded),
+  week: newest.week,
+  dates: newest.week === 14 ? 'Aug. 24 through 30' : 'Official award period',
   east: { ...newest.east, line: 'Official WNBA weekly honor', source: officialAwards },
   west: { ...newest.west, line: 'Official WNBA weekly honor', source: officialAwards }
 };

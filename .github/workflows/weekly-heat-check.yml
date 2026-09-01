@@ -1,6 +1,11 @@
 name: Weekly Heat Check sync
 
 on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/weekly-heat-check.yml'
+      - 'scripts/update-weekly-awards.mjs'
   schedule:
     # Awards are normally published on Tuesday. Retry through Wednesday for late releases.
     - cron: '17 14-22/2 * * 2,3'

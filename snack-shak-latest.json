@@ -2,6 +2,47 @@
   "site": "Snack Shak",
   "posts": [
     {
+      "slug": "lynx-playoff-blueprint-update",
+      "type": "feature",
+      "priority": 180,
+      "seriesLabel": "FOOD FOR THOUGHT",
+      "title": "So, About That Lynx Blueprint... Atlanta Added a Chapter",
+      "published": "2026-09-02",
+      "week": "Playoff film update · Sept. 2, 2026",
+      "dashboardUrl": "/lynx-playoff-blueprint-update.html",
+      "teams": [
+        "Minnesota Lynx",
+        "Golden State Valkyries",
+        "Atlanta Dream",
+        "New York Liberty"
+      ],
+      "players": [
+        "Napheesa Collier",
+        "Courtney Williams",
+        "Olivia Miles",
+        "Veronica Burton",
+        "Angel Reese",
+        "Allisha Gray",
+        "Rhyne Howard"
+      ],
+      "dek": "Golden State showed the pressure version. Atlanta showed the possession version. With Courtney Williams back and Minnesota still losing, the Lynx blueprint is getting harder to dismiss.",
+      "sections": [
+        {
+          "title": "Atlanta added a second chapter",
+          "paragraphs": [
+            "The Dream beat Minnesota 89 to 81 with Courtney Williams back in the Lynx lineup, shrinking the biggest asterisk attached to the earlier Golden State loss.",
+            "Atlanta did not copy Golden State. The Dream won the glass, hit 13 threes, moved the ball through multiple creators and showed there is more than one way to make Minnesota uncomfortable."
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "label": "Full Food for Thought article",
+          "url": "https://www.weknowthew.com/lynx-playoff-blueprint-update.html"
+        }
+      ]
+    },
+    {
       "slug": "power-rankings-vs-standings-aug30",
       "type": "byte",
       "priority": 160,
@@ -195,45 +236,6 @@
         {
           "label": "Official Rickea Jackson Unrivaled bio",
           "url": "https://www.unrivaled.basketball/player/rickea-jackson-tuum4vu1htu2/bio"
-        }
-      ]
-    },
-    {
-      "slug": "lynx-playoff-blueprint-update",
-      "type": "feature",
-      "priority": 100,
-      "seriesLabel": "FOOD FOR THOUGHT",
-      "title": "So, About That Lynx Blueprint...",
-      "published": "2026-08-28",
-      "week": "Playoff film update · Aug. 28, 2026",
-      "dashboardUrl": "/lynx-playoff-blueprint-update.html",
-      "teams": [
-        "Minnesota Lynx",
-        "Golden State Valkyries",
-        "Atlanta Dream",
-        "New York Liberty"
-      ],
-      "players": [
-        "Napheesa Collier",
-        "Courtney Williams",
-        "Olivia Miles",
-        "Veronica Burton",
-        "Angel Reese"
-      ],
-      "dek": "Golden State's win over Minnesota looked like one ugly Lynx night. What the Valkyries have done since makes the pressure blueprint harder to shrug off.",
-      "sections": [
-        {
-          "title": "The pattern is getting harder to dismiss",
-          "paragraphs": [
-            "Golden State forced Minnesota into 18 turnovers and a season-low 66 points, then went on to smother another playoff team. The useful part of the film is what happens before Minnesota reaches its preferred actions: pressure the ball, crowd the first pass and make the Lynx begin offense later in the clock.",
-            "The catch is that the formula only travels if the opponent protects its own possessions, rebounds the stop and has enough bench production to keep the pressure alive for forty minutes."
-          ]
-        }
-      ],
-      "sources": [
-        {
-          "label": "Full Food for Thought article",
-          "url": "https://www.weknowthew.com/lynx-playoff-blueprint-update.html"
         }
       ]
     }

@@ -15,12 +15,24 @@ const decode = value => String(value)
 
 const cleanPlayer = value => decode(value).replace(/\s+\(\d+\)$/, '');
 const monthNames = ['Jan.','Feb.','March','April','May','June','July','Aug.','Sept.','Oct.','Nov.','Dec.'];
+const monthMap = new Map([
+  ['jan',0],['january',0],['feb',1],['february',1],['mar',2],['march',2],['apr',3],['april',3],['may',4],['jun',5],['june',5],['jul',6],['july',6],['aug',7],['august',7],['sep',8],['sept',8],['september',8],['oct',9],['october',9],['nov',10],['november',10],['dec',11],['december',11]
+]);
 
-function periodFromAwardDate(label) {
-  const awarded = new Date(`${label}, ${SEASON} 12:00:00 UTC`);
-  if (Number.isNaN(awarded.valueOf())) throw new Error(`Unrecognized award date: ${label}`);
-  const start = new Date(awarded); start.setUTCDate(start.getUTCDate() - 8);
-  const end = new Date(awarded); end.setUTCDate(end.getUTCDate() - 2);
+function parseMonth(value='') {
+  return monthMap.get(String(value).toLowerCase().replaceAll('.',''));
+}
+
+function nextPeriod(label='') {
+  const match = String(label).trim().match(/^([A-Za-z.]+)\s+(\d{1,2})\s+through\s+(?:([A-Za-z.]+)\s+)?(\d{1,2})$/i);
+  if (!match) throw new Error(`Could not advance weekly award period from: ${label}`);
+  const startMonth = parseMonth(match[1]);
+  const endMonth = parseMonth(match[3] || match[1]);
+  if (!Number.isInteger(startMonth) || !Number.isInteger(endMonth)) throw new Error(`Could not parse weekly award months from: ${label}`);
+  const endYear = endMonth < startMonth ? SEASON + 1 : SEASON;
+  const previousEnd = new Date(Date.UTC(endYear, endMonth, Number(match[4]), 12));
+  const start = new Date(previousEnd); start.setUTCDate(start.getUTCDate() + 1);
+  const end = new Date(start); end.setUTCDate(end.getUTCDate() + 6);
   const startLabel = `${monthNames[start.getUTCMonth()]} ${start.getUTCDate()}`;
   const endLabel = start.getUTCMonth() === end.getUTCMonth()
     ? String(end.getUTCDate())
@@ -58,14 +70,13 @@ function serialize(items) {
   return `window.STAT_KITCHEN_WEEKLY_AWARDS=[\n${rows.join(',\n')}\n];\n`;
 }
 
-const response = await fetch(seasonUrl, { headers: { 'User-Agent': 'WeKnowTheW awards updater/1.0 (public statistics sync)' } });
+const response = await fetch(seasonUrl, { headers: { 'User-Agent': 'WeKnowTheW awards updater/1.1 (public statistics sync)' } });
 if (!response.ok) throw new Error(`Awards source returned HTTP ${response.status}`);
 const newest = latestAward(await response.text());
 const source = await readFile(dataPath, 'utf8');
 const current = parseCurrent(source);
 const latest = current[0];
-const sameWinners = latest.east.name === newest.east.name && latest.west.name.replace('’', "'") === newest.west.name;
-if (newest.week <= latest.week || sameWinners) {
+if (newest.week <= latest.week) {
   console.log(`Weekly Heat Check is current through Week ${latest.week}.`);
   process.exit(0);
 }
@@ -74,10 +85,10 @@ if (!Number.isInteger(newest.week) || newest.week !== latest.week + 1) {
   throw new Error(`Expected Week ${latest.week + 1}, but the awards source returned ${newest.week || 'an invalid week'}`);
 }
 
-const officialAwards = 'https://www.wnba.com/awards';
+const officialAwards = 'https://www.wnba.com/watch?collection=weekly-and-monthly-awards';
 const next = {
   week: newest.week,
-  dates: newest.week === 14 ? 'Aug. 24 through 30' : 'Official award period',
+  dates: nextPeriod(latest.dates),
   east: { ...newest.east, line: 'Official WNBA weekly honor', source: officialAwards },
   west: { ...newest.west, line: 'Official WNBA weekly honor', source: officialAwards }
 };

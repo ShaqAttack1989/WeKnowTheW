@@ -37,6 +37,16 @@ test('includes the inaugural awards and complete six-player All-UPSHOT Team', ()
   assert.match(renderer, /renderAllUpshot\(allUpshot,teams\)/);
 });
 
+test('tracks all three verified inaugural-season WNBA call-ups', () => {
+  assert.equal(data.callUps.length, 3);
+  assert.deepEqual(data.callUps.map(item => item.player), ['Michelle Onyiah', 'Christyn Williams', 'Shyanne Sellers']);
+  assert.deepEqual(data.callUps.map(item => item.to), ['Indiana Fever', 'Dallas Wings', 'Los Angeles Sparks']);
+  assert.equal(data.callUps[2].date, '2026-08-31');
+  assert.match(data.callUps[2].contract, /Player Development Pool/i);
+  assert.ok(data.timeline.some(item => item.date === 'Aug. 31, 2026' && /Sellers/i.test(item.detail)));
+  assert.match(data.next, /three inaugural-season UPSHOT players/i);
+});
+
 test('leads final results with the title game', () => {
   const titleGame = data.recentGames[0];
   assert.equal(titleGame.stage, 'Championship');

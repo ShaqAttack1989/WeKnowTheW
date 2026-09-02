@@ -25,14 +25,15 @@ async function loadPlayers() {
   return payload;
 }
 
-test('latest Sparks moves update current rosters without removing Playerpedia history', async () => {
+test('latest roster moves update current rosters without removing Playerpedia history', async () => {
   const payload = await loadPlayers();
   const byName = new Map(payload.players.map(player => [player.name, player]));
 
-  assert.equal(byName.get('Kate Martin').currentRoster, false);
-  assert.equal(byName.get('Kate Martin').team, 'Free Agent · last: Los Angeles Sparks');
-  assert.equal(byName.get('Kate Martin').teamId, 'losangelessparks');
-  assert.equal(byName.get('Kate Martin').liveStatus, 'waived');
+  assert.equal(byName.get('Kate Martin').team, 'Chicago Sky');
+  assert.equal(byName.get('Kate Martin').number, '20');
+  assert.equal(byName.get('Kate Martin').currentRoster, true);
+  assert.equal(byName.get('Kate Martin').liveStatus, 'development');
+  assert.equal(byName.get('Kate Martin').liveEffectiveDate, '2026-09-02');
 
   assert.equal(byName.get('Alissa Pili').currentRoster, false);
 
@@ -59,7 +60,8 @@ test('latest Sparks moves update current rosters without removing Playerpedia hi
     if (filterTeam) assert.ok(player.teamId, `${player.name} is missing a team filter ID`);
   }
 
-  assert.ok(payload.transactions.some(item => item.player === 'Kate Martin' && item.type === 'WAIVED'));
+  assert.ok(payload.transactions.some(item => item.player === 'Kate Martin' && item.type === 'SIGNED' && item.team === 'Chicago Sky' && item.date === '2026-09-02'));
+  assert.ok(payload.transactions.some(item => item.player === 'Kate Martin' && item.type === 'WAIVED' && item.team === 'Los Angeles Sparks' && item.date === '2026-08-29'));
   assert.ok(payload.transactions.some(item => item.player === 'Shyanne Sellers' && item.type === 'SIGNED' && item.date === '2026-08-31'));
   assert.ok(payload.transactions.some(item => item.player === 'Aaliyah Nye' && item.type === 'CLAIMED' && item.date === '2026-08-30'));
   assert.ok(payload.transactions.some(item => item.player === 'Tonie Morgan' && item.type === 'SIGNED' && item.date === '2026-08-16'));

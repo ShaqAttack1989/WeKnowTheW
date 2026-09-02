@@ -1,0 +1,81 @@
+{
+  "version": 1,
+  "season": 2026,
+  "week": 14,
+  "start": "2026-08-24",
+  "end": "2026-08-30",
+  "officialAward": false,
+  "source": "ESPN WNBA boxscores and verified 2026 WNBA draft class",
+  "sourceUrl": "https://www.espn.com/wnba/",
+  "methodology": "We Know the W weekly rookie score = PPG + 1.2×RPG + 1.5×APG + 3×SPG + 3×BPG.",
+  "gamesReviewed": 19,
+  "leaders": [
+    {
+      "rank": 1,
+      "name": "Flau'jae Johnson",
+      "team": "Seattle Storm",
+      "games": 2,
+      "ppg": 19.5,
+      "rpg": 3,
+      "apg": 2,
+      "spg": 0.5,
+      "bpg": 0.5,
+      "score": 29.1,
+      "line": "19.5 PPG · 3.0 RPG · 2.0 APG"
+    },
+    {
+      "rank": 2,
+      "name": "Kiki Rice",
+      "team": "Toronto Tempo",
+      "games": 3,
+      "ppg": 16,
+      "rpg": 2.7,
+      "apg": 4.7,
+      "spg": 0.7,
+      "bpg": 0,
+      "score": 28.2,
+      "line": "16.0 PPG · 2.7 RPG · 4.7 APG"
+    },
+    {
+      "rank": 3,
+      "name": "Olivia Miles",
+      "team": "Minnesota Lynx",
+      "games": 2,
+      "ppg": 14.5,
+      "rpg": 4.5,
+      "apg": 2.5,
+      "spg": 0.5,
+      "bpg": 0,
+      "score": 25.2,
+      "line": "14.5 PPG · 4.5 RPG · 2.5 APG"
+    },
+    {
+      "rank": 4,
+      "name": "Charlisse Leger-Walker",
+      "team": "Connecticut Sun",
+      "games": 4,
+      "ppg": 11.5,
+      "rpg": 3,
+      "apg": 5.3,
+      "spg": 0.5,
+      "bpg": 0.3,
+      "score": 25.2,
+      "line": "11.5 PPG · 3.0 RPG · 5.3 APG"
+    },
+    {
+      "rank": 5,
+      "name": "Nell Angloma",
+      "team": "Connecticut Sun",
+      "games": 4,
+      "ppg": 8.5,
+      "rpg": 4,
+      "apg": 2,
+      "spg": 1.3,
+      "bpg": 0,
+      "score": 20.1,
+      "line": "8.5 PPG · 4.0 RPG · 2.0 APG"
+    }
+  ],
+  "generatedAt": "2026-09-02T22:45:18.170Z",
+  "note": "Verified completed-period Rookie of the Week snapshot. The live dashboard can use this file whenever the ESPN serverless feed is unavailable."
+}

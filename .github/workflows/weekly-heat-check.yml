@@ -50,12 +50,12 @@ jobs:
         run: node --test tests/stat-kitchen-awards.test.js
       - name: Publish updated Stat Kitchen awards when needed
         run: |
-          if git diff --quiet; then
-            echo "Stat Kitchen awards are already current."
-            exit 0
-          fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add stat-kitchen-data.js stat-kitchen-monthly-data.js stat-kitchen.html data/stat-kitchen-rookie-week.json
+          if git diff --cached --quiet; then
+            echo "Stat Kitchen awards are already current."
+            exit 0
+          fi
           git commit -m "Auto-update Stat Kitchen awards"
           git push

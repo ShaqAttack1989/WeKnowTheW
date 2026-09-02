@@ -8,5 +8,16 @@
     "summary": "Retired from the WNBA after the 2023 season, then returned in 2024.",
     "source": "https://www.wnba.com/webview/news/tiffany-hayes-breathes-life-into-valkyries-inaugural-season",
     "sourceLabel": "WNBA career feature"
+  },
+  "Nneka Ogwumike": {
+    "status": "retirement-announced",
+    "label": "RETIREMENT ANNOUNCED",
+    "icon": "◷",
+    "announcedDate": "2026-08-19",
+    "retirementAfterSeason": 2026,
+    "activeUntilSeasonEnd": true,
+    "summary": "Announced her intent to retire from the WNBA after the conclusion of the 2026 season. She remains an active Los Angeles Sparks player until the season ends.",
+    "source": "https://sparks.wnba.com/news/nneka-ogwumike-announces-retirement-from-the-wnba-following-the-2026-season",
+    "sourceLabel": "Los Angeles Sparks announcement"
   }
 }

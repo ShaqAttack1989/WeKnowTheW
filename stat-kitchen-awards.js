@@ -129,6 +129,26 @@
       if(status)status.textContent='Feed temporarily unavailable';
     }finally{rookieWeekLoading=false;}
   }
+  function historyCard(entry){
+    const winner=entry.leaders?.[0]||{};
+    const label=entry.dates||`${entry.start||''} through ${entry.end||''}`;
+    return `<details class="rookie-history-card"><summary><span class="rookie-history-week">WEEK ${safe(entry.week)}</span><span class="rookie-history-winner"><strong>${safe(winner.name||'Verified rookie leader')}</strong><small>${safe(winner.team||'')} · ${safe(label)}</small></span><span class="rookie-history-score">${Number(winner.score||0).toFixed(1)}<small>W SCORE</small></span></summary><div class="rookie-history-detail">${rookieBoard(entry.leaders||[])}</div></details>`;
+  }
+  async function renderRookieHistory(){
+    const target=document.getElementById('rookieWeekHistory');
+    if(!target)return;
+    try{
+      const response=await fetch(`/data/stat-kitchen-rookie-week-history.json?cb=${Date.now()}`,{headers:{Accept:'application/json','Cache-Control':'no-cache'},cache:'no-store'});
+      if(!response.ok)throw new Error('Rookie archive unavailable');
+      const payload=await response.json().catch(()=>({}));
+      const currentWeek=Number(weeklyAwards[0]?.week)||Infinity;
+      const weeks=(Array.isArray(payload.weeks)?payload.weeks:[]).filter(item=>Number(item.week)<currentWeek).sort((a,b)=>Number(b.week)-Number(a.week));
+      if(!weeks.length)throw new Error('Rookie archive is still filling');
+      target.innerHTML=`<div class="rookie-history-heading"><div><span>THE FULL ROOKIE TAPE</span><h3>Weeks 1 through ${safe(weeks[0].week)}</h3><p>Every completed weekly rookie board stays on the shelf. Open any week to see its full top five and W Score.</p></div><b>${safe(weeks.length)} WEEKS ARCHIVED</b></div><div class="rookie-history-grid">${weeks.map(historyCard).join('')}</div>`;
+    }catch(error){
+      target.innerHTML=`<div class="rookie-week-empty"><strong>Historical rookie boards are being plated.</strong><p>${safe(error.message)}.</p></div>`;
+    }
+  }
   async function loadPhotos(){
     try{
       const response=await fetch('/api/players',{headers:{Accept:'application/json'},cache:'no-store'});
@@ -142,6 +162,7 @@
   renderMonthly();
   renderRookieMonths();
   renderRookieWeek();
+  renderRookieHistory();
   loadPhotos();
   setInterval(()=>{if(!document.hidden)renderRookieWeek(true);},15*60*1000);
   window.addEventListener('focus',()=>renderRookieWeek(true));

@@ -37,7 +37,7 @@ jobs:
         run: node scripts/update-weekly-awards.mjs
       - name: Check for newly published Kia monthly winners
         run: node scripts/update-monthly-awards.mjs
-      - name: Refresh verified Rookie of the Week snapshot
+      - name: Refresh verified Rookie of the Week snapshot and archive
         run: node scripts/update-rookie-week.mjs
       - name: Check award dashboard syntax
         run: |
@@ -52,7 +52,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add stat-kitchen-data.js stat-kitchen-monthly-data.js stat-kitchen.html data/stat-kitchen-rookie-week.json
+          git add stat-kitchen-data.js stat-kitchen-monthly-data.js stat-kitchen.html data/stat-kitchen-rookie-week.json data/stat-kitchen-rookie-week-history.json
           if git diff --cached --quiet; then
             echo "Stat Kitchen awards are already current."
             exit 0

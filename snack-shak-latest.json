@@ -2,6 +2,149 @@
   "site": "Snack Shak",
   "posts": [
     {
+      "slug": "four-months-four-receipts-rookie-year-race",
+      "type": "feature",
+      "priority": 200,
+      "seriesLabel": "FOOD FOR THOUGHT",
+      "title": "Four Months, Four Receipts: Is the Rookie of the Year Race Already Olivia Miles’ ?",
+      "published": "2026-09-02",
+      "week": "Rookie race check · Sept. 2, 2026",
+      "teams": [
+        "Minnesota Lynx",
+        "Seattle Storm",
+        "Chicago Sky",
+        "Dallas Wings",
+        "Toronto Tempo"
+      ],
+      "players": [
+        "Olivia Miles",
+        "Flau'jae Johnson",
+        "Sydney Taylor",
+        "Azzi Fudd",
+        "Kiki Rice"
+      ],
+      "dek": "Olivia Miles has won every Kia Rookie of the Month award available this season. That makes her the clear leader, but Flau'jae Johnson, Sydney Taylor, Azzi Fudd and Kiki Rice still tell us something important about how deep this rookie class really is.",
+      "storyTable": {
+        "columns": [
+          "Candidate",
+          "Current case",
+          "What keeps the conversation alive"
+        ],
+        "rows": [
+          [
+            "1",
+            "Olivia Miles",
+            "19.7 PPG, 4.6 RPG, 6.0 APG through 38 games, plus all four Kia Rookie of the Month awards."
+          ],
+          [
+            "2",
+            "Flau'jae Johnson",
+            "14.1 PPG, 4.8 RPG, 2.9 APG with two way impact, plus the No. 1 W Score on the latest We Know the W Rookie of the Week board."
+          ],
+          [
+            "3",
+            "Sydney Taylor",
+            "14.7 PPG as an undrafted rookie, one of the best pure scoring stories in the class."
+          ],
+          [
+            "4",
+            "Azzi Fudd",
+            "13.1 PPG and 1.7 steals per game before a right knee procedure ended her rookie season."
+          ],
+          [
+            "5",
+            "Kiki Rice",
+            "11.2 PPG, 4.0 RPG and 2.8 APG while carrying real creation responsibility for an expansion team."
+          ]
+        ]
+      },
+      "sections": [
+        {
+          "title": "Four months is a pattern, not a hot streak",
+          "paragraphs": [
+            "There is a point in every award race when we have to stop asking who is ahead and start asking what someone else would have to do to catch them. Olivia Miles has reached that point. May belonged to Miles. June belonged to Miles. July belonged to Miles. August belonged to Miles. Four months in the league, four Kia Rookie of the Month awards.",
+            "The August receipt might be the loudest one yet. Miles averaged 20.6 points, 4.3 rebounds and 6.5 assists for the month. That is not rookie production being graded on a curve. That is lead guard production on a team trying to win the whole thing."
+          ]
+        },
+        {
+          "title": "The strongest challenger is making the weekly argument",
+          "paragraphs": [
+            "Flau'jae Johnson has not matched Miles month for month, but she keeps building the kind of case that survives beyond one statistic. She scores, rebounds, defends and has taken on important possessions for Seattle without looking like the moment is too big.",
+            "The latest We Know the W Rookie of the Week board is a perfect example. Johnson finished Week 14 at No. 1 with a 29.1 W Score after averaging 19.5 points, 3.0 rebounds and 2.0 assists across two games. A weekly board does not decide Rookie of the Year, but it shows who is applying pressure right now."
+          ]
+        },
+        {
+          "title": "Sydney Taylor is the reminder that draft night is not destiny",
+          "paragraphs": [
+            "Sydney Taylor was not drafted. She also entered September averaging 14.7 points per game. Those two sentences belong next to each other because they explain why this rookie class deserves more attention than one trophy race can hold.",
+            "Taylor's Rookie of the Year path is harder because Miles has the stronger all around case and a full season of monthly hardware, but Taylor has already turned an undrafted label into a footnote. That is a different kind of rookie victory."
+          ]
+        },
+        {
+          "title": "Azzi Fudd's season ended, her impact did not",
+          "paragraphs": [
+            "The No. 1 pick was still firmly in the rookie conversation before right knee soreness led to a season ending arthroscopic procedure. Fudd finished her year at 13.1 points, 1.7 rebounds, 1.8 assists and 1.7 steals per game, while shooting 39.7 percent from three.",
+            "Availability matters in an award race, especially against a player producing at Miles' level across a longer season. Still, Fudd's rookie year gave Dallas shooting, point of attack defense and a historic All Star weekend moment when she became the first rookie to win the WNBA three point contest."
+          ]
+        },
+        {
+          "title": "Kiki Rice has the expansion tax",
+          "paragraphs": [
+            "Kiki Rice's numbers do not jump off the page the way Miles' do, but context matters. Toronto is building a team and an identity at the same time, and Rice has been asked to create inside that uncertainty. An 11 point scoring average with rebounding and playmaking responsibility is a strong foundation for a first year guard.",
+            "The Rookie of the Year ballot is not a projection award, so upside alone cannot move Rice ahead of Miles today. But if we are asking which rookies look like long term franchise pieces, Rice belongs in the conversation."
+          ]
+        },
+        {
+          "title": "So, is there still a race?",
+          "paragraphs": [
+            "Technically, yes. Basketball still has games left, and awards should not be handed out before the schedule is finished. Practically, Olivia Miles has built a gap that now requires an extraordinary closing argument from everyone behind her and a real decline from Miles herself.",
+            "The better question might be what kind of Rookie of the Year season we are watching. Miles is not simply leading rookies in a weak class. She is putting up nearly 20 points and six assists a night for Minnesota while sweeping the league's monthly rookie awards. That makes this less about whether she belongs at the top and more about how high her rookie season will eventually sit in WNBA history."
+          ]
+        },
+        {
+          "title": "What I am watching next",
+          "paragraphs": [
+            "The weekly archive matters now because it can show us whether the gap is tightening before a season average catches up. If Johnson keeps stacking No. 1 weekly W Scores, if Taylor keeps scoring at this level and if Rice closes with a bigger creation load, the race gets more interesting even if the favorite does not change.",
+            "For now, the ballot starts with Olivia Miles. The rest of the rookie class is not disappearing behind her. It is giving us several different versions of what a successful first season can look like."
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "label": "WNBA, Miles sweeps Rookie of the Month honors",
+          "url": "https://www.wnba.com/watch"
+        },
+        {
+          "label": "WNBA, August Kia Rookie of the Month",
+          "url": "https://www.wnba.com/watch/video/rotm-olivia-miles-2?collection=weekly-and-monthly-awards"
+        },
+        {
+          "label": "Basketball Reference, 2026 rookie statistics",
+          "url": "https://www.basketball-reference.com/wnba/years/2026_rookies.html"
+        },
+        {
+          "label": "WNBA, Flau'jae Johnson profile",
+          "url": "https://www.wnba.com/player/1643428/flaujae-johnson"
+        },
+        {
+          "label": "WNBA, Sydney Taylor profile",
+          "url": "https://www.wnba.com/player/1642321/sydney-taylor"
+        },
+        {
+          "label": "Dallas Wings, Azzi Fudd knee procedure",
+          "url": "https://wings.wnba.com/news/player/1643425/azzi-fudd"
+        },
+        {
+          "label": "WNBA, Kiki Rice profile",
+          "url": "https://www.wnba.com/player/1643445/kiki-rice/profile"
+        },
+        {
+          "label": "We Know the W Rookie of the Week tracker",
+          "url": "https://www.weknowthew.com/stat-kitchen.html#rookie-of-week"
+        }
+      ]
+    },
+    {
       "slug": "lynx-playoff-blueprint-update",
       "type": "feature",
       "priority": 180,

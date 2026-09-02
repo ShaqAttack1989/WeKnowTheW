@@ -3,29 +3,52 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="Track WNBA Players of the Week and the 2026 top five statistical leaders on We Know the W.">
-  <title>Weekly Awards and Stat Leaders | We Know the W</title>
+  <meta name="description" content="Track WNBA weekly and monthly awards, the We Know the W Rookie of the Week, and 2026 statistical leaders.">
+  <title>WNBA Awards and Stat Leaders | We Know the W</title>
   <link rel="stylesheet" href="/styles.css">
   <link rel="stylesheet" href="/landing.css">
   <link rel="stylesheet" href="/stat-kitchen.css?v=20260826-playerpedia-v1">
+  <link rel="stylesheet" href="/stat-kitchen-awards.css?v=20260902-v1">
 </head>
 <body class="section-page stat-kitchen-page">
   <header class="subhero stat-kitchen-hero">
     <nav class="nav shell" aria-label="Main navigation"><a class="brand" href="/"><span class="brand-mark">W</span><span>WE KNOW THE W</span></a><button class="menu-button" id="menuButton" aria-expanded="false" aria-controls="navLinks">Menu</button><div class="nav-links" id="navLinks"></div></nav>
     <div class="page-shell subhero-inner">
-      <p class="eyebrow">LIVE STATS · PLAYER LEADERBOARD DESK</p>
+      <p class="eyebrow">LIVE STATS · AWARDS · PLAYER LEADERBOARD DESK</p>
       <h1>THE STAT <em>KITCHEN</em></h1>
-      <p>Weekly honors on one burner, season leaders on the other. Every number has a receipt.</p>
+      <p>Weekly and monthly honors on one burner, season leaders on the other. Every number has a receipt.</p>
       <div class="page-crumbs"></div>
     </div>
   </header>
   <main>
-    <nav class="stat-jump-nav" aria-label="Page sections"><div class="page-shell"><a href="#weekly-heat-check">Weekly Heat Check</a><a href="#stat-kitchen">The Stat Kitchen</a><a href="#seasoning-scale">Seasoning Scale</a></div></nav>
+    <nav class="stat-jump-nav" aria-label="Page sections"><div class="page-shell"><a href="#weekly-heat-check">Weekly Heat Check</a><a href="#player-of-month">Kia Player of Month</a><a href="#rookie-of-week">Rookie of Week</a><a href="#rookie-of-month">Kia Rookie of Month</a><a href="#stat-kitchen">The Stat Kitchen</a><a href="#seasoning-scale">Seasoning Scale</a></div></nav>
     <section class="page-section awards-section" id="weekly-heat-check">
       <div class="page-shell">
         <div class="page-heading"><p class="kicker">EAST MEETS WEST</p><h2>Weekly Heat Check</h2><p>Every official Eastern and Western Conference Player of the Week from the 2026 season, with player photos and repeat winners marked.</p></div>
         <div id="awardLegend" class="award-legend" aria-label="Weekly award legend"></div>
         <div id="weeklyAwards" class="weekly-awards-grid" aria-live="polite"></div>
+      </div>
+    </section>
+    <section class="page-section monthly-awards-section" id="player-of-month">
+      <div class="page-shell">
+        <div class="page-heading"><p class="kicker">KIA MONTHLY HONORS · EAST MEETS WEST</p><h2>Player of the Month</h2><p>Every 2026 Kia WNBA Eastern and Western Conference Player of the Month, with the same conference labels and player connections used in Weekly Heat Check.</p></div>
+        <div id="monthlyAwardLegend" class="award-legend" aria-label="Player of the Month legend"></div>
+        <div id="monthlyAwards" class="monthly-awards-grid" aria-live="polite"></div>
+        <p class="stat-source-note">Official Kia WNBA monthly winners are checked automatically against the published season award record. New monthly winners are added without removing earlier months.</p>
+      </div>
+    </section>
+    <section class="page-section rookie-week-section" id="rookie-of-week">
+      <div class="page-shell">
+        <div class="page-heading leader-heading"><div><p class="kicker">WE KNOW THE W ROOKIE TRACKER</p><h2>Rookie of the Week</h2><p>The latest completed Player of the Week period, ranked from verified WNBA game boxscores so the rookie board refreshes with the weekly schedule.</p></div><span id="rookieWeekStatus" class="leader-status">Checking the rookie class…</span></div>
+        <div id="rookieWeekDashboard" aria-live="polite"><div class="rookie-week-empty">Loading the latest rookie board…</div></div>
+      </div>
+    </section>
+    <section class="page-section rookie-month-section" id="rookie-of-month">
+      <div class="page-shell">
+        <div class="page-heading"><p class="kicker">KIA ROOKIE HONORS</p><h2>Rookie of the Month</h2><p>Every official 2026 Kia WNBA Rookie of the Month, preserved month by month with the latest winner highlighted.</p></div>
+        <div id="rookieMonthLegend" class="award-legend" aria-label="Rookie of the Month legend"></div>
+        <div id="rookieMonthAwards" class="rookie-month-grid" aria-live="polite"></div>
+        <p class="stat-source-note">Rookie of the Month is an official Kia WNBA leaguewide award. It updates from the same monthly award sync as Player of the Month.</p>
       </div>
     </section>
     <section class="page-section composite-section" id="seasoning-scale">
@@ -40,13 +63,15 @@
         <div class="page-heading leader-heading"><div><p class="kicker">2026 TOP FIVE</p><h2>The Stat Kitchen</h2><p>Choose a category and see who is cooking across the league.</p></div><span id="leaderStatus" class="leader-status">Heating up the numbers…</span></div>
         <div class="stat-category-tabs" id="statCategoryTabs" role="tablist" aria-label="Stat categories"></div>
         <div class="leaderboard-shell"><div id="leaderboard" class="leaderboard" aria-live="polite"><div class="leader-loading">Loading the league leaders…</div></div></div>
-        <p class="stat-source-note">Qualified per-game leaders refresh from the official WNBA statistics feed every 30 minutes. Turnovers are shown as a separate category, because giveaways deserve their own receipt.</p>
+        <p class="stat-source-note">Qualified per-game leaders refresh every 30 minutes. Turnovers are shown as a separate category, because giveaways deserve their own receipt.</p>
       </div>
     </section>
     <section class="page-section stat-kitchen-links"><div class="page-shell"><div class="portal-grid"><a class="portal-card" href="/playoff-player-rankings.html"><span class="portal-label">2026 PLAYOFF EDITION</span><strong>The Playoff Player Board</strong><p>All eight clinched teams, W composite player rankings, league-leader tiebreakers and Shak’s analysis.</p></a><a class="portal-card deep" href="/live-stats.html"><span class="portal-label">TEAM TABLES</span><strong>Live Stats</strong><p>Return to standings, conference tables, and the playoff race.</p></a><a class="portal-card" href="/games.html"><span class="portal-label">SCHEDULE AND RESULTS</span><strong>Games</strong><p>See what happened and what is coming next.</p></a><a class="portal-card lime" href="/playerpedia.html"><span class="portal-label">PLAYER PROFILES</span><strong>Playerpedia</strong><p>Go from the numbers to the players behind them.</p></a></div></div></section>
   </main>
   <script src="/site.js"></script>
   <script src="/stat-kitchen-data.js?v=20260901-week14" defer></script>
+  <script src="/stat-kitchen-monthly-data.js?v=20260902-v1" defer></script>
   <script src="/stat-kitchen.js?v=20260830-live-sync-v1" defer></script>
+  <script src="/stat-kitchen-awards.js?v=20260902-v1" defer></script>
 </body>
 </html>

@@ -7,6 +7,7 @@
     'Atlanta Dream':'atlanta-dream','Chicago Sky':'chicago-sky','Connecticut Sun':'connecticut-sun','Dallas Wings':'dallas-wings','Golden State Valkyries':'golden-state-valkyries','Indiana Fever':'indiana-fever','Las Vegas Aces':'las-vegas-aces','Los Angeles Sparks':'los-angeles-sparks','Minnesota Lynx':'minnesota-lynx','New York Liberty':'new-york-liberty','Phoenix Mercury':'phoenix-mercury','Portland Fire':'portland-fire','Seattle Storm':'seattle-storm','Toronto Tempo':'toronto-tempo','Washington Mystics':'washington-mystics'
   };
   const monthIndex={jan:0,january:0,feb:1,february:1,mar:2,march:2,apr:3,april:3,may:4,jun:5,june:5,jul:6,july:6,aug:7,august:7,sep:8,sept:8,september:8,oct:9,october:9,nov:10,november:10,dec:11,december:11};
+  let rookieWeekLoading=false;
 
   function safe(value=''){return String(value).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;').replaceAll("'",'&#039;');}
   function norm(value=''){return String(value||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[’']/g,'').toLowerCase().replace(/[^a-z0-9]/g,'');}
@@ -77,21 +78,56 @@
   function rookieBoard(items=[]){
     return `<div class="rookie-week-board"><div class="rookie-week-board-head"><span>Rank</span><span>Rookie</span><span>W Score</span></div>${items.map(item=>`<a class="rookie-rank-row" href="${safe(playerHref(item.name,'rookie-of-week'))}"><span class="rookie-rank">${safe(item.rank)}</span><span><strong>${safe(item.name)}</strong><small>${safe(item.team)} · ${safe(item.line)}</small></span><b>${Number(item.score).toFixed(1)}</b></a>`).join('')}</div>`;
   }
-  async function renderRookieWeek(){
+  async function fetchRookieSnapshot(){
+    const response=await fetch(`/data/stat-kitchen-rookie-week.json?cb=${Date.now()}`,{headers:{Accept:'application/json','Cache-Control':'no-cache'},cache:'no-store'});
+    if(!response.ok)throw new Error('Verified rookie snapshot unavailable');
+    const payload=await response.json().catch(()=>({}));
+    if(!Array.isArray(payload.leaders)||!payload.leaders.length)throw new Error('Verified rookie snapshot is empty');
+    return {...payload,stale:true,fallback:true,sourceStatus:'verified snapshot fallback',updatedAt:payload.generatedAt||payload.updatedAt||null};
+  }
+  function renderRookiePayload(payload,requestedWeek){
     const target=document.getElementById('rookieWeekDashboard');
     const status=document.getElementById('rookieWeekStatus');
     if(!target)return;
+    const displayWeek=payload.week||requestedWeek||'CURRENT';
+    if(!payload.leaders?.length){
+      target.innerHTML='<div class="rookie-week-empty"><strong>No qualifying rookie boxscores were found for this completed period.</strong></div>';
+      if(status)status.textContent=`Week ${displayWeek}`;
+      return;
+    }
+    const fallbackNote=payload.stale?'<span class="rookie-fallback-note">Live refresh is recovering, so this board is using the last verified snapshot.</span>':'';
+    target.innerHTML=`<div class="rookie-week-shell">${rookieFeature(payload.leaders[0],displayWeek)}${rookieBoard(payload.leaders)}</div><p class="rookie-method-note"><strong>How this works:</strong> Rookie of the Week is a We Know the W weekly ranking, not an official WNBA award. It uses verified ESPN WNBA boxscores for the latest completed Player of the Week period. W Score = PPG + 1.2×RPG + 1.5×APG + 3×SPG + 3×BPG. ${fallbackNote}</p>`;
+    if(status){
+      const stamp=payload.updatedAt||payload.generatedAt;
+      const updated=stamp?new Date(stamp):null;
+      const when=updated&&!Number.isNaN(updated.getTime())?updated.toLocaleString([],{month:'short',day:'numeric',hour:'numeric',minute:'2-digit'}):'verified';
+      status.textContent=payload.stale?`Week ${displayWeek} · Verified snapshot · ${when}`:`Week ${displayWeek} · Live · Updated ${when}`;
+    }
+  }
+  async function renderRookieWeek(force=false){
+    const target=document.getElementById('rookieWeekDashboard');
+    const status=document.getElementById('rookieWeekStatus');
+    if(!target||rookieWeekLoading)return;
+    rookieWeekLoading=true;
     const latest=weeklyAwards[0]||{};
     const period=weeklyPeriod(latest.dates)||latestCompletedWeek();
     const week=latest.week||'CURRENT';
+    if(force&&status)status.textContent='Refreshing rookie board…';
     try{
-      const response=await fetch(`/api/rookie-week?start=${encodeURIComponent(period.start)}&end=${encodeURIComponent(period.end)}&week=${encodeURIComponent(week)}`,{headers:{Accept:'application/json'},cache:'no-store'});
-      const payload=await response.json().catch(()=>({}));
-      if(!response.ok||payload.error)throw new Error(payload.error||'Rookie board unavailable');
-      if(!payload.leaders?.length){target.innerHTML='<div class="rookie-week-empty"><strong>No qualifying rookie boxscores were found for this completed period.</strong></div>';if(status)status.textContent=`Week ${week} · ${period.start} to ${period.end}`;return;}
-      target.innerHTML=`<div class="rookie-week-shell">${rookieFeature(payload.leaders[0],week)}${rookieBoard(payload.leaders)}</div><p class="rookie-method-note"><strong>How this works:</strong> Rookie of the Week is a We Know the W weekly ranking, not an official WNBA award. It uses verified ESPN WNBA boxscores for the latest completed Player of the Week period. W Score = PPG + 1.2×RPG + 1.5×APG + 3×SPG + 3×BPG.</p>`;
-      if(status){const updated=new Date(payload.updatedAt||Date.now());status.textContent=`Week ${week} · Updated ${updated.toLocaleString([],{month:'short',day:'numeric',hour:'numeric',minute:'2-digit'})}`;}
-    }catch(error){target.innerHTML=`<div class="rookie-week-empty"><strong>The rookie board is between servings.</strong><p>${safe(error.message)} Try again shortly.</p></div>`;if(status)status.textContent='Feed temporarily unavailable';}
+      let payload;
+      try{
+        const response=await fetch(`/api/rookie-week?start=${encodeURIComponent(period.start)}&end=${encodeURIComponent(period.end)}&week=${encodeURIComponent(week)}&cb=${Date.now()}`,{headers:{Accept:'application/json','Cache-Control':'no-cache'},cache:'no-store'});
+        payload=await response.json().catch(()=>({}));
+        if(!response.ok||payload.error||!payload.leaders?.length)throw new Error(payload.detail||payload.error||'Live rookie board unavailable');
+      }catch(liveError){
+        payload=await fetchRookieSnapshot();
+        payload.liveError=liveError.message;
+      }
+      renderRookiePayload(payload,week);
+    }catch(error){
+      target.innerHTML=`<div class="rookie-week-empty"><strong>The rookie board is between servings.</strong><p>${safe(error.message)} Try again shortly.</p></div>`;
+      if(status)status.textContent='Feed temporarily unavailable';
+    }finally{rookieWeekLoading=false;}
   }
   async function loadPhotos(){
     try{
@@ -99,7 +135,7 @@
       const payload=await response.json().catch(()=>({}));
       const players=Array.isArray(payload)?payload:(payload.players||[]);
       players.forEach(player=>photos.set(norm(player.name),player));
-      renderMonthly();renderRookieMonths();
+      renderMonthly();renderRookieMonths();renderRookieWeek(true);
     }catch{}
   }
 
@@ -107,4 +143,7 @@
   renderRookieMonths();
   renderRookieWeek();
   loadPhotos();
+  setInterval(()=>{if(!document.hidden)renderRookieWeek(true);},15*60*1000);
+  window.addEventListener('focus',()=>renderRookieWeek(true));
+  document.addEventListener('visibilitychange',()=>{if(!document.hidden)renderRookieWeek(true);});
 })();

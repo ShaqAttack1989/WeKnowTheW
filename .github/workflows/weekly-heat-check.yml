@@ -7,10 +7,14 @@ on:
       - '.github/workflows/weekly-heat-check.yml'
       - 'scripts/update-weekly-awards.mjs'
       - 'scripts/update-monthly-awards.mjs'
+      - 'scripts/update-rookie-week.mjs'
+      - 'api/rookie-week.js'
+      - 'stat-kitchen-awards.js'
+      - 'tests/stat-kitchen-awards.test.js'
   schedule:
     # Conference Players of the Week normally publish Tuesday. Retry through Wednesday for late releases.
     - cron: '17 14-22/2 * * 2,3'
-    # Daily award check catches Kia monthly and rookie monthly releases without manual edits.
+    # Daily award check also refreshes the verified Rookie of the Week snapshot.
     - cron: '37 18 * * *'
   workflow_dispatch:
 
@@ -33,12 +37,15 @@ jobs:
         run: node scripts/update-weekly-awards.mjs
       - name: Check for newly published Kia monthly winners
         run: node scripts/update-monthly-awards.mjs
+      - name: Refresh verified Rookie of the Week snapshot
+        run: node scripts/update-rookie-week.mjs
       - name: Check award dashboard syntax
         run: |
           node --check stat-kitchen-awards.js
           node --check api/rookie-week.js
           node --check scripts/update-weekly-awards.mjs
           node --check scripts/update-monthly-awards.mjs
+          node --check scripts/update-rookie-week.mjs
       - name: Validate Stat Kitchen award dashboards
         run: node --test tests/stat-kitchen-awards.test.js
       - name: Publish updated Stat Kitchen awards when needed
@@ -49,6 +56,6 @@ jobs:
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add stat-kitchen-data.js stat-kitchen-monthly-data.js stat-kitchen.html
+          git add stat-kitchen-data.js stat-kitchen-monthly-data.js stat-kitchen.html data/stat-kitchen-rookie-week.json
           git commit -m "Auto-update Stat Kitchen awards"
           git push

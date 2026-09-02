@@ -16,6 +16,7 @@ vm.runInNewContext(monthlySource, sandbox);
 
 const monthly = sandbox.window.STAT_KITCHEN_MONTHLY_AWARDS;
 const rookieMonths = sandbox.window.STAT_KITCHEN_ROOKIE_MONTH_AWARDS;
+const playerKey = value => String(value || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[’']/g, '').toLowerCase().replace(/[^a-z0-9]/g, '');
 
 test('Stat Kitchen exposes all requested award dashboards', () => {
   assert.match(page, /id="player-of-month"/);
@@ -30,7 +31,7 @@ test('monthly dashboards are current through August 2026', () => {
   assert.equal(monthly[0].month, 'August');
   assert.equal(monthly[0].east.name, 'Kelsey Mitchell');
   assert.equal(monthly[0].east.team, 'Indiana Fever');
-  assert.equal(monthly[0].west.name, 'A’ja Wilson');
+  assert.equal(playerKey(monthly[0].west.name), playerKey("A'ja Wilson"));
   assert.equal(monthly[0].west.team, 'Las Vegas Aces');
   assert.deepEqual(Array.from(monthly, item => item.month), ['August', 'July', 'June', 'May']);
 

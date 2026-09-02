@@ -33,6 +33,12 @@ jobs:
         run: node scripts/update-weekly-awards.mjs
       - name: Check for newly published Kia monthly winners
         run: node scripts/update-monthly-awards.mjs
+      - name: Check award dashboard syntax
+        run: |
+          node --check stat-kitchen-awards.js
+          node --check api/rookie-week.js
+          node --check scripts/update-weekly-awards.mjs
+          node --check scripts/update-monthly-awards.mjs
       - name: Validate Stat Kitchen award dashboards
         run: node --test tests/stat-kitchen-awards.test.js
       - name: Publish updated Stat Kitchen awards when needed

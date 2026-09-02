@@ -149,8 +149,16 @@
     }
 
     const careerEntry=Object.entries(careerPayload||{}).find(([playerName])=>key(playerName)===key(name))?.[1];
-    if(careerEntry?.status==='returned'&&!modal.querySelector('.player-return-badge')){
-      const badge=document.createElement('span');badge.className='player-return-badge';badge.textContent=`↩ ${careerEntry.label||'RETIRED + RETURNED'}`;gradeLine.insertAdjacentElement('afterend',badge);
+    if(careerEntry&&!modal.querySelector('.player-return-badge')){
+      const supported=['returned','retirement-announced'];
+      if(supported.includes(String(careerEntry.status||'').toLowerCase())){
+        const badge=document.createElement('span');
+        badge.className='player-return-badge';
+        const defaultLabel=careerEntry.status==='returned'?'RETIRED + RETURNED':'RETIREMENT ANNOUNCED';
+        badge.textContent=`${careerEntry.icon||'•'} ${careerEntry.label||defaultLabel}`;
+        badge.title=careerEntry.summary||'';
+        gradeLine.insertAdjacentElement('afterend',badge);
+      }
     }
 
     const workbookFact=Object.entries(factsPayload||{}).find(([playerName])=>key(playerName)===key(name))?.[1];

@@ -22,6 +22,7 @@ const playerKey = value => String(value || '').normalize('NFD').replace(/[\u0300
 test('Stat Kitchen exposes all requested award dashboards', () => {
   assert.match(page, /id="player-of-month"/);
   assert.match(page, /id="rookie-of-week"/);
+  assert.match(page, /id="rookieWeekHistory"/);
   assert.match(page, /id="rookie-of-month"/);
   assert.match(page, /stat-kitchen-monthly-data\.js/);
   assert.match(page, /stat-kitchen-awards\.js/);
@@ -60,20 +61,23 @@ test('Rookie of the Week uses ESPN boxscores and not a WNBA API endpoint', () =>
   assert.match(api, /PPG \+ 1\.2×RPG \+ 1\.5×APG \+ 3×SPG \+ 3×BPG/);
 });
 
-test('Rookie of the Week has a verified snapshot fallback', () => {
+test('Rookie of the Week has a verified snapshot fallback and historical archive', () => {
   assert.match(api, /stat-kitchen-rookie-week\.json/);
   assert.match(api, /fallbackPayload/);
   assert.match(api, /verified snapshot fallback/);
   assert.match(client, /fetchRookieSnapshot/);
   assert.match(client, /stat-kitchen-rookie-week\.json/);
+  assert.match(client, /stat-kitchen-rookie-week-history\.json/);
+  assert.match(client, /renderRookieHistory/);
   assert.match(client, /15\*60\*1000/);
   assert.match(client, /visibilitychange/);
 });
 
-test('Rookie snapshot updater preserves the last verified board on provider failure', () => {
+test('Rookie snapshot updater preserves verified boards on provider failure', () => {
   assert.match(rookieUpdater, /fresh: '1'/);
-  assert.match(rookieUpdater, /Preserving verified Week/);
+  assert.match(rookieUpdater, /Preserving its verified archive/);
   assert.match(rookieUpdater, /stat-kitchen-rookie-week\.json/);
+  assert.match(rookieUpdater, /stat-kitchen-rookie-week-history\.json/);
   assert.doesNotMatch(rookieUpdater, /stats\.wnba\.com/);
 });
 
@@ -82,6 +86,7 @@ test('award sync covers weekly, monthly and rookie releases automatically', () =
   assert.match(workflow, /update-monthly-awards\.mjs/);
   assert.match(workflow, /update-rookie-week\.mjs/);
   assert.match(workflow, /stat-kitchen-rookie-week\.json/);
+  assert.match(workflow, /stat-kitchen-rookie-week-history\.json/);
   assert.match(workflow, /37 18 \* \* \*/);
   assert.doesNotMatch(weeklyUpdater, /Official award period/);
   assert.match(weeklyUpdater, /nextPeriod\(latest\.dates\)/);

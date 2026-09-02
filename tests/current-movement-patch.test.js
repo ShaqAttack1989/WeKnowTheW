@@ -35,9 +35,24 @@ test('latest Sparks moves update current rosters without removing Playerpedia hi
   assert.equal(byName.get('Kate Martin').liveStatus, 'waived');
 
   assert.equal(byName.get('Alissa Pili').currentRoster, false);
+
+  assert.equal(byName.get('Shyanne Sellers').team, 'Los Angeles Sparks');
+  assert.equal(byName.get('Shyanne Sellers').number, '7');
+  assert.equal(byName.get('Shyanne Sellers').currentRoster, true);
+  assert.equal(byName.get('Shyanne Sellers').liveStatus, 'development');
+  assert.equal(byName.get('Shyanne Sellers').liveEffectiveDate, '2026-08-31');
+
   assert.equal(byName.get('Aaliyah Nye').team, 'Los Angeles Sparks');
+  assert.equal(byName.get('Aaliyah Nye').number, '32');
   assert.equal(byName.get('Aaliyah Nye').currentRoster, true);
+  assert.equal(byName.get('Aaliyah Nye').liveEffectiveDate, '2026-08-30');
+
+  assert.equal(byName.get('Ndjakalenga Mwenentanda').number, '32');
   assert.equal(byName.get('Ndjakalenga Mwenentanda').liveStatus, 'development');
+
+  assert.equal(byName.get('Tonie Morgan').team, 'Los Angeles Sparks');
+  assert.equal(byName.get('Tonie Morgan').number, '4');
+  assert.equal(byName.get('Tonie Morgan').liveEffectiveDate, '2026-08-16');
 
   for (const player of payload.players) {
     const filterTeam = player.currentRoster === false ? player.lastTeam : player.team;
@@ -45,5 +60,9 @@ test('latest Sparks moves update current rosters without removing Playerpedia hi
   }
 
   assert.ok(payload.transactions.some(item => item.player === 'Kate Martin' && item.type === 'WAIVED'));
-  assert.ok(payload.transactions.some(item => item.player === 'Aaliyah Nye' && item.type === 'CLAIMED'));
+  assert.ok(payload.transactions.some(item => item.player === 'Shyanne Sellers' && item.type === 'SIGNED' && item.date === '2026-08-31'));
+  assert.ok(payload.transactions.some(item => item.player === 'Aaliyah Nye' && item.type === 'CLAIMED' && item.date === '2026-08-30'));
+  assert.ok(payload.transactions.some(item => item.player === 'Tonie Morgan' && item.type === 'SIGNED' && item.date === '2026-08-16'));
+  assert.ok(payload.transactions.some(item => item.player === 'Tonie Morgan' && item.type === 'SIGNED' && item.date === '2026-07-17'));
+  assert.ok(payload.transactions.some(item => item.player === 'Nneka Ogwumike' && item.type === 'RETIREMENT ANNOUNCED' && item.date === '2026-08-19'));
 });

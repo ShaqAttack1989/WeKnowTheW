@@ -10,6 +10,7 @@ const client = fs.readFileSync(path.join(root, 'stat-kitchen-awards.js'), 'utf8'
 const api = fs.readFileSync(path.join(root, 'api', 'rookie-week.js'), 'utf8');
 const workflow = fs.readFileSync(path.join(root, '.github', 'workflows', 'weekly-heat-check.yml'), 'utf8');
 const weeklyUpdater = fs.readFileSync(path.join(root, 'scripts', 'update-weekly-awards.mjs'), 'utf8');
+const rookieUpdater = fs.readFileSync(path.join(root, 'scripts', 'update-rookie-week.mjs'), 'utf8');
 const monthlySource = fs.readFileSync(path.join(root, 'stat-kitchen-monthly-data.js'), 'utf8');
 const sandbox = { window: {} };
 vm.runInNewContext(monthlySource, sandbox);
@@ -59,9 +60,28 @@ test('Rookie of the Week uses ESPN boxscores and not a WNBA API endpoint', () =>
   assert.match(api, /PPG \+ 1\.2×RPG \+ 1\.5×APG \+ 3×SPG \+ 3×BPG/);
 });
 
-test('award sync covers weekly and monthly releases automatically', () => {
+test('Rookie of the Week has a verified snapshot fallback', () => {
+  assert.match(api, /stat-kitchen-rookie-week\.json/);
+  assert.match(api, /fallbackPayload/);
+  assert.match(api, /verified snapshot fallback/);
+  assert.match(client, /fetchRookieSnapshot/);
+  assert.match(client, /stat-kitchen-rookie-week\.json/);
+  assert.match(client, /15\*60\*1000/);
+  assert.match(client, /visibilitychange/);
+});
+
+test('Rookie snapshot updater preserves the last verified board on provider failure', () => {
+  assert.match(rookieUpdater, /fresh: '1'/);
+  assert.match(rookieUpdater, /Preserving verified Week/);
+  assert.match(rookieUpdater, /stat-kitchen-rookie-week\.json/);
+  assert.doesNotMatch(rookieUpdater, /stats\.wnba\.com/);
+});
+
+test('award sync covers weekly, monthly and rookie releases automatically', () => {
   assert.match(workflow, /update-weekly-awards\.mjs/);
   assert.match(workflow, /update-monthly-awards\.mjs/);
+  assert.match(workflow, /update-rookie-week\.mjs/);
+  assert.match(workflow, /stat-kitchen-rookie-week\.json/);
   assert.match(workflow, /37 18 \* \* \*/);
   assert.doesNotMatch(weeklyUpdater, /Official award period/);
   assert.match(weeklyUpdater, /nextPeriod\(latest\.dates\)/);

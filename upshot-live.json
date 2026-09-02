@@ -1,9 +1,9 @@
 {
-  "updatedAt": "2026-08-30T14:38:18Z",
+  "updatedAt": "2026-09-02T16:43:00Z",
   "league": "UPSHOT League",
   "season": 2026,
   "label": "Complete inaugural season record",
-  "note": "Public-source snapshot. The 2026 regular season and inaugural championship are complete. Regular-season standings remain separated from the title-game result, and league honors are sourced from official UPSHOT team announcements.",
+  "note": "Public-source snapshot. The 2026 regular season and inaugural championship are complete. Regular-season standings remain separated from the title-game result, league honors are sourced from official UPSHOT team announcements, and the WNBA pipeline now records all three verified inaugural-season call-ups.",
   "championship": {
     "status": "Final",
     "date": "2026-08-29",
@@ -23,9 +23,9 @@
     "sourceUrl": "https://crownupshot.com/crown-pull-off-comeback-to-win-upshot-championship/"
   },
   "teams": [
-    {"rank":1,"team":"Jacksonville Waves","short":"Waves","city":"Jacksonville, FL","record":"25-9","wins":25,"losses":9,"pct":0.735,"gb":"—","home":"13-4","away":"12-5","streak":"L1","l10":"6-4","l10Wins":6,"ppg":82.6,"oppg":78.2,"diff":4.4,"coach":"Jessica Bogia","arena":"VyStar Veterans Memorial Arena","tagline":"Rise with us","accent":"#04747f","light":"#b6e7ef","qualified":true,"seasonFinish":"Championship runner-up","note":"Jacksonville won the inaugural regular-season table and hosted the first championship. The Waves led Charlotte through three quarters before the Crown's fourth-quarter comeback ended the title game 81-76.","officialUrl":"https://wavesupshot.com/"},
-    {"rank":2,"team":"Charlotte Crown","short":"Crown","city":"Charlotte, NC","record":"23-11","wins":23,"losses":11,"pct":0.676,"gb":"2","home":"12-5","away":"11-6","streak":"W4","l10":"9-1","l10Wins":9,"ppg":84.9,"oppg":79.8,"diff":5.1,"coach":"Trisha Stafford-Odom","arena":"Bojangles Coliseum","tagline":"The Queen City in motion","accent":"#8c57ff","light":"#d8c7ff","qualified":true,"seasonFinish":"2026 UPSHOT champion","note":"Charlotte turned a 1-5 start into a championship story. The Crown closed the regular season 22-6 after Schaquilla Nunn joined, then rallied from 10 down in the fourth quarter to win the inaugural title 81-76.","officialUrl":"https://crownupshot.com/"},
-    {"rank":3,"team":"Greensboro Groove","short":"Groove","city":"Greensboro, NC","record":"11-23","wins":11,"losses":23,"pct":0.324,"gb":"14","home":"6-11","away":"5-12","streak":"L3","l10":"2-8","l10Wins":2,"ppg":78.1,"oppg":83.4,"diff":-5.3,"coach":"Janice M. Washington","arena":"Novant Health Fieldhouse / First Horizon Coliseum","tagline":"We are the beat","accent":"#0077b6","light":"#3be29a","qualified":false,"seasonFinish":"Third place","note":"Greensboro finished third in year one. The Groove's inaugural season included statement wins, All-UPSHOT guard Diamond Johnson and one of the league's first WNBA call-ups in Christyn Williams.","officialUrl":"https://grooveupshot.com/"},
+    {"rank":1,"team":"Jacksonville Waves","short":"Waves","city":"Jacksonville, FL","record":"25-9","wins":25,"losses":9,"pct":0.735,"gb":"—","home":"13-4","away":"12-5","streak":"L1","l10":"6-4","l10Wins":6,"ppg":82.6,"oppg":78.2,"diff":4.4,"coach":"Jessica Bogia","arena":"VyStar Veterans Memorial Arena","tagline":"Rise with us","accent":"#04747f","light":"#b6e7ef","qualified":true,"seasonFinish":"Championship runner-up","note":"Jacksonville won the inaugural regular-season table and hosted the first championship. The Waves led Charlotte through three quarters before the Crown's fourth-quarter comeback ended the title game 81-76. Guard Shyanne Sellers later became the third inaugural-season UPSHOT player to earn a WNBA contract, signing with Los Angeles.","officialUrl":"https://wavesupshot.com/"},
+    {"rank":2,"team":"Charlotte Crown","short":"Crown","city":"Charlotte, NC","record":"23-11","wins":23,"losses":11,"pct":0.676,"gb":"2","home":"12-5","away":"11-6","streak":"W4","l10":"9-1","l10Wins":9,"ppg":84.9,"oppg":79.8,"diff":5.1,"coach":"Trisha Stafford-Odom","arena":"Bojangles Coliseum","tagline":"The Queen City in motion","accent":"#8c57ff","light":"#d8c7ff","qualified":true,"seasonFinish":"2026 UPSHOT champion","note":"Charlotte turned a 1-5 start into a championship story. The Crown closed the regular season 22-6 after Schaquilla Nunn joined, then rallied from 10 down in the fourth quarter to win the inaugural title 81-76. Michelle Onyiah became the first UPSHOT player to earn a WNBA contract during the season.","officialUrl":"https://crownupshot.com/"},
+    {"rank":3,"team":"Greensboro Groove","short":"Groove","city":"Greensboro, NC","record":"11-23","wins":11,"losses":23,"pct":0.324,"gb":"14","home":"6-11","away":"5-12","streak":"L3","l10":"2-8","l10Wins":2,"ppg":78.1,"oppg":83.4,"diff":-5.3,"coach":"Janice M. Washington","arena":"Novant Health Fieldhouse / First Horizon Coliseum","tagline":"We are the beat","accent":"#0077b6","light":"#3be29a","qualified":false,"seasonFinish":"Third place","note":"Greensboro finished third in year one. The Groove's inaugural season included statement wins, All-UPSHOT guard Diamond Johnson and the league's second WNBA call-up in Christyn Williams.","officialUrl":"https://grooveupshot.com/"},
     {"rank":4,"team":"Savannah Steel","short":"Steel","city":"Savannah, GA","record":"9-25","wins":9,"losses":25,"pct":0.265,"gb":"16","home":"7-10","away":"2-15","streak":"W1","l10":"2-8","l10Wins":2,"ppg":76.2,"oppg":80.4,"diff":-4.2,"coach":"Coretta Brown","arena":"Enmarket Arena","tagline":"Strength in motion","accent":"#a40a93","light":"#ff9df5","qualified":false,"seasonFinish":"Fourth place","note":"Savannah closed the regular season with a 92-90 win over first-place Jacksonville. Lasha Petree gave the Steel a place on the inaugural All-UPSHOT Team.","officialUrl":"https://steelupshot.com/"}
   ],
   "expansionTeams": [
@@ -52,8 +52,9 @@
     {"player":"Schaquilla Nunn","team":"Charlotte Crown","summary":"Defensive Player of the Year"}
   ],
   "callUps": [
-    {"player":"Michelle Onyiah","from":"Charlotte Crown","to":"Indiana Fever","date":"2026-07-31","contract":"Developmental player contract","stats":"9.6 PPG · 6.9 RPG · 1.1 BPG · 52.8 FG% in 21 UPSHOT games","milestone":"First UPSHOT League player to earn a WNBA contract.","photo":"https://a.espncdn.com/i/headshots/womens-college-basketball/players/full/4433744.png"},
-    {"player":"Christyn Williams","from":"Greensboro Groove","to":"Dallas Wings","date":"2026-08-14","contract":"Developmental player contract","stats":"9.6 PPG · 3.0 RPG · 1.9 APG · 41.1 FG% in 14 UPSHOT games","milestone":"Second UPSHOT League player from the inaugural season to earn a WNBA contract."}
+    {"player":"Michelle Onyiah","from":"Charlotte Crown","to":"Indiana Fever","date":"2026-07-31","contract":"Developmental player contract","stats":"9.6 PPG · 6.9 RPG · 1.1 BPG · 52.8 FG% in 21 UPSHOT games","milestone":"First UPSHOT League player to earn a WNBA contract.","photo":"https://a.espncdn.com/i/headshots/womens-college-basketball/players/full/4433744.png","sourceUrl":"https://www.wnba.com/draft/2026/teams/indiana-fever"},
+    {"player":"Christyn Williams","from":"Greensboro Groove","to":"Dallas Wings","date":"2026-08-14","contract":"Developmental player contract","stats":"9.6 PPG · 3.0 RPG · 1.9 APG · 41.1 FG% in 14 UPSHOT games","milestone":"Second UPSHOT League player from the inaugural season to earn a WNBA contract.","sourceUrl":"https://upshotleague.com/christyn-williams-signs-with-dallas-wings-after-upshot-league-season-with-greensboro-groove/"},
+    {"player":"Shyanne Sellers","from":"Jacksonville Waves","to":"Los Angeles Sparks","date":"2026-08-31","contract":"WNBA Player Development Pool contract","stats":"13.3 PPG · 4.2 RPG · 3.7 APG · 41.6 FG% in 34 UPSHOT games","milestone":"Third UPSHOT League player from the inaugural season to earn a WNBA contract.","sourceUrl":"https://sparks.wnba.com/news/los-angeles-sparks-sign-shyanne-sellers-to-development-contract"}
   ],
   "recentGames": [
     {"date":"2026-08-29","away":"Charlotte Crown","awayScore":81,"home":"Jacksonville Waves","homeScore":76,"venue":"VyStar Veterans Memorial Arena","stage":"Championship"},
@@ -65,7 +66,7 @@
   ],
   "facts": [
     {"label":"Founding Four","value":"4 teams","detail":"Jacksonville, Charlotte, Greensboro and Savannah"},
-    {"label":"Roster model","value":"11 athletes","detail":"Per team in the inaugural league model"},
+    {"label":"WNBA pipeline","value":"3 call-ups","detail":"Michelle Onyiah, Christyn Williams and Shyanne Sellers"},
     {"label":"Regular season","value":"34 games","detail":"17 home and 17 away per team"},
     {"label":"Game format","value":"4 × 10","detail":"Four 10-minute quarters with a 24-second shot clock"}
   ],
@@ -77,9 +78,10 @@
     {"date":"Aug. 14, 2026","title":"A second door opens","detail":"Greensboro guard Christyn Williams signs with the Dallas Wings, becoming the second inaugural-season UPSHOT-to-WNBA move."},
     {"date":"Aug. 23, 2026","title":"Regular season complete","detail":"Jacksonville finishes first at 25-9, Charlotte second at 23-11, and the championship field is set."},
     {"date":"Aug. 29, 2026","title":"Charlotte wins the first championship","detail":"The Crown erase a 10-point fourth-quarter deficit, beat Jacksonville 81-76 and become the first UPSHOT champions. Deja Kelly earns Championship MVP with 29 points and six rebounds."},
-    {"date":"Aug. 29, 2026","title":"The inaugural honors are announced","detail":"Ariel Hearn wins league MVP, Schaquilla Nunn wins Defensive Player of the Year, Taylor Soule wins Sixth Woman and six players make the first All-UPSHOT Team."}
+    {"date":"Aug. 29, 2026","title":"The inaugural honors are announced","detail":"Ariel Hearn wins league MVP, Schaquilla Nunn wins Defensive Player of the Year, Taylor Soule wins Sixth Woman and six players make the first All-UPSHOT Team."},
+    {"date":"Aug. 31, 2026","title":"The pipeline reaches three","detail":"Jacksonville Waves guard Shyanne Sellers signs a WNBA Player Development Pool contract with the Los Angeles Sparks, becoming the third inaugural-season UPSHOT player to earn a WNBA contract."}
   ],
-  "next": "Charlotte Crown 81, Jacksonville Waves 76 · The Crown are the inaugural UPSHOT League champions.",
+  "next": "Three inaugural-season UPSHOT players have now earned WNBA contracts: Michelle Onyiah, Christyn Williams and Shyanne Sellers.",
   "sources": [
     {"label":"UPSHOT League","url":"https://upshotleague.com/"},
     {"label":"Official standings","url":"https://upshotleague.com/standings/"},
@@ -87,6 +89,8 @@
     {"label":"UPSHOT teams and final standings","url":"https://upshotleague.com/teams/"},
     {"label":"Championship recap","url":"https://crownupshot.com/crown-pull-off-comeback-to-win-upshot-championship/"},
     {"label":"All-UPSHOT Team","url":"https://wavesupshot.com/ariel-hearn-rennia-davis-earn-all-upshot-team-honors/"},
+    {"label":"Jacksonville Waves inaugural roster","url":"https://wavesupshot.com/jacksonville-waves-final-roster-may-2026/"},
+    {"label":"Los Angeles Sparks · Shyanne Sellers signing","url":"https://sparks.wnba.com/news/los-angeles-sparks-sign-shyanne-sellers-to-development-contract"},
     {"label":"UPSHOT Baltimore","url":"https://baltimoreupshot.com/"},
     {"label":"UPSHOT Nashville","url":"https://nashvilleupshot.com/"},
     {"label":"Jacksonville Waves","url":"https://upshotleague.com/teams/jacksonville-waves/"},

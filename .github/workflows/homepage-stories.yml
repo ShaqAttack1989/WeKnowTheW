@@ -1,0 +1,61 @@
+name: Homepage stories refresh
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/homepage-stories.yml'
+      - 'homepage-specials.js'
+      - 'homepage-week-live.css'
+      - 'snack-shak-latest.json'
+      - 'snack-shak-breaking.json'
+      - 'snack-shak-specials.json'
+      - 'snack-shaq-posts.json'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: homepage-stories-refresh
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Validate story feed and renderer
+        run: |
+          node --check homepage-specials.js
+          node -e "JSON.parse(require('fs').readFileSync('snack-shak-latest.json','utf8')); console.log('Latest story feed is valid JSON')"
+      - name: Bust homepage story cache and refresh labels
+        run: |
+          node <<'NODE'
+          const fs = require('fs');
+          const path = 'index.html';
+          let html = fs.readFileSync(path, 'utf8');
+          const stamp = new Date().toISOString().slice(0,10).replaceAll('-','');
+          html = html
+            .replace(/homepage-week-live\.css\?v=[^"']+/, `homepage-week-live.css?v=${stamp}-fresh-stories`)
+            .replace(/homepage-specials\.js\?v=[^"']+/, `homepage-specials.js?v=${stamp}-fresh-stories`)
+            .replace('Milestone watch, the newest distinct Snack Shak story, and Shak’s mock weekly Starting Five and Bench Mob, all in one easy-to-scan board.', 'Milestone watch, the three newest Snack Shak stories, and Shak’s mock weekly Starting Five and Bench Mob, all in one easy-to-scan board.')
+            .replace('🌶️ SNACK SHAK RELEASE', '🌶️ LATEST SNACK SHAK STORIES');
+          fs.writeFileSync(path, html);
+          NODE
+      - name: Publish refreshed homepage when needed
+        run: |
+          if git diff --quiet; then
+            echo "Homepage story cache and labels are already current."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git commit -m "Refresh homepage story cache"
+          git push

@@ -4,12 +4,36 @@
   const norm=value=>String(value||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,' ').trim();
   const short=(value='',limit=180)=>{const text=String(value||'').replace(/\s+/g,' ').trim();return text.length<=limit?text:`${text.slice(0,limit).replace(/\s+\S*$/,'').trim()}…`;};
   const fmtDate=value=>{const date=new Date(`${String(value||'').slice(0,10)}T12:00:00`);return Number.isNaN(date.getTime())?String(value||''):date.toLocaleDateString([],{month:'short',day:'numeric'});};
+  const dateKey=post=>String(post?.updated||post?.published||'');
+  const dateLabel=post=>`${post?.updated&&String(post.updated)>String(post.published||'')?'UPDATED ':' '}${fmtDate(dateKey(post))}`.trim();
   let posts=[];let loadedAt=0;let loadPromise=null;
-  function sortPosts(items=[]){return [...items].sort((a,b)=>String(b.published||'').localeCompare(String(a.published||''))||Number(b.priority||0)-Number(a.priority||0));}
+  function sortPosts(items=[]){return [...items].sort((a,b)=>dateKey(b).localeCompare(dateKey(a))||Number(b.priority||0)-Number(a.priority||0));}
   async function fetchPosts(url){const response=await fetch(`${url}?cb=${Date.now()}`,{headers:{Accept:'application/json','Cache-Control':'no-cache'},cache:'no-store'});if(!response.ok)return [];const payload=await response.json().catch(()=>({}));return Array.isArray(payload.posts)?payload.posts:[];}
-  async function loadSpecials(force=false){if(!force&&posts.length&&Date.now()-loadedAt<300000)return posts;if(loadPromise&&!force)return loadPromise;const feeds=['/snack-shak-latest.json','/snack-shak-breaking.json','/snack-shak-specials.json','/snack-shaq-posts.json'];loadPromise=Promise.allSettled(feeds.map(fetchPosts)).then(results=>{const bySlug=new Map();results.forEach(result=>{if(result.status==='fulfilled')result.value.forEach(post=>{if(post?.slug)bySlug.set(post.slug,post);});});posts=sortPosts([...bySlug.values()]);loadedAt=Date.now();return posts;}).catch(()=>posts).finally(()=>{loadPromise=null;});return loadPromise;}
+  async function loadSpecials(force=false){
+    if(!force&&posts.length&&Date.now()-loadedAt<300000)return posts;
+    if(loadPromise&&!force)return loadPromise;
+    // Load the archive first so the purpose-built current feeds win when a slug appears in more than one file.
+    const feeds=['/snack-shaq-posts.json','/snack-shak-specials.json','/snack-shak-breaking.json','/snack-shak-latest.json'];
+    loadPromise=Promise.allSettled(feeds.map(fetchPosts)).then(results=>{
+      const bySlug=new Map();
+      results.forEach(result=>{if(result.status==='fulfilled')result.value.forEach(post=>{if(post?.slug)bySlug.set(post.slug,post);});});
+      posts=sortPosts([...bySlug.values()]);loadedAt=Date.now();return posts;
+    }).catch(()=>posts).finally(()=>{loadPromise=null;});
+    return loadPromise;
+  }
   function featureHref(post){if(post.dashboardUrl)return post.dashboardUrl;const slug=encodeURIComponent(post.slug);return post.type==='feature'?`/food-for-thought.html?post=${slug}#story`:`/snack-shak-bytes.html?post=${slug}#story`;}
-  function renderWeeklySpecials(){if(!posts.length)return;const snackHost=document.getElementById('homeWeekSnackLive');const milestoneHost=document.getElementById('homeWeekMilestoneLive');const milestone=posts.find(post=>norm(post.seriesLabel).includes('milestone'));const latest=posts.find(post=>post.slug!==milestone?.slug&&!norm(post.seriesLabel).includes('milestone'))||posts[0];if(snackHost&&latest)snackHost.innerHTML=`<span class="week-feature-meta">${safe(latest.seriesLabel||'SNACK SHAK BYTE')} · ${safe(fmtDate(latest.published))}</span><strong class="week-feature-title">${safe(latest.title)}</strong><p>${safe(short(latest.dek,185))}</p><a href="${safe(featureHref(latest))}">Read the story →</a>`;if(milestoneHost&&milestone)milestoneHost.innerHTML=`<span class="week-feature-meta">${safe(milestone.seriesLabel||'MILESTONE MOMENT')} · ${safe(fmtDate(milestone.published))}</span><strong class="week-feature-title">${safe(milestone.title)}</strong><p>${safe(short(milestone.dek,205))}</p><a href="${safe(featureHref(milestone))}">Check the receipt →</a>`;}
+  function latestStoryMarkup(items=[]){
+    return `<div class="week-story-list">${items.map((post,index)=>`<div class="week-story-item ${index===0?'lead':''}"><span class="week-feature-meta">${safe(post.seriesLabel||'SNACK SHAK')} · ${safe(dateLabel(post))}</span><strong class="week-story-title">${safe(post.title)}</strong>${index===0&&post.dek?`<p>${safe(short(post.dek,155))}</p>`:''}<a href="${safe(featureHref(post))}">${index===0?'Read the newest story':'Read story'} →</a></div>`).join('')}</div><a class="week-story-all" href="/snack-shak.html">See all Snack Shak stories →</a>`;
+  }
+  function renderWeeklySpecials(){
+    if(!posts.length)return;
+    const snackHost=document.getElementById('homeWeekSnackLive');
+    const milestoneHost=document.getElementById('homeWeekMilestoneLive');
+    const milestone=posts.find(post=>norm(post.seriesLabel).includes('milestone'));
+    const latestStories=posts.filter(post=>post.slug!==milestone?.slug&&!norm(post.seriesLabel).includes('milestone')).slice(0,3);
+    if(snackHost&&latestStories.length)snackHost.innerHTML=latestStoryMarkup(latestStories);
+    if(milestoneHost&&milestone)milestoneHost.innerHTML=`<span class="week-feature-meta">${safe(milestone.seriesLabel||'MILESTONE MOMENT')} · ${safe(dateLabel(milestone))}</span><strong class="week-feature-title">${safe(milestone.title)}</strong><p>${safe(short(milestone.dek,205))}</p><a href="${safe(featureHref(milestone))}">Check the receipt →</a>`;
+  }
   function searchableText(post={}){const sections=(post.sections||[]).flatMap(section=>[section.title,...(section.paragraphs||[])]).join(' ');return norm(`${post.title||''} ${post.seriesLabel||''} ${post.dek||''} ${post.week||''} ${(post.players||[]).join(' ')} ${(post.teams||[]).join(' ')} ${sections}`);}
   function appendSearchMatches(query){const host=document.getElementById('homeSearchResults');const q=norm(query),terms=q.split(/\s+/).filter(Boolean);if(!host||q.length<2)return;const existing=new Set([...host.querySelectorAll('a[href]')].map(a=>a.getAttribute('href')));const articleMatches=posts.filter(post=>{const hay=searchableText(post);return terms.every(term=>hay.includes(term));}).slice(0,6).map(post=>({title:post.title,type:post.seriesLabel||'Article',href:featureHref(post),keywords:short(post.dek,130)}));if(!articleMatches.length)return;host.classList.add('open');articleMatches.reverse().forEach(item=>{if(existing.has(item.href))return;const link=document.createElement('a');link.className='home-search-result home-search-special';link.href=item.href;link.innerHTML=`<span>${safe(item.type)}</span><div><strong>${safe(item.title)}</strong><small>${safe(item.keywords||'Open article')}</small></div><b>→</b>`;host.prepend(link);existing.add(item.href);});}
   function wireSearch(){const input=document.getElementById('homeSiteSearch');if(!input)return;let timer=null;const sync=()=>{clearTimeout(timer);timer=setTimeout(()=>loadSpecials().then(()=>appendSearchMatches(input.value)),120);};input.addEventListener('input',sync);input.addEventListener('focus',sync);document.querySelectorAll('[data-home-search-chip]').forEach(button=>button.addEventListener('click',()=>setTimeout(sync,30)));}

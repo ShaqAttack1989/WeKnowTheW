@@ -12,7 +12,8 @@
 .week-hub-search .home-search-box{margin:0!important;padding:0!important;background:transparent!important;border:0!important;box-shadow:none!important}
 .week-hub-search .home-search-input-wrap{margin:0!important}
 .week-hub-search .home-search-chips{margin-top:8px!important}
-.week-hub-search .home-search-chips button{font-size:.7rem!important;padding:6px 9px!important}
+.week-hub-search .home-search-chips button{font-size:.7rem!important;padding:6px 9px!important;background:#eee7f8!important;border:1px solid #d7c8e8!important;color:#3f245f!important;box-shadow:none!important}
+.week-hub-search .home-search-chips button:hover,.week-hub-search .home-search-chips button:focus-visible{background:#d8ff4f!important;border-color:#b9db2e!important;color:#140a2f!important;outline:2px solid #6c2ad9;outline-offset:2px}
 .week-hub-search .home-search-results{z-index:40}
 .week-editorial-grid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:0;border-bottom:1px solid #e8e0ed}
 .week-editorial-card{position:relative;display:flex;flex-direction:column;min-height:292px;padding:30px 32px}

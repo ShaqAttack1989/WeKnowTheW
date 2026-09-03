@@ -5,7 +5,7 @@
   const cache={facts:null,draft:null,curated:null,affiliations:null,players:null};
   let renderToken=0;
 
-  const safe=value=>String(value??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[ch]));
+  const safe=value=>String(value??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot',"'":'&#039;'}[ch]));
   const key=value=>String(value||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[’']/g,'').toLowerCase().replace(/[^a-z0-9]/g,'');
   const unique=list=>[...new Set(list.filter(Boolean).map(value=>String(value).trim()).filter(Boolean))];
   async function json(url){const response=await fetch(url,{headers:{Accept:'application/json'}});if(!response.ok)throw new Error(`${url} ${response.status}`);return response.json();}
@@ -41,14 +41,31 @@
     return [from,to].filter(Boolean).join(from&&to?'–':'');
   }
   function franchiseTrail(name,current,legacy,detail){
-    const stops=[];
-    (legacy?.teams||[]).forEach(stop=>{if(Array.isArray(stop)&&stop[0])stops.push({team:stop[0],years:stop[1]||''});});
-    (detail?.formerTeams||[]).forEach(item=>{const team=relatedTeam(item);if(WNBA_TEAMS.has(team))stops.push({team,years:relatedYears(item)});});
+    const raw=[];
+    (legacy?.teams||[]).forEach(stop=>{if(Array.isArray(stop)&&stop[0])raw.push({team:stop[0],years:stop[1]||''});});
+    (detail?.formerTeams||[]).forEach(item=>{const team=relatedTeam(item);if(WNBA_TEAMS.has(team))raw.push({team,years:relatedYears(item)});});
     const currentTeam=(current?.currentRoster===false?current.lastTeam:current?.team)||current?.lastTeam||detail?.player?.team||'';
-    if(currentTeam&&!/^Free Agent/i.test(currentTeam))stops.push({team:currentTeam.replace(/^Free Agent\s*·\s*last:\s*/i,''),years:current?.lastWnbaSeason?String(current.lastWnbaSeason):''});
-    const out=[];const seen=new Set();
-    stops.forEach(stop=>{const id=key(stop.team);if(!id||seen.has(id))return;seen.add(id);out.push(stop);});
-    return out;
+    if(currentTeam&&!/^Free Agent/i.test(currentTeam)){
+      raw.push({team:currentTeam.replace(/^Free Agent\s*·\s*last:\s*/i,''),years:current?.currentRoster===false?`${current.lastWnbaSeason||2026} · last WNBA team`:'2026 · current'});
+    }
+    const map=new Map();
+    raw.forEach(stop=>{
+      const id=key(stop.team);if(!id)return;
+      const currentStop=map.get(id)||{team:stop.team,years:[]};
+      if(stop.years&&!currentStop.years.includes(stop.years))currentStop.years.push(stop.years);
+      map.set(id,currentStop);
+    });
+    return [...map.values()].map(stop=>({team:stop.team,years:stop.years.join(' · ')}));
+  }
+  function internationalTrail(detail){
+    const rows=[];
+    (detail?.formerTeams||[]).forEach(item=>{
+      const team=relatedTeam(item),league=relatedLeague(item),years=relatedYears(item);
+      if(!team||WNBA_TEAMS.has(team))return;
+      rows.push({team,league,years});
+    });
+    const seen=new Set();
+    return rows.filter(item=>{const id=key(`${item.team}${item.league}${item.years}`);if(!id||seen.has(id))return false;seen.add(id);return true;}).slice(0,6);
   }
   function affiliationLines(name,aff={}){
     const id=key(name),items=[];
@@ -62,11 +79,7 @@
     return items;
   }
   function achievementText(item={}){return item.strHonour||item.strHonor||item.strMilestone||item.strAchievement||item.strEvent||item.strName||item.title||item.name||item.description||'';}
-  function achievements(detail,memorable){
-    const list=[...(detail?.honours||[]),...(detail?.milestones||[])].map(achievementText).filter(Boolean);
-    if(memorable)list.push(memorable);
-    return unique(list).slice(0,6);
-  }
+  function achievements(detail){return unique([...(detail?.honours||[]),...(detail?.milestones||[])].map(achievementText).filter(Boolean)).slice(0,6);}
   function factFileValue(name,facts){return facts?.[key(name)]||'';}
   function profileName(){
     const title=document.getElementById('playerModalTitle');
@@ -85,25 +98,30 @@
     if(!record)return sectionCard('DRAFT FILE','WNBA entry','<p>No verified WNBA draft selection is attached to this profile. That can mean undrafted, pre-draft-era entry, or a record still being researched.</p>');
     const pick=record.pick?`No. ${record.pick} overall`:record.round?`Round ${record.round}`:'Draft selection';
     const collegeLine=college?`<p><strong>College:</strong> ${safe(college)}</p>`:'';
-    return sectionCard('DRAFT FILE',`${record.year} · ${pick}`,`<p><strong>Drafted by:</strong> ${safe(record.team||'WNBA team')}</p>${collegeLine}`,sourceLink(record.source||record.sourceUrl,record.sourceLabel||'Draft record'));
+    const note=record.note?`<p>${safe(record.note)}</p>`:'';
+    return sectionCard('DRAFT FILE',`${record.year} · ${pick}`,`<p><strong>Drafted by:</strong> ${safe(record.team||'WNBA team')}</p>${collegeLine}${note}`,sourceLink(record.source||record.sourceUrl,record.sourceLabel||'Draft record'));
+  }
+  function nicknameMarkup(curated){
+    if(!curated?.nickname)return '';
+    return `<div class="deep-nickname"><p><strong>Documented nickname:</strong> ${safe(curated.nickname)}</p>${curated.nicknameNote?`<small>${safe(curated.nicknameNote)}</small>`:''}${sourceLink(curated.nicknameSource,'Nickname source')}</div>`;
   }
   function pronunciationCard(curated){
     const pronunciation=curated?.pronunciation||'';
-    const nickname=curated?.nickname||'';
+    const nickname=nicknameMarkup(curated);
     if(!pronunciation){
-      const nicknameLine=nickname?`<p><strong>Documented nickname:</strong> ${safe(nickname)}</p>`:'';
-      return sectionCard('SAY THE NAME','Pronunciation guide',`${nicknameLine}<p class="deep-bio-muted">No verified pronunciation guide has been added yet. Playerpedia does not guess name pronunciations.</p>`,'','pronunciation');
+      return sectionCard('SAY THE NAME','Pronunciation guide',`${nickname}<p class="deep-bio-muted">No verified pronunciation guide has been added yet. Playerpedia does not guess name pronunciations.</p>`,'','pronunciation');
     }
-    return sectionCard('SAY THE NAME',pronunciation,`${nickname?`<p><strong>Documented nickname:</strong> ${safe(nickname)}</p>`:''}`,sourceLink(curated.pronunciationSource,'Pronunciation source'),'pronunciation');
+    return sectionCard('SAY THE NAME',pronunciation,`${nickname}`,sourceLink(curated.pronunciationSource,'Pronunciation source'),'pronunciation');
   }
   function trailCard(trail){
     if(!trail.length)return sectionCard('FRANCHISE TRAIL','WNBA path','<p class="deep-bio-muted">A verified franchise trail has not been assembled for this profile yet.</p>');
     return sectionCard('FRANCHISE TRAIL','WNBA path',`<div class="deep-trail">${trail.map((stop,index)=>`<div><i>${index+1}</i><p><strong>${safe(stop.team)}</strong>${stop.years?`<small>${safe(stop.years)}</small>`:''}</p></div>`).join('')}</div>`);
   }
-  function collegeInternationalCard(college,nationality,connections){
+  function collegeInternationalCard(college,nationality,connections,international){
     const lines=[];
     if(college)lines.push(`<p><strong>College:</strong> ${safe(college)}</p>`);
     if(nationality)lines.push(`<p><strong>Nationality:</strong> ${safe(nationality)}</p>`);
+    if(international.length)lines.push(`<div class="deep-international"><strong>Club / international trail</strong>${international.map(item=>`<p>${safe(item.team)}${item.league?` · ${safe(item.league)}`:''}${item.years?` · ${safe(item.years)}`:''}</p>`).join('')}</div>`);
     if(connections.length)lines.push(`<div class="deep-connections">${connections.map(item=>`<div><span>${safe(item.label)}</span><p>${safe(item.text)}</p>${sourceLink(item.url,'Connection')}</div>`).join('')}</div>`);
     if(!lines.length)lines.push('<p class="deep-bio-muted">College or international/pro context has not been verified for this profile yet.</p>');
     return sectionCard('COLLEGE + INTERNATIONAL','Beyond the WNBA',lines.join(''));
@@ -114,9 +132,8 @@
   }
   function memorableCard(fact){return sectionCard('REMEMBER THIS','Memorable fact',fact?`<p>${safe(fact)}</p>`:'<p class="deep-bio-muted">The individualized memorable fact is still being upgraded from the archive fallback.</p>','','memorable');}
   function offCourtCard(curated){
-    if(!curated?.offCourt&&!curated?.nickname)return sectionCard('BEYOND THE LINES','Off-court connections','<p class="deep-bio-muted">No verified off-court connection has been attached yet. Playerpedia leaves this blank rather than inventing personal details.</p>');
-    const body=`${curated.offCourt?`<p>${safe(curated.offCourt)}</p>`:''}${curated.nickname?`<p><strong>Nickname:</strong> ${safe(curated.nickname)}</p>`:''}`;
-    return sectionCard('BEYOND THE LINES','Off-court connections',body,curated.offCourtLink?`<a href="${safe(curated.offCourtLink)}">Follow the connection →</a>`:'','offcourt');
+    if(!curated?.offCourt)return sectionCard('BEYOND THE LINES','Off-court connections','<p class="deep-bio-muted">No verified off-court connection has been attached yet. Playerpedia leaves this blank rather than inventing personal details.</p>');
+    return sectionCard('BEYOND THE LINES','Off-court connections',`<p>${safe(curated.offCourt)}</p>`,curated.offCourtLink?`<a href="${safe(curated.offCourtLink)}">Follow the connection →</a>`:'','offcourt');
   }
   async function renderDepth(){
     const modal=document.getElementById('playerModalBody');if(!modal)return;
@@ -136,11 +153,12 @@
       const college=detail?.player?.college||legacy?.college||draft?.college||'';
       const nationality=detail?.player?.nationality||'';
       const trail=franchiseTrail(name,current,legacy,detail);
+      const international=internationalTrail(detail);
       const connections=affiliationLines(name,data.affiliations);
-      const accomplishments=achievements(detail,fact);
-      const populated=[curated.pronunciation,draft,trail.length,college||nationality||connections.length,accomplishments.length,fact,curated.offCourt||curated.nickname].filter(Boolean).length;
+      const accomplishmentList=achievements(detail);
+      const populated=[curated.pronunciation||curated.nickname,draft,trail.length,college||nationality||international.length||connections.length,accomplishmentList.length,fact,curated.offCourt].filter(Boolean).length;
       loading.className='playerpedia-deep-file';
-      loading.innerHTML=`<div class="deep-file-head"><div><span>THE DEEP FILE</span><h3>More than a directory entry.</h3><p>Pronunciation, draft history, franchise trail, college and international context, accomplishments, memorable facts and connections beyond the box score.</p></div><b>${populated}/7 researched</b></div><div class="deep-bio-grid">${pronunciationCard(curated)}${draftCard(draft,college)}${trailCard(trail)}${collegeInternationalCard(college,nationality,connections)}${accomplishmentCard(accomplishments)}${memorableCard(fact)}${offCourtCard(curated)}</div><p class="deep-file-method"><strong>Research rule:</strong> documented facts stay documented. Missing pronunciation or personal details are marked as unfinished instead of guessed.</p>`;
+      loading.innerHTML=`<div class="deep-file-head"><div><span>THE DEEP FILE</span><h3>More than a directory entry.</h3><p>Pronunciation, draft history, franchise trail, college and international context, accomplishments, memorable facts and connections beyond the box score.</p></div><b>${populated}/7 researched</b></div><div class="deep-bio-grid">${pronunciationCard(curated)}${draftCard(draft,college)}${trailCard(trail)}${collegeInternationalCard(college,nationality,connections,international)}${accomplishmentCard(accomplishmentList)}${memorableCard(fact)}${offCourtCard(curated)}</div><p class="deep-file-method"><strong>Research rule:</strong> documented facts stay documented. Missing pronunciation, accomplishments or personal details are marked as unfinished instead of guessed.</p>`;
     }catch(error){loading.innerHTML='<div class="deep-file-head"><div><span>THE DEEP FILE</span><h3>Deep profile temporarily unavailable.</h3><p>The standard Playerpedia profile remains available while the research layer reconnects.</p></div></div>';}
   }
   const observer=new MutationObserver(()=>{

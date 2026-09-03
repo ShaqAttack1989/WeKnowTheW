@@ -1,9 +1,9 @@
 {
-  "updatedAt": "2026-09-03T18:55:00Z",
+  "updatedAt": "2026-09-03T19:55:00Z",
   "rules": {
-    "pronunciation": "Only use a pronunciation when a team, league or other reliable media guide explicitly provides it. Never infer pronunciation from spelling.",
-    "offCourt": "Only include a personal, family, advocacy, business, music or nickname connection when it is documented in the Playerpedia bio tracker or a cited public source.",
-    "nickname": "Only use documented/common public nicknames from the reconciled Player Bio Tracker. Blank means no widely used nickname was verified."
+    "pronunciation": "Only use a written pronunciation when a team, league or other reliable media guide explicitly provides it. When a player-recorded audio pronunciation is available, link to that instead of inventing phonetics.",
+    "offCourt": "Only include a personal, family, education, advocacy, business, media, music or nickname connection when it is documented in the Playerpedia bio tracker or a cited public source.",
+    "nickname": "Only use documented/common public nicknames from the reconciled Player Bio Tracker or a cited public source."
   },
   "players": {
     "ajawilson": {
@@ -45,6 +45,67 @@
     "alyshaclark": {
       "pronunciation": "uh-LEE-sha Clark",
       "pronunciationSource": "https://cdn.wnba.com/sites/1611661319/2024/10/2024-10-06-Aces-vs-New-York-Semis-G4-Notes.pdf"
+    },
+    "rebeccaallen": {
+      "pronunciationSource": "https://herhoopstats.com/pronunciations/wnba/team/2026/new-york-liberty/",
+      "pronunciationNote": "Her Hoop Stats provides an audio pronunciation for Rebecca Allen in the 2026 New York Liberty pronunciation guide.",
+      "nickname": "Bec",
+      "nicknameSource": "https://www.basketball-reference.com/wnba/players/a/allenre01w.html",
+      "nicknameNote": "Basketball-Reference lists Bec as her familiar name; Basketball.com.au also lists Spida as a nickname.",
+      "entry": {
+        "status": "Undrafted free agent",
+        "year": 2015,
+        "team": "New York Liberty",
+        "note": "Signed with New York on February 2, 2015 after winning bronze with Australia at the 2014 FIBA World Cup.",
+        "source": "https://www.wnba.com/player/204296/rebecca-allen/bio"
+      },
+      "franchiseTrail": [
+        {"team": "New York Liberty", "years": "2015–2022"},
+        {"team": "Connecticut Sun", "years": "2023"},
+        {"team": "Phoenix Mercury", "years": "2024"},
+        {"team": "Chicago Sky", "years": "2025"},
+        {"team": "New York Liberty", "years": "2026 · current"}
+      ],
+      "franchiseTrailSource": "https://www.basketball-reference.com/wnba/players/a/allenre01w.html",
+      "collegeInternational": {
+        "college": "No U.S. college. Allen developed through Australia’s professional pathway, including the Australian Institute of Sport and Melbourne Boomers.",
+        "clubs": [
+          "Dandenong Rangers · Australia · 2009–10",
+          "Australian Institute of Sport · Australia · 2010–12",
+          "Melbourne Boomers · Australia · 2012–15",
+          "South East Queensland Stars · Australia · 2015–16",
+          "Good Angels Košice · Slovakia · 2016–17",
+          "ASVEL Féminin · France · 2017–18",
+          "Arka Gdynia · Poland · 2018–20",
+          "Valencia Basket · Spain · 2020–25",
+          "Fenerbahçe Opet · Türkiye · 2025"
+        ],
+        "nationalTeam": [
+          "Australia Opals · 2014 FIBA World Cup bronze",
+          "Australia Opals · 2018 FIBA World Cup silver",
+          "Australia Opals · 2019 FIBA Asia Cup bronze and All-Star Five",
+          "Australia Opals · Tokyo Olympics",
+          "Australia Opals · 2022 FIBA World Cup bronze"
+        ],
+        "source": "https://www.wnba.com/player/204296/rebecca-allen/bio"
+      },
+      "achievements": [
+        "2014 WNBL Robyn Maher Defensive Player of the Year",
+        "2013 SEABL champion with Knox Raiders and Grand Final MVP",
+        "Won a Slovakian League championship with Good Angels Košice",
+        "Won EuroCup Women and the FIBA Europe SuperCup with Valencia Basket",
+        "Reached 1,000 WNBA career points in 2023 and 500 career rebounds later that season",
+        "Entered 2026 ranked ninth in Liberty history in blocks and 14th in both made threes and games played"
+      ],
+      "achievementsSources": [
+        "https://www.wnba.com/player/204296/rebecca-allen/bio",
+        "https://www.basketball.com.au/news/aussies-in-the-wnba-rebecca-allen",
+        "https://fenerbahcemeydani.com/posts/transfer-rebecca-allen/"
+      ],
+      "memorable": "Allen went undrafted, reached the WNBA after helping Australia win bronze at the 2014 FIBA World Cup, then built a 10-season WNBA career and returned to New York in 2026 for a second Liberty chapter.",
+      "memorableSource": "https://www.wnba.com/player/204296/rebecca-allen/bio",
+      "offCourt": "Away from the court, Allen completed a Master’s degree in Marketing at Deakin University and joined the NBL commentary team for the 2024–25 season, adding broadcasting to her basketball résumé.",
+      "offCourtSource": "https://www.basketball.com.au/news/aussies-in-the-wnba-rebecca-allen"
     },
     "allishagray": {
       "nickname": "Gold Medal Lish",

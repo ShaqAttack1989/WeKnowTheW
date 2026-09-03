@@ -1,0 +1,87 @@
+{
+  "updatedAt": "2026-09-03T18:40:00Z",
+  "rules": {
+    "pronunciation": "Only use a pronunciation when a team, league or other reliable media guide explicitly provides it. Never infer pronunciation from spelling.",
+    "offCourt": "Only include a personal, family, advocacy, business, music or nickname connection when it is documented in the Playerpedia bio tracker or a cited public source."
+  },
+  "players": {
+    "ajawilson": {
+      "pronunciation": "A-zhuh, like Asia",
+      "pronunciationSource": "https://cdn.wnba.com/sites/1611661319/2025/06/2025-06-25-Aces-v-Conn-Wash-Notes-v2.pdf",
+      "nickname": "A'ja",
+      "offCourt": "Her South Carolina legacy and business/brand work are connected to Herstory and the site's A'ja Wilson feature.",
+      "offCourtLink": "/aja-wilson-south-carolina-nike-deal.html"
+    },
+    "nnekaogwumike": {
+      "pronunciation": "NEH-kuh oh-gwoo-MIH-kay",
+      "pronunciationSource": "https://sparks.wnba.com/2026-media-central",
+      "offCourt": "Longtime WNBPA president and a central player leader in the bargaining that produced the 2026 collective bargaining agreement.",
+      "offCourtLink": "/union-behind-the-2026-cba.html"
+    },
+    "dearicahamby": {
+      "pronunciation": "Dee-ERIC-uh Ham-bee",
+      "pronunciationSource": "https://sparks.wnba.com/2026-media-central"
+    },
+    "ndjakalengamwenentanda": {
+      "pronunciation": "Jack-Uh-Lan-Guh, Mwen-In-Tawn-Duh",
+      "pronunciationSource": "https://sparks.wnba.com/2026-media-central"
+    },
+    "kierstanbell": {
+      "pronunciation": "KEER-stin Bell",
+      "pronunciationSource": "https://cdn.wnba.com/sites/1611661319/2025/06/2025-06-25-Aces-v-Conn-Wash-Notes-v2.pdf"
+    },
+    "meg angustafson": {},
+    "meg angustafson-note": {},
+    "megangustafson": {
+      "pronunciation": "GUST-uff-sun",
+      "pronunciationSource": "https://cdn.wnba.com/sites/1611661319/2025/06/2025-06-25-Aces-v-Conn-Wash-Notes-v2.pdf"
+    },
+    "aaliyahnye": {
+      "pronunciation": "uh-LEE-uh Nye, with Nye rhyming with eye",
+      "pronunciationSource": "https://cdn.wnba.com/sites/1611661319/2025/06/2025-06-25-Aces-v-Conn-Wash-Notes-v2.pdf"
+    },
+    "kiahstokes": {
+      "pronunciation": "KEE-uh Stokes",
+      "pronunciationSource": "https://cdn.wnba.com/sites/1611661319/2025/06/2025-06-25-Aces-v-Conn-Wash-Notes-v2.pdf"
+    },
+    "alyshaclark": {
+      "pronunciation": "uh-LEE-sha Clark",
+      "pronunciationSource": "https://cdn.wnba.com/sites/1611661319/2024/10/2024-10-06-Aces-vs-New-York-Semis-G4-Notes.pdf"
+    },
+    "mayamoore": {
+      "offCourt": "She stepped away from basketball while still in her prime to focus on criminal-justice advocacy, a major part of her post-playing story.",
+      "offCourtLink": "/herstory-community.html"
+    },
+    "flaujaejohnson": {
+      "offCourt": "She entered the WNBA with two public careers already in motion: elite basketball player and recording artist/rapper.",
+      "offCourtLink": "/herstory-entrepreneurship.html"
+    },
+    "satousabally": {
+      "offCourt": "Her younger sister Nyara Sabally is also a WNBA player; both became top-five WNBA draft picks.",
+      "offCourtLink": "/playerpedia.html?search=Nyara%20Sabally#playerpedia-directory"
+    },
+    "kathrynwestbeld": {
+      "offCourt": "Her sister Maddy Westbeld also played at Notre Dame before reaching the WNBA.",
+      "offCourtLink": "/playerpedia.html?search=Maddy%20Westbeld#playerpedia-directory"
+    },
+    "maddywestbeld": {
+      "offCourt": "Her sister Kathryn Westbeld also played at Notre Dame before reaching the WNBA.",
+      "offCourtLink": "/playerpedia.html?search=Kathryn%20Westbeld#playerpedia-directory"
+    },
+    "jewellloyd": {
+      "nickname": "Gold Mamba"
+    },
+    "angelreese": {
+      "nickname": "Bayou Barbie"
+    },
+    "marinejohannes": {
+      "nickname": "Wizard"
+    },
+    "janeesajeffery": {
+      "nickname": "Chucky"
+    },
+    "annielafleur": {
+      "nickname": "Flash"
+    }
+  }
+}

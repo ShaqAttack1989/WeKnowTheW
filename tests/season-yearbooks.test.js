@@ -12,6 +12,7 @@ const tx=fs.readFileSync(path.join(root,'api','yearbook-transactions.js'),'utf8'
 const trophyPage=fs.readFileSync(path.join(root,'trophy-case.html'),'utf8');
 const trophyCorrection=fs.readFileSync(path.join(root,'trophy-data-corrections.js'),'utf8');
 const historical=require('../api/yearbook-season')._test;
+const transactionHelpers=require('../api/yearbook-transactions')._test;
 
 test('The W Rewind is a permanent W Vault season archive',()=>{
   assert.match(page,/THE W <em>REWIND<\/em>/);
@@ -51,6 +52,16 @@ test('historical transaction helper uses archival public sources rather than WNB
   assert.match(tx,/basketball-reference\.com/);
   assert.match(tx,/r\.jina\.ai/);
   assert.doesNotMatch(tx,/stats\.wnba\.com/);
+});
+
+test('major historical moves outrank routine waivers and include founding-era drafts',()=>{
+  const fixture=`* January 22, 1997\nThe Houston Comets drafted Cynthia Cooper in the 1997 WNBA Allocation Draft.\nThe Los Angeles Sparks drafted Lisa Leslie in the 1997 WNBA Allocation Draft.\n* July 18, 1997\nThe Sacramento Monarchs waived Corissa Yasen.\n* July 31, 1997\nThe Sacramento Monarchs traded Mikiko Hagiwara to the Phoenix Mercury for future considerations.`;
+  const parsed=transactionHelpers.parseMarkdown(fixture,1997);
+  assert.equal(parsed.some(item=>item.type==='ALLOCATION DRAFT'),true);
+  assert.equal(parsed.some(item=>item.type==='TRADE'),true);
+  const major=transactionHelpers.majorTransactions(parsed);
+  assert.equal(major[0].type,'TRADE');
+  assert.equal(major.findIndex(item=>item.type==='ALLOCATION DRAFT')<major.findIndex(item=>item.type==='WAIVER'),true);
 });
 
 test('historical validation defines the correct team and schedule shape for every completed season',()=>{

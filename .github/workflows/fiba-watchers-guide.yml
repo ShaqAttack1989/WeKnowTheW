@@ -1,0 +1,27 @@
+name: FIBA Watcher's Guide
+
+on:
+  push:
+    paths:
+      - 'fiba-watchers-guide.html'
+      - 'fiba-watchers-guide.css'
+      - 'api/fiba-guide-photo.js'
+      - 'fiba-world-cup.html'
+      - 'fiba-preview-notes.css'
+      - 'no-offseason.html'
+      - 'tests/fiba-watchers-guide.test.js'
+      - '.github/workflows/fiba-watchers-guide.yml'
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check FIBA guide scripts
+        run: node --check api/fiba-guide-photo.js
+      - name: Validate FIBA Watcher's Guide
+        run: node --test tests/fiba-watchers-guide.test.js

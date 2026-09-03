@@ -45,6 +45,29 @@
 .week-hub-foot{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:16px 32px;background:#160a31;color:#d8d1e5;font-size:.8rem}
 .week-hub-foot a{color:#d8ff4f;font-weight:950;text-decoration:none}
 #sitewide-search[hidden]{display:none!important}
+
+/* Child-page color echoes: light gradients keep the hub readable while giving every doorway its own identity. */
+.week-editorial-card.food{background:linear-gradient(145deg,#ffffff 0%,#f6efff 62%,#f8ffdf 100%)}
+#weekHubStat{background:linear-gradient(145deg,#f4eaff 0%,#ffffff 58%,#f7ffdc 100%);border-color:#d8c9e9}
+#weekHubStat .week-card-kicker{color:#5c1fc1}
+#weekHubRotations{background:linear-gradient(145deg,#f2e9ff 0%,#ffffff 56%,#fff0f5 100%);border-color:#ddcbea}
+#weekHubRotations .week-card-kicker{color:#7a2ce0}
+#weekHubLive{background:linear-gradient(145deg,#f0edf6 0%,#ffffff 55%,#f4effa 100%);border-color:#dcd2e4}
+#weekHubLive .week-card-kicker{color:#4e3168}
+#weekHubGames{background:linear-gradient(145deg,#fff5df 0%,#ffffff 57%,#f1eaff 100%);border-color:#eadfc8}
+#weekHubGames .week-card-kicker{color:#8a5a00}
+#weekHubRoster{background:linear-gradient(145deg,#efe7ff 0%,#ffffff 48%,#fff6d9 76%,#edfff2 100%);border-color:#d9cbed}
+#weekHubRoster .week-card-kicker{color:#5d17bd}
+#weekHubUnrivaled{background:linear-gradient(145deg,#f0e8f3 0%,#ffffff 55%,#f7effa 100%);border-color:#d9cddd}
+#weekHubUnrivaled .week-card-kicker{color:#6a3179}
+#weekHubUpshot{background:linear-gradient(145deg,#fffaf0 0%,#ffffff 50%,#f2eafb 100%);border-color:#e7d8e7}
+#weekHubUpshot .week-card-kicker{color:#5c1fc1}
+#weekHubFiba{background:linear-gradient(145deg,#eaf3ff 0%,#ffffff 50%,#fff7dc 78%,#fff0f2 100%);border-color:#ccdbea}
+#weekHubFiba .week-card-kicker{color:#0c2d59}
+#weekHubFiba .week-card-actions a{color:#a61f32}
+#weekHubCollege{background:linear-gradient(145deg,#f1eaff 0%,#ffffff 54%,#fff0ea 100%);border-color:#dacbea}
+#weekHubCollege .week-card-kicker{color:#6c2ad9}
+
 @media(max-width:980px){
   .week-hub-search{grid-template-columns:1fr;gap:12px}
   .week-editorial-grid{grid-template-columns:1fr}

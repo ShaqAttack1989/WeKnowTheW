@@ -1,4 +1,4 @@
-name: FIBA Watcher's Guide
+name: FIBA Watcher's Guide\n# Validates the published guide, team photo feed, and FIBA hub link.
 
 on:
   push:

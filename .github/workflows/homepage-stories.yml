@@ -6,6 +6,7 @@ on:
     paths:
       - '.github/workflows/homepage-stories.yml'
       - 'homepage-specials.js'
+      - 'homepage-week-live.js'
       - 'homepage-week-live.css'
       - 'snack-shak-latest.json'
       - 'snack-shak-breaking.json'
@@ -30,11 +31,12 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - name: Validate story feed and renderer
+      - name: Validate homepage story feeds and weekly hub
         run: |
           node --check homepage-specials.js
-          node -e "JSON.parse(require('fs').readFileSync('snack-shak-latest.json','utf8')); console.log('Latest story feed is valid JSON')"
-      - name: Bust homepage story cache and refresh labels
+          node --check homepage-week-live.js
+          node -e "JSON.parse(require('fs').readFileSync('snack-shak-latest.json','utf8')); JSON.parse(require('fs').readFileSync('snack-shaq-posts.json','utf8')); console.log('Homepage story feeds are valid JSON')"
+      - name: Bust homepage weekly hub cache
         run: |
           node <<'NODE'
           const fs = require('fs');
@@ -42,20 +44,20 @@ jobs:
           let html = fs.readFileSync(path, 'utf8');
           const stamp = new Date().toISOString().slice(0,10).replaceAll('-','');
           html = html
-            .replace(/homepage-week-live\.css\?v=[^"']+/, `homepage-week-live.css?v=${stamp}-fresh-stories`)
-            .replace(/homepage-specials\.js\?v=[^"']+/, `homepage-specials.js?v=${stamp}-fresh-stories`)
-            .replace('Milestone watch, the newest distinct Snack Shak story, and Shak’s mock weekly Starting Five and Bench Mob, all in one easy-to-scan board.', 'Milestone watch, the three newest Snack Shak stories, and Shak’s mock weekly Starting Five and Bench Mob, all in one easy-to-scan board.')
-            .replace('🌶️ SNACK SHAK RELEASE', '🌶️ LATEST SNACK SHAK STORIES');
+            .replace(/homepage-week-live\.css\?v=[^"']+/, `homepage-week-live.css?v=${stamp}-weekly-hub`)
+            .replace(/homepage-week-live\.js\?v=[^"']+/, `homepage-week-live.js?v=${stamp}-weekly-hub`)
+            .replace(/homepage-specials\.js\?v=[^"']+/, `homepage-specials.js?v=${stamp}-fresh-stories`);
           fs.writeFileSync(path, html);
           NODE
       - name: Publish refreshed homepage when needed
         run: |
           if git diff --quiet; then
-            echo "Homepage story cache and labels are already current."
+            echo "Homepage weekly hub cache is already current."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add index.html
-          git commit -m "Refresh homepage story cache"
+          git commit -m "Refresh This Week in the W cache"
+          git pull --rebase origin main
           git push

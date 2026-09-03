@@ -1,0 +1,78 @@
+const test=require('node:test');
+const assert=require('node:assert/strict');
+const fs=require('node:fs');
+const path=require('node:path');
+
+const root=path.join(__dirname,'..');
+const page=fs.readFileSync(path.join(root,'playerpedia.html'),'utf8');
+const client=fs.readFileSync(path.join(root,'playerpedia-depth.js'),'utf8');
+const css=fs.readFileSync(path.join(root,'playerpedia-depth.css'),'utf8');
+const curated=JSON.parse(fs.readFileSync(path.join(root,'data','playerpedia-depth-curated.json'),'utf8'));
+const draft=JSON.parse(fs.readFileSync(path.join(root,'data','wnba-draft-history.json'),'utf8'));
+
+test('Playerpedia opens a seven-part Deep File without adding a second directory',()=>{
+  assert.match(page,/Open a player for the Deep File/i);
+  assert.match(page,/playerpedia-depth\.css/);
+  assert.match(page,/playerpedia-depth\.js/);
+  for(const label of ['SAY THE NAME','DRAFT FILE','FRANCHISE TRAIL','COLLEGE + INTERNATIONAL','HARDWARE + HIGHLIGHTS','REMEMBER THIS','BEYOND THE LINES']){
+    assert.match(client,new RegExp(label.replace(/[+]/g,'\\+')));
+  }
+  assert.doesNotMatch(page,/deep-file-directory/i);
+});
+
+test('deep profiles work across current, recent and retired Playerpedia sources',()=>{
+  assert.match(client,/\/api\/players/);
+  assert.match(client,/window\.WPlayerpediaLegacy/);
+  assert.match(client,/currentRoster===false/);
+  assert.match(client,/lastWnbaSeason/);
+});
+
+test('draft history and memorable facts reuse the existing Playerpedia research assets',()=>{
+  assert.match(client,/wnba-draft-history\.json/);
+  for(const group of ['ab','cf','gj','kn','os','tz'])assert.match(client,new RegExp(`playerpedia-facts-\\$\\{group\\}|playerpedia-facts-`));
+  assert.ok(Array.isArray(draft.picks));
+  assert.ok(draft.picks.length>100,'draft history should remain substantial');
+  assert.match(client,/factFileValue/);
+});
+
+test('pronunciation is verified or explicitly left unfinished, never guessed',()=>{
+  assert.equal(curated.rules.pronunciation.includes('Never infer pronunciation'),true);
+  assert.match(client,/does not guess name pronunciations/);
+  for(const name of ['ajawilson','nnekaogwumike','dearicahamby','ndjakalengamwenentanda']){
+    assert.ok(curated.players[name]?.pronunciation,`${name} missing pronunciation`);
+    assert.ok(/^https:\/\//.test(curated.players[name]?.pronunciationSource||''),`${name} missing pronunciation source`);
+  }
+});
+
+test('documented workbook nicknames carry sources',()=>{
+  const expected={allishagray:'Gold Medal Lish',chelseagray:'Point Gawd',napheesacollier:'Phee',jewellloyd:'Gold Mamba',candaceparker:'Ace',natishahiedeman:'StudBudz (duo)'};
+  for(const [name,nickname] of Object.entries(expected)){
+    assert.equal(curated.players[name]?.nickname,nickname);
+    assert.ok(/^https:\/\//.test(curated.players[name]?.nicknameSource||''),`${name} missing nickname source`);
+  }
+  assert.match(client,/Nickname source/);
+});
+
+test('accomplishments and memorable facts remain separate fields',()=>{
+  assert.match(client,/function achievements\(detail\)/);
+  assert.doesNotMatch(client,/function achievements\(detail,memorable\)/);
+  assert.match(client,/accomplishmentCard\(accomplishmentList\).*memorableCard\(fact\)/s);
+});
+
+test('college and international depth includes current pro affiliations and former non-WNBA teams',()=>{
+  assert.match(client,/function internationalTrail/);
+  assert.match(client,/TEAM USA/);
+  assert.match(client,/UNRIVALED/);
+  assert.match(client,/ATHLETES UNLIMITED/);
+  assert.match(client,/Club \/ international trail/);
+});
+
+test('Deep File reading text respects the site article-size accessibility floor',()=>{
+  assert.match(css,/\.deep-bio-card p,\.deep-bio-card li,\.deep-bio-card small,\.deep-bio-card a\{font-size:1rem/);
+  assert.match(css,/\.deep-file-method\{[^}]*font-size:1rem/);
+});
+
+test('deep bio layer does not depend on the prohibited WNBA stats API',()=>{
+  assert.doesNotMatch(client,/stats\.wnba\.com/i);
+  assert.doesNotMatch(client,/wnba-official-stats/i);
+});

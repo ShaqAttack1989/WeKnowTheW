@@ -5,6 +5,7 @@ on:
     paths:
       - 'season-yearbooks.html'
       - 'season-yearbooks.js'
+      - 'season-yearbooks-current.js'
       - 'season-yearbooks*.css'
       - 'api/yearbook-season.js'
       - 'api/yearbook-transactions.js'

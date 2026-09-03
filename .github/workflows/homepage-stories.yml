@@ -42,7 +42,9 @@ jobs:
           const fs = require('fs');
           const path = 'index.html';
           let html = fs.readFileSync(path, 'utf8');
-          const stamp = new Date().toISOString().slice(0,10).replaceAll('-','');
+          const day = new Date().toISOString().slice(0,10).replaceAll('-','');
+          const revision = (process.env.GITHUB_SHA || String(Date.now())).slice(0,8);
+          const stamp = `${day}-${revision}`;
           html = html
             .replace(/homepage-week-live\.css\?v=[^"']+/, `homepage-week-live.css?v=${stamp}-weekly-hub`)
             .replace(/homepage-week-live\.js\?v=[^"']+/, `homepage-week-live.js?v=${stamp}-weekly-hub`)

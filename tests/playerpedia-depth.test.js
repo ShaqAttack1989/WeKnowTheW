@@ -45,7 +45,8 @@ test('draft history recognizes both drafted and undrafted players',()=>{
 });
 
 test('pronunciation uses verified written guides or linked audio instead of guessed phonetics',()=>{
-  assert.equal(curated.rules.pronunciation.includes('Never infer pronunciation'),true);
+  assert.match(curated.rules.pronunciation,/reliable media guide|player-recorded audio/i);
+  assert.match(curated.rules.pronunciation,/instead of inventing phonetics/i);
   assert.match(client,/teamPronunciationUrl/);
   assert.match(client,/Team pronunciation guide/);
   assert.match(client,/does not invent one/);

@@ -130,3 +130,19 @@
 .snack-story-back{display:inline-flex;margin-bottom:20px;color:#6c2ad9;font-weight:900;text-decoration:none;}
 @media(max-width:900px){.snack-door-grid,.snack-hub-latest-grid{grid-template-columns:1fr}.snack-collection-grid{grid-template-columns:repeat(2,minmax(0,1fr));}}
 @media(max-width:620px){.snack-collection-grid{grid-template-columns:1fr}.snack-door{min-height:280px}.snack-hub-story,.snack-collection-card{min-height:0}}
+
+/* Sept. 3, 2026: 12pt/16px minimum inside actual article reading views. */
+.snack-post{font-size:1rem;line-height:1.72}
+.snack-post .snack-series-label,
+.snack-post-header .meta,
+.snack-post .rank-row,
+.snack-post .story-table-row,
+.snack-post .food-segment .segment-label,
+.snack-post .source-list,
+.snack-post .source-list p,
+.snack-post .source-list a,
+.snack-post .snack-debate-board li,
+.snack-post p,
+.snack-post li,
+.snack-post blockquote{font-size:1rem;line-height:1.65}
+.snack-post .dek{font-size:1.15rem;line-height:1.65}

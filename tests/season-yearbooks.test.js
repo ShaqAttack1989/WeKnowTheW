@@ -9,6 +9,8 @@ const vault=fs.readFileSync(path.join(root,'w-vault.html'),'utf8');
 const freeze=fs.readFileSync(path.join(root,'scripts','freeze-season-yearbook.mjs'),'utf8');
 const workflow=fs.readFileSync(path.join(root,'.github','workflows','season-yearbook-freeze.yml'),'utf8');
 const tx=fs.readFileSync(path.join(root,'api','yearbook-transactions.js'),'utf8');
+const trophyPage=fs.readFileSync(path.join(root,'trophy-case.html'),'utf8');
+const trophyCorrection=fs.readFileSync(path.join(root,'trophy-data-corrections.js'),'utf8');
 const historical=require('../api/yearbook-season')._test;
 
 test('The W Rewind is a permanent W Vault season archive',()=>{
@@ -94,6 +96,8 @@ test('leader cards use source team codes and the yearbook links teams as well as
   assert.match(client,/roster-team.*teamLink/s);
 });
 
-test('2025 Finals result is corrected to the official four-game sweep in the yearbook',()=>{
+test('2025 Finals result is corrected to the official four-game sweep everywhere the Vault renders champions',()=>{
   assert.match(client,/2025:\{year:'2025',champion:'Las Vegas Aces',runnerUp:'Phoenix Mercury',result:'4 to 0'/);
+  assert.match(trophyCorrection,/row\.result='4 to 0'/);
+  assert.match(trophyPage,/trophy-data-corrections\.js/);
 });

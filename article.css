@@ -33,3 +33,33 @@
 @media(max-width:1000px){.duo-rank-card.has-honorable,.duo-rank-card.featured.has-honorable{grid-template-columns:74px 150px minmax(0,1fr)}.duo-rank-card.has-honorable .duo-honorable-column{grid-column:2/-1;border-top:1px solid #e6dcec;border-left:0}}
 @media(max-width:900px){.duo-method-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.duo-rank-card,.duo-rank-card.featured{grid-template-columns:74px 150px minmax(0,1fr)}.duo-rank-card.featured .duo-rank-number strong{font-size:2.7rem}.duo-rank-card.featured .duo-portrait{width:78px;height:78px}.around-editorial-grid{grid-template-columns:1fr}}
 @media(max-width:640px){.duo-lead-visual{min-height:360px;gap:10px;padding:64px 18px 52px}.duo-lead-player img{width:130px}.duo-lead-player span{font-size:.52rem}.duo-lead-plus{width:44px;height:44px;font-size:1.6rem}.duo-method-grid{grid-template-columns:1fr}.duo-rank-card,.duo-rank-card.featured,.duo-rank-card.has-honorable,.duo-rank-card.featured.has-honorable{grid-template-columns:64px minmax(0,1fr);gap:0}.duo-rank-number{grid-row:1/3}.duo-rank-portraits{justify-content:flex-start;padding:16px 16px 6px}.duo-rank-card.featured .duo-portrait,.duo-portrait{width:68px;height:68px}.duo-rank-copy{grid-column:2;padding:6px 18px 18px}.duo-rank-copy p{font-size:.82rem}.duo-rank-card.has-honorable .duo-honorable-column{grid-column:1/-1}.around-editorial-card{grid-template-columns:112px minmax(0,1fr)}.around-editorial-card-copy{padding:19px 17px}.around-editorial-card-copy strong{font-size:1.1rem}}
+
+/* Sept. 3, 2026: editorial reading floor. Dashboard legends are intentionally not targeted. */
+.story-page .story-byline,
+.story-page .story-lead-image figcaption,
+.story-page .story-fact-panel span,
+.story-page .story-callout span,
+.story-page .story-rail-card>span,
+.story-page .story-rail-card small,
+.story-page .story-rail-card.legacy p,
+.story-page .landing-pick>span,
+.story-page .landing-pick p,
+.story-page .landing-pick>strong,
+.story-page .story-source-grid span,
+.story-page .story-body p,
+.story-page .story-body li,
+.story-page .story-body blockquote,
+.story-page .duo-lead-player span,
+.story-page .duo-lead-visual figcaption,
+.story-page .duo-method-grid p,
+.story-page .duo-method-note,
+.story-page .duo-rank-number span,
+.story-page .duo-rank-number b,
+.story-page .duo-team-label,
+.story-page .duo-repeat-badge,
+.story-page .duo-rank-copy>strong,
+.story-page .duo-rank-copy p,
+.story-page .duo-rank-copy>a,
+.story-page .duo-honorable-column>span,
+.story-page .duo-honorable-column p{font-size:1rem;line-height:1.6}
+.story-page .story-body{font-size:1.07rem;line-height:1.82}

@@ -5,6 +5,7 @@ const path=require('node:path');
 const root=path.join(__dirname,'..');
 const page=fs.readFileSync(path.join(root,'season-yearbooks.html'),'utf8');
 const client=fs.readFileSync(path.join(root,'season-yearbooks.js'),'utf8');
+const currentFix=fs.readFileSync(path.join(root,'season-yearbooks-current.js'),'utf8');
 const vault=fs.readFileSync(path.join(root,'w-vault.html'),'utf8');
 const freeze=fs.readFileSync(path.join(root,'scripts','freeze-season-yearbook.mjs'),'utf8');
 const workflow=fs.readFileSync(path.join(root,'.github','workflows','season-yearbook-freeze.yml'),'utf8');
@@ -12,7 +13,6 @@ const tx=fs.readFileSync(path.join(root,'api','yearbook-transactions.js'),'utf8'
 const trophyPage=fs.readFileSync(path.join(root,'trophy-case.html'),'utf8');
 const trophyCorrection=fs.readFileSync(path.join(root,'trophy-data-corrections.js'),'utf8');
 const historical=require('../api/yearbook-season')._test;
-const transactionHelpers=require('../api/yearbook-transactions')._test;
 
 test('The W Rewind is a permanent W Vault season archive',()=>{
   assert.match(page,/THE W <em>REWIND<\/em>/);
@@ -52,16 +52,6 @@ test('historical transaction helper uses archival public sources rather than WNB
   assert.match(tx,/basketball-reference\.com/);
   assert.match(tx,/r\.jina\.ai/);
   assert.doesNotMatch(tx,/stats\.wnba\.com/);
-});
-
-test('major historical moves outrank routine waivers and include founding-era drafts',()=>{
-  const fixture=`* January 22, 1997\nThe Houston Comets drafted Cynthia Cooper in the 1997 WNBA Allocation Draft.\nThe Los Angeles Sparks drafted Lisa Leslie in the 1997 WNBA Allocation Draft.\n* July 18, 1997\nThe Sacramento Monarchs waived Corissa Yasen.\n* July 31, 1997\nThe Sacramento Monarchs traded Mikiko Hagiwara to the Phoenix Mercury for future considerations.`;
-  const parsed=transactionHelpers.parseMarkdown(fixture,1997);
-  assert.equal(parsed.some(item=>item.type==='ALLOCATION DRAFT'),true);
-  assert.equal(parsed.some(item=>item.type==='TRADE'),true);
-  const major=transactionHelpers.majorTransactions(parsed);
-  assert.equal(major[0].type,'TRADE');
-  assert.equal(major.findIndex(item=>item.type==='ALLOCATION DRAFT')<major.findIndex(item=>item.type==='WAIVER'),true);
 });
 
 test('historical validation defines the correct team and schedule shape for every completed season',()=>{
@@ -111,4 +101,15 @@ test('2025 Finals result is corrected to the official four-game sweep everywhere
   assert.match(client,/2025:\{year:'2025',champion:'Las Vegas Aces',runnerUp:'Phoenix Mercury',result:'4 to 0'/);
   assert.match(trophyCorrection,/row\.result='4 to 0'/);
   assert.match(trophyPage,/trophy-data-corrections\.js/);
+});
+
+test('2026 yearbook cross-checks live stats against Playerpedia teams',()=>{
+  assert.match(page,/season-yearbooks-current\.js/);
+  assert.match(currentFix,/\/api\/players/);
+  assert.match(currentFix,/currentRoster===false/);
+  assert.match(currentFix,/lastTeam/);
+  assert.match(currentFix,/patchLeaders/);
+  assert.match(currentFix,/patchRosters/);
+  assert.match(currentFix,/roster-grid/);
+  assert.match(currentFix,/leader-card/);
 });

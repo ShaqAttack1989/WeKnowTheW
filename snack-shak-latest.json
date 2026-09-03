@@ -2,6 +2,47 @@
   "site": "Snack Shak",
   "posts": [
     {
+      "slug": "2027-wnba-mock-draft",
+      "type": "feature",
+      "priority": 210,
+      "seriesLabel": "FOOD FOR THOUGHT",
+      "title": "JuJu to Houston? The Early 2027 WNBA Mock Draft",
+      "published": "2026-09-03",
+      "week": "Edition 01 · Current order through Sept. 3, 2026",
+      "dashboardUrl": "/2027-wnba-mock-draft.html",
+      "teams": [
+        "Houston Comets",
+        "Toronto Tempo",
+        "Washington Mystics",
+        "Seattle Storm",
+        "Portland Fire",
+        "Los Angeles Sparks"
+      ],
+      "players": [
+        "JuJu Watkins",
+        "Hannah Hidalgo",
+        "Madison Booker",
+        "S'Mya Nichols",
+        "MiLaysia Fulwiley",
+        "Mikaylah Williams"
+      ],
+      "dek": "JuJu Watkins is the early No. 1, Houston holds the current first slot, and the complete 15-pick dashboard maps every projected fit with player photos, team marks and college logos.",
+      "sections": [
+        {
+          "title": "The first call",
+          "paragraphs": [
+            "If the current order holds and Watkins enters healthy, Houston should make the USC star the face of the Comets’ return. The lottery, eligibility decisions and the full 2026-27 college season can still move every line on the board."
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "label": "Full mock draft dashboard",
+          "url": "https://www.weknowthew.com/2027-wnba-mock-draft.html"
+        }
+      ]
+    },
+    {
       "slug": "four-months-four-receipts-rookie-year-race",
       "type": "feature",
       "priority": 200,

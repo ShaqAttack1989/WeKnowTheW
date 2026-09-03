@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-03T18:40:00Z",
+  "updatedAt": "2026-09-03T18:46:00Z",
   "rules": {
     "pronunciation": "Only use a pronunciation when a team, league or other reliable media guide explicitly provides it. Never infer pronunciation from spelling.",
     "offCourt": "Only include a personal, family, advocacy, business, music or nickname connection when it is documented in the Playerpedia bio tracker or a cited public source."
@@ -8,7 +8,6 @@
     "ajawilson": {
       "pronunciation": "A-zhuh, like Asia",
       "pronunciationSource": "https://cdn.wnba.com/sites/1611661319/2025/06/2025-06-25-Aces-v-Conn-Wash-Notes-v2.pdf",
-      "nickname": "A'ja",
       "offCourt": "Her South Carolina legacy and business/brand work are connected to Herstory and the site's A'ja Wilson feature.",
       "offCourtLink": "/aja-wilson-south-carolina-nike-deal.html"
     },
@@ -30,8 +29,6 @@
       "pronunciation": "KEER-stin Bell",
       "pronunciationSource": "https://cdn.wnba.com/sites/1611661319/2025/06/2025-06-25-Aces-v-Conn-Wash-Notes-v2.pdf"
     },
-    "meg angustafson": {},
-    "meg angustafson-note": {},
     "megangustafson": {
       "pronunciation": "GUST-uff-sun",
       "pronunciationSource": "https://cdn.wnba.com/sites/1611661319/2025/06/2025-06-25-Aces-v-Conn-Wash-Notes-v2.pdf"
@@ -68,20 +65,10 @@
       "offCourt": "Her sister Kathryn Westbeld also played at Notre Dame before reaching the WNBA.",
       "offCourtLink": "/playerpedia.html?search=Kathryn%20Westbeld#playerpedia-directory"
     },
-    "jewellloyd": {
-      "nickname": "Gold Mamba"
-    },
-    "angelreese": {
-      "nickname": "Bayou Barbie"
-    },
-    "marinejohannes": {
-      "nickname": "Wizard"
-    },
-    "janeesajeffery": {
-      "nickname": "Chucky"
-    },
-    "annielafleur": {
-      "nickname": "Flash"
-    }
+    "jewellloyd": {"nickname": "Gold Mamba"},
+    "angelreese": {"nickname": "Bayou Barbie"},
+    "marinejohannes": {"nickname": "Wizard"},
+    "janeesajeffery": {"nickname": "Chucky"},
+    "annielafleur": {"nickname": "Flash"}
   }
 }

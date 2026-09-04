@@ -18,7 +18,7 @@
   let modalTimer=null;
 
   function seasonFor(player={}){const season=Number(player.lastWnbaSeason);return Number.isInteger(season)&&season>=2024&&season<=2026?season:null;}
-  function historical(player={}){return player.currentRoster===false&&Boolean(seasonFor(player));}
+  function historical(player={}){return player.currentRoster===false&&player.wnbaRegularSeasonGames!==0&&Boolean(seasonFor(player));}
   function snapshotFor(player={}){return snapshotBySeason.get(seasonFor(player))?.get(key(player.name))||null;}
   function inlineGrade(snapshot,season){
     const letter=snapshot?.letter||'NR';

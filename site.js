@@ -77,7 +77,31 @@ const searchStaticIndex=[...coreSearch.map(([title,type,href,keywords])=>({title
 let globalSearchPlayers=null,globalSearchLoading=false;
 const normalizeSearch=v=>String(v||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,' ').trim();
 function buildSearchDialog(){if(document.getElementById('globalSearchDialog'))return;const dialog=document.createElement('dialog');dialog.id='globalSearchDialog';dialog.className='global-search-dialog';dialog.innerHTML='<div class="global-search-shell"><div class="global-search-head"><div><span>WE KNOW THE W</span><strong>Search the encyclopedia</strong></div><button type="button" id="globalSearchClose" aria-label="Close search">×</button></div><label class="global-search-field"><span>Search</span><input id="globalSearchInput" type="search" autocomplete="off" placeholder="Players, teams, leagues, awards, coaches…"></label><div id="globalSearchResults" class="global-search-results"><div class="global-search-empty">Type at least 2 letters to search the W.</div></div></div>';document.body.appendChild(dialog);dialog.addEventListener('click',event=>{if(event.target===dialog)dialog.close();});dialog.querySelector('#globalSearchClose')?.addEventListener('click',()=>dialog.close());dialog.querySelector('#globalSearchInput')?.addEventListener('input',renderGlobalSearch);}
-async function loadSearchPlayers(){if(globalSearchPlayers||globalSearchLoading)return;globalSearchLoading=true;try{const response=await fetch('/api/players',{headers:{Accept:'application/json'}});const payload=await response.json().catch(()=>({}));globalSearchPlayers=response.ok&&Array.isArray(payload.players)?payload.players.map(player=>({title:player.name,type:`Player · ${player.team||'WNBA'}`,href:`/playerpedia.html?view=${player.currentRoster===false?'recent':'current'}&search=${encodeURIComponent(player.name)}#playerpedia-directory`,keywords:`${player.name} ${player.team||''} ${player.position||''}`})):[];}catch{globalSearchPlayers=[];}globalSearchLoading=false;renderGlobalSearch();}
+async function loadSearchPlayers(){
+  if(globalSearchPlayers||globalSearchLoading)return;
+  globalSearchLoading=true;
+  const [rosterResult,upshotResult]=await Promise.allSettled([
+    fetch('/api/players',{headers:{Accept:'application/json'}}).then(async response=>{const payload=await response.json().catch(()=>({}));if(!response.ok)throw new Error('Playerpedia search unavailable');return Array.isArray(payload.players)?payload.players:[];}),
+    fetch('/data/upshot-player-stats-2026.json',{headers:{Accept:'application/json'}}).then(async response=>{const payload=await response.json().catch(()=>({}));if(!response.ok)throw new Error('UPSHOT search unavailable');return Array.isArray(payload.players)?payload.players:[];})
+  ]);
+  const byName=new Map();
+  const upshotPlayers=upshotResult.status==='fulfilled'?upshotResult.value:[];
+  upshotPlayers.forEach(player=>{
+    const playerName=String(player.name||'').trim();
+    if(!playerName)return;
+    byName.set(normalizeSearch(playerName),{title:playerName,type:`UPSHOT · ${player.team||'Player'}`,href:'/the-call-up.html#player-dashboard',keywords:`${playerName} ${player.team||''} UPSHOT ${player.detail||''}`});
+  });
+  const rosterPlayers=rosterResult.status==='fulfilled'?rosterResult.value:[];
+  rosterPlayers.forEach(player=>{
+    const playerName=String(player.name||'').trim();
+    if(!playerName)return;
+    const searchKey=normalizeSearch(playerName),upshot=byName.get(searchKey);
+    byName.set(searchKey,{title:playerName,type:`Player · ${player.team||'WNBA'}`,href:`/playerpedia.html?view=${player.currentRoster===false?'recent':'current'}&search=${encodeURIComponent(playerName)}#playerpedia-directory`,keywords:`${playerName} ${player.team||''} ${player.position||''} ${upshot?.keywords||''}`});
+  });
+  globalSearchPlayers=[...byName.values()];
+  globalSearchLoading=false;
+  renderGlobalSearch();
+}
 function renderGlobalSearch(){const input=document.getElementById('globalSearchInput'),results=document.getElementById('globalSearchResults');if(!input||!results)return;const q=normalizeSearch(input.value);if(q.length<2){results.innerHTML='<div class="global-search-empty">Type at least 2 letters to search the W.</div>';return;}const terms=q.split(/\s+/).filter(Boolean);const all=[...searchStaticIndex,...(window.WPlayerpediaLegacy?.searchRecords()||[]),...(globalSearchPlayers||[]).filter(player=>!window.WPlayerpediaLegacy?.find(player.title))];const matches=all.filter(item=>{const hay=normalizeSearch(`${item.title} ${item.type} ${item.keywords||''}`);return terms.every(term=>hay.includes(term));}).sort((a,b)=>normalizeSearch(a.title)===q?-1:normalizeSearch(b.title)===q?1:a.title.localeCompare(b.title)).slice(0,16);const shown=input.value.replaceAll('<','&lt;').replaceAll('>','&gt;');results.innerHTML=matches.length?matches.map(item=>`<a class="global-search-result" href="${item.href}"><span>${item.type}</span><strong>${item.title}</strong><b>→</b></a>`).join(''):`<div class="global-search-empty">No match yet for “${shown}”.</div>`;}
 function openGlobalSearch(){buildSearchDialog();const dialog=document.getElementById('globalSearchDialog');if(typeof dialog.showModal==='function')dialog.showModal();else dialog.setAttribute('open','');setTimeout(()=>document.getElementById('globalSearchInput')?.focus(),30);loadSearchPlayers();window.loadWPlayerpediaLegacy().then(renderGlobalSearch).catch(()=>{});}
 document.getElementById('globalSearchButton')?.addEventListener('click',openGlobalSearch);document.addEventListener('keydown',event=>{if(event.key==='/'&&!event.metaKey&&!event.ctrlKey&&!event.altKey&&!['INPUT','TEXTAREA','SELECT'].includes(document.activeElement?.tagName||'')){event.preventDefault();openGlobalSearch();}});

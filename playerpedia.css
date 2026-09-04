@@ -332,6 +332,7 @@
 .player-wire-note{color:rgba(255,255,255,.6)!important;margin-top:16px;}
 .live-profile-note{padding:16px;border-radius:16px;background:#f1e8ff;border:1px solid #dfd0f5;}
 .live-profile-note p{margin:0;color:#51475d;}
+.pro-affiliation.upshot{background:#efe5ff;color:#311152;border:1px solid #cfb7f5;}
 
 @media (max-width: 1000px){
   .player-wire-grid{grid-template-columns:1fr 1fr;}

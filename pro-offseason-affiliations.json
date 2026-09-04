@@ -1,5 +1,5 @@
 {
-  "updatedAt":"2026-08-31T12:49:00Z",
+  "updatedAt":"2026-09-04T12:00:00Z",
   "logos":{"unrivaled":"https://www.unrivaled.basketball/unrivaled_wordmark.png","au":"https://upload.wikimedia.org/wikipedia/commons/c/cd/Athletes_unlimited_logo.png"},
   "teamUSA":{"season":2026,"competition":"FIBA Women's Basketball World Cup","status":"Updated Aug. 31: Kiki Iriafen and Sonia Citron added after A'ja Wilson and Kelsey Plum withdrew for health reasons","players":["Aliyah Boston","Paige Bueckers","Caitlin Clark","Napheesa Collier","Kahleah Copper","Chelsea Gray","Rhyne Howard","Kiki Iriafen","Angel Reese","Breanna Stewart","Sonia Citron","Jackie Young"],"additions":["Kiki Iriafen","Sonia Citron"],"withdrawals":["A'ja Wilson","Kelsey Plum"]},
   "unrivaled":{"season":2026,"players":[
@@ -11,5 +11,6 @@
     ["Tina Charles","Rhythm"],["Alysha Clark","Rhythm"],["Mercedes Russell","Rhythm"],["Shey Peddy","Rhythm"],["Kia Nurse","Rhythm"],["Alissa Pili","Rhythm"],["Jaylyn Sherrod","Rhythm"],["Aerial Powers","Rhythm"],["JoJo Lacey","Rhythm"],["Sequoia Holmes","Rhythm"],
     ["Kierstan Bell","Eclipse"],["Kaitlyn Chen","Eclipse"],["Sarah Ashlee Barker","Eclipse"],["NaLyssa Smith","Eclipse"],["Emma Cannon","Eclipse"],["Kayana Traylor","Eclipse"],["Brianna Turner","Eclipse"],["Aaliyah Nye","Eclipse"],["Deja Kelly","Eclipse"],["Alaina Coates","Eclipse"]
   ]},
-  "sources":{"unrivaled":"https://www.unrivaled.basketball/players","unrivaledStatus":"https://bleacherreport.com/unrivaled","au":"https://auprosports.com/draft/basketball-2026-week-4/","teamUSA":"https://www.usab.com/news/2026/08/2026-usa-basketball-womens-national-team-announced","teamUSAUpdate":"https://www.foxsports.com/articles/wnba/us-stars-aja-wilson-and-kelsey-plum-to-miss-the-fiba-womens-world-cup","fibaWorldCup":"https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026"}
+  "upshot":{"season":2026,"players":[["Deja Kelly","Charlotte Crown","2026 champion · Championship MVP"]]},
+  "sources":{"unrivaled":"https://www.unrivaled.basketball/players","unrivaledStatus":"https://bleacherreport.com/unrivaled","au":"https://auprosports.com/draft/basketball-2026-week-4/","upshot":"https://upshotleague.com/players/deja-kelly/","teamUSA":"https://www.usab.com/news/2026/08/2026-usa-basketball-womens-national-team-announced","teamUSAUpdate":"https://www.foxsports.com/articles/wnba/us-stars-aja-wilson-and-kelsey-plum-to-miss-the-fiba-womens-world-cup","fibaWorldCup":"https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026"}
 }

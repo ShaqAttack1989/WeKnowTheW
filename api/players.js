@@ -10,6 +10,24 @@ const { getWnbaRosters, getWnbaInjuries, getWnbaTransactions } = require('../lib
 // a current-roster claim.
 const RETAINED_PLAYERPEDIA = [
   {
+    name: 'Deja Kelly',
+    wnbaId: '1642795',
+    lastTeam: 'Las Vegas Aces',
+    position: 'Point Guard',
+    number: '2',
+    status: 'free-agent',
+    lastWnbaSeason: 2025,
+    wnbaRegularSeasonGames: 0,
+    birthDate: '2001-09-08',
+    birthPlace: 'San Antonio, Texas',
+    nationality: 'United States',
+    height: "5'8\"",
+    college: 'Oregon · North Carolina',
+    description: 'Kelly went undrafted in 2025, signed a training-camp contract with Las Vegas and was waived before the regular season. In 2026, she played in Athletes Unlimited and helped Charlotte Crown win the inaugural UPSHOT championship, earning Championship MVP.',
+    sourceUrl: 'https://www.wnba.com/player/1642795/deja-kelly',
+    reason: 'Free agent · last WNBA team: Las Vegas Aces. Kelly played for Athletes Unlimited in 2026, then won the inaugural UPSHOT championship and Championship MVP with Charlotte Crown.'
+  },
+  {
     name: 'Sydney Colson',
     wnbaId: '202641',
     lastTeam: 'Indiana Fever',
@@ -170,13 +188,21 @@ function baseFromRetained(item, teamIds, season = 2025) {
   }, teamIds);
   return {
     ...base,
+    curated: true,
     teamId: '',
     team: lastTeam ? `Free Agent · last: ${lastTeam}` : 'Free Agent',
     currentRoster: false,
     recentPlayerpedia: true,
     retainedPlayerpedia: true,
     lastWnbaSeason: Number(item.lastWnbaSeason || season),
+    wnbaRegularSeasonGames: Number.isFinite(Number(item.wnbaRegularSeasonGames)) ? Number(item.wnbaRegularSeasonGames) : null,
     lastTeam,
+    birthDate: item.birthDate || base.birthDate,
+    birthPlace: item.birthPlace || '',
+    nationality: item.nationality || base.nationality,
+    height: item.height || base.height,
+    college: item.college || '',
+    description: item.description || '',
     liveStatus: item.status || 'free-agent',
     liveEffectiveDate: item.effectiveDate || '',
     liveNote: item.reason || 'Retained in Playerpedia after leaving a current WNBA roster.',
@@ -396,3 +422,5 @@ module.exports = async function handler(req, res) {
     artworkPolicy: 'Official transparent WNBA headshots are preferred when a verified player ID is available; live and recent-roster photos remain as fallbacks.'
   });
 };
+
+module.exports._test = { buildRoster, RETAINED_PLAYERPEDIA };

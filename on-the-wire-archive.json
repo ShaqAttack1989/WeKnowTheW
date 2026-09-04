@@ -1,5 +1,15 @@
 {
-  "updatedAt": "2026-09-03T10:27:58.099Z",
+  "updatedAt": "2026-09-04T10:27:58.710Z",
   "retentionDays": 14,
-  "items": []
+  "items": [
+    {
+      "id": "curated-nneka-retirement-20260820",
+      "title": "How Ogwumike's retirement impacts WNBA, players' union and Sparks",
+      "url": "https://www.espn.com/wnba/story/_/id/49664478/nneka-ogwumike-retire-wnba-2026-legacy-wnbpa-leadership",
+      "source": "ESPN",
+      "publishedAt": "2026-08-20T08:00:00-04:00",
+      "category": "Legacy",
+      "origin": "curated"
+    }
+  ]
 }

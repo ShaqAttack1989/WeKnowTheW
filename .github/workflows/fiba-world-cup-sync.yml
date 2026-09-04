@@ -1,0 +1,26 @@
+name: FIBA World Cup Sync
+
+on:
+  push:
+    paths:
+      - 'api/fiba-world-cup.js'
+      - 'no-offseason-fiba.js'
+      - 'fiba-world-cup.html'
+      - 'tests/fiba-world-cup-sync.test.js'
+      - '.github/workflows/fiba-world-cup-sync.yml'
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check FIBA dashboard syntax
+        run: |
+          node --check api/fiba-world-cup.js
+          node --check no-offseason-fiba.js
+      - name: Test FIBA results and standings sync
+        run: node --test tests/fiba-world-cup-sync.test.js

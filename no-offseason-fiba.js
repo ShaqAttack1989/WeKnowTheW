@@ -41,6 +41,7 @@
   function statusCopy(data){
     const status=data.dataStatus||{};
     if(status.livePlayerStats)return ['LIVE FIBA STATS','Official World Cup player statistics are connected and auto-refreshing.'];
+    if(status.standingsSource==='derived-from-results')return ['RESULTS AHEAD OF TABLE','Official final scores are connected. Group W/L and points are being calculated from those results until FIBA’s standings table catches up.'];
     if(status.liveResults)return ['RESULTS CONNECTED','Official FIBA results and standings are auto-refreshing.'];
     if(status.liveStandings)return ['FIBA CONNECTED','Official standings are auto-refreshing. World Cup player stats will appear after USA tips off.'];
     return ['TOURNAMENT READY','Verified schedule and groups are loaded. Live box-score stats will populate when World Cup play begins.'];

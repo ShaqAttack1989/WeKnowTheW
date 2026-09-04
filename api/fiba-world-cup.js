@@ -340,6 +340,7 @@ module.exports = async function handler(req, res) {
   let liveStandings = false;
   let liveResults = false;
   let livePlayerStats = false;
+  let standingsSource = 'fallback';
   const warnings = [];
 
   try {
@@ -376,12 +377,15 @@ module.exports = async function handler(req, res) {
       if (completedGroupGames > officialCompletedGames) {
         standings = deriveStandingsFromFinalGames(fallbackStandings, games);
         liveStandings = completedGroupGames > 0;
+        standingsSource = 'derived-from-results';
         warnings.push('FIBA results updated before the standings table. W/L and group points are being calculated from official completed FIBA game results until the standings page catches up.');
       } else {
         liveStandings = officialStandingsChanged || completedGroupGames > 0;
+        standingsSource = liveStandings ? 'official-standings' : 'fallback';
       }
     } else if (standingsResult.status === 'fulfilled') {
       liveStandings = officialStandingsChanged;
+      standingsSource = liveStandings ? 'official-standings' : 'fallback';
       warnings.push('Official FIBA game results feed could not be refreshed; standings are using the official standings page.');
     } else {
       warnings.push('Official FIBA standings/results feeds could not be refreshed; showing verified tournament structure and schedule.');
@@ -414,7 +418,7 @@ module.exports = async function handler(req, res) {
       liveStandings,
       liveResults,
       livePlayerStats,
-      standingsSource: liveResults && standingsGameCount(standings) < games.filter(game => game.group && game.status === 'final').length ? 'derived-from-results' : (liveStandings ? 'official-standings' : 'fallback'),
+      standingsSource,
       warnings
     },
     rosterStatus: 'Updated Aug. 31: USA Basketball added Kiki Iriafen and Sonia Citron after A’ja Wilson and Kelsey Plum withdrew for health reasons. FIBA notes federation-announced rosters may differ from the final event roster.',

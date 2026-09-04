@@ -10,6 +10,8 @@ const SOURCE_URLS = {
   rosterUpdate: 'https://www.foxsports.com/articles/wnba/us-stars-aja-wilson-and-kelsey-plum-to-miss-the-fiba-womens-world-cup'
 };
 
+const FIBA_GDAP_USA_TEAM_ID = 284651;
+
 function gameCenterUrl(day) {
   return `${EVENT_BASE}/news/2026-wwc-game-center-sep-${day}`;
 }
@@ -194,7 +196,7 @@ function parseStandings(text, fallback) {
     group: group.group,
     teams: group.teams.map(item => {
       const code = item.code;
-      const pattern = new RegExp(`\\b${code}\\b(?:\\s+${code})?\\s+(\\d+)\\/(\\d+)\\s+(\\d+)`, 'i');
+      const pattern = new RegExp(`\\b${code}\\b(?:\\s+${code})?\\s+(\\d+)\\s*\\/\\s*(\\d+)\\s+(\\d+)`, 'i');
       const match = standingSlice.match(pattern);
       if (!match) return item;
       const wins = Number(match[1]), losses = Number(match[2]), points = Number(match[3]);
@@ -297,7 +299,7 @@ function parsePlayerStats(text) {
     let match = null;
     for (const variant of variants) {
       const name = escapeRegExp(variant).replace(/\\'/g, "['’]?");
-      const pattern = new RegExp(`${name}\\s*\\(USA\\)\\s+(\\d+)\\s+([\\d.]+)\\s+([\\d.]+)\\s+(\\d+)\\s+([\\d.]+\\s*-\\s*[\\d.]+)\\s+([\\d.]+)\\s+([\\d.]+\\s*-\\s*[\\d.]+)\\s+([\\d.]+)\\s+([\\d.]+\\s*-\\s*[\\d.]+)\\s+([\\d.]+)`, 'i');
+      const pattern = new RegExp(`${name}\\s*\\(\\s*USA\\s*\\)\\s+(\\d+)\\s+([\\d.]+)\\s+([\\d.]+)\\s+(\\d+)\\s+([\\d.]+\\s*-\\s*[\\d.]+)\\s+([\\d.]+)\\s+([\\d.]+\\s*-\\s*[\\d.]+)\\s+([\\d.]+)\\s+([\\d.]+\\s*-\\s*[\\d.]+)\\s+([\\d.]+)`, 'i');
       match = text.match(pattern);
       if (match) break;
     }
@@ -315,6 +317,79 @@ function parsePlayerStats(text) {
     row.ftPct = Number(match[10]);
   }
   return { players: rows, found };
+}
+
+function publicFibaApiConfig(html = '') {
+  const apiUrl = String(html).match(/NEXT_CLIENT_APIM_URL\\":\\"([^\\"]+)/)?.[1];
+  const subscriptionKey = String(html).match(/NEXT_CLIENT_APIM_SUBSCRIPTION_KEY\\":\\"([^\\"]+)/)?.[1];
+  return apiUrl && subscriptionKey ? { apiUrl, subscriptionKey } : null;
+}
+
+async function fetchUsaTeamPlayerStats(statsHtml, timeoutMs = 8000) {
+  const config = publicFibaApiConfig(statsHtml);
+  if (!config) throw new Error('FIBA public statistics configuration was not available');
+
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), timeoutMs);
+  try {
+    const response = await fetch(`${config.apiUrl.replace(/\/$/, '')}/getgdapcompetitionteamstatisticsbyteamid?gdapTeamId=${FIBA_GDAP_USA_TEAM_ID}`, {
+      headers: {
+        Accept: 'application/json',
+        'Ocp-Apim-Subscription-Key': config.subscriptionKey
+      },
+      signal: controller.signal
+    });
+    if (!response.ok) throw new Error(`FIBA team statistics returned ${response.status}`);
+    const payload = await response.json();
+    return payload?.data || payload;
+  } finally {
+    clearTimeout(timeout);
+  }
+}
+
+function numberOrNull(value) {
+  if (value === null || value === undefined || value === '') return null;
+  const parsed = Number(value);
+  return Number.isFinite(parsed) ? parsed : null;
+}
+
+function statPair(made, attempted) {
+  const left = numberOrNull(made);
+  const right = numberOrNull(attempted);
+  if (left === null || right === null) return null;
+  const display = value => Number.isInteger(value) ? String(value) : value.toFixed(1);
+  return `${display(left)}-${display(right)}`;
+}
+
+function parseUsaTeamPlayerStats(payload) {
+  const official = Array.isArray(payload?.playerInCompetitionTeamStatistics)
+    ? payload.playerInCompetitionTeamStatistics
+    : [];
+  const byName = new Map(official.map(item => [normalizeName(`${item.firstName || ''} ${item.lastName || ''}`).toLowerCase(), item]));
+  let found = 0;
+
+  const players = blankPlayerStats().map(row => {
+    const item = byName.get(normalizeName(row.player).toLowerCase());
+    if (!item) return row;
+    const gp = numberOrNull(item.totalGamesPlayed) || 0;
+    if (gp > 0) found += 1;
+    const secondsPerGame = numberOrNull(item.playTimeInSecondsPerGame);
+    return {
+      player: row.player,
+      gp,
+      mpg: secondsPerGame === null ? null : secondsPerGame / 60,
+      ppg: numberOrNull(item.pointsPerGame),
+      pts: numberOrNull(item.totalPoints) || 0,
+      fg: statPair(item.fieldGoalsMadePerGame, item.fieldGoalsAttemptedPerGame),
+      fgPct: numberOrNull(item.fieldGoalsPercentage),
+      three: statPair(item.threePointsMadePerGame, item.threePointsAttemptedPerGame),
+      threePct: numberOrNull(item.threePointsPercentage),
+      ft: statPair(item.freeThrowsMadePerGame, item.freeThrowsAttemptedPerGame),
+      ftPct: numberOrNull(item.freeThrowsPercentage)
+    };
+  });
+
+  return { players, found };
 }
 
 function standingsGameCount(standings) {
@@ -392,6 +467,7 @@ module.exports = async function handler(req, res) {
   let liveResults = false;
   let livePlayerStats = false;
   let standingsSource = 'fallback';
+  let playerStatsSource = 'fallback';
   const warnings = [];
 
   try {
@@ -470,9 +546,21 @@ module.exports = async function handler(req, res) {
 
     if (statsResult.status === 'fulfilled') {
       const statsText = normalizeName(htmlToText(statsResult.value));
-      const parsedStats = parsePlayerStats(statsText);
+      const parsedHtmlStats = parsePlayerStats(statsText);
+      let parsedStats = parsedHtmlStats;
+      try {
+        const officialTeamStats = await fetchUsaTeamPlayerStats(statsResult.value);
+        const parsedTeamStats = parseUsaTeamPlayerStats(officialTeamStats);
+        if (parsedTeamStats.found >= parsedHtmlStats.found) {
+          parsedStats = parsedTeamStats;
+          playerStatsSource = 'official-usa-team-statistics';
+        }
+      } catch (error) {
+        if (parsedHtmlStats.found > 0) warnings.push('FIBA’s complete Team USA statistics feed could not refresh. The visible competition table is being used temporarily.');
+      }
       playerStats = parsedStats.players;
       livePlayerStats = parsedStats.found > 0;
+      if (livePlayerStats && playerStatsSource === 'fallback') playerStatsSource = 'official-competition-statistics';
       if (!livePlayerStats) warnings.push('World Cup player box-score stats will populate after USA plays its first game.');
     } else {
       warnings.push('Official FIBA player-stat page could not be refreshed; World Cup player stats remain unfilled.');
@@ -499,6 +587,7 @@ module.exports = async function handler(req, res) {
       liveResults,
       livePlayerStats,
       standingsSource,
+      playerStatsSource,
       warnings
     },
     rosterStatus: 'Updated Aug. 31: USA Basketball added Kiki Iriafen and Sonia Citron after A’ja Wilson and Kelsey Plum withdrew for health reasons. FIBA notes federation-announced rosters may differ from the final event roster.',

@@ -41,14 +41,19 @@ const dailyGameCenter = html(
   'Group Phase · Group B Final KOR KOR 99 NGR NGR 81'
 );
 
-async function runDashboard({standings}) {
+async function runDashboard({standings, stats=html('No USA player stats yet'), teamStats=null}) {
   delete require.cache[require.resolve(handlerPath)];
   const originalFetch = global.fetch;
   global.fetch = async url => {
     const value = String(url);
     if (value.endsWith('/standings')) return { ok: true, text: async () => standings };
     if (value.endsWith('/games')) return { ok: true, text: async () => finalGames };
-    if (value.endsWith('/stats')) return { ok: true, text: async () => html('No USA player stats yet') };
+    if (value.endsWith('/stats')) return { ok: true, text: async () => stats };
+    if (value.includes('getgdapcompetitionteamstatisticsbyteamid')) {
+      return teamStats
+        ? { ok: true, json: async () => teamStats }
+        : { ok: false, status: 404, json: async () => ({}) };
+    }
     if (value.includes('/news/2026-wwc-game-center-sep-4')) return { ok: true, text: async () => dailyGameCenter };
     if (value.includes('fiba-womens-basketball-world-cup-2026')) return { ok: true, text: async () => finalGames };
     return { ok: false, status: 404, text: async () => '' };
@@ -95,11 +100,52 @@ test('official FIBA standings take priority once they catch up', async () => {
     standings: standingsText({
       jpn:'1/0 2', mli:'0/1 1', aus:'1/0 2', pur:'0/1 1',
       kor:'1/0 2', ngr:'0/1 1', usa:'1/0 2', chn:'0/1 1'
-    })
+    }).replaceAll('/', ' / ')
   });
   assert.equal(data.dataStatus.standingsSource, 'official-standings');
   assert.equal(data.standings.find(group => group.group === 'A').teams[0].code, 'JPN');
   assert.equal(data.standings.find(group => group.group === 'C').teams[0].code, 'AUS');
+});
+
+test('complete Team USA player statistics come from FIBA team data', async () => {
+  const roster = [
+    'Aliyah Boston', 'Paige Bueckers', 'Caitlin Clark', 'Napheesa Collier', 'Kahleah Copper', 'Chelsea Gray',
+    'Rhyne Howard', 'Kiki Iriafen', 'Angel Reese', 'Breanna Stewart', 'Sonia Citron', 'Jackie Young'
+  ];
+  const stats = '<html><head><script>self.__next_f.push([1,"{\\"NEXT_CLIENT_APIM_URL\\":\\"https://digital-api.example/hapi\\",\\"NEXT_CLIENT_APIM_SUBSCRIPTION_KEY\\":\\"public-test-key\\"}"])</script></head><body></body></html>';
+  const teamStats = {
+    playerInCompetitionTeamStatistics: roster.map((name, index) => {
+      const [firstName, ...last] = name.split(' ');
+      return {
+        firstName,
+        lastName: last.join(' '),
+        totalGamesPlayed: 1,
+        playTimeInSecondsPerGame: name === 'Caitlin Clark' ? 1519 : 600 + index,
+        pointsPerGame: name === 'Caitlin Clark' ? 14 : index,
+        totalPoints: name === 'Caitlin Clark' ? 14 : index,
+        fieldGoalsMadePerGame: name === 'Caitlin Clark' ? 4 : 1,
+        fieldGoalsAttemptedPerGame: name === 'Caitlin Clark' ? 9 : 2,
+        fieldGoalsPercentage: name === 'Caitlin Clark' ? 44.444 : 50,
+        threePointsMadePerGame: name === 'Caitlin Clark' ? 3 : 0,
+        threePointsAttemptedPerGame: name === 'Caitlin Clark' ? 7 : 0,
+        threePointsPercentage: name === 'Caitlin Clark' ? 42.857 : 0,
+        freeThrowsMadePerGame: name === 'Caitlin Clark' ? 3 : 0,
+        freeThrowsAttemptedPerGame: name === 'Caitlin Clark' ? 4 : 0,
+        freeThrowsPercentage: name === 'Caitlin Clark' ? 75 : 0
+      };
+    })
+  };
+  const data = await runDashboard({ standings: standingsText({}), stats, teamStats });
+  const caitlin = data.playerStats.find(player => player.player === 'Caitlin Clark');
+
+  assert.equal(data.dataStatus.livePlayerStats, true);
+  assert.equal(data.dataStatus.playerStatsSource, 'official-usa-team-statistics');
+  assert.equal(data.playerStats.filter(player => player.gp === 1).length, 12);
+  assert.equal(caitlin.ppg, 14);
+  assert.equal(caitlin.fg, '4-9');
+  assert.equal(caitlin.three, '3-7');
+  assert.equal(caitlin.ftPct, 75);
+  assert.ok(Math.abs(caitlin.mpg - 25.3167) < 0.001);
 });
 
 test('dashboard fetches dedicated FIBA games and standings pages', () => {
@@ -109,4 +155,6 @@ test('dashboard fetches dedicated FIBA games and standings pages', () => {
   assert.match(source, /deriveStandingsFromFinalGames/);
   assert.match(source, /gameCenterUrl/);
   assert.match(source, /applyVerifiedDailyScores/);
+  assert.match(source, /fetchUsaTeamPlayerStats/);
+  assert.match(source, /getgdapcompetitionteamstatisticsbyteamid/);
 });

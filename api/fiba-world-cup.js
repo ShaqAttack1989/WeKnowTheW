@@ -266,6 +266,53 @@ function parsePlayerStats(text) {
   return { players: rows, found };
 }
 
+function standingsGameCount(standings) {
+  return Math.round((standings || []).reduce((sum, group) => sum + (group.teams || []).reduce((teamSum, item) => teamSum + (Number(item.wins) || 0) + (Number(item.losses) || 0), 0), 0) / 2);
+}
+
+function deriveStandingsFromFinalGames(fallback, games) {
+  const byGroup = new Map((fallback || []).map(group => [group.group, {
+    group: group.group,
+    teams: group.teams.map(item => ({ ...item, wins: 0, losses: 0, points: 0, pointsFor: 0, pointsAgainst: 0 }))
+  }]));
+
+  for (const game of games || []) {
+    if (!game.group || game.status !== 'final' || !Number.isFinite(Number(game.homeScore)) || !Number.isFinite(Number(game.awayScore))) continue;
+    const group = byGroup.get(game.group);
+    if (!group) continue;
+    const home = group.teams.find(item => item.code === game.home.code);
+    const away = group.teams.find(item => item.code === game.away.code);
+    if (!home || !away) continue;
+
+    const homeScore = Number(game.homeScore);
+    const awayScore = Number(game.awayScore);
+    home.pointsFor += homeScore;
+    home.pointsAgainst += awayScore;
+    away.pointsFor += awayScore;
+    away.pointsAgainst += homeScore;
+
+    if (homeScore > awayScore) {
+      home.wins += 1; home.points += 2;
+      away.losses += 1; away.points += 1;
+    } else {
+      away.wins += 1; away.points += 2;
+      home.losses += 1; home.points += 1;
+    }
+  }
+
+  const groups = [...byGroup.values()];
+  groups.forEach(group => {
+    group.teams.sort((a, b) =>
+      (b.points - a.points) ||
+      (b.wins - a.wins) ||
+      ((b.pointsFor - b.pointsAgainst) - (a.pointsFor - a.pointsAgainst)) ||
+      (b.pointsFor - a.pointsFor)
+    );
+    group.teams.forEach((item, index) => { item.rank = index + 1; });
+  });
+  return groups;
+}
+
 function usaSummary(standings) {
   const groupD = standings.find(group => group.group === 'D');
   const usa = groupD?.teams.find(item => item.code === 'USA');
@@ -296,23 +343,48 @@ module.exports = async function handler(req, res) {
   const warnings = [];
 
   try {
-    const [eventResult, statsResult] = await Promise.allSettled([
+    const [standingsResult, gamesResult, eventResult, statsResult] = await Promise.allSettled([
+      fetchText(SOURCE_URLS.standings),
+      fetchText(SOURCE_URLS.games),
       fetchText(SOURCE_URLS.event),
       fetchText(SOURCE_URLS.stats)
     ]);
 
-    if (eventResult.status === 'fulfilled') {
-      const text = normalizeName(htmlToText(eventResult.value));
-      const standingResult = parseStandings(text, fallbackStandings);
-      standings = standingResult.groups;
-      liveStandings = true;
-      const scoreResult = applyFinalScores(text, fallbackGames);
+    let officialStandingsChanged = false;
+    if (standingsResult.status === 'fulfilled') {
+      const standingsText = normalizeName(htmlToText(standingsResult.value));
+      const parsed = parseStandings(standingsText, fallbackStandings);
+      standings = parsed.groups;
+      officialStandingsChanged = parsed.changed;
+    }
+
+    const resultsHtml = gamesResult.status === 'fulfilled'
+      ? gamesResult.value
+      : (eventResult.status === 'fulfilled' ? eventResult.value : null);
+
+    if (resultsHtml) {
+      const resultsText = normalizeName(htmlToText(resultsHtml));
+      const scoreResult = applyFinalScores(resultsText, fallbackGames);
       games = scoreResult.games;
       liveResults = scoreResult.changed;
-      const extras = parseExtraFinalGames(text, games);
+      const extras = parseExtraFinalGames(resultsText, games);
       if (extras.length) games = games.concat(extras);
+
+      const completedGroupGames = games.filter(game => game.group && game.status === 'final').length;
+      const officialCompletedGames = standingsGameCount(standings);
+
+      if (completedGroupGames > officialCompletedGames) {
+        standings = deriveStandingsFromFinalGames(fallbackStandings, games);
+        liveStandings = completedGroupGames > 0;
+        warnings.push('FIBA results updated before the standings table. W/L and group points are being calculated from official completed FIBA game results until the standings page catches up.');
+      } else {
+        liveStandings = officialStandingsChanged || completedGroupGames > 0;
+      }
+    } else if (standingsResult.status === 'fulfilled') {
+      liveStandings = officialStandingsChanged;
+      warnings.push('Official FIBA game results feed could not be refreshed; standings are using the official standings page.');
     } else {
-      warnings.push('Official FIBA standings/results feed could not be refreshed; showing verified tournament structure and schedule.');
+      warnings.push('Official FIBA standings/results feeds could not be refreshed; showing verified tournament structure and schedule.');
     }
 
     if (statsResult.status === 'fulfilled') {
@@ -338,7 +410,13 @@ module.exports = async function handler(req, res) {
     totalGames: 36,
     updatedAt: new Date().toISOString(),
     sources: SOURCE_URLS,
-    dataStatus: { liveStandings, liveResults, livePlayerStats, warnings },
+    dataStatus: {
+      liveStandings,
+      liveResults,
+      livePlayerStats,
+      standingsSource: liveResults && standingsGameCount(standings) < games.filter(game => game.group && game.status === 'final').length ? 'derived-from-results' : (liveStandings ? 'official-standings' : 'fallback'),
+      warnings
+    },
     rosterStatus: 'Updated Aug. 31: USA Basketball added Kiki Iriafen and Sonia Citron after A’ja Wilson and Kelsey Plum withdrew for health reasons. FIBA notes federation-announced rosters may differ from the final event roster.',
     usa: { ...usaSummary(standings), roster: USA_ROSTER, rosterUpdate: USA_ROSTER_UPDATE },
     standings,

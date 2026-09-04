@@ -10,6 +10,27 @@ const SOURCE_URLS = {
   rosterUpdate: 'https://www.foxsports.com/articles/wnba/us-stars-aja-wilson-and-kelsey-plum-to-miss-the-fiba-womens-world-cup'
 };
 
+function gameCenterUrl(day) {
+  return `${EVENT_BASE}/news/2026-wwc-game-center-sep-${day}`;
+}
+
+function berlinTournamentDay() {
+  const parts = new Intl.DateTimeFormat('en-US', {
+    timeZone: 'Europe/Berlin',
+    year: 'numeric', month: '2-digit', day: '2-digit'
+  }).formatToParts(new Date());
+  const values = Object.fromEntries(parts.map(part => [part.type, part.value]));
+  if (values.year !== '2026' || values.month !== '09') return null;
+  const day = Number(values.day);
+  return day >= 4 && day <= 13 ? day : null;
+}
+
+function completedGameCenterDays() {
+  const day = berlinTournamentDay();
+  if (!day) return [];
+  return Array.from({ length: day - 3 }, (_, index) => index + 4);
+}
+
 const COUNTRY = {
   JPN: ['Japan', '🇯🇵'], MLI: ['Mali', '🇲🇱'], AUS: ['Australia', '🇦🇺'], PUR: ['Puerto Rico', '🇵🇷'],
   USA: ['United States', '🇺🇸'], CHN: ['China', '🇨🇳'], KOR: ['Korea', '🇰🇷'], NGR: ['Nigeria', '🇳🇬'],
@@ -204,6 +225,36 @@ function applyFinalScores(text, games) {
   return { games: updated, changed };
 }
 
+function applyVerifiedDailyScores(text, games) {
+  let changed = false;
+  const updated = games.map(game => {
+    if (game.status === 'final') return game;
+    const home = game.home.code, away = game.away.code;
+    const patterns = [
+      new RegExp(`Group Phase\\s*[·•]?\\s*Group\\s+${game.group}\\s+Final\\s+${home}\\s+${home}\\s+(\\d{1,3})\\s+${away}\\s+${away}\\s+(\\d{1,3})`, 'i'),
+      new RegExp(`\\b${home}\\s+(\\d{1,3})\\s*[-–]\\s*(\\d{1,3})\\s+${away}\\b`, 'i'),
+      new RegExp(`\\b${home}\\s+${home}\\s+(\\d{1,3})\\s+${away}\\s+${away}\\s+(\\d{1,3})\\b`, 'i')
+    ];
+    for (const pattern of patterns) {
+      const match = text.match(pattern);
+      if (!match) continue;
+      changed = true;
+      return { ...game, status: 'final', homeScore: Number(match[1]), awayScore: Number(match[2]) };
+    }
+    return game;
+  });
+  return { games: updated, changed };
+}
+
+function mergeFinalScores(base, next) {
+  const byId = new Map((base || []).map(game => [game.id, game]));
+  for (const game of next || []) {
+    const existing = byId.get(game.id);
+    if (!existing || game.status === 'final') byId.set(game.id, game);
+  }
+  return [...byId.values()];
+}
+
 function parseExtraFinalGames(text, knownGames) {
   const known = new Set(knownGames.map(game => `${game.home.code}-${game.away.code}-${game.date}`));
   const extras = [];
@@ -344,11 +395,13 @@ module.exports = async function handler(req, res) {
   const warnings = [];
 
   try {
-    const [standingsResult, gamesResult, eventResult, statsResult] = await Promise.allSettled([
+    const gameCenterDays = completedGameCenterDays();
+    const [standingsResult, gamesResult, eventResult, statsResult, ...gameCenterResults] = await Promise.allSettled([
       fetchText(SOURCE_URLS.standings),
       fetchText(SOURCE_URLS.games),
       fetchText(SOURCE_URLS.event),
-      fetchText(SOURCE_URLS.stats)
+      fetchText(SOURCE_URLS.stats),
+      ...gameCenterDays.map(day => fetchText(gameCenterUrl(day)))
     ]);
 
     let officialStandingsChanged = false;
@@ -391,6 +444,30 @@ module.exports = async function handler(req, res) {
       warnings.push('Official FIBA standings/results feeds could not be refreshed; showing verified tournament structure and schedule.');
     }
 
+    let gameCenterFinals = false;
+    for (const result of gameCenterResults) {
+      if (result.status !== 'fulfilled') continue;
+      const dailyText = normalizeName(htmlToText(result.value));
+      const dailyScores = applyVerifiedDailyScores(dailyText, games);
+      if (!dailyScores.changed) continue;
+      games = mergeFinalScores(games, dailyScores.games);
+      gameCenterFinals = true;
+    }
+
+    if (gameCenterFinals) {
+      liveResults = true;
+      const completedGroupGames = games.filter(game => game.group && game.status === 'final').length;
+      const officialCompletedGames = standingsGameCount(standings);
+      if (completedGroupGames > officialCompletedGames) {
+        standings = deriveStandingsFromFinalGames(fallbackStandings, games);
+        liveStandings = true;
+        standingsSource = 'derived-from-results';
+        if (!warnings.some(item => item.includes('standings table'))) {
+          warnings.push('Official FIBA Game Center has newer finals than the standings table. W/L and group points are being calculated from those verified results until the table catches up.');
+        }
+      }
+    }
+
     if (statsResult.status === 'fulfilled') {
       const statsText = normalizeName(htmlToText(statsResult.value));
       const parsedStats = parsePlayerStats(statsText);
@@ -413,7 +490,10 @@ module.exports = async function handler(req, res) {
     teamCount: 16,
     totalGames: 36,
     updatedAt: new Date().toISOString(),
-    sources: SOURCE_URLS,
+    sources: {
+      ...SOURCE_URLS,
+      gameCenters: completedGameCenterDays().map(day => gameCenterUrl(day))
+    },
     dataStatus: {
       liveStandings,
       liveResults,

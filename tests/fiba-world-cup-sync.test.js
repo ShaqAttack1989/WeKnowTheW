@@ -19,11 +19,14 @@ function html(text) {
   return '<html><body>' + text + '</body></html>';
 }
 
-function standingsText(jpn='0/0 0', mli='0/0 0', aus='0/0 0', pur='0/0 0') {
+function standingsText({
+  jpn='0/0 0', mli='0/0 0', aus='0/0 0', pur='0/0 0',
+  kor='0/0 0', ngr='0/0 0', usa='0/0 0', chn='0/0 0'
+}={}) {
   return html('Standings Group A JPN ' + jpn + ' ESP 0/0 0 GER 0/0 0 MLI ' + mli +
-    ' Group B HUN 0/0 0 KOR 0/0 0 NGR 0/0 0 FRA 0/0 0' +
+    ' Group B HUN 0/0 0 KOR ' + kor + ' NGR ' + ngr + ' FRA 0/0 0' +
     ' Group C BEL 0/0 0 AUS ' + aus + ' PUR ' + pur + ' TUR 0/0 0' +
-    ' Group D USA 0/0 0 CZE 0/0 0 ITA 0/0 0 CHN 0/0 0');
+    ' Group D USA ' + usa + ' CZE 0/0 0 ITA 0/0 0 CHN ' + chn);
 }
 
 const finalGames = html(
@@ -61,7 +64,7 @@ async function runDashboard({standings}) {
 }
 
 test('completed FIBA results fill a lagging 0-0 standings page', async () => {
-  const data = await runDashboard({ standings: standingsText() });
+  const data = await runDashboard({ standings: standingsText({}) });
   const groupA = data.standings.find(group => group.group === 'A').teams;
   const groupC = data.standings.find(group => group.group === 'C').teams;
   const jpn = groupA.find(team => team.code === 'JPN');
@@ -89,7 +92,10 @@ test('completed FIBA results fill a lagging 0-0 standings page', async () => {
 
 test('official FIBA standings take priority once they catch up', async () => {
   const data = await runDashboard({
-    standings: standingsText('1/0 2', '0/1 1', '1/0 2', '0/1 1')
+    standings: standingsText({
+      jpn:'1/0 2', mli:'0/1 1', aus:'1/0 2', pur:'0/1 1',
+      kor:'1/0 2', ngr:'0/1 1', usa:'1/0 2', chn:'0/1 1'
+    })
   });
   assert.equal(data.dataStatus.standingsSource, 'official-standings');
   assert.equal(data.standings.find(group => group.group === 'A').teams[0].code, 'JPN');

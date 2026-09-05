@@ -17,11 +17,20 @@ test('keeps the global menu to seven clear editorial sections', () => {
 });
 
 test('groups child destinations instead of promoting articles into the menu', () => {
-  for (const label of ['Live Stats', 'Team Hubs', 'Current Players', 'Herstory', 'The Film Room', 'Coaches', 'Expansion Watch', 'Unrivaled', 'Snack Shak Bytes', 'Food for Thought']) {
+  for (const label of ['Live Stats', 'On the Wire', 'Team Hubs', 'Current Players', 'Herstory', 'The Film Room', 'Front Office 101', 'The W Rewind', 'Coaches', 'Expansion Watch', 'FIBA World Cup', 'Unrivaled', 'Snack Shak Bytes', 'Food for Thought']) {
     assert.match(navSource, new RegExp(label.replace(/[?]/g, '\\?')));
   }
-  for (const article of ['Tina Charles: No. 31 Rises', 'Legendary WNBA Duos', 'DeWanna Bonner: One More Run']) {
+  for (const article of ['Tina Charles: No. 31 Rises', 'Legendary WNBA Duos', 'DeWanna Bonner: One More Run', 'Jet Lag & Jump Shots']) {
     assert.doesNotMatch(navSource, new RegExp(article));
+  }
+});
+
+test('new section pages have active menu, breadcrumb and search coverage', () => {
+  for (const page of ['/on-the-wire.html', '/front-office-101.html', '/season-yearbooks.html', '/fiba-world-cup.html']) {
+    assert.match(site, new RegExp(page.replace(/[/.]/g, '\\$&')));
+  }
+  for (const page of ['On the Wire', 'Front Office 101', 'The W Rewind', 'FIBA World Cup', 'Jet Lag & Jump Shots']) {
+    assert.match(site, new RegExp(page.replace(/[&?]/g, '\\$&')));
   }
 });
 

@@ -40,6 +40,25 @@ test('includes every candidate and a real image for each person', () => {
   assert.match(css, /@media\(max-width:720px\)/);
 });
 
+test('orders the scouting board by grade and displays compact grade badges', () => {
+  const expectedOrder = [
+    'Swin Cash',
+    'Sarah Mensah',
+    'Bethany Donaphin',
+    'Jess Smith',
+    'Renie Anderson',
+    'Nneka Ogwumike',
+    'Condoleezza Rice'
+  ];
+  const positions = expectedOrder.map(name => html.indexOf(`>${name}</h3>`));
+  assert.ok(positions.every(position => position >= 0));
+  assert.deepEqual([...positions].sort((a, b) => a - b), positions);
+  assert.match(html, /aria-label="Grade A plus">A<sup>\+<\/sup>/);
+  assert.match(html, /aria-label="Grade A minus">A<sup>−<\/sup>/);
+  assert.match(html, /aria-label="Grade B plus">B<sup>\+<\/sup>/);
+  assert.match(css, /\.candidate-topline \.grade-badge/);
+});
+
 test('credits photo sources and marks candidates as unconfirmed', () => {
   assert.match(html, /These names are potential candidates, not confirmed finalists/);
   assert.match(html, /Jennifer Pottheiser/);

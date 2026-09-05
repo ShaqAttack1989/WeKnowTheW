@@ -29,6 +29,22 @@ test('latest roster moves update current rosters without removing Playerpedia hi
   const payload = await loadPlayers();
   const byName = new Map(payload.players.map(player => [player.name, player]));
 
+  assert.equal(byName.get('Madison Scott').team, 'New York Liberty');
+  assert.equal(byName.get('Madison Scott').number, '24');
+  assert.equal(byName.get('Madison Scott').currentRoster, true);
+  assert.equal(byName.get('Madison Scott').liveStatus, 'development');
+  assert.equal(byName.get('Madison Scott').liveEffectiveDate, '2026-09-02');
+
+  assert.equal(byName.get('Hailey Van Lith').currentRoster, false);
+  assert.equal(byName.get('Hailey Van Lith').lastTeam, 'Connecticut Sun');
+  assert.equal(byName.get('Hailey Van Lith').liveStatus, 'released');
+  assert.equal(byName.get('Hailey Van Lith').liveEffectiveDate, '2026-09-02');
+
+  assert.equal(byName.get('Saylor Poffenbarger').currentRoster, false);
+  assert.equal(byName.get('Saylor Poffenbarger').lastTeam, 'Phoenix Mercury');
+  assert.equal(byName.get('Saylor Poffenbarger').liveStatus, 'released');
+  assert.equal(byName.get('Saylor Poffenbarger').liveEffectiveDate, '2026-09-01');
+
   assert.equal(byName.get('Kate Martin').team, 'Chicago Sky');
   assert.equal(byName.get('Kate Martin').number, '20');
   assert.equal(byName.get('Kate Martin').currentRoster, true);
@@ -55,11 +71,19 @@ test('latest roster moves update current rosters without removing Playerpedia hi
   assert.equal(byName.get('Tonie Morgan').number, '4');
   assert.equal(byName.get('Tonie Morgan').liveEffectiveDate, '2026-08-16');
 
+  assert.equal(byName.get('Kennedy Burke').liveStatus, 'temporarily-suspended');
+  assert.equal(byName.get('Leila Lacan').liveStatus, 'temporarily-suspended');
+  assert.equal(byName.get('Valeriane Ayayi').liveStatus, 'temporarily-suspended');
+  assert.equal(byName.get('Kyara Linskens').liveStatus, 'temporarily-suspended');
+
   for (const player of payload.players) {
     const filterTeam = player.currentRoster === false ? player.lastTeam : player.team;
     if (filterTeam) assert.ok(player.teamId, `${player.name} is missing a team filter ID`);
   }
 
+  assert.ok(payload.transactions.some(item => item.player === 'Madison Scott' && item.type === 'SIGNED' && item.team === 'New York Liberty' && item.date === '2026-09-02'));
+  assert.ok(payload.transactions.some(item => item.player === 'Hailey Van Lith' && item.type === 'RELEASED' && item.date === '2026-09-02'));
+  assert.ok(payload.transactions.some(item => item.player === 'Saylor Poffenbarger' && item.type === 'RELEASED' && item.date === '2026-09-01'));
   assert.ok(payload.transactions.some(item => item.player === 'Kate Martin' && item.type === 'SIGNED' && item.team === 'Chicago Sky' && item.date === '2026-09-02'));
   assert.ok(payload.transactions.some(item => item.player === 'Kate Martin' && item.type === 'WAIVED' && item.team === 'Los Angeles Sparks' && item.date === '2026-08-29'));
   assert.ok(payload.transactions.some(item => item.player === 'Shyanne Sellers' && item.type === 'SIGNED' && item.date === '2026-08-31'));

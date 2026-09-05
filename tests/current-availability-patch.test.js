@@ -13,6 +13,20 @@ test('keeps verified season-ending injuries current', () => {
   assert.match(diggins.reason, /Right knee/);
   assert.equal(diggins.carryover, true);
 
+  const sykes = byPlayer.get('Brittney Sykes');
+  assert.ok(sykes);
+  assert.equal(sykes.team, 'Toronto Tempo');
+  assert.equal(sykes.status, 'OUT FOR SEASON');
+  assert.match(sykes.reason, /Foot/);
+  assert.equal(sykes.carryover, true);
+
+  const morrow = byPlayer.get('Aneesah Morrow');
+  assert.ok(morrow);
+  assert.equal(morrow.team, 'Toronto Tempo');
+  assert.equal(morrow.status, 'OUT FOR SEASON');
+  assert.match(morrow.reason, /Knee/);
+  assert.equal(morrow.carryover, true);
+
   assert.equal(byPlayer.get('Kelsey Plum')?.status, 'OUT FOR SEASON');
   assert.equal(byPlayer.get('NaLyssa Smith')?.status, 'OUT FOR SEASON');
 });

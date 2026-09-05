@@ -1,7 +1,16 @@
 {
-  "updatedAt": "2026-09-04T10:27:58.710Z",
+  "updatedAt": "2026-09-05T10:24:27.579Z",
   "retentionDays": 14,
   "items": [
+    {
+      "id": "curated-wnba-money-20260821",
+      "title": "How WNBA players are balancing investments and splurges with new salaries",
+      "url": "https://www.espn.com/wnba/story/_/id/49662565/wnba-players-salary-investments-new-cars-money-cba",
+      "source": "ESPN",
+      "publishedAt": "2026-08-21T08:20:00-04:00",
+      "category": "Money and business",
+      "origin": "curated"
+    },
     {
       "id": "curated-nneka-retirement-20260820",
       "title": "How Ogwumike's retirement impacts WNBA, players' union and Sparks",

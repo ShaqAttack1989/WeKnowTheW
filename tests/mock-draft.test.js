@@ -11,12 +11,13 @@ const site = read('site.js');
 const feed = JSON.parse(read('snack-shak-latest.json'));
 
 test('publishes the mock draft as a Food for Thought dashboard', () => {
+  const post = feed.posts.find(item => item.slug === '2027-wnba-mock-draft');
   assert.match(html, /FOOD FOR THOUGHT/);
   assert.match(html, /id="mock-board"/);
   assert.match(html, /JuJu to <em>Houston\?/);
   assert.match(html, /current-order projection/i);
-  assert.equal(feed.posts[0].dashboardUrl, '/2027-wnba-mock-draft.html');
-  assert.equal(feed.posts[0].type, 'feature');
+  assert.equal(post.dashboardUrl, '/2027-wnba-mock-draft.html');
+  assert.equal(post.type, 'feature');
 });
 
 test('includes 15 ordered picks with photos, team marks and program marks', () => {

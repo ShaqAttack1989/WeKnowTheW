@@ -2,6 +2,38 @@
   "site": "Snack Shak",
   "posts": [
     {
+      "slug": "next-wnba-commissioner",
+      "type": "feature",
+      "priority": 240,
+      "seriesLabel": "FOOD FOR THOUGHT",
+      "title": "The W Is Changing Hands: Scouting the Next WNBA Commissioner",
+      "published": "2026-09-05",
+      "week": "League leadership · September 5, 2026",
+      "dashboardUrl": "/next-wnba-commissioner.html",
+      "image": "/assets/images/commissioner-search/cathy-engelbert.webp",
+      "teams": [],
+      "players": [
+        "Swin Cash",
+        "Nneka Ogwumike",
+        "Chiney Ogwumike"
+      ],
+      "dek": "Cathy Engelbert helped build a bigger WNBA. Our early scouting board asks who can protect that growth, rebuild player trust and lead the league's next era.",
+      "sections": [
+        {
+          "title": "The early call",
+          "paragraphs": [
+            "Swin Cash owns the strongest all around profile today, with Sarah Mensah, Bethany Donaphin, Jess Smith, Nneka Ogwumike, Condoleezza Rice and Renie Anderson each offering a different answer to the job."
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "label": "Full Food for Thought feature",
+          "url": "https://www.weknowthew.com/next-wnba-commissioner.html"
+        }
+      ]
+    },
+    {
       "slug": "2027-wnba-mock-draft",
       "type": "feature",
       "priority": 210,

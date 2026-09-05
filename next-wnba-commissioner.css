@@ -31,12 +31,14 @@
 .candidate-copy{padding:25px 27px 28px}
 .candidate-topline{display:flex;align-items:center;justify-content:space-between;gap:14px}
 .candidate-topline span{color:#6725b5;font-size:.66rem;font-weight:1000;letter-spacing:.1em}
-.candidate-topline .grade-badge{display:inline-grid;place-items:center;flex:0 0 auto;width:52px;height:52px;padding:0;border:2px solid rgba(255,255,255,.8);border-radius:18px 18px 18px 6px;background:linear-gradient(145deg,#d8ff4f,#a9df1c);box-shadow:0 7px 0 #351050,0 12px 22px rgba(53,16,80,.2);color:#1c0b2d;font-size:1.35rem;font-weight:1000;line-height:1;letter-spacing:-.06em;text-transform:uppercase;transform:rotate(2deg)}
-.candidate-topline .grade-badge sup{position:relative;top:-.2em;margin-left:1px;font-size:.58em;line-height:0}
-.candidate-topline .grade-a{background:linear-gradient(145deg,#d8ff4f,#b9ec2c)}
-.candidate-topline .grade-a-minus{background:linear-gradient(145deg,#f0ffb5,#cce873)}
-.candidate-topline .grade-b-plus{background:linear-gradient(145deg,#8d4fca,#5d2396);color:#fff}
-.candidate-topline .grade-b{background:linear-gradient(145deg,#c9a9e3,#a778cb);color:#24102f}
+.candidate-topline .grade-badge{position:relative;display:inline-grid;place-items:center;flex:0 0 auto;width:64px;height:54px;padding:0;border:0;background:transparent;box-shadow:none;color:#d3202f;font-family:"Segoe Print","Bradley Hand","Comic Sans MS",cursive;font-size:2.15rem;font-style:italic;font-weight:900;line-height:1;letter-spacing:-.12em;text-transform:uppercase;text-shadow:.5px .5px 0 rgba(211,32,47,.22);transform:rotate(-6deg)}
+.candidate-topline .grade-badge:after{content:"";position:absolute;inset:-2px -5px -3px;border:3px solid currentColor;border-radius:52% 48% 55% 45%;opacity:.9;transform:rotate(-5deg)}
+.candidate-topline .grade-badge sup{position:relative;top:-.25em;margin-left:2px;font-size:.56em;line-height:0}
+.candidate-topline .grade-a-plus{transform:rotate(-8deg)}
+.candidate-topline .grade-a{transform:rotate(-4deg)}
+.candidate-topline .grade-a-minus{transform:rotate(-7deg)}
+.candidate-topline .grade-b-plus{transform:rotate(-5deg)}
+.candidate-topline .grade-b{transform:rotate(-3deg)}
 .candidate-copy h3{margin:8px 0 4px;color:#1f122a;font-size:clamp(1.8rem,4vw,2.6rem);line-height:.98}
 .candidate-role{margin:0 0 16px!important;color:#6b5b74!important;font-size:.78rem!important;font-weight:900;line-height:1.45!important}
 .candidate-copy>p:not(.candidate-role){font-size:.94rem!important;line-height:1.62!important}

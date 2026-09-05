@@ -40,14 +40,14 @@ test('includes every candidate and a real image for each person', () => {
   assert.match(css, /@media\(max-width:720px\)/);
 });
 
-test('orders the scouting board by grade and displays compact grade badges', () => {
+test('orders the scouting board by grade and displays teacher style grade marks', () => {
   const expectedOrder = [
     'Swin Cash',
     'Sarah Mensah',
     'Bethany Donaphin',
     'Jess Smith',
-    'Renie Anderson',
     'Nneka Ogwumike',
+    'Renie Anderson',
     'Condoleezza Rice'
   ];
   const positions = expectedOrder.map(name => html.indexOf(`>${name}</h3>`));
@@ -56,7 +56,10 @@ test('orders the scouting board by grade and displays compact grade badges', () 
   assert.match(html, /aria-label="Grade A plus">A<sup>\+<\/sup>/);
   assert.match(html, /aria-label="Grade A minus">A<sup>−<\/sup>/);
   assert.match(html, /aria-label="Grade B plus">B<sup>\+<\/sup>/);
+  assert.match(html, /THE REVENUE SPECIALIST<\/span><b class="grade-badge grade-b" aria-label="Grade B">B<\/b>/);
   assert.match(css, /\.candidate-topline \.grade-badge/);
+  assert.match(css, /"Segoe Print","Bradley Hand","Comic Sans MS",cursive/);
+  assert.match(css, /\.candidate-topline \.grade-badge:after/);
 });
 
 test('credits photo sources and marks candidates as unconfirmed', () => {

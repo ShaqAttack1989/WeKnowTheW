@@ -51,6 +51,11 @@ test('latest roster moves update current rosters without removing Playerpedia hi
   assert.equal(byName.get('Kate Martin').liveStatus, 'development');
   assert.equal(byName.get('Kate Martin').liveEffectiveDate, '2026-09-02');
 
+  assert.equal(byName.get('Kiana Williams').currentRoster, false);
+  assert.equal(byName.get('Kiana Williams').lastTeam, 'Toronto Tempo');
+  assert.equal(byName.get('Kiana Williams').liveStatus, 'released');
+  assert.equal(byName.get('Kiana Williams').liveEffectiveDate, '2026-08-31');
+
   assert.equal(byName.get('Alissa Pili').currentRoster, false);
 
   assert.equal(byName.get('Shyanne Sellers').team, 'Los Angeles Sparks');
@@ -75,6 +80,13 @@ test('latest roster moves update current rosters without removing Playerpedia hi
   assert.equal(byName.get('Leila Lacan').liveStatus, 'temporarily-suspended');
   assert.equal(byName.get('Valeriane Ayayi').liveStatus, 'temporarily-suspended');
   assert.equal(byName.get('Kyara Linskens').liveStatus, 'temporarily-suspended');
+  assert.equal(byName.get('Gabby Williams').liveStatus, 'temporarily-suspended');
+  assert.equal(byName.get('Janelle Salaun').liveStatus, 'temporarily-suspended');
+  assert.equal(byName.get('Cecilia Zandalasini').liveStatus, 'temporarily-suspended');
+  assert.equal(byName.get('Nyara Sabally').liveStatus, 'temporarily-suspended');
+  assert.equal(byName.get('Maria Conde').liveStatus, 'temporarily-suspended');
+  assert.equal(byName.get('Frieda Buhner').liveStatus, 'temporarily-suspended');
+  assert.equal(byName.get('Carla Leite').liveStatus, 'temporarily-suspended');
 
   for (const player of payload.players) {
     const filterTeam = player.currentRoster === false ? player.lastTeam : player.team;
@@ -86,6 +98,8 @@ test('latest roster moves update current rosters without removing Playerpedia hi
   assert.ok(payload.transactions.some(item => item.player === 'Saylor Poffenbarger' && item.type === 'RELEASED' && item.date === '2026-09-01'));
   assert.ok(payload.transactions.some(item => item.player === 'Kate Martin' && item.type === 'SIGNED' && item.team === 'Chicago Sky' && item.date === '2026-09-02'));
   assert.ok(payload.transactions.some(item => item.player === 'Kate Martin' && item.type === 'WAIVED' && item.team === 'Los Angeles Sparks' && item.date === '2026-08-29'));
+  assert.ok(payload.transactions.some(item => item.player === 'Kiana Williams' && item.type === 'RELEASED' && item.team === 'Toronto Tempo' && item.date === '2026-08-31'));
+  assert.ok(payload.transactions.some(item => item.player === 'Kiana Williams' && item.type === 'SIGNED' && item.team === 'Toronto Tempo' && item.date === '2026-08-24'));
   assert.ok(payload.transactions.some(item => item.player === 'Shyanne Sellers' && item.type === 'SIGNED' && item.date === '2026-08-31'));
   assert.ok(payload.transactions.some(item => item.player === 'Aaliyah Nye' && item.type === 'CLAIMED' && item.date === '2026-08-30'));
   assert.ok(payload.transactions.some(item => item.player === 'Tonie Morgan' && item.type === 'SIGNED' && item.date === '2026-08-16'));

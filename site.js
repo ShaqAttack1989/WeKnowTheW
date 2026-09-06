@@ -1,7 +1,7 @@
 // Vercel Web Analytics: sitewide page-view tracking.
 (()=>{
   window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments);};
-  if(!document.querySelector('script[data-vercel-analytics]')){
+  if(!document.querySelector('script[data-vercel-analytics],script[src="/_vercel/insights/script.js"]')){
     const script=document.createElement('script');
     script.defer=true;
     script.src='/_vercel/insights/script.js';

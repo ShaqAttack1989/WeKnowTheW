@@ -81,6 +81,19 @@ const GROUP_GAMES = [
   ['2026-09-07','18:45','D','USA','CZE'], ['2026-09-07','18:45','D','ITA','CHN']
 ];
 
+const FIBA_GROUP_GAME_IDS = {
+  'JPN-MLI': 128116, 'ESP-GER': 128117, 'MLI-ESP': 128118, 'GER-JPN': 128119, 'JPN-ESP': 128120, 'GER-MLI': 128121,
+  'HUN-FRA': 128122, 'KOR-NGR': 128123, 'NGR-HUN': 128124, 'FRA-KOR': 128125, 'HUN-KOR': 128126, 'NGR-FRA': 128127,
+  'BEL-TUR': 128128, 'AUS-PUR': 128129, 'PUR-BEL': 128130, 'TUR-AUS': 128131, 'BEL-AUS': 128132, 'PUR-TUR': 128133,
+  'USA-CHN': 128134, 'CZE-ITA': 128135, 'ITA-USA': 128136, 'CHN-CZE': 128137, 'USA-CZE': 128138, 'ITA-CHN': 128139
+};
+
+function gameDetailUrl(game) {
+  const key = `${game.home.code}-${game.away.code}`;
+  const id = FIBA_GROUP_GAME_IDS[key];
+  return id ? `${EVENT_BASE}/games/${id}-${key}` : null;
+}
+
 const KNOCKOUT_ROUNDS = [
   { date: '2026-09-08', phase: 'Qualification to Quarter-Finals', games: 4 },
   { date: '2026-09-09', phase: 'Quarter-Finals', games: 4 },
@@ -283,6 +296,62 @@ function parseExtraFinalGames(text, knownGames) {
     });
   }
   return extras;
+}
+
+function parsePlayerOfGame(html, game, sourceUrl) {
+  const text = normalizeName(htmlToText(html));
+  const marker = new RegExp(`\\|\\s*TCL Player Of The Game\\s*\\|\\s*${game.home.code}\\s+v\\s+${game.away.code}\\b`, 'i');
+  const match = marker.exec(text);
+  if (!match) return null;
+
+  let segment = text.slice(Math.max(0, match.index - 180), match.index).trim();
+  segment = segment.split(/(?:Image|Share|Videos?|Highlights?)\s*/i).pop().trim();
+
+  let countryCode = null;
+  let countryFlag = '';
+  for (const [code, [, flag]] of Object.entries(COUNTRY)) {
+    if (flag && segment.includes(flag)) {
+      countryCode = code;
+      countryFlag = flag;
+      segment = segment.replace(flag, '').trim();
+      break;
+    }
+  }
+
+  const title = segment.match(/([^|]+?)\s*\(([^()]*)\)\s*$/);
+  if (!title) return null;
+  const player = normalizeName(title[1]).replace(/^[^A-Za-zÀ-ÿ]+/, '').trim();
+  const line = normalizeName(title[2]);
+  if (!player || player.length > 80) return null;
+
+  if (!countryCode) {
+    const winnerCode = Number(game.homeScore) > Number(game.awayScore) ? game.home.code : game.away.code;
+    countryCode = winnerCode;
+    countryFlag = COUNTRY[winnerCode]?.[1] || '';
+  }
+  return {
+    player,
+    line,
+    countryCode,
+    country: COUNTRY[countryCode]?.[0] || countryCode,
+    flag: countryFlag || COUNTRY[countryCode]?.[1] || '',
+    sourceUrl
+  };
+}
+
+async function attachPlayersOfGame(games) {
+  const finals = (games || []).filter(game => game.status === 'final' && gameDetailUrl(game));
+  if (!finals.length) return games;
+  const results = await Promise.allSettled(finals.map(async game => {
+    const sourceUrl = gameDetailUrl(game);
+    const html = await fetchText(sourceUrl, 6000);
+    return { id: game.id, playerOfGame: parsePlayerOfGame(html, game, sourceUrl) };
+  }));
+  const byId = new Map();
+  results.forEach(result => {
+    if (result.status === 'fulfilled' && result.value.playerOfGame) byId.set(result.value.id, result.value.playerOfGame);
+  });
+  return games.map(game => byId.has(game.id) ? { ...game, playerOfGame: byId.get(game.id) } : game);
 }
 
 function blankPlayerStats() {
@@ -544,6 +613,8 @@ module.exports = async function handler(req, res) {
       }
     }
 
+    games = await attachPlayersOfGame(games);
+
     if (statsResult.status === 'fulfilled') {
       const statsText = normalizeName(htmlToText(statsResult.value));
       const parsedHtmlStats = parsePlayerStats(statsText);
@@ -588,6 +659,7 @@ module.exports = async function handler(req, res) {
       livePlayerStats,
       standingsSource,
       playerStatsSource,
+      playerOfGameCount: games.filter(game => game.playerOfGame).length,
       warnings
     },
     rosterStatus: 'Updated Aug. 31: USA Basketball added Kiki Iriafen and Sonia Citron after A’ja Wilson and Kelsey Plum withdrew for health reasons. FIBA notes federation-announced rosters may differ from the final event roster.',

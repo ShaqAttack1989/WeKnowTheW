@@ -182,7 +182,7 @@ test('dashboard fetches dedicated FIBA games and standings pages', () => {
 
 test('verified USA Players of the Game stay attached to the correct finals', () => {
   const source = require('node:fs').readFileSync(handlerPath, 'utf8');
-  assert.match(source, /'USA-CHN'[\s\S]*player:\s*'Caitlin Clark'[\s\S]*14 PTS · 11 AST/);
+  assert.match(source, /'USA-CHN'[\s\S]*player:\s*'Caitlin Clark'[\s\S]*14 PTS, 11 AST/);
   assert.match(source, /'ITA-USA'[\s\S]*player:\s*'Jackie Young'[\s\S]*10 PTS/);
   assert.match(source, /italy-hand-holders-usa-a-major-scare/);
 });

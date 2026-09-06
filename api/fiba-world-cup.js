@@ -88,6 +88,33 @@ const FIBA_GROUP_GAME_IDS = {
   'USA-CHN': 128134, 'CZE-ITA': 128135, 'ITA-USA': 128136, 'CHN-CZE': 128137, 'USA-CZE': 128138, 'ITA-CHN': 128139
 };
 
+const VERIFIED_PLAYER_OF_GAME = {
+  'USA-CHN': {
+    player: 'Caitlin Clark',
+    line: '14 PTS · 11 AST',
+    countryCode: 'USA',
+    sourceUrl: 'https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026/teams/usa'
+  },
+  'ITA-USA': {
+    player: 'Jackie Young',
+    line: '10 PTS',
+    countryCode: 'USA',
+    sourceUrl: 'https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026/news/italy-hand-holders-usa-a-major-scare'
+  }
+};
+
+function verifiedPlayerOfGame(game) {
+  const key = `${game.home.code}-${game.away.code}`;
+  const item = VERIFIED_PLAYER_OF_GAME[key];
+  if (!item) return null;
+  const code = item.countryCode;
+  return {
+    ...item,
+    country: COUNTRY[code]?.[0] || code,
+    flag: COUNTRY[code]?.[1] || ''
+  };
+}
+
 function gameDetailUrl(game) {
   const key = `${game.home.code}-${game.away.code}`;
   const id = FIBA_GROUP_GAME_IDS[key];
@@ -342,15 +369,24 @@ function parsePlayerOfGame(html, game, sourceUrl) {
 async function attachPlayersOfGame(games) {
   const finals = (games || []).filter(game => game.status === 'final' && gameDetailUrl(game));
   if (!finals.length) return games;
-  const results = await Promise.allSettled(finals.map(async game => {
+
+  const byId = new Map();
+  finals.forEach(game => {
+    const verified = verifiedPlayerOfGame(game);
+    if (verified) byId.set(game.id, verified);
+  });
+
+  const unresolved = finals.filter(game => !byId.has(game.id));
+  const results = await Promise.allSettled(unresolved.map(async game => {
     const sourceUrl = gameDetailUrl(game);
     const html = await fetchText(sourceUrl, 6000);
     return { id: game.id, playerOfGame: parsePlayerOfGame(html, game, sourceUrl) };
   }));
-  const byId = new Map();
+
   results.forEach(result => {
     if (result.status === 'fulfilled' && result.value.playerOfGame) byId.set(result.value.id, result.value.playerOfGame);
   });
+
   return games.map(game => byId.has(game.id) ? { ...game, playerOfGame: byId.get(game.id) } : game);
 }
 

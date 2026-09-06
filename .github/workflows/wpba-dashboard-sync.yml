@@ -2,6 +2,10 @@ name: WPBA dashboard sync
 
 on:
   workflow_dispatch:
+  push:
+    paths:
+      - 'scripts/update-wpba-dashboard.mjs'
+      - '.github/workflows/wpba-dashboard-sync.yml'
   schedule:
     - cron: '47 12 * * *'
 

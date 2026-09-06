@@ -1,0 +1,44 @@
+name: FIBA Social Screenshots
+
+on:
+  push:
+    paths:
+      - 'fiba-world-cup.html'
+      - 'no-offseason-fiba.js'
+      - 'no-offseason-fiba.css'
+      - 'api/fiba-world-cup.js'
+      - 'scripts/capture-fiba-social.mjs'
+      - '.github/workflows/fiba-social-screenshots.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install Playwright
+        run: |
+          npm install --no-save playwright@1.49.1
+          npx playwright install --with-deps chromium
+      - name: Wait for production
+        run: sleep 45
+      - name: Capture completed FIBA game dashboards
+        run: node scripts/capture-fiba-social.mjs
+      - name: Publish screenshots to repository
+        run: |
+          if git diff --quiet -- social/fiba && [ -z "$(git ls-files --others --exclude-standard social/fiba)" ]; then
+            echo "No screenshot changes."
+            exit 0
+          fi
+          git config user.name "weknowthew-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add social/fiba
+          git commit -m "Refresh FIBA social screenshots"
+          git pull --rebase origin main
+          git push origin main

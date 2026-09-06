@@ -10,7 +10,7 @@
   const teamColor=name=>teamMap.get(name)?.color||'#6f2cff';
   const teamStyle=name=>`--team-color:${esc(teamColor(name))}`;
   const slug=value=>String(value||'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
-  const teamLogo=name=>`/api/league-team-image?league=wpba&key=${encodeURIComponent(slug(name))}`;
+  const teamLogo=name=>teamMap.get(name)?.logo||`/api/league-team-image?league=wpba&key=${encodeURIComponent(slug(name))}`;
 
   function renderPulse(data){
     const leader=data.standings?.[0];

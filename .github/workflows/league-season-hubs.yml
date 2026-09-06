@@ -1,0 +1,41 @@
+name: League Season Hubs
+
+on:
+  push:
+    paths:
+      - 'wpba.html'
+      - 'wpba-page.js'
+      - 'wpba.css'
+      - 'data/wpba-2026.json'
+      - 'the-call-up.html'
+      - 'the-call-up-page.js'
+      - 'upshot-hub.css'
+      - 'athletes-unlimited.html'
+      - 'athletes-unlimited-page.js'
+      - 'athletes-unlimited.css'
+      - 'unrivaled.html'
+      - 'unrivaled-page.js'
+      - 'unrivaled-hub.css'
+      - 'league-season-hub.css'
+      - 'api/league-team-image.js'
+      - 'tests/league-season-hubs.test.js'
+      - '.github/workflows/league-season-hubs.yml'
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check league hub scripts
+        run: |
+          node --check wpba-page.js
+          node --check the-call-up-page.js
+          node --check athletes-unlimited-page.js
+          node --check unrivaled-page.js
+          node --check api/league-team-image.js
+      - name: Validate league season hubs
+        run: node --test tests/league-season-hubs.test.js

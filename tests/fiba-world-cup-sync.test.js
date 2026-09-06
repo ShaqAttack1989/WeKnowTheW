@@ -178,3 +178,18 @@ test('dashboard fetches dedicated FIBA games and standings pages', () => {
   assert.match(source, /attachPlayersOfGame/);
   assert.match(source, /TCL Player Of The Game/);
 });
+
+
+test('verified USA Players of the Game stay attached to the correct finals', () => {
+  const source = require('node:fs').readFileSync(handlerPath, 'utf8');
+  assert.match(source, /'USA-CHN'[\s\S]*player:\s*'Caitlin Clark'[\s\S]*14 PTS · 11 AST/);
+  assert.match(source, /'ITA-USA'[\s\S]*player:\s*'Jackie Young'[\s\S]*10 PTS/);
+  assert.match(source, /italy-hand-holders-usa-a-major-scare/);
+});
+
+test('Team USA schedule cards render Player of the Game with a country flag', () => {
+  const source = require('node:fs').readFileSync(path.join(__dirname, '..', 'no-offseason-fiba.js'), 'utf8');
+  assert.match(source, /fiba-usa-potg/);
+  assert.match(source, /FIBA PLAYER OF THE GAME/);
+  assert.match(source, /pog\?\.flag/);
+});

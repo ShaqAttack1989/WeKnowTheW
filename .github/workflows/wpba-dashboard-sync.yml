@@ -1,0 +1,40 @@
+name: WPBA dashboard sync
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '47 12 * * *'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: wpba-dashboard-sync
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Install browser runtime
+        run: |
+          npm install --no-save playwright@1.49.1
+          npx playwright install --with-deps chromium
+      - name: Read the official WPBA dashboards
+        run: node scripts/update-wpba-dashboard.mjs
+      - name: Commit verified changes
+        run: |
+          if git diff --quiet -- data/wpba-2026.json; then
+            echo "No WPBA changes found."
+            exit 0
+          fi
+          git config user.name "weknowthew-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/wpba-2026.json
+          git commit -m "Update WPBA dashboard snapshot"
+          git push

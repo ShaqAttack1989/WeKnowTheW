@@ -25,6 +25,12 @@ test('groups child destinations instead of promoting articles into the menu', ()
   }
 });
 
+test('adds WPBA to the Who Got Next menu without adding a top-level section', () => {
+  assert.match(site, /futureMenu/);
+  assert.match(site, /wpba\.html/);
+  assert.match(site, /wpbaLink\.textContent='WPBA'/);
+});
+
 test('new section pages have active menu, breadcrumb and search coverage', () => {
   for (const page of ['/on-the-wire.html', '/front-office-101.html', '/season-yearbooks.html', '/fiba-world-cup.html']) {
     assert.match(site, new RegExp(page.replace(/[/.]/g, '\\$&')));

@@ -66,10 +66,13 @@
       const opponent=game.home.code==='USA'?game.away:game.home;
       const home=game.home.code==='USA';
       const result=game.status==='final'?`${game.homeScore}-${game.awayScore}`:'vs';
+      const pog=game.playerOfGame||null;
+      const pogHtml=game.status==='final'?`<div class="fiba-usa-potg ${pog?'is-ready':'is-pending'}"><span>${safe(pog?.flag||'🏀')}</span><div><small>FIBA PLAYER OF THE GAME</small><strong>${safe(pog?.player||'Official selection pending')}</strong>${pog?.line?`<em>${safe(pog.line)}</em>`:''}</div></div>`:'';
       return `<article class="fiba-usa-game ${game.status==='final'?'is-final':''}">
         <div class="fiba-game-date"><b>${safe(longDate(game.date||'2026-09-04'))}</b><span>${safe(game.timeBerlin||'TBD')} Berlin · ${safe(localTime(game.startTimeUtc))}</span></div>
         <div class="fiba-game-match"><span class="fiba-flag">🇺🇸</span><strong>USA</strong><em>${safe(result)}</em><span class="fiba-flag">${safe(opponent.flag||'')}</span><strong>${safe(opponent.code)}</strong></div>
         <small>${home?'USA listed first':'USA listed second'} · ${safe(phaseLabel(game))}</small>
+        ${pogHtml}
       </article>`;
     }).join('');
   }

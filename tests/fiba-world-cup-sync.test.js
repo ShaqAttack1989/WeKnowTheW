@@ -55,6 +55,10 @@ async function runDashboard({standings, stats=html('No USA player stats yet'), t
         : { ok: false, status: 404, json: async () => ({}) };
     }
     if (value.includes('/news/2026-wwc-game-center-sep-4')) return { ok: true, text: async () => dailyGameCenter };
+    if (value.includes('/games/128116-JPN-MLI')) return { ok: true, text: async () => html('🇯🇵 Saki Hayashi (26 PTS) | TCL Player Of The Game | JPN v MLI | FIBA Women\'s World Cup 2026') };
+    if (value.includes('/games/128129-AUS-PUR')) return { ok: true, text: async () => html('🇦🇺 Steph Talbot (19 PTS) | TCL Player Of The Game | AUS v PUR | FIBA Women\'s World Cup 2026') };
+    if (value.includes('/games/128134-USA-CHN')) return { ok: true, text: async () => html('🇺🇸 Caitlin Clark (14 PTS, 11 AST) | TCL Player Of The Game | USA v CHN | FIBA Women\'s World Cup 2026') };
+    if (value.includes('/games/128123-KOR-NGR')) return { ok: true, text: async () => html('🇰🇷 Jihyun Park (27 PTS) | TCL Player Of The Game | KOR v NGR | FIBA Women\'s World Cup 2026') };
     if (value.includes('fiba-womens-basketball-world-cup-2026')) return { ok: true, text: async () => finalGames };
     return { ok: false, status: 404, text: async () => '' };
   };
@@ -148,6 +152,20 @@ test('complete Team USA player statistics come from FIBA team data', async () =>
   assert.ok(Math.abs(caitlin.mpg - 25.3167) < 0.001);
 });
 
+test('final game cards include official FIBA Player of the Game and country flag', async () => {
+  const data = await runDashboard({ standings: standingsText({}) });
+  const usa = data.games.find(game => game.home.code === 'USA' && game.away.code === 'CHN');
+  const aus = data.games.find(game => game.home.code === 'AUS' && game.away.code === 'PUR');
+
+  assert.equal(usa.playerOfGame.player, 'Caitlin Clark');
+  assert.equal(usa.playerOfGame.flag, '🇺🇸');
+  assert.equal(usa.playerOfGame.line, '14 PTS, 11 AST');
+  assert.match(usa.playerOfGame.sourceUrl, /128134-USA-CHN/);
+  assert.equal(aus.playerOfGame.player, 'Steph Talbot');
+  assert.equal(aus.playerOfGame.flag, '🇦🇺');
+  assert.ok(data.dataStatus.playerOfGameCount >= 4);
+});
+
 test('dashboard fetches dedicated FIBA games and standings pages', () => {
   const source = require('node:fs').readFileSync(handlerPath, 'utf8');
   assert.match(source, /fetchText\(SOURCE_URLS\.standings\)/);
@@ -157,4 +175,6 @@ test('dashboard fetches dedicated FIBA games and standings pages', () => {
   assert.match(source, /applyVerifiedDailyScores/);
   assert.match(source, /fetchUsaTeamPlayerStats/);
   assert.match(source, /getgdapcompetitionteamstatisticsbyteamid/);
+  assert.match(source, /attachPlayersOfGame/);
+  assert.match(source, /TCL Player Of The Game/);
 });

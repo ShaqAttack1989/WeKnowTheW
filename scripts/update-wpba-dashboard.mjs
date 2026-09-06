@@ -14,8 +14,19 @@ const num=value=>Number(String(value??'').replace(/[^0-9.-]/g,''));
 async function openDashboard(page,route,readyText){
   const separator=route.includes('?')?'&':'?';
   await page.goto(`${BASE}/${route}${separator}division_id=${DIVISION}`,{waitUntil:'domcontentloaded',timeout:90000});
-  await page.getByText(readyText,{exact:false}).first().waitFor({state:'visible',timeout:90000});
-  await page.waitForTimeout(2500);
+  await page.waitForFunction(text=>{
+    const main=document.querySelector('main');
+    if(!main)return false;
+    return [...main.querySelectorAll('*')].some(node=>{
+      const style=getComputedStyle(node);
+      const visible=style.display!=='none'&&style.visibility!=='hidden'&&node.getClientRects().length>0;
+      return visible&&String(node.textContent||'').replace(/\s+/g,' ').trim().includes(text);
+    });
+  },readyText,{timeout:90000});
+  if(route.startsWith('standings'))await page.locator('main table tbody tr').first().waitFor({state:'visible',timeout:30000});
+  if(route.startsWith('leaders'))await page.locator('main table, main h2, main h3, main h4').first().waitFor({state:'visible',timeout:30000});
+  if(route.startsWith('scores'))await page.locator('main article, main table').first().waitFor({state:'visible',timeout:30000});
+  await page.waitForTimeout(1800);
 }
 
 async function scrapeStandings(page){

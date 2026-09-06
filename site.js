@@ -174,3 +174,110 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
 
 // Shared creator/contact pathways on every page, outside the mobile menu.
 (()=>{const style=document.createElement('style');style.textContent='.w-utility-bar{display:flex;justify-content:flex-end;align-items:center;gap:18px;min-height:48px;padding:4px max(16px,calc((100vw - 1280px)/2));background:#211139;color:#fff;font:700 13px Inter,system-ui,sans-serif}.w-utility-bar a{color:#fff;text-decoration:none;display:inline-flex;align-items:center;min-height:40px}.w-utility-bar a:last-child{color:#d8ff4f}.w-utility-bar a:focus-visible{outline:3px solid #d8ff4f;outline-offset:2px}.w-about-footer{padding:28px 20px;text-align:center;background:#211139;color:#fff;font:14px Inter,system-ui,sans-serif;line-height:1.7}.w-about-footer a{color:#d8ff4f}.w-about-footer p{margin:8px 0}';document.head.appendChild(style);const bar=document.createElement('nav');bar.className='w-utility-bar';bar.setAttribute('aria-label','About and contact');const tagline=document.createElement('span');tagline.textContent='Women’s basketball, from A to Z';const about=document.createElement('a');about.href='/about.html';about.textContent='About We Know the W';const report=document.createElement('a');const pageUrl=new URL(location.origin+location.pathname+location.hash);for(const key of ['team','search','view','player','id']){const value=new URLSearchParams(location.search).get(key);if(value)pageUrl.searchParams.set(key,value);}report.href='/report-a-problem.html?page='+encodeURIComponent(pageUrl.href);report.textContent='Report a problem';bar.append(tagline,about,report);document.body.prepend(bar);const footer=document.createElement('footer');footer.className='w-about-footer';footer.innerHTML='<p><a href="/about.html">About We Know the W</a> · <a href="/about.html#editorial-philosophy">Editorial philosophy</a> · <a href="/report-a-problem.html">Report a problem</a></p><p>Created by Shakeema Funchess · <a href="mailto:books@adventuresinzen.com">books@adventuresinzen.com</a></p><p>Independent publication. Not affiliated with or endorsed by the WNBA or its teams.</p>';document.body.appendChild(footer);})();
+
+
+// We Know the W custom behavior analytics.
+(()=>{
+  const EVENT_DATA_LIMIT=80;
+  const cleanValue=value=>{
+    if(value===undefined||value===null)return undefined;
+    if(typeof value==='number'||typeof value==='boolean')return value;
+    return String(value).replace(/\s+/g,' ').trim().slice(0,EVENT_DATA_LIMIT);
+  };
+  const track=(name,data={})=>{
+    if(typeof window.va!=='function')return;
+    const cleaned={};
+    Object.entries(data).forEach(([key,value])=>{
+      const safe=cleanValue(value);
+      if(safe!==undefined&&safe!=='')cleaned[key]=safe;
+    });
+    window.va('event',{name,data:cleaned});
+  };
+  window.trackWEvent=track;
+
+  const pathFor=href=>{
+    try{return new URL(href,location.origin);}catch{return null;}
+  };
+  const pagePath=location.pathname;
+  const snackHubs=new Set(['/snack-shak.html','/snack-shak-bytes.html','/food-for-thought.html']);
+  const leagueHubs=new Map([
+    ['/unrivaled.html','Unrivaled'],
+    ['/wpba.html','WPBA'],
+    ['/athletes-unlimited.html','Athletes Unlimited'],
+    ['/the-call-up.html','The Call Up'],
+    ['/class-is-in-session.html','Class Is in Session'],
+    ['/fiba-world-cup.html','FIBA World Cup'],
+    ['/no-offseason.html','No Offseason']
+  ]);
+
+  const searchLast=new WeakMap();
+  const searchSource=input=>{
+    if(input.id==='homeSiteSearch')return 'Homepage';
+    if(input.id==='globalSearchInput')return 'Global';
+    if(pagePath==='/playerpedia.html')return 'Playerpedia';
+    return 'Site';
+  };
+  const recordSearch=input=>{
+    if(!(input instanceof HTMLInputElement)||input.type!=='search')return;
+    const value=input.value.trim();
+    if(value.length<2||searchLast.get(input)===value)return;
+    searchLast.set(input,value);
+    track('Site Search Used',{source:searchSource(input),queryLength:value.length});
+  };
+  document.addEventListener('change',event=>{
+    const input=event.target;
+    if(input instanceof HTMLInputElement&&input.type==='search')recordSearch(input);
+    if(pagePath==='/stat-kitchen.html'&&input instanceof HTMLSelectElement){
+      track('Stat Kitchen Interaction',{control:input.id||input.name||'select',action:'change'});
+    }
+  });
+  document.addEventListener('keydown',event=>{
+    if(event.key==='Enter'&&event.target instanceof HTMLInputElement&&event.target.type==='search')recordSearch(event.target);
+  });
+
+  document.addEventListener('click',event=>{
+    const clicked=event.target instanceof Element?event.target:null;
+    if(!clicked)return;
+
+    if(pagePath==='/stat-kitchen.html'){
+      const control=clicked.closest('button,[role="button"]');
+      if(control){
+        const label=(control.getAttribute('aria-label')||control.id||control.textContent||'button').trim();
+        track('Stat Kitchen Interaction',{control:label,action:'click'});
+      }
+    }
+
+    const link=clicked.closest('a[href]');
+    if(!link)return;
+    const url=pathFor(link.getAttribute('href'));
+    if(!url||url.origin!==location.origin)return;
+    const targetPath=url.pathname;
+
+    if(link.closest('.global-search-result,.home-search-results,#homeSearchResults')){
+      track('Search Result Opened',{
+        source:link.closest('.global-search-result')?'Global':'Homepage',
+        destination:targetPath
+      });
+    }
+
+    if(targetPath==='/playerpedia.html'){
+      track('Playerpedia Opened',{view:url.searchParams.get('view')||'directory'});
+    }
+
+    if(targetPath==='/team.html'){
+      track('Team Page Opened',{team:url.searchParams.get('team')||'unknown'});
+    }
+
+    if(targetPath==='/stat-kitchen.html'){
+      track('Stat Kitchen Opened',{from:pagePath});
+    }
+
+    if(leagueHubs.has(targetPath)){
+      track('League Hub Opened',{league:leagueHubs.get(targetPath),from:pagePath});
+    }
+
+    if(snackHubs.has(pagePath)&&targetPath.endsWith('.html')&&!snackHubs.has(targetPath)){
+      track('Snack Shak Story Opened',{story:targetPath,from:pagePath});
+    }
+  },{capture:true});
+})();

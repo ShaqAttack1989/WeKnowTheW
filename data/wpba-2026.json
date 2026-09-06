@@ -12,13 +12,12 @@
     "teams": 8,
     "rosterSize": 12
   },
-  "updatedAt": "2026-09-06T00:00:00.000Z",
+  "updatedAt": "2026-09-06T04:55:18.067Z",
   "source": "Official WPBA BasketballShift feed",
   "standings": [
     {
       "rank": 1,
-      "team": "Bay City Blaze",
-      "teamId": 675236,
+      "team": "Bay City BlazeBlaze",
       "gp": 13,
       "w": 12,
       "l": 1,
@@ -26,13 +25,13 @@
       "pf": 1211,
       "pa": 866,
       "gb": "0.0",
-      "l10": "9-0-1",
-      "streak": "W5"
+      "l10": "9 ‐ 0 ‐ 1",
+      "streak": "W 5",
+      "teamId": null
     },
     {
       "rank": 2,
-      "team": "Bay Area Phoenix",
-      "teamId": 675235,
+      "team": "Bay Area PhoenixPhoenix",
       "gp": 13,
       "w": 11,
       "l": 2,
@@ -40,13 +39,13 @@
       "pf": 1122,
       "pa": 971,
       "gb": "1.0",
-      "l10": "10-0-0",
-      "streak": "W10"
+      "l10": "10 ‐ 0 ‐ 0",
+      "streak": "W 10",
+      "teamId": null
     },
     {
       "rank": 3,
-      "team": "Oakland Swish",
-      "teamId": 675230,
+      "team": "Oakland SwishSwish",
       "gp": 13,
       "w": 8,
       "l": 5,
@@ -54,13 +53,13 @@
       "pf": 1013,
       "pa": 1054,
       "gb": "4.0",
-      "l10": "6-4-0",
-      "streak": "L1"
+      "l10": "6 ‐ 4 ‐ 0",
+      "streak": "L 1",
+      "teamId": null
     },
     {
       "rank": 4,
-      "team": "San Francisco Riptide",
-      "teamId": 675234,
+      "team": "San Francisco RiptideRiptide",
       "gp": 13,
       "w": 6,
       "l": 7,
@@ -68,13 +67,13 @@
       "pf": 1006,
       "pa": 1037,
       "gb": "6.0",
-      "l10": "4-6-0",
-      "streak": "L2"
+      "l10": "4 ‐ 6 ‐ 0",
+      "streak": "L 2",
+      "teamId": null
     },
     {
       "rank": 5,
-      "team": "Alameda Wolves",
-      "teamId": 675231,
+      "team": "Alameda WolvesWolves",
       "gp": 13,
       "w": 6,
       "l": 7,
@@ -82,13 +81,13 @@
       "pf": 1068,
       "pa": 1211,
       "gb": "6.0",
-      "l10": "4-6-0",
-      "streak": "W1"
+      "l10": "4 ‐ 6 ‐ 0",
+      "streak": "W 1",
+      "teamId": null
     },
     {
       "rank": 6,
-      "team": "Berkeley Royals",
-      "teamId": 675232,
+      "team": "Berkeley RoyalsRoyals",
       "gp": 13,
       "w": 4,
       "l": 9,
@@ -96,13 +95,13 @@
       "pf": 933,
       "pa": 987,
       "gb": "8.0",
-      "l10": "2-7-1",
-      "streak": "L1"
+      "l10": "2 ‐ 7 ‐ 1",
+      "streak": "L 1",
+      "teamId": null
     },
     {
       "rank": 7,
-      "team": "Hayward Reign",
-      "teamId": 675237,
+      "team": "Hayward ReignReign",
       "gp": 13,
       "w": 3,
       "l": 10,
@@ -110,13 +109,13 @@
       "pf": 967,
       "pa": 1133,
       "gb": "9.0",
-      "l10": "3-7-0",
-      "streak": "W1"
+      "l10": "3 ‐ 7 ‐ 0",
+      "streak": "W 1",
+      "teamId": null
     },
     {
       "rank": 8,
-      "team": "Tech City Titans",
-      "teamId": 675233,
+      "team": "Tech City TitansTitans",
       "gp": 13,
       "w": 2,
       "l": 11,
@@ -124,8 +123,9 @@
       "pf": 890,
       "pa": 1084,
       "gb": "10.0",
-      "l10": "2-8-0",
-      "streak": "L5"
+      "l10": "2 ‐ 8 ‐ 0",
+      "streak": "L 5",
+      "teamId": null
     }
   ],
   "leaders": [
@@ -319,42 +319,50 @@
     {
       "name": "Oakland Swish",
       "teamId": 675230,
-      "color": "#1f171f"
+      "color": "#1f171f",
+      "logo": "https://digitalshift-stats.us-lax-1.linodeobjects.com/17ad219a-1c2d-4503-9053-6dedbc62d687/team-logo_url-675230-oakland-swish-1779835388724483652-small.svg"
     },
     {
       "name": "Alameda Wolves",
       "teamId": 675231,
-      "color": "#6d7582"
+      "color": "#6d7582",
+      "logo": "https://digitalshift-stats.us-lax-1.linodeobjects.com/17ad219a-1c2d-4503-9053-6dedbc62d687/team-logo_url-675231-alameda-wolves-1779834987592232849-small.svg"
     },
     {
       "name": "Berkeley Royals",
       "teamId": 675232,
-      "color": "#50268a"
+      "color": "#50268a",
+      "logo": "https://digitalshift-stats.us-lax-1.linodeobjects.com/17ad219a-1c2d-4503-9053-6dedbc62d687/team-logo_url-675232-berkeley-royals-1779835257632071842-small.svg"
     },
     {
       "name": "Tech City Titans",
       "teamId": 675233,
-      "color": "#167f87"
+      "color": "#167f87",
+      "logo": "https://digitalshift-stats.us-lax-1.linodeobjects.com/17ad219a-1c2d-4503-9053-6dedbc62d687/team-logo_url-675233-tech-city-titans-1779835642680856183-small.svg"
     },
     {
       "name": "San Francisco Riptide",
       "teamId": 675234,
-      "color": "#1180b7"
+      "color": "#1180b7",
+      "logo": "https://digitalshift-stats.us-lax-1.linodeobjects.com/17ad219a-1c2d-4503-9053-6dedbc62d687/team-logo_url-675234-san-francisco-riptide-1779835421950999034-small.svg"
     },
     {
       "name": "Bay Area Phoenix",
       "teamId": 675235,
-      "color": "#d5482f"
+      "color": "#d5482f",
+      "logo": "https://digitalshift-stats.us-lax-1.linodeobjects.com/17ad219a-1c2d-4503-9053-6dedbc62d687/team-logo_url-675235-bay-area-phoenix-1779835056424144349-small.svg"
     },
     {
       "name": "Bay City Blaze",
       "teamId": 675236,
-      "color": "#ea7b26"
+      "color": "#ea7b26",
+      "logo": "https://digitalshift-stats.us-lax-1.linodeobjects.com/17ad219a-1c2d-4503-9053-6dedbc62d687/team-logo_url-675236-bay-city-blaze-1779835139288103120-small.svg"
     },
     {
       "name": "Hayward Reign",
       "teamId": 675237,
-      "color": "#6b2c92"
+      "color": "#6b2c92",
+      "logo": "https://digitalshift-stats.us-lax-1.linodeobjects.com/17ad219a-1c2d-4503-9053-6dedbc62d687/team-logo_url-675237-hayward-reign-1779835338896127952-small.svg"
     }
   ],
   "championship": {

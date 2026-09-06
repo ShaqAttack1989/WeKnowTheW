@@ -49,11 +49,14 @@ function esc(value=''){return String(value).replace(/[&<>"]/g,ch=>({'&':'&amp;',
 function decode(value=''){return String(value).replace(/&amp;/g,'&').replace(/&#x27;|&#39;/g,"'").replace(/&quot;/g,'"');}
 function norm(value=''){return String(value).toLowerCase().replace(/[^a-z0-9]/g,'');}
 function meta(html,key){
-  const patterns=[
-    new RegExp('<meta[^>]+(?:property|name)=["\\']'+key+'["\\'][^>]+content=["\\']([^"\\']+)["\\']','i'),
-    new RegExp('<meta[^>]+content=["\\']([^"\\']+)["\\'][^>]+(?:property|name)=["\\']'+key+'["\\']','i')
-  ];
-  for(const pattern of patterns){const m=html.match(pattern);if(m?.[1])return decode(m[1]);}
+  const wanted=String(key||'').toLowerCase();
+  for(const match of String(html||'').matchAll(/<meta\b[^>]*>/gi)){
+    const tag=match[0];
+    const attr=(tag.match(/\b(?:property|name)=["']([^"']+)["']/i)?.[1]||'').toLowerCase();
+    if(attr!==wanted)continue;
+    const content=tag.match(/\bcontent=["']([^"']+)["']/i)?.[1]||'';
+    if(content)return decode(content);
+  }
   return '';
 }
 function resolve(base,src=''){

@@ -40,6 +40,27 @@ async function scrapeStandings(page){
   return rows;
 }
 
+async function scrapeTeamLogos(page, teams){
+  const names=teams.map(team=>team.name);
+  return page.evaluate(names=>{
+    const norm=value=>String(value||'').replace(/\s+/g,' ').trim().toLowerCase();
+    return names.map(name=>{
+      const target=norm(name);
+      const nodes=[...document.querySelectorAll('a,td,th,div,span')].filter(node=>norm(node.textContent)===target);
+      for(const node of nodes){
+        let container=node.closest('tr')||node.parentElement;
+        for(let depth=0;depth<5&&container;depth+=1){
+          const image=container.querySelector?.('img');
+          const src=image?.currentSrc||image?.src||image?.getAttribute?.('data-src')||'';
+          if(src)return {name,logo:src};
+          container=container.parentElement;
+        }
+      }
+      return {name,logo:''};
+    });
+  },names);
+}
+
 async function scrapeLeaders(page,previous){
   await openDashboard(page,'leaders/grid?game_type=Regular%20Season','Leaders');
   const found=await page.evaluate(metrics=>{
@@ -109,6 +130,9 @@ try{
   const standings=await scrapeStandings(page);
   const idByName=new Map(previous.standings.map(row=>[row.team,row.teamId]));
   next.standings=standings.map(row=>({...row,teamId:idByName.get(row.team)||null}));
+  const logoRows=await scrapeTeamLogos(page,previous.teams||[]);
+  const logoByName=new Map(logoRows.filter(row=>row.logo).map(row=>[row.name,row.logo]));
+  next.teams=(previous.teams||[]).map(team=>({...team,logo:logoByName.get(team.name)||team.logo||''}));
   next.leaders=await scrapeLeaders(page,previous.leaders||[]);
   next.games=await scrapeGames(page,previous.games||[]);
 }finally{

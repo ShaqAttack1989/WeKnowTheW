@@ -14,3 +14,9 @@ html{scroll-behavior:smooth}.upshot-jump-nav{position:sticky;top:0;z-index:30;ba
 
 .upshot-team-room-title{display:flex;align-items:center;gap:15px}.upshot-team-room-title h3{margin:4px 0}.upshot-team-tab{display:flex;align-items:center;gap:7px}.upshot-tab-logo{display:grid;place-items:center;width:28px;height:28px;border-radius:8px;overflow:hidden;background:#fff;border:1px solid rgba(0,0,0,.08)}.upshot-tab-logo img{width:100%;height:100%;object-fit:contain;padding:2px}.upshot-how-section{background:#fffaf0}.upshot-expansion-team-card .league-team-lockup h3{margin:2px 0}
 @media(max-width:760px){.upshot-team-room-title{align-items:flex-start}.upshot-team-room-title .league-team-logo.lg{width:64px;height:64px}}
+
+.upshot-snapshot-grid{grid-template-columns:repeat(5,minmax(0,1fr))}
+.upshot-snapshot-card:last-child{background:linear-gradient(145deg,#fff7de,#f6efff);border-color:#dfcfad}
+.upshot-snapshot-card:last-child span{color:#74491d}
+@media(max-width:1180px){.upshot-snapshot-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:760px){.upshot-snapshot-grid{grid-template-columns:1fr}}

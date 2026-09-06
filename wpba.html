@@ -8,7 +8,8 @@
   <link rel="stylesheet" href="/styles.css">
   <link rel="stylesheet" href="/landing.css">
   <link rel="stylesheet" href="/college.css">
-  <link rel="stylesheet" href="/wpba.css?v=20260906-v1">
+  <link rel="stylesheet" href="/wpba.css?v=20260906-v2">
+  <link rel="stylesheet" href="/league-season-hub.css?v=20260906-v1">
 </head>
 <body class="section-page wpba-page">
 <header class="subhero wpba-hero" id="top">
@@ -26,9 +27,15 @@
   </div>
 </header>
 <main>
+  <section class="league-season-window" aria-label="WPBA season window"><div class="page-shell"><div class="season-window-label"><span>SEASON WINDOW</span><strong>WPBA yearbooks</strong></div><div class="season-window-track"><a class="season-window-pill" href="#history"><span>Archive</span><strong>2022</strong></a><a class="season-window-pill" href="#history"><span>Archive</span><strong>2023</strong></a><a class="season-window-pill" href="#history"><span>Archive</span><strong>2024</strong></a><a class="season-window-pill" href="#history"><span>Archive</span><strong>2025</strong></a><a class="season-window-pill active" href="#championship"><span>Current book</span><strong>2026</strong></a></div></div></section>
   <nav class="wpba-jump-nav" aria-label="WPBA page sections"><div class="page-shell">
-    <a href="#league-pulse">League Pulse</a><a href="#standings">Standings</a><a href="#leaders">Stat Kitchen</a><a href="#results">Games</a><a href="#teams">Eight Teams</a><a href="#pathway">The Pathway</a>
+    <a href="#championship">Championship</a><a href="#standings">Standings</a><a href="#player-dashboard">Player Dashboard</a><a href="#teams">Teams</a><a href="#stat-kitchen">Stat Kitchen</a><a href="#results">Results</a><a href="#honors">Honors</a><a href="#pathway">Pipeline</a><a href="#how-it-works">How It Works</a><a href="#history">History</a>
   </div></nav>
+
+  <section class="page-section wpba-championship-section" id="championship"><div class="page-shell">
+    <div class="wpba-section-head"><div><p class="kicker">TOURNAMENT OF CHAMPIONS</p><h2>Championship desk</h2><p>The 2026 title card will lock here as soon as the official WPBA source publishes a verifiable final result. Until then, the most recent fully verified champion stays visible instead of guessing.</p></div><span class="wpba-data-chip">Season 5 · 2026</span></div>
+    <div id="wpbaChampionship" class="wpba-championship-card" aria-live="polite"></div>
+  </div></section>
 
   <section class="page-section wpba-pulse" id="league-pulse"><div class="page-shell">
     <div class="wpba-section-head"><div><p class="kicker">LEAGUE PULSE</p><h2>A summer league built to move careers forward.</h2><p>The WPBA is a FIBA-sanctioned professional development league based in the San Francisco Bay Area. Graduating seniors, former college players, national team athletes, and current or former professionals compete in an eight-team season from June through August.</p></div><span class="wpba-status" id="wpbaStatus">Loading the latest WPBA snapshot...</span></div>
@@ -41,8 +48,8 @@
     <p class="wpba-small-note">Official tiebreak order: points, games played, wins, then point differential.</p>
   </div></section>
 
-  <section class="page-section wpba-kitchen" id="leaders"><div class="page-shell">
-    <div class="wpba-section-head light"><div><p class="kicker">STAT KITCHEN · WPBA EDITION</p><h2>Who is filling the box score?</h2><p>Category leaders from the official WPBA player dashboard. Use the filters to move between scoring, playmaking, rebounding and defensive production.</p></div><a class="wpba-source-link light" href="https://www.womenspba.com/stats#/2693/leaders/grid?game_type=Regular%20Season&division_id=49639" target="_blank" rel="noopener">All official leaders</a></div>
+  <section class="page-section wpba-kitchen" id="player-dashboard"><div class="page-shell">
+    <div class="wpba-section-head light"><div><p class="kicker">PLAYER DASHBOARD · WPBA 2026</p><h2>Who is filling the box score?</h2><p>Verified player leaders from the official WPBA dashboard. Use the filters to move between scoring, shooting, playmaking, rebounding and defense.</p></div><a class="wpba-source-link light" href="https://www.womenspba.com/stats#/2693/leaders/grid?game_type=Regular%20Season&division_id=49639" target="_blank" rel="noopener">All official leaders</a></div>
     <div class="wpba-leader-tabs" id="wpbaLeaderTabs" role="tablist" aria-label="WPBA stat categories"></div>
     <div class="wpba-leader-grid" id="wpbaLeaders" aria-live="polite"></div>
   </div></section>
@@ -57,6 +64,18 @@
     <div class="wpba-team-grid" id="wpbaTeams" aria-live="polite"></div>
   </div></section>
 
+  <section class="page-section league-standard-section wpba-team-kitchen" id="stat-kitchen"><div class="page-shell">
+    <div class="wpba-section-head"><div><p class="kicker">STAT KITCHEN · TEAM EDITION</p><h2>Which team owned the recipe?</h2><p>Switch between win rate, offense, defense and point differential. This board uses the same standings snapshot as the official table above.</p></div></div>
+    <div class="wpba-leader-tabs" id="wpbaKitchenTabs" role="tablist" aria-label="WPBA team Stat Kitchen categories"></div>
+    <div id="wpbaKitchenBoard" class="wpba-kitchen-board" aria-live="polite"></div>
+  </div></section>
+
+  <section class="page-section wpba-honors-section" id="honors"><div class="page-shell">
+    <div class="wpba-section-head"><div><p class="kicker">HONORS + SPOTLIGHTS</p><h2>The names the league put on the marquee.</h2><p>Officially announced honors and showcase selections only. The page does not turn a stat lead into an award.</p></div></div>
+    <div id="wpbaHonors" class="league-honors-grid" aria-live="polite"></div>
+    <div id="wpbaPhotos" class="league-photo-strip" aria-label="WPBA official photography"></div>
+  </div></section>
+
   <section class="page-section wpba-pathway-section" id="pathway"><div class="page-shell">
     <div class="wpba-section-head light"><div><p class="kicker">THE PATHWAY</p><h2>Development is the product.</h2><p>The WPBA says more than 100 athletes have advanced to higher levels in its first four seasons. That includes opportunities in the WNBA, Athletes Unlimited, and professional leagues around the world.</p></div></div>
     <div class="wpba-pathway-grid">
@@ -68,8 +87,16 @@
     <p class="wpba-source-note">Dashboard data comes from the official WPBA BasketballShift feed and refreshes automatically. League structure and pathway details come from the <a href="https://www.womenspba.com/faq" target="_blank" rel="noopener">official WPBA FAQ</a>. If the source is temporarily unavailable, We Know the W keeps the last verified snapshot visible. We Know the W is independent and is not affiliated with the WPBA.</p>
     <div class="page-footer-nav"><a href="/who-got-next.html">Who Got Next? →</a><a href="/the-call-up.html">UPSHOT · The Call Up →</a><a href="/class-is-in-session.html">College Pipeline →</a></div>
   </div></section>
+<section class="page-section league-standard-section wpba-how-section" id="how-it-works"><div class="page-shell">
+    <div class="wpba-section-head"><div><p class="kicker">HOW IT WORKS</p><h2>Development first, standings still matter.</h2><p>The WPBA is intentionally built as a professional pathway, not just a summer scoreboard.</p></div><a class="wpba-source-link" href="https://www.womenspba.com/faq" target="_blank" rel="noopener">Official FAQ</a></div>
+    <div id="wpbaHowItWorks" class="league-standard-grid"></div>
+  </div></section>
+  <section class="page-section league-standard-section wpba-history-section" id="history"><div class="page-shell">
+    <div class="wpba-section-head"><div><p class="kicker">HISTORY</p><h2>From a Bay Area launchpad to a wider pro pathway.</h2><p>Milestones stay separate from the live 2026 dashboard so completed chapters do not move when today's standings do.</p></div><a class="wpba-source-link" href="https://www.womenspba.com/history" target="_blank" rel="noopener">Official history</a></div>
+    <div id="wpbaHistory" class="league-history-list"></div>
+  </div></section>
 </main>
 <script src="/site.js?v=20260906-wpba-v1"></script>
-<script src="/wpba-page.js?v=20260906-v1"></script>
+<script src="/wpba-page.js?v=20260906-v2"></script>
 </body>
 </html>

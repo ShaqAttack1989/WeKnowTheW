@@ -159,7 +159,7 @@ test('final game cards include official FIBA Player of the Game and country flag
 
   assert.equal(usa.playerOfGame.player, 'Caitlin Clark');
   assert.equal(usa.playerOfGame.flag, '🇺🇸');
-  assert.equal(usa.playerOfGame.line, '14 PTS, 11 AST');
+  assert.equal(usa.playerOfGame.line, '14 PTS · 11 AST');
   assert.match(usa.playerOfGame.sourceUrl, /128134-USA-CHN/);
   assert.equal(aus.playerOfGame.player, 'Steph Talbot');
   assert.equal(aus.playerOfGame.flag, '🇦🇺');
@@ -180,10 +180,19 @@ test('dashboard fetches dedicated FIBA games and standings pages', () => {
 });
 
 
-test('verified USA Players of the Game stay attached to the correct finals', () => {
+test('all 16 completed group games through September 6 have verified Players of the Game', () => {
   const source = require('node:fs').readFileSync(handlerPath, 'utf8');
-  assert.match(source, /'USA-CHN'[\s\S]*player:\s*'Caitlin Clark'[\s\S]*14 PTS, 11 AST/);
-  assert.match(source, /'ITA-USA'[\s\S]*player:\s*'Jackie Young'[\s\S]*10 PTS/);
+  const expected = [
+    ["JPN-MLI","Saki Hayashi"],["AUS-PUR","Steph Talbot"],["USA-CHN","Caitlin Clark"],["KOR-NGR","Jihyun Park"],
+    ["BEL-TUR","Emma Meesseman"],["ESP-GER","Awa Fam"],["CZE-ITA","Cecilia Zandalasini"],["HUN-FRA","Dominique Malonga"],
+    ["MLI-ESP","Sika Koné"],["NGR-HUN","Dorka Juhász"],["GER-JPN","Frieda Bühner"],["FRA-KOR","Marine Johannès"],
+    ["TUR-AUS","Ezi Magbegor"],["CHN-CZE","Xu Han"],["PUR-BEL","Julie Allemand"],["ITA-USA","Jackie Young"]
+  ];
+  for (const [game, player] of expected) {
+    assert.ok(source.includes("'" + game + "': {"), game + ' missing');
+    const slice = source.slice(source.indexOf("'" + game + "': {"), source.indexOf("'" + game + "': {") + 320);
+    assert.ok(slice.includes("player: '" + player + "'"), game + ' missing ' + player);
+  }
   assert.match(source, /italy-hand-holders-usa-a-major-scare/);
 });
 

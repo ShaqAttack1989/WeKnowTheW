@@ -108,11 +108,17 @@
     const games=(data.games||[]).filter(gameVisible);
     const cards=games.map(game=>{
       const final=game.status==='final';
-      return `<article class="fiba-game-card ${final?'is-final':''} ${game.home?.code==='USA'||game.away?.code==='USA'?'has-usa':''}">
+      const pog=game.playerOfGame||null;
+      const pogHtml=final?`<div class="fiba-game-potg ${pog?'is-ready':'is-pending'}">
+        <span class="fiba-potg-flag">${safe(pog?.flag||'🏀')}</span>
+        <div><small>FIBA PLAYER OF THE GAME</small><strong>${safe(pog?.player||'Official selection pending')}</strong>${pog?.line?`<em>${safe(pog.line)}</em>`:''}</div>
+      </div>`:'';
+      return `<article class="fiba-game-card ${final?'is-final':''} ${game.home?.code==='USA'||game.away?.code==='USA'?'has-usa':''}" data-game-id="${safe(game.id||'')}" data-game-date="${safe(game.date||'')}">
         <div class="fiba-game-card-top"><span>${safe(phaseLabel(game))}</span><b>${final?'FINAL':safe(game.date?longDate(game.date):'TBD')}</b></div>
         <div class="fiba-match-line"><span>${safe(game.home?.flag||'')} <strong>${safe(game.home?.code||'TBD')}</strong></span><em>${final?safe(game.homeScore):''}</em></div>
         <div class="fiba-match-line"><span>${safe(game.away?.flag||'')} <strong>${safe(game.away?.code||'TBD')}</strong></span><em>${final?safe(game.awayScore):''}</em></div>
-        <footer>${final?'Official FIBA result':`${safe(game.timeBerlin||'TBD')} Berlin${game.startTimeUtc?` · ${safe(localTime(game.startTimeUtc))}`:''}`}</footer>
+        ${pogHtml}
+        <footer>${final?(pog?.sourceUrl?`<a href="${safe(pog.sourceUrl)}" target="_blank" rel="noopener">Official FIBA result + POG ↗</a>`:'Official FIBA result'):`${safe(game.timeBerlin||'TBD')} Berlin${game.startTimeUtc?` · ${safe(localTime(game.startTimeUtc))}`:''}`}</footer>
       </article>`;
     });
 

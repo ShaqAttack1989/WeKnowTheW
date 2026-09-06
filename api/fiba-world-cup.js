@@ -91,9 +91,9 @@ const FIBA_GROUP_GAME_IDS = {
 const VERIFIED_PLAYER_OF_GAME = {
   'USA-CHN': {
     player: 'Caitlin Clark',
-    line: '14 PTS · 11 AST',
+    line: '14 PTS, 11 AST',
     countryCode: 'USA',
-    sourceUrl: 'https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026/teams/usa'
+    sourceUrl: 'https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026/games/128134-USA-CHN'
   },
   'ITA-USA': {
     player: 'Jackie Young',

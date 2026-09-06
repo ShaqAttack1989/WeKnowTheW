@@ -89,11 +89,95 @@ const FIBA_GROUP_GAME_IDS = {
 };
 
 const VERIFIED_PLAYER_OF_GAME = {
+  'JPN-MLI': {
+    player: 'Saki Hayashi',
+    line: '27 PTS · 9 3PM',
+    countryCode: 'JPN',
+    sourceUrl: 'https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026/games/128116-JPN-MLI'
+  },
+  'AUS-PUR': {
+    player: 'Steph Talbot',
+    line: '19 PTS',
+    countryCode: 'AUS',
+    sourceUrl: 'https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026/games/128129-AUS-PUR'
+  },
   'USA-CHN': {
     player: 'Caitlin Clark',
-    line: '14 PTS, 11 AST',
+    line: '14 PTS · 11 AST',
     countryCode: 'USA',
     sourceUrl: 'https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026/games/128134-USA-CHN'
+  },
+  'KOR-NGR': {
+    player: 'Jihyun Park',
+    line: '27 PTS',
+    countryCode: 'KOR',
+    sourceUrl: 'https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026/games/128123-KOR-NGR'
+  },
+  'BEL-TUR': {
+    player: 'Emma Meesseman',
+    line: '27 PTS',
+    countryCode: 'BEL',
+    sourceUrl: 'https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026/games/128128-BEL-TUR'
+  },
+  'ESP-GER': {
+    player: 'Awa Fam',
+    line: '17 PTS',
+    countryCode: 'ESP',
+    sourceUrl: 'https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026/games/128117-ESP-GER'
+  },
+  'CZE-ITA': {
+    player: 'Cecilia Zandalasini',
+    line: '19 PTS',
+    countryCode: 'ITA',
+    sourceUrl: 'https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026/games/128135-CZE-ITA'
+  },
+  'HUN-FRA': {
+    player: 'Dominique Malonga',
+    line: '19 PTS',
+    countryCode: 'FRA',
+    sourceUrl: 'https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026/games/128122-HUN-FRA'
+  },
+  'MLI-ESP': {
+    player: 'Sika Koné',
+    line: '19 PTS · 10 REB',
+    countryCode: 'MLI',
+    sourceUrl: 'https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026/games/128119-MLI-ESP'
+  },
+  'NGR-HUN': {
+    player: 'Dorka Juhász',
+    line: '19 PTS · 16 REB',
+    countryCode: 'HUN',
+    sourceUrl: 'https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026/games/128124-NGR-HUN'
+  },
+  'GER-JPN': {
+    player: 'Frieda Bühner',
+    line: '19 PTS',
+    countryCode: 'GER',
+    sourceUrl: 'https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026/games/128118-GER-JPN'
+  },
+  'FRA-KOR': {
+    player: 'Marine Johannès',
+    line: '17 PTS',
+    countryCode: 'FRA',
+    sourceUrl: 'https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026/games/128125-FRA-KOR'
+  },
+  'TUR-AUS': {
+    player: 'Ezi Magbegor',
+    line: '21 PTS',
+    countryCode: 'AUS',
+    sourceUrl: 'https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026/games/128131-TUR-AUS'
+  },
+  'CHN-CZE': {
+    player: 'Xu Han',
+    line: '22 PTS · 14 REB',
+    countryCode: 'CHN',
+    sourceUrl: 'https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026/games/128137-CHN-CZE'
+  },
+  'PUR-BEL': {
+    player: 'Julie Allemand',
+    line: '11 PTS · 10 REB',
+    countryCode: 'BEL',
+    sourceUrl: 'https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026/games/128130-PUR-BEL'
   },
   'ITA-USA': {
     player: 'Jackie Young',

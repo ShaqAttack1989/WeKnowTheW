@@ -1,9 +1,9 @@
 (()=>{
   'use strict';
-  const root=document.getElementById('fibaWnbaPassport');
+  const root=document.getElementById('fibaWnbaPassport')||document.getElementById('wnba-passport');
   if(!root)return;
 
-  const safe=value=>String(value??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[ch]));
+  const safe=value=>String(value??'').replace(/[&<>\"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;',"'":'&#039;'}[ch]));
   let mode='current';
   let group='all';
   let data=null;

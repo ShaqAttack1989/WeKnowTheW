@@ -100,3 +100,55 @@
   .week-card-date,.week-card-meta{white-space:normal}
   .week-hub-search .home-search-clear{position:static!important;margin-top:8px!important}
 }
+
+/* Visual editorial home refresh, using imagery already published on linked pages. */
+.week-hub-head{position:relative;overflow:hidden}
+.week-hub-head-copy{position:relative;z-index:2;flex:1;min-width:0}
+.week-hub-head-copy p:last-child{max-width:680px}
+.week-hub-head-visual{position:relative;flex:0 0 172px;width:172px;height:126px;margin-top:-5px}
+.week-head-photo{position:absolute;display:block;overflow:hidden;width:66px;height:94px;border:3px solid rgba(255,255,255,.86);border-radius:18px;background:#2a1452;box-shadow:0 14px 28px rgba(0,0,0,.25)}
+.week-head-photo img{display:block;width:100%;height:100%;object-fit:cover}
+.week-head-photo.one{left:2px;top:20px;transform:rotate(-10deg)}
+.week-head-photo.two{left:49px;top:8px;z-index:2;transform:rotate(3deg)}
+.week-head-photo.three{right:2px;top:20px;z-index:1;transform:rotate(10deg)}
+.week-head-visual-label{position:absolute;right:8px;bottom:0;z-index:3;padding:5px 7px;border-radius:999px;background:#d8ff4f;color:#160a31;font-size:.56rem;font-weight:950;letter-spacing:.08em}
+.week-editorial-card{display:grid;grid-template-columns:minmax(132px,.42fr) minmax(0,1fr);min-height:280px;padding:0;overflow:hidden}
+.week-editorial-card.byte{grid-template-columns:minmax(112px,.44fr) minmax(0,1fr);border-top:0;border-left:0}
+.week-editorial-media{position:relative;min-width:0;min-height:100%;margin:0;overflow:hidden;background:#2a1452}
+.week-editorial-media img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .35s ease,filter .35s ease}
+.week-editorial-media::after{position:absolute;inset:0;content:'';background:linear-gradient(180deg,rgba(20,10,47,.02) 25%,rgba(20,10,47,.55) 100%);pointer-events:none}
+.week-editorial-card:hover .week-editorial-media img{transform:scale(1.05);filter:saturate(1.08)}
+.week-media-tag{position:absolute;left:12px;bottom:12px;z-index:1;padding:5px 7px;border:1px solid rgba(255,255,255,.3);border-radius:999px;background:rgba(22,10,49,.74);color:#fff;font-size:.57rem;font-weight:950;letter-spacing:.08em}
+.week-editorial-body{display:flex;flex-direction:column;min-width:0;padding:25px 28px 24px}
+.week-editorial-card.food .week-editorial-body{background:linear-gradient(145deg,#fffdf9,#f8f2ee)}
+.week-editorial-card.byte .week-editorial-body{background:linear-gradient(145deg,#fff8ee,#f7efe8)}
+.week-editorial-body>a{display:inline-flex;align-items:center;align-self:flex-start;margin-top:auto;padding-top:20px;color:#5d23bf;font-size:.85rem;font-weight:950;text-decoration:none}
+.week-editorial-card.byte .week-editorial-body>a{color:#88470e}
+.week-snapshot-card{min-height:230px;padding:0;overflow:hidden}
+.week-snapshot-media{position:relative;height:82px;overflow:hidden;background:#24133d}
+.week-snapshot-media img{display:block;width:100%;height:100%;object-fit:cover;opacity:.92;transition:transform .35s ease,opacity .35s ease}
+.week-snapshot-media::after{position:absolute;inset:0;content:'';background:linear-gradient(90deg,rgba(22,10,49,.72),rgba(22,10,49,.06) 78%);pointer-events:none}
+.week-snapshot-media span{position:absolute;left:14px;bottom:12px;z-index:1;color:#fff;font-size:.58rem;font-weight:950;letter-spacing:.1em;text-shadow:0 1px 5px rgba(0,0,0,.4)}
+.week-snapshot-card:hover .week-snapshot-media img{transform:scale(1.06);opacity:1}
+.week-snapshot-content{display:flex;flex:1;min-height:148px;flex-direction:column;padding:16px 18px 17px}
+.week-snapshot-content h3{margin:10px 0 8px}
+.week-snapshot-content p{margin:0}
+.week-snapshot-content .week-card-actions{padding-top:14px}
+.week-editorial-card>.week-hub-loading,.week-snapshot-card>.week-hub-loading{padding:24px}
+@media(max-width:980px){
+  .week-hub-head-visual{flex-basis:150px;width:150px}
+  .week-editorial-card,.week-editorial-card.byte{grid-template-columns:126px minmax(0,1fr)}
+}
+@media(max-width:700px){
+  .week-hub-head-visual{display:none}
+  .week-editorial-card,.week-editorial-card.byte{grid-template-columns:100px minmax(0,1fr);min-height:238px}
+  .week-editorial-body{padding:20px 18px}
+  .week-editorial-media{min-height:238px}
+  .week-snapshot-card{min-height:214px}
+  .week-snapshot-media{height:90px}
+}
+@media(max-width:440px){
+  .week-editorial-card,.week-editorial-card.byte{display:flex;flex-direction:column;min-height:0}
+  .week-editorial-media{height:112px;min-height:112px}
+  .week-editorial-body{min-height:205px}
+}

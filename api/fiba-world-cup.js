@@ -184,6 +184,12 @@ const VERIFIED_PLAYER_OF_GAME = {
     line: '10 PTS',
     countryCode: 'USA',
     sourceUrl: 'https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026/news/italy-hand-holders-usa-a-major-scare'
+  },
+  'USA-CZE': {
+    player: 'Breanna Stewart',
+    line: '15 PTS',
+    countryCode: 'USA',
+    sourceUrl: 'https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026/games/128138-USA-CZE'
   }
 };
 

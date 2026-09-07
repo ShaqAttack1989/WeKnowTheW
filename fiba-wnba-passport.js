@@ -45,6 +45,11 @@
     return rows;
   }
 
+  function flagImageSource(code){
+    const svg=data?.flagSvgs?.[code];
+    return svg?'data:image/svg+xml;charset=UTF-8,'+encodeURIComponent(svg):'';
+  }
+
   function playerRow(player){
     const statusClass=player.status==='Former'?'former':(player.status.includes('Dev.')?'dev':'current');
     return '<a class="fiba-passport-player '+statusClass+'" href="'+playerLink(player.name)+'">'+
@@ -59,7 +64,7 @@
     const flag=data.flags?.[country]||FLAG_FALLBACK[country]||'🏀';
     const flagCode=FLAG_CODES[country]||'';
     const flagMarkup=flagCode
-      ? '<img class="fiba-passport-flag-image" src="https://flagcdn.io/w80/'+flagCode+'.png" alt="" loading="lazy" decoding="async"><span class="fiba-passport-flag-fallback" aria-hidden="true">'+safe(flag)+'</span>'
+      ? '<img class="fiba-passport-flag-image" src="'+flagImageSource(flagCode)+'" alt="" loading="lazy" decoding="async"><span class="fiba-passport-flag-fallback" aria-hidden="true">'+safe(flag)+'</span>'
       : '<span class="fiba-passport-flag" aria-hidden="true">'+safe(flag)+'</span>';
     const groupName=countryGroup(country);
     const noCurrent=mode==='current'&&players.length===0;

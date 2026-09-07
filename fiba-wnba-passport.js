@@ -16,7 +16,7 @@
   let group='all';
   let data=null;
   const FLAG_FALLBACK={Australia:'🇦🇺',Belgium:'🇧🇪',China:'🇨🇳',Czechia:'🇨🇿',France:'🇫🇷',Germany:'🇩🇪',Hungary:'🇭🇺',Italy:'🇮🇹',Japan:'🇯🇵',Korea:'🇰🇷',Mali:'🇲🇱',Nigeria:'🇳🇬','Puerto Rico':'🇵🇷',Spain:'🇪🇸','Türkiye':'🇹🇷','United States':'🇺🇸'};
-  const FLAG_CODES={Australia:'au',Belgium:'be',China:'cn',Czechia:'cz',France:'fr',Germany:'de',Hungary:'hu',Italy:'it',Japan:'jp',Korea:'kr',Mali:'ml',Nigeria:'ng','Puerto Rico':'pr',Spain:'es','Türkiye:'tr','United States':'us'};
+  const FLAG_CODES={Australia:'au',Belgium:'be',China:'cn',Czechia:'cz',France:'fr',Germany:'de',Hungary:'hu',Italy:'it',Japan:'jp',Korea:'kr',Mali:'ml',Nigeria:'ng','Puerto Rico':'pr',Spain:'es','Türkiye':'tr','United States':'us'};
 
   const playerLink=name=>'/playerpedia.html?search='+encodeURIComponent(name)+'#playerpedia-directory';
   const isCurrent=status=>/^Current/.test(status||'');

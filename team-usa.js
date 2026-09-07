@@ -100,7 +100,10 @@
   }
 
   function worldCupBoard(payload){
-    const games=(payload.games||[]).map(normalizeWorldCupGame).filter(Boolean).sort((a,b)=>new Date(a.date||0)-new Date(b.date||0));
+    const usaGames=(payload.games||[]).filter(game=>game.home?.code==='USA'||game.away?.code==='USA');
+    const latestPogGame=[...usaGames].filter(game=>game.status==='final'&&game.playerOfGame?.player).sort((a,b)=>new Date(b.startTimeUtc||b.date||0)-new Date(a.startTimeUtc||a.date||0))[0]||null;
+    const latestPog=latestPogGame?.playerOfGame||null;
+    const games=usaGames.map(normalizeWorldCupGame).filter(Boolean).sort((a,b)=>new Date(a.date||0)-new Date(b.date||0));
     const completed=games.filter(game=>game.status==='final');
     const wins=completed.filter(game=>game.pointsFor>game.pointsAgainst).length;
     const losses=completed.filter(game=>game.pointsFor<game.pointsAgainst).length;
@@ -118,7 +121,7 @@
     return {
       key:'world-cup',
       title:'World Cup Stat Kitchen',
-      description:'Live Team USA results, tournament scoring rates and the leading USA scorer from Berlin.',
+      description:'Live Team USA results, tournament scoring rates and the latest official FIBA Player of the Game from Berlin.',
       href:'/fiba-world-cup.html',
       season:'2026',
       updatedAt:payload.updatedAt,
@@ -138,17 +141,21 @@
       marginPerGame:margin,
       nextGame,
       recentGames,
-      spotlight:leader?{
+      spotlight:latestPog?{
+        label:'FIBA PLAYER OF THE GAME',
+        value:latestPog.player,
+        note:`${latestPog.line||'Official FIBA selection'} · ${latestPogGame?.home?.code==='USA'?'USA vs. '+(latestPogGame?.away?.name||latestPogGame?.away?.code):'USA vs. '+(latestPogGame?.home?.name||latestPogGame?.home?.code)}`
+      }:leader?{
         label:'LEADING USA SCORER',
         value:leader.player,
         note:`${Number(leader.ppg).toFixed(1)} points per game through ${leader.gp} game${Number(leader.gp)===1?'':'s'}.`
       }:{
         label:'WORLD TITLES',
         value:String(payload.usa?.worldTitles||11),
-        note:'The live player leader fills from official tournament box scores.'
+        note:'The latest official FIBA Player of the Game fills after USA completes a game.'
       },
-      sourceRecords:[{label:'Berlin 2026',season:'2026',record:`${wins}–${losses}`,gamesPlayed:count,official:true,sourceUrl:source}],
-      sources:[{label:'Official FIBA World Cup',url:source,official:true}],
+      sourceRecords:[{label:'Berlin 2026',season:'2026',record:`${wins}–${losses}`,gamesPlayed:count,official:true,sourceUrl:latestPog?.sourceUrl||source}],
+      sources:[{label:'Official FIBA World Cup',url:latestPog?.sourceUrl||source,official:true}],
       warnings:payload.dataStatus?.warnings||[]
     };
   }

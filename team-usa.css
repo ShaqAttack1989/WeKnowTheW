@@ -1,0 +1,139 @@
+/* Team USA hub and tournament family */
+.team-usa-page{background:#f3f6fb;color:#142139}
+.team-usa-page-hero{background:radial-gradient(circle at 82% 18%,rgba(255,214,75,.23),transparent 23%),radial-gradient(circle at 62% 70%,rgba(82,145,255,.24),transparent 27%),linear-gradient(135deg,#061428 0,#102f5d 58%,#a61f32 100%)!important}
+.team-usa-page-hero .subhero-inner{position:relative}
+.team-usa-page-hero h1{max-width:980px}
+.team-usa-page-hero h1 em{color:#ffcf45}
+.team-usa-page-hero .eyebrow{color:#b9d7ff}
+.team-usa-page-hero .page-crumbs{flex-wrap:wrap}
+.team-usa-page-hero .page-crumbs a,.team-usa-page-hero .page-crumbs span,.team-usa-page-hero .page-crumbs b{color:rgba(255,255,255,.82)}
+
+.team-usa-tabs-wrap{position:sticky;top:0;z-index:18;padding:10px 0;background:rgba(7,20,39,.96);border-top:1px solid rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.12);backdrop-filter:blur(12px)}
+.team-usa-tabs{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding-bottom:1px}
+.team-usa-tabs::-webkit-scrollbar{display:none}
+.team-usa-tabs a{flex:0 0 auto;display:inline-flex;align-items:center;min-height:42px;padding:9px 13px;border:1px solid rgba(255,255,255,.16);border-radius:999px;color:rgba(255,255,255,.82);text-decoration:none;font-size:.82rem;font-weight:900;white-space:nowrap}
+.team-usa-tabs a:hover,.team-usa-tabs a:focus-visible{border-color:#ffcf45;color:#fff}
+.team-usa-tabs a[aria-current="page"]{background:#ffcf45;border-color:#ffcf45;color:#101722}
+
+.team-usa-live-band{padding:24px 0;background:#081a32;color:#fff}
+.team-usa-live-card{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(250px,.65fr);gap:22px;align-items:center;padding:26px;border:1px solid rgba(159,200,255,.28);border-radius:28px;background:linear-gradient(135deg,#0c2d59,#07162b 62%,#7f1727);box-shadow:0 18px 42px rgba(0,0,0,.18)}
+.team-usa-live-label{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border-radius:999px;background:#ffcf45;color:#101722;font-size:.72rem;font-weight:950;letter-spacing:.08em}
+.team-usa-live-label::before{content:"";width:8px;height:8px;border-radius:50%;background:#a61f32;box-shadow:0 0 0 4px rgba(166,31,50,.15)}
+.team-usa-live-card h2{margin:12px 0 9px;font-size:clamp(2.1rem,5vw,4.4rem);line-height:.94;letter-spacing:-.045em;color:#fff}
+.team-usa-live-card p{max-width:760px;margin:0;color:rgba(255,255,255,.76);font-size:1rem;line-height:1.6}
+.team-usa-live-card .team-usa-button{margin-top:18px}
+.team-usa-live-score{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.team-usa-live-score div{padding:16px;border:1px solid rgba(255,255,255,.14);border-radius:18px;background:rgba(255,255,255,.07)}
+.team-usa-live-score small{display:block;color:#b9d7ff;font-size:.7rem;font-weight:900;letter-spacing:.08em}
+.team-usa-live-score strong{display:block;margin-top:4px;color:#fff;font-size:1.55rem;line-height:1.08}
+.team-usa-live-score span{display:block;margin-top:4px;color:rgba(255,255,255,.64);font-size:.78rem;line-height:1.35}
+
+.team-usa-button{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:10px 15px;border-radius:999px;background:#ffcf45;color:#111;text-decoration:none;font-size:.82rem;font-weight:950;letter-spacing:.03em}
+.team-usa-button.secondary{background:transparent;border:1px solid rgba(255,255,255,.28);color:#fff}
+.team-usa-section{padding:48px 0}
+.team-usa-section.light{background:#f3f6fb}
+.team-usa-section.white{background:#fff}
+.team-usa-section.dark{background:#071427;color:#fff}
+.team-usa-heading{display:flex;justify-content:space-between;gap:24px;align-items:end;margin-bottom:22px}
+.team-usa-heading>div{max-width:820px}
+.team-usa-heading .kicker{margin:0;color:#a61f32;font-size:.72rem;font-weight:950;letter-spacing:.12em}
+.team-usa-section.dark .team-usa-heading .kicker{color:#ffcf45}
+.team-usa-heading h2{margin:7px 0 8px;color:#142139;font-size:clamp(2rem,4.7vw,4.25rem);line-height:.94;letter-spacing:-.045em}
+.team-usa-section.dark .team-usa-heading h2{color:#fff}
+.team-usa-heading p{margin:0;color:#67758a;font-size:1rem;line-height:1.6}
+.team-usa-section.dark .team-usa-heading p{color:rgba(255,255,255,.72)}
+.team-usa-heading>a{flex:0 0 auto;color:#7b1830;font-weight:950;text-decoration:none}
+.team-usa-section.dark .team-usa-heading>a{color:#ffcf45}
+
+.team-usa-stat-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.team-usa-stat{padding:20px;border:1px solid #dbe3ef;border-radius:22px;background:#fff;box-shadow:0 9px 24px rgba(10,32,66,.06)}
+.team-usa-stat small{display:block;color:#7b1830;font-size:.68rem;font-weight:950;letter-spacing:.09em}
+.team-usa-stat strong{display:block;margin:5px 0 6px;color:#10284e;font-size:clamp(2.1rem,4vw,3.7rem);line-height:.92;letter-spacing:-.045em}
+.team-usa-stat span{display:block;color:#67758a;font-size:.82rem;line-height:1.45}
+
+.team-usa-tournament-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.team-usa-tournament-card{display:flex;flex-direction:column;min-height:340px;padding:23px;border:1px solid #dbe3ef;border-radius:25px;background:#fff;color:#142139;text-decoration:none;box-shadow:0 12px 30px rgba(10,32,66,.07);transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease}
+.team-usa-tournament-card:hover,.team-usa-tournament-card:focus-visible{transform:translateY(-3px);border-color:#7dafff;box-shadow:0 18px 36px rgba(10,32,66,.12)}
+.team-usa-tournament-card.is-live{color:#fff;border-color:rgba(255,255,255,.15);background:radial-gradient(circle at 85% 16%,rgba(255,207,69,.26),transparent 25%),linear-gradient(145deg,#07172c,#123965 62%,#9d1d31)}
+.team-usa-card-top{display:flex;align-items:start;justify-content:space-between;gap:12px}
+.team-usa-card-icon{display:grid;place-items:center;width:54px;height:54px;border-radius:17px;background:#edf3ff;font-size:1.8rem}
+.is-live .team-usa-card-icon{background:rgba(255,255,255,.12)}
+.team-usa-card-status{padding:5px 8px;border-radius:999px;background:#edf3ff;color:#173765;font-size:.64rem;font-weight:950;letter-spacing:.07em}
+.is-live .team-usa-card-status{background:#ffcf45;color:#111}
+.team-usa-tournament-card>span{display:block;margin-top:20px;color:#9b2639;font-size:.69rem;font-weight:950;letter-spacing:.1em}
+.team-usa-tournament-card.is-live>span{color:#ffcf45}
+.team-usa-tournament-card h3{margin:6px 0 10px;font-size:clamp(1.8rem,3vw,2.85rem);line-height:.96;letter-spacing:-.035em}
+.team-usa-tournament-card p{margin:0;color:#68758a;font-size:.98rem;line-height:1.55}
+.team-usa-tournament-card.is-live p{color:rgba(255,255,255,.76)}
+.team-usa-tournament-card b{margin-top:auto;padding-top:20px;color:#173765;font-size:.82rem}
+.team-usa-tournament-card.is-live b{color:#ffcf45}
+
+.team-usa-feature{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(280px,.75fr);gap:20px;padding:28px;border-radius:28px;background:linear-gradient(135deg,#0d2f59,#071427 62%,#6f1727);color:#fff;box-shadow:0 20px 44px rgba(5,24,49,.2)}
+.team-usa-feature .kicker{margin:0;color:#ffcf45;font-size:.7rem;font-weight:950;letter-spacing:.1em}
+.team-usa-feature h2,.team-usa-feature h3{margin:7px 0 10px;color:#fff;font-size:clamp(2rem,4.7vw,4rem);line-height:.95;letter-spacing:-.04em}
+.team-usa-feature p{max-width:760px;margin:0;color:rgba(255,255,255,.76);font-size:1rem;line-height:1.62}
+.team-usa-feature-actions{display:flex;flex-wrap:wrap;gap:9px;margin-top:19px}
+.team-usa-feature-aside{display:grid;align-content:center;gap:10px;padding:20px;border:1px solid rgba(255,255,255,.14);border-radius:22px;background:rgba(255,255,255,.07)}
+.team-usa-feature-aside div{padding:12px;border-bottom:1px solid rgba(255,255,255,.12)}
+.team-usa-feature-aside div:last-child{border-bottom:0}
+.team-usa-feature-aside small{display:block;color:#b9d7ff;font-size:.68rem;font-weight:900;letter-spacing:.08em}
+.team-usa-feature-aside strong{display:block;margin-top:3px;color:#fff;font-size:1.22rem}
+
+.team-usa-panel-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.team-usa-panel{padding:24px;border:1px solid #dbe3ef;border-radius:24px;background:#fff;box-shadow:0 10px 26px rgba(10,32,66,.06)}
+.team-usa-panel.accent{border-color:#aac8f4;background:#f5f9ff}
+.team-usa-panel.red{border-color:#e1bcc3;background:#fff7f8}
+.team-usa-panel>span{display:block;color:#9b2639;font-size:.68rem;font-weight:950;letter-spacing:.1em}
+.team-usa-panel h3{margin:7px 0 10px;color:#142139;font-size:1.6rem;line-height:1.05}
+.team-usa-panel p{margin:0;color:#68758a;font-size:1rem;line-height:1.6}
+.team-usa-panel ul{margin:15px 0 0;padding-left:20px;color:#506077}
+.team-usa-panel li{margin:8px 0;line-height:1.5}
+.team-usa-panel a{display:inline-flex;margin-top:16px;color:#7b1830;font-weight:950;text-decoration:none}
+
+.team-usa-roadmap{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;counter-reset:road}
+.team-usa-roadmap article{position:relative;padding:20px;border:1px solid rgba(255,255,255,.14);border-radius:22px;background:rgba(255,255,255,.06);counter-increment:road}
+.team-usa-roadmap article::before{content:"0" counter(road);display:block;margin-bottom:14px;color:#ffcf45;font-size:.72rem;font-weight:950;letter-spacing:.09em}
+.team-usa-roadmap span{display:block;color:#9fc8ff;font-size:.68rem;font-weight:900;letter-spacing:.08em}
+.team-usa-roadmap strong{display:block;margin:6px 0 8px;color:#fff;font-size:1.25rem}
+.team-usa-roadmap p{margin:0;color:rgba(255,255,255,.68);font-size:.92rem;line-height:1.55}
+
+.team-usa-timeline{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.team-usa-timeline article{padding:18px;border-left:4px solid #a61f32;border-radius:0 18px 18px 0;background:#fff;box-shadow:0 8px 22px rgba(10,32,66,.06)}
+.team-usa-timeline time{display:block;color:#9b2639;font-size:.75rem;font-weight:950;letter-spacing:.08em}
+.team-usa-timeline strong{display:block;margin:5px 0;color:#142139;font-size:1.12rem}
+.team-usa-timeline p{margin:0;color:#68758a;font-size:.87rem;line-height:1.45}
+
+.team-usa-source-bar{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-top:22px;padding:18px 20px;border:1px solid #dbe3ef;border-radius:20px;background:#fff}
+.team-usa-source-bar p{margin:0;color:#5f6e82;font-size:.91rem;line-height:1.5}
+.team-usa-source-links{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:8px}
+.team-usa-source-links a{display:inline-flex;min-height:40px;align-items:center;padding:8px 11px;border-radius:999px;background:#edf3ff;color:#173765;text-decoration:none;font-size:.76rem;font-weight:900;white-space:nowrap}
+
+.team-usa-footer-nav{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;margin-top:28px}
+.team-usa-footer-nav a{display:inline-flex;align-items:center;min-height:42px;padding:9px 12px;border:1px solid #d5deeb;border-radius:999px;background:#fff;color:#173765;text-decoration:none;font-size:.78rem;font-weight:900}
+
+.fiba-world-cup-section .team-usa-tabs-wrap{position:relative;top:auto;margin:-22px 0 24px;border:1px solid rgba(255,255,255,.12);border-radius:20px;background:rgba(7,20,39,.9)}
+.fiba-world-cup-section .team-usa-tabs{padding:10px}
+
+@media(max-width:940px){
+  .team-usa-live-card,.team-usa-feature{grid-template-columns:1fr}
+  .team-usa-tournament-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .team-usa-stat-grid,.team-usa-roadmap,.team-usa-timeline{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:680px){
+  .team-usa-tabs-wrap{top:0;padding:8px 0}
+  .team-usa-tabs{margin:0 -2px;padding-right:18px}
+  .team-usa-tabs a{min-height:40px;padding:8px 11px;font-size:.76rem}
+  .team-usa-live-band{padding:16px 0}
+  .team-usa-live-card,.team-usa-feature{padding:20px;border-radius:22px}
+  .team-usa-live-score,.team-usa-tournament-grid,.team-usa-panel-grid,.team-usa-stat-grid,.team-usa-roadmap,.team-usa-timeline{grid-template-columns:1fr}
+  .team-usa-tournament-card{min-height:300px;padding:21px}
+  .team-usa-section{padding:38px 0}
+  .team-usa-heading{display:block}
+  .team-usa-heading>a{display:inline-flex;margin-top:14px}
+  .team-usa-source-bar{display:block}
+  .team-usa-source-links{justify-content:flex-start;margin-top:13px}
+  .team-usa-footer-nav{display:grid;grid-template-columns:1fr}
+  .team-usa-footer-nav a{justify-content:center}
+  .fiba-world-cup-section .team-usa-tabs-wrap{margin:-10px 0 20px}
+}
+

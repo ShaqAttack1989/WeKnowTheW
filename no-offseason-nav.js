@@ -1,21 +1,20 @@
 (()=>{
-  const ensureFibaLink=()=>{
-    const menu=document.querySelector('.no-offseason-menu');
+  const ensureTeamUsaLink=()=>{
+    const group=document.querySelector('[data-nav-section="offseason"]');
+    const menu=group?.querySelector('.nav-menu-section');
     if(!menu)return false;
-    if(menu.querySelector('a[href="/fiba-world-cup.html"]'))return true;
+    if(menu.querySelector('a[href="/team-usa.html"]'))return true;
     const link=document.createElement('a');
-    link.className='nav-direct-link';
-    link.href='/fiba-world-cup.html';
-    link.textContent='FIBA World Cup · Team USA';
-    const parent=menu.querySelector('a[href="/no-offseason.html"]');
-    if(parent)parent.insertAdjacentElement('afterend',link);
-    else menu.prepend(link);
+    link.href='/team-usa.html';
+    link.textContent='Team USA HQ';
+    const fibaLink=menu.querySelector('a[href="/fiba-world-cup.html"]');
+    if(fibaLink)fibaLink.before(link);else menu.appendChild(link);
     return true;
   };
 
-  if(ensureFibaLink())return;
+  if(ensureTeamUsaLink())return;
   const observer=new MutationObserver(()=>{
-    if(ensureFibaLink())observer.disconnect();
+    if(ensureTeamUsaLink())observer.disconnect();
   });
   observer.observe(document.documentElement,{childList:true,subtree:true});
   window.setTimeout(()=>observer.disconnect(),5000);

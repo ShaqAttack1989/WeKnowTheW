@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="/styles.css">
 <link rel="stylesheet" href="/landing.css">
 <link rel="stylesheet" href="/no-offseason.css?v=20260828-fiba-rank-v1">
-<link rel="stylesheet" href="/no-offseason-fiba.css?v=20260906-potg-v2">
+<link rel="stylesheet" href="/no-offseason-fiba.css?v=20260907-wnba-passport-v1">
 <link rel="stylesheet" href="/fiba-preview-notes.css?v=20260903-guide-v1">
 <link rel="stylesheet" href="/team-usa.css?v=20260907-stat-kitchen-v1">
 </head>
@@ -77,6 +77,37 @@
     <small id="fibaWorldRankingNote" class="fiba-roster-note">World rank is separate from tournament record.</small>
   </section>
 
+  <section class="fiba-panel fiba-passport-panel" id="wnba-passport" aria-labelledby="fiba-passport-heading">
+    <div class="fiba-panel-head">
+      <div>
+        <span>WNBA PASSPORT BOARD · 70 CURRENT + FORMER W PLAYERS</span>
+        <h3 id="fiba-passport-heading">Which WNBA stars are playing for each country?</h3>
+        <p class="fiba-passport-intro">Every World Cup country in one dashboard. Current WNBA players are shown first, developmental players keep their WNBA team label, and former WNBA players stay available so the international connections do not disappear. A gold star marks a player with a WNBA All-Star selection.</p>
+      </div>
+      <small>WNBA roster status verified Sept. 3, 2026.</small>
+    </div>
+    <div class="fiba-passport-toolbar">
+      <div class="fiba-passport-modes" role="group" aria-label="WNBA player status filter">
+        <button type="button" data-passport-mode="current" aria-pressed="true">Current WNBA</button>
+        <button type="button" data-passport-mode="allstar" aria-pressed="false">WNBA All-Stars</button>
+        <button type="button" data-passport-mode="all" aria-pressed="false">Current + Former</button>
+      </div>
+      <div class="fiba-passport-groups" role="group" aria-label="World Cup group filter">
+        <button type="button" data-passport-group="all" aria-pressed="true">All groups</button>
+        <button type="button" data-passport-group="A" aria-pressed="false">Group A</button>
+        <button type="button" data-passport-group="B" aria-pressed="false">Group B</button>
+        <button type="button" data-passport-group="C" aria-pressed="false">Group C</button>
+        <button type="button" data-passport-group="D" aria-pressed="false">Group D</button>
+      </div>
+    </div>
+    <div class="fiba-passport-summary" id="fibaWnbaPassportSummary"><span>Loading WNBA country connections…</span></div>
+    <div class="fiba-passport-grid" id="fibaWnbaPassportGrid" aria-live="polite"><p class="fiba-empty">Loading WNBA players by country…</p></div>
+    <div class="fiba-passport-source-note">
+      <span>Current means on a 2026 WNBA roster. “Dev. Player” follows the WNBA’s official designation. Former players are shown only in the Current + Former view.</span>
+      <a id="fibaWnbaPassportSource" href="https://www.wnba.com/news/2026-fiba-womens-basketball-world-cup-wnba-rosters" target="_blank" rel="noopener">Official WNBA roster list ↗</a>
+    </div>
+  </section>
+
   <div class="fiba-dashboard-grid">
     <section class="fiba-panel">
       <div class="fiba-panel-head"><div><span>16 COUNTRIES · FOUR GROUPS</span><h3>World Cup standings</h3></div><small>WR shows FIBA world rank. Group D is outlined for USA. W/L and points use FIBA standings, with completed official game results filling any update lag.</small></div>
@@ -110,6 +141,7 @@
 <script src="/site.js?v=20260907-team-usa-v1"></script>
 <script src="/no-offseason-nav.js?v=20260907-team-usa-v1"></script>
 <script src="/no-offseason-fiba.js?v=20260906-potg-v2"></script>
+<script src="/fiba-wnba-passport.js?v=20260907-v1"></script>
 <script src="/fiba-world-rankings.js?v=20260828-fiba-rank-v1"></script>
 <script src="/team-usa.js?v=20260907-stat-kitchen-v1"></script>
 </body>

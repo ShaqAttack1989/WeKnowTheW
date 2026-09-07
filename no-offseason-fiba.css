@@ -17,3 +17,50 @@
 .fiba-usa-potg strong{display:block;margin-top:2px;color:#142139;font-size:.84rem;line-height:1.2}
 .fiba-usa-potg em{display:block;margin-top:2px;color:#6f6473;font-size:.68rem;font-style:normal;font-weight:850}
 .fiba-usa-potg.is-pending{background:#f6f7f9;border-style:dashed}
+
+
+/* Sept. 7, 2026: WNBA Passport Board by FIBA country */
+.fiba-passport-panel{margin:26px 0;background:linear-gradient(145deg,#fffdf8,#f6f0e7);border:1px solid #e1d7c9}
+.fiba-passport-panel .fiba-panel-head{align-items:flex-start}
+.fiba-passport-panel .fiba-panel-head>div>span{color:#7c3b76}
+.fiba-passport-intro{max-width:880px;margin:8px 0 0;color:#625b64;font-size:1rem;line-height:1.65}
+.fiba-passport-toolbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;margin:18px 0}
+.fiba-passport-modes,.fiba-passport-groups{display:flex;flex-wrap:wrap;gap:7px}
+.fiba-passport-toolbar button{appearance:none;border:1px solid #d9ccdd;border-radius:999px;background:#fff;color:#2d2132;padding:8px 11px;font:inherit;font-size:.78rem;font-weight:900;cursor:pointer}
+.fiba-passport-toolbar button[aria-pressed="true"]{background:#261532;border-color:#261532;color:#fff}
+.fiba-passport-toolbar button:hover,.fiba-passport-toolbar button:focus-visible{border-color:#7c3b76;outline:none}
+.fiba-passport-summary{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 18px}
+.fiba-passport-summary>*{display:inline-flex;align-items:center;min-height:34px;padding:7px 10px;border:1px solid #e0d5ca;border-radius:999px;background:#fff;color:#645b65;font-size:.76rem;font-weight:850}
+.fiba-passport-summary strong{background:#efe4f2;color:#51285d;border-color:#d9c7de}
+.fiba-passport-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.fiba-passport-country{overflow:hidden;border:1px solid #e2d8ce;border-radius:20px;background:#fff;box-shadow:0 8px 24px rgba(29,22,35,.04)}
+.fiba-passport-country.usa{border-color:#c9ab55;background:linear-gradient(155deg,#fffdf8,#fff6dd)}
+.fiba-passport-country>header{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:14px 15px;border-bottom:1px solid #eee4d9;background:rgba(247,242,235,.7)}
+.fiba-passport-country-title{display:flex;align-items:center;gap:10px;min-width:0}
+.fiba-passport-flag{font-size:2rem;line-height:1}
+.fiba-passport-country-title>div{min-width:0}
+.fiba-passport-country-title span:not(.fiba-passport-flag){display:block;color:#7b6c7b;font-size:.64rem;font-weight:950;letter-spacing:.08em}
+.fiba-passport-country h4{margin:2px 0 0;font-size:1.05rem;line-height:1.1}
+.fiba-passport-counts{display:grid;grid-template-columns:auto auto;gap:1px 5px;align-items:center;text-align:right}
+.fiba-passport-counts b{font-size:.95rem;color:#2d2132}
+.fiba-passport-counts small{font-size:.62rem;color:#7a707a}
+.fiba-passport-player-list{display:grid}
+.fiba-passport-player{display:grid;grid-template-columns:minmax(0,1fr) minmax(92px,.78fr);gap:8px;align-items:center;padding:10px 13px;border-top:1px solid #f0e9e1;color:#2b2030;text-decoration:none}
+.fiba-passport-player:first-child{border-top:0}
+.fiba-passport-player:hover,.fiba-passport-player:focus-visible{background:#faf5fb;outline:none}
+.fiba-passport-player.former{background:#fbfaf8;color:#5f5961}
+.fiba-passport-player.dev{background:#fff9e8}
+.fiba-passport-player-name{display:flex;align-items:center;gap:6px;min-width:0}
+.fiba-passport-player-name strong{font-size:.83rem;line-height:1.2}
+.fiba-allstar-star{color:#bd8614;font-size:.85rem}
+.fiba-passport-player-meta{text-align:right;color:#706672;font-size:.66rem;line-height:1.25}
+.fiba-passport-player-meta small{display:block;margin-top:2px;color:#8b808b;font-size:.59rem;font-weight:900;text-transform:uppercase;letter-spacing:.04em}
+.fiba-passport-player.current .fiba-passport-player-meta small{color:#26694d}
+.fiba-passport-player.dev .fiba-passport-player-meta small{color:#8b6515}
+.fiba-passport-none{padding:17px 14px;color:#7b727b;font-size:.8rem;line-height:1.45}
+.fiba-passport-country.empty-current{opacity:.82}
+.fiba-passport-source-note{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;margin-top:16px;padding-top:14px;border-top:1px solid #e4dbd1;color:#756d75;font-size:.78rem;line-height:1.5}
+.fiba-passport-source-note a{color:#5d2a89;font-weight:900}
+@media(max-width:1120px){.fiba-passport-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:820px){.fiba-passport-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.fiba-passport-toolbar{align-items:flex-start;flex-direction:column}}
+@media(max-width:560px){.fiba-passport-grid{grid-template-columns:1fr}.fiba-passport-player{grid-template-columns:minmax(0,1fr) minmax(105px,.8fr)}}

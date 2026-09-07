@@ -282,3 +282,46 @@
   .fiba-passport-toolbar button:hover,
   .fiba-passport-toolbar button:focus-visible{transform:none}
 }
+
+/* Sept. 7, 2026: real flag images and compact flag map */
+.fiba-passport-grid{
+  display:block;
+  columns:4 230px;
+  column-gap:14px;
+  column-fill:balance;
+}
+.fiba-passport-country{
+  display:inline-block;
+  width:100%;
+  margin:0 0 14px;
+  break-inside:avoid;
+  vertical-align:top;
+}
+.fiba-passport-country-title .fiba-passport-flag-shell{
+  padding:11px 7px;
+  box-sizing:border-box;
+}
+.fiba-passport-flag-image{
+  display:block;
+  width:42px;
+  height:32px;
+  object-fit:cover;
+  border-radius:7px;
+  box-shadow:0 3px 8px rgba(37,25,43,.16);
+}
+.fiba-passport-flag-image.is-broken{display:none}
+.fiba-passport-flag-fallback{
+  display:none;
+  font-size:2.3rem;
+  line-height:1;
+}
+.fiba-passport-flag-image.is-broken + .fiba-passport-flag-fallback{display:block}
+@media(max-width:1180px){
+  .fiba-passport-grid{columns:3 230px}
+}
+@media(max-width:820px){
+  .fiba-passport-grid{columns:2 230px}
+}
+@media(max-width:560px){
+  .fiba-passport-grid{columns:1}
+}

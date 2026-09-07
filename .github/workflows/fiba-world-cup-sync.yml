@@ -5,6 +5,9 @@ on:
     paths:
       - 'api/fiba-world-cup.js'
       - 'no-offseason-fiba.js'
+      - 'no-offseason-fiba.css'
+      - 'fiba-wnba-passport.js'
+      - 'data/fiba-wnba-passport-2026.json'
       - 'fiba-world-cup.html'
       - 'tests/fiba-world-cup-sync.test.js'
       - '.github/workflows/fiba-world-cup-sync.yml'
@@ -22,5 +25,6 @@ jobs:
         run: |
           node --check api/fiba-world-cup.js
           node --check no-offseason-fiba.js
+          node --check fiba-wnba-passport.js
       - name: Test FIBA results and standings sync
         run: node --test tests/fiba-world-cup-sync.test.js

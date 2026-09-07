@@ -202,3 +202,47 @@ test('Team USA schedule cards render Player of the Game with a country flag', ()
   assert.match(source, /FIBA PLAYER OF THE GAME/);
   assert.match(source, /pog\?\.flag/);
 });
+
+
+test('WNBA Passport Board covers all 16 FIBA countries and the official 70-player WNBA universe', () => {
+  const data = JSON.parse(require('node:fs').readFileSync(path.join(__dirname, '..', 'data', 'fiba-wnba-passport-2026.json'), 'utf8'));
+  assert.equal(data.players.length, 70);
+  assert.equal(data.summary.current, 51);
+  assert.equal(data.summary.former, 19);
+  assert.equal(data.summary.total, 70);
+  assert.equal(data.summary.countriesWithCurrent, 15);
+  assert.equal(Object.values(data.groups).flat().length, 16);
+  assert.equal(new Set(Object.values(data.groups).flat()).size, 16);
+  assert.equal(data.players.filter(player => /^Current/.test(player.status)).length, 51);
+  assert.equal(data.players.filter(player => player.status === 'Former').length, 19);
+  assert.equal(data.players.filter(player => player.allStar).length, 16);
+});
+
+test('WNBA Passport Board preserves country flags, current teams, developmental labels and Puerto Rico alumni context', () => {
+  const data = JSON.parse(require('node:fs').readFileSync(path.join(__dirname, '..', 'data', 'fiba-wnba-passport-2026.json'), 'utf8'));
+  const usa = data.players.filter(player => player.country === 'United States');
+  const france = data.players.filter(player => player.country === 'France');
+  const puertoRico = data.players.filter(player => player.country === 'Puerto Rico');
+  assert.equal(usa.filter(player => /^Current/.test(player.status)).length, 12);
+  assert.equal(france.filter(player => /^Current/.test(player.status)).length, 8);
+  assert.equal(puertoRico.filter(player => /^Current/.test(player.status)).length, 0);
+  assert.equal(puertoRico.filter(player => player.status === 'Former').length, 2);
+  assert.equal(data.flags['United States'], '🇺🇸');
+  assert.ok(data.players.some(player => player.name === 'Miela Sowah' && player.status === 'Current Dev. Player'));
+  assert.ok(data.players.some(player => player.name === 'Costanza Verona' && player.status === 'Current Dev. Player'));
+  assert.ok(data.players.some(player => player.name === 'Elizabeth Balogun' && player.status === 'Current Dev. Player'));
+  assert.ok(data.players.some(player => player.name === 'Elena Buenavida' && player.status === 'Current Dev. Player'));
+});
+
+test('FIBA page renders the WNBA Passport Board with Playerpedia links and filters', () => {
+  const page = require('node:fs').readFileSync(path.join(__dirname, '..', 'fiba-world-cup.html'), 'utf8');
+  const client = require('node:fs').readFileSync(path.join(__dirname, '..', 'fiba-wnba-passport.js'), 'utf8');
+  assert.match(page, /id="wnba-passport"/);
+  assert.match(page, /Which WNBA stars are playing for each country/);
+  assert.match(page, /data-passport-mode="current"/);
+  assert.match(page, /data-passport-mode="allstar"/);
+  assert.match(page, /data-passport-mode="all"/);
+  assert.match(client, /playerpedia\.html\?search=/);
+  assert.match(client, /fiba-wnba-passport-2026\.json/);
+  assert.match(client, /fiba-allstar-star/);
+});

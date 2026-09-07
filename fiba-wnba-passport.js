@@ -7,7 +7,7 @@
     const styleLink=document.createElement('link');
     styleLink.rel='stylesheet';
     styleLink.dataset.fibaPassportPolish='true';
-    styleLink.href='/fiba-passport-polish.css?v=20260907-v1';
+    styleLink.href='/fiba-passport-polish.css?v=20260907-v2';
     document.head.appendChild(styleLink);
   }
 
@@ -16,6 +16,7 @@
   let group='all';
   let data=null;
   const FLAG_FALLBACK={Australia:'🇦🇺',Belgium:'🇧🇪',China:'🇨🇳',Czechia:'🇨🇿',France:'🇫🇷',Germany:'🇩🇪',Hungary:'🇭🇺',Italy:'🇮🇹',Japan:'🇯🇵',Korea:'🇰🇷',Mali:'🇲🇱',Nigeria:'🇳🇬','Puerto Rico':'🇵🇷',Spain:'🇪🇸','Türkiye':'🇹🇷','United States':'🇺🇸'};
+  const FLAG_CODES={Australia:'au',Belgium:'be',China:'cn',Czechia:'cz',France:'fr',Germany:'de',Hungary:'hu',Italy:'it',Japan:'jp',Korea:'kr',Mali:'ml',Nigeria:'ng','Puerto Rico':'pr',Spain:'es','Türkiye:'tr','United States':'us'};
 
   const playerLink=name=>'/playerpedia.html?search='+encodeURIComponent(name)+'#playerpedia-directory';
   const isCurrent=status=>/^Current/.test(status||'');
@@ -56,6 +57,10 @@
     const counts=countFor(country);
     const players=visiblePlayers(country);
     const flag=data.flags?.[country]||FLAG_FALLBACK[country]||'🏀';
+    const flagCode=FLAG_CODES[country]||'';
+    const flagMarkup=flagCode
+      ? '<img class="fiba-passport-flag-image" src="https://flagcdn.io/w80/'+flagCode+'.png" alt="" loading="lazy" decoding="async"><span class="fiba-passport-flag-fallback" aria-hidden="true">'+safe(flag)+'</span>'
+      : '<span class="fiba-passport-flag" aria-hidden="true">'+safe(flag)+'</span>';
     const groupName=countryGroup(country);
     const noCurrent=mode==='current'&&players.length===0;
     const countryClass=(country==='United States'?'usa ':'')+(noCurrent?'empty-current ':'')+'group-'+String(groupName||'x').toLowerCase();
@@ -66,7 +71,7 @@
     else emptyCopy='No current WNBA player.';
     return '<article class="fiba-passport-country '+countryClass+'" data-country="'+safe(country)+'">'+
       '<header>'+
-        '<div class="fiba-passport-country-title"><span class="fiba-passport-flag-shell"><span class="fiba-passport-flag" aria-hidden="true">'+safe(flag)+'</span></span><div><span class="fiba-passport-group-label">GROUP '+safe(groupName)+'</span><h4>'+safe(country)+'</h4></div></div>'+
+        '<div class="fiba-passport-country-title"><span class="fiba-passport-flag-shell">'+flagMarkup+'</span><div><span class="fiba-passport-group-label">GROUP '+safe(groupName)+'</span><h4>'+safe(country)+'</h4></div></div>'+
         '<div class="fiba-passport-counts"><b>'+counts.current+'</b><small>current</small>'+formerCounts+'</div>'+
       '</header>'+
       '<div class="fiba-passport-player-list">'+(players.length?players.map(playerRow).join(''):'<div class="fiba-passport-none">'+emptyCopy+'</div>')+'</div>'+
@@ -80,6 +85,12 @@
     return order;
   }
 
+  function bindFlagFallbacks(){
+    root.querySelectorAll('.fiba-passport-flag-image').forEach(image=>{
+      image.addEventListener('error',()=>image.classList.add('is-broken'),{once:true});
+    });
+  }
+
   function render(){
     if(!data)return;
     root.querySelectorAll('[data-passport-mode]').forEach(button=>{
@@ -90,6 +101,7 @@
     });
     const grid=document.getElementById('fibaWnbaPassportGrid');
     grid.innerHTML=countriesInOrder().map(countryCard).join('');
+    bindFlagFallbacks();
     const summary=document.getElementById('fibaWnbaPassportSummary');
     summary.innerHTML='<strong>'+data.summary.current+' current WNBA players</strong>'+
       '<span>'+data.summary.former+' former WNBA players</span>'+

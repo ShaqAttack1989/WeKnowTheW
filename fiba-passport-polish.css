@@ -1,0 +1,284 @@
+/* Visual polish for the FIBA WNBA Passport Board */
+.fiba-passport-panel{
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 98% 0%,rgba(124,59,118,.14) 0,rgba(124,59,118,0) 28%),
+    radial-gradient(circle at 0% 100%,rgba(46,111,163,.1) 0,rgba(46,111,163,0) 25%),
+    linear-gradient(145deg,#fffdf8 0%,#f8f2eb 62%,#f2edf7 100%);
+  border-color:#ded0df;
+  box-shadow:0 18px 42px rgba(45,33,50,.1);
+}
+.fiba-passport-panel::before{
+  content:'';
+  position:absolute;
+  z-index:0;
+  top:0;
+  left:0;
+  right:0;
+  height:5px;
+  background:linear-gradient(90deg,#c34e72 0 25%,#7d4bb2 25% 50%,#d1842c 50% 75%,#2e6fa3 75% 100%);
+}
+.fiba-passport-panel>*{position:relative;z-index:1}
+.fiba-passport-panel .fiba-panel-head{
+  padding-bottom:18px;
+  border-bottom:1px solid rgba(126,100,126,.2);
+}
+.fiba-passport-panel .fiba-panel-head>div>span{
+  display:inline-flex;
+  align-items:center;
+  min-height:25px;
+  padding:5px 9px;
+  border-radius:999px;
+  background:#eee3f1;
+  color:#602d6b;
+  font-size:.68rem;
+  letter-spacing:.08em;
+}
+.fiba-passport-panel .fiba-panel-head h3{
+  margin-top:9px;
+  font-size:clamp(1.65rem,3vw,2.45rem);
+  letter-spacing:-.035em;
+}
+.fiba-passport-intro{
+  max-width:70rem;
+  margin-top:10px;
+  color:#5f5662;
+  font-size:1.02rem;
+  line-height:1.6;
+}
+.fiba-passport-toolbar{
+  margin:20px 0 14px;
+  padding:9px;
+  border:1px solid rgba(221,207,224,.95);
+  border-radius:20px;
+  background:rgba(255,255,255,.68);
+  box-shadow:0 8px 18px rgba(55,37,60,.05);
+}
+.fiba-passport-modes,
+.fiba-passport-groups{
+  padding:4px;
+  border-radius:999px;
+  background:#f8f1f8;
+}
+.fiba-passport-groups{background:#f1f4f9}
+.fiba-passport-toolbar button{
+  min-height:38px;
+  padding:8px 13px;
+  font-size:.82rem;
+  transition:transform .18s ease,box-shadow .18s ease,background .18s ease;
+}
+.fiba-passport-toolbar button[aria-pressed="true"]{
+  background:linear-gradient(135deg,#2b1639,#7c3b76);
+  border-color:#2b1639;
+  box-shadow:0 5px 12px rgba(53,25,67,.2);
+}
+.fiba-passport-toolbar button:hover,
+.fiba-passport-toolbar button:focus-visible{
+  transform:translateY(-1px);
+}
+.fiba-passport-summary{
+  gap:9px;
+  margin-bottom:20px;
+}
+.fiba-passport-summary>*{
+  min-height:36px;
+  padding:8px 12px;
+  background:rgba(255,255,255,.82);
+  border-color:#dfd2df;
+  font-size:.78rem;
+}
+.fiba-passport-summary strong{
+  background:#efe1f2;
+  color:#4e245a;
+  border-color:#d7bfdd;
+}
+.fiba-passport-grid{
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:14px;
+  align-items:start;
+}
+.fiba-passport-country{
+  --passport-accent:#7c3b76;
+  --passport-soft:#f4ebf7;
+  --passport-ink:#57275f;
+  position:relative;
+  border:1px solid #e0d6e0;
+  border-radius:23px;
+  box-shadow:0 10px 25px rgba(40,28,44,.06);
+  transition:transform .18s ease,box-shadow .18s ease;
+}
+.fiba-passport-country::before{
+  content:'';
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  height:4px;
+  border-radius:23px 23px 0 0;
+  background:var(--passport-accent);
+}
+.fiba-passport-country.group-a{--passport-accent:#c34e72;--passport-soft:#fff0f4;--passport-ink:#762b4a}
+.fiba-passport-country.group-b{--passport-accent:#7d4bb2;--passport-soft:#f3edfb;--passport-ink:#522d7d}
+.fiba-passport-country.group-c{--passport-accent:#d1842c;--passport-soft:#fff5e8;--passport-ink:#7d4a17}
+.fiba-passport-country.group-d{--passport-accent:#2e6fa3;--passport-soft:#edf5fc;--passport-ink:#21577e}
+.fiba-passport-country.usa{
+  --passport-accent:#b10e2f;
+  --passport-soft:#fff0f3;
+  --passport-ink:#8e1029;
+  border-color:#d6b468;
+  box-shadow:0 12px 28px rgba(154,112,22,.13);
+}
+.fiba-passport-country:hover{
+  transform:translateY(-3px);
+  box-shadow:0 15px 30px rgba(40,28,44,.12);
+}
+.fiba-passport-country>header{
+  min-height:94px;
+  padding:17px 15px 14px;
+  background:linear-gradient(135deg,var(--passport-soft),#fff);
+}
+.fiba-passport-country-title{gap:11px}
+.fiba-passport-country-title .fiba-passport-flag-shell{
+  display:grid;
+  place-items:center;
+  flex:0 0 56px;
+  width:56px;
+  height:56px;
+  border:1px solid rgba(255,255,255,.9);
+  border-radius:17px;
+  background:rgba(255,255,255,.86);
+  box-shadow:0 5px 12px rgba(53,35,58,.1);
+  color:initial;
+  font-size:initial;
+  font-weight:initial;
+  letter-spacing:normal;
+}
+.fiba-passport-flag{
+  display:block;
+  font-size:2.3rem;
+  line-height:1;
+}
+.fiba-passport-country-title>div{min-width:0}
+.fiba-passport-country-title>div>span.fiba-passport-group-label{
+  display:inline-flex;
+  align-items:center;
+  min-height:20px;
+  padding:3px 6px;
+  border-radius:999px;
+  background:rgba(255,255,255,.76);
+  color:var(--passport-ink);
+  font-size:.58rem;
+  font-weight:950;
+  letter-spacing:.08em;
+}
+.fiba-passport-country h4{
+  margin-top:5px;
+  color:#241a2b;
+  font-size:1.12rem;
+  letter-spacing:-.02em;
+}
+.fiba-passport-counts{
+  min-width:58px;
+  padding:6px 8px;
+  border:1px solid rgba(255,255,255,.82);
+  border-radius:13px;
+  background:rgba(255,255,255,.62);
+}
+.fiba-passport-counts b{color:var(--passport-ink);font-size:1.05rem}
+.fiba-passport-counts small{font-size:.6rem;font-weight:850}
+.fiba-passport-player{
+  min-height:57px;
+  padding:11px 13px;
+  border-top-color:#eee8ef;
+}
+.fiba-passport-player-name strong{
+  font-size:.87rem;
+  letter-spacing:-.01em;
+}
+.fiba-passport-player-meta{
+  max-width:132px;
+  color:#665c68;
+  font-size:.67rem;
+}
+.fiba-passport-player-meta small{
+  display:inline-flex;
+  align-items:center;
+  min-height:17px;
+  padding:2px 5px;
+  border-radius:999px;
+  background:#f0f1f4;
+  font-size:.54rem;
+  letter-spacing:.04em;
+}
+.fiba-passport-player.current .fiba-passport-player-meta small{
+  background:#e6f4eb;
+  color:#216346;
+}
+.fiba-passport-player.dev .fiba-passport-player-meta small{
+  background:#fff0c9;
+  color:#805a0e;
+}
+.fiba-passport-player.former .fiba-passport-player-meta small{
+  background:#ece9e9;
+  color:#6f676f;
+}
+.fiba-passport-player:hover,
+.fiba-passport-player:focus-visible{
+  background:var(--passport-soft);
+}
+.fiba-passport-none{
+  min-height:72px;
+  display:flex;
+  align-items:center;
+  padding:17px 14px;
+  background:rgba(255,255,255,.46);
+}
+.fiba-passport-source-note{
+  margin-top:20px;
+  padding:15px 2px 0;
+  color:#6b626c;
+  font-size:.8rem;
+}
+.fiba-passport-source-note a{
+  display:inline-flex;
+  align-items:center;
+  min-height:34px;
+  padding:6px 10px;
+  border:1px solid #d7c4de;
+  border-radius:999px;
+  background:#fff;
+  color:#5d2a89;
+  text-decoration:none;
+}
+.fiba-passport-source-note a:hover,
+.fiba-passport-source-note a:focus-visible{
+  background:#f5ecf8;
+}
+@media(max-width:1180px){
+  .fiba-passport-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+@media(max-width:820px){
+  .fiba-passport-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .fiba-passport-toolbar{padding:8px}
+  .fiba-passport-modes,
+  .fiba-passport-groups{
+    width:100%;
+    border-radius:15px;
+  }
+  .fiba-passport-toolbar button{flex:1}
+}
+@media(max-width:560px){
+  .fiba-passport-grid{grid-template-columns:1fr}
+  .fiba-passport-country>header{min-height:0}
+  .fiba-passport-player{grid-template-columns:minmax(0,1fr) minmax(105px,.8fr)}
+  .fiba-passport-toolbar button{padding-inline:8px;font-size:.75rem}
+}
+@media(prefers-reduced-motion:reduce){
+  .fiba-passport-country,
+  .fiba-passport-toolbar button{transition:none}
+  .fiba-passport-country:hover,
+  .fiba-passport-toolbar button:hover,
+  .fiba-passport-toolbar button:focus-visible{transform:none}
+}

@@ -1,0 +1,548 @@
+{
+  "updatedAt": "2026-09-03T00:00:00Z",
+  "sourceLabel": "WNBA Official Release · Sept. 3, 2026",
+  "sourceUrl": "https://www.wnba.com/news/2026-fiba-womens-basketball-world-cup-wnba-rosters",
+  "summary": {
+    "current": 51,
+    "former": 19,
+    "total": 70,
+    "countriesWithCurrent": 15,
+    "wnbaTeamsRepresented": 14
+  },
+  "groups": {
+    "A": [
+      "Japan",
+      "Spain",
+      "Germany",
+      "Mali"
+    ],
+    "B": [
+      "Hungary",
+      "Korea",
+      "Nigeria",
+      "France"
+    ],
+    "C": [
+      "Belgium",
+      "Australia",
+      "Puerto Rico",
+      "Türkiye"
+    ],
+    "D": [
+      "United States",
+      "Czechia",
+      "Italy",
+      "China"
+    ]
+  },
+  "flags": {
+    "Australia": "🇦🇺",
+    "Belgium": "🇧🇪",
+    "China": "🇨🇳",
+    "Czechia": "🇨🇿",
+    "France": "🇫🇷",
+    "Germany": "🇩🇪",
+    "Hungary": "🇭🇺",
+    "Italy": "🇮🇹",
+    "Japan": "🇯🇵",
+    "Korea": "🇰🇷",
+    "Mali": "🇲🇱",
+    "Nigeria": "🇳🇬",
+    "Puerto Rico": "🇵🇷",
+    "Spain": "🇪🇸",
+    "Türkiye": "🇹🇷",
+    "United States": "🇺🇸"
+  },
+  "players": [
+    {
+      "country": "Australia",
+      "name": "Chloe Bibby",
+      "team": "Minnesota Lynx",
+      "status": "Current",
+      "allStar": false
+    },
+    {
+      "country": "Australia",
+      "name": "Isobel Borlase",
+      "team": "Atlanta Dream",
+      "status": "Current",
+      "allStar": false
+    },
+    {
+      "country": "Australia",
+      "name": "Alex Fowler",
+      "team": null,
+      "status": "Former",
+      "allStar": false
+    },
+    {
+      "country": "Australia",
+      "name": "Ezi Magbegor",
+      "team": "Seattle Storm",
+      "status": "Current",
+      "allStar": true
+    },
+    {
+      "country": "Australia",
+      "name": "Jade Melbourne",
+      "team": "Seattle Storm",
+      "status": "Current",
+      "allStar": false
+    },
+    {
+      "country": "Australia",
+      "name": "Alanna Smith",
+      "team": "Dallas Wings",
+      "status": "Current",
+      "allStar": false
+    },
+    {
+      "country": "Australia",
+      "name": "Miela Sowah",
+      "team": "Golden State Valkyries",
+      "status": "Current Dev. Player",
+      "allStar": false
+    },
+    {
+      "country": "Australia",
+      "name": "Steph Talbot",
+      "team": "Las Vegas Aces",
+      "status": "Current",
+      "allStar": false
+    },
+    {
+      "country": "Australia",
+      "name": "Alex Wilson",
+      "team": null,
+      "status": "Former",
+      "allStar": false
+    },
+    {
+      "country": "Belgium",
+      "name": "Julie Allemand",
+      "team": "Toronto Tempo",
+      "status": "Current",
+      "allStar": false
+    },
+    {
+      "country": "Belgium",
+      "name": "Antonia Delaere",
+      "team": "Minnesota Lynx",
+      "status": "Current",
+      "allStar": false
+    },
+    {
+      "country": "Belgium",
+      "name": "Kyara Linskens",
+      "team": "Phoenix Mercury",
+      "status": "Current",
+      "allStar": false
+    },
+    {
+      "country": "Belgium",
+      "name": "Emma Meesseman",
+      "team": null,
+      "status": "Former",
+      "allStar": true
+    },
+    {
+      "country": "Belgium",
+      "name": "Julie Vanloo",
+      "team": null,
+      "status": "Former",
+      "allStar": false
+    },
+    {
+      "country": "China",
+      "name": "Han Xu",
+      "team": "New York Liberty",
+      "status": "Current",
+      "allStar": false
+    },
+    {
+      "country": "Czechia",
+      "name": "Eliska Joklova",
+      "team": "Minnesota Lynx",
+      "status": "Current",
+      "allStar": false
+    },
+    {
+      "country": "France",
+      "name": "Pauline Astier",
+      "team": "New York Liberty",
+      "status": "Current",
+      "allStar": false
+    },
+    {
+      "country": "France",
+      "name": "Valériane Ayayi",
+      "team": "Phoenix Mercury",
+      "status": "Current",
+      "allStar": false
+    },
+    {
+      "country": "France",
+      "name": "Marieme Badiane",
+      "team": null,
+      "status": "Former",
+      "allStar": false
+    },
+    {
+      "country": "France",
+      "name": "Marine Johannès",
+      "team": "New York Liberty",
+      "status": "Current",
+      "allStar": false
+    },
+    {
+      "country": "France",
+      "name": "Leïla Lacan",
+      "team": "Connecticut Sun",
+      "status": "Current",
+      "allStar": false
+    },
+    {
+      "country": "France",
+      "name": "Carla Leite",
+      "team": "Portland Fire",
+      "status": "Current",
+      "allStar": false
+    },
+    {
+      "country": "France",
+      "name": "Dominique Malonga",
+      "team": "Seattle Storm",
+      "status": "Current",
+      "allStar": true
+    },
+    {
+      "country": "France",
+      "name": "Janelle Salaün",
+      "team": "Golden State Valkyries",
+      "status": "Current",
+      "allStar": false
+    },
+    {
+      "country": "France",
+      "name": "Migna Toure",
+      "team": null,
+      "status": "Former",
+      "allStar": false
+    },
+    {
+      "country": "France",
+      "name": "Gabby Williams",
+      "team": "Golden State Valkyries",
+      "status": "Current",
+      "allStar": true
+    },
+    {
+      "country": "Germany",
+      "name": "Frieda Bühner",
+      "team": "Portland Fire",
+      "status": "Current",
+      "allStar": false
+    },
+    {
+      "country": "Germany",
+      "name": "Leonie Fiebich",
+      "team": "New York Liberty",
+      "status": "Current",
+      "allStar": false
+    },
+    {
+      "country": "Germany",
+      "name": "Luisa Geiselsöder",
+      "team": "Portland Fire",
+      "status": "Current",
+      "allStar": false
+    },
+    {
+      "country": "Germany",
+      "name": "Marie Gülich",
+      "team": null,
+      "status": "Former",
+      "allStar": false
+    },
+    {
+      "country": "Germany",
+      "name": "Alexis Peterson",
+      "team": null,
+      "status": "Former",
+      "allStar": false
+    },
+    {
+      "country": "Germany",
+      "name": "Nyara Sabally",
+      "team": "Toronto Tempo",
+      "status": "Current",
+      "allStar": false
+    },
+    {
+      "country": "Hungary",
+      "name": "Dorka Juhász",
+      "team": "Minnesota Lynx",
+      "status": "Current",
+      "allStar": false
+    },
+    {
+      "country": "Hungary",
+      "name": "Yvonne Turner",
+      "team": null,
+      "status": "Former",
+      "allStar": false
+    },
+    {
+      "country": "Italy",
+      "name": "Lorela Cubaj",
+      "team": null,
+      "status": "Former",
+      "allStar": false
+    },
+    {
+      "country": "Italy",
+      "name": "Costanza Verona",
+      "team": "Dallas Wings",
+      "status": "Current Dev. Player",
+      "allStar": false
+    },
+    {
+      "country": "Italy",
+      "name": "Cecilia Zandalasini",
+      "team": "Golden State Valkyries",
+      "status": "Current",
+      "allStar": false
+    },
+    {
+      "country": "Japan",
+      "name": "Rui Machida",
+      "team": null,
+      "status": "Former",
+      "allStar": false
+    },
+    {
+      "country": "Japan",
+      "name": "Ramu Tokashiki",
+      "team": null,
+      "status": "Former",
+      "allStar": false
+    },
+    {
+      "country": "Japan",
+      "name": "Mai Yamamoto",
+      "team": "Las Vegas Aces",
+      "status": "Current",
+      "allStar": false
+    },
+    {
+      "country": "Korea",
+      "name": "Jihyun Park",
+      "team": "Los Angeles Sparks",
+      "status": "Current",
+      "allStar": false
+    },
+    {
+      "country": "Mali",
+      "name": "Sika Koné",
+      "team": "Atlanta Dream",
+      "status": "Current",
+      "allStar": false
+    },
+    {
+      "country": "Nigeria",
+      "name": "Elizabeth Balogun",
+      "team": "New York Liberty",
+      "status": "Current Dev. Player",
+      "allStar": false
+    },
+    {
+      "country": "Nigeria",
+      "name": "Ezinne Kalu",
+      "team": null,
+      "status": "Former",
+      "allStar": false
+    },
+    {
+      "country": "Nigeria",
+      "name": "Victoria Macaulay",
+      "team": null,
+      "status": "Former",
+      "allStar": false
+    },
+    {
+      "country": "Nigeria",
+      "name": "Murjanatu Musa",
+      "team": null,
+      "status": "Former",
+      "allStar": false
+    },
+    {
+      "country": "Nigeria",
+      "name": "Amy Okonkwo",
+      "team": "Portland Fire",
+      "status": "Current",
+      "allStar": false
+    },
+    {
+      "country": "Puerto Rico",
+      "name": "Arella Guirantes",
+      "team": null,
+      "status": "Former",
+      "allStar": false
+    },
+    {
+      "country": "Puerto Rico",
+      "name": "Imani McGee-Stafford",
+      "team": null,
+      "status": "Former",
+      "allStar": false
+    },
+    {
+      "country": "Spain",
+      "name": "Elena Buenavida",
+      "team": "Minnesota Lynx",
+      "status": "Current Dev. Player",
+      "allStar": false
+    },
+    {
+      "country": "Spain",
+      "name": "Raquel Carrera",
+      "team": "New York Liberty",
+      "status": "Current",
+      "allStar": false
+    },
+    {
+      "country": "Spain",
+      "name": "Maite Cazorla",
+      "team": null,
+      "status": "Former",
+      "allStar": false
+    },
+    {
+      "country": "Spain",
+      "name": "Maria Conde",
+      "team": "Toronto Tempo",
+      "status": "Current",
+      "allStar": false
+    },
+    {
+      "country": "Spain",
+      "name": "Megan DiLeo",
+      "team": "Portland Fire",
+      "status": "Current",
+      "allStar": false
+    },
+    {
+      "country": "Spain",
+      "name": "Awa Fam",
+      "team": "Seattle Storm",
+      "status": "Current",
+      "allStar": false
+    },
+    {
+      "country": "Spain",
+      "name": "Alicia Florez",
+      "team": "Washington Mystics",
+      "status": "Current",
+      "allStar": false
+    },
+    {
+      "country": "Türkiye",
+      "name": "Kennedy Burke",
+      "team": "Connecticut Sun",
+      "status": "Current",
+      "allStar": false
+    },
+    {
+      "country": "Türkiye",
+      "name": "Sevgi Uzun",
+      "team": null,
+      "status": "Former",
+      "allStar": false
+    },
+    {
+      "country": "United States",
+      "name": "Aliyah Boston",
+      "team": "Indiana Fever",
+      "status": "Current",
+      "allStar": true
+    },
+    {
+      "country": "United States",
+      "name": "Paige Bueckers",
+      "team": "Dallas Wings",
+      "status": "Current",
+      "allStar": true
+    },
+    {
+      "country": "United States",
+      "name": "Sonia Citron",
+      "team": "Washington Mystics",
+      "status": "Current",
+      "allStar": true
+    },
+    {
+      "country": "United States",
+      "name": "Caitlin Clark",
+      "team": "Indiana Fever",
+      "status": "Current",
+      "allStar": true
+    },
+    {
+      "country": "United States",
+      "name": "Napheesa Collier",
+      "team": "Minnesota Lynx",
+      "status": "Current",
+      "allStar": true
+    },
+    {
+      "country": "United States",
+      "name": "Kahleah Copper",
+      "team": "Phoenix Mercury",
+      "status": "Current",
+      "allStar": true
+    },
+    {
+      "country": "United States",
+      "name": "Chelsea Gray",
+      "team": "Las Vegas Aces",
+      "status": "Current",
+      "allStar": true
+    },
+    {
+      "country": "United States",
+      "name": "Rhyne Howard",
+      "team": "Atlanta Dream",
+      "status": "Current",
+      "allStar": true
+    },
+    {
+      "country": "United States",
+      "name": "Kiki Iriafen",
+      "team": "Washington Mystics",
+      "status": "Current",
+      "allStar": true
+    },
+    {
+      "country": "United States",
+      "name": "Angel Reese",
+      "team": "Atlanta Dream",
+      "status": "Current",
+      "allStar": true
+    },
+    {
+      "country": "United States",
+      "name": "Breanna Stewart",
+      "team": "New York Liberty",
+      "status": "Current",
+      "allStar": true
+    },
+    {
+      "country": "United States",
+      "name": "Jackie Young",
+      "team": "Las Vegas Aces",
+      "status": "Current",
+      "allStar": true
+    }
+  ]
+}

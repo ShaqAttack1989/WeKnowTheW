@@ -76,6 +76,7 @@
     {"path":"/api/player-movement","schedule":"0 9 * * *"},
     {"path":"/api/players","schedule":"5 9 * * *"},
     {"path":"/api/availability","schedule":"*/30 * * * *"},
-    {"path":"/api/fiba-world-cup","schedule":"*/2 * 4-13 9 *"}
+    {"path":"/api/fiba-world-cup","schedule":"*/2 * 4-13 9 *"},
+    {"path":"/api/team-usa-stat-kitchen","schedule":"17 * * * *"}
   ]
 }

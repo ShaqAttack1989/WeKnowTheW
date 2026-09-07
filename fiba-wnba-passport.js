@@ -3,10 +3,19 @@
   const root=document.getElementById('fibaWnbaPassport')||document.getElementById('wnba-passport');
   if(!root)return;
 
+  if(!document.querySelector('link[data-fiba-passport-polish]')){
+    const styleLink=document.createElement('link');
+    styleLink.rel='stylesheet';
+    styleLink.dataset.fibaPassportPolish='true';
+    styleLink.href='/fiba-passport-polish.css?v=20260907-v1';
+    document.head.appendChild(styleLink);
+  }
+
   const safe=value=>String(value??'').replace(/[&<>\"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;',"'":'&#039;'}[ch]));
   let mode='current';
   let group='all';
   let data=null;
+  const FLAG_FALLBACK={Australia:'🇦🇺',Belgium:'🇧🇪',China:'🇨🇳',Czechia:'🇨🇿',France:'🇫🇷',Germany:'🇩🇪',Hungary:'🇭🇺',Italy:'🇮🇹',Japan:'🇯🇵',Korea:'🇰🇷',Mali:'🇲🇱',Nigeria:'🇳🇬','Puerto Rico':'🇵🇷',Spain:'🇪🇸','Türkiye':'🇹🇷','United States':'🇺🇸'};
 
   const playerLink=name=>'/playerpedia.html?search='+encodeURIComponent(name)+'#playerpedia-directory';
   const isCurrent=status=>/^Current/.test(status||'');
@@ -46,17 +55,18 @@
   function countryCard(country){
     const counts=countFor(country);
     const players=visiblePlayers(country);
-    const flag=data.flags[country]||'';
+    const flag=data.flags?.[country]||FLAG_FALLBACK[country]||'🏀';
     const groupName=countryGroup(country);
     const noCurrent=mode==='current'&&players.length===0;
+    const countryClass=(country==='United States'?'usa ':'')+(noCurrent?'empty-current ':'')+'group-'+String(groupName||'x').toLowerCase();
     const formerCounts=counts.former?'<b>'+counts.former+'</b><small>former</small>':'';
     let emptyCopy='';
     if(mode==='allstar')emptyCopy='No WNBA All-Star on this roster.';
     else if(counts.former)emptyCopy='No current WNBA player. '+counts.former+' WNBA alum'+(counts.former>1?'s':'')+' on the roster.';
     else emptyCopy='No current WNBA player.';
-    return '<article class="fiba-passport-country '+(country==='United States'?'usa ':'')+(noCurrent?'empty-current':'')+'" data-country="'+safe(country)+'">'+
+    return '<article class="fiba-passport-country '+countryClass+'" data-country="'+safe(country)+'">'+
       '<header>'+
-        '<div class="fiba-passport-country-title"><span class="fiba-passport-flag" aria-hidden="true">'+safe(flag)+'</span><div><span>GROUP '+safe(groupName)+'</span><h4>'+safe(country)+'</h4></div></div>'+
+        '<div class="fiba-passport-country-title"><span class="fiba-passport-flag-shell"><span class="fiba-passport-flag" aria-hidden="true">'+safe(flag)+'</span></span><div><span class="fiba-passport-group-label">GROUP '+safe(groupName)+'</span><h4>'+safe(country)+'</h4></div></div>'+
         '<div class="fiba-passport-counts"><b>'+counts.current+'</b><small>current</small>'+formerCounts+'</div>'+
       '</header>'+
       '<div class="fiba-passport-player-list">'+(players.length?players.map(playerRow).join(''):'<div class="fiba-passport-none">'+emptyCopy+'</div>')+'</div>'+

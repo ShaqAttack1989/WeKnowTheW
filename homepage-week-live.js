@@ -7,6 +7,48 @@
   const timeValue=value=>{const parsed=Date.parse(String(value||''));return Number.isFinite(parsed)?parsed:0;};
   const fmtDate=value=>{const parsed=new Date(String(value||''));return Number.isNaN(parsed.getTime())?text(value):parsed.toLocaleDateString([],{month:'short',day:'numeric',year:'numeric'});};
   const fmtShortDate=value=>{const parsed=new Date(String(value||''));return Number.isNaN(parsed.getTime())?text(value):parsed.toLocaleDateString([],{month:'short',day:'numeric'});};
+
+  const photoDeck=[
+    {src:'/assets/images/commissioner-search/cathy-engelbert.webp',alt:'Cathy Engelbert'},
+    {src:'/assets/images/commissioner-search/swin-cash.webp',alt:'Swin Cash'},
+    {src:'/assets/images/commissioner-search/sarah-mensah.webp',alt:'Sarah Mensah'},
+    {src:'/assets/images/commissioner-search/bethany-donaphin.webp',alt:'Bethany Donaphin'},
+    {src:'/assets/images/commissioner-search/jess-smith.webp',alt:'Jess Smith'},
+    {src:'/assets/images/commissioner-search/nneka-ogwumike.webp',alt:'Nneka Ogwumike'},
+    {src:'/assets/images/commissioner-search/renie-anderson.webp',alt:'Renie Anderson'},
+    {src:'/assets/images/commissioner-search/condoleezza-rice.webp',alt:'Condoleezza Rice'},
+    {src:'/assets/images/snack-shak/power-rankings-vs-standings-aug30.webp',alt:'WNBA power rankings and standings'}
+  ];
+  const fallbackPhoto=photoDeck[0].src;
+  const localPlayerPhotos={
+    'swin cash':photoDeck[1].src,
+    'nneka ogwumike':photoDeck[5].src,
+    'chiney ogwumike':photoDeck[5].src,
+    'sarah mensah':photoDeck[2].src,
+    'bethany donaphin':photoDeck[3].src,
+    'jess smith':photoDeck[4].src,
+    'renie anderson':photoDeck[6].src,
+    'condoleezza rice':photoDeck[7].src
+  };
+  const sitePhoto=value=>/^(?:\/|https?:\/\/)/i.test(String(value||'').trim())?String(value).trim():'';
+  const storyImage=(story={},slot=0)=>{
+    const direct=[story.image,story.imageUrl,story.photo,story.thumbnail,story.heroImage,story.media?.image,story.media?.photo,story.media?.thumbnail].map(sitePhoto).find(Boolean);
+    if(direct)return direct;
+    const related=(Array.isArray(story.players)?story.players:[]).map(name=>localPlayerPhotos[norm(name)]).find(Boolean);
+    return related||photoDeck[slot%photoDeck.length].src;
+  };
+  const snapshotPhoto=(kicker='')=>{
+    const key=norm(kicker);
+    if(key.includes('stat kitchen')||key.includes('live stats'))return photoDeck[8].src;
+    if(key.includes('rotation'))return photoDeck[5].src;
+    if(key.includes('games'))return photoDeck[2].src;
+    if(key.includes('player wire'))return photoDeck[4].src;
+    if(key.includes('unrivaled'))return photoDeck[6].src;
+    if(key.includes('upshot'))return photoDeck[1].src;
+    if(key.includes('fiba'))return photoDeck[7].src;
+    if(key.includes('college'))return photoDeck[2].src;
+    return fallbackPhoto;
+  };
   const fetchJson=async url=>{
     const joiner=url.includes('?')?'&':'?';
     const response=await fetch(`${url}${joiner}cb=${Date.now()}`,{headers:{Accept:'application/json','Cache-Control':'no-cache'},cache:'no-store'});
@@ -28,10 +70,16 @@
     pageShell.innerHTML=`
       <div class="week-hub-shell">
         <header class="week-hub-head">
-          <div>
+          <div class="week-hub-head-copy">
             <p class="kicker">THIS WEEK IN THE W</p>
             <h2>The W, right now.</h2>
             <p>The freshest stories, numbers, roster news and basketball beyond the league, distilled from across We Know the W. Get the headline here, then go deeper.</p>
+          </div>
+          <div class="week-hub-head-visual" aria-hidden="true">
+            <span class="week-head-photo one"><img src="${safe(photoDeck[0].src)}" alt=""></span>
+            <span class="week-head-photo two"><img src="${safe(photoDeck[5].src)}" alt=""></span>
+            <span class="week-head-photo three"><img src="${safe(photoDeck[8].src)}" alt=""></span>
+            <span class="week-head-visual-label">LIVE EDITION</span>
           </div>
           <span class="week-hub-stamp" id="weekHubStamp"><i aria-hidden="true"></i> Refreshing</span>
         </header>
@@ -98,25 +146,40 @@
 
   function renderEditorial(host,story,kind){
     if(!host)return;
+    const archiveHref=kind==='food'?'/food-for-thought.html':'/snack-shak-bytes.html';
+    const photo=storyImage(story,kind==='food'?0:8);
     if(!story){
-      host.innerHTML=`<span class="week-card-kicker">${kind==='food'?'FOOD FOR THOUGHT':'SNACK SHAK BYTE'}</span><h3>Fresh plate incoming.</h3><p>The newest ${kind==='food'?'long-form read':'quick bite'} is reconnecting to the homepage.</p><a href="${kind==='food'?'/food-for-thought.html':'/snack-shak-bytes.html'}">Open the archive →</a>`;
+      host.innerHTML=`
+        <figure class='week-editorial-media'><img src='${safe(photo)}' alt='' loading='lazy' decoding='async'><span class='week-media-tag'>${kind==='food'?'FEATURE':'BYTE'}</span></figure>
+        <div class='week-editorial-body'>
+          <div class='week-editorial-top'><span class='week-card-kicker'>${kind==='food'?'FOOD FOR THOUGHT':'SNACK SHAK BYTE'}</span><span class='week-card-date'>RECONNECTING</span></div>
+          <h3>Fresh plate incoming.</h3>
+          <p>The newest ${kind==='food'?'long-form read':'quick bite'} is reconnecting to the homepage.</p>
+          <a href='${archiveHref}'>Open the archive →</a>
+        </div>`;
       return;
     }
     host.innerHTML=`
-      <div class="week-editorial-top"><span class="week-card-kicker">${kind==='food'?'FOOD FOR THOUGHT':'SNACK SHAK BYTE'}</span><span class="week-card-date">${safe(fmtDate(dateValue(story)))}</span></div>
-      <span class="week-story-series">${safe(storyLabel(story))}</span>
-      <h3>${safe(story.title)}</h3>
-      <p>${safe(storyText(story))}</p>
-      <a href="${safe(storyHref(story,kind))}">${kind==='food'?'Read the full thought':'Grab the Byte'} →</a>`;
+      <figure class='week-editorial-media'><img src='${safe(photo)}' alt='${safe(story.title)}' loading='${kind==='food'?'eager':'lazy'}' decoding='async'><span class='week-media-tag'>${kind==='food'?'FEATURED READ':'QUICK HIT'}</span></figure>
+      <div class='week-editorial-body'>
+        <div class='week-editorial-top'><span class='week-card-kicker'>${kind==='food'?'FOOD FOR THOUGHT':'SNACK SHAK BYTE'}</span><span class='week-card-date'>${safe(fmtDate(dateValue(story)))}</span></div>
+        <span class='week-story-series'>${safe(storyLabel(story))}</span>
+        <h3>${safe(story.title)}</h3>
+        <p>${safe(storyText(story))}</p>
+        <a href='${safe(storyHref(story,kind))}'>${kind==='food'?'Read the full thought':'Grab the Byte'} →</a>
+      </div>`;
   }
-
-  function snapshot(host,{kicker,title,copy,meta='',href,label='Explore',secondaryHref='',secondaryLabel=''}){
+  function snapshot(host,{kicker,title,copy,meta='',href,label='Explore',secondaryHref='',secondaryLabel='',image='',imageAlt=''}){
     if(!host)return;
+    const photo=sitePhoto(image)||snapshotPhoto(kicker);
     host.innerHTML=`
-      <div class="week-snapshot-top"><span class="week-card-kicker">${safe(kicker)}</span>${meta?`<span class="week-card-meta">${safe(meta)}</span>`:''}</div>
-      <h3>${safe(title)}</h3>
-      <p>${safe(copy)}</p>
-      <div class="week-card-actions"><a href="${safe(href)}">${safe(label)} →</a>${secondaryHref?`<a class="secondary" href="${safe(secondaryHref)}">${safe(secondaryLabel||'More')} →</a>`:''}</div>`;
+      <div class='week-snapshot-media'><img src='${safe(photo)}' alt='${safe(imageAlt||title)}' loading='lazy' decoding='async'><span>${safe(kicker)}</span></div>
+      <div class='week-snapshot-content'>
+        <div class='week-snapshot-top'><span class='week-card-kicker'>${safe(kicker)}</span>${meta?`<span class='week-card-meta'>${safe(meta)}</span>`:''}</div>
+        <h3>${safe(title)}</h3>
+        <p>${safe(copy)}</p>
+        <div class='week-card-actions'><a href='${safe(href)}'>${safe(label)} →</a>${secondaryHref?`<a class='secondary' href='${safe(secondaryHref)}'>${safe(secondaryLabel||'More')} →</a>`:''}</div>
+      </div>`;
   }
   function snapshotError(host,kicker,title,href){snapshot(host,{kicker,title,copy:'This section is reconnecting. The full page is still available.',href,label:'Open section'});}
 

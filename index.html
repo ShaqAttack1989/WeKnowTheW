@@ -10,7 +10,8 @@
   <link rel="stylesheet" href="/landing.css?v=20260830-compact-hero-v1">
   <link rel="stylesheet" href="/game-broadcasts.css?v=20260825-official-v2">
   <link rel="stylesheet" href="/homepage-hub.css?v=20260825-v2">
-  <link rel="stylesheet" href="/homepage-week-live.css?v=20260908-865c945e-weekly-hub">
+  <link rel="stylesheet" href="/homepage-season-spotlight.css?v=20260908-fiba-v1">
+  <link rel="stylesheet" href="/homepage-week-live.css?v=20260908-active-season-v1">
   <script>
     window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
   </script>
@@ -30,7 +31,7 @@
         <p class="hero-copy">An independent, fan-built women’s basketball encyclopedia organized around the current league, the players, the archive, the culture, the pipeline and the pros who keep hooping when the W season ends.</p>
         <div class="hero-actions">
           <a class="button primary" href="#sitewide-search">Search the W</a>
-          <a class="button ghost" href="#this-week">This Week in the W</a>
+          <a class="button ghost" href="#now-playing">Jet Lag &amp; Jump Shots</a>
         </div>
       </div>
       <aside class="hero-card" aria-label="Current edition">
@@ -43,6 +44,79 @@
   </header>
 
   <main>
+    <!-- Seasonal spotlight: change data-season, copy, links and photos when the active competition changes. -->
+    <section class="home-season-spotlight" id="now-playing" data-season="fiba" aria-labelledby="seasonSpotlightTitle">
+      <div class="page-shell">
+        <div class="season-spotlight-frame">
+          <header class="season-spotlight-head">
+            <div class="season-spotlight-copy">
+              <p class="season-spotlight-kicker"><span><i aria-hidden="true"></i> Now playing</span> FIBA Women’s World Cup</p>
+              <h2 id="seasonSpotlightTitle">Jet Lag <em>&amp; Jump Shots</em></h2>
+              <p>Berlin owns the clock. The world game owns the homepage. Follow Team USA, the WNBA passport and the knockout picture in one clean lane.</p>
+            </div>
+            <aside class="season-spotlight-status" aria-label="Current competition">
+              <span>LIVE NOW</span>
+              <strong>BERLIN <br>2026</strong>
+              <small>SEPTEMBER 4 TO 13</small>
+            </aside>
+          </header>
+
+          <nav class="season-spotlight-nav" aria-label="FIBA World Cup shortcuts">
+            <a href="/fiba-world-cup.html">World Cup HQ</a>
+            <a href="/what-group-play-told-us.html">Knockout read</a>
+            <a href="/fiba-world-cup.html#wnba-passport">WNBA passport</a>
+            <a class="is-featured" href="/fiba-watchers-guide.html">Watcher’s guide</a>
+          </nav>
+
+          <div class="season-story-grid">
+            <a class="season-story season-story-lead" href="/fiba-watchers-guide.html">
+              <figure class="season-story-media">
+                <img src="/assets/images/fiba-group-play/france-action.jpg" alt="Gabby Williams in her France uniform with a basketball" loading="eager">
+                <span>THE COMPLETE WATCHER’S GUIDE</span>
+              </figure>
+              <div class="season-story-copy">
+                <p class="season-story-label">JET LAG &amp; JUMP SHOTS</p>
+                <h3>Start here before the next tip.</h3>
+                <p>The format, teams, WNBA connections and names shaping the World Cup in Berlin.</p>
+                <b>Read the watcher’s guide <span aria-hidden="true">→</span></b>
+              </div>
+            </a>
+
+            <a class="season-story" href="/fiba-world-cup.html">
+              <figure class="season-story-media">
+                <img src="/assets/images/fiba-group-play/usa-action.jpg" alt="Team USA driving against Italy in official FIBA action" loading="lazy">
+                <span>LIVE WORLD CUP HQ</span>
+              </figure>
+              <div class="season-story-copy">
+                <p class="season-story-label">TEAM USA + ALL 16 COUNTRIES</p>
+                <h3>Every score. Every country. One board.</h3>
+                <p>Standings, W Score, stat leaders, results and Team USA’s tournament dashboard.</p>
+                <b>Open the live dashboard <span aria-hidden="true">→</span></b>
+              </div>
+            </a>
+
+            <a class="season-story" href="/fiba-world-cup.html#wnba-passport">
+              <figure class="season-story-media">
+                <img src="/assets/images/fiba-group-play/spain-action.jpg" alt="Spain celebrating after qualifying directly for the World Cup quarterfinals" loading="lazy">
+                <span>WNBA PASSPORT</span>
+              </figure>
+              <div class="season-story-copy">
+                <p class="season-story-label">THE W AROUND THE WORLD</p>
+                <h3>Recognize the jersey. Find the W connection.</h3>
+                <p>Track current, developmental and former WNBA players across the tournament field.</p>
+                <b>Open the WNBA passport <span aria-hidden="true">→</span></b>
+              </div>
+            </a>
+          </div>
+
+          <footer class="season-spotlight-foot">
+            <span>Real players. Live tournament context. One active-season front door.</span>
+            <a href="https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026" target="_blank" rel="noopener">Official FIBA tournament <span aria-hidden="true">↗</span></a>
+          </footer>
+        </div>
+      </div>
+    </section>
+
     <section class="home-command-section" id="sitewide-search">
       <div class="page-shell">
         <div class="home-search-card">
@@ -189,7 +263,7 @@
   <script src="/game-cards.js?v=20260830-livefix-v2"></script>
   <script src="/game-broadcast-upgrade.js?v=20260825-official-v2"></script>
   <script src="/homepage-hub.js?v=20260828-v1"></script>
-  <script src="/homepage-week-live.js?v=20260908-865c945e-weekly-hub"></script>
+  <script src="/homepage-week-live.js?v=20260908-active-season-v1"></script>
   <script src="/homepage-specials.js?v=20260908-865c945e-fresh-stories"></script>
   <script src="/home-live.js?v=20260830-dashboard-links-v1"></script>
 </body>

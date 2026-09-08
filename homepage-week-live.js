@@ -98,10 +98,6 @@
           <article class="week-snapshot-card" id="weekHubLive"><div class="week-hub-loading">Checking live stats…</div></article>
           <article class="week-snapshot-card" id="weekHubGames"><div class="week-hub-loading">Checking the schedule…</div></article>
           <article class="week-snapshot-card" id="weekHubRoster"><div class="week-hub-loading">Checking movement and availability…</div></article>
-          <article class="week-snapshot-card" id="weekHubUnrivaled"><div class="week-hub-loading">Checking Unrivaled…</div></article>
-          <article class="week-snapshot-card" id="weekHubUpshot"><div class="week-hub-loading">Checking the UPSHOT pipeline…</div></article>
-          <article class="week-snapshot-card" id="weekHubFiba"><div class="week-hub-loading">Checking FIBA basketball…</div></article>
-          <article class="week-snapshot-card" id="weekHubCollege"><div class="week-hub-loading">Checking college hoops…</div></article>
         </div>
         <footer class="week-hub-foot"><span>One front door. The full encyclopedia is still underneath it.</span><a href="#sections">Explore every section →</a></footer>
       </div>`;
@@ -207,15 +203,9 @@
 
   async function loadStaticSnapshots(){
     const stat=document.getElementById('weekHubStat');
-    const unrivaled=document.getElementById('weekHubUnrivaled');
-    const upshot=document.getElementById('weekHubUpshot');
-    const results=await Promise.allSettled([fetchHtml('/stat-kitchen.html'),fetchHtml('/unrivaled.html'),fetchHtml('/the-call-up.html')]);
+    const results=await Promise.allSettled([fetchHtml('/stat-kitchen.html')]);
     const statCopy=results[0].status==='fulfilled'?usefulPageCopy(results[0].value):'';
     snapshot(stat,{kicker:'STAT KITCHEN',title:'The latest numbers on the stove',copy:statCopy||'The Stat Kitchen is tracking the newest leaderboards, milestones and number-driven context from around the W.',meta:'LATEST SNAPSHOT',href:'/stat-kitchen.html',label:'Open Stat Kitchen'});
-    const unrivaledCopy=results[1].status==='fulfilled'?usefulPageCopy(results[1].value):'';
-    snapshot(unrivaled,{kicker:'NO OFFSEASON · UNRIVALED',title:'The 3-on-3 shelf',copy:unrivaledCopy||'Clubs, affiliations, standings and the W players who keep hooping when the league season ends.',href:'/unrivaled.html',label:'Open Unrivaled'});
-    const upshotCopy=results[2].status==='fulfilled'?usefulPageCopy(results[2].value):'';
-    snapshot(upshot,{kicker:'UPSHOT · THE CALL UP',title:'Who is pushing toward the W?',copy:upshotCopy||'The expansion pipeline, call-ups and next-wave players are tracked here without crowding the front page.',href:'/the-call-up.html',label:'Open The Call Up'});
   }
 
   function latestRotation(payload={},keyName){return [...(payload[keyName]||[])].sort((a,b)=>String(b.week||'').localeCompare(String(a.week||'')))[0]||{};}
@@ -333,7 +323,7 @@
     if(loading)return;
     loading=true;
     try{
-      const results=await Promise.allSettled([loadEditorial(),loadStaticSnapshots(),loadRotations(),loadLeagueData(),loadRoster(),loadFiba(),loadCollege()]);
+      const results=await Promise.allSettled([loadEditorial(),loadStaticSnapshots(),loadRotations(),loadLeagueData(),loadRoster()]);
       const stamps=results.map(result=>result.status==='fulfilled'&&Number.isFinite(Number(result.value))?Number(result.value):0);
       setStamp(stamps);
     }finally{loading=false;}

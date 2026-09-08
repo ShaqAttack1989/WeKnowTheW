@@ -47,6 +47,15 @@ const GROUPS = {
   D: ['USA', 'CZE', 'ITA', 'CHN']
 };
 
+const MAIN_STAT_CATEGORIES = [
+  { key: 'efficiency', marker: 'Efficiency', label: 'Efficiency', unit: 'EFF' },
+  { key: 'points', marker: 'Points', label: 'Points', unit: 'PPG' },
+  { key: 'rebounds', marker: 'Rebounds', label: 'Rebounds', unit: 'RPG' },
+  { key: 'assists', marker: 'Assists', label: 'Assists', unit: 'APG' },
+  { key: 'steals', marker: 'Steals', label: 'Steals', unit: 'SPG' },
+  { key: 'blocks', marker: 'Blocks', label: 'Blocks', unit: 'BPG' }
+];
+
 const USA_ROSTER = [
   'Aliyah Boston', 'Paige Bueckers', 'Caitlin Clark', 'Napheesa Collier', 'Kahleah Copper', 'Chelsea Gray',
   'Rhyne Howard', 'Kiki Iriafen', 'Angel Reese', 'Breanna Stewart', 'Sonia Citron', 'Jackie Young'
@@ -299,6 +308,197 @@ function htmlToText(html = '') {
 
 function escapeRegExp(value = '') {
   return String(value).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+function clamp(value, min = 0, max = 100) {
+  return Math.max(min, Math.min(max, value));
+}
+
+function round1(value) {
+  return Math.round((Number(value) + Number.EPSILON) * 10) / 10;
+}
+
+function parseEventStatLeaders(text = '') {
+  const countryCodes = Object.keys(COUNTRY).join('|');
+  const categories = MAIN_STAT_CATEGORIES.map(category => {
+    const marker = new RegExp(`\\b${escapeRegExp(category.marker)}\\s+Per game\\b`, 'i').exec(text);
+    return { ...category, markerIndex: marker ? marker.index : -1, markerLength: marker ? marker[0].length : 0 };
+  });
+
+  const available = categories.filter(category => category.markerIndex >= 0).sort((a, b) => a.markerIndex - b.markerIndex);
+  const parsed = MAIN_STAT_CATEGORIES.map(category => {
+    const current = available.find(item => item.key === category.key);
+    if (!current) return { ...category, leaders: [] };
+
+    const later = available.find(item => item.markerIndex > current.markerIndex);
+    const segment = text.slice(current.markerIndex + current.markerLength, later ? later.markerIndex : text.length);
+    const playerPattern = new RegExp(
+      `(?:\\b(${countryCodes})\\b\\s+)?([A-ZÀ-ÖØ-Ý][A-Za-zÀ-ÖØ-öø-ÿ'’.\\-]+(?:\\s+[A-ZÀ-ÖØ-Ý][A-Za-zÀ-ÖØ-öø-ÿ'’.\\-]+){1,3})\\s+(?:\\b(${countryCodes})\\b\\s+)?(\\d+(?:\\.\\d+)?)`,
+      'g'
+    );
+
+    const leaders = [];
+    let match;
+    while ((match = playerPattern.exec(segment)) && leaders.length < 3) {
+      const code = match[1] || match[3];
+      if (!code || !COUNTRY[code]) continue;
+      const player = normalizeName(match[2]);
+      if (!player || /^(View All|Per Game)$/i.test(player)) continue;
+      leaders.push({
+        rank: leaders.length + 1,
+        player,
+        countryCode: code,
+        country: COUNTRY[code][0],
+        flag: COUNTRY[code][1],
+        value: Number(match[4])
+      });
+    }
+    return { ...category, leaders };
+  });
+
+  return {
+    categories: parsed,
+    complete: parsed.every(category => category.leaders.length >= 3),
+    populated: parsed.filter(category => category.leaders.length > 0).length
+  };
+}
+
+function resultStreak(results = []) {
+  if (!results.length) return '—';
+  const last = results[results.length - 1];
+  let count = 0;
+  for (let index = results.length - 1; index >= 0 && results[index] === last; index -= 1) count += 1;
+  return `${last}${count}`;
+}
+
+function buildTournamentTable(standings = [], games = []) {
+  const official = new Map();
+  standings.forEach(group => (group.teams || []).forEach(item => {
+    official.set(item.code, {
+      group: group.group,
+      groupPosition: Number(item.rank) || null,
+      groupWins: Number(item.wins) || 0,
+      groupLosses: Number(item.losses) || 0,
+      groupPoints: Number(item.points) || 0
+    });
+  }));
+
+  const rows = new Map();
+  for (const [group, codes] of Object.entries(GROUPS)) {
+    codes.forEach(code => {
+      const [name, flag] = COUNTRY[code];
+      rows.set(code, {
+        code, name, flag, group,
+        wins: 0, losses: 0, gamesPlayed: 0,
+        pointsFor: 0, pointsAgainst: 0,
+        results: [], opponents: [],
+        groupPointsFor: 0, groupPointsAgainst: 0,
+        groupResults: []
+      });
+    });
+  }
+
+  const apply = (item, scored, allowed, result, opponent, isGroup) => {
+    item.gamesPlayed += 1;
+    item.pointsFor += scored;
+    item.pointsAgainst += allowed;
+    item.results.push(result);
+    item.opponents.push(opponent);
+    if (result === 'W') item.wins += 1;
+    else item.losses += 1;
+    if (isGroup) {
+      item.groupPointsFor += scored;
+      item.groupPointsAgainst += allowed;
+      item.groupResults.push(result);
+    }
+  };
+
+  for (const game of games || []) {
+    if (game.status !== 'final') continue;
+    const homeCode = game.home?.code;
+    const awayCode = game.away?.code;
+    const home = rows.get(homeCode);
+    const away = rows.get(awayCode);
+    const homeScore = Number(game.homeScore);
+    const awayScore = Number(game.awayScore);
+    if (!home || !away || !Number.isFinite(homeScore) || !Number.isFinite(awayScore) || homeScore === awayScore) continue;
+    const homeWon = homeScore > awayScore;
+    apply(home, homeScore, awayScore, homeWon ? 'W' : 'L', awayCode, Boolean(game.group));
+    apply(away, awayScore, homeScore, homeWon ? 'L' : 'W', homeCode, Boolean(game.group));
+  }
+
+  const raw = [...rows.values()].map(item => {
+    const record = item.gamesPlayed ? item.wins / item.gamesPlayed : null;
+    const ppg = item.gamesPlayed ? item.pointsFor / item.gamesPlayed : null;
+    const oppPpg = item.gamesPlayed ? item.pointsAgainst / item.gamesPlayed : null;
+    const diffPerGame = item.gamesPlayed ? (item.pointsFor - item.pointsAgainst) / item.gamesPlayed : null;
+    return { ...item, winPercentage: record, ppg, oppPpg, diffPerGame };
+  });
+  const byCode = new Map(raw.map(item => [item.code, item]));
+
+  const completed = raw.map(item => {
+    const officialRow = official.get(item.code) || {};
+    const opponentRates = item.opponents
+      .map(code => byCode.get(code)?.winPercentage)
+      .filter(value => Number.isFinite(value));
+    const strengthOfSchedule = opponentRates.length
+      ? opponentRates.reduce((sum, value) => sum + value, 0) / opponentRates.length
+      : null;
+
+    let wScore = null;
+    if (item.gamesPlayed > 0) {
+      const recordScore = item.winPercentage * 100;
+      const marginScore = clamp(50 + item.diffPerGame * 2.5);
+      const scoringScore = clamp((item.ppg - 50) * 2);
+      const scheduleScore = Number.isFinite(strengthOfSchedule) ? strengthOfSchedule * 100 : 50;
+      wScore = round1((recordScore * 0.45) + (marginScore * 0.30) + (scoringScore * 0.15) + (scheduleScore * 0.10));
+    }
+
+    const groupGames = Number(officialRow.groupWins || 0) + Number(officialRow.groupLosses || 0);
+    const groupPct = groupGames ? Number(officialRow.groupWins || 0) / groupGames : null;
+    const groupDiffPerGame = item.groupResults.length
+      ? (item.groupPointsFor - item.groupPointsAgainst) / item.groupResults.length
+      : null;
+
+    return {
+      code: item.code,
+      name: item.name,
+      flag: item.flag,
+      group: officialRow.group || item.group,
+      groupPosition: officialRow.groupPosition || null,
+      groupPoints: officialRow.groupPoints || 0,
+      groupWins: officialRow.groupWins || 0,
+      groupLosses: officialRow.groupLosses || 0,
+      groupWinPercentage: groupPct,
+      groupPointsFor: item.groupPointsFor,
+      groupPointsAgainst: item.groupPointsAgainst,
+      groupDiffPerGame,
+      groupStreak: resultStreak(item.groupResults),
+      groupForm: item.groupResults.slice(-5).join(' ') || '—',
+      gamesPlayed: item.gamesPlayed,
+      wins: item.wins,
+      losses: item.losses,
+      winPercentage: item.winPercentage,
+      pointsFor: item.pointsFor,
+      pointsAgainst: item.pointsAgainst,
+      ppg: item.ppg,
+      oppPpg: item.oppPpg,
+      diffPerGame: item.diffPerGame,
+      strengthOfSchedule,
+      streak: resultStreak(item.results),
+      form: item.results.slice(-5).join(' ') || '—',
+      wScore
+    };
+  });
+
+  completed.sort((a, b) =>
+    ((b.wScore ?? -1) - (a.wScore ?? -1)) ||
+    ((b.winPercentage ?? -1) - (a.winPercentage ?? -1)) ||
+    ((b.diffPerGame ?? -999) - (a.diffPerGame ?? -999)) ||
+    (b.pointsFor - a.pointsFor)
+  );
+  completed.forEach((item, index) => { item.overallRank = index + 1; });
+  return completed;
 }
 
 async function fetchText(url, timeoutMs = 8000) {
@@ -661,6 +861,8 @@ module.exports = async function handler(req, res) {
   let liveStandings = false;
   let liveResults = false;
   let livePlayerStats = false;
+  let statLeaders = MAIN_STAT_CATEGORIES.map(category => ({ ...category, leaders: [] }));
+  let liveLeagueLeaders = false;
   let standingsSource = 'fallback';
   let playerStatsSource = 'fallback';
   const warnings = [];
@@ -741,6 +943,18 @@ module.exports = async function handler(req, res) {
 
     games = await attachPlayersOfGame(games);
 
+    if (eventResult.status === 'fulfilled') {
+      const eventText = normalizeName(htmlToText(eventResult.value));
+      const parsedLeaderboards = parseEventStatLeaders(eventText);
+      statLeaders = parsedLeaderboards.categories;
+      liveLeagueLeaders = parsedLeaderboards.complete;
+      if (!liveLeagueLeaders && parsedLeaderboards.populated > 0) {
+        warnings.push('Some FIBA tournament leader categories are still refreshing. Available categories are shown while the official leaderboard catches up.');
+      }
+    } else {
+      warnings.push('Official FIBA all-player leaderboards could not be refreshed.');
+    }
+
     if (statsResult.status === 'fulfilled') {
       const statsText = normalizeName(htmlToText(statsResult.value));
       const parsedHtmlStats = parsePlayerStats(statsText);
@@ -766,7 +980,9 @@ module.exports = async function handler(req, res) {
     warnings.push(`Live FIBA refresh unavailable: ${error.message}`);
   }
 
-  res.setHeader('Cache-Control', 's-maxage=120, stale-while-revalidate=300');
+  const tournamentTable = buildTournamentTable(standings, games);
+
+  res.setHeader('Cache-Control', 's-maxage=60, stale-while-revalidate=120');
   return res.status(200).json({
     competition: 'FIBA Women’s Basketball World Cup 2026',
     location: 'Berlin, Germany',
@@ -783,6 +999,7 @@ module.exports = async function handler(req, res) {
       liveStandings,
       liveResults,
       livePlayerStats,
+      liveLeagueLeaders,
       standingsSource,
       playerStatsSource,
       playerOfGameCount: games.filter(game => game.playerOfGame).length,
@@ -791,6 +1008,19 @@ module.exports = async function handler(req, res) {
     rosterStatus: 'Updated Aug. 31: USA Basketball added Kiki Iriafen and Sonia Citron after A’ja Wilson and Kelsey Plum withdrew for health reasons. FIBA notes federation-announced rosters may differ from the final event roster.',
     usa: { ...usaSummary(standings), roster: USA_ROSTER, rosterUpdate: USA_ROSTER_UPDATE },
     standings,
+    tournamentTable,
+    statLeaders,
+    compositeMethodology: {
+      name: 'We Know the W Tournament Composite',
+      scale: '0-100',
+      formula: [
+        { component: 'Win rate', weight: 45 },
+        { component: 'Point differential per game', weight: 30 },
+        { component: 'Scoring rate', weight: 15 },
+        { component: 'Strength of schedule', weight: 10 }
+      ],
+      note: 'The W score is an editorial performance metric, not an official FIBA ranking. It recalculates from completed World Cup games.'
+    },
     games,
     knockoutRounds: KNOCKOUT_ROUNDS,
     playerStats,

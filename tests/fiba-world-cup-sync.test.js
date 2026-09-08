@@ -41,20 +41,20 @@ const dailyGameCenter = html(
   'Group Phase · Group B Final KOR KOR 99 NGR NGR 81'
 );
 
-async function runDashboard({standings, stats=html('No USA player stats yet'), teamStats=null}) {
+async function runDashboard({standings, stats=html('No USA player stats yet'), teamStats=null, results=finalGames, daily=dailyGameCenter}) {
   delete require.cache[require.resolve(handlerPath)];
   const originalFetch = global.fetch;
   global.fetch = async url => {
     const value = String(url);
     if (value.endsWith('/standings')) return { ok: true, text: async () => standings };
-    if (value.endsWith('/games')) return { ok: true, text: async () => finalGames };
+    if (value.endsWith('/games')) return { ok: true, text: async () => results };
     if (value.endsWith('/stats')) return { ok: true, text: async () => stats };
     if (value.includes('getgdapcompetitionteamstatisticsbyteamid')) {
       return teamStats
         ? { ok: true, json: async () => teamStats }
         : { ok: false, status: 404, json: async () => ({}) };
     }
-    if (value.includes('/news/2026-wwc-game-center-sep-4')) return { ok: true, text: async () => dailyGameCenter };
+    if (value.includes('/news/2026-wwc-game-center-sep-')) return { ok: true, text: async () => daily };
     if (value.includes('/games/128116-JPN-MLI')) return { ok: true, text: async () => html('🇯🇵 Saki Hayashi (26 PTS) | TCL Player Of The Game | JPN v MLI | FIBA Women\'s World Cup 2026') };
     if (value.includes('/games/128129-AUS-PUR')) return { ok: true, text: async () => html('🇦🇺 Steph Talbot (19 PTS) | TCL Player Of The Game | AUS v PUR | FIBA Women\'s World Cup 2026') };
     if (value.includes('/games/128134-USA-CHN')) return { ok: true, text: async () => html('🇺🇸 Caitlin Clark (14 PTS, 11 AST) | TCL Player Of The Game | USA v CHN | FIBA Women\'s World Cup 2026') };
@@ -109,6 +109,30 @@ test('official FIBA standings take priority once they catch up', async () => {
   assert.equal(data.dataStatus.standingsSource, 'official-standings');
   assert.equal(data.standings.find(group => group.group === 'A').teams[0].code, 'JPN');
   assert.equal(data.standings.find(group => group.group === 'C').teams[0].code, 'AUS');
+});
+
+test('derived final standings use head-to-head before overall point differential', async () => {
+  const groupAResults = html(
+    'Group Phase · Group A Final JPN JPN 102 MLI MLI 97 ' +
+    'Group Phase · Group A Final ESP ESP 83 GER GER 53 ' +
+    'Group Phase · Group A Final MLI MLI 82 ESP ESP 73 ' +
+    'Group Phase · Group A Final GER GER 74 JPN JPN 58 ' +
+    'Group Phase · Group A Final JPN JPN 59 ESP ESP 79 ' +
+    'Group Phase · Group A Final GER GER 83 MLI MLI 58'
+  );
+  const data = await runDashboard({ standings: standingsText({}), results: groupAResults, daily: groupAResults });
+  const order = data.standings.find(group => group.group === 'A').teams.map(team => team.code);
+  assert.deepEqual(order, ['ESP', 'GER', 'JPN', 'MLI']);
+  assert.equal(data.standings.find(group => group.group === 'A').teams.find(team => team.code === 'JPN').rank, 3);
+});
+
+test('knockout calendar separates qualification games from September 10 quarterfinals', async () => {
+  const data = await runDashboard({ standings: standingsText({}) });
+  assert.deepEqual(data.knockoutRounds.slice(0, 3), [
+    { date: '2026-09-08', phase: 'Qualification to Quarter-Finals', games: 2 },
+    { date: '2026-09-09', phase: 'Qualification to Quarter-Finals', games: 2 },
+    { date: '2026-09-10', phase: 'Quarter-Finals', games: 4 }
+  ]);
 });
 
 test('complete Team USA player statistics come from FIBA team data', async () => {

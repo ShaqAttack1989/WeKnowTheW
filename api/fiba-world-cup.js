@@ -91,7 +91,7 @@ const GROUP_GAMES = [
 ];
 
 const FIBA_GROUP_GAME_IDS = {
-  'JPN-MLI': 128116, 'ESP-GER': 128117, 'MLI-ESP': 128118, 'GER-JPN': 128119, 'JPN-ESP': 128120, 'GER-MLI': 128121,
+  'JPN-MLI': 128116, 'ESP-GER': 128117, 'MLI-ESP': 128119, 'GER-JPN': 128118, 'JPN-ESP': 128120, 'GER-MLI': 128121,
   'HUN-FRA': 128122, 'KOR-NGR': 128123, 'NGR-HUN': 128124, 'FRA-KOR': 128125, 'HUN-KOR': 128126, 'NGR-FRA': 128127,
   'BEL-TUR': 128128, 'AUS-PUR': 128129, 'PUR-BEL': 128130, 'TUR-AUS': 128131, 'BEL-AUS': 128132, 'PUR-TUR': 128133,
   'USA-CHN': 128134, 'CZE-ITA': 128135, 'ITA-USA': 128136, 'CHN-CZE': 128137, 'USA-CZE': 128138, 'ITA-CHN': 128139
@@ -221,8 +221,9 @@ function gameDetailUrl(game) {
 }
 
 const KNOCKOUT_ROUNDS = [
-  { date: '2026-09-08', phase: 'Qualification to Quarter-Finals', games: 4 },
-  { date: '2026-09-09', phase: 'Quarter-Finals', games: 4 },
+  { date: '2026-09-08', phase: 'Qualification to Quarter-Finals', games: 2 },
+  { date: '2026-09-09', phase: 'Qualification to Quarter-Finals', games: 2 },
+  { date: '2026-09-10', phase: 'Quarter-Finals', games: 4 },
   { date: '2026-09-12', phase: 'Semi-Finals', games: 2 },
   { date: '2026-09-13', phase: 'Medal Games', games: 2 }
 ];
@@ -825,12 +826,46 @@ function deriveStandingsFromFinalGames(fallback, games) {
 
   const groups = [...byGroup.values()];
   groups.forEach(group => {
-    group.teams.sort((a, b) =>
-      (b.points - a.points) ||
-      (b.wins - a.wins) ||
-      ((b.pointsFor - b.pointsAgainst) - (a.pointsFor - a.pointsAgainst)) ||
-      (b.pointsFor - a.pointsFor)
-    );
+    const groupFinals = (games || []).filter(game => game.group === group.group && game.status === 'final');
+    const tiedRecord = codes => {
+      const codeSet = new Set(codes);
+      const mini = new Map(codes.map(code => [code, { points: 0, diff: 0, pointsFor: 0 }]));
+      groupFinals.forEach(game => {
+        const homeCode = game.home?.code;
+        const awayCode = game.away?.code;
+        if (!codeSet.has(homeCode) || !codeSet.has(awayCode)) return;
+        const homeScore = Number(game.homeScore);
+        const awayScore = Number(game.awayScore);
+        const home = mini.get(homeCode);
+        const away = mini.get(awayCode);
+        home.points += homeScore > awayScore ? 2 : 1;
+        away.points += awayScore > homeScore ? 2 : 1;
+        home.diff += homeScore - awayScore;
+        away.diff += awayScore - homeScore;
+        home.pointsFor += homeScore;
+        away.pointsFor += awayScore;
+      });
+      return mini;
+    };
+
+    const byPoints = new Map();
+    group.teams.forEach(item => {
+      if (!byPoints.has(item.points)) byPoints.set(item.points, []);
+      byPoints.get(item.points).push(item);
+    });
+    const ordered = [...byPoints.keys()].sort((a, b) => b - a).flatMap(points => {
+      const tied = byPoints.get(points);
+      if (tied.length === 1) return tied;
+      const mini = tiedRecord(tied.map(item => item.code));
+      return tied.sort((a, b) =>
+        ((mini.get(b.code)?.points || 0) - (mini.get(a.code)?.points || 0)) ||
+        ((mini.get(b.code)?.diff || 0) - (mini.get(a.code)?.diff || 0)) ||
+        ((mini.get(b.code)?.pointsFor || 0) - (mini.get(a.code)?.pointsFor || 0)) ||
+        ((b.pointsFor - b.pointsAgainst) - (a.pointsFor - a.pointsAgainst)) ||
+        (b.pointsFor - a.pointsFor)
+      );
+    });
+    group.teams = ordered;
     group.teams.forEach((item, index) => { item.rank = index + 1; });
   });
   return groups;

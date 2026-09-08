@@ -126,6 +126,10 @@
 .snack-collection-card>p{margin:0 0 22px;color:#675e6e;line-height:1.6;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden;}
 .snack-collection-card.feature>p{color:rgba(255,255,255,.7);}
 .snack-collection-card>b{margin-top:auto;color:#6c2ad9;}
+.snack-collection-card.has-media{overflow:hidden;padding-top:0;}
+.snack-collection-card-media{width:calc(100% + 52px);height:178px;margin:0 -26px 20px;overflow:hidden;border-bottom:1px solid rgba(255,255,255,.16);background:#160a2f;}
+.snack-collection-card-media img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .25s ease;}
+.snack-collection-card:hover .snack-collection-card-media img,.snack-collection-card:focus-visible .snack-collection-card-media img{transform:scale(1.025);}
 .snack-collection-story{max-width:1040px;}
 .snack-story-back{display:inline-flex;margin-bottom:20px;color:#6c2ad9;font-weight:900;text-decoration:none;}
 @media(max-width:900px){.snack-door-grid,.snack-hub-latest-grid{grid-template-columns:1fr}.snack-collection-grid{grid-template-columns:repeat(2,minmax(0,1fr));}}

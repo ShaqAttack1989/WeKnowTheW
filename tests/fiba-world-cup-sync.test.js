@@ -204,13 +204,15 @@ test('dashboard fetches dedicated FIBA games and standings pages', () => {
 });
 
 
-test('all 16 completed group games through September 6 have verified Players of the Game', () => {
+test('all 24 completed group games have verified Players of the Game', () => {
   const source = require('node:fs').readFileSync(handlerPath, 'utf8');
   const expected = [
     ["JPN-MLI","Saki Hayashi"],["AUS-PUR","Steph Talbot"],["USA-CHN","Caitlin Clark"],["KOR-NGR","Jihyun Park"],
     ["BEL-TUR","Emma Meesseman"],["ESP-GER","Awa Fam"],["CZE-ITA","Cecilia Zandalasini"],["HUN-FRA","Dominique Malonga"],
     ["MLI-ESP","Sika Koné"],["NGR-HUN","Dorka Juhász"],["GER-JPN","Frieda Bühner"],["FRA-KOR","Marine Johannès"],
-    ["TUR-AUS","Ezi Magbegor"],["CHN-CZE","Xu Han"],["PUR-BEL","Julie Allemand"],["ITA-USA","Jackie Young"]
+    ["TUR-AUS","Ezi Magbegor"],["CHN-CZE","Xu Han"],["PUR-BEL","Julie Allemand"],["ITA-USA","Jackie Young"],
+    ["BEL-AUS","Emma Meesseman"],["PUR-TUR","Trinity San Antonio"],["HUN-KOR","Dorka Juhász"],["NGR-FRA","Gabby Williams"],
+    ["JPN-ESP","Iyana Martin"],["GER-MLI","Luisa Geiselsöder"],["USA-CZE","Breanna Stewart"],["ITA-CHN","Shuyu Yang"]
   ];
   for (const [game, player] of expected) {
     assert.ok(source.includes("'" + game + "': {"), game + ' missing');
@@ -218,6 +220,21 @@ test('all 16 completed group games through September 6 have verified Players of 
     assert.ok(slice.includes("player: '" + player + "'"), game + ' missing ' + player);
   }
   assert.match(source, /italy-hand-holders-usa-a-major-scare/);
+});
+
+test('FIBA Player of the Game parser decodes nested entities and removes event-title text', () => {
+  delete require.cache[require.resolve(handlerPath)];
+  const handler = require(handlerPath);
+  const parsed = handler.__test.parsePlayerOfGame(
+    html('Image FIBA Women&amp;#x27;s Basketball World Cup 2026 Emma Meesseman (22 PTS, 10 REB) | TCL Player Of The Game | BEL v AUS'),
+    { home: { code: 'BEL' }, away: { code: 'AUS' }, homeScore: 80, awayScore: 68 },
+    'https://www.fiba.basketball/example'
+  );
+
+  assert.equal(handler.__test.decodeEntities('FIBA Women&amp;#x27;s'), "FIBA Women's");
+  assert.equal(parsed.player, 'Emma Meesseman');
+  assert.equal(parsed.line, '22 PTS, 10 REB');
+  assert.equal(parsed.countryCode, 'BEL');
 });
 
 test('Team USA schedule cards render Player of the Game with a country flag', () => {

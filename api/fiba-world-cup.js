@@ -194,11 +194,53 @@ const VERIFIED_PLAYER_OF_GAME = {
     countryCode: 'USA',
     sourceUrl: 'https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026/news/italy-hand-holders-usa-a-major-scare'
   },
+  'BEL-AUS': {
+    player: 'Emma Meesseman',
+    line: '22 PTS · 10 REB',
+    countryCode: 'BEL',
+    sourceUrl: 'https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026/games/128132-BEL-AUS'
+  },
+  'PUR-TUR': {
+    player: 'Trinity San Antonio',
+    line: '18 PTS',
+    countryCode: 'PUR',
+    sourceUrl: 'https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026/games/128133-PUR-TUR'
+  },
+  'HUN-KOR': {
+    player: 'Dorka Juhász',
+    line: '22 PTS · 11 REB',
+    countryCode: 'HUN',
+    sourceUrl: 'https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026/games/128126-HUN-KOR'
+  },
+  'NGR-FRA': {
+    player: 'Gabby Williams',
+    line: '25 PTS',
+    countryCode: 'FRA',
+    sourceUrl: 'https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026/games/128127-NGR-FRA'
+  },
+  'JPN-ESP': {
+    player: 'Iyana Martin',
+    line: '20 PTS',
+    countryCode: 'ESP',
+    sourceUrl: 'https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026/games/128120-JPN-ESP'
+  },
+  'GER-MLI': {
+    player: 'Luisa Geiselsöder',
+    line: '17 PTS',
+    countryCode: 'GER',
+    sourceUrl: 'https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026/games/128121-GER-MLI'
+  },
   'USA-CZE': {
     player: 'Breanna Stewart',
     line: '15 PTS',
     countryCode: 'USA',
     sourceUrl: 'https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026/games/128138-USA-CZE'
+  },
+  'ITA-CHN': {
+    player: 'Shuyu Yang',
+    line: '15 PTS',
+    countryCode: 'CHN',
+    sourceUrl: 'https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026/games/128139-ITA-CHN'
   }
 };
 
@@ -283,18 +325,33 @@ function normalizeName(value = '') {
 }
 
 function decodeEntities(value = '') {
-  return String(value)
-    .replace(/&nbsp;|&#160;/gi, ' ')
-    .replace(/&middot;|&#183;/gi, ' · ')
-    .replace(/&ndash;|&#8211;/gi, '–')
-    .replace(/&mdash;|&#8212;/gi, '—')
-    .replace(/&rsquo;|&#8217;|&#x2019;/gi, '’')
-    .replace(/&lsquo;|&#8216;|&#x2018;/gi, '‘')
-    .replace(/&amp;/gi, '&')
-    .replace(/&quot;/gi, '"')
-    .replace(/&#39;|&apos;/gi, "'")
-    .replace(/&lt;/gi, '<')
-    .replace(/&gt;/gi, '>');
+  let decoded = String(value);
+  for (let pass = 0; pass < 3; pass += 1) {
+    const previous = decoded;
+    const next = decoded
+      .replace(/&amp;/gi, '&')
+      .replace(/&nbsp;/gi, ' ')
+      .replace(/&middot;/gi, ' · ')
+      .replace(/&ndash;/gi, '–')
+      .replace(/&mdash;/gi, '—')
+      .replace(/&rsquo;/gi, '’')
+      .replace(/&lsquo;/gi, '‘')
+      .replace(/&quot;/gi, '"')
+      .replace(/&apos;/gi, "'")
+      .replace(/&lt;/gi, '<')
+      .replace(/&gt;/gi, '>')
+      .replace(/&#x([0-9a-f]+);/gi, (entity, value) => {
+        const codePoint = Number.parseInt(value, 16);
+        return codePoint <= 0x10ffff ? String.fromCodePoint(codePoint) : entity;
+      })
+      .replace(/&#(\d+);/g, (entity, value) => {
+        const codePoint = Number.parseInt(value, 10);
+        return codePoint <= 0x10ffff ? String.fromCodePoint(codePoint) : entity;
+      });
+    decoded = next;
+    if (next === previous) break;
+  }
+  return decoded;
 }
 
 function htmlToText(html = '') {
@@ -640,7 +697,10 @@ function parsePlayerOfGame(html, game, sourceUrl) {
 
   const title = segment.match(/([^|]+?)\s*\(([^()]*)\)\s*$/);
   if (!title) return null;
-  const player = normalizeName(title[1]).replace(/^[^A-Za-zÀ-ÿ]+/, '').trim();
+  const player = normalizeName(title[1])
+    .replace(/^[^A-Za-zÀ-ÿ]+/, '')
+    .replace(/^.*?FIBA Women's Basketball World Cup 2026\s*/i, '')
+    .trim();
   const line = normalizeName(title[2]);
   if (!player || player.length > 80) return null;
 
@@ -1064,3 +1124,5 @@ module.exports = async function handler(req, res) {
     qualifyingForm: QUALIFYING_FORM
   });
 };
+
+module.exports.__test = { decodeEntities, parsePlayerOfGame };

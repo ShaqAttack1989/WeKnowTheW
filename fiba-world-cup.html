@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="Follow Team USA and the 2026 FIBA Women's Basketball World Cup in Berlin with auto-updating standings, schedules, results, official FIBA world rankings and individual USA player statistics from We Know the W.">
+<meta name="description" content="Follow the 2026 FIBA Women's Basketball World Cup in Berlin with auto-updating standings, We Know the W composite scores, all-player stat leaders, schedules, results and Team USA coverage.">
 <title>FIBA Women's Basketball World Cup 2026 | We Know the W</title>
 <link rel="stylesheet" href="/styles.css">
 <link rel="stylesheet" href="/landing.css">
 <link rel="stylesheet" href="/no-offseason.css?v=20260828-fiba-rank-v1">
-<link rel="stylesheet" href="/no-offseason-fiba.css?v=20260907-wnba-passport-v1">
+<link rel="stylesheet" href="/no-offseason-fiba.css?v=20260907-composite-v1">
 <link rel="stylesheet" href="/fiba-preview-notes.css?v=20260903-guide-v1">
 <link rel="stylesheet" href="/team-usa.css?v=20260907-stat-kitchen-v1">
 </head>
@@ -108,17 +108,37 @@
     </div>
   </section>
 
-  <div class="fiba-dashboard-grid">
-    <section class="fiba-panel">
-      <div class="fiba-panel-head"><div><span>16 COUNTRIES · FOUR GROUPS</span><h3>World Cup standings</h3></div><small>WR shows FIBA world rank. Group D is outlined for USA. W/L and points use FIBA standings, with completed official game results filling any update lag.</small></div>
-      <div class="fiba-standings-grid" id="fibaStandingsGrid"><p class="fiba-empty">Loading standings…</p></div>
-    </section>
-    <section class="fiba-panel">
-      <div class="fiba-panel-head"><div><span>SEPTEMBER 4–13 · 36 GAMES</span><h3>Games, schedule & results</h3></div><small>Filter the board to USA or any group. Knockout matchups fill as teams advance.</small></div>
-      <div class="fiba-game-filters" id="fibaGameFilters"></div>
-      <div class="fiba-games-grid" id="fibaGamesGrid"><p class="fiba-empty">Loading World Cup games…</p></div>
-    </section>
-  </div>
+  <section class="fiba-panel fiba-composite-panel" aria-labelledby="fiba-composite-heading">
+    <div class="fiba-panel-head fiba-composite-head">
+      <div><span>16 COUNTRIES · LIVE TOURNAMENT TABLE</span><h3 id="fiba-composite-heading">FIBA standings + We Know the W composite</h3><p>Built like our WNBA table, adapted for tournament basketball. Overall ranks every country by live World Cup performance. Groups preserves the official FIBA group order.</p></div>
+      <div class="fiba-standings-toggle" role="group" aria-label="FIBA standings view">
+        <button type="button" class="active" data-fiba-standings-mode="overall" aria-pressed="true">Overall</button>
+        <button type="button" data-fiba-standings-mode="groups" aria-pressed="false">Groups</button>
+      </div>
+    </div>
+    <div class="fiba-composite-status" id="fibaCompositeStatus">Connecting to completed World Cup results…</div>
+    <div class="fiba-live-table-scroll" id="fibaCompositeStandings"><p class="fiba-empty">Loading the tournament table…</p></div>
+    <div class="fiba-composite-method">
+      <strong>W SCORE · 0–100</strong>
+      <span>45% win rate</span><span>30% point differential per game</span><span>15% scoring rate</span><span>10% strength of schedule</span>
+      <small>Editorial metric by We Know the W. It is not an official FIBA ranking and recalculates only from completed World Cup games.</small>
+    </div>
+  </section>
+
+  <section class="fiba-panel fiba-leaders-panel" aria-labelledby="fiba-leaders-heading">
+    <div class="fiba-panel-head">
+      <div><span>ALL PLAYERS · ALL 16 COUNTRIES</span><h3 id="fiba-leaders-heading">World Cup stat leaders</h3><p>Field-wide leaders in the main categories, not just Team USA.</p></div>
+      <small id="fibaLeadersStatus">Connecting to official FIBA player leaders…</small>
+    </div>
+    <div class="fiba-leaders-grid" id="fibaAllPlayerLeaders"><p class="fiba-empty">Loading tournament leaders…</p></div>
+    <div class="fiba-leader-source"><span>Efficiency, points, rebounds, assists, steals and blocks update from FIBA throughout the tournament.</span><a href="https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026/stats" target="_blank" rel="noopener">Official FIBA stats ↗</a></div>
+  </section>
+
+  <section class="fiba-panel fiba-games-panel">
+    <div class="fiba-panel-head"><div><span>SEPTEMBER 4–13 · 36 GAMES</span><h3>Games, schedule & results</h3></div><small>Filter the board to USA or any group. Knockout matchups fill as teams advance.</small></div>
+    <div class="fiba-game-filters" id="fibaGameFilters"></div>
+    <div class="fiba-games-grid" id="fibaGamesGrid"><p class="fiba-empty">Loading World Cup games…</p></div>
+  </section>
 
   <section class="fiba-panel fiba-player-board">
     <div class="fiba-panel-head"><div><span>TEAM USA · INDIVIDUAL FIBA DASHBOARD</span><h3>2026 World Cup player stats</h3></div><div class="fiba-stats-mode" id="fibaStatsMode"><b>PRE-TOURNAMENT</b><span>Waiting for USA's first box score</span></div></div>
@@ -140,7 +160,7 @@
 </main>
 <script src="/site.js?v=20260907-team-usa-v1"></script>
 <script src="/no-offseason-nav.js?v=20260907-team-usa-v1"></script>
-<script src="/no-offseason-fiba.js?v=20260906-potg-v2"></script>
+<script src="/no-offseason-fiba.js?v=20260907-composite-v1"></script>
 <script src="/fiba-wnba-passport.js?v=20260907-v3"></script>
 <script src="/fiba-world-rankings.js?v=20260828-fiba-rank-v1"></script>
 <script src="/team-usa.js?v=20260907-stat-kitchen-v1"></script>

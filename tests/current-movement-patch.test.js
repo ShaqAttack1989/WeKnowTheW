@@ -29,6 +29,18 @@ test('latest roster moves update current rosters without removing Playerpedia hi
   const payload = await loadPlayers();
   const byName = new Map(payload.players.map(player => [player.name, player]));
 
+  assert.equal(byName.get('Aari McDonald').team, 'Minnesota Lynx');
+  assert.equal(byName.get('Aari McDonald').number, '2');
+  assert.equal(byName.get('Aari McDonald').wnbaId, '1630462');
+  assert.equal(byName.get('Aari McDonald').currentRoster, true);
+  assert.equal(byName.get('Aari McDonald').liveStatus, 'active');
+  assert.equal(byName.get('Aari McDonald').liveEffectiveDate, '2026-09-07');
+
+  assert.equal(byName.get('Eliska Joklova').currentRoster, false);
+  assert.equal(byName.get('Eliska Joklova').lastTeam, 'Minnesota Lynx');
+  assert.equal(byName.get('Eliska Joklova').liveStatus, 'waived');
+  assert.equal(byName.get('Eliska Joklova').liveEffectiveDate, '2026-09-07');
+
   assert.equal(byName.get('Madison Scott').team, 'New York Liberty');
   assert.equal(byName.get('Madison Scott').number, '24');
   assert.equal(byName.get('Madison Scott').currentRoster, true);
@@ -94,6 +106,8 @@ test('latest roster moves update current rosters without removing Playerpedia hi
   }
 
   assert.ok(payload.transactions.some(item => item.player === 'Madison Scott' && item.type === 'SIGNED' && item.team === 'New York Liberty' && item.date === '2026-09-02'));
+  assert.ok(payload.transactions.some(item => item.player === 'Aari McDonald' && item.type === 'SIGNED' && item.team === 'Minnesota Lynx' && item.date === '2026-09-07'));
+  assert.ok(payload.transactions.some(item => item.player === 'Eliska Joklova' && item.type === 'WAIVED' && item.team === 'Minnesota Lynx' && item.date === '2026-09-07'));
   assert.ok(payload.transactions.some(item => item.player === 'Hailey Van Lith' && item.type === 'RELEASED' && item.date === '2026-09-02'));
   assert.ok(payload.transactions.some(item => item.player === 'Saylor Poffenbarger' && item.type === 'RELEASED' && item.date === '2026-09-01'));
   assert.ok(payload.transactions.some(item => item.player === 'Kate Martin' && item.type === 'SIGNED' && item.team === 'Chicago Sky' && item.date === '2026-09-02'));

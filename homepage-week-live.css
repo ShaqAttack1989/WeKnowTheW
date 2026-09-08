@@ -54,8 +54,10 @@
 #weekHubLive .week-card-kicker{color:#4e3168}
 #weekHubGames{background:linear-gradient(145deg,#fff8ea,#f8f1e8);border-color:#eadfce}
 #weekHubGames .week-card-kicker{color:#8a5a00}
-#weekHubRoster{background:linear-gradient(145deg,#f9f2ed,#f3f1e9);border-color:#e3d8d4}
-#weekHubRoster .week-card-kicker{color:#5d17bd}
+#weekHubMovement{background:linear-gradient(145deg,#f9f2ed,#f3f1e9);border-color:#e3d8d4}
+#weekHubMovement .week-card-kicker{color:#5d17bd}
+#weekHubAvailability{background:linear-gradient(145deg,#f4f6ee,#eef4f0);border-color:#d9e2d6}
+#weekHubAvailability .week-card-kicker{color:#286144}
 #weekHubUnrivaled{background:linear-gradient(145deg,#f7f1f0,#f2ecef);border-color:#ded4d8}
 #weekHubUnrivaled .week-card-kicker{color:#6a3179}
 #weekHubUpshot{background:linear-gradient(145deg,#fff8ed,#f8f1e9);border-color:#e7dccf}
@@ -138,7 +140,6 @@
 @media(min-width:981px){
   .week-snapshot-grid{grid-template-columns:repeat(6,minmax(0,1fr))}
   .week-snapshot-card{grid-column:span 2}
-  .week-snapshot-card:nth-last-child(-n+2){grid-column:span 3}
 }
 @media(max-width:980px){
   .week-hub-head-visual{flex-basis:150px;width:150px}

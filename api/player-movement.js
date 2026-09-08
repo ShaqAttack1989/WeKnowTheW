@@ -1,5 +1,6 @@
 const liveUpdates = require('../player-live-updates.json');
 const { CURRENT_MOVEMENT_PATCH } = require('../lib/current-movement-patch');
+const { officialHeadshot } = require('../lib/wnba-headshots');
 const { getWnbaTransactions, getWnbaRosters } = require('../lib/wehoop-espn');
 
 function key(value = '') {
@@ -47,7 +48,8 @@ function addRosterCrossCheck(items, rosterData) {
     if (destinationMove && currentTeam && key(currentTeam) === key(item.team)) rosterCheck = `Current roster confirms ${currentTeam}`;
     else if (exitMove && (!currentTeam || key(currentTeam) !== key(item.team))) rosterCheck = currentTeam ? `Live roster now lists ${currentTeam}` : 'Live roster no longer lists player';
     else if (currentTeam) rosterCheck = `Live roster lists ${currentTeam}`;
-    return { ...item, currentTeam: currentTeam || null, rosterCheck };
+    const headshot = officialHeadshot(item.player);
+    return { ...item, currentTeam: currentTeam || null, rosterCheck, wnbaId: headshot?.id || null, photo: headshot?.url || null };
   });
 }
 

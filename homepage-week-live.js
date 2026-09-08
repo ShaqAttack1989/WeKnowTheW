@@ -42,7 +42,8 @@
     if(key.includes('stat kitchen')||key.includes('live stats'))return photoDeck[8].src;
     if(key.includes('rotation'))return photoDeck[5].src;
     if(key.includes('games'))return photoDeck[2].src;
-    if(key.includes('player wire'))return photoDeck[4].src;
+    if(key.includes('player movement')||key.includes('player wire'))return photoDeck[4].src;
+    if(key.includes('availability'))return photoDeck[2].src;
     if(key.includes('unrivaled'))return photoDeck[6].src;
     if(key.includes('upshot'))return photoDeck[1].src;
     if(key.includes('fiba'))return photoDeck[7].src;
@@ -97,7 +98,8 @@
           <article class="week-snapshot-card" id="weekHubRotations"><div class="week-hub-loading">Setting Shak’s rotations…</div></article>
           <article class="week-snapshot-card" id="weekHubLive"><div class="week-hub-loading">Checking live stats…</div></article>
           <article class="week-snapshot-card" id="weekHubGames"><div class="week-hub-loading">Checking the schedule…</div></article>
-          <article class="week-snapshot-card" id="weekHubRoster"><div class="week-hub-loading">Checking movement and availability…</div></article>
+          <article class="week-snapshot-card" id="weekHubMovement"><div class="week-hub-loading">Checking player movement…</div></article>
+          <article class="week-snapshot-card" id="weekHubAvailability"><div class="week-hub-loading">Checking availability…</div></article>
         </div>
         <footer class="week-hub-foot"><span>One front door. The full encyclopedia is still underneath it.</span><a href="#sections">Explore every section →</a></footer>
       </div>`;
@@ -250,19 +252,29 @@
     }
   }
 
-  async function loadRoster(){
-    const host=document.getElementById('weekHubRoster');
+  async function loadPlayerWire(){
+    const movementHost=document.getElementById('weekHubMovement');
+    const availabilityHost=document.getElementById('weekHubAvailability');
     const [moveR,availR]=await Promise.allSettled([fetchJson('/api/player-movement'),fetchJson('/api/availability')]);
     const movement=moveR.status==='fulfilled'?moveR.value:{};
     const availability=availR.status==='fulfilled'?availR.value:{};
     const move=(movement.transactions||[])[0];
+    const injuries=Array.isArray(availability.injuries)?availability.injuries:[];
+    const latestAvailability=injuries[0];
     const injuryCount=Number(availability.injuryCount)||((availability.injuries||[]).length||0);
     if(move){
       const action=text(move.type||'ROSTER MOVE').replace(/_/g,' ');
       const detail=short(move.detail||`${move.player} · ${move.team}`,135);
-      snapshot(host,{kicker:'PLAYER WIRE',title:`${move.player} · ${action}`,copy:`${detail}${injuryCount?` Availability board: ${injuryCount} tracked status${injuryCount===1?'':'es'}.`:''}`,meta:move.date?fmtShortDate(move.date):'LATEST MOVE',href:'/player-movement.html',label:'Player Movement',secondaryHref:'/availability-report.html',secondaryLabel:'Availability'});
+      snapshot(movementHost,{kicker:'PLAYER MOVEMENT',title:`${move.player} · ${action}`,copy:detail,meta:move.date?fmtShortDate(move.date):'LATEST MOVE',href:'/player-movement.html',label:'Open Player Movement',image:move.photo||move.headshot||'',imageAlt:move.player||'Latest WNBA roster move'});
     }else{
-      snapshot(host,{kicker:'PLAYER WIRE',title:'Movement + availability',copy:injuryCount?`${injuryCount} current availability status${injuryCount===1?' is':'es are'} being tracked. The movement feed is reconnecting.`:'Current movement and availability are refreshing.',href:'/player-movement.html',label:'Player Movement',secondaryHref:'/availability-report.html',secondaryLabel:'Availability'});
+      snapshot(movementHost,{kicker:'PLAYER MOVEMENT',title:'The roster wire is refreshing',copy:'Signings, waivers, trades and contract changes will return here as soon as the live feed reconnects.',href:'/player-movement.html',label:'Open Player Movement'});
+    }
+    if(latestAvailability){
+      const status=text(latestAvailability.status||'STATUS').replace(/_/g,' ');
+      const latestLine=short(latestAvailability.reason||`${latestAvailability.player} · ${latestAvailability.team}`,120);
+      snapshot(availabilityHost,{kicker:'AVAILABILITY REPORT',title:`${injuryCount} tracked status${injuryCount===1?'':'es'}`,copy:`Latest: ${latestAvailability.player} · ${status}. ${latestLine}`,meta:availability.latestReportDate?fmtShortDate(availability.latestReportDate):'CURRENT REPORT',href:'/availability-report.html',label:'Open Availability',image:latestAvailability.photo||latestAvailability.headshot||'',imageAlt:latestAvailability.player||'Latest WNBA availability update'});
+    }else{
+      snapshot(availabilityHost,{kicker:'AVAILABILITY REPORT',title:'The status board is refreshing',copy:'Current injury designations, game status and return notes will return here as soon as the official report reconnects.',href:'/availability-report.html',label:'Open Availability'});
     }
     return Math.max(timeValue(movement.checkedAt||movement.latestTransactionDate),timeValue(availability.checkedAt||availability.latestReportDate));
   }
@@ -323,7 +335,7 @@
     if(loading)return;
     loading=true;
     try{
-      const results=await Promise.allSettled([loadEditorial(),loadStaticSnapshots(),loadRotations(),loadLeagueData(),loadRoster()]);
+      const results=await Promise.allSettled([loadEditorial(),loadStaticSnapshots(),loadRotations(),loadLeagueData(),loadPlayerWire()]);
       const stamps=results.map(result=>result.status==='fulfilled'&&Number.isFinite(Number(result.value))?Number(result.value):0);
       setStamp(stamps);
     }finally{loading=false;}

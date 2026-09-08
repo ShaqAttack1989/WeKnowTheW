@@ -2,6 +2,7 @@ const liveUpdates = require('../player-live-updates.json');
 const { CURRENT_AVAILABILITY_PATCH } = require('../lib/current-availability-patch');
 const { getWnbaInjuries } = require('../lib/wehoop-espn');
 const { fetchLatestOfficialReport } = require('../lib/wnba-injury-report');
+const { officialHeadshot } = require('../lib/wnba-headshots');
 
 function key(value = '') {
   return String(value).normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]/g, '');
@@ -130,7 +131,10 @@ module.exports = async function handler(req, res) {
     });
   }
 
-  const injuries = mergeAvailability(officialReport, provider);
+  const injuries = mergeAvailability(officialReport, provider).map(item => {
+    const headshot = officialHeadshot(item.player);
+    return { ...item, wnbaId: headshot?.id || null, photo: headshot?.url || null };
+  });
   const teamStatuses = officialReport.fallback ? [] : (Array.isArray(officialReport.teamStatuses) ? officialReport.teamStatuses : []);
 
   return res.status(200).json({

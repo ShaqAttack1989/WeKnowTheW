@@ -250,6 +250,15 @@ test('World Cup Stat Kitchen shows the tournament record only once', () => {
   assert.doesNotMatch(worldCupBoard, /sourceRecords/);
 });
 
+test('World Cup Stat Kitchen uses the spotlight space for three Players of the Game', () => {
+  const source = require('node:fs').readFileSync(path.join(__dirname, '..', 'team-usa.js'), 'utf8');
+  const css = require('node:fs').readFileSync(path.join(__dirname, '..', 'team-usa.css'), 'utf8');
+  assert.match(source, /\.slice\(0,3\)/);
+  assert.match(source, /spotlightHeading:'TEAM USA PLAYERS OF THE GAME'/);
+  assert.match(source, /team-usa-kitchen-spotlight-list/);
+  assert.match(css, /\.team-usa-kitchen-spotlight-item/);
+});
+
 test('W Score appears immediately before the win column in tournament standings', () => {
   const source = require('node:fs').readFileSync(path.join(__dirname, '..', 'no-offseason-fiba.js'), 'utf8');
   const css = require('node:fs').readFileSync(path.join(__dirname, '..', 'no-offseason-fiba.css'), 'utf8');

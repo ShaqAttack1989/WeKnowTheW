@@ -101,7 +101,8 @@
 
   function worldCupBoard(payload){
     const usaGames=(payload.games||[]).filter(game=>game.home?.code==='USA'||game.away?.code==='USA');
-    const latestPogGame=[...usaGames].filter(game=>game.status==='final'&&game.playerOfGame?.player).sort((a,b)=>new Date(b.startTimeUtc||b.date||0)-new Date(a.startTimeUtc||a.date||0))[0]||null;
+    const pogGames=[...usaGames].filter(game=>game.status==='final'&&game.playerOfGame?.player).sort((a,b)=>new Date(b.startTimeUtc||b.date||0)-new Date(a.startTimeUtc||a.date||0)).slice(0,3);
+    const latestPogGame=pogGames[0]||null;
     const latestPog=latestPogGame?.playerOfGame||null;
     const games=usaGames.map(normalizeWorldCupGame).filter(Boolean).sort((a,b)=>new Date(a.date||0)-new Date(b.date||0));
     const completed=games.filter(game=>game.status==='final');
@@ -121,7 +122,7 @@
     return {
       key:'world-cup',
       title:'World Cup Stat Kitchen',
-      description:'Live Team USA results, tournament scoring rates and the latest official FIBA Player of the Game from Berlin.',
+      description:'Live Team USA results, tournament scoring rates and official FIBA Players of the Game from Berlin.',
       href:'/fiba-world-cup.html',
       season:'2026',
       updatedAt:payload.updatedAt,
@@ -154,6 +155,12 @@
         value:String(payload.usa?.worldTitles||11),
         note:'The latest official FIBA Player of the Game fills after USA completes a game.'
       },
+      spotlightHeading:'TEAM USA PLAYERS OF THE GAME',
+      spotlights:pogGames.map(game=>{
+        const pog=game.playerOfGame;
+        const opponent=game.home?.code==='USA'?game.away:game.home;
+        return {value:pog.player,note:`${pog.line||'Official FIBA selection'} · USA vs. ${opponent?.name||opponent?.code||'Opponent'}`,sourceUrl:pog.sourceUrl||source};
+      }),
       sources:[{label:'Official FIBA World Cup',url:latestPog?.sourceUrl||source,official:true}],
       warnings:payload.dataStatus?.warnings||[]
     };
@@ -226,6 +233,20 @@
     }).join('')}</div>`;
   }
 
+  function spotlightPanel(board){
+    const items=(board.spotlights||[]).filter(item=>item?.value);
+    if(items.length>1){
+      const cards=items.map(item=>{
+        const url=officialUrl(item.sourceUrl);
+        const tag=url?'a':'article';
+        const attributes=url?` href="${safe(url)}" target="_blank" rel="noopener"`:'';
+        return `<${tag} class="team-usa-kitchen-spotlight-item"${attributes}><strong>${safe(item.value)}</strong><span>${safe(item.note||'Official selection')}</span></${tag}>`;
+      }).join('');
+      return `<aside class="team-usa-kitchen-spotlight is-list"><small>HOT PLATE · ${safe(board.spotlightHeading||'PLAYERS OF THE GAME')}</small><div class="team-usa-kitchen-spotlight-list">${cards}</div></aside>`;
+    }
+    return `<aside class="team-usa-kitchen-spotlight"><small>HOT PLATE · ${safe(board.spotlight?.label||'LATEST')}</small><strong>${safe(board.spotlight?.value||'Schedule pending')}</strong><p>${safe(board.spotlight?.note||'This card updates with the official result feed.')}</p>${spotlightRecords(board)}</aside>`;
+  }
+
   function renderBoard(root,board){
     root.setAttribute('aria-busy','false');
     const games=[board.nextGame?gameRow(board.nextGame,true):'',...(board.recentGames||[]).slice(0,4).map(item=>gameRow(item))].filter(Boolean).join('');
@@ -237,7 +258,7 @@
       <div class="team-usa-kitchen-metrics">${(board.metrics||[]).map(metric=>`<article><small>${safe(metric.label)}</small><strong>${metricValue(metric)}</strong><span>${safe(metric.note)}</span></article>`).join('')}</div>
       <div class="team-usa-kitchen-body">
         <section class="team-usa-kitchen-results" aria-label="Recent Team USA results"><div class="team-usa-kitchen-subhead"><div><small>RECENT PLATES</small><h3>Latest official results</h3></div><span>${safe(board.gamesPlayed)} games counted</span></div><div class="team-usa-kitchen-games">${games||'<p class="team-usa-kitchen-empty">The official schedule has not posted its next serving yet.</p>'}</div></section>
-        <aside class="team-usa-kitchen-spotlight"><small>HOT PLATE · ${safe(board.spotlight?.label||'LATEST')}</small><strong>${safe(board.spotlight?.value||'Schedule pending')}</strong><p>${safe(board.spotlight?.note||'This card updates with the official result feed.')}</p>${spotlightRecords(board)}</aside>
+        ${spotlightPanel(board)}
       </div>
       <footer class="team-usa-kitchen-foot"><p>Final scores are pulled from the official USA Basketball or FIBA feed. The rates recalculate automatically as new results are posted.</p><div>${sourceLinks(board)}</div></footer>`;
   }

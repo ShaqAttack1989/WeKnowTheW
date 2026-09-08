@@ -163,6 +163,12 @@ a.team-usa-kitchen-game:hover,a.team-usa-kitchen-game:focus-visible{background:#
 .team-usa-kitchen-spotlight>small{display:block;color:#d8ff4f;font-size:.65rem;font-weight:1000;letter-spacing:.1em}
 .team-usa-kitchen-spotlight>strong{display:block;margin:9px 0 8px;color:#fff;font-size:clamp(1.75rem,3.2vw,2.75rem);line-height:.94;letter-spacing:-.035em}
 .team-usa-kitchen-spotlight>p{margin:0;color:rgba(255,255,255,.7);font-size:.9rem;line-height:1.55}
+.team-usa-kitchen-spotlight-list{display:grid;gap:9px;margin-top:13px}
+.team-usa-kitchen-spotlight-item{display:block;padding:12px 13px;border:1px solid rgba(255,255,255,.14);border-radius:14px;background:rgba(4,17,34,.28);color:#fff;text-decoration:none}
+.team-usa-kitchen-spotlight-item:first-child{border-color:rgba(216,255,79,.58);background:rgba(216,255,79,.1)}
+.team-usa-kitchen-spotlight-item:hover,.team-usa-kitchen-spotlight-item:focus-visible{border-color:#d8ff4f;outline:0}
+.team-usa-kitchen-spotlight-item strong{display:block;color:#fff;font-size:1rem;line-height:1.15}
+.team-usa-kitchen-spotlight-item span{display:block;margin-top:4px;color:rgba(255,255,255,.68);font-size:.74rem;line-height:1.35}
 .team-usa-kitchen-records{display:grid;gap:8px;margin-top:18px}
 .team-usa-kitchen-records a,.team-usa-kitchen-records>div{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:3px 10px;padding:11px;border:1px solid rgba(255,255,255,.13);border-radius:14px;background:rgba(4,17,34,.28);color:#fff;text-decoration:none}
 .team-usa-kitchen-records a:hover,.team-usa-kitchen-records a:focus-visible{border-color:#d8ff4f;outline:0}

@@ -154,7 +154,6 @@
         value:String(payload.usa?.worldTitles||11),
         note:'The latest official FIBA Player of the Game fills after USA completes a game.'
       },
-      sourceRecords:[{label:'Berlin 2026',season:'2026',record:`${wins}–${losses}`,gamesPlayed:count,official:true,sourceUrl:latestPog?.sourceUrl||source}],
       sources:[{label:'Official FIBA World Cup',url:latestPog?.sourceUrl||source,official:true}],
       warnings:payload.dataStatus?.warnings||[]
     };

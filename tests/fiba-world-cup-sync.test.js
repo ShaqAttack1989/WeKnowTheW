@@ -244,6 +244,12 @@ test('Team USA schedule cards render Player of the Game with a country flag', ()
   assert.match(source, /pog\?\.flag/);
 });
 
+test('World Cup Stat Kitchen shows the tournament record only once', () => {
+  const source = require('node:fs').readFileSync(path.join(__dirname, '..', 'team-usa.js'), 'utf8');
+  const worldCupBoard = source.slice(source.indexOf('function worldCupBoard'), source.indexOf('async function loadWorldCupPulse'));
+  assert.doesNotMatch(worldCupBoard, /sourceRecords/);
+});
+
 test('W Score appears immediately before the win column in tournament standings', () => {
   const source = require('node:fs').readFileSync(path.join(__dirname, '..', 'no-offseason-fiba.js'), 'utf8');
   const css = require('node:fs').readFileSync(path.join(__dirname, '..', 'no-offseason-fiba.css'), 'utf8');

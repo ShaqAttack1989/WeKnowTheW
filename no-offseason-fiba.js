@@ -13,6 +13,7 @@
   const IDLE_REFRESH_MS=15*60*1000;
 
   let gameFilter='all';
+  let standingsMode='overall';
   let latestData=null;
   let refreshTimer=null;
   let refreshing=false;
@@ -77,16 +78,111 @@
     }).join('');
   }
 
+  function standingsPct(value){
+    const n=Number(value);
+    if(!Number.isFinite(n))return '—';
+    return n.toFixed(3).replace(/^0/,'');
+  }
+
+  function standingsDiff(value){
+    const n=Number(value);
+    if(!Number.isFinite(n))return '—';
+    return `${n>0?'+':''}${n.toFixed(1)}`;
+  }
+
+  function scoreClass(value){
+    const n=Number(value);
+    if(!Number.isFinite(n))return 'is-empty';
+    if(n>=80)return 'is-elite';
+    if(n>=65)return 'is-strong';
+    if(n>=50)return 'is-mid';
+    return 'is-low';
+  }
+
+  function compositeRow(team,{groupMode=false}={}){
+    const wins=groupMode?team.groupWins:team.wins;
+    const losses=groupMode?team.groupLosses:team.losses;
+    const winPct=groupMode?team.groupWinPercentage:team.winPercentage;
+    const pointsFor=groupMode?team.groupPointsFor:team.pointsFor;
+    const pointsAgainst=groupMode?team.groupPointsAgainst:team.pointsAgainst;
+    const diff=groupMode?team.groupDiffPerGame:team.diffPerGame;
+    const streak=groupMode?team.groupStreak:team.streak;
+    const form=groupMode?team.groupForm:team.form;
+    const rank=groupMode?team.groupPosition:team.overallRank;
+    const score=Number.isFinite(Number(team.wScore))?Number(team.wScore).toFixed(1):'—';
+    return `<div class="fiba-live-standings-row ${team.code==='USA'?'team-usa':''}">
+      <span class="fiba-live-rank">${safe(rank||'—')}</span>
+      <span class="fiba-live-team"><i>${safe(team.flag||'')}</i><strong>${safe(team.code)}</strong><small>${safe(team.name)}</small></span>
+      <strong>${safe(wins??'—')}</strong>
+      <strong>${safe(losses??'—')}</strong>
+      <span>${safe(standingsPct(winPct))}</span>
+      <span>G${safe(team.group||'—')}</span>
+      <span>${safe(team.groupPoints??'—')}</span>
+      <span>${safe(pointsFor??'—')}</span>
+      <span>${safe(pointsAgainst??'—')}</span>
+      <span class="${Number(diff)>0?'is-positive':Number(diff)<0?'is-negative':''}">${safe(standingsDiff(diff))}</span>
+      <span class="fiba-form-streak ${String(streak).startsWith('W')?'is-positive':String(streak).startsWith('L')?'is-negative':''}">${safe(streak||'—')}</span>
+      <span class="fiba-form-cell">${safe(form||'—')}</span>
+      <span class="fiba-w-score ${scoreClass(team.wScore)}"><b>${safe(score)}</b><small>W · #${safe(team.overallRank||'—')}</small></span>
+    </div>`;
+  }
+
+  function compositeTable(rows,{groupMode=false}={}){
+    if(!rows.length)return '<p class="fiba-empty">Tournament standings are loading from FIBA.</p>';
+    return `<div class="fiba-live-standings-table">
+      <div class="fiba-live-standings-row head"><span>#</span><span>TEAM</span><span>W</span><span>L</span><span>PCT</span><span>GRP</span><span>PTS</span><span>PF</span><span>PA</span><span>+/-</span><span>STREAK</span><span>FORM</span><span>W SCORE</span></div>
+      ${rows.map(team=>compositeRow(team,{groupMode})).join('')}
+    </div>`;
+  }
+
   function renderStandings(data){
-    const wrap=$('fibaStandingsGrid');
-    wrap.innerHTML=(data.standings||[]).map(group=>`<section class="fiba-group-card ${group.group==='D'?'usa-group':''}">
-      <header><span>GROUP ${safe(group.group)}</span>${group.group==='D'?'<b>USA GROUP</b>':''}</header>
-      <div class="fiba-group-head"><span>Team</span><span>W</span><span>L</span><span>PTS</span></div>
-      ${(group.teams||[]).map(team=>`<div class="fiba-group-row ${team.code==='USA'?'team-usa':''}">
-        <span><b>${safe(team.rank)}.</b> <i>${safe(team.flag||'')}</i> <strong>${safe(team.code)}</strong><small>${safe(team.name)}</small></span>
-        <span>${safe(team.wins)}</span><span>${safe(team.losses)}</span><span>${safe(team.points)}</span>
-      </div>`).join('')}
-    </section>`).join('');
+    const wrap=$('fibaCompositeStandings');
+    if(!wrap)return;
+    const rows=Array.isArray(data.tournamentTable)?data.tournamentTable:[];
+    const overallButton=document.querySelector('[data-fiba-standings-mode="overall"]');
+    const groupsButton=document.querySelector('[data-fiba-standings-mode="groups"]');
+    const groupMode=standingsMode==='groups';
+
+    overallButton?.classList.toggle('active',!groupMode);
+    overallButton?.setAttribute('aria-pressed',String(!groupMode));
+    groupsButton?.classList.toggle('active',groupMode);
+    groupsButton?.setAttribute('aria-pressed',String(groupMode));
+
+    if(groupMode){
+      wrap.innerHTML=['A','B','C','D'].map(group=>{
+        const groupRows=rows.filter(team=>team.group===group).sort((a,b)=>(a.groupPosition||99)-(b.groupPosition||99));
+        return `<section class="fiba-live-group"><header><span>GROUP ${group}</span><small>Official group position · W score stays field-wide</small></header>${compositeTable(groupRows,{groupMode:true})}</section>`;
+      }).join('');
+    }else{
+      wrap.innerHTML=compositeTable(rows);
+    }
+
+    const completed=(data.games||[]).filter(game=>game.status==='final').length;
+    const status=$('fibaCompositeStatus');
+    if(status)status.textContent=`${rows.length||16} countries · ${completed} completed games · W score refreshes automatically from completed World Cup results`;
+  }
+
+  function renderLeaders(data){
+    const wrap=$('fibaAllPlayerLeaders');
+    if(!wrap)return;
+    const categories=Array.isArray(data.statLeaders)?data.statLeaders:[];
+    if(!categories.length){
+      wrap.innerHTML='<p class="fiba-empty">Official FIBA tournament leaders are loading.</p>';
+      return;
+    }
+    wrap.innerHTML=categories.map(category=>`<article class="fiba-leader-card">
+      <header><div><span>${safe(category.key||'STAT').toUpperCase()}</span><strong>${safe(category.label||category.marker||'Leader')}</strong></div><b>${safe(category.unit||'')}</b></header>
+      <div class="fiba-leader-list">${(category.leaders||[]).length?(category.leaders||[]).map((leader,index)=>`<div class="fiba-leader-row ${index===0?'is-first':''}">
+        <span class="fiba-leader-rank">${index+1}</span>
+        <span class="fiba-leader-player"><i>${safe(leader.flag||'')}</i><strong>${safe(leader.player||'')}</strong><small>${safe(leader.countryCode||leader.country||'')}</small></span>
+        <span class="fiba-leader-value"><b>${safe(num(leader.value))}</b><small>${safe(category.unit||'')}</small></span>
+      </div>`).join(''):'<p class="fiba-leader-empty">FIBA is refreshing this category.</p>'}</div>
+    </article>`).join('');
+    const status=$('fibaLeadersStatus');
+    if(status){
+      const live=Boolean(data.dataStatus?.liveLeagueLeaders);
+      status.textContent=live?'Official FIBA field-wide leaders connected · refreshes with the World Cup':'FIBA leader feed partially connected · available categories shown';
+    }
   }
 
   function makeFilterButtons(data){
@@ -162,6 +258,7 @@
     renderHeader(data);
     renderUsaSchedule(data);
     renderStandings(data);
+    renderLeaders(data);
     makeFilterButtons(data);
     renderGames(data);
     renderStats(data);
@@ -181,7 +278,7 @@
     if(document.hidden){scheduleRefresh();return;}
     refreshing=true;
     try{
-      const response=await fetch('/api/fiba-world-cup',{headers:{Accept:'application/json'}});
+      const response=await fetch(`/api/fiba-world-cup?cb=${Date.now()}`,{headers:{Accept:'application/json','Cache-Control':'no-cache'},cache:'no-store'});
       if(!response.ok)throw new Error(`FIBA dashboard returned ${response.status}`);
       const data=await response.json();
       render(data);
@@ -196,6 +293,11 @@
       scheduleRefresh();
     }
   }
+
+  document.querySelectorAll('[data-fiba-standings-mode]').forEach(button=>button.addEventListener('click',()=>{
+    standingsMode=button.dataset.fibaStandingsMode||'overall';
+    if(latestData)renderStandings(latestData);
+  }));
 
   document.addEventListener('visibilitychange',()=>{
     if(!document.hidden)loadDashboard({silent:true});

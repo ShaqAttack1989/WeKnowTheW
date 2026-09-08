@@ -64,3 +64,89 @@
 @media(max-width:1120px){.fiba-passport-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:820px){.fiba-passport-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.fiba-passport-toolbar{align-items:flex-start;flex-direction:column}}
 @media(max-width:560px){.fiba-passport-grid{grid-template-columns:1fr}.fiba-passport-player{grid-template-columns:minmax(0,1fr) minmax(105px,.8fr)}}
+
+
+/* Sept. 7, 2026: WNBA-style FIBA standings + We Know the W composite */
+.fiba-composite-panel{margin-top:26px;background:linear-gradient(145deg,#ffffff,#f6f8fc);border-color:#dce4ef}
+.fiba-composite-head{align-items:flex-end}
+.fiba-composite-head>div:first-child{max-width:850px}
+.fiba-composite-head p{margin:7px 0 0;color:#6f7c8e;line-height:1.55}
+.fiba-standings-toggle{display:flex;gap:6px;padding:4px;border:1px solid #dbe3ed;border-radius:999px;background:#eef3f8}
+.fiba-standings-toggle button{appearance:none;border:0;border-radius:999px;background:transparent;color:#536174;padding:8px 12px;font:inherit;font-size:.72rem;font-weight:950;cursor:pointer}
+.fiba-standings-toggle button.active{background:#0d2a4e;color:#fff;box-shadow:0 4px 12px rgba(13,42,78,.15)}
+.fiba-composite-status{margin:0 0 11px;color:#718096;font-size:.68rem;font-weight:850}
+.fiba-live-table-scroll{overflow:auto;border:1px solid #dfe6ef;border-radius:18px;background:#fff}
+.fiba-live-standings-table{min-width:1120px}
+.fiba-live-standings-row{display:grid;grid-template-columns:42px minmax(190px,1.45fr) 42px 42px 62px 50px 48px 56px 56px 62px 74px 106px 84px;gap:4px;align-items:center;min-height:50px;padding:0 12px;border-top:1px solid #edf1f5;color:#425066;font-size:.72rem}
+.fiba-live-standings-row.head{position:sticky;top:0;z-index:3;min-height:38px;border-top:0;background:#0d2a4e;color:#fff;font-size:.57rem;font-weight:950;letter-spacing:.055em;text-transform:uppercase}
+.fiba-live-standings-row>span:not(.fiba-live-team),.fiba-live-standings-row>strong{text-align:center}
+.fiba-live-standings-row.team-usa{background:linear-gradient(90deg,#fff6f7,#fff)}
+.fiba-live-rank{font-size:.85rem;font-weight:950;color:#263d5e}
+.fiba-live-team{display:grid;grid-template-columns:30px 42px minmax(0,1fr);gap:7px;align-items:center;min-width:0}
+.fiba-live-team i{font-size:1.25rem;font-style:normal}
+.fiba-live-team strong{color:#17243a;font-size:.82rem}
+.fiba-live-team small{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:#6f7c8f;font-size:.67rem;font-weight:750}
+.fiba-live-standings-row.team-usa .fiba-live-team strong{color:#a61f32}
+.fiba-live-standings-row .is-positive{color:#13744b;font-weight:950}
+.fiba-live-standings-row .is-negative{color:#b6384f;font-weight:950}
+.fiba-form-streak{font-weight:950}
+.fiba-form-cell{white-space:nowrap;font-size:.66rem;font-weight:850;letter-spacing:.04em}
+.fiba-w-score{display:flex;flex-direction:column;align-items:center;justify-content:center;justify-self:center;width:68px;min-height:38px;border-radius:11px;background:#edf1f6;color:#5b6675}
+.fiba-w-score b{font-size:.92rem;line-height:1}
+.fiba-w-score small{margin-top:3px;font-size:.48rem;font-weight:950;letter-spacing:.05em;text-transform:uppercase}
+.fiba-w-score.is-elite{background:#161126;color:#ffcf45}
+.fiba-w-score.is-strong{background:#e9f7ee;color:#187148}
+.fiba-w-score.is-mid{background:#fff5d9;color:#835b08}
+.fiba-w-score.is-low{background:#fff0f2;color:#9b2f43}
+.fiba-live-group+ .fiba-live-group{margin-top:16px}
+.fiba-live-group>header{display:flex;justify-content:space-between;gap:12px;align-items:center;margin:0 0 8px;padding:0 3px;color:#2b4b73}
+.fiba-live-group>header span{font-size:.72rem;font-weight:1000;letter-spacing:.08em}
+.fiba-live-group>header small{color:#7b8798;font-size:.62rem}
+.fiba-composite-method{display:flex;flex-wrap:wrap;align-items:center;gap:7px;margin-top:12px}
+.fiba-composite-method strong{padding:7px 9px;border-radius:10px;background:#161126;color:#ffcf45;font-size:.63rem;letter-spacing:.06em}
+.fiba-composite-method span{padding:7px 9px;border-radius:10px;background:#eef3f8;color:#526174;font-size:.61rem;font-weight:850}
+.fiba-composite-method small{flex-basis:100%;color:#7a8697;font-size:.61rem;line-height:1.45}
+
+/* Field-wide FIBA leaders */
+.fiba-leaders-panel{margin-top:20px;background:linear-gradient(145deg,#fffdf7,#f8f3ff)}
+.fiba-leaders-panel .fiba-panel-head>div>span{color:#7b3f8d}
+.fiba-leaders-panel .fiba-panel-head p{margin:6px 0 0;color:#6e6472}
+.fiba-leaders-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.fiba-leader-card{overflow:hidden;border:1px solid #e2dbe7;border-radius:19px;background:#fff;box-shadow:0 8px 22px rgba(31,23,43,.04)}
+.fiba-leader-card>header{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:13px 14px;border-bottom:1px solid #eee8f2;background:linear-gradient(135deg,#f8f3ff,#fffaf0)}
+.fiba-leader-card>header span{display:block;color:#7d4b8a;font-size:.55rem;font-weight:1000;letter-spacing:.08em}
+.fiba-leader-card>header strong{display:block;margin-top:2px;color:#1e1b29;font-size:1rem}
+.fiba-leader-card>header>b{display:grid;place-items:center;min-width:48px;height:30px;padding:0 8px;border-radius:9px;background:#1d1730;color:#ffcf45;font-size:.64rem;letter-spacing:.04em}
+.fiba-leader-list{display:grid}
+.fiba-leader-row{display:grid;grid-template-columns:30px minmax(0,1fr) 62px;gap:8px;align-items:center;min-height:58px;padding:9px 12px;border-top:1px solid #f0ebf2}
+.fiba-leader-row:first-child{border-top:0}
+.fiba-leader-row.is-first{background:#fff9e7}
+.fiba-leader-rank{display:grid;place-items:center;width:27px;height:27px;border-radius:8px;background:#edf1f6;color:#536174;font-weight:1000}
+.fiba-leader-row.is-first .fiba-leader-rank{background:#1d1730;color:#ffcf45}
+.fiba-leader-player{display:grid;grid-template-columns:25px minmax(0,1fr);grid-template-areas:"flag name" "flag code";gap:1px 7px;align-items:center;min-width:0}
+.fiba-leader-player i{grid-area:flag;font-size:1.2rem;font-style:normal}
+.fiba-leader-player strong{grid-area:name;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:#222033;font-size:.78rem}
+.fiba-leader-player small{grid-area:code;color:#807588;font-size:.56rem;font-weight:950}
+.fiba-leader-value{text-align:right}
+.fiba-leader-value b{display:block;color:#7a2f6e;font-size:1rem}
+.fiba-leader-value small{display:block;color:#8c8290;font-size:.52rem;font-weight:900}
+.fiba-leader-empty{margin:0;padding:16px;color:#7b7381;font-size:.73rem}
+.fiba-leader-source{display:flex;justify-content:space-between;gap:14px;align-items:center;margin-top:13px;color:#756c79;font-size:.68rem;line-height:1.45}
+.fiba-leader-source a{white-space:nowrap;color:#5e2d83;font-weight:950}
+.fiba-games-panel{margin-top:20px}
+.fiba-games-panel .fiba-games-grid{grid-template-columns:repeat(3,minmax(0,1fr));max-height:none;overflow:visible}
+
+@media(max-width:980px){
+  .fiba-composite-head{display:block}
+  .fiba-standings-toggle{display:inline-flex;margin-top:12px}
+  .fiba-leaders-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .fiba-games-panel .fiba-games-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:620px){
+  .fiba-live-table-scroll{margin-left:-3px;margin-right:-3px;border-radius:14px}
+  .fiba-live-standings-table{min-width:1080px}
+  .fiba-composite-method{align-items:flex-start}
+  .fiba-leaders-grid,.fiba-games-panel .fiba-games-grid{grid-template-columns:1fr}
+  .fiba-leader-source{display:block}
+  .fiba-leader-source a{display:inline-block;margin-top:7px}
+}

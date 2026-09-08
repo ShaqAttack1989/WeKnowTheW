@@ -78,7 +78,7 @@
 .fiba-composite-status{margin:0 0 11px;color:#718096;font-size:.68rem;font-weight:850}
 .fiba-live-table-scroll{overflow:auto;border:1px solid #dfe6ef;border-radius:18px;background:#fff}
 .fiba-live-standings-table{min-width:1120px}
-.fiba-live-standings-row{display:grid;grid-template-columns:42px minmax(190px,1.45fr) 42px 42px 62px 50px 48px 56px 56px 62px 74px 106px 84px;gap:4px;align-items:center;min-height:50px;padding:0 12px;border-top:1px solid #edf1f5;color:#425066;font-size:.72rem}
+.fiba-live-standings-row{display:grid;grid-template-columns:42px minmax(190px,1.45fr) 84px 42px 42px 62px 50px 48px 56px 56px 62px 74px 106px;gap:4px;align-items:center;min-height:50px;padding:0 12px;border-top:1px solid #edf1f5;color:#425066;font-size:.72rem}
 .fiba-live-standings-row.head{position:sticky;top:0;z-index:3;min-height:38px;border-top:0;background:#0d2a4e;color:#fff;font-size:.57rem;font-weight:950;letter-spacing:.055em;text-transform:uppercase}
 .fiba-live-standings-row>span:not(.fiba-live-team),.fiba-live-standings-row>strong{text-align:center}
 .fiba-live-standings-row.team-usa{background:linear-gradient(90deg,#fff6f7,#fff)}

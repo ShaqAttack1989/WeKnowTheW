@@ -113,6 +113,7 @@
     return `<div class="fiba-live-standings-row ${team.code==='USA'?'team-usa':''}">
       <span class="fiba-live-rank">${safe(rank||'—')}</span>
       <span class="fiba-live-team"><i>${safe(team.flag||'')}</i><strong>${safe(team.code)}</strong><small>${safe(team.name)}</small></span>
+      <span class="fiba-w-score ${scoreClass(team.wScore)}"><b>${safe(score)}</b><small>W · #${safe(team.overallRank||'—')}</small></span>
       <strong>${safe(wins??'—')}</strong>
       <strong>${safe(losses??'—')}</strong>
       <span>${safe(standingsPct(winPct))}</span>
@@ -123,14 +124,13 @@
       <span class="${Number(diff)>0?'is-positive':Number(diff)<0?'is-negative':''}">${safe(standingsDiff(diff))}</span>
       <span class="fiba-form-streak ${String(streak).startsWith('W')?'is-positive':String(streak).startsWith('L')?'is-negative':''}">${safe(streak||'—')}</span>
       <span class="fiba-form-cell">${safe(form||'—')}</span>
-      <span class="fiba-w-score ${scoreClass(team.wScore)}"><b>${safe(score)}</b><small>W · #${safe(team.overallRank||'—')}</small></span>
     </div>`;
   }
 
   function compositeTable(rows,{groupMode=false}={}){
     if(!rows.length)return '<p class="fiba-empty">Tournament standings are loading from FIBA.</p>';
     return `<div class="fiba-live-standings-table">
-      <div class="fiba-live-standings-row head"><span>#</span><span>TEAM</span><span>W</span><span>L</span><span>PCT</span><span>GRP</span><span>PTS</span><span>PF</span><span>PA</span><span>+/-</span><span>STREAK</span><span>FORM</span><span>W SCORE</span></div>
+      <div class="fiba-live-standings-row head"><span>#</span><span>TEAM</span><span>W SCORE</span><span>W</span><span>L</span><span>PCT</span><span>GRP</span><span>PTS</span><span>PF</span><span>PA</span><span>+/-</span><span>STREAK</span><span>FORM</span></div>
       ${rows.map(team=>compositeRow(team,{groupMode})).join('')}
     </div>`;
   }

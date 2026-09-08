@@ -227,6 +227,14 @@ test('Team USA schedule cards render Player of the Game with a country flag', ()
   assert.match(source, /pog\?\.flag/);
 });
 
+test('W Score appears immediately before the win column in tournament standings', () => {
+  const source = require('node:fs').readFileSync(path.join(__dirname, '..', 'no-offseason-fiba.js'), 'utf8');
+  const css = require('node:fs').readFileSync(path.join(__dirname, '..', 'no-offseason-fiba.css'), 'utf8');
+  assert.match(source, /<span>TEAM<\/span><span>W SCORE<\/span><span>W<\/span><span>L<\/span>/);
+  assert.match(source, /fiba-w-score[\s\S]*?safe\(wins/);
+  assert.match(css, /grid-template-columns:42px minmax\(190px,1\.45fr\) 84px 42px 42px 62px/);
+});
+
 
 test('WNBA Passport Board covers all 16 FIBA countries and the official 70-player WNBA universe', () => {
   const data = JSON.parse(require('node:fs').readFileSync(path.join(__dirname, '..', 'data', 'fiba-wnba-passport-2026.json'), 'utf8'));

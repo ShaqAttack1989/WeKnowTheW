@@ -1,7 +1,115 @@
 {
-  "updatedAt": "2026-09-07T10:28:18.397Z",
+  "updatedAt": "2026-09-08T10:28:24.396Z",
   "retentionDays": 14,
   "items": [
+    {
+      "title": "Breanna Stewart embraces pressure on US as new faces chase a fifth straight World Cup",
+      "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNVTVybUFRRUYyUHZTOG1fY2RkbDNUNzBnTmp6eUVGZ1lUV3JZM3FUeFhsUnVXblJPUjdsa1ZrT0tBcGg2dVZHS2RKS3l3TkZSZDV5UTRTT0hMckZuZHJjMkpjX0xrMTgzOGR4Y19Ta2p3YjRBVExOWl90VzNtVFdHRENRRURCdWhKSlBWcS1uQ3ZFZFkzQ3JvRnU4YUpycTlsamlubjdnS0h4cmpGY0JlSmtsRGNGbFpiZkEycFF5aw?oc=5",
+      "source": "The Washington Post",
+      "publishedAt": "2026-09-08T10:17:47.000Z",
+      "category": "League news",
+      "origin": "auto",
+      "id": "84573f3206e475fc"
+    },
+    {
+      "title": "Sophie Cunningham Has Become the WNBA’s Biggest Distraction, and Nobody Seems to Mind",
+      "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxOOXJPQk5wREdGRURqcTNjZVRGOEVPZkh0QzNCQ1RBMTJMbVZaZ2Z2dWx0M0NpN2NQMVM2REE1RnAyeTdiUEJFWnRLdXg4UUVSZG9LUDZScEZUNU5GQ0ZrRnBiTkp4eWI0ekltT2ZFNTQwZTB0Rmg4T3NMSm0zbDRQWEhlSll3ZDUxa0UwZDRfRQ?oc=5",
+      "source": "Yahoo Sports",
+      "publishedAt": "2026-09-08T08:54:22.000Z",
+      "category": "League news",
+      "origin": "auto",
+      "id": "da9bf699fd78f1ff"
+    },
+    {
+      "title": "‘THE BENCH IS SAVING THE STARTERS’ — Calls Mount for Caitlin Clark, Angel Reese To Start for Team USA After Major Bounce-Back vs. Czechia",
+      "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxNdWl0clEzM0F5TS1NNjZzZ3hXa0RZM1hRWmhsVnQtQmxuNU40U3JMLWdpRnZ5OTdVSmI2ck1Rc21fZjZWOFIxODQtYXVidnBLLXE1QXRiZVNKUTlkQWQtWlF0R3k3eXJWSjhSdnZRdjFZY3QzbFlwS214aEpqTGMyZlBNd29INEJPTnc?oc=5",
+      "source": "Yahoo Sports",
+      "publishedAt": "2026-09-08T07:07:23.000Z",
+      "category": "League news",
+      "origin": "auto",
+      "id": "7385e2c43c0a3c48"
+    },
+    {
+      "title": "‘THE HATE IS REAL,’ ‘(Caitlin Clark) Has Done NOTHING to Them’ — WNBA World Rips Team USA as Jackie Young Has To ‘Tell Teammates To Clap’ for Fever Star",
+      "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxPMjBOclhWeUxtamFzX3IxYmJfZmYwOXBTVEFVSUVTaTRIMmZBT0xhMFM2NjV2VHEycDFyNS1oSDkxSVFOZTJ1Z05YczBMekZrNmJVX1l4U205em4tNzhjemR3N1Q0bVJQdlNaSk5xZnM4QS05ajY5c0lSdlpLMGVtbU5wcw?oc=5",
+      "source": "Yahoo Sports",
+      "publishedAt": "2026-09-08T04:48:00.000Z",
+      "category": "League news",
+      "origin": "auto",
+      "id": "41c4d0e5aa509ce9"
+    },
+    {
+      "title": "Breanna Stewart sparks US to 105-64 rout of Czech Republic after a scare vs Italy",
+      "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxOTXVtSzZSRWFaN2s1QmxabDJMd0pZWlNVY0N5U1dLY0hMekhQcnduVDNiNkRQNUNmaC15T3VjSVRVXzVWcWZkaHQxTDFqQTctNENRdVNqUjZwZEpuSGVrWVBrTm10YXk3eXU1NUl3eFZ1R3FpZVU0a2FqaTF2cmVIZGtFTTlHTXdxVEZhWHlNRE40U0pCQzFjU2xkN0NnZUNMVkxRNmFUZ2Zhdm02NEtBQ0oxd2NXMlgwUTd6Rm13YnprbG9I?oc=5",
+      "source": "The Washington Post",
+      "publishedAt": "2026-09-08T03:37:29.000Z",
+      "category": "League news",
+      "origin": "auto",
+      "id": "a30c698bed095781"
+    },
+    {
+      "title": "‘Unfair To Isolate Caitlin Clark’ – Former WNBA MVP Tells Team USA To Learn Its Lesson After Italy Scare",
+      "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxOVm1pQ25ORGhtZEJ1elNHaTZvWDhfdkdLaS1GRzZNdDdveEFjd2lzTDZveFVWRU1XRFJ4Vm4tcnNTTVdITjlIVTZYVVUyTVB3bGhvWHlyd05fT1VyTWhYRU42VnVTSDBXaWFndmVMa19hYS0yZ1ZGQm5jVzMwbGl0LWcyQWVFaXZ6NmFyZg?oc=5",
+      "source": "Yahoo Sports",
+      "publishedAt": "2026-09-07T23:14:30.000Z",
+      "category": "Awards",
+      "origin": "auto",
+      "id": "0718d5025fd1d997"
+    },
+    {
+      "title": "Lynx Announce Unexpected Roster Move as Team Signs Caitlin Clark’s Former Teammate Ahead of the Playoffs",
+      "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQRkNJOVZzMmdBTE9SSnh5MFZfTmR3b3dRYlpTaTJ5Q0s5aUZSVEVGaURMcmkwdzh2alg3VlRWZVdHbGtjZy1tNGtpbFN5eDJ6SUlUMEFvSUFmWjAzSVNZeVZjNE1oTzNUMEVaeEtVVnpldFVlTldLbGpxT3RDWXNwS1BiTnpMYV9XeUZJT21B?oc=5",
+      "source": "Yahoo Sports",
+      "publishedAt": "2026-09-07T21:31:00.000Z",
+      "category": "Player movement",
+      "origin": "auto",
+      "id": "d0fd80d72113a281"
+    },
+    {
+      "title": "FIBA Women's World Cup 2026: Schedule, scores and how to watch during WNBA break",
+      "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxPUmJqMUNkY09rUTh1cjg3RXlNbkZadjV6NHdhRUhURWc2ODM1WmRjbnpmQ0NQNUcyNTlZd2lVbmtNaU1OR0pzaDJLUVlIenpWMmtFRTMyMHZVOHM1Q2dCZU9kV2VLUFdQX1FKVXduSVpLa1ZMY2FNZ2lqUE5JYnFmbFoxUjVqN1dnUVZuWnYwZjEyRVZEakJVN21icXRLWDNfaThnYTZLaXhWOWFnS3JVSU4xdGItdEVsM3NUNFBxTFdueDhScW9WZUpn?oc=5",
+      "source": "Yahoo Sports",
+      "publishedAt": "2026-09-07T20:22:51.000Z",
+      "category": "League news",
+      "origin": "auto",
+      "id": "768a1e2b0d720a67"
+    },
+    {
+      "title": "Angel Reese says she learned to deal with hate long before becoming a WNBA star: \"I had to have thick skin at a young age\"",
+      "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxQUG11NzgwNUVJRU5kT1hZcnN0VXFRbHJyREhNZWJNWTh5eXo2WThKV2NmbVp4ZmZIMERlMGV6eXNwbzBuZzk0ZEVCU0gzajdtRTdoS3pMX01vWnBOSzN4cHFiSkQ1UVFnMmVmWWZQMnZxTWtwZEtrZ1NrVy03Tm1JSmdzYw?oc=5",
+      "source": "Yahoo Sports",
+      "publishedAt": "2026-09-07T18:07:58.000Z",
+      "category": "League news",
+      "origin": "auto",
+      "id": "1100d1eae163594d"
+    },
+    {
+      "title": "Team USA Defeats Italy Despite Poor Shooting Night Stream of WNBA",
+      "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxOdWpFVW54NU8zdWVNOC14OThKVlRVd1E2OGtfaWlNa25pZ0FuM3N0MnRMTkx1bENDMTBMbGZLWlE0c01oWHh2bVliaGZ0MjNmQVN5cFpldm5qNDJScHM2RzVJVGhZbjVfeW5PSUp1dGk0SHUtVVFiNEF4Z2MxUWYtX05tQ0FEWFZWTDZGdHM1QUl4LW1nZ0N6aQ?oc=5",
+      "source": "CBS Sports",
+      "publishedAt": "2026-09-07T17:39:34.000Z",
+      "category": "League news",
+      "origin": "auto",
+      "id": "51a2c179f25d981f"
+    },
+    {
+      "title": "‘She Deservedly Was Fired’ – Dave Portnoy Claims ‘Nobody Likes’ Outgoing WNBA Commissioner Cathy Engelbert",
+      "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxNUGgzNjlJaE9yeFNWbDFpTnJ6YzlwU0VIQV9JQmJtc0w0VWVwNWJlSl9jTGQtck85NldnMUlsRXRxWnBSV1M3aTJPZ3JlbkhoMkRPV0FMZ2U1VGl5am1FeHRELTluU0wtNGJ5RWlYNVZUVWFueHlkSTRJUC1nWGpaQWdLYmNQVkFqSGc?oc=5",
+      "source": "Yahoo Sports",
+      "publishedAt": "2026-09-07T16:24:27.000Z",
+      "category": "League news",
+      "origin": "auto",
+      "id": "6c172ad47335b047"
+    },
+    {
+      "title": "‘Lost ALL Credibility,’ ‘Almost Cost USA the Win’ – WNBA World Raises Alarm Over Kara Lawson’s Rotation Decisions After Close Call vs. Italy",
+      "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxQOVdMQXhFNUpkcEpja1lOVEhNU3lvdUlNa2tBLTB0VTJncEJmUXRnRmZxdlJheEIwemF1Wk9qN0tSSDB6TFd0eVVCYkxGMmJ0YzRQZ0YzTW4wLXBJQlJ2QVliY1FLMk5IMXRIWUxFY3FXQ3hkbzhlX0hwMHRkVjBmZi1Kd1R2YjZO?oc=5",
+      "source": "Yahoo Sports",
+      "publishedAt": "2026-09-07T14:10:55.000Z",
+      "category": "League news",
+      "origin": "auto",
+      "id": "2b899ac6d1389d9d"
+    },
     {
       "title": "Team USA Fans Send Blunt 'Reminder' To Caitlin Clark's Supporters Sunday",
       "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE5rZm1CS2FRaGtUQnRCcV85UU81VDZtNEJwZzRZcWZUdVFfRWhVV0diUXFTNHBXMTYwNTFaZGV0Mk5Ic3dHeV9MZlRyU2U4VzI0VWdMZnh6VV9nM1ZsLWU4MGwtTmZJN3FQUW9MMFBsenlzSE5EeDB6ZEUzTUtwdw?oc=5",
@@ -1288,96 +1396,6 @@
       "category": "Awards",
       "origin": "auto",
       "id": "52f448fd21344bb7"
-    },
-    {
-      "title": "Cheryl Reeve welcomes the Lynx ownership change — and what it says about the WNBA’s boom",
-      "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxNeHBDQ1pHcEJuTFA2Q0dFRzBGXzdPYzNTc1RQa0VLUzYwZndhSHlOQTdiWkJ0d09jaG9rMTZjS0c5d01teDAzOHV6cGZmdVdZOGQ4bkFrbWw2WlFXOG11a3VFODVfQ09KSHRPWXJlWGMwMlRRd19sVzlIMHJmMi1aT2ZoX1N2NHgwMnpHUERkU2EwSmYwd04zQmZDNTFadVI5cFVNZXh4YVNUTlh3blZOcHh4cTU1Y0EtYzEtd0o5ZkQxWmcwLTBlUmJDYmg?oc=5",
-      "source": "Star Tribune",
-      "publishedAt": "2026-08-25T10:15:00.000Z",
-      "category": "Money and business",
-      "origin": "auto",
-      "id": "0ca7a9858a8b1672"
-    },
-    {
-      "title": "‘Numbers don’t lie’ – Fans make it clear which player is ‘the face’ of the WNBA",
-      "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTFBfTzY1azBPR1V4QWw2QkMtR1lidEtBZGZUOXN3ZE5jYmR1RHByU0lhdWdmeUp0UGdEMENHbzFtNC1SdFl2bnJUWjYtX1pRT25UVkh1cC1BNlJuXzdQYzhGVE9yZmRybkhfQWpiTV8wUmFlaVlEX3RIQjdzMA?oc=5",
-      "source": "Yahoo Sports",
-      "publishedAt": "2026-08-25T09:30:00.000Z",
-      "category": "Courtside incident",
-      "origin": "auto",
-      "id": "95b7aea32bc3e3a1"
-    },
-    {
-      "title": "Angel Reese breaks two WNBA rebounding records in Atlanta’s victory over Sparks",
-      "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNcG1rNE9vZG9SbnQyVXdTWjgtU1F6VEtPQmRjaElXUmRSeElUTlV3amZJb0Q4SGJ6SXV5UVlmUTlyYk5jWmhPMDFtTnRaaDNLSUFEVlNOcW1BUUJ4WjZCaXdGeDBUTk13bkExZEtWQkVIM2ViVkdaeVUxbTVWbXlzMXhLZjVHUGx5M2ROdGNnc2ZKZ2hMemFEeGxaRDQ4RlV6RXZwYzdB?oc=5",
-      "source": "Los Angeles Times",
-      "publishedAt": "2026-08-25T05:56:04.000Z",
-      "category": "League news",
-      "origin": "auto",
-      "id": "7778ae313818183f"
-    },
-    {
-      "title": "Angel Reese breaks WNBA single-game and single-season rebounding records",
-      "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOMUNkaEtoU20xU0lXQXFMSGpDMC1vemNXN2p5T3JQX2lFLWdTX2NPVmdzQWJ4UEg2VWs2YXd1YkZPYmVFZG05ZS1uVnlKV1I4ekxvZ2R5aEM4TmMybDBWOFZxR09DRE9sU3JDME95Ulc1a19LWFlMbkkwLXA1QjB6N0pDS2dTY1dnVm54bE9OWUdZampzXy1qS2NBUTZ3MTZG?oc=5",
-      "source": "The New York Times",
-      "publishedAt": "2026-08-25T05:32:46.000Z",
-      "category": "League news",
-      "origin": "auto",
-      "id": "1ab27f8bb14c80c8"
-    },
-    {
-      "title": "Angel Reese sets WNBA single-game rebound record with 26 boards in Dream win",
-      "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNVm52UE5vSzdOM2FKVHVoV2pQSVRlbHVBMHdydDBYbVBESkF0T3R0X0pQaFp4ZGxjd2d0X19rN1VxQ09oblFoTnU2bjA5cTluWHF4bmpSMy1xaXVCRWNqNWhxUmNhQlNaXzZtTENBRnFsS1hlaHRuUnZsQm5WVXhoNWFZbWJkZXo0UndxSzAzVm41U3Q0ZmgzU1R2d0hIdU1JYXRLeUFodk51ZTdqRDBLcnNXWW54aS1s?oc=5",
-      "source": "USA Today",
-      "publishedAt": "2026-08-25T05:09:00.000Z",
-      "category": "League news",
-      "origin": "auto",
-      "id": "03b3b296fad57fe1"
-    },
-    {
-      "title": "‘Why does she’ – WNBA fans roast Angel Reese after viral Cameron Brink defensive clip",
-      "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE9SX3NYSzh6LTBLbVd1TXJUSFJ3TUhncVpJWUNWNDkyT2hYWVAzM3h5Rnh5N0xZT1Z0LWJfWkk3TU9wTDA0UW51MmxlWTFhVGlkZHBwSlJxNzBxdUM5WnVKdmZMVEI4NWRBNUt5NUVZV1VKdXgxTGVYSTV2Yw?oc=5",
-      "source": "Yahoo Sports",
-      "publishedAt": "2026-08-25T05:04:00.000Z",
-      "category": "Courtside incident",
-      "origin": "auto",
-      "id": "b8af507c0f7e8c01"
-    },
-    {
-      "title": "Angel Reese breaks WNBA single-game and season rebounding records as Dream beat Sparks 78-71",
-      "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxQWWUwM0stUDhWU3lLQUNwN21Ua2gwQXZTLWZ1TldkLWwyWnpnN085LWRnS3EwV3JTa3MtRzRYMzdRZ1ZiR041Sm9KWFd1X0JLTEpab2lEQXpMUG1DU0VwdTRRbmtiRi01elV5M25kdHk5WlpEcWIzTGdaaHlhcG5HYVhadFZTZUpxR3FuSnF1N0ZSUkVYbkxPb3pZTVI3T0tmMmJDUVVENl9sWE5IM05GQ3VUMjFEcTIxUjhabXZDNkt2aTNsZ2pF?oc=5",
-      "source": "NBC Sports",
-      "publishedAt": "2026-08-25T04:58:30.000Z",
-      "category": "League news",
-      "origin": "auto",
-      "id": "9f7b2e0f24ddd032"
-    },
-    {
-      "title": "Angel Reese sets WNBA single-game, season rebounding records",
-      "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOeGtnOGFLcG13R0lDU0dMOEYwVkFGSy00VWY3clRDVVVjemxLNFJncEJUdWkzYXpkc3g5V1JTdmQ0cjB5eXpLQmJwY0FUaE1qUXdGQ3ZlcVJpeVZqeTNha2tiQ0lPSDVJLU9KNnlhZWxCSzdYdFVfb3otOF96bVRQWHZRelk2WnlCalAtdDRwcmZxWUM5QTF5aVpvOHBqWEMwRXpWNEFXMUhJMG9ybXdXVg?oc=5",
-      "source": "ESPN",
-      "publishedAt": "2026-08-25T04:42:00.000Z",
-      "category": "League news",
-      "origin": "auto",
-      "id": "814ce9df0cfcd665"
-    },
-    {
-      "title": "Reese sets WNBA single-game rebounding record in Dream’s 78-71 win over Sparks",
-      "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxQS1MzUE13ZWR2SFhTTHNaVXJEZmxGQ3ZrbVpfVUItM0NmdW92eDhfTklfMzJQbWlrc2syTWxPcC0zTTZqWElvLVgwd1NyRXFGV0NoYWpKWUpRdHhsc0VpTkZ2aDdGT2RRMTAxUVBJdlNxRzlvNGdGd3JNRGVmOWNlcDNB?oc=5",
-      "source": "Yahoo Sports",
-      "publishedAt": "2026-08-25T04:33:55.000Z",
-      "category": "League news",
-      "origin": "auto",
-      "id": "6362e9a277fa6fe5"
-    },
-    {
-      "title": "One More Run: DeWanna Bonner leaves Phoenix after contract buyout",
-      "url": "/dewanna-bonner-buyout.html",
-      "source": "We Know the W",
-      "publishedAt": "2026-08-24T17:32:00.000Z",
-      "category": "Player movement",
-      "origin": "original",
-      "id": "bonner-buyout-20260824"
     }
   ]
 }

@@ -332,17 +332,19 @@ function parseEventStatLeaders(text = '') {
 
     const later = available.find(item => item.markerIndex > current.markerIndex);
     const segment = text.slice(current.markerIndex + current.markerLength, later ? later.markerIndex : text.length);
+    const nameToken = `(?!(?:${countryCodes})\\b)[A-ZÀ-ÖØ-Ý][A-Za-zÀ-ÖØ-öø-ÿ'’.\\-]+`;
+    const playerName = `${nameToken}(?:\\s+${nameToken}){1,3}`;
     const playerPattern = new RegExp(
-      `(?:\\b(${countryCodes})\\b\\s+)?([A-ZÀ-ÖØ-Ý][A-Za-zÀ-ÖØ-öø-ÿ'’.\\-]+(?:\\s+[A-ZÀ-ÖØ-Ý][A-Za-zÀ-ÖØ-öø-ÿ'’.\\-]+){1,3})\\s+(?:\\b(${countryCodes})\\b\\s+)?(\\d+(?:\\.\\d+)?)`,
+      `(?:\\b(${countryCodes})\\b\\s+(${playerName})|(${playerName})\\s+\\b(${countryCodes})\\b)\\s+(\\d+(?:\\.\\d+)?)`,
       'g'
     );
 
     const leaders = [];
     let match;
     while ((match = playerPattern.exec(segment)) && leaders.length < 3) {
-      const code = match[1] || match[3];
+      const code = match[1] || match[4];
       if (!code || !COUNTRY[code]) continue;
-      const player = normalizeName(match[2]);
+      const player = normalizeName(match[2] || match[3]);
       if (!player || /^(View All|Per Game)$/i.test(player)) continue;
       leaders.push({
         rank: leaders.length + 1,
@@ -350,7 +352,7 @@ function parseEventStatLeaders(text = '') {
         countryCode: code,
         country: COUNTRY[code][0],
         flag: COUNTRY[code][1],
-        value: Number(match[4])
+        value: Number(match[5])
       });
     }
     return { ...category, leaders };

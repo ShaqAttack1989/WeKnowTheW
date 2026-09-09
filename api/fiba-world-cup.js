@@ -11,8 +11,10 @@ const SOURCE_URLS = {
 };
 
 const FIBA_GDAP_USA_TEAM_ID = 284651;
+const FIBA_GDAP_COMPETITION_ID = 208875;
 
 function gameCenterUrl(day) {
+  if (day === 8 || day === 9) return `${EVENT_BASE}/news/2026-wwc-game-center-sep-8-9`;
   return `${EVENT_BASE}/news/2026-wwc-game-center-sep-${day}`;
 }
 
@@ -31,6 +33,10 @@ function completedGameCenterDays() {
   const day = berlinTournamentDay();
   if (!day) return [];
   return Array.from({ length: day - 3 }, (_, index) => index + 4);
+}
+
+function completedGameCenterUrls() {
+  return [...new Set(completedGameCenterDays().map(day => gameCenterUrl(day)))];
 }
 
 const COUNTRY = {
@@ -76,18 +82,18 @@ const USA_ROSTER_UPDATE = {
 };
 
 const GROUP_GAMES = [
-  ['2026-09-04','09:30','A','JPN','MLI'], ['2026-09-04','09:30','C','AUS','PUR'],
-  ['2026-09-04','12:15','D','USA','CHN'], ['2026-09-04','12:30','B','KOR','NGR'],
-  ['2026-09-04','15:30','C','BEL','TUR'], ['2026-09-04','15:45','A','ESP','GER'],
-  ['2026-09-04','18:15','D','CZE','ITA'], ['2026-09-04','19:00','B','HUN','FRA'],
-  ['2026-09-05','09:30','A','MLI','ESP'], ['2026-09-05','12:15','B','NGR','HUN'],
-  ['2026-09-05','16:00','A','GER','JPN'], ['2026-09-05','18:45','B','FRA','KOR'],
-  ['2026-09-06','09:30','C','TUR','AUS'], ['2026-09-06','12:30','D','CHN','CZE'],
-  ['2026-09-06','15:45','C','PUR','BEL'], ['2026-09-06','18:45','D','ITA','USA'],
-  ['2026-09-07','09:30','C','BEL','AUS'], ['2026-09-07','09:30','C','PUR','TUR'],
-  ['2026-09-07','12:30','B','HUN','KOR'], ['2026-09-07','12:30','B','NGR','FRA'],
-  ['2026-09-07','15:50','A','JPN','ESP'], ['2026-09-07','15:50','A','GER','MLI'],
-  ['2026-09-07','18:45','D','USA','CZE'], ['2026-09-07','18:45','D','ITA','CHN']
+  ['2026-09-04','11:30','A','JPN','MLI'], ['2026-09-04','11:30','C','AUS','PUR'],
+  ['2026-09-04','14:15','D','USA','CHN'], ['2026-09-04','14:30','B','KOR','NGR'],
+  ['2026-09-04','17:30','C','BEL','TUR'], ['2026-09-04','17:45','A','ESP','GER'],
+  ['2026-09-04','20:15','D','CZE','ITA'], ['2026-09-04','21:00','B','HUN','FRA'],
+  ['2026-09-05','11:30','A','MLI','ESP'], ['2026-09-05','14:15','B','NGR','HUN'],
+  ['2026-09-05','18:00','A','GER','JPN'], ['2026-09-05','20:45','B','FRA','KOR'],
+  ['2026-09-06','11:30','C','TUR','AUS'], ['2026-09-06','14:30','D','CHN','CZE'],
+  ['2026-09-06','17:45','C','PUR','BEL'], ['2026-09-06','20:45','D','ITA','USA'],
+  ['2026-09-07','11:30','C','BEL','AUS'], ['2026-09-07','11:30','C','PUR','TUR'],
+  ['2026-09-07','14:30','B','HUN','KOR'], ['2026-09-07','14:30','B','NGR','FRA'],
+  ['2026-09-07','17:50','A','JPN','ESP'], ['2026-09-07','17:50','A','GER','MLI'],
+  ['2026-09-07','20:45','D','USA','CZE'], ['2026-09-07','20:45','D','ITA','CHN']
 ];
 
 const FIBA_GROUP_GAME_IDS = {
@@ -95,6 +101,15 @@ const FIBA_GROUP_GAME_IDS = {
   'HUN-FRA': 128122, 'KOR-NGR': 128123, 'NGR-HUN': 128124, 'FRA-KOR': 128125, 'HUN-KOR': 128126, 'NGR-FRA': 128127,
   'BEL-TUR': 128128, 'AUS-PUR': 128129, 'PUR-BEL': 128130, 'TUR-AUS': 128131, 'BEL-AUS': 128132, 'PUR-TUR': 128133,
   'USA-CHN': 128134, 'CZE-ITA': 128135, 'ITA-USA': 128136, 'CHN-CZE': 128137, 'USA-CZE': 128138, 'ITA-CHN': 128139
+};
+
+const VERIFIED_GROUP_RESULTS = {
+  'JPN-MLI': [102,97], 'AUS-PUR': [70,54], 'USA-CHN': [94,61], 'KOR-NGR': [99,81],
+  'BEL-TUR': [89,75], 'ESP-GER': [83,53], 'CZE-ITA': [54,63], 'HUN-FRA': [53,99],
+  'MLI-ESP': [82,73], 'NGR-HUN': [67,71], 'GER-JPN': [74,58], 'FRA-KOR': [95,69],
+  'TUR-AUS': [71,87], 'CHN-CZE': [74,70], 'PUR-BEL': [64,76], 'ITA-USA': [52,55],
+  'BEL-AUS': [80,68], 'PUR-TUR': [75,71], 'HUN-KOR': [82,73], 'NGR-FRA': [56,111],
+  'JPN-ESP': [59,79], 'GER-MLI': [83,58], 'USA-CZE': [105,64], 'ITA-CHN': [51,71]
 };
 
 const VERIFIED_PLAYER_OF_GAME = {
@@ -232,7 +247,7 @@ const VERIFIED_PLAYER_OF_GAME = {
   },
   'USA-CZE': {
     player: 'Breanna Stewart',
-    line: '15 PTS',
+    line: '19 PTS',
     countryCode: 'USA',
     sourceUrl: 'https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026/games/128138-USA-CZE'
   },
@@ -244,9 +259,24 @@ const VERIFIED_PLAYER_OF_GAME = {
   }
 };
 
+const VERIFIED_PLAYER_OF_GAME_BY_ID = {
+  128144: {
+    player: 'Marie Guelich',
+    line: '19 PTS',
+    countryCode: 'GER',
+    sourceUrl: `${EVENT_BASE}/games/128144-GER-KOR`
+  },
+  128145: {
+    player: 'Reka Lelik',
+    line: '23 PTS',
+    countryCode: 'HUN',
+    sourceUrl: `${EVENT_BASE}/games/128145-HUN-JPN`
+  }
+};
+
 function verifiedPlayerOfGame(game) {
   const key = `${game.home.code}-${game.away.code}`;
-  const item = VERIFIED_PLAYER_OF_GAME[key];
+  const item = VERIFIED_PLAYER_OF_GAME_BY_ID[Number(game.fibaGameId)] || VERIFIED_PLAYER_OF_GAME[key];
   if (!item) return null;
   const code = item.countryCode;
   return {
@@ -258,7 +288,7 @@ function verifiedPlayerOfGame(game) {
 
 function gameDetailUrl(game) {
   const key = `${game.home.code}-${game.away.code}`;
-  const id = FIBA_GROUP_GAME_IDS[key];
+  const id = Number(game.fibaGameId) || FIBA_GROUP_GAME_IDS[key];
   return id ? `${EVENT_BASE}/games/${id}-${key}` : null;
 }
 
@@ -292,20 +322,26 @@ function team(code) {
 }
 
 function baseGames() {
-  return GROUP_GAMES.map(([date, time, group, home, away], index) => ({
-    id: `group-${index + 1}-${home}-${away}`,
-    phase: 'Group Phase',
-    group,
-    date,
-    timeBerlin: time,
-    startTimeUtc: berlinUtc(date, time),
-    venue: 'Berlin, Germany',
-    home: team(home),
-    away: team(away),
-    status: 'scheduled',
-    homeScore: null,
-    awayScore: null
-  }));
+  return GROUP_GAMES.map(([date, time, group, home, away], index) => {
+    const key = `${home}-${away}`;
+    const fibaGameId = FIBA_GROUP_GAME_IDS[key];
+    return {
+      id: `group-${index + 1}-${home}-${away}`,
+      fibaGameId,
+      phase: 'Group Phase',
+      group,
+      date,
+      timeBerlin: time,
+      startTimeUtc: berlinUtc(date, time),
+      venue: 'Berlin, Germany',
+      home: team(home),
+      away: team(away),
+      status: 'scheduled',
+      homeScore: null,
+      awayScore: null,
+      sourceUrl: `${EVENT_BASE}/games/${fibaGameId}-${key}`
+    };
+  });
 }
 
 function baseStandings() {
@@ -647,6 +683,58 @@ function mergeFinalScores(base, next) {
   return [...byId.values()];
 }
 
+function applyVerifiedResultSnapshot(games) {
+  let changed = false;
+  const updated = (games || []).map(game => {
+    if (!game.group) return game;
+    const key = `${game.home.code}-${game.away.code}`;
+    const result = VERIFIED_GROUP_RESULTS[key];
+    if (!result) return game;
+    if (game.status !== 'final' || Number(game.homeScore) !== result[0] || Number(game.awayScore) !== result[1]) changed = true;
+    const fibaGameId = Number(game.fibaGameId) || FIBA_GROUP_GAME_IDS[key];
+    return {
+      ...game,
+      fibaGameId,
+      status: 'final',
+      homeScore: result[0],
+      awayScore: result[1],
+      sourceUrl: `${EVENT_BASE}/games/${fibaGameId}-${key}`
+    };
+  });
+
+  const knockoutSnapshot = [
+    {
+      id: 'fiba-128145', fibaGameId: 128145, phase: 'Qualification to Quarter-Finals', roundCode: 'QQF', group: null,
+      date: '2026-09-08', timeBerlin: '17:45', startTimeUtc: berlinUtc('2026-09-08', '17:45'), venue: 'Berlin Arena, Berlin, Germany',
+      home: team('HUN'), away: team('JPN'), status: 'final', homeScore: 84, awayScore: 63,
+      sourceUrl: `${EVENT_BASE}/games/128145-HUN-JPN`
+    },
+    {
+      id: 'fiba-128144', fibaGameId: 128144, phase: 'Qualification to Quarter-Finals', roundCode: 'QQF', group: null,
+      date: '2026-09-08', timeBerlin: '20:45', startTimeUtc: berlinUtc('2026-09-08', '20:45'), venue: 'Berlin Arena, Berlin, Germany',
+      home: team('GER'), away: team('KOR'), status: 'final', homeScore: 94, awayScore: 56,
+      sourceUrl: `${EVENT_BASE}/games/128144-GER-KOR`
+    }
+  ];
+
+  knockoutSnapshot.forEach(snapshot => {
+    const index = updated.findIndex(game => Number(game.fibaGameId) === snapshot.fibaGameId || (
+      game.phase === snapshot.phase && game.home?.code === snapshot.home.code && game.away?.code === snapshot.away.code
+    ));
+    if (index >= 0) {
+      const game = updated[index];
+      if (game.status !== 'final' || Number(game.homeScore) !== snapshot.homeScore || Number(game.awayScore) !== snapshot.awayScore) changed = true;
+      updated[index] = { ...game, ...snapshot, id: game.id || snapshot.id };
+    } else {
+      updated.push(snapshot);
+      changed = true;
+    }
+  });
+
+  updated.sort((a, b) => Date.parse(a.startTimeUtc || 0) - Date.parse(b.startTimeUtc || 0));
+  return { games: updated, changed };
+}
+
 function parseExtraFinalGames(text, knownGames) {
   const known = new Set(knownGames.map(game => `${game.home.code}-${game.away.code}-${game.date}`));
   const extras = [];
@@ -783,26 +871,156 @@ function publicFibaApiConfig(html = '') {
   return apiUrl && subscriptionKey ? { apiUrl, subscriptionKey } : null;
 }
 
-async function fetchUsaTeamPlayerStats(statsHtml, timeoutMs = 8000) {
+async function fetchFibaJson(statsHtml, endpoint, query = {}, timeoutMs = 8000) {
   const config = publicFibaApiConfig(statsHtml);
   if (!config) throw new Error('FIBA public statistics configuration was not available');
 
   const controller = new AbortController();
   const timeout = setTimeout(() => controller.abort(), timeoutMs);
   try {
-    const response = await fetch(`${config.apiUrl.replace(/\/$/, '')}/getgdapcompetitionteamstatisticsbyteamid?gdapTeamId=${FIBA_GDAP_USA_TEAM_ID}`, {
+    const params = new URLSearchParams();
+    Object.entries(query).forEach(([key, value]) => {
+      if (value !== null && value !== undefined && value !== '') params.set(key, String(value));
+    });
+    const suffix = params.size ? `?${params.toString()}` : '';
+    const response = await fetch(`${config.apiUrl.replace(/\/$/, '')}/${endpoint}${suffix}`, {
       headers: {
         Accept: 'application/json',
         'Ocp-Apim-Subscription-Key': config.subscriptionKey
       },
       signal: controller.signal
     });
-    if (!response.ok) throw new Error(`FIBA team statistics returned ${response.status}`);
+    if (!response.ok) throw new Error(`FIBA ${endpoint} returned ${response.status}`);
     const payload = await response.json();
     return payload?.data || payload;
   } finally {
     clearTimeout(timeout);
   }
+}
+
+async function fetchUsaTeamPlayerStats(statsHtml, timeoutMs = 8000) {
+  return fetchFibaJson(statsHtml, 'getgdapcompetitionteamstatisticsbyteamid', {
+    gdapTeamId: FIBA_GDAP_USA_TEAM_ID
+  }, timeoutMs);
+}
+
+async function fetchCompetitionGames(statsHtml, timeoutMs = 8000) {
+  return fetchFibaJson(statsHtml, 'getgdapgamesbycompetitionid', {
+    gdapCompetitionId: FIBA_GDAP_COMPETITION_ID
+  }, timeoutMs);
+}
+
+function gdapTeam(value, bracketLabel) {
+  const code = String(value?.code || '').toUpperCase();
+  if (!code) return { code: 'TBD', name: bracketLabel || 'To be determined', flag: '' };
+  const known = team(code);
+  return {
+    ...known,
+    name: COUNTRY[code]?.[0] || value?.shortName || value?.officialName || code
+  };
+}
+
+function gdapUtc(value) {
+  const raw = String(value || '').trim();
+  if (!raw) return null;
+  const parsed = new Date(/(?:Z|[+-]\d{2}:\d{2})$/i.test(raw) ? raw : `${raw}Z`);
+  return Number.isNaN(parsed.getTime()) ? null : parsed.toISOString();
+}
+
+function normalizeCompetitionGame(item, index = 0) {
+  const fibaGameId = Number(item?.gameId);
+  if (!Number.isFinite(fibaGameId)) return null;
+
+  const round = item?.round || {};
+  const group = round.roundCode === 'GP' || round.roundType === 'G'
+    ? String(item?.groupPairingCode || '').replace(/^G/i, '') || null
+    : null;
+  const final = item?.statusCode === 'VALID' || item?.gameResultStatusCode === 'VALID';
+  const live = !final && Boolean(item?.isLive);
+  const home = gdapTeam(item?.teamA, item?.teamAFrom);
+  const away = gdapTeam(item?.teamB, item?.teamBFrom);
+  const localDateTime = String(item?.gameDateTime || item?.gameDateTimeUTC || '');
+  const date = /^\d{4}-\d{2}-\d{2}/.test(localDateTime) ? localDateTime.slice(0, 10) : null;
+  const timeBerlin = /T\d{2}:\d{2}/.test(localDateTime) ? localDateTime.slice(11, 16) : null;
+  const detailKey = home.code !== 'TBD' && away.code !== 'TBD' ? `${home.code}-${away.code}` : null;
+  const sourceUrl = detailKey ? `${EVENT_BASE}/games/${fibaGameId}-${detailKey}` : SOURCE_URLS.games;
+  const score = value => Number.isFinite(Number(value)) ? Number(value) : null;
+
+  return {
+    id: `fiba-${fibaGameId || index + 1}`,
+    fibaGameId,
+    phase: round.roundName || 'Tournament Game',
+    roundCode: round.roundCode || null,
+    group,
+    date,
+    timeBerlin,
+    startTimeUtc: gdapUtc(item?.gameDateTimeUTC),
+    venue: [item?.venueName, item?.hostCity, item?.hostCountry].filter(Boolean).join(', ') || 'Berlin, Germany',
+    home,
+    away,
+    status: final ? 'final' : (live ? 'live' : 'scheduled'),
+    homeScore: final || live ? score(item?.teamAScore) : null,
+    awayScore: final || live ? score(item?.teamBScore) : null,
+    livePeriod: live ? (item?.currentPeriod || null) : null,
+    liveClock: live ? (item?.chrono || null) : null,
+    sourceUrl,
+    teamAFrom: item?.teamAFrom || null,
+    teamBFrom: item?.teamBFrom || null
+  };
+}
+
+function parseCompetitionGames(payload) {
+  const source = Array.isArray(payload) ? payload : [];
+  return source
+    .map(normalizeCompetitionGame)
+    .filter(Boolean)
+    .sort((a, b) => {
+      const aTime = Date.parse(a.startTimeUtc || `${a.date || '9999-12-31'}T23:59:59Z`);
+      const bTime = Date.parse(b.startTimeUtc || `${b.date || '9999-12-31'}T23:59:59Z`);
+      return aTime - bTime || a.fibaGameId - b.fibaGameId;
+    });
+}
+
+const FIBA_LEADER_QUERIES = {
+  efficiency: { statisticCode: 'EFF', valueKey: 'EFFPG' },
+  points: { statisticCode: 'PPG', valueKey: 'PPG' },
+  rebounds: { statisticCode: 'RBD', valueKey: 'RPG' },
+  assists: { statisticCode: 'AST', valueKey: 'APG' },
+  steals: { statisticCode: 'STL', valueKey: 'STLPG' },
+  blocks: { statisticCode: 'BLK', valueKey: 'BLKPG' }
+};
+
+async function fetchCompetitionStatLeaders(statsHtml, timeoutMs = 8000) {
+  const results = await Promise.allSettled(MAIN_STAT_CATEGORIES.map(async category => {
+    const query = FIBA_LEADER_QUERIES[category.key];
+    const payload = await fetchFibaJson(statsHtml, 'getgdapcompetitionplayerleadersbyid', {
+      gdapCompetitionId: FIBA_GDAP_COMPETITION_ID,
+      statisticCode: query.statisticCode,
+      oris: 'true'
+    }, timeoutMs);
+    const leaders = (Array.isArray(payload) ? payload : []).slice(0, 3).map(item => {
+      const code = String(item?.nationality || '').toUpperCase();
+      return {
+        player: normalizeName(`${item?.firstName || ''} ${item?.lastName || ''}`),
+        countryCode: code,
+        country: COUNTRY[code]?.[0] || code,
+        flag: COUNTRY[code]?.[1] || '',
+        value: numberOrNull(item?.statistics?.[query.valueKey]),
+        rank: numberOrNull(item?.rank)
+      };
+    }).filter(item => item.player && item.value !== null);
+    return { ...category, leaders };
+  }));
+
+  const categories = MAIN_STAT_CATEGORIES.map((category, index) => {
+    const result = results[index];
+    return result?.status === 'fulfilled' ? result.value : { ...category, leaders: [] };
+  });
+  return {
+    categories,
+    complete: categories.every(category => category.leaders.length >= 3),
+    populated: categories.filter(category => category.leaders.length > 0).length
+  };
 }
 
 function numberOrNull(value) {
@@ -961,17 +1179,33 @@ module.exports = async function handler(req, res) {
   let statLeaders = MAIN_STAT_CATEGORIES.map(category => ({ ...category, leaders: [] }));
   let liveLeagueLeaders = false;
   let standingsSource = 'fallback';
+  let gamesSource = 'fallback';
+  let leagueLeadersSource = 'fallback';
   let playerStatsSource = 'fallback';
   const warnings = [];
 
   try {
-    const gameCenterDays = completedGameCenterDays();
-    const [standingsResult, gamesResult, eventResult, statsResult, ...gameCenterResults] = await Promise.allSettled([
+    const pageResultsPromise = Promise.allSettled([
       fetchText(SOURCE_URLS.standings),
       fetchText(SOURCE_URLS.games),
-      fetchText(SOURCE_URLS.event),
-      fetchText(SOURCE_URLS.stats),
-      ...gameCenterDays.map(day => fetchText(gameCenterUrl(day)))
+      fetchText(SOURCE_URLS.event)
+    ]);
+    const [statsResult] = await Promise.allSettled([fetchText(SOURCE_URLS.stats)]);
+
+    const officialDataPromise = statsResult.status === 'fulfilled'
+      ? Promise.allSettled([
+        fetchCompetitionGames(statsResult.value),
+        fetchCompetitionStatLeaders(statsResult.value),
+        fetchUsaTeamPlayerStats(statsResult.value)
+      ])
+      : Promise.resolve([
+        { status: 'rejected', reason: new Error('FIBA statistics page unavailable') },
+        { status: 'rejected', reason: new Error('FIBA statistics page unavailable') },
+        { status: 'rejected', reason: new Error('FIBA statistics page unavailable') }
+      ]);
+    const [[standingsResult, gamesResult, eventResult], [competitionGamesResult, competitionLeadersResult, teamStatsResult]] = await Promise.all([
+      pageResultsPromise,
+      officialDataPromise
     ]);
 
     let officialStandingsChanged = false;
@@ -982,89 +1216,108 @@ module.exports = async function handler(req, res) {
       officialStandingsChanged = parsed.changed;
     }
 
-    const resultsHtml = gamesResult.status === 'fulfilled'
-      ? gamesResult.value
-      : (eventResult.status === 'fulfilled' ? eventResult.value : null);
-
-    if (resultsHtml) {
-      const resultsText = normalizeName(htmlToText(resultsHtml));
-      const scoreResult = applyFinalScores(resultsText, fallbackGames);
-      games = scoreResult.games;
-      liveResults = scoreResult.changed;
-      const extras = parseExtraFinalGames(resultsText, games);
-      if (extras.length) games = games.concat(extras);
-
-      const completedGroupGames = games.filter(game => game.group && game.status === 'final').length;
-      const officialCompletedGames = standingsGameCount(standings);
-
-      if (completedGroupGames > officialCompletedGames) {
-        standings = deriveStandingsFromFinalGames(fallbackStandings, games);
-        liveStandings = completedGroupGames > 0;
-        standingsSource = 'derived-from-results';
-        warnings.push('FIBA results updated before the standings table. W/L and group points are being calculated from official completed FIBA game results until the standings page catches up.');
-      } else {
-        liveStandings = officialStandingsChanged || completedGroupGames > 0;
-        standingsSource = liveStandings ? 'official-standings' : 'fallback';
+    if (competitionGamesResult.status === 'fulfilled') {
+      const officialGames = parseCompetitionGames(competitionGamesResult.value);
+      if (officialGames.length >= GROUP_GAMES.length) {
+        games = officialGames;
+        liveResults = games.some(game => game.status === 'final');
+        gamesSource = 'official-competition-games';
       }
+    }
+
+    if (gamesSource === 'fallback') {
+      const resultsHtml = gamesResult.status === 'fulfilled'
+        ? gamesResult.value
+        : (eventResult.status === 'fulfilled' ? eventResult.value : null);
+
+      if (resultsHtml) {
+        const resultsText = normalizeName(htmlToText(resultsHtml));
+        const scoreResult = applyFinalScores(resultsText, fallbackGames);
+        games = scoreResult.games;
+        liveResults = scoreResult.changed;
+        gamesSource = scoreResult.changed ? 'official-games-page' : 'fallback';
+        const extras = parseExtraFinalGames(resultsText, games);
+        if (extras.length) games = games.concat(extras);
+      }
+
+      const gameCenterResults = await Promise.allSettled(completedGameCenterUrls().map(url => fetchText(url)));
+      for (const result of gameCenterResults) {
+        if (result.status !== 'fulfilled') continue;
+        const dailyText = normalizeName(htmlToText(result.value));
+        const dailyScores = applyVerifiedDailyScores(dailyText, games);
+        if (!dailyScores.changed) continue;
+        games = mergeFinalScores(games, dailyScores.games);
+        liveResults = true;
+        gamesSource = 'official-game-center';
+      }
+    }
+
+    if (gamesSource !== 'official-competition-games' && statsResult.status === 'fulfilled' && publicFibaApiConfig(statsResult.value)) {
+      const snapshot = applyVerifiedResultSnapshot(games);
+      games = snapshot.games;
+      liveResults = games.some(game => game.status === 'final');
+      gamesSource = 'verified-official-snapshot';
+      warnings.push('FIBA’s structured games feed is temporarily unavailable. Completed results are filled from the last verified official snapshot while live refresh retries.');
+    }
+
+    const completedGroupGames = games.filter(game => game.group && game.status === 'final').length;
+    const officialCompletedGames = standingsGameCount(standings);
+    if (completedGroupGames > 0 && ['official-competition-games','verified-official-snapshot'].includes(gamesSource)) {
+      standings = deriveStandingsFromFinalGames(fallbackStandings, games);
+      liveStandings = true;
+      standingsSource = gamesSource === 'official-competition-games' ? 'derived-from-official-games' : 'derived-from-verified-snapshot';
+      if (gamesSource === 'official-competition-games' && completedGroupGames > officialCompletedGames) {
+        warnings.push('FIBA’s structured game feed has newer finals than its standings page. Group W/L, points and order are calculated from those official final scores.');
+      }
+    } else if (completedGroupGames > officialCompletedGames) {
+      standings = deriveStandingsFromFinalGames(fallbackStandings, games);
+      liveStandings = true;
+      standingsSource = 'derived-from-results';
+      warnings.push('FIBA results updated before the standings table. W/L and group points are being calculated from official completed FIBA game results until the standings page catches up.');
     } else if (standingsResult.status === 'fulfilled') {
-      liveStandings = officialStandingsChanged;
+      liveStandings = officialStandingsChanged || completedGroupGames > 0;
       standingsSource = liveStandings ? 'official-standings' : 'fallback';
-      warnings.push('Official FIBA game results feed could not be refreshed; standings are using the official standings page.');
-    } else {
+      if (gamesSource === 'fallback') warnings.push('Official FIBA game results feed could not be refreshed; standings are using the official standings page.');
+    } else if (gamesSource === 'fallback') {
       warnings.push('Official FIBA standings/results feeds could not be refreshed; showing verified tournament structure and schedule.');
-    }
-
-    let gameCenterFinals = false;
-    for (const result of gameCenterResults) {
-      if (result.status !== 'fulfilled') continue;
-      const dailyText = normalizeName(htmlToText(result.value));
-      const dailyScores = applyVerifiedDailyScores(dailyText, games);
-      if (!dailyScores.changed) continue;
-      games = mergeFinalScores(games, dailyScores.games);
-      gameCenterFinals = true;
-    }
-
-    if (gameCenterFinals) {
-      liveResults = true;
-      const completedGroupGames = games.filter(game => game.group && game.status === 'final').length;
-      const officialCompletedGames = standingsGameCount(standings);
-      if (completedGroupGames > officialCompletedGames) {
-        standings = deriveStandingsFromFinalGames(fallbackStandings, games);
-        liveStandings = true;
-        standingsSource = 'derived-from-results';
-        if (!warnings.some(item => item.includes('standings table'))) {
-          warnings.push('Official FIBA Game Center has newer finals than the standings table. W/L and group points are being calculated from those verified results until the table catches up.');
-        }
-      }
     }
 
     games = await attachPlayersOfGame(games);
 
-    if (eventResult.status === 'fulfilled') {
+    if (competitionLeadersResult.status === 'fulfilled' && competitionLeadersResult.value.populated > 0) {
+      statLeaders = competitionLeadersResult.value.categories;
+      liveLeagueLeaders = competitionLeadersResult.value.complete;
+      leagueLeadersSource = 'official-competition-player-leaders';
+    }
+
+    if (!liveLeagueLeaders && eventResult.status === 'fulfilled') {
       const eventText = normalizeName(htmlToText(eventResult.value));
       const parsedLeaderboards = parseEventStatLeaders(eventText);
-      statLeaders = parsedLeaderboards.categories;
-      liveLeagueLeaders = parsedLeaderboards.complete;
-      if (!liveLeagueLeaders && parsedLeaderboards.populated > 0) {
-        warnings.push('Some FIBA tournament leader categories are still refreshing. Available categories are shown while the official leaderboard catches up.');
+      const currentPopulated = statLeaders.filter(category => category.leaders.length > 0).length;
+      if (parsedLeaderboards.populated > currentPopulated) {
+        statLeaders = parsedLeaderboards.categories;
+        liveLeagueLeaders = parsedLeaderboards.complete;
+        leagueLeadersSource = 'official-event-page';
       }
-    } else {
-      warnings.push('Official FIBA all-player leaderboards could not be refreshed.');
+    }
+    if (!liveLeagueLeaders) {
+      const populated = statLeaders.filter(category => category.leaders.length > 0).length;
+      if (populated > 0) warnings.push('Some FIBA tournament leader categories are still refreshing. Available categories are shown while the official leaderboard catches up.');
+      else warnings.push('Official FIBA all-player leaderboards could not be refreshed.');
     }
 
     if (statsResult.status === 'fulfilled') {
       const statsText = normalizeName(htmlToText(statsResult.value));
       const parsedHtmlStats = parsePlayerStats(statsText);
       let parsedStats = parsedHtmlStats;
-      try {
-        const officialTeamStats = await fetchUsaTeamPlayerStats(statsResult.value);
-        const parsedTeamStats = parseUsaTeamPlayerStats(officialTeamStats);
+      if (teamStatsResult.status === 'fulfilled') {
+        const parsedTeamStats = parseUsaTeamPlayerStats(teamStatsResult.value);
         if (parsedTeamStats.found >= parsedHtmlStats.found) {
           parsedStats = parsedTeamStats;
           playerStatsSource = 'official-usa-team-statistics';
         }
-      } catch (error) {
-        if (parsedHtmlStats.found > 0) warnings.push('FIBA’s complete Team USA statistics feed could not refresh. The visible competition table is being used temporarily.');
+      } else if (parsedHtmlStats.found > 0) {
+        warnings.push('FIBA’s complete Team USA statistics feed could not refresh. The visible competition table is being used temporarily.');
       }
       playerStats = parsedStats.players;
       livePlayerStats = parsedStats.found > 0;
@@ -1090,7 +1343,7 @@ module.exports = async function handler(req, res) {
     updatedAt: new Date().toISOString(),
     sources: {
       ...SOURCE_URLS,
-      gameCenters: completedGameCenterDays().map(day => gameCenterUrl(day))
+      gameCenters: completedGameCenterUrls()
     },
     dataStatus: {
       liveStandings,
@@ -1098,7 +1351,11 @@ module.exports = async function handler(req, res) {
       livePlayerStats,
       liveLeagueLeaders,
       standingsSource,
+      gamesSource,
+      leagueLeadersSource,
       playerStatsSource,
+      completedGames: games.filter(game => game.status === 'final').length,
+      completedGroupGames: games.filter(game => game.group && game.status === 'final').length,
       playerOfGameCount: games.filter(game => game.playerOfGame).length,
       warnings
     },

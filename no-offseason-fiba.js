@@ -42,7 +42,7 @@
   function statusCopy(data){
     const status=data.dataStatus||{};
     if(status.livePlayerStats)return ['LIVE FIBA STATS','Official World Cup player statistics are connected and auto-refreshing.'];
-    if(status.standingsSource==='derived-from-results')return ['RESULTS AHEAD OF TABLE','Official final scores are connected. Group W/L and points are being calculated from those results until FIBA’s standings table catches up.'];
+    if(String(status.standingsSource||'').startsWith('derived-'))return ['OFFICIAL RESULTS CONNECTED','Group W/L, points and order are calculated from FIBA’s completed-game feed.'];
     if(status.liveResults)return ['RESULTS CONNECTED','Official FIBA results and standings are auto-refreshing.'];
     if(status.liveStandings)return ['FIBA CONNECTED','Official standings are auto-refreshing. World Cup player stats will appear after USA tips off.'];
     return ['TOURNAMENT READY','Verified schedule and groups are loaded. Live box-score stats will populate when World Cup play begins.'];
@@ -66,10 +66,12 @@
     wrap.innerHTML=games.map(game=>{
       const opponent=game.home.code==='USA'?game.away:game.home;
       const home=game.home.code==='USA';
-      const result=game.status==='final'?`${game.homeScore}-${game.awayScore}`:'vs';
+      const final=game.status==='final';
+      const live=game.status==='live';
+      const result=final||live?(home?`${game.homeScore}-${game.awayScore}`:`${game.awayScore}-${game.homeScore}`):'vs';
       const pog=game.playerOfGame||null;
-      const pogHtml=game.status==='final'?`<div class="fiba-usa-potg ${pog?'is-ready':'is-pending'}"><span>${safe(pog?.flag||'🏀')}</span><div><small>FIBA PLAYER OF THE GAME</small><strong>${safe(pog?.player||'Official selection pending')}</strong>${pog?.line?`<em>${safe(pog.line)}</em>`:''}</div></div>`:'';
-      return `<article class="fiba-usa-game ${game.status==='final'?'is-final':''}">
+      const pogHtml=final?`<div class="fiba-usa-potg ${pog?'is-ready':'is-pending'}"><span>${safe(pog?.flag||'🏀')}</span><div><small>FIBA PLAYER OF THE GAME</small><strong>${safe(pog?.player||'Official selection pending')}</strong>${pog?.line?`<em>${safe(pog.line)}</em>`:''}</div></div>`:'';
+      return `<article class="fiba-usa-game ${final?'is-final':live?'is-live':''}">
         <div class="fiba-game-date"><b>${safe(longDate(game.date||'2026-09-04'))}</b><span>${safe(game.timeBerlin||'TBD')} Berlin · ${safe(localTime(game.startTimeUtc))}</span></div>
         <div class="fiba-game-match"><span class="fiba-flag">🇺🇸</span><strong>USA</strong><em>${safe(result)}</em><span class="fiba-flag">${safe(opponent.flag||'')}</span><strong>${safe(opponent.code)}</strong></div>
         <small>${home?'USA listed first':'USA listed second'} · ${safe(phaseLabel(game))}</small>
@@ -207,23 +209,30 @@
     const games=(data.games||[]).filter(gameVisible);
     const cards=games.map(game=>{
       const final=game.status==='final';
+      const live=game.status==='live';
+      const scored=final||live;
       const pog=game.playerOfGame||null;
       const pogHtml=final?`<div class="fiba-game-potg ${pog?'is-ready':'is-pending'}">
         <span class="fiba-potg-flag">${safe(pog?.flag||'🏀')}</span>
         <div><small>FIBA PLAYER OF THE GAME</small><strong>${safe(pog?.player||'Official selection pending')}</strong>${pog?.line?`<em>${safe(pog.line)}</em>`:''}</div>
       </div>`:'';
-      return `<article class="fiba-game-card ${final?'is-final':''} ${game.home?.code==='USA'||game.away?.code==='USA'?'has-usa':''}" data-game-id="${safe(game.id||'')}" data-game-date="${safe(game.date||'')}">
-        <div class="fiba-game-card-top"><span>${safe(phaseLabel(game))}</span><b>${final?'FINAL':safe(game.date?longDate(game.date):'TBD')}</b></div>
-        <div class="fiba-match-line"><span>${safe(game.home?.flag||'')} <strong>${safe(game.home?.code||'TBD')}</strong></span><em>${final?safe(game.homeScore):''}</em></div>
-        <div class="fiba-match-line"><span>${safe(game.away?.flag||'')} <strong>${safe(game.away?.code||'TBD')}</strong></span><em>${final?safe(game.awayScore):''}</em></div>
+      const resultUrl=pog?.sourceUrl||game.sourceUrl||'';
+      const homeLabel=game.home?.code==='TBD'?(game.home?.name||'TBD'):(game.home?.code||'TBD');
+      const awayLabel=game.away?.code==='TBD'?(game.away?.name||'TBD'):(game.away?.code||'TBD');
+      return `<article class="fiba-game-card ${final?'is-final':live?'is-live':''} ${game.home?.code==='USA'||game.away?.code==='USA'?'has-usa':''}" data-game-id="${safe(game.id||'')}" data-game-date="${safe(game.date||'')}">
+        <div class="fiba-game-card-top"><span>${safe(phaseLabel(game))}</span><b>${final?'FINAL':live?'LIVE':safe(game.date?longDate(game.date):'TBD')}</b></div>
+        <div class="fiba-match-line"><span>${safe(game.home?.flag||'')} <strong>${safe(homeLabel)}</strong></span><em>${scored?safe(game.homeScore):''}</em></div>
+        <div class="fiba-match-line"><span>${safe(game.away?.flag||'')} <strong>${safe(awayLabel)}</strong></span><em>${scored?safe(game.awayScore):''}</em></div>
         ${pogHtml}
-        <footer>${final?(pog?.sourceUrl?`<a href="${safe(pog.sourceUrl)}" target="_blank" rel="noopener">Official FIBA result + POG ↗</a>`:'Official FIBA result'):`${safe(game.timeBerlin||'TBD')} Berlin${game.startTimeUtc?` · ${safe(localTime(game.startTimeUtc))}`:''}`}</footer>
+        <footer>${final?(resultUrl?`<a href="${safe(resultUrl)}" target="_blank" rel="noopener">Official FIBA result${pog?' + POG':''} ↗</a>`:'Official FIBA result'):live?`Live · ${safe(game.livePeriod||'in progress')} ${safe(game.liveClock||'')}`:`${safe(game.timeBerlin||'TBD')} Berlin${game.startTimeUtc?` · ${safe(localTime(game.startTimeUtc))}`:''}`}</footer>
       </article>`;
     });
 
     if(gameFilter==='all'||gameFilter==='knockout'){
       (data.knockoutRounds||[]).forEach(round=>{
-        cards.push(`<article class="fiba-game-card knockout-placeholder"><div class="fiba-game-card-top"><span>KNOCKOUT</span><b>${safe(longDate(round.date))}</b></div><strong>${safe(round.phase)}</strong><p>${safe(round.games)} games · matchups populate as the bracket is set.</p></article>`);
+        const officialCount=(data.games||[]).filter(game=>!game.group&&game.date===round.date&&(game.phase===round.phase||(round.phase==='Medal Games'&&['3PG','F'].includes(game.roundCode)))).length;
+        const remaining=Math.max(0,Number(round.games||0)-officialCount);
+        if(remaining)cards.push(`<article class="fiba-game-card knockout-placeholder"><div class="fiba-game-card-top"><span>KNOCKOUT</span><b>${safe(longDate(round.date))}</b></div><strong>${safe(round.phase)}</strong><p>${safe(remaining)} matchup${remaining===1?'':'s'} will populate as the bracket is set.</p></article>`);
       });
     }
     wrap.innerHTML=cards.length?cards.join(''):'<p class="fiba-empty">No games match this filter.</p>';

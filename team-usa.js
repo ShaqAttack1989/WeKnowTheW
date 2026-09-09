@@ -95,7 +95,7 @@
       tournament:'FIBA Women’s Basketball World Cup',
       status:final?'final':'scheduled',
       result:final?(pointsFor>pointsAgainst?'W':pointsFor<pointsAgainst?'L':'T'):null,
-      sourceUrl:game.playerOfGame?.sourceUrl||''
+      sourceUrl:game.playerOfGame?.sourceUrl||game.sourceUrl||''
     };
   }
 

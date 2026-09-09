@@ -467,6 +467,48 @@ function resultStreak(results = []) {
   return `${last}${count}`;
 }
 
+function tournamentEliminations(standings = [], games = []) {
+  const eliminated = new Map();
+  const completedGroupGames = new Map(Object.keys(GROUPS).map(group => [group, 0]));
+
+  for (const game of games || []) {
+    if (game.status === 'final' && game.group && completedGroupGames.has(game.group)) {
+      completedGroupGames.set(game.group, completedGroupGames.get(game.group) + 1);
+    }
+  }
+
+  for (const group of standings || []) {
+    if ((completedGroupGames.get(group.group) || 0) < 6) continue;
+    for (const item of group.teams || []) {
+      if (Number(item.rank) !== 4) continue;
+      eliminated.set(item.code, {
+        stage: 'Group Phase',
+        label: 'Eliminated in group play'
+      });
+    }
+  }
+
+  const eliminationRounds = new Set(['QQF', 'QF']);
+  for (const game of games || []) {
+    if (game.status !== 'final') continue;
+    if (!eliminationRounds.has(String(game.roundCode || '').toUpperCase()) &&
+        !['Qualification to Quarter-Finals', 'Quarter-Finals'].includes(game.phase)) continue;
+
+    const homeScore = Number(game.homeScore);
+    const awayScore = Number(game.awayScore);
+    if (!Number.isFinite(homeScore) || !Number.isFinite(awayScore) || homeScore === awayScore) continue;
+    const loser = homeScore < awayScore ? game.home?.code : game.away?.code;
+    if (!loser || !COUNTRY[loser]) continue;
+    eliminated.set(loser, {
+      stage: game.phase || 'Knockout Round',
+      label: `Eliminated in ${game.phase || 'the knockout round'}`,
+      gameId: Number(game.fibaGameId) || null
+    });
+  }
+
+  return eliminated;
+}
+
 function buildTournamentTable(standings = [], games = []) {
   const official = new Map();
   standings.forEach(group => (group.teams || []).forEach(item => {
@@ -532,6 +574,7 @@ function buildTournamentTable(standings = [], games = []) {
   });
   const byCode = new Map(raw.map(item => [item.code, item]));
 
+  const eliminated = tournamentEliminations(standings, games);
   const completed = raw.map(item => {
     const officialRow = official.get(item.code) || {};
     const opponentRates = item.opponents
@@ -556,6 +599,7 @@ function buildTournamentTable(standings = [], games = []) {
       ? (item.groupPointsFor - item.groupPointsAgainst) / item.groupResults.length
       : null;
 
+    const elimination = eliminated.get(item.code) || null;
     return {
       code: item.code,
       name: item.name,
@@ -583,7 +627,10 @@ function buildTournamentTable(standings = [], games = []) {
       strengthOfSchedule,
       streak: resultStreak(item.results),
       form: item.results.slice(-5).join(' ') || '—',
-      wScore
+      wScore,
+      eliminated: Boolean(elimination),
+      eliminationStage: elimination?.stage || null,
+      eliminationLabel: elimination?.label || null
     };
   });
 
@@ -714,6 +761,12 @@ function applyVerifiedResultSnapshot(games) {
       date: '2026-09-08', timeBerlin: '20:45', startTimeUtc: berlinUtc('2026-09-08', '20:45'), venue: 'Berlin Arena, Berlin, Germany',
       home: team('GER'), away: team('KOR'), status: 'final', homeScore: 94, awayScore: 56,
       sourceUrl: `${EVENT_BASE}/games/128144-GER-KOR`
+    },
+    {
+      id: 'fiba-128147', fibaGameId: 128147, phase: 'Qualification to Quarter-Finals', roundCode: 'QQF', group: null,
+      date: '2026-09-09', timeBerlin: '17:45', startTimeUtc: berlinUtc('2026-09-09', '17:45'), venue: 'Berlin Arena, Berlin, Germany',
+      home: team('PUR'), away: team('CHN'), status: 'final', homeScore: 72, awayScore: 75,
+      sourceUrl: `${EVENT_BASE}/games/128147-PUR-CHN`
     }
   ];
 
@@ -1252,12 +1305,15 @@ module.exports = async function handler(req, res) {
       }
     }
 
-    if (gamesSource !== 'official-competition-games' && statsResult.status === 'fulfilled' && publicFibaApiConfig(statsResult.value)) {
+    const structuredFeedConfigured = statsResult.status === 'fulfilled' && publicFibaApiConfig(statsResult.value);
+    if (gamesSource !== 'official-competition-games' && (statsResult.status === 'rejected' || structuredFeedConfigured)) {
       const snapshot = applyVerifiedResultSnapshot(games);
       games = snapshot.games;
       liveResults = games.some(game => game.status === 'final');
-      gamesSource = 'verified-official-snapshot';
-      warnings.push('FIBA’s structured games feed is temporarily unavailable. Completed results are filled from the last verified official snapshot while live refresh retries.');
+      if (snapshot.changed) {
+        gamesSource = 'verified-official-snapshot';
+        warnings.push('FIBA’s structured games feed is temporarily unavailable. Completed results are filled from the last verified official snapshot while live refresh retries.');
+      }
     }
 
     const completedGroupGames = games.filter(game => game.group && game.status === 'final').length;
@@ -1331,6 +1387,7 @@ module.exports = async function handler(req, res) {
   }
 
   const tournamentTable = buildTournamentTable(standings, games);
+  const eliminatedTeams = tournamentTable.filter(team => team.eliminated);
 
   res.setHeader('Cache-Control', 's-maxage=60, stale-while-revalidate=120');
   return res.status(200).json({
@@ -1356,6 +1413,7 @@ module.exports = async function handler(req, res) {
       playerStatsSource,
       completedGames: games.filter(game => game.status === 'final').length,
       completedGroupGames: games.filter(game => game.group && game.status === 'final').length,
+      eliminatedTeams: eliminatedTeams.length,
       playerOfGameCount: games.filter(game => game.playerOfGame).length,
       warnings
     },
@@ -1382,4 +1440,4 @@ module.exports = async function handler(req, res) {
   });
 };
 
-module.exports.__test = { decodeEntities, parsePlayerOfGame };
+module.exports.__test = { decodeEntities, parsePlayerOfGame, tournamentEliminations };

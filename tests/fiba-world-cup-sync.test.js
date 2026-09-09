@@ -127,7 +127,7 @@ function completeCompetitionGames() {
   const qualification = [
     gdapGame({id:128145,date:'2026-09-08',home:'HUN',away:'JPN',homeScore:84,awayScore:63,phase:'Qualification to Quarter-Finals',roundCode:'QQF'}),
     gdapGame({id:128144,date:'2026-09-08',home:'GER',away:'KOR',homeScore:94,awayScore:56,phase:'Qualification to Quarter-Finals',roundCode:'QQF'}),
-    gdapGame({id:128147,date:'2026-09-09',home:'PUR',away:'CHN',final:false,phase:'Qualification to Quarter-Finals',roundCode:'QQF'}),
+    gdapGame({id:128147,date:'2026-09-09',home:'PUR',away:'CHN',homeScore:72,awayScore:75,phase:'Qualification to Quarter-Finals',roundCode:'QQF'}),
     gdapGame({id:128146,date:'2026-09-09',home:'ITA',away:'AUS',final:false,phase:'Qualification to Quarter-Finals',roundCode:'QQF'})
   ];
   const future = [128148,128149,128150,128151].map((id,index)=>gdapGame({id,date:'2026-09-10',home:index===2?'BEL':index===3?'USA':null,away:index===2?'GER':index===3?'HUN':null,final:false,phase:'Quarter-Finals',roundCode:'QF'}))
@@ -221,7 +221,7 @@ test('structured FIBA feed drives every table through the completed group phase 
 
   assert.equal(data.games.length, 36);
   assert.equal(data.dataStatus.completedGroupGames, 24);
-  assert.equal(data.dataStatus.completedGames, 26);
+  assert.equal(data.dataStatus.completedGames, 27);
   assert.equal(data.dataStatus.gamesSource, 'official-competition-games');
   assert.equal(data.dataStatus.standingsSource, 'derived-from-official-games');
   assert.equal(data.dataStatus.leagueLeadersSource, 'official-competition-player-leaders');
@@ -235,6 +235,13 @@ test('structured FIBA feed drives every table through the completed group phase 
   assert.deepEqual([missingGame.status,missingGame.homeScore,missingGame.awayScore], ['final',105,64]);
   assert.deepEqual([missingGame.playerOfGame.player,missingGame.playerOfGame.line], ['Breanna Stewart','19 PTS']);
   assert.deepEqual([usaQuarterFinal.home.code,usaQuarterFinal.away.code,usaQuarterFinal.status], ['USA','HUN','scheduled']);
+  assert.deepEqual(data.tournamentTable.filter(team=>team.eliminated).map(team=>team.code).sort(), ['CZE','JPN','KOR','MLI','NGR','PUR','TUR']);
+  assert.equal(data.tournamentTable.find(team=>team.code==='PUR').eliminationStage, 'Qualification to Quarter-Finals');
+  assert.deepEqual(Object.fromEntries(data.tournamentTable.map(team=>[team.code,team.wScore])), {
+    FRA:93.3,USA:89,BEL:82.1,GER:69.5,ESP:68.2,AUS:61.7,CHN:57.7,HUN:57,
+    MLI:39,ITA:33.9,PUR:32.1,KOR:29.5,JPN:28.9,TUR:19.6,CZE:12.2,NGR:12.1
+  });
+  assert.equal(data.dataStatus.eliminatedTeams, 7);
   assert.deepEqual(data.statLeaders.map(category => category.leaders.length), [3,3,3,3,3,3]);
   assert.equal(data.statLeaders.find(category => category.key === 'assists').leaders[2].player, 'Caitlin Clark');
 });
@@ -247,10 +254,12 @@ test('verified official snapshot prevents a transient games API failure from dro
 
   assert.equal(data.dataStatus.gamesSource, 'verified-official-snapshot');
   assert.equal(data.dataStatus.completedGroupGames, 24);
-  assert.equal(data.dataStatus.completedGames, 26);
+  assert.equal(data.dataStatus.completedGames, 27);
   assert.deepEqual([data.usa.wins,data.usa.losses,data.usa.groupRank], [3,0,1]);
   assert.deepEqual([usa.pointsFor,usa.pointsAgainst], [254,177]);
   assert.equal(usaChina.timeBerlin, '14:15');
+  assert.deepEqual(data.games.find(game=>game.fibaGameId===128147).homeScore, 72);
+  assert.equal(data.tournamentTable.find(team=>team.code==='PUR').eliminated, true);
   assert.match(data.dataStatus.warnings.join(' '), /last verified official snapshot/);
 });
 
@@ -398,6 +407,17 @@ test('W Score appears immediately before the win column in tournament standings'
   assert.match(source, /<span>TEAM<\/span><span>W SCORE<\/span><span>W<\/span><span>L<\/span>/);
   assert.match(source, /fiba-w-score[\s\S]*?safe\(wins/);
   assert.match(css, /grid-template-columns:42px minmax\(190px,1\.45fr\) 84px 42px 42px 62px/);
+});
+
+test('tournament table marks eliminated teams without adding another crowded column', () => {
+  const source = require('node:fs').readFileSync(path.join(__dirname, '..', 'no-offseason-fiba.js'), 'utf8');
+  const css = require('node:fs').readFileSync(path.join(__dirname, '..', 'no-offseason-fiba.css'), 'utf8');
+  assert.match(source, /fiba-eliminated-badge/);
+  assert.match(source, /fiba-eliminated-badge[^>]*>E<\/b>/);
+  assert.match(source, /is-eliminated/);
+  assert.match(source, /eliminated} eliminated/);
+  assert.match(css, /\.fiba-live-standings-row\.is-eliminated/);
+  assert.match(css, /\.fiba-eliminated-badge/);
 });
 
 

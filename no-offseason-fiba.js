@@ -112,9 +112,11 @@
     const form=groupMode?team.groupForm:team.form;
     const rank=groupMode?team.groupPosition:team.overallRank;
     const score=Number.isFinite(Number(team.wScore))?Number(team.wScore).toFixed(1):'—';
-    return `<div class="fiba-live-standings-row ${team.code==='USA'?'team-usa':''}">
+    const eliminated=Boolean(team.eliminated);
+    const eliminationBadge=eliminated?`<b class="fiba-eliminated-badge" title="${safe(team.eliminationLabel||'Eliminated from the World Cup')}" aria-label="${safe(team.eliminationLabel||'Eliminated from the World Cup')}">E</b>`:'';
+    return `<div class="fiba-live-standings-row ${team.code==='USA'?'team-usa':''} ${eliminated?'is-eliminated':''}">
       <span class="fiba-live-rank">${safe(rank||'—')}</span>
-      <span class="fiba-live-team"><i>${safe(team.flag||'')}</i><strong>${safe(team.code)}</strong><small>${safe(team.name)}</small></span>
+      <span class="fiba-live-team"><i>${safe(team.flag||'')}</i><strong>${safe(team.code)}</strong><small><span class="fiba-live-team-name">${safe(team.name)}</span>${eliminationBadge}</small></span>
       <span class="fiba-w-score ${scoreClass(team.wScore)}"><b>${safe(score)}</b><small>W · #${safe(team.overallRank||'—')}</small></span>
       <strong>${safe(wins??'—')}</strong>
       <strong>${safe(losses??'—')}</strong>
@@ -160,8 +162,9 @@
     }
 
     const completed=(data.games||[]).filter(game=>game.status==='final').length;
+    const eliminated=rows.filter(team=>team.eliminated).length;
     const status=$('fibaCompositeStatus');
-    if(status)status.textContent=`${rows.length||16} countries · ${completed} completed games · W score refreshes automatically from completed World Cup results`;
+    if(status)status.textContent=`${rows.length||16} countries · ${completed} completed games · ${eliminated} eliminated · W score refreshes automatically from completed World Cup results`;
   }
 
   function renderLeaders(data){

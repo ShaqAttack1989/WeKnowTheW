@@ -82,11 +82,16 @@
 .fiba-live-standings-row.head{position:sticky;top:0;z-index:3;min-height:38px;border-top:0;background:#0d2a4e;color:#fff;font-size:.57rem;font-weight:950;letter-spacing:.055em;text-transform:uppercase}
 .fiba-live-standings-row>span:not(.fiba-live-team),.fiba-live-standings-row>strong{text-align:center}
 .fiba-live-standings-row.team-usa{background:linear-gradient(90deg,#fff6f7,#fff)}
+.fiba-live-standings-row.is-eliminated{background:linear-gradient(90deg,#fff8f9,#fff);box-shadow:inset 4px 0 #cf5367;color:#796873}
+.fiba-live-standings-row.is-eliminated .fiba-live-rank{color:#8f5360}
 .fiba-live-rank{font-size:.85rem;font-weight:950;color:#263d5e}
 .fiba-live-team{display:grid;grid-template-columns:30px 42px minmax(0,1fr);gap:7px;align-items:center;min-width:0}
 .fiba-live-team i{font-size:1.25rem;font-style:normal}
 .fiba-live-team strong{color:#17243a;font-size:.82rem}
-.fiba-live-team small{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:#6f7c8f;font-size:.67rem;font-weight:750}
+.fiba-live-team small{display:flex;align-items:center;gap:6px;min-width:0;color:#6f7c8f;font-size:.67rem;font-weight:750}
+.fiba-live-team-name{display:block;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.fiba-eliminated-badge{display:inline-flex;align-items:center;justify-content:center;flex:none;width:20px;height:20px;border:1px solid #cf5367;border-radius:6px;background:#a12940;color:#fff;font-size:.65rem;font-weight:1000;line-height:1}
+.fiba-live-standings-row.is-eliminated .fiba-live-team strong{color:#8d3143}
 .fiba-live-standings-row.team-usa .fiba-live-team strong{color:#a61f32}
 .fiba-live-standings-row .is-positive{color:#13744b;font-weight:950}
 .fiba-live-standings-row .is-negative{color:#b6384f;font-weight:950}
@@ -107,6 +112,7 @@
 .fiba-composite-method strong{padding:7px 9px;border-radius:10px;background:#161126;color:#ffcf45;font-size:.63rem;letter-spacing:.06em}
 .fiba-composite-method span{padding:7px 9px;border-radius:10px;background:#eef3f8;color:#526174;font-size:.61rem;font-weight:850}
 .fiba-composite-method small{flex-basis:100%;color:#7a8697;font-size:.61rem;line-height:1.45}
+.fiba-composite-method small b{color:#a12940}
 
 /* Field-wide FIBA leaders */
 .fiba-leaders-panel{margin-top:20px;background:linear-gradient(145deg,#fffdf7,#f8f3ff)}

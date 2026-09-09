@@ -2,6 +2,200 @@
   "site": "Snack Shak",
   "posts": [
     {
+      "slug": "2024-wnba-redraft",
+      "type": "byte",
+      "priority": 400,
+      "seriesLabel": "SNACK SHAK BYTE · REDRAFT",
+      "title": "If We Knew Then What We Know Now: The 2024 WNBA Redraft",
+      "published": "2026-09-09",
+      "week": "2024 Draft class recheck · September 9, 2026",
+      "dashboardUrl": "/snack-shak-bytes.html?post=2024-wnba-redraft#story",
+      "image": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1642286.png",
+      "imageAlt": "Caitlin Clark official WNBA headshot",
+      "teams": [
+        "Indiana Fever",
+        "Los Angeles Sparks",
+        "Chicago Sky",
+        "Dallas Wings",
+        "Washington Mystics",
+        "Minnesota Lynx",
+        "Connecticut Sun",
+        "New York Liberty",
+        "Atlanta Dream"
+      ],
+      "players": [
+        "Caitlin Clark",
+        "Angel Reese",
+        "Kamilla Cardoso",
+        "Rickea Jackson",
+        "Carla Leite",
+        "Sydney Taylor",
+        "Leila Lacan",
+        "Cameron Brink",
+        "Aaliyah Edwards",
+        "Jacy Sheldon",
+        "Isobel Borlase",
+        "Nyadiew Puoch"
+      ],
+      "dek": "Two seasons of WNBA evidence changed the board. Caitlin Clark still goes first, Angel Reese jumps to No. 2, Sydney Taylor rockets from undrafted to No. 6, and the international guards force their way up the first round.",
+      "storyTable": {
+        "columns": [
+          "Redraft pick",
+          "Player",
+          "Original 2024 slot",
+          "The read now"
+        ],
+        "rows": [
+          [
+            "1",
+            "Caitlin Clark",
+            "1 → 1",
+            "Still the first call. Elite creation, range and playmaking keep the Fever right where they started."
+          ],
+          [
+            "2",
+            "Angel Reese",
+            "7 → 2",
+            "The rebounding, production and night to night impact make her the clearest riser into the top tier."
+          ],
+          [
+            "3",
+            "Kamilla Cardoso",
+            "3 → 3",
+            "Size, efficiency and two way value keep the 6 foot 7 center in the exact spot Chicago originally chose her."
+          ],
+          [
+            "4",
+            "Rickea Jackson",
+            "4 → 4",
+            "A polished scoring forward with three level tools. The talent still looks worthy of the fourth pick."
+          ],
+          [
+            "5",
+            "Carla Leite",
+            "9 → 5",
+            "Her growth as a creator pushes her four spots higher and gives Dallas a different answer at guard."
+          ],
+          [
+            "6",
+            "Sydney Taylor",
+            "Undrafted → 6",
+            "The class's biggest draft night reversal. An undrafted guard has played her way into the middle of Round 1."
+          ],
+          [
+            "7",
+            "Leila Lacan",
+            "10 → 7",
+            "Defensive pressure, pace and playmaking move the French guard into the top seven."
+          ],
+          [
+            "8",
+            "Cameron Brink",
+            "2 → 8",
+            "The ceiling is still enormous, but a redraft has to weigh availability and the WNBA sample we have actually seen."
+          ],
+          [
+            "9",
+            "Aaliyah Edwards",
+            "6 → 9",
+            "Reliable frontcourt production keeps her safely in Round 1, even as several guards jump past her."
+          ],
+          [
+            "10",
+            "Jacy Sheldon",
+            "5 → 10",
+            "Still a first round guard, but the class has produced more high impact risers than draft night projected."
+          ],
+          [
+            "11",
+            "Isobel Borlase",
+            "20 → 11",
+            "The second round pick earns a first round seat in the redo after proving she belongs in a WNBA rotation."
+          ],
+          [
+            "12",
+            "Nyadiew Puoch",
+            "12 → 12",
+            "The upside and development case keep Atlanta's original final first round slot intact."
+          ]
+        ]
+      },
+      "sections": [
+        {
+          "title": "The top stays Caitlin, but No. 2 changed everything",
+          "paragraphs": [
+            "Caitlin Clark is the easy part of this exercise. Indiana had the first pick in 2024 and still makes the same call. The harder question starts immediately after her, because Angel Reese has erased the idea that seventh was the right place for her to wait.",
+            "Reese moves all the way to No. 2 in this redraft. Her rebounding has become a nightly game plan problem, her offensive responsibility has grown, and her impact is too large to leave outside the first two picks. That move alone reshapes the entire board."
+          ]
+        },
+        {
+          "title": "Cardoso and Jackson are the rare draft night holds",
+          "paragraphs": [
+            "Kamilla Cardoso stays third and Rickea Jackson stays fourth. That is not a lack of movement, it is a compliment to how well those original selections have aged. Cardoso gives Chicago a massive interior presence with two way value. Jackson has shown the scoring package and positional versatility that made her one of the safest offensive prospects in the class.",
+            "In a redraft full of risers and slides, holding your original top four position is its own receipt."
+          ]
+        },
+        {
+          "title": "The middle of the round belongs to the risers",
+          "paragraphs": [
+            "Carla Leite climbs from ninth to fifth, Sydney Taylor goes from undrafted to sixth, and Leila Lacan moves from tenth to seventh. That is the section of the board that looks most different with hindsight.",
+            "Leite and Lacan give this class two international guards whose WNBA translation looks stronger now than it did on draft night. Taylor is the loudest story of all. She was not one of the 36 names called in 2024. In this version, Washington takes her sixth. Draft night said undrafted. The floor said first round."
+          ]
+        },
+        {
+          "title": "Brink at eight is not a talent verdict",
+          "paragraphs": [
+            "Cameron Brink dropping from second to eighth will be the pick people argue about most. The defensive ceiling is still obvious, and healthy Brink can change a game without needing touches. But a redraft based on what players have shown in the WNBA has to count availability and sample size alongside upside.",
+            "That makes eighth a statement about the evidence available today, not a claim that seven players have a higher long term ceiling."
+          ]
+        },
+        {
+          "title": "Round 1 has two new names",
+          "paragraphs": [
+            "Aaliyah Edwards and Jacy Sheldon remain in the first round, but both slide as the risers pass them. Isobel Borlase makes one of the quieter jumps, moving from pick 20 into the No. 11 slot. Nyadiew Puoch stays at 12, preserving Atlanta's original selection.",
+            "The two original first rounders who fall out are Alissa Pili, originally eighth, and Marquesha Davis, originally eleventh. That does not erase what got them drafted. It shows how quickly a class can reorder itself once projection turns into professional evidence."
+          ]
+        },
+        {
+          "title": "Shak's takeaway: draft night is the opening sentence",
+          "paragraphs": [
+            "The fun of a redraft is not pretending front offices should have known the future. It is seeing which skills translated, which opportunities changed careers, and which players forced the league to reconsider the label attached to them.",
+            "The 2024 class now has a No. 1 who still looks like No. 1, a No. 7 who looks like No. 2, and an undrafted player who looks like a lottery level selection. That is why the draft matters, but development, health, fit and opportunity get the last word."
+          ]
+        },
+        {
+          "title": "One important note about the team logos",
+          "paragraphs": [
+            "The teams on this redraft board follow the original 2024 first round draft order. They are not the players' current teams. The question is simple: if each franchise could make its 2024 selection again with what we know now, who would it take?"
+          ]
+        }
+      ],
+      "debates": [
+        "Does Angel Reese have the strongest case for the biggest rise in the 2024 class?",
+        "How high would a fully healthy Cameron Brink go if the redraft were based on ceiling instead of WNBA evidence to date?",
+        "Is Sydney Taylor the best undrafted success story from this class?",
+        "Which international guard would you take first today, Carla Leite or Leila Lacan?"
+      ],
+      "foodSegment": {
+        "title": "Draft Night Is a Receipt, Not a Life Sentence",
+        "script": "Caitlin still goes one. Angel refuses to wait until seven. Carla and Leila move up the line, and Sydney Taylor walks into the first round without ever hearing her name called on draft night. That is the whole point of the redo. Scouts draft projections. The league grades translation. Two years later, this class has handed us a very different receipt."
+      },
+      "sources": [
+        {
+          "label": "WNBA 2024 Draft Board",
+          "url": "https://www.wnba.com/draft/2024/board"
+        },
+        {
+          "label": "WNBA 2024 Draft official results",
+          "url": "https://www.wnba.com/webview/news/wnba-draft-2024-results"
+        },
+        {
+          "label": "WNBA Stats",
+          "url": "https://stats.wnba.com/"
+        }
+      ]
+    },
+    {
       "slug": "what-group-play-told-us",
       "type": "feature",
       "priority": 300,

@@ -2,6 +2,200 @@
   "site": "Snack Shak",
   "posts": [
     {
+      "slug": "team-usa-group-play-impact-report-card",
+      "type": "byte",
+      "priority": 650,
+      "seriesLabel": "SNACK SHAK BYTE · FIBA WORLD CUP",
+      "title": "Team USA Group Play Report Card: Twelve Players, Twelve Impact Grades",
+      "published": "2026-09-10",
+      "week": "FIBA World Cup · Group play report card",
+      "dashboardUrl": "/snack-shak-bytes.html?post=team-usa-group-play-impact-report-card#story",
+      "image": "/assets/images/fiba/team-usa-impact-report-card.png",
+      "storyImage": "/assets/images/fiba/team-usa-impact-report-card.png",
+      "imageFit": "top-cover",
+      "imageAlt": "We Know the W Team USA impact report card featuring official WNBA headshots and group play ratings",
+      "storyImageCaption": "The W Impact Score blends 60 percent official FIBA production with 40 percent role execution, lineup control, defense and game context.",
+      "teams": [
+        "United States"
+      ],
+      "players": [
+        "Breanna Stewart",
+        "Paige Bueckers",
+        "Jackie Young",
+        "Angel Reese",
+        "Kiki Iriafen",
+        "Rhyne Howard",
+        "Aliyah Boston",
+        "Chelsea Gray",
+        "Napheesa Collier",
+        "Caitlin Clark",
+        "Kahleah Copper",
+        "Sonia Citron"
+      ],
+      "dek": "Three wins do not mean twelve identical performances. Breanna Stewart sets the standard, Chelsea Gray and Aliyah Boston receive credit the box score misses, and Caitlin Clark’s passing cannot completely erase 30.4 percent shooting.",
+      "storyTable": {
+        "columns": [
+          "Rank",
+          "Player",
+          "W Impact",
+          "Grade",
+          "Team impact read"
+        ],
+        "rows": [
+          [
+            "1",
+            "Breanna Stewart",
+            "94",
+            "A",
+            "USA’s two way anchor leads the team at 18.0 efficiency and 8.3 rebounds per game."
+          ],
+          [
+            "2",
+            "Paige Bueckers",
+            "92",
+            "A",
+            "Efficient connecting play, 10.3 points, 3.7 assists and 2.6 steals plus blocks per game."
+          ],
+          [
+            "3",
+            "Jackie Young",
+            "90",
+            "A",
+            "A team high 11.3 points on 53.8 percent shooting, plus the calmest closing possessions."
+          ],
+          [
+            "4",
+            "Angel Reese",
+            "86",
+            "B+",
+            "Interior activity produced 8.7 points, 6.0 rebounds and 2.3 steals plus blocks per game."
+          ],
+          [
+            "5",
+            "Kiki Iriafen",
+            "83",
+            "B",
+            "Seven rebounds and 2.0 steals plus blocks per game created major value in a two game sample."
+          ],
+          [
+            "6",
+            "Rhyne Howard",
+            "81",
+            "B",
+            "A team high 1.7 steals and a plus 16.0 average margin reflect point of attack pressure."
+          ],
+          [
+            "7",
+            "Aliyah Boston",
+            "79",
+            "B−",
+            "Interior gravity, screening and a plus 14.7 average margin create value beyond her scoring line."
+          ],
+          [
+            "8",
+            "Chelsea Gray",
+            "78",
+            "B−",
+            "Pace control and lineup organization matter more than her modest scoring total suggests."
+          ],
+          [
+            "9",
+            "Napheesa Collier",
+            "76",
+            "C+",
+            "Switching value and rebounding helped, but her offensive influence was quieter than expected."
+          ],
+          [
+            "10",
+            "Caitlin Clark",
+            "74",
+            "C+",
+            "Her team high 6.3 assists lift the offense, but 30.4 percent shooting caps the grade."
+          ],
+          [
+            "11",
+            "Kahleah Copper",
+            "70",
+            "C",
+            "Rebounding helped, but 21.4 percent shooting left too much offensive value on the table."
+          ],
+          [
+            "12",
+            "Sonia Citron",
+            "68",
+            "C−",
+            "The 54.5 percent shooting was clean, but a 10.5 minute role cannot outrank larger two way responsibilities."
+          ]
+        ]
+      },
+      "sections": [
+        {
+          "title": "The grade measures impact, not just the box score",
+          "paragraphs": [
+            "Team USA finished group play 3 and 0, but a report card should explain how the wins were built, not hand everyone the same gold star. The W Impact Score gives 60 percent of the grade to official FIBA production and 40 percent to role execution, lineup control, defensive responsibility and game context.",
+            "That distinction matters. A reserve can shoot efficiently in a narrow assignment without carrying the same burden as a starter who organizes possessions, anchors coverages or absorbs the opponent’s best matchup. This is a three game Team USA snapshot, not a career ranking."
+          ]
+        },
+        {
+          "title": "Stewart sets the curve, Young owns the closer minutes",
+          "paragraphs": [
+            "Breanna Stewart earns the top grade because she has been USA’s most complete player. Her 18.0 efficiency rating leads the team, her 8.3 rebounds stabilize the interior and her decisions connect both ends of the floor. Paige Bueckers follows with efficient offense, 3.7 assists and 2.6 combined steals and blocks per game.",
+            "Jackie Young completes the A tier. She leads USA at 11.3 points per game, is shooting 53.8 percent and delivered the late control that kept Italy from finishing its upset bid. When a game tightened, Young did not blink."
+          ]
+        },
+        {
+          "title": "Reese, Iriafen and Howard built the pressure layer",
+          "paragraphs": [
+            "Angel Reese has supplied the most consistent interior disruption outside Stewart. Her rebounding, hands and physicality translate whether she scores or not. Kiki Iriafen made a similar impact in only two appearances, while Rhyne Howard gave USA the point of attack defense and deflections needed to speed opponents up.",
+            "Their grades reward repeatable tournament skills. Rebounding travels. Ball pressure travels. Defensive possessions that end without a second chance travel."
+          ]
+        },
+        {
+          "title": "Why Boston and Gray grade above Citron",
+          "paragraphs": [
+            "Aliyah Boston and Chelsea Gray are the clearest examples of why this cannot be a raw efficiency ranking. Boston’s screens, interior positioning and plus 14.7 average margin shape possessions before the box score records anything. Gray organizes spacing, controls tempo and places teammates where their strengths matter.",
+            "Sonia Citron has been efficient in her 10.5 minutes per game, but the role is smaller and the responsibility is lighter. Clean execution deserves credit. It does not automatically outweigh the burden carried by Boston and Gray."
+          ]
+        },
+        {
+          "title": "Clark’s passing keeps her afloat, her shooting pulls her down",
+          "paragraphs": [
+            "Caitlin Clark leads USA with 6.3 assists per game and owns the team’s best average plus minus. Those are real impact markers. So is 30.4 percent shooting, including 25 percent from three.",
+            "A 74 is not a dismissal of her playmaking. It reflects the full job. Clark has created quality offense for others, but the missed shots have kept her individual impact below the players delivering on both efficiency and role."
+          ]
+        },
+        {
+          "title": "What carries into the knockout rounds",
+          "paragraphs": [
+            "USA’s 88.7 team composite score reflects a strong unbeaten start with room to sharpen. The safest formula is Stewart as the two way hub, Young as the pressure release, Bueckers as the connector and the Reese, Iriafen, Howard group keeping the defense active.",
+            "The ceiling rises if Clark’s shot normalizes and Gray’s command begins producing cleaner half court offense. Team USA already has enough talent to win. The report card asks which players are making that talent function."
+          ]
+        }
+      ],
+      "debates": [
+        "Should lineup control count as heavily as scoring efficiency when grading a tournament team?",
+        "How high can Clark’s grade climb if her shooting catches up to her passing in the knockout rounds?"
+      ],
+      "foodSegment": {
+        "title": "Shak’s bite: winning earns respect, not automatic A’s",
+        "script": "A 3 and 0 record tells us Team USA handled the assignment. It does not tell us every player handled the same assignment. Stewart has been the standard, Young has been the closer, and the next jump depends on turning Clark’s creation and Gray’s control into cleaner half court possessions."
+      },
+      "sources": [
+        {
+          "label": "Official FIBA Team USA profile and leaders",
+          "url": "https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026/teams/usa"
+        },
+        {
+          "label": "Official FIBA World Cup statistics",
+          "url": "https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026/stats"
+        },
+        {
+          "label": "Official FIBA World Cup games and results",
+          "url": "https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026/games"
+        }
+      ]
+    },
+    {
       "slug": "one-possession-from-overtime",
       "type": "feature",
       "priority": 500,

@@ -150,3 +150,12 @@
 .snack-post li,
 .snack-post blockquote{font-size:1rem;line-height:1.65}
 .snack-post .dek{font-size:1.15rem;line-height:1.65}
+
+
+/* Sept. 10, 2026: story graphics and editorial crop controls */
+.snack-collection-card-media.is-top-cover img{object-position:top center}
+.snack-collection-card-media.is-contain img{object-fit:contain;padding:8px;background:#140a2f}
+.snack-story-graphic{max-width:760px;margin:0 auto 32px;overflow:hidden;border:1px solid #d9d0e3;border-radius:24px;background:#140a2f;box-shadow:0 18px 42px rgba(20,10,47,.15)}
+.snack-story-graphic img{display:block;width:100%;height:auto;object-fit:contain}
+.snack-story-graphic figcaption{padding:12px 16px;background:#f6f1fb;color:#62586b;font-size:.88rem;line-height:1.5}
+@media(max-width:620px){.snack-story-graphic{margin-right:-12px;margin-left:-12px;border-radius:18px}.snack-story-graphic figcaption{font-size:.82rem}}

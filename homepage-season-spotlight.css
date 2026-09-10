@@ -87,3 +87,9 @@
 @media(prefers-reduced-motion:reduce){
   .season-story,.season-story-media img,.season-spotlight-nav a{transition:none}
 }
+
+
+/* Sept. 10, 2026: editorial report card lead */
+.season-story-media.report-card-media{background:#120a29}
+.season-story-media.report-card-media img{object-position:top center}
+.season-story:hover .season-story-media.report-card-media img{transform:scale(1.015)}

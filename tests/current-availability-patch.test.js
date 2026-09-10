@@ -5,6 +5,14 @@ const { CURRENT_AVAILABILITY_PATCH } = require('../lib/current-availability-patc
 const byPlayer = new Map(CURRENT_AVAILABILITY_PATCH.map(item => [item.player, item]));
 
 test('keeps verified season-ending injuries current', () => {
+  const ezi = byPlayer.get('Ezi Magbegor');
+  assert.ok(ezi);
+  assert.equal(ezi.team, 'Seattle Storm');
+  assert.equal(ezi.status, 'OUT FOR SEASON');
+  assert.equal(ezi.updated, '2026-09-10');
+  assert.match(ezi.reason, /ACL/);
+  assert.equal(ezi.carryover, true);
+
   const diggins = byPlayer.get('Skylar Diggins');
   assert.ok(diggins);
   assert.equal(diggins.team, 'Chicago Sky');

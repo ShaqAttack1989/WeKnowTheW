@@ -28,13 +28,12 @@ function availabilityRow(item={},extraClass=''){
   const asOf=item.updated?` <span class="wire-asof">as of ${wSafe(wShortDate(item.updated))}</span>`:'';
   const expected=item.returnDate?` · expected ${wSafe(wShortDate(item.returnDate))}`:'';
   const context=[item.matchup,item.gameTime].filter(Boolean).join(' · ');
-  const source=item.crossCheckOnly?'<small class="wire-source-note">Cross-check feed, team is outside the current official report window</small>':item.seasonLongCarryover?'<small class="wire-source-note">Season-long absence carried from an official/team source</small>':'';
   return `<article class="wire-row availability-row ${extraClass}">
     <span class="wire-status ${wClass(item.status||'status')}">${wSafe(item.status||'STATUS')}</span>
     <div class="wire-copy">
       <strong>${wSafe(identity)}</strong>
       <p>${wSafe(item.reason||'Availability update')}${asOf}${expected}</p>
-      ${context?`<small class="wire-report-context">${wSafe(context)}</small>`:''}${source}
+      ${context?`<small class="wire-report-context">${wSafe(context)}</small>`:''}
     </div>
   </article>`;
 }
@@ -74,7 +73,7 @@ function sectionLabel(title,copy=''){
         html+=submissions.map(submissionRow).join('');
       }
       if(additionalItems.length){
-        html+=sectionLabel('ADDITIONAL TRACKED ABSENCES','Teams outside the current report window');
+        html+=sectionLabel('ADDITIONAL TRACKED ABSENCES','Confirmed long term absences still affecting WNBA availability');
         html+=additionalItems.map(item=>availabilityRow(item,'additional-report-row')).join('');
       }
       list.innerHTML=html;
@@ -88,13 +87,12 @@ function sectionLabel(title,copy=''){
         const team=wTeam(item.team);
         const identity=[item.player||'Player',team].filter(Boolean).join(' · ');
         const type=String(item.type||'UPDATE');
-        const cross=item.rosterCheck?`<small class="wire-crosscheck">${wSafe(item.rosterCheck)}</small>`:'';
         return `<article class="wire-row movement-row">
           <span class="wire-date">${wSafe(wShortDate(item.date))}</span>
           <div class="wire-copy">
             <span class="wire-chip ${wClass(type)}">${wSafe(type)}</span>
             <strong>${wSafe(identity)}</strong>
-            <p>${wSafe(item.detail||'Roster update')}</p>${cross}
+            <p>${wSafe(item.detail||'Roster update')}</p>
           </div>
         </article>`;
       }).join(''):'<div class="wire-empty"><strong>No recent player movement returned.</strong></div>';

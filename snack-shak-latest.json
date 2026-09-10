@@ -2,6 +2,78 @@
   "site": "Snack Shak",
   "posts": [
     {
+      "slug": "one-possession-from-overtime",
+      "type": "feature",
+      "priority": 500,
+      "seriesLabel": "FOOD FOR THOUGHT · FIBA WORLD CUP",
+      "title": "One Possession From Overtime: How Two Near Upsets Almost Rewrote the World Cup",
+      "published": "2026-09-09",
+      "week": "FIBA World Cup · Qualification round",
+      "dashboardUrl": "/one-possession-from-overtime.html",
+      "image": "https://assets.fiba.basketball/image/upload/w_1600/f_auto/q_auto/v1788972638/qagmculcvuifzztsw7di.jpg",
+      "imageAlt": "Trinity San Antonio walking toward the court in her Puerto Rico uniform at the 2026 FIBA Women's World Cup",
+      "teams": [
+        "Puerto Rico",
+        "China",
+        "Italy",
+        "Australia",
+        "France",
+        "United States"
+      ],
+      "players": [
+        "Trinity San Antonio",
+        "Xu Han",
+        "Isobel Borlase",
+        "Costanza Verona",
+        "Gabby Williams",
+        "Angel Reese",
+        "Rhyne Howard"
+      ],
+      "dek": "Puerto Rico and Italy lost by five combined points. One more make might have changed the bracket, while Trinity San Antonio left behind the tournament's loudest defensive case.",
+      "sections": [
+        {
+          "title": "Five points from a different bracket",
+          "paragraphs": [
+            "Puerto Rico came within three points of China, while Italy came within two of Australia. Overtime was one clean possession away in both games, but the losses were built before the final shot. China made 57.1 percent of its twos and closed a 66 to 66 game with the decisive run. Italy erased most of a 26 point deficit, yet spent too much energy repairing three quarters of damage.",
+            "That makes the what if worth considering. Puerto Rico had the best individual force on the floor in Trinity San Antonio. Italy had all the momentum after a 31 to 13 fourth quarter. Extra time guarantees neither upset, but it could have changed the emotional and tactical terms of both games."
+          ]
+        },
+        {
+          "title": "San Antonio's case survives Puerto Rico's exit",
+          "paragraphs": [
+            "San Antonio finished against China with 24 points, 9 rebounds, 7 assists and 5 steals. Her 5.0 steals per game remain the tournament standard. If Puerto Rico had reached overtime and advanced, one more high leverage defensive moment might have made her the clear favorite for Best Defensive Player.",
+            "With Puerto Rico out, Gabby Williams carries the strongest active case in the We Know the W Defensive Impact Rating at 96. Angel Reese follows at 92, with Rhyne Howard at 90. San Antonio's elimination changes the runway, not the quality of the résumé."
+          ]
+        }
+      ],
+      "debates": [
+        "Should team survival matter more than four games of elite defensive disruption?",
+        "Would Puerto Rico or Italy have controlled overtime after owning the late momentum?"
+      ],
+      "sources": [
+        {
+          "label": "Puerto Rico vs China official box score",
+          "url": "https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026/games/128147-PUR-CHN"
+        },
+        {
+          "label": "Italy vs Australia official box score",
+          "url": "https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026/games/128146-ITA-AUS"
+        },
+        {
+          "label": "FIBA feature on Trinity San Antonio",
+          "url": "https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026/news/ai-didnt-believe-in-puerto-rico-either"
+        },
+        {
+          "label": "FIBA feature on Isobel Borlase",
+          "url": "https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026/news/30-point-borlase-brings-it-for-the-opals"
+        },
+        {
+          "label": "Official FIBA tournament statistics",
+          "url": "https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026/stats"
+        }
+      ]
+    },
+    {
       "slug": "2024-wnba-redraft",
       "type": "byte",
       "priority": 400,

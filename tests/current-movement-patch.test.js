@@ -88,7 +88,10 @@ test('latest roster moves update current rosters without removing Playerpedia hi
   assert.equal(byName.get('Tonie Morgan').number, '4');
   assert.equal(byName.get('Tonie Morgan').liveEffectiveDate, '2026-08-16');
 
-  assert.equal(byName.get('Kennedy Burke').liveStatus, 'temporarily-suspended');
+  assert.equal(byName.get('Kennedy Burke').currentRoster, true);
+  assert.equal(byName.get('Kennedy Burke').team, 'Connecticut Sun');
+  assert.equal(byName.get('Kennedy Burke').liveStatus, 'active');
+  assert.equal(byName.get('Kennedy Burke').liveEffectiveDate, '2026-09-08');
   assert.equal(byName.get('Leila Lacan').liveStatus, 'temporarily-suspended');
   assert.equal(byName.get('Valeriane Ayayi').liveStatus, 'temporarily-suspended');
   assert.equal(byName.get('Kyara Linskens').liveStatus, 'temporarily-suspended');
@@ -114,6 +117,8 @@ test('latest roster moves update current rosters without removing Playerpedia hi
   assert.ok(payload.transactions.some(item => item.player === 'Kate Martin' && item.type === 'WAIVED' && item.team === 'Los Angeles Sparks' && item.date === '2026-08-29'));
   assert.ok(payload.transactions.some(item => item.player === 'Kiana Williams' && item.type === 'RELEASED' && item.team === 'Toronto Tempo' && item.date === '2026-08-31'));
   assert.ok(payload.transactions.some(item => item.player === 'Kiana Williams' && item.type === 'SIGNED' && item.team === 'Toronto Tempo' && item.date === '2026-08-24'));
+  assert.ok(payload.transactions.some(item => item.player === 'Kennedy Burke' && item.type === 'SET ACTIVE' && item.team === 'Connecticut Sun' && item.date === '2026-09-08'));
+  assert.ok(payload.transactions.some(item => item.player === 'Kennedy Burke' && item.type === 'TEMPORARILY SUSPENDED' && item.team === 'Connecticut Sun' && item.date === '2026-08-27'));
   assert.ok(payload.transactions.some(item => item.player === 'Shyanne Sellers' && item.type === 'SIGNED' && item.date === '2026-08-31'));
   assert.ok(payload.transactions.some(item => item.player === 'Aaliyah Nye' && item.type === 'CLAIMED' && item.date === '2026-08-30'));
   assert.ok(payload.transactions.some(item => item.player === 'Tonie Morgan' && item.type === 'SIGNED' && item.date === '2026-08-16'));

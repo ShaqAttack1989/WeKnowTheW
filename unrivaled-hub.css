@@ -11,3 +11,58 @@
 .unrivaled-season-window-card.current p{color:rgba(255,255,255,.72)}
 .unrivaled-season-window-card.next{background:#f5eef8}
 @media(max-width:760px){.unrivaled-season-window-grid{grid-template-columns:1fr}}
+
+.unrivaled-tour-spotlight{position:relative;overflow:hidden;background:#09090b;color:#fff}
+.unrivaled-tour-spotlight:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 85% 15%,rgba(216,255,79,.18),transparent 24%),radial-gradient(circle at 14% 85%,rgba(142,60,255,.3),transparent 32%);pointer-events:none}
+.unrivaled-tour-spotlight .page-shell{position:relative}
+.unrivaled-tour-hero{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(360px,.95fr);align-items:end;min-height:470px;border:1px solid rgba(255,255,255,.16);border-radius:34px 34px 0 0;background:linear-gradient(125deg,#16111d 0%,#28123f 55%,#101418 100%);overflow:hidden}
+.unrivaled-tour-copy{position:relative;z-index:2;padding:clamp(28px,5vw,64px)}
+.unrivaled-tour-copy>span{display:block;color:#d8ff4f;font-size:.7rem;font-weight:950;letter-spacing:.12em}
+.unrivaled-tour-copy h2{margin:12px 0 18px;font-size:clamp(3rem,7vw,6.5rem);line-height:.86;letter-spacing:-.055em}
+.unrivaled-tour-copy h2 em{color:#d8ff4f;font-style:normal}
+.unrivaled-tour-copy p{max-width:680px;margin:0;color:rgba(255,255,255,.75);font-size:1.02rem;line-height:1.65}
+.unrivaled-tour-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+.unrivaled-tour-actions a{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:11px 17px;border-radius:999px;background:#d8ff4f;color:#0b0b0d;text-decoration:none;font-size:.78rem;font-weight:950}
+.unrivaled-tour-actions a.secondary{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.35)}
+.unrivaled-tour-players{position:relative;align-self:stretch;min-height:430px}
+.unrivaled-tour-players:after{content:"2027";position:absolute;right:18px;bottom:-24px;color:rgba(255,255,255,.06);font-size:9rem;font-weight:950;letter-spacing:-.09em}
+.unrivaled-tour-players img{position:absolute;bottom:0;width:58%;max-height:94%;object-fit:contain;object-position:bottom;filter:drop-shadow(0 22px 26px rgba(0,0,0,.34))}
+.unrivaled-tour-players img:nth-child(1){left:-7%;z-index:2}
+.unrivaled-tour-players img:nth-child(2){left:27%;z-index:3}
+.unrivaled-tour-players img:nth-child(3){right:-8%;z-index:1}
+.unrivaled-tour-route{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border:1px solid rgba(255,255,255,.16);border-top:0;border-radius:0 0 34px 34px;overflow:hidden;background:#141216}
+.unrivaled-tour-route article{display:grid;grid-template-columns:74px 1fr;gap:15px;align-items:center;padding:22px 24px;border-right:1px solid rgba(255,255,255,.13)}
+.unrivaled-tour-route article:last-child{border-right:0}
+.unrivaled-tour-route img{width:70px;height:56px;object-fit:contain;filter:brightness(0) invert(1)}
+.unrivaled-tour-route span{display:block;color:#d8ff4f;font-size:.62rem;font-weight:950;letter-spacing:.08em}
+.unrivaled-tour-route strong{display:block;margin:3px 0 1px;font-size:1.25rem}
+.unrivaled-tour-route p{margin:0;color:rgba(255,255,255,.65);font-size:.78rem}
+.unrivaled-mark span{font-size:.28em;letter-spacing:-.03em;color:#fff}
+.unrivaled-signing-card{text-decoration:none;color:inherit;min-width:0;transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease}
+.unrivaled-signing-card:hover{transform:translateY(-2px);border-color:#b995c5;box-shadow:0 13px 28px rgba(30,20,40,.1)}
+.unrivaled-signing-card:focus-visible{outline:3px solid #6a3179;outline-offset:3px}
+.unrivaled-signing-card.held{background:repeating-linear-gradient(135deg,#f5f0f7,#f5f0f7 12px,#ede4f1 12px,#ede4f1 24px);border-style:dashed}
+.unrivaled-signing-card.held strong{color:#6b5c71}
+.unrivaled-signing-grade{pointer-events:none}
+.unrivaled-status[href]{text-decoration:none}
+
+@media(max-width:1100px){
+  .unrivaled-tour-hero{grid-template-columns:minmax(0,1fr) minmax(300px,.8fr)}
+  .unrivaled-tour-route article{grid-template-columns:1fr}.unrivaled-tour-route img{height:42px;object-position:left}
+}
+@media(max-width:760px){
+  .unrivaled-tour-spotlight{padding-inline:0}
+  .unrivaled-tour-spotlight .page-shell{padding-inline:14px}
+  .unrivaled-tour-hero{display:flex;flex-direction:column;min-height:0;align-items:stretch;border-radius:26px 26px 0 0}
+  .unrivaled-tour-copy{padding:28px 22px 8px}
+  .unrivaled-tour-copy h2{font-size:clamp(3.2rem,15vw,5rem)}
+  .unrivaled-tour-players{min-height:330px;order:2}
+  .unrivaled-tour-players img{width:59%;max-height:100%}
+  .unrivaled-tour-route{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;border-radius:0 0 26px 26px}
+  .unrivaled-tour-route article{flex:0 0 82%;grid-template-columns:62px 1fr;padding:19px 20px;border-right:1px solid rgba(255,255,255,.13);scroll-snap-align:start}
+  .unrivaled-tour-route img{width:58px;height:46px}
+  .unrivaled-signing-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+  .unrivaled-signing-card{padding:14px;border-radius:16px}
+  .unrivaled-signing-card strong{font-size:.98rem}
+  .unrivaled-signing-card p{font-size:.72rem}
+}

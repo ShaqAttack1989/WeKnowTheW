@@ -2,6 +2,54 @@
   "site": "Snack Shak",
   "posts": [
     {
+      "slug": "unrivaled-on-tour-2027",
+      "type": "feature",
+      "priority": 320,
+      "seriesLabel": "FOOD FOR THOUGHT",
+      "title": "Three Cities, Two Games, One Bigger Bet: Unrivaled on Tour",
+      "published": "2026-09-11",
+      "week": "Unrivaled Season 3 · Tour and roster reveal",
+      "dashboardUrl": "/unrivaled-on-tour-2027.html",
+      "image": "https://www.unrivaled.basketball/roster-reveal/headshots/olivia-miles-w4y2he.png",
+      "imageAlt": "Official Unrivaled roster image of Olivia Miles",
+      "teams": [
+        "Unrivaled",
+        "Boston",
+        "New York",
+        "Philadelphia"
+      ],
+      "players": [
+        "Olivia Miles",
+        "Kahleah Copper",
+        "DiJonai Carrington",
+        "Breanna Stewart",
+        "Napheesa Collier"
+      ],
+      "dek": "Miami stays home, but Unrivaled is taking four clubs and a doubleheader to Boston, New York and Philadelphia. The three stops will test how far the league's star-driven live product can travel.",
+      "sections": [
+        {
+          "title": "The tour in one sentence",
+          "paragraphs": [
+            "Three NBA arenas, two games per ticket and four clubs per stop give Unrivaled a national live test without turning its player-friendly winter into a full road grind."
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "label": "Full Food for Thought feature",
+          "url": "https://www.weknowthew.com/unrivaled-on-tour-2027.html"
+        },
+        {
+          "label": "Official Unrivaled tour",
+          "url": "https://www.unrivaled.basketball/tours/2027/bus"
+        },
+        {
+          "label": "Official 2027 roster reveal",
+          "url": "https://www.unrivaled.basketball/roster-reveal/2027#board"
+        }
+      ]
+    },
+    {
       "slug": "team-usa-group-play-impact-report-card",
       "type": "byte",
       "priority": 650,
@@ -933,9 +981,10 @@
       "type": "byte",
       "priority": 120,
       "seriesLabel": "NO OFFSEASON STATUS",
-      "title": "Rickea Is Still Unrivaled, but Season 3 Will Wait",
+      "title": "Rickea Jackson Is Officially Aboard for Season 3",
       "published": "2026-08-29",
-      "week": "Unrivaled status check · Aug. 29, 2026",
+      "updated": "2026-09-11",
+      "week": "Unrivaled status correction · Sept. 11, 2026",
       "dashboardUrl": "/rickea-jackson-unrivaled-status.html",
       "teams": [
         "Los Angeles Sparks",
@@ -944,19 +993,19 @@
       "players": [
         "Rickea Jackson"
       ],
-      "dek": "Jackson remains part of Unrivaled on a multi year deal, but the current league update says injury will keep her out of the 2027 season. She is expected back for Season 4.",
+      "dek": "Correction: Unrivaled's current official roster reveal lists Jackson at seat 07A for Season 3. Playerpedia now marks her aboard with her club assignment TBA.",
       "sections": [
         {
-          "title": "Affiliation is not availability",
+          "title": "The official board changed the status",
           "paragraphs": [
-            "The return announcement and the injury status have to live together. Jackson remains Unrivaled, but she should not be listed as an active Season 3 player while the league says she will miss 2027."
+            "The newer official roster reveal supersedes the earlier availability report. Jackson is now on the active Season 3 board, and the outdated out for 2027 label has been removed."
           ]
         }
       ],
       "sources": [
         {
-          "label": "Current Unrivaled status feed",
-          "url": "https://bleacherreport.com/unrivaled"
+          "label": "Official 2027 Unrivaled roster reveal",
+          "url": "https://www.unrivaled.basketball/roster-reveal/2027#board"
         },
         {
           "label": "Official Rickea Jackson Unrivaled bio",

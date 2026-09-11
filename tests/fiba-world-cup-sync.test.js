@@ -217,6 +217,7 @@ test('structured FIBA feed drives every table through the completed group phase 
   const groupD = data.standings.find(group => group.group === 'D').teams;
   const usa = data.tournamentTable.find(team => team.code === 'USA');
   const missingGame = data.games.find(game => game.fibaGameId === 128138);
+  const chinaQualifier = data.games.find(game => game.fibaGameId === 128147);
   const usaQuarterFinal = data.games.find(game => game.fibaGameId === 128151);
 
   assert.equal(data.games.length, 36);
@@ -225,7 +226,7 @@ test('structured FIBA feed drives every table through the completed group phase 
   assert.equal(data.dataStatus.gamesSource, 'official-competition-games');
   assert.equal(data.dataStatus.standingsSource, 'derived-from-official-games');
   assert.equal(data.dataStatus.leagueLeadersSource, 'official-competition-player-leaders');
-  assert.equal(data.dataStatus.playerOfGameCount, 26);
+  assert.equal(data.dataStatus.playerOfGameCount, 27);
   assert.deepEqual(groupD.map(team => team.code), ['USA','CHN','ITA','CZE']);
   assert.deepEqual([data.usa.wins,data.usa.losses,data.usa.groupRank], [3,0,1]);
   assert.deepEqual([usa.gamesPlayed,usa.wins,usa.losses,usa.pointsFor,usa.pointsAgainst], [3,3,0,254,177]);
@@ -234,6 +235,10 @@ test('structured FIBA feed drives every table through the completed group phase 
   assert.equal(usa.diffPerGame.toFixed(1), '25.7');
   assert.deepEqual([missingGame.status,missingGame.homeScore,missingGame.awayScore], ['final',105,64]);
   assert.deepEqual([missingGame.playerOfGame.player,missingGame.playerOfGame.line], ['Breanna Stewart','19 PTS']);
+  assert.deepEqual(
+    [chinaQualifier.playerOfGame.player,chinaQualifier.playerOfGame.line,chinaQualifier.playerOfGame.countryCode],
+    ['Xu Han','21 PTS · 11 REB','CHN']
+  );
   assert.deepEqual([usaQuarterFinal.home.code,usaQuarterFinal.away.code,usaQuarterFinal.status], ['USA','HUN','scheduled']);
   assert.deepEqual(data.tournamentTable.filter(team=>team.eliminated).map(team=>team.code).sort(), ['CZE','JPN','KOR','MLI','NGR','PUR','TUR']);
   assert.equal(data.tournamentTable.find(team=>team.code==='PUR').eliminationStage, 'Qualification to Quarter-Finals');
@@ -374,6 +379,20 @@ test('FIBA Player of the Game parser decodes nested entities and removes event-t
   assert.equal(parsed.player, 'Emma Meesseman');
   assert.equal(parsed.line, '22 PTS, 10 REB');
   assert.equal(parsed.countryCode, 'BEL');
+});
+
+test('FIBA Player of the Game parser removes the shorter World Cup event title', () => {
+  delete require.cache[require.resolve(handlerPath)];
+  const handler = require(handlerPath);
+  const parsed = handler.__test.parsePlayerOfGame(
+    html('Image FIBA Women&amp;#x27;s World Cup 2026 🇨🇳 Xu Han (21 PTS, 11 REB) | TCL Player Of The Game | PUR v CHN'),
+    { home: { code: 'PUR' }, away: { code: 'CHN' }, homeScore: 72, awayScore: 75 },
+    'https://www.fiba.basketball/example'
+  );
+
+  assert.equal(parsed.player, 'Xu Han');
+  assert.equal(parsed.line, '21 PTS, 11 REB');
+  assert.equal(parsed.countryCode, 'CHN');
 });
 
 test('Team USA schedule cards render Player of the Game with a country flag', () => {

@@ -271,6 +271,12 @@ const VERIFIED_PLAYER_OF_GAME_BY_ID = {
     line: '23 PTS',
     countryCode: 'HUN',
     sourceUrl: `${EVENT_BASE}/games/128145-HUN-JPN`
+  },
+  128147: {
+    player: 'Xu Han',
+    line: '21 PTS · 11 REB',
+    countryCode: 'CHN',
+    sourceUrl: `${EVENT_BASE}/games/128147-PUR-CHN`
   }
 };
 
@@ -840,7 +846,7 @@ function parsePlayerOfGame(html, game, sourceUrl) {
   if (!title) return null;
   const player = normalizeName(title[1])
     .replace(/^[^A-Za-zÀ-ÿ]+/, '')
-    .replace(/^.*?FIBA Women's Basketball World Cup 2026\s*/i, '')
+    .replace(/^.*?FIBA Women's (?:Basketball )?World Cup 2026\s*/i, '')
     .trim();
   const line = normalizeName(title[2]);
   if (!player || player.length > 80) return null;

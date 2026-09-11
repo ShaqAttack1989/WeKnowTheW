@@ -37,8 +37,8 @@
     if(!data)return [];
     const k=key(name),items=[];
     if(teamUSA.has(k))items.push({league:'fiba-usa',team:'Team USA',label:'2026 FIBA World Cup',logo:''});
-    if(unrivaled.has(k))items.push({league:'unrivaled',team:unrivaled.get(k),label:futureStatus.get(k)||'2026 club',logo:data?.logos?.unrivaled||''});
-    else if(future.has(k))items.push({league:'unrivaled',team:future.get(k),label:futureStatus.get(k)||'signed for 2027',logo:data?.logos?.unrivaled||''});
+    if(future.has(k))items.push({league:'unrivaled',team:future.get(k),label:futureStatus.get(k)||'2027 Season 3 roster',logo:data?.logos?.unrivaled||''});
+    else if(unrivaled.has(k))items.push({league:'unrivaled',team:unrivaled.get(k),label:futureStatus.get(k)||'2026 club',logo:data?.logos?.unrivaled||''});
     if(au.has(k))items.push({league:'au',team:au.get(k),label:'2026 Week 4',logo:data?.logos?.au||''});
     if(upshot.has(k)){const entry=upshot.get(k);items.push({league:'upshot',team:entry.team,label:entry.label||'2026 UPSHOT',logo:''});}
     return items;
@@ -96,7 +96,7 @@
   function scheduleCards(){clearTimeout(cardTimer);cardTimer=setTimeout(decorateCards,60);}
   function scheduleModal(){clearTimeout(modalTimer);modalTimer=setTimeout(decorateModal,80);}
 
-  fetch(`/pro-offseason-affiliations.json?v=20260831-teamusa-v1&cb=${Date.now()}`,{headers:{Accept:'application/json','Cache-Control':'no-cache'},cache:'no-store'})
+  fetch(`/pro-offseason-affiliations.json?v=20260911-unrivaled-roster-v1&cb=${Date.now()}`,{headers:{Accept:'application/json','Cache-Control':'no-cache'},cache:'no-store'})
     .then(r=>r.ok?r.json():Promise.reject(new Error('Affiliations unavailable')))
     .then(payload=>{
       buildMaps(payload);

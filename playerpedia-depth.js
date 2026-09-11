@@ -85,8 +85,9 @@
     const usa=aff.teamUSA||{};
     if((usa.players||[]).some(player=>key(player)===id))items.push({label:'TEAM USA',text:`${usa.season||2026} ${usa.competition||'USA Basketball'}`,url:aff.sources?.teamUSA||''});
     if((usa.withdrawals||[]).some(player=>key(player)===id))items.push({label:'TEAM USA',text:`Selected for ${usa.season||2026}, later withdrew`,url:aff.sources?.teamUSAUpdate||aff.sources?.teamUSA||''});
-    const unrivaled=[...(aff.unrivaled?.players||[]),...(aff.unrivaled?.season3Signed||[])].find(row=>key(row?.[0])===id);
-    if(unrivaled)items.push({label:'UNRIVALED',text:`${unrivaled[1]} · ${unrivaled[1]==='Club TBD'?'Season 3 signing':'2026'}`,url:aff.sources?.unrivaled||''});
+    const season3=(aff.unrivaled?.season3Signed||[]).find(row=>key(row?.[0])===id);
+    const unrivaled=season3||(aff.unrivaled?.players||[]).find(row=>key(row?.[0])===id);
+    if(unrivaled)items.push({label:'UNRIVALED',text:`${unrivaled[1]} · ${season3?'2027 Season 3 roster':'2026 club'}`,url:aff.sources?.unrivaled||''});
     const au=(aff.athletesUnlimited?.players||[]).find(row=>key(row?.[0])===id);
     if(au)items.push({label:'ATHLETES UNLIMITED',text:`${au[1]} · ${aff.athletesUnlimited?.label||2026}`,url:aff.sources?.au||''});
     return items;

@@ -8,15 +8,19 @@ const unrivaledTeams=[
 {name:'Lunar Owls',record:'4-10',w:4,l:10,pct:.286,pf:968,pa:1059,diff:-91,streak:'W1',ppg:69.1,status:'Eliminated',note:'A difficult second season ended outside the playoffs after the club had been one of the biggest stories of Unrivaled’s inaugural year.'},
 {name:'Hive',record:'4-10',w:4,l:10,pct:.286,pf:935,pa:1067,diff:-132,streak:'L2',ppg:66.8,status:'Eliminated',note:'The second 2026 expansion club absorbed the league’s toughest scoring margin while building its first season identity.'}
 ];
-const signings=[
-{name:'Olivia Miles',tag:'NEW · APR 12',copy:'First pro contract, debuting in Season 3.',grade:'NR'},
-{name:'Gabby Williams',tag:'NEW · JUN 18',copy:'WNBA All-Star and two-time Olympic medalist.',grade:'NR'},
-{name:"Flau’jae Johnson",tag:'NEW · JUN 22',copy:'2026 WNBA No. 8 pick and former Future is Unrivaled NIL athlete.',grade:'NR'},
-{name:'Bridget Carleton',tag:'NEW · JUN 25',copy:'Two-time Olympian joining for her first Unrivaled season.',grade:'NR'},
-{name:'Marine Johannès',tag:'NEW · JUN 29',copy:'Two-time Olympic medalist and elite movement shooter.',grade:'NR'},
-{name:'Kayla Thornton',tag:'NEW · JUL 2',copy:'WNBA champion and All-Star joining on a multi-year deal.',grade:'NR'},
-{name:'Kayla McBride',tag:'RETURN · JUL 7',copy:'All-Unrivaled First Team guard returns for Season 3.',grade:'2025'},
-{name:'Jessica Shepard',tag:'NEW · JUL 8',copy:'2026 WNBA All-Star starter joining on a multi-year deal.',grade:'NR'}
+const season3Roster=[
+{seat:'01A',name:'Olivia Miles'},{seat:'01B',name:'Flau’jae Johnson'},{seat:'01C',name:'Jessica Shepard'},{seat:'01D',name:'Kayla McBride'},
+{seat:'02A',name:'Kayla Thornton'},{seat:'02B',name:'Marine Johannès'},{seat:'02C',name:'Bridget Carleton'},{seat:'02D',name:'Gabby Williams'},
+{seat:'03A',name:'Chelsea Gray'},{seat:'03B',name:'Marina Mabrey'},{seat:'03C',name:'Courtney Williams'},{seat:'03D',name:'Maddy Siegrist'},
+{seat:'04A',name:'Veronica Burton'},{seat:'04B',name:'Natasha Cloud'},{seat:'04C',name:'Paige Bueckers'},{seat:'04D',name:'Shakira Austin'},
+{seat:'05A',name:'Dearica Hamby'},{seat:'05B',name:'Breanna Stewart'},{seat:'05C',name:'Skylar Diggins'},{seat:'05D',name:'Aliyah Boston'},
+{seat:'06A',name:'Ezi Magbegor'},{seat:'06B',name:'Rhyne Howard'},{seat:'06C',name:'Natisha Hiedeman'},{seat:'06D',name:'Lexie Hull'},
+{seat:'07A',name:'Rickea Jackson'},{seat:'07B',name:'Tiffany Hayes'},{seat:'07C',name:'Cameron Brink'},{seat:'07D',name:'Kelsey Plum'},
+{seat:'08A',name:'Naz Hillmon'},{seat:'08B',name:'Kahleah Copper'},{seat:'08C',name:'Aziaha James'},{seat:'08D',name:'Rae Burrell'},
+{seat:'09A',name:'Jackie Young'},{seat:'09B',name:'Kate Martin'},{seat:'09C',name:'Aaliyah Edwards'},{seat:'09D',name:'Temi Fagbenle'},
+{seat:'10A',name:'Arike Ogunbowale'},{seat:'10B',name:'Napheesa Collier'},{seat:'10C',name:'Brittney Sykes'},{seat:'10D',name:'Dominique Malonga'},
+{seat:'11A',name:'Jordin Canada'},{seat:'11B',name:'Sonia Citron'},{seat:'11C',name:'Monique Billings'},{seat:'11D',name:'Allisha Gray'},
+{seat:'12A',name:'Li Yueru'},{seat:'12B',name:'DiJonai Carrington'}
 ];
 const playerLeaders=[
 {label:'SCORING',name:'Marina Mabrey',team:'Lunar Owls',value:'25.3 PPG'},
@@ -102,7 +106,7 @@ function gradeArchivePlayers(season){
   const byName=new Map(computed.map(p=>[p.name,p]));
   return players.map(p=>byName.get(p.name));
 }
-function renderSignings(){const el=document.getElementById('unrivaledSignings');if(!el)return;const grade2025=new Map(gradeArchivePlayers(2025).map(p=>[p.name,p]));el.innerHTML=signings.map(s=>{const prior=grade2025.get(s.name);const grade=s.grade==='2025'&&prior?`<span class="unrivaled-signing-grade">2025 grade ${prior.gradeScore} · ${prior.grade}</span>`:`<span class="unrivaled-signing-grade neutral">Season 3 grade · NR</span>`;return`<article class="unrivaled-signing-card"><span>${esc(s.tag)}</span><strong>${esc(s.name)}</strong><p>${esc(s.copy)}</p>${grade}</article>`}).join('')}
+function renderSignings(){const el=document.getElementById('unrivaledSignings');if(!el)return;const aboard=season3Roster.map(player=>`<a class="unrivaled-signing-card" href="/playerpedia.html?search=${encodeURIComponent(player.name)}#playerpedia-directory"><span>SEAT ${esc(player.seat)} · ABOARD</span><strong>${esc(player.name)}</strong><p>Season 3 · Club assignment TBA</p><span class="unrivaled-signing-grade neutral">Open Playerpedia →</span></a>`).join('');const held=['12C','12D'].map(seat=>`<article class="unrivaled-signing-card held"><span>SEAT ${seat} · HELD</span><strong>Boarding soon</strong><p>Unrivaled has not revealed this player yet.</p><span class="unrivaled-signing-grade neutral">46 of 48 confirmed</span></article>`).join('');el.innerHTML=aboard+held}
 function renderStandings(){const el=document.getElementById('unrivaledStandings');if(!el)return;el.innerHTML=`<table class="unrivaled-table"><thead><tr><th>Club</th><th>W</th><th>L</th><th>PCT</th><th>PF</th><th>PA</th><th>DIFF</th><th>STRK</th></tr></thead><tbody>${unrivaledTeams.map((t,i)=>`<tr><td class="team-cell"><div class="league-team-lockup"><span class="seed-mark ${i>5?'out':''}">${i+1}</span><span class="league-team-logo"><img src="${clubLogo(t.name)}" alt="" loading="lazy"></span><div><strong>${esc(t.name)}</strong><small>${esc(t.status)}</small></div></div></td><td>${t.w}</td><td>${t.l}</td><td>${pct(t.pct)}</td><td>${t.pf}</td><td>${t.pa}</td><td>${t.diff>0?'+':''}${t.diff}</td><td>${esc(t.streak)}</td></tr>`).join('')}</tbody></table>`}
 function renderClubTabs(){const tabs=document.getElementById('unrivaledClubTabs');if(!tabs)return;tabs.innerHTML=unrivaledTeams.map((t,i)=>`<button type="button" role="tab" aria-selected="${i===0}" class="${i===0?'active':''}" data-team="${i}"><span class="unrivaled-tab-logo"><img src="${clubLogo(t.name)}" alt="" loading="lazy"></span>${esc(t.name)}</button>`).join('');tabs.querySelectorAll('button').forEach(btn=>btn.addEventListener('click',()=>selectClub(Number(btn.dataset.team))))}
 function selectClub(index){const t=unrivaledTeams[index]||unrivaledTeams[0];document.querySelectorAll('#unrivaledClubTabs button').forEach((b,i)=>{b.classList.toggle('active',i===index);b.setAttribute('aria-selected',String(i===index))});const panel=document.getElementById('unrivaledClubPanel');if(!panel)return;panel.innerHTML=`<div class="unrivaled-club-room"><div><div class="unrivaled-club-title"><span class="league-team-logo lg"><img src="${clubLogo(t.name)}" alt="${esc(t.name)} logo" loading="lazy"></span><div><p class="kicker">${esc(t.status)}</p><h3>${esc(t.name)} BC</h3></div></div><p>${esc(t.note)}</p><a href="https://www.unrivaled.basketball/${encodeURIComponent(t.name.toLowerCase().replace('lunar owls','lunar-owls').replace(/\s+/g,'-'))}" target="_blank" rel="noopener noreferrer" style="font-weight:900">Official club page ↗</a></div><div class="unrivaled-club-metrics"><article><span>Record</span><strong>${esc(t.record)}</strong></article><article><span>Win %</span><strong>${pct(t.pct)}</strong></article><article><span>PPG</span><strong>${t.ppg.toFixed(1)}</strong></article><article><span>Point Diff</span><strong>${t.diff>0?'+':''}${t.diff}</strong></article><article><span>Points For</span><strong>${t.pf}</strong></article><article><span>Points Against</span><strong>${t.pa}</strong></article></div></div>`}

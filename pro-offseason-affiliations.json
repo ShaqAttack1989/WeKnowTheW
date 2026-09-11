@@ -1,10 +1,23 @@
 {
-  "updatedAt":"2026-09-04T12:00:00Z",
+  "updatedAt":"2026-09-11T12:00:00Z",
   "logos":{"unrivaled":"https://www.unrivaled.basketball/unrivaled_wordmark.png","au":"https://upload.wikimedia.org/wikipedia/commons/c/cd/Athletes_unlimited_logo.png"},
   "teamUSA":{"season":2026,"competition":"FIBA Women's Basketball World Cup","status":"Updated Aug. 31: Kiki Iriafen and Sonia Citron added after A'ja Wilson and Kelsey Plum withdrew for health reasons","players":["Aliyah Boston","Paige Bueckers","Caitlin Clark","Napheesa Collier","Kahleah Copper","Chelsea Gray","Rhyne Howard","Kiki Iriafen","Angel Reese","Breanna Stewart","Sonia Citron","Jackie Young"],"additions":["Kiki Iriafen","Sonia Citron"],"withdrawals":["A'ja Wilson","Kelsey Plum"]},
   "unrivaled":{"season":2026,"players":[
     ["Rebecca Allen","Lunar Owls"],["Shakira Austin","Rose"],["Rachel Banham","Lunar Owls"],["Monique Billings","Hive"],["Aliyah Boston","Phantom"],["Cameron Brink","Breeze"],["Paige Bueckers","Breeze"],["Rae Burrell","Vinyl"],["Veronica Burton","Mist"],["Jordin Canada","Laces"],["Sonia Citron","Hive"],["Natasha Cloud","Phantom"],["Napheesa Collier","Lunar Owls"],["Kahleah Copper","Rose"],["Skylar Diggins","Lunar Owls"],["Aaliyah Edwards","Lunar Owls"],["Dana Evans","Phantom"],["Temi Fágbénlé","Lunar Owls"],["Allisha Gray","Mist"],["Chelsea Gray","Rose"],["Brittney Griner","Vinyl"],["Dearica Hamby","Vinyl"],["Tiffany Hayes","Phantom"],["Natisha Hiedeman","Hive"],["Naz Hillmon","Laces"],["Rhyne Howard","Vinyl"],["Lexie Hull","Rose"],["Kiki Iriafen","Phantom"],["Rickea Jackson","Breeze"],["Aziaha James","Phantom"],["Marina Mabrey","Lunar Owls"],["Ezi Magbegor","Hive"],["Dominique Malonga","Breeze"],["Kate Martin","Breeze"],["Aari McDonald","Breeze"],["Kelsey Mitchell","Hive"],["Arike Ogunbowale","Mist"],["Kelsey Plum","Phantom"],["Angel Reese","Rose"],["Saniya Rivers","Vinyl"],["Satou Sabally","Phantom"],["Maddy Siegrist","Laces"],["Alanna Smith","Mist"],["Azurá Stevens","Hive"],["Breanna Stewart","Mist"],["Sug Sutton","Rose"],["Brittney Sykes","Laces"],["Alyssa Thomas","Laces"],["Makayla Timpson","Phantom"],["Erica Wheeler","Vinyl"],["Courtney Williams","Breeze"],["Jackie Young","Laces"],["Li Yueru","Mist"]
-  ],"season3Signed":[["Olivia Miles","Club TBD"],["Gabby Williams","Club TBD"],["Flau'jae Johnson","Club TBD"],["Bridget Carleton","Club TBD"],["Marine Johannès","Club TBD"],["Kayla Thornton","Club TBD"],["Kayla McBride","Club TBD"],["Jessica Shepard","Club TBD"]],"season3Statuses":[["Rickea Jackson","OUT 2027 · injury · expected Season 4"]]},
+  ],"nextSeason":2027,"season3RosterStatus":"46 of 48 confirmed","season3Signed":[
+    ["Olivia Miles","Club TBA"],["Flau'jae Johnson","Club TBA"],["Jessica Shepard","Club TBA"],["Kayla McBride","Club TBA"],
+    ["Kayla Thornton","Club TBA"],["Marine Johannès","Club TBA"],["Bridget Carleton","Club TBA"],["Gabby Williams","Club TBA"],
+    ["Chelsea Gray","Club TBA"],["Marina Mabrey","Club TBA"],["Courtney Williams","Club TBA"],["Maddy Siegrist","Club TBA"],
+    ["Veronica Burton","Club TBA"],["Natasha Cloud","Club TBA"],["Paige Bueckers","Club TBA"],["Shakira Austin","Club TBA"],
+    ["Dearica Hamby","Club TBA"],["Breanna Stewart","Club TBA"],["Skylar Diggins","Club TBA"],["Aliyah Boston","Club TBA"],
+    ["Ezi Magbegor","Club TBA"],["Rhyne Howard","Club TBA"],["Natisha Hiedeman","Club TBA"],["Lexie Hull","Club TBA"],
+    ["Rickea Jackson","Club TBA"],["Tiffany Hayes","Club TBA"],["Cameron Brink","Club TBA"],["Kelsey Plum","Club TBA"],
+    ["Naz Hillmon","Club TBA"],["Kahleah Copper","Club TBA"],["Aziaha James","Club TBA"],["Rae Burrell","Club TBA"],
+    ["Jackie Young","Club TBA"],["Kate Martin","Club TBA"],["Aaliyah Edwards","Club TBA"],["Temi Fagbenle","Club TBA"],
+    ["Arike Ogunbowale","Club TBA"],["Napheesa Collier","Club TBA"],["Brittney Sykes","Club TBA"],["Dominique Malonga","Club TBA"],
+    ["Jordin Canada","Club TBA"],["Sonia Citron","Club TBA"],["Monique Billings","Club TBA"],["Allisha Gray","Club TBA"],
+    ["Li Yueru","Club TBA"],["DiJonai Carrington","Club TBA"]
+  ],"season3Statuses":[]},
   "athletesUnlimited":{"season":2026,"label":"2026 Week 4","players":[
     ["Odyssey Sims","Gold Rush"],["Kiah Stokes","Gold Rush"],["Aneesah Morrow","Gold Rush"],["Ariel Atkins","Gold Rush"],["Te-Hina Paopao","Gold Rush"],["Teana Muldrow","Gold Rush"],["Lexie Brown","Gold Rush"],["Asia Taylor","Gold Rush"],["Bree Hall","Gold Rush"],["Air Hearn","Gold Rush"],
     ["Rebekah Gardner","Glow"],["Isabelle Harrison","Glow"],["Zia Cooke","Glow"],["Jacy Sheldon","Glow"],["Natasha Mack","Glow"],["Grace Berger","Glow"],["Kiara Leslie","Glow"],["Dorie Harrison","Glow"],["Bria Hartley","Glow"],["Rebecca Harris","Glow"],["McKenzie Forbes","Glow"],
@@ -12,5 +25,5 @@
     ["Kierstan Bell","Eclipse"],["Kaitlyn Chen","Eclipse"],["Sarah Ashlee Barker","Eclipse"],["NaLyssa Smith","Eclipse"],["Emma Cannon","Eclipse"],["Kayana Traylor","Eclipse"],["Brianna Turner","Eclipse"],["Aaliyah Nye","Eclipse"],["Deja Kelly","Eclipse"],["Alaina Coates","Eclipse"]
   ]},
   "upshot":{"season":2026,"players":[["Deja Kelly","Charlotte Crown","2026 champion · Championship MVP"]]},
-  "sources":{"unrivaled":"https://www.unrivaled.basketball/players","unrivaledStatus":"https://bleacherreport.com/unrivaled","au":"https://auprosports.com/draft/basketball-2026-week-4/","upshot":"https://upshotleague.com/players/deja-kelly/","teamUSA":"https://www.usab.com/news/2026/08/2026-usa-basketball-womens-national-team-announced","teamUSAUpdate":"https://www.foxsports.com/articles/wnba/us-stars-aja-wilson-and-kelsey-plum-to-miss-the-fiba-womens-world-cup","fibaWorldCup":"https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026"}
+  "sources":{"unrivaled":"https://www.unrivaled.basketball/roster-reveal/2027","unrivaledTour":"https://www.unrivaled.basketball/tours/2027/bus","unrivaledStatus":"https://www.unrivaled.basketball/roster-reveal/2027","au":"https://auprosports.com/draft/basketball-2026-week-4/","upshot":"https://upshotleague.com/players/deja-kelly/","teamUSA":"https://www.usab.com/news/2026/08/2026-usa-basketball-womens-national-team-announced","teamUSAUpdate":"https://www.foxsports.com/articles/wnba/us-stars-aja-wilson-and-kelsey-plum-to-miss-the-fiba-womens-world-cup","fibaWorldCup":"https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026"}
 }

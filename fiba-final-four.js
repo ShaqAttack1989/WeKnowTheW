@@ -170,6 +170,7 @@
   }
   function setPlayerFilter(team){
     document.querySelectorAll('[data-ff-player-filter]').forEach(button=>{const active=button.dataset.ffPlayerFilter===team;button.classList.toggle('active',active);button.setAttribute('aria-pressed',String(active));});
+    document.getElementById('ffPlayerGrid')?.classList.toggle('is-filtered',team!=='ALL');
     document.querySelectorAll('.ff-player-card').forEach(card=>{card.hidden=team!=='ALL'&&card.dataset.ffTeam!==team;});
   }
 

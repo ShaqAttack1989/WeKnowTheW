@@ -47,7 +47,7 @@ test('all featured players use real official FIBA portrait assets and profile li
 
 test('Final Four design collapses into an uncluttered mobile layout',()=>{
   assert.match(css,/@media\(max-width:640px\)/);
-  assert.match(css,/\.ff-player-grid\{grid-template-columns:1fr\}/);
+  assert.match(css,/\.ff-player-grid(?:,\.ff-player-grid\.is-filtered)?\{grid-template-columns:1fr\}/);
   assert.match(css,/\.ff-matchup-tabs\{grid-template-columns:1fr\}/);
   assert.match(css,/\.ff-overall-board\{grid-template-columns:1fr\}/);
 });

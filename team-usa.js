@@ -101,7 +101,7 @@
 
   function worldCupBoard(payload){
     const usaGames=(payload.games||[]).filter(game=>game.home?.code==='USA'||game.away?.code==='USA');
-    const pogGames=[...usaGames].filter(game=>game.status==='final'&&game.playerOfGame?.player).sort((a,b)=>new Date(b.startTimeUtc||b.date||0)-new Date(a.startTimeUtc||a.date||0)).slice(0,3);
+    const pogGames=[...usaGames].filter(game=>game.status==='final'&&game.playerOfGame?.player).sort((a,b)=>new Date(b.startTimeUtc||b.date||0)-new Date(a.startTimeUtc||a.date||0));
     const latestPogGame=pogGames[0]||null;
     const latestPog=latestPogGame?.playerOfGame||null;
     const games=usaGames.map(normalizeWorldCupGame).filter(Boolean).sort((a,b)=>new Date(a.date||0)-new Date(b.date||0));

@@ -469,10 +469,12 @@ test('World Cup Stat Kitchen shows the tournament record only once', () => {
   assert.doesNotMatch(worldCupBoard, /sourceRecords/);
 });
 
-test('World Cup Stat Kitchen uses the spotlight space for three Players of the Game', () => {
+test('World Cup Stat Kitchen shows every Team USA Player of the Game', () => {
   const source = require('node:fs').readFileSync(path.join(__dirname, '..', 'team-usa.js'), 'utf8');
   const css = require('node:fs').readFileSync(path.join(__dirname, '..', 'team-usa.css'), 'utf8');
-  assert.match(source, /\.slice\(0,3\)/);
+  const worldCupBoard = source.slice(source.indexOf('function worldCupBoard'), source.indexOf('async function loadWorldCupPulse'));
+  assert.match(worldCupBoard, /const pogGames=/);
+  assert.doesNotMatch(worldCupBoard, /pogGames[^;]*\.slice\(/);
   assert.match(source, /spotlightHeading:'TEAM USA PLAYERS OF THE GAME'/);
   assert.match(source, /team-usa-kitchen-spotlight-list/);
   assert.match(css, /\.team-usa-kitchen-spotlight-item/);

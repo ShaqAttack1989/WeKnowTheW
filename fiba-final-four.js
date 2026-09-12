@@ -41,7 +41,7 @@
   let currentMatchup='FRA-GER';
   let latestPayload=null;
   const esc=value=>String(value??'').replace(/[&<>'"]/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[char]));
-  const one=value=>Number.isFinite(Number(value))?Number(value).toFixed(1):'—';
+  const one=value=>Number.isFinite(Number(value))?Number(value).toFixed(1):'…';
   const teamRows=payload=>{
     const rows=Array.isArray(payload?.tournamentTable)?payload.tournamentTable.filter(team=>FINAL_FOUR.has(team.code)):[];
     return rows.length===4?rows:fallbackTeams;
@@ -78,7 +78,7 @@
       <h3><small>${esc(team.code)}</small>${esc(team.flag)} ${esc(team.name)}</h3>
       <div class="ff-w-score"><span>WE KNOW THE W SCORE</span><strong>${one(team.wScore)}</strong></div>
       <div class="ff-w-bar" aria-label="W Score ${one(team.wScore)} out of 100"><i style="width:${Math.max(0,Math.min(100,Number(team.wScore)||0))}%"></i></div>
-      <div class="ff-team-mini"><span><small>RECORD</small><b>${esc(team.wins)}–${esc(team.losses)}</b></span><span><small>PPG</small><b>${one(team.ppg)}</b></span><span><small>MARGIN</small><b>${Number(team.diffPerGame)>=0?'+':''}${one(team.diffPerGame)}</b></span></div>
+      <div class="ff-team-mini"><span><small>RECORD</small><b>${esc(team.wins)} W, ${esc(team.losses)} L</b></span><span><small>PPG</small><b>${one(team.ppg)}</b></span><span><small>MARGIN</small><b>${Number(team.diffPerGame)>=0?'+':''}${one(team.diffPerGame)}</b></span></div>
     </article>`).join('');
     const updated=document.getElementById('ffOverallUpdated');
     if(updated){
@@ -95,8 +95,8 @@
         const usaHome=usaQf.home?.code==='USA';
         const usaScore=usaHome?usaQf.homeScore:usaQf.awayScore;
         const hunScore=usaHome?usaQf.awayScore:usaQf.homeScore;
-        usaRecordsStatus.textContent=`USA ${usaScore}–${hunScore} HUNGARY · OFFICIAL QF`;
-      }else usaRecordsStatus.textContent='USA 108–56 HUNGARY · QUARTERFINAL';
+        usaRecordsStatus.textContent=`USA ${usaScore}, HUNGARY ${hunScore} · OFFICIAL QF`;
+      }else usaRecordsStatus.textContent='USA 108, HUNGARY 56 · QUARTERFINAL';
     }
   }
 
@@ -134,7 +134,7 @@
       const time=card.querySelector('.ff-tip-time b');const teams=card.querySelector('.ff-tip-teams');const local=card.querySelector('.ff-tip-local');
       if(game.status==='final'){
         time.textContent='FINAL';
-        teams.innerHTML=`<strong>${esc(game.home?.flag)} ${esc(game.home?.name)} ${esc(game.homeScore)}</strong><i>—</i><strong>${esc(game.awayScore)} ${esc(game.away?.name)} ${esc(game.away?.flag)}</strong>`;
+        teams.innerHTML=`<strong>${esc(game.home?.flag)} ${esc(game.home?.name)} ${esc(game.homeScore)}</strong><i>to</i><strong>${esc(game.awayScore)} ${esc(game.away?.name)} ${esc(game.away?.flag)}</strong>`;
         local.textContent='Official result';
       }else if(game.status==='live'){
         time.textContent='LIVE';
@@ -157,7 +157,7 @@
     const lab=document.getElementById('ffCountryLab');if(!lab)return;
     const match=matchupFacts[currentMatchup];const first=teamByCode(payload,match.codes[0]);const second=teamByCode(payload,match.codes[1]);const game=gameForCodes(payload,match.codes);
     let gameState='UP NEXT';let gameDetail=game?.startTimeUtc?localTime(game.startTimeUtc):'September 12';
-    if(game?.status==='live'){gameState='LIVE';gameDetail=`${game.homeScore??0}–${game.awayScore??0}${game.liveClock?` · ${game.liveClock}`:''}`;}
+    if(game?.status==='live'){gameState='LIVE';gameDetail=`${game.homeScore??0} to ${game.awayScore??0}${game.liveClock?` · ${game.liveClock}`:''}`;}
     if(game?.status==='final'){gameState='FINAL';gameDetail=`${game.home?.code} ${game.homeScore} · ${game.awayScore} ${game.away?.code}`;}
     lab.innerHTML=`<div class="ff-lab-score"><div class="ff-lab-team"><span>${esc(first.flag)}</span><div><small>W #${esc(first.overallRank)}</small><strong>${esc(first.name)}</strong></div></div><div class="ff-lab-center"><b>${esc(gameState)}</b><span>${esc(gameDetail)}</span></div><div class="ff-lab-team"><div><small>W #${esc(second.overallRank)}</small><strong>${esc(second.name)}</strong></div><span>${esc(second.flag)}</span></div></div>
       <div class="ff-lab-body"><div class="ff-compare-list">

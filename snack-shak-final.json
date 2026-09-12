@@ -1,0 +1,52 @@
+{
+  "site": "Snack Shak",
+  "posts": [
+    {
+      "slug": "usa-france-world-cup-final-2026",
+      "type": "byte",
+      "priority": 950,
+      "seriesLabel": "SNACK SHAK BYTE · FIBA WORLD CUP FINAL",
+      "title": "One Streak. One Drought. One Trophy: USA vs France for the World",
+      "published": "2026-09-12",
+      "week": "FIBA World Cup · Championship Game",
+      "dashboardUrl": "/fiba-world-cup-final-2026.html",
+      "image": "/assets/images/fiba-group-play/france-action.jpg",
+      "storyImage": "/assets/images/fiba-group-play/usa-action.jpg",
+      "imageAlt": "France in action at the 2026 FIBA Women's Basketball World Cup",
+      "teams": ["United States", "France"],
+      "players": ["Breanna Stewart", "Jackie Young", "Caitlin Clark", "Rhyne Howard", "Gabby Williams", "Marine Johannes", "Janelle Salaun", "Dominique Malonga"],
+      "dek": "USA brings 35 straight World Cup wins and a 71 game run across World Cup and Olympic play. France brings the tournament's biggest average scoring margin and its first World Cup final. Paris 2024 was one point. Berlin gets the rematch.",
+      "sections": [
+        {
+          "title": "Dynasty meets the team with the loudest margin",
+          "paragraphs": [
+            "USA enters the title game with 35 consecutive World Cup wins, four straight World Cup championships and a 71 game winning streak across World Cup and Olympic play. France enters 5 and 0, averaging 96.2 points and winning by 35.6 points per game through the semifinals.",
+            "Both teams are unbeaten. Only one arrives with eleven world titles. Only one arrives in its first World Cup final."
+          ]
+        },
+        {
+          "title": "Paris was one point. Berlin gets the rematch.",
+          "paragraphs": [
+            "The 2024 Olympic gold medal game ended USA 67, France 66. Now Gabby Williams and France get another championship shot at the Americans, while Breanna Stewart and USA try to make a fifth consecutive World Cup title feel inevitable one more time."
+          ]
+        }
+      ],
+      "debates": [
+        "Can France's tournament best scoring margin survive USA's depth and late game defense?",
+        "Does the pressure sit heavier on the program protecting a 35 game streak or the program playing its first World Cup final?",
+        "Which matters more in one game, USA's history or France's current form?"
+      ],
+      "foodSegment": {
+        "title": "One Streak, One Drought, One Trophy",
+        "script": "USA walks in with 35 straight World Cup wins and four straight titles. France walks in with zero world titles, but also with the bigger scoring margin in Berlin and a first ever trip to the final. Paris 2024 came down to one point. So no, this is not a coronation. It is a rematch with receipts."
+      },
+      "sources": [
+        {"label": "Interactive USA vs France final dashboard", "url": "https://www.weknowthew.com/fiba-world-cup-final-2026.html"},
+        {"label": "Official FIBA USA team profile", "url": "https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026/teams/usa"},
+        {"label": "Official FIBA France team profile", "url": "https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026/teams/france"},
+        {"label": "FIBA all time World Cup medalists", "url": "https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026/all-time-medalists"},
+        {"label": "USA semifinal report and 35 game streak", "url": "https://www.theguardian.com/sport/2026/sep/12/usa-spain-womens-basketball-world-cup-semi-final"}
+      ]
+    }
+  ]
+}

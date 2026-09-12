@@ -14,8 +14,8 @@
     USA:[
       {name:'Breanna Stewart',id:'176575',role:'THE BIG GAME CONSTANT',stats:[['11.0','PPG'],['6.8','RPG'],['16.6','EFF']],read:'Stewart led USA with 16 points in the semifinal and remains the lineup piece that can solve the most problems at once.'},
       {name:'Jackie Young',id:'283322',role:'THE PRESSURE RELEASE',stats:[['11.2','PPG'],['2.8','APG'],['12.0','EFF']],read:'USA’s leading scorer through the semifinals has repeatedly turned broken possessions into calm ones.'},
-      {name:'Caitlin Clark',id:'235603',role:'THE ADVANTAGE CREATOR',stats:[['5.8','APG'],['8.0','PPG'],['1.4','3PM']],read:'Clark leads USA in assists. France will test whether her passing can create clean shots before its pressure gets set.'},
-      {name:'Rhyne Howard',id:'225895',role:'THE BALL PRESSURE',stats:[['2.0','SPG'],['7.4','PPG'],['1.6','3PM']],read:'Howard gives USA a point of attack disruptor who can make the first pass uncomfortable and turn defense into pace.'}
+      {name:'Caitlin Clark',id:'235603',role:'THE ADVANTAGE CREATOR',stats:[['5.8','APG'],['#1','USA AST'],['FINAL','STAGE']],read:'Clark leads USA in assists. France will test whether her passing can create clean shots before its pressure gets set.'},
+      {name:'Rhyne Howard',id:'255460',role:'THE BALL PRESSURE',stats:[['2.0','SPG'],['#1','USA STL'],['FINAL','STAGE']],read:'Howard gives USA a point of attack disruptor who can make the first pass uncomfortable and turn defense into pace.'}
     ],
     FRA:[
       {name:'Gabby Williams',id:'216915',role:'THE TOURNAMENT ENGINE',stats:[['18.4','PPG'],['5.2','RPG'],['2.8','SPG']],read:'Williams is France’s scorer, connector and defensive spark. Her semifinal line was 22 points, five rebounds, five assists and four steals.'},

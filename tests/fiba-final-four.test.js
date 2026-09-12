@@ -26,6 +26,13 @@ test('feature covers both official semifinal matchups and their story',()=>{
   assert.match(article,/Prediction, not a live result/);
 });
 
+test('USA quarterfinal record receipts are visible and tied to the live feed',()=>{
+  for(const value of ['ffUsaRecordsStatus','OFFICIAL FIBA RECORDS','59','31','108','DOUBLE-FIGURE SCORERS','records-fall-as-usa-put-the-world-on-notice'])assert.ok((article+client+feed.posts[0].sections.map(section=>section.paragraphs||[]).flat().join(' ')+JSON.stringify(feed.posts[0].sources)).includes(value),value);
+  assert.match(client,/roundCode==='QF'/);
+  assert.match(css,/\.ff-usa-records/);
+  assert.match(css,/\.ff-record-grid/);
+});
+
 test('country, player and overall dashboards are interactive and FIBA-connected',()=>{
   for(const id of ['ffOverallBoard','ffLeaderBoard','ffCountryLab','ffPlayerGrid'])assert.ok(article.includes(`id="${id}"`),id);
   assert.match(client,/fetch\('\/api\/fiba-world-cup'/);

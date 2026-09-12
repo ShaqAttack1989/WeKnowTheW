@@ -88,6 +88,16 @@
     }
     const stamp=document.getElementById('ffLiveStamp');
     if(stamp)stamp.textContent=`Official FIBA-connected results · ${completedCount(payload)} of ${payload?.totalGames||36} games completed`;
+    const usaRecordsStatus=document.getElementById('ffUsaRecordsStatus');
+    if(usaRecordsStatus){
+      const usaQf=(Array.isArray(payload?.games)?payload.games:[]).find(game=>game.roundCode==='QF'&&[game.home?.code,game.away?.code].includes('USA')&&[game.home?.code,game.away?.code].includes('HUN'));
+      if(usaQf?.status==='final'){
+        const usaHome=usaQf.home?.code==='USA';
+        const usaScore=usaHome?usaQf.homeScore:usaQf.awayScore;
+        const hunScore=usaHome?usaQf.awayScore:usaQf.homeScore;
+        usaRecordsStatus.textContent=`USA ${usaScore}–${hunScore} HUNGARY · OFFICIAL QF`;
+      }else usaRecordsStatus.textContent='USA 108–56 HUNGARY · QUARTERFINAL';
+    }
   }
 
   function normalizeLeaders(payload){

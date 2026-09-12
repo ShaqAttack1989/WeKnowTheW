@@ -24,10 +24,10 @@ test('feature covers both official semifinal matchups and their story',()=>{
   for(const value of ['France vs Germany','Spain vs USA','61.4 percent','9.8 turnovers','17.3 to 8.8','48.8 to 29','34-game World Cup win streak','3 of 18'])assert.ok((article+client).includes(value),value);
   assert.match(article,/The safest final is France vs USA/);
   assert.match(article,/SEMIFINAL MARKET SNAPSHOT/);
-  assert.match(article,/France<\/b><em>−675/);
-  assert.match(article,/Germany<\/b><em>\+625/);
-  assert.match(article,/USA<\/b><em>−5000/);
-  assert.match(article,/Spain<\/b><em>\+2000/);
+  assert.match(article,/France<\/span><strong>−675/);
+  assert.match(article,/Germany<\/span><strong>\+625/);
+  assert.match(article,/USA<\/span><strong>−5000/);
+  assert.match(article,/Spain<\/span><strong>\+2000/);
   assert.match(article,/oddschecker\.com\/us\/basketball\/fiba-world-cup-womens/);
   assert.doesNotMatch(article,/[—–]/);
 });

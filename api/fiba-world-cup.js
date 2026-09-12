@@ -272,11 +272,41 @@ const VERIFIED_PLAYER_OF_GAME_BY_ID = {
     countryCode: 'HUN',
     sourceUrl: `${EVENT_BASE}/games/128145-HUN-JPN`
   },
+  128146: {
+    player: 'Isobel Borlase',
+    line: '30 PTS',
+    countryCode: 'AUS',
+    sourceUrl: `${EVENT_BASE}/games/128146-ITA-AUS`
+  },
   128147: {
     player: 'Xu Han',
     line: '21 PTS · 11 REB',
     countryCode: 'CHN',
     sourceUrl: `${EVENT_BASE}/games/128147-PUR-CHN`
+  },
+  128148: {
+    player: 'Alicia Florez',
+    line: '10 PTS',
+    countryCode: 'ESP',
+    sourceUrl: `${EVENT_BASE}/games/128148-AUS-ESP`
+  },
+  128149: {
+    player: 'Janelle Salaun',
+    line: '15 PTS',
+    countryCode: 'FRA',
+    sourceUrl: `${EVENT_BASE}/games/128149-CHN-FRA`
+  },
+  128150: {
+    player: 'Nyara Sabally',
+    line: '16 PTS · 12 REB',
+    countryCode: 'GER',
+    sourceUrl: `${EVENT_BASE}/games/128150-BEL-GER`
+  },
+  128151: {
+    player: 'Napheesa Collier',
+    line: '19 PTS',
+    countryCode: 'USA',
+    sourceUrl: `${EVENT_BASE}/games/128151-USA-HUN`
   }
 };
 
@@ -773,6 +803,36 @@ function applyVerifiedResultSnapshot(games) {
       date: '2026-09-09', timeBerlin: '17:45', startTimeUtc: berlinUtc('2026-09-09', '17:45'), venue: 'Berlin Arena, Berlin, Germany',
       home: team('PUR'), away: team('CHN'), status: 'final', homeScore: 72, awayScore: 75,
       sourceUrl: `${EVENT_BASE}/games/128147-PUR-CHN`
+    },
+    {
+      id: 'fiba-128146', fibaGameId: 128146, phase: 'Qualification to Quarter-Finals', roundCode: 'QQF', group: null,
+      date: '2026-09-09', timeBerlin: '20:45', startTimeUtc: berlinUtc('2026-09-09', '20:45'), venue: 'Berlin Arena, Berlin, Germany',
+      home: team('ITA'), away: team('AUS'), status: 'final', homeScore: 80, awayScore: 82,
+      sourceUrl: `${EVENT_BASE}/games/128146-ITA-AUS`
+    },
+    {
+      id: 'fiba-128151', fibaGameId: 128151, phase: 'Quarter-Finals', roundCode: 'QF', group: null,
+      date: '2026-09-10', timeBerlin: '11:30', startTimeUtc: berlinUtc('2026-09-10', '11:30'), venue: 'Berlin Arena, Berlin, Germany',
+      home: team('USA'), away: team('HUN'), status: 'final', homeScore: 108, awayScore: 56,
+      sourceUrl: `${EVENT_BASE}/games/128151-USA-HUN`
+    },
+    {
+      id: 'fiba-128149', fibaGameId: 128149, phase: 'Quarter-Finals', roundCode: 'QF', group: null,
+      date: '2026-09-10', timeBerlin: '14:30', startTimeUtc: berlinUtc('2026-09-10', '14:30'), venue: 'Berlin Arena, Berlin, Germany',
+      home: team('CHN'), away: team('FRA'), status: 'final', homeScore: 61, awayScore: 90,
+      sourceUrl: `${EVENT_BASE}/games/128149-CHN-FRA`
+    },
+    {
+      id: 'fiba-128150', fibaGameId: 128150, phase: 'Quarter-Finals', roundCode: 'QF', group: null,
+      date: '2026-09-10', timeBerlin: '17:45', startTimeUtc: berlinUtc('2026-09-10', '17:45'), venue: 'Berlin Arena, Berlin, Germany',
+      home: team('BEL'), away: team('GER'), status: 'final', homeScore: 74, awayScore: 93,
+      sourceUrl: `${EVENT_BASE}/games/128150-BEL-GER`
+    },
+    {
+      id: 'fiba-128148', fibaGameId: 128148, phase: 'Quarter-Finals', roundCode: 'QF', group: null,
+      date: '2026-09-10', timeBerlin: '20:45', startTimeUtc: berlinUtc('2026-09-10', '20:45'), venue: 'Berlin Arena, Berlin, Germany',
+      home: team('AUS'), away: team('ESP'), status: 'final', homeScore: 66, awayScore: 89,
+      sourceUrl: `${EVENT_BASE}/games/128148-AUS-ESP`
     }
   ];
 
@@ -824,8 +884,15 @@ function parseExtraFinalGames(text, knownGames) {
 
 function parsePlayerOfGame(html, game, sourceUrl) {
   const text = normalizeName(htmlToText(html));
-  const marker = new RegExp(`\\|\\s*TCL Player Of The Game\\s*\\|\\s*${game.home.code}\\s+v\\s+${game.away.code}\\b`, 'i');
-  const match = marker.exec(text);
+  const home = escapeRegExp(game.home.code);
+  const away = escapeRegExp(game.away.code);
+  const matchup = `(?:${home}\\s+v(?:s\\.?)?\\s+${away}|${away}\\s+v(?:s\\.?)?\\s+${home})`;
+  const exactMatch = new RegExp(`\\|\\s*TCL Player Of The Game\\s*\\|\\s*${matchup}\\b`, 'i').exec(text);
+  // Some official FIBA video titles omit the matchup after the award label.
+  // On a game detail page the current game's award video appears first, so use
+  // that first award marker when no earlier matchup-qualified marker exists.
+  const genericMatch = /\|\s*TCL Player Of The Game\b/i.exec(text);
+  const match = [exactMatch, genericMatch].filter(Boolean).sort((a, b) => a.index - b.index)[0] || null;
   if (!match) return null;
 
   let segment = text.slice(Math.max(0, match.index - 180), match.index).trim();
@@ -1345,6 +1412,16 @@ module.exports = async function handler(req, res) {
     }
 
     games = await attachPlayersOfGame(games);
+    const missingPlayersOfGame = games
+      .filter(game => game.status === 'final' && !game.playerOfGame)
+      .map(game => ({
+        fibaGameId: Number(game.fibaGameId) || null,
+        matchup: `${game.home?.code || 'TBD'}-${game.away?.code || 'TBD'}`,
+        phase: game.phase || 'Tournament Game'
+      }));
+    if (missingPlayersOfGame.length) {
+      warnings.push(`${missingPlayersOfGame.length} completed ${missingPlayersOfGame.length === 1 ? 'game is' : 'games are'} waiting for an official FIBA Player of the Game selection.`);
+    }
 
     if (competitionLeadersResult.status === 'fulfilled' && competitionLeadersResult.value.populated > 0) {
       statLeaders = competitionLeadersResult.value.categories;
@@ -1394,6 +1471,8 @@ module.exports = async function handler(req, res) {
 
   const tournamentTable = buildTournamentTable(standings, games);
   const eliminatedTeams = tournamentTable.filter(team => team.eliminated);
+  const completedGames = games.filter(game => game.status === 'final');
+  const missingPlayersOfGame = completedGames.filter(game => !game.playerOfGame);
 
   res.setHeader('Cache-Control', 's-maxage=60, stale-while-revalidate=120');
   return res.status(200).json({
@@ -1417,10 +1496,16 @@ module.exports = async function handler(req, res) {
       gamesSource,
       leagueLeadersSource,
       playerStatsSource,
-      completedGames: games.filter(game => game.status === 'final').length,
+      completedGames: completedGames.length,
       completedGroupGames: games.filter(game => game.group && game.status === 'final').length,
       eliminatedTeams: eliminatedTeams.length,
       playerOfGameCount: games.filter(game => game.playerOfGame).length,
+      playerOfGameComplete: missingPlayersOfGame.length === 0,
+      missingPlayersOfGame: missingPlayersOfGame.map(game => ({
+        fibaGameId: Number(game.fibaGameId) || null,
+        matchup: `${game.home?.code || 'TBD'}-${game.away?.code || 'TBD'}`,
+        phase: game.phase || 'Tournament Game'
+      })),
       warnings
     },
     rosterStatus: 'Updated Aug. 31: USA Basketball added Kiki Iriafen and Sonia Citron after A’ja Wilson and Kelsey Plum withdrew for health reasons. FIBA notes federation-announced rosters may differ from the final event roster.',

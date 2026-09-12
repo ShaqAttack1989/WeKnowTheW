@@ -14,6 +14,8 @@ const REGULAR_SEASON_WINDOWS = {
   2026: { start: '2026-05-08', end: '2026-09-24' }
 };
 const REGULAR_SEASON_GAME_COUNTS = { 2026: 44 };
+const REGULAR_SEASON_EVENT_COUNTS = { 2026: 330 };
+const LEAGUE_TIME_ZONE = 'America/New_York';
 const PLAYOFF_BERTHS = 8;
 const SPECIAL_EVENT_EXCLUSIONS = {
   2026: [
@@ -77,10 +79,37 @@ function asDate(value) {
   return Number.isNaN(date.getTime()) ? null : date;
 }
 
+function eventInstant(value) {
+  const text = String(value || '').trim();
+  if (!text) return NaN;
+  const normalized = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}(?::\d{2}(?:\.\d+)?)?$/.test(text) ? `${text}Z` : text;
+  return Date.parse(normalized);
+}
+
+function easternDate(value, fallback = '') {
+  const timestamp = eventInstant(value);
+  if (!Number.isFinite(timestamp)) return String(fallback || '').slice(0, 10);
+  const parts = new Intl.DateTimeFormat('en-US', {
+    timeZone: LEAGUE_TIME_ZONE,
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit'
+  }).formatToParts(new Date(timestamp));
+  const get = type => parts.find(part => part.type === type)?.value || '';
+  return `${get('year')}-${get('month')}-${get('day')}`;
+}
+
+function eventLeagueDate(event = {}) {
+  const localDate = String(event.dateEventLocal || '').slice(0, 10);
+  if (/^\d{4}-\d{2}-\d{2}$/.test(localDate)) return localDate;
+  if (event.strTimestamp) return easternDate(event.strTimestamp, event.dateEvent);
+  return String(event.dateEvent || '').slice(0, 10);
+}
+
 function eventTimestamp(event) {
   const timestamp = event.strTimestamp || '';
   if (timestamp) {
-    const parsed = Date.parse(timestamp);
+    const parsed = eventInstant(timestamp);
     if (Number.isFinite(parsed)) return parsed;
   }
   const date = event.dateEvent || event.dateEventLocal || '';
@@ -92,13 +121,14 @@ function eventTimestamp(event) {
 function inRegularSeason(event, season) {
   const window = REGULAR_SEASON_WINDOWS[season];
   if (!window) return true;
-  const eventDate = asDate(event.dateEvent);
+  const eventDateKey = eventLeagueDate(event);
+  const eventDate = asDate(eventDateKey);
   const start = asDate(window.start);
   const end = asDate(window.end);
   if (!(eventDate && start && end && eventDate >= start && eventDate <= end)) return false;
   const eventTeams = [event.strHomeTeam, event.strAwayTeam].map(normalizedName).sort();
   return !(SPECIAL_EVENT_EXCLUSIONS[season] || []).some(exclusion =>
-    event.dateEvent === exclusion.date &&
+    eventDateKey === exclusion.date &&
     exclusion.teams.map(normalizedName).sort().every((team, index) => team === eventTeams[index])
   );
 }
@@ -139,7 +169,7 @@ function gameShape(event, fallbackStatus) {
   return {
     id: event.idEvent,
     startTimeUtc: event.strTimestamp || '',
-    date: event.dateEvent,
+    date: eventLeagueDate(event),
     time: event.strTime || '',
     homeTeam: event.strHomeTeam,
     awayTeam: event.strAwayTeam,
@@ -375,10 +405,13 @@ module.exports = async function handler(req, res) {
 
   const sportsDbRegular = sportsDbEvents.filter(event => inRegularSeason(event, season));
   const espnRegular = espnEvents.map(scoreboardToSportsDbShape).filter(event => inRegularSeason(event, season));
-  const sportsDbComplete = sportsDbRegular.length >= 100;
-  const espnComplete = espnRegular.length >= 100;
-  const primaryEvents = sportsDbComplete ? sportsDbRegular : espnRegular.length ? espnRegular : sportsDbRegular;
-  const eventSource = sportsDbComplete ? 'TheSportsDB' : espnRegular.length ? 'SportsDataverse/WeHoop ESPN bridge' : 'TheSportsDB';
+  const expectedRegularSeasonEvents = REGULAR_SEASON_EVENT_COUNTS[season] || null;
+  const completeThreshold = expectedRegularSeasonEvents || 100;
+  const sportsDbComplete = sportsDbRegular.length >= completeThreshold;
+  const espnComplete = espnRegular.length >= completeThreshold;
+  const useSportsDb = sportsDbComplete || (!espnComplete && sportsDbRegular.length >= espnRegular.length);
+  const primaryEvents = useSportsDb ? sportsDbRegular : espnRegular;
+  const eventSource = useSportsDb ? 'TheSportsDB' : 'SportsDataverse/WeHoop ESPN bridge';
 
   let standingsData;
   let standingsSource;
@@ -428,6 +461,7 @@ module.exports = async function handler(req, res) {
   const completedGames = pastGames(primaryEvents);
   const currentGames = addScheduleContext(liveGames(officialLiveEvents.length ? officialLiveEvents : espnRegular.length ? espnRegular : primaryEvents), primaryEvents);
   const scheduledGames = upcomingGames(primaryEvents);
+  const scheduleComplete = expectedRegularSeasonEvents ? primaryEvents.length >= expectedRegularSeasonEvents : primaryEvents.length >= 100;
   const fullSeasonAccess = sportsDbComplete || espnComplete || standingsData.overall.length >= 10;
 
   if (!primaryEvents.length && !standingsData.overall.length) {
@@ -455,6 +489,8 @@ module.exports = async function handler(req, res) {
     updatedAt: new Date().toISOString(),
     eventCount: primaryEvents.length,
     regularSeasonEventCount: primaryEvents.length,
+    expectedRegularSeasonEventCount: expectedRegularSeasonEvents,
+    scheduleComplete,
     fullSeasonAccess,
     standings: standingsData.overall,
     conferenceStandings: standingsData.conferences,
@@ -464,7 +500,18 @@ module.exports = async function handler(req, res) {
     upcomingGames: scheduledGames,
     providerErrors,
     providerMessage: fullSeasonAccess
-      ? (!sportsDbComplete && eventSource.includes('WeHoop') ? 'Primary feed gaps are being filled by the SportsDataverse/WeHoop ESPN bridge.' : null)
+      ? (!scheduleComplete && expectedRegularSeasonEvents
+          ? `The schedule feed returned ${primaryEvents.length} of ${expectedRegularSeasonEvents} regular-season games; standings remain available while the schedule reconnects.`
+          : !sportsDbComplete && eventSource.includes('WeHoop') ? 'Primary feed gaps are being filled by the SportsDataverse/WeHoop ESPN bridge.' : null)
       : 'Live providers returned partial season coverage; We Know the W is showing only verified returned data.'
   });
+};
+
+module.exports.__test = {
+  easternDate,
+  eventInstant,
+  eventLeagueDate,
+  eventTimestamp,
+  gameShape,
+  inRegularSeason
 };

@@ -10,6 +10,16 @@ const DIVISION='49639';
 const METRIC_GROUP={PPG:'Scoring','FG%':'Scoring','2PT FG%':'Shooting','3PT FG%':'Shooting','FT%':'Shooting',APG:'Playmaking',RPG:'Rebounding',SPG:'Defense',BPG:'Defense'};
 const clean=value=>String(value??'').replace(/\s+/g,' ').trim();
 const num=value=>Number(String(value??'').replace(/[^0-9.-]/g,''));
+const nameKey=value=>clean(value).toLowerCase().replace(/[^a-z0-9]/g,'');
+function canonicalTeam(value,knownTeams=[]){
+  const raw=clean(value),rawKey=nameKey(raw);
+  if(!rawKey)return raw;
+  const match=[...knownTeams]
+    .filter(Boolean)
+    .sort((a,b)=>String(b).length-String(a).length)
+    .find(name=>rawKey.includes(nameKey(name)));
+  return match||raw;
+}
 
 async function openDashboard(page,route,readyText){
   const separator=route.includes('?')?'&':'?';
@@ -29,7 +39,7 @@ async function openDashboard(page,route,readyText){
   await page.waitForTimeout(1800);
 }
 
-async function scrapeStandings(page){
+async function scrapeStandings(page,knownTeams=[]){
   await openDashboard(page,'standings','Standings');
   const tables=await page.locator('main table').evaluateAll(nodes=>nodes.map(table=>({
     headers:[...table.querySelectorAll('thead th')].map(cell=>cell.textContent.replace(/\s+/g,' ').trim()),
@@ -42,7 +52,7 @@ async function scrapeStandings(page){
   const nameColumn=Math.max(0,names.headers.findIndex(header=>/^team$/i.test(header)));
   const rows=stats.rows.slice(0,8).map((values,index)=>({
     rank:index+1,
-    team:clean(names.rows[index]?.[nameColumn]||names.rows[index]?.find(Boolean)),
+    team:canonicalTeam(names.rows[index]?.[nameColumn]||names.rows[index]?.find(Boolean),knownTeams),
     gp:num(values[column('GP')]),w:num(values[column('W')]),l:num(values[column('L')]),
     pct:clean(values[column('W%')]),pf:num(values[column('PF')]),pa:num(values[column('PA')]),
     gb:clean(values[column('GB')]),l10:clean(values[column('L10')]),streak:clean(values[column('Streak')])
@@ -138,7 +148,7 @@ const browser=await chromium.launch({headless:true});
 const page=await browser.newPage({viewport:{width:1440,height:1200}});
 let next=structuredClone(previous);
 try{
-  const standings=await scrapeStandings(page);
+  const standings=await scrapeStandings(page,(previous.teams||[]).map(team=>team.name));
   const idByName=new Map(previous.standings.map(row=>[row.team,row.teamId]));
   next.standings=standings.map(row=>({...row,teamId:idByName.get(row.team)||null}));
   const logoRows=await scrapeTeamLogos(page,previous.teams||[]);

@@ -13,7 +13,7 @@ const sync=read('scripts/update-wpba-dashboard.mjs');
 const data=JSON.parse(read('data/wpba-2026.json'));
 
 test('builds a complete WPBA child hub',()=>{
-  for(const id of ['league-pulse','standings','leaders','results','teams','pathway'])assert.match(html,new RegExp(`id="${id}"`));
+  for(const id of ['league-pulse','standings','player-dashboard','results','teams','pipeline'])assert.match(html,new RegExp(`id="${id}"`));
   assert.match(html,/Women's Premier Basketball Association/);
   assert.match(html,/wpba-page\.js/);
   assert.match(html,/official WPBA BasketballShift feed/i);
@@ -27,6 +27,7 @@ test('ships a complete verified eight-team snapshot',()=>{
   assert.ok(data.leaders.length>=8);
   assert.ok(data.games.length>=8);
   assert.equal(data.standings[0].team,'Bay City Blaze');
+  assert.deepEqual(new Set(data.standings.map(row=>row.team)),new Set(data.teams.map(team=>team.name)));
 });
 
 test('renders all live dashboard modules from no-store data',()=>{

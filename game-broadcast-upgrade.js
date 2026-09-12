@@ -45,14 +45,16 @@
   };
 
   function dateKey(game={}){
-    if(/^\d{4}-\d{2}-\d{2}$/.test(String(game.date||'')))return String(game.date);
     const raw=String(game.startTimeUtc||game.timestamp||'').trim();
-    if(!raw)return String(game.date||'');
-    const date=new Date(raw);
-    if(Number.isNaN(date.getTime()))return String(game.date||'');
-    const parts=new Intl.DateTimeFormat('en-US',{timeZone:TIME_ZONE,year:'numeric',month:'2-digit',day:'2-digit'}).formatToParts(date);
-    const get=type=>parts.find(part=>part.type===type)?.value||'';
-    return `${get('year')}-${get('month')}-${get('day')}`;
+    if(raw){
+      const date=new Date(raw);
+      if(!Number.isNaN(date.getTime())){
+        const parts=new Intl.DateTimeFormat('en-US',{timeZone:TIME_ZONE,year:'numeric',month:'2-digit',day:'2-digit'}).formatToParts(date);
+        const get=type=>parts.find(part=>part.type===type)?.value||'';
+        return `${get('year')}-${get('month')}-${get('day')}`;
+      }
+    }
+    return /^\d{4}-\d{2}-\d{2}$/.test(String(game.date||''))?String(game.date):'';
   }
 
   function officialKey(game={}){

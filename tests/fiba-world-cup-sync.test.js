@@ -128,15 +128,20 @@ function completeCompetitionGames() {
     gdapGame({id:128145,date:'2026-09-08',home:'HUN',away:'JPN',homeScore:84,awayScore:63,phase:'Qualification to Quarter-Finals',roundCode:'QQF'}),
     gdapGame({id:128144,date:'2026-09-08',home:'GER',away:'KOR',homeScore:94,awayScore:56,phase:'Qualification to Quarter-Finals',roundCode:'QQF'}),
     gdapGame({id:128147,date:'2026-09-09',home:'PUR',away:'CHN',homeScore:72,awayScore:75,phase:'Qualification to Quarter-Finals',roundCode:'QQF'}),
-    gdapGame({id:128146,date:'2026-09-09',home:'ITA',away:'AUS',final:false,phase:'Qualification to Quarter-Finals',roundCode:'QQF'})
+    gdapGame({id:128146,date:'2026-09-09',home:'ITA',away:'AUS',homeScore:80,awayScore:82,phase:'Qualification to Quarter-Finals',roundCode:'QQF'})
   ];
-  const future = [128148,128149,128150,128151].map((id,index)=>gdapGame({id,date:'2026-09-10',home:index===2?'BEL':index===3?'USA':null,away:index===2?'GER':index===3?'HUN':null,final:false,phase:'Quarter-Finals',roundCode:'QF'}))
-    .concat([128152,128153].map(id=>gdapGame({id,date:'2026-09-12',final:false,phase:'Semi-Finals',roundCode:'SF'})))
+  const quarterFinals = [
+    gdapGame({id:128151,date:'2026-09-10',home:'USA',away:'HUN',homeScore:108,awayScore:56,phase:'Quarter-Finals',roundCode:'QF'}),
+    gdapGame({id:128149,date:'2026-09-10',home:'CHN',away:'FRA',homeScore:61,awayScore:90,phase:'Quarter-Finals',roundCode:'QF'}),
+    gdapGame({id:128150,date:'2026-09-10',home:'BEL',away:'GER',homeScore:74,awayScore:93,phase:'Quarter-Finals',roundCode:'QF'}),
+    gdapGame({id:128148,date:'2026-09-10',home:'AUS',away:'ESP',homeScore:66,awayScore:89,phase:'Quarter-Finals',roundCode:'QF'})
+  ];
+  const future = [128152,128153].map(id=>gdapGame({id,date:'2026-09-12',final:false,phase:'Semi-Finals',roundCode:'SF'}))
     .concat([
       gdapGame({id:128154,date:'2026-09-13',final:false,phase:'3rd Place Game',roundCode:'3PG'}),
       gdapGame({id:128155,date:'2026-09-13',final:false,phase:'Final',roundCode:'F'})
     ]);
-  return groups.concat(qualification,future);
+  return groups.concat(qualification,quarterFinals,future);
 }
 
 function structuredLeaders() {
@@ -222,31 +227,34 @@ test('structured FIBA feed drives every table through the completed group phase 
 
   assert.equal(data.games.length, 36);
   assert.equal(data.dataStatus.completedGroupGames, 24);
-  assert.equal(data.dataStatus.completedGames, 27);
+  assert.equal(data.dataStatus.completedGames, 32);
   assert.equal(data.dataStatus.gamesSource, 'official-competition-games');
   assert.equal(data.dataStatus.standingsSource, 'derived-from-official-games');
   assert.equal(data.dataStatus.leagueLeadersSource, 'official-competition-player-leaders');
-  assert.equal(data.dataStatus.playerOfGameCount, 27);
+  assert.equal(data.dataStatus.playerOfGameCount, 32);
+  assert.equal(data.dataStatus.playerOfGameComplete, true);
+  assert.deepEqual(data.dataStatus.missingPlayersOfGame, []);
   assert.deepEqual(groupD.map(team => team.code), ['USA','CHN','ITA','CZE']);
   assert.deepEqual([data.usa.wins,data.usa.losses,data.usa.groupRank], [3,0,1]);
-  assert.deepEqual([usa.gamesPlayed,usa.wins,usa.losses,usa.pointsFor,usa.pointsAgainst], [3,3,0,254,177]);
-  assert.equal(usa.ppg.toFixed(1), '84.7');
-  assert.equal(usa.oppPpg.toFixed(1), '59.0');
-  assert.equal(usa.diffPerGame.toFixed(1), '25.7');
+  assert.deepEqual([usa.gamesPlayed,usa.wins,usa.losses,usa.pointsFor,usa.pointsAgainst], [4,4,0,362,233]);
+  assert.equal(usa.ppg.toFixed(1), '90.5');
+  assert.equal(usa.oppPpg.toFixed(1), '58.3');
+  assert.equal(usa.diffPerGame.toFixed(1), '32.3');
   assert.deepEqual([missingGame.status,missingGame.homeScore,missingGame.awayScore], ['final',105,64]);
   assert.deepEqual([missingGame.playerOfGame.player,missingGame.playerOfGame.line], ['Breanna Stewart','19 PTS']);
   assert.deepEqual(
     [chinaQualifier.playerOfGame.player,chinaQualifier.playerOfGame.line,chinaQualifier.playerOfGame.countryCode],
     ['Xu Han','21 PTS · 11 REB','CHN']
   );
-  assert.deepEqual([usaQuarterFinal.home.code,usaQuarterFinal.away.code,usaQuarterFinal.status], ['USA','HUN','scheduled']);
-  assert.deepEqual(data.tournamentTable.filter(team=>team.eliminated).map(team=>team.code).sort(), ['CZE','JPN','KOR','MLI','NGR','PUR','TUR']);
+  assert.deepEqual([usaQuarterFinal.home.code,usaQuarterFinal.away.code,usaQuarterFinal.status], ['USA','HUN','final']);
+  assert.deepEqual([usaQuarterFinal.playerOfGame.player,usaQuarterFinal.playerOfGame.line], ['Napheesa Collier','19 PTS']);
+  assert.deepEqual(data.tournamentTable.filter(team=>team.eliminated).map(team=>team.code).sort(), ['AUS','BEL','CHN','CZE','HUN','ITA','JPN','KOR','MLI','NGR','PUR','TUR']);
   assert.equal(data.tournamentTable.find(team=>team.code==='PUR').eliminationStage, 'Qualification to Quarter-Finals');
   assert.deepEqual(Object.fromEntries(data.tournamentTable.map(team=>[team.code,team.wScore])), {
-    FRA:93.3,USA:89,BEL:82.1,GER:69.5,ESP:68.2,AUS:61.7,CHN:57.7,HUN:57,
-    MLI:39,ITA:33.9,PUR:32.1,KOR:29.5,JPN:28.9,TUR:19.6,CZE:12.2,NGR:12.1
+    FRA:93.3,USA:90.8,ESP:75,GER:74.7,BEL:65.4,AUS:53.2,CHN:47.3,HUN:43.2,
+    MLI:39.5,ITA:32.2,PUR:30.9,KOR:29.2,JPN:28.9,TUR:18.5,NGR:11.6,CZE:11.5
   });
-  assert.equal(data.dataStatus.eliminatedTeams, 7);
+  assert.equal(data.dataStatus.eliminatedTeams, 12);
   assert.deepEqual(data.statLeaders.map(category => category.leaders.length), [3,3,3,3,3,3]);
   assert.equal(data.statLeaders.find(category => category.key === 'assists').leaders[2].player, 'Caitlin Clark');
 });
@@ -259,12 +267,16 @@ test('verified official snapshot prevents a transient games API failure from dro
 
   assert.equal(data.dataStatus.gamesSource, 'verified-official-snapshot');
   assert.equal(data.dataStatus.completedGroupGames, 24);
-  assert.equal(data.dataStatus.completedGames, 27);
+  assert.equal(data.dataStatus.completedGames, 32);
   assert.deepEqual([data.usa.wins,data.usa.losses,data.usa.groupRank], [3,0,1]);
-  assert.deepEqual([usa.pointsFor,usa.pointsAgainst], [254,177]);
+  assert.deepEqual([usa.pointsFor,usa.pointsAgainst], [362,233]);
   assert.equal(usaChina.timeBerlin, '14:15');
   assert.deepEqual(data.games.find(game=>game.fibaGameId===128147).homeScore, 72);
+  assert.deepEqual([data.games.find(game=>game.fibaGameId===128146).homeScore,data.games.find(game=>game.fibaGameId===128146).awayScore], [80,82]);
+  assert.deepEqual([data.games.find(game=>game.fibaGameId===128149).homeScore,data.games.find(game=>game.fibaGameId===128149).awayScore], [61,90]);
   assert.equal(data.tournamentTable.find(team=>team.code==='PUR').eliminated, true);
+  assert.equal(data.dataStatus.playerOfGameCount, 32);
+  assert.equal(data.dataStatus.playerOfGameComplete, true);
   assert.match(data.dataStatus.warnings.join(' '), /last verified official snapshot/);
 });
 
@@ -366,6 +378,24 @@ test('all 24 completed group games have verified Players of the Game', () => {
   assert.match(source, /italy-hand-holders-usa-a-major-scare/);
 });
 
+test('all eight completed knockout games have verified Players of the Game', () => {
+  const stats = '<html><head><script>self.__next_f.push([1,"{\\"NEXT_CLIENT_APIM_URL\\":\\"https://digital-api.example/hapi\\",\\"NEXT_CLIENT_APIM_SUBSCRIPTION_KEY\\":\\"public-test-key\\"}"])</script></head><body></body></html>';
+  return runDashboard({ standings: standingsText({}), stats, competitionGames: completeCompetitionGames(), leaderStats: structuredLeaders() })
+    .then(data => {
+      const expected = new Map([
+        [128144, ['Marie Guelich','19 PTS']], [128145, ['Reka Lelik','23 PTS']],
+        [128146, ['Isobel Borlase','30 PTS']], [128147, ['Xu Han','21 PTS · 11 REB']],
+        [128148, ['Alicia Florez','10 PTS']], [128149, ['Janelle Salaun','15 PTS']],
+        [128150, ['Nyara Sabally','16 PTS · 12 REB']], [128151, ['Napheesa Collier','19 PTS']]
+      ]);
+      for (const [gameId, award] of expected) {
+        const game = data.games.find(item => item.fibaGameId === gameId);
+        assert.ok(game, `game ${gameId} missing`);
+        assert.deepEqual([game.playerOfGame?.player, game.playerOfGame?.line], award);
+      }
+    });
+});
+
 test('FIBA Player of the Game parser decodes nested entities and removes event-title text', () => {
   delete require.cache[require.resolve(handlerPath)];
   const handler = require(handlerPath);
@@ -393,6 +423,34 @@ test('FIBA Player of the Game parser removes the shorter World Cup event title',
   assert.equal(parsed.player, 'Xu Han');
   assert.equal(parsed.line, '21 PTS, 11 REB');
   assert.equal(parsed.countryCode, 'CHN');
+});
+
+test('FIBA Player of the Game parser accepts reversed and vs matchup titles', () => {
+  delete require.cache[require.resolve(handlerPath)];
+  const handler = require(handlerPath);
+  const parsed = handler.__test.parsePlayerOfGame(
+    html('Image 🇫🇷 Janelle Salaun (15 PTS) | TCL Player Of The Game | FRA vs. CHN'),
+    { home: { code: 'CHN' }, away: { code: 'FRA' }, homeScore: 61, awayScore: 90 },
+    'https://www.fiba.basketball/example'
+  );
+
+  assert.equal(parsed.player, 'Janelle Salaun');
+  assert.equal(parsed.line, '15 PTS');
+  assert.equal(parsed.countryCode, 'FRA');
+});
+
+test('FIBA Player of the Game parser accepts official titles that omit the matchup', () => {
+  delete require.cache[require.resolve(handlerPath)];
+  const handler = require(handlerPath);
+  const parsed = handler.__test.parsePlayerOfGame(
+    html("Image 🇦🇺 Isobel Borlase (30 PTS) | TCL Player Of The Game | FIBA Women's World Cup 2026"),
+    { home: { code: 'ITA' }, away: { code: 'AUS' }, homeScore: 80, awayScore: 82 },
+    'https://www.fiba.basketball/example'
+  );
+
+  assert.equal(parsed.player, 'Isobel Borlase');
+  assert.equal(parsed.line, '30 PTS');
+  assert.equal(parsed.countryCode, 'AUS');
 });
 
 test('Team USA schedule cards render Player of the Game with a country flag', () => {

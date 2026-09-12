@@ -2,6 +2,83 @@
   "site": "Snack Shak",
   "posts": [
     {
+      "slug": "fiba-final-four-2026",
+      "type": "feature",
+      "priority": 720,
+      "seriesLabel": "FOOD FOR THOUGHT · FIBA WORLD CUP",
+      "title": "Four Teams, Two Tickets, No Hiding: The FIBA Final Four Read",
+      "published": "2026-09-12",
+      "week": "FIBA World Cup · Final Four",
+      "dashboardUrl": "/fiba-final-four-2026.html",
+      "image": "/assets/images/fiba-group-play/france-action.jpg",
+      "imageAlt": "Gabby Williams driving for France in an official FIBA World Cup game",
+      "teams": [
+        "France",
+        "Germany",
+        "Spain",
+        "United States"
+      ],
+      "players": [
+        "Gabby Williams",
+        "Marine Johannes",
+        "Leonie Fiebich",
+        "Frieda Buhner",
+        "Iyana Martin",
+        "Awa Fam",
+        "Breanna Stewart",
+        "Caitlin Clark"
+      ],
+      "dek": "The semifinalists rank first through fourth in the live W Score but own only three of 18 top-three stat slots. The Final Four will decide whether France and USA's depth or Germany and Spain's control survives best.",
+      "sections": [
+        {
+          "title": "The leaderboard paradox",
+          "paragraphs": [
+            "France, USA, Spain and Germany own the four strongest remaining team resumes, yet Final Four players occupy only three of the 18 top-three places across FIBA's six headline statistical categories. Gabby Williams appears twice and Caitlin Clark once. Most of the tournament's loudest individual numbers have already gone home.",
+            "That is the Final Four story. France bends the floor with shooting and pressure. USA buries teams beneath lineups. Germany protects the ball and rebounds. Spain trusts Iyana Martin and Awa Fam to create against older, deeper opposition. Team identity, not one dominant scorer, brought all four this far."
+          ]
+        },
+        {
+          "title": "France wants multiplication; Germany wants preservation",
+          "paragraphs": [
+            "France is shooting 61.4 percent on twos and 45.7 percent from three, while Germany averages only 9.8 turnovers and owns the stronger rebounding average. The favorite wants one mistake to become a run. The host wants every possession to remain its own event."
+          ]
+        },
+        {
+          "title": "Spain wants a negotiation; USA wants a landslide",
+          "paragraphs": [
+            "USA holds major advantages in fast-break and bench scoring and arrives after a record 108-point quarterfinal. Spain's route is to protect the ball, keep the game in the half court and make every empty American possession feel expensive."
+          ]
+        }
+      ],
+      "debates": [
+        "Which travels farther in one game: France's shooting or Germany's possession control?",
+        "Can Spain keep USA out of transition long enough to turn the semifinal into a closing-time game?",
+        "Does a Final Four built by committees change how we should read individual leaderboards?"
+      ],
+      "sources": [
+        {
+          "label": "Full interactive Final Four feature",
+          "url": "https://www.weknowthew.com/fiba-final-four-2026.html"
+        },
+        {
+          "label": "Official FIBA semifinal schedule",
+          "url": "https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026/news/semi-finals-set-at-the-fiba-womens-basketball-world-cup-2026"
+        },
+        {
+          "label": "France vs Germany official preview",
+          "url": "https://www.fiba.basketball/en/news/sf-preview-france-or-germany-whos-making-a-first-final"
+        },
+        {
+          "label": "Spain vs USA official preview",
+          "url": "https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026/news/sf-preview-is-it-time-for-spain-to-upset-usa"
+        },
+        {
+          "label": "Official FIBA tournament statistics",
+          "url": "https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026/stats"
+        }
+      ]
+    },
+    {
       "slug": "unrivaled-on-tour-2027",
       "type": "feature",
       "priority": 320,

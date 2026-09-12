@@ -81,11 +81,12 @@ test('tour feature uses official facts and real Unrivaled player photos',()=>{
   assert.ok(fs.existsSync(path.join(root,'unrivaled-tour-2027.css')));
 });
 
-test('tour story is the homepage Food for Thought lead and is searchable',()=>{
+test('tour story remains in the Food for Thought feed and is searchable',()=>{
   const feed=JSON.parse(read('snack-shak-latest.json'));
-  assert.equal(feed.posts[0].slug,'unrivaled-on-tour-2027');
-  assert.equal(feed.posts[0].dashboardUrl,'/unrivaled-on-tour-2027.html');
-  assert.match(feed.posts[0].image,/unrivaled\.basketball\/roster-reveal\/headshots/);
+  const tour=feed.posts.find(post=>post.slug==='unrivaled-on-tour-2027');
+  assert.ok(tour);
+  assert.equal(tour.dashboardUrl,'/unrivaled-on-tour-2027.html');
+  assert.match(tour.image,/unrivaled\.basketball\/roster-reveal\/headshots/);
   assert.match(read('homepage-week-live.js'),/snack-shak-latest\.json/);
   assert.match(read('index.html'),/homepage-week-live\.js/);
 

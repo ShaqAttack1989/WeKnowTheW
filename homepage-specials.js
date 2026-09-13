@@ -13,7 +13,7 @@
   const fmtDate=value=>{const date=new Date(`${String(value||'').slice(0,10)}T12:00:00`);return Number.isNaN(date.getTime())?String(value||''):date.toLocaleDateString([],{month:'short',day:'numeric'});};
   const dateKey=post=>String(post?.updated||post?.published||'');
   const dateLabel=post=>`${post?.updated&&String(post.updated)>String(post.published||'')?'UPDATED ':' '}${fmtDate(dateKey(post))}`.trim();
-  const FINAL_IMAGE='/assets/images/fiba-group-play/team-usa-13-final-sept13.jpg?v=20260913-teamusa13-v1';
+  const FINAL_IMAGE='/assets/images/fiba-group-play/jackie-young-usab-final-2026.jpg?v=20260913-usab-v1';
   const BYTE_FALLBACK='/assets/images/snack-shak/power-rankings-vs-standings-aug30.webp';
   const FOOD_FALLBACK='/assets/images/fiba-group-play/france-action.jpg';
 
@@ -107,7 +107,7 @@
     if(lead){
       lead.href=featureHref(post);
       const image=lead.querySelector('img');
-      if(image){image.src=FINAL_IMAGE;image.alt=post.imageAlt||'Team USA player in World Cup action';}
+      if(image){image.src=FINAL_IMAGE;image.alt=post.imageAlt||'Jackie Young in official USA Basketball World Cup action';}
       const tag=lead.querySelector('.season-story-media span');
       if(tag)tag.textContent='SNACK SHAK BYTE · WORLD CUP FINAL';
       const label=lead.querySelector('.season-story-label');

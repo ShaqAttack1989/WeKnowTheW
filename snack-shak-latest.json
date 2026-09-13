@@ -2,6 +2,58 @@
   "site": "Snack Shak",
   "posts": [
     {
+      "slug": "fiba-final-recap-2026",
+      "type": "feature",
+      "priority": 1000,
+      "seriesLabel": "FOOD FOR THOUGHT · FIBA WORLD CUP FINAL",
+      "title": "Gold Is Earned Twice: What USA Got Right Against France",
+      "published": "2026-09-13",
+      "week": "USA 97, France 79 · World Cup Final",
+      "dashboardUrl": "/fiba-final-recap-2026.html",
+      "image": "/assets/images/fiba-group-play/jackie-young-usab-final-2026.jpg",
+      "imageAlt": "Jackie Young competing for USA Basketball at the 2026 FIBA Women's Basketball World Cup",
+      "teams": ["United States", "France"],
+      "players": ["Breanna Stewart", "Jackie Young", "Kahleah Copper", "Chelsea Gray", "Caitlin Clark", "Gabby Williams", "Dominique Malonga"],
+      "dek": "France won the opening argument. Team USA won the adjustment. The scoring, rebounding, momentum and player dashboards explain how a 14-point hole became a 97-79 championship victory.",
+      "sections": [
+        {"title": "The championship hinge", "paragraphs": ["France built a 14-point lead behind a 21-2 run, but USA cut the deficit to two at halftime and won the third quarter 30-12. The comeback was a sequence of veteran decisions, defensive adjustments and extra chances on the glass."]},
+        {"title": "The final read", "paragraphs": ["France proved USA can be moved. USA proved that moving a champion and finishing one are still two different assignments."]}
+      ],
+      "debates": ["Which USA adjustment changed the final most?", "What should France carry from Berlin into the next major tournament?", "Did Jackie Young make the strongest case for a larger role in the next Team USA cycle?"],
+      "sources": [
+        {"label": "Full dashboard-driven Food for Thought feature", "url": "https://www.weknowthew.com/fiba-final-recap-2026.html"},
+        {"label": "Official FIBA tournament hub", "url": "https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026"},
+        {"label": "Reuters final report", "url": "https://www.reuters.com/sports/usa-overcome-14-point-deficit-beat-france-97-79-to-win-womens-world-cup-2026-09-13/"}
+      ]
+    },
+    {
+      "slug": "jackie-young-championship-collection",
+      "type": "byte",
+      "priority": 990,
+      "seriesLabel": "SNACK SHAK BYTE · JACKIE YOUNG",
+      "title": "Jackie Young Has Completed the Championship Collection",
+      "published": "2026-09-13",
+      "week": "FIBA World Cup · Gold medal",
+      "dashboardUrl": "/snack-shak-bytes.html?post=jackie-young-championship-collection#story",
+      "image": "/assets/images/fiba-group-play/jackie-young-usab-final-2026.jpg",
+      "storyImage": "/assets/images/fiba-group-play/jackie-young-usab-final-2026.jpg",
+      "imageAlt": "Jackie Young competing for USA Basketball during the 2026 FIBA Women's Basketball World Cup",
+      "storyImageCaption": "Jackie Young scored 18 points and added five assists as USA defeated France 97-79 for World Cup gold.",
+      "teams": ["United States", "Las Vegas Aces", "Notre Dame"],
+      "players": ["Jackie Young"],
+      "dek": "High school. NCAA. Three WNBA titles. Olympic gold in 3x3 and 5x5. Now Jackie Young can add FIBA World Cup champion to a résumé that has won everywhere.",
+      "sections": [
+        {"title": "The final box is checked", "paragraphs": ["Some players chase one championship. Jackie Young apparently prefers the full set. Young added FIBA Women's Basketball World Cup gold after helping Team USA overcome a 14-point deficit and defeat France 97-79 in Berlin. She delivered 18 points and five assists, including a crucial third-quarter three that helped the United States take control.", "The victory fills one of the few remaining spaces in Young's trophy case. She is already a high school champion, a 2018 NCAA champion with Notre Dame, a three-time WNBA champion with the Las Vegas Aces and a two-time Olympic gold medalist."]},
+        {"title": "Winning in every format", "paragraphs": ["Even those Olympic medals came through two different versions of basketball. Young won 3x3 gold at the Tokyo Games before earning 5x5 gold in Paris. Now she can add World Cup champion.", "This was not simply a medal added from the end of the bench. Young became one of Team USA's stabilizers when France threatened to take the final away. While the moment grew heavier, Young stayed steady.", "Different uniforms. Different teammates. Different kinds of pressure. The result keeps looking familiar. Jackie Young does not just show up where championships happen. Championships have developed a habit of following her."]}
+      ],
+      "debates": ["Where does Jackie Young's championship résumé rank among today's most accomplished players?"],
+      "sources": [
+        {"label": "USA vs France final report", "url": "https://www.reuters.com/sports/usa-overcome-14-point-deficit-beat-france-97-79-to-win-womens-world-cup-2026-09-13/"},
+        {"label": "Jackie Young official Aces biography", "url": "https://aces.wnba.com/jackie-young-bio"},
+        {"label": "Jackie Young WNBA profile", "url": "https://www.wnba.com/player/1629498"}
+      ]
+    },
+    {
       "slug": "fiba-final-four-2026",
       "type": "feature",
       "priority": 720,

@@ -28,7 +28,7 @@
   function renderFinalByteToWeekHub(){
     const post=finalStory();const host=document.getElementById('weekHubByte');if(!post||!host)return;
     const target=featureHref(post);if(host.querySelector(`a[href="${target}"]`))return;
-    const image=post.image||post.storyImage||'/assets/images/fiba-group-play/france-action.jpg';
+    const image=post.image||post.storyImage||'/assets/images/fiba-group-play/jackie-young-usa-home.jpg';
     host.innerHTML=`<figure class="week-editorial-media"><img src="${safe(image)}" alt="${safe(post.imageAlt||post.title)}" loading="eager" decoding="async"><span class="week-media-tag">WORLD CUP FINAL</span></figure><div class="week-editorial-body"><div class="week-editorial-top"><span class="week-card-kicker">SNACK SHAK BYTE</span><span class="week-card-date">${safe(dateLabel(post))}</span></div><span class="week-story-series">${safe(post.seriesLabel||'FIBA WORLD CUP FINAL')}</span><h3>${safe(post.title)}</h3><p>${safe(short(post.dek,205))}</p><a href="${safe(target)}">Open the final dashboard →</a></div>`;
   }
   function watchFinalByte(){
@@ -38,16 +38,17 @@
   }
   function promoteFinalSpotlight(){
     const post=finalStory();const spotlight=document.querySelector('.home-season-spotlight');if(!post||!spotlight)return;
-    const intro=spotlight.querySelector('.season-spotlight-copy > p:last-child');if(intro)intro.textContent='Berlin has reached the title game. USA brings the streak, France brings the tournament’s biggest scoring margin, and the homepage now leads with the championship matchup.';
+    const lead=spotlight.querySelector('.season-story-lead');
+    if(lead){
+      lead.href=featureHref(post);
+      const image=lead.querySelector('img');if(image){image.src=post.image||post.storyImage||'/assets/images/fiba-group-play/jackie-young-usa-home.jpg';image.alt=post.imageAlt||post.title;}
+      const tag=lead.querySelector('.season-story-media span');if(tag)tag.textContent='SNACK SHAK BYTE · WORLD CUP FINAL';
+      const label=lead.querySelector('.season-story-label');if(label)label.textContent='USA VS FRANCE · ONE TROPHY';
+      const title=lead.querySelector('h3');if(title)title.textContent=post.title;
+      const copy=lead.querySelector('.season-story-copy>p:not(.season-story-label)');if(copy)copy.textContent=short(post.dek,190);
+      const cta=lead.querySelector('b');if(cta)cta.innerHTML='Open the final dashboard <span aria-hidden="true">→</span>';
+    }
     const featured=spotlight.querySelector('.season-spotlight-nav .is-featured');if(featured){featured.href=featureHref(post);featured.textContent='USA vs France final';}
-    const lead=spotlight.querySelector('.season-story-lead');if(!lead)return;
-    lead.href=featureHref(post);
-    const img=lead.querySelector('img');if(img){img.src=post.image||'/assets/images/fiba-group-play/france-action.jpg';img.alt=post.imageAlt||'France in action at the 2026 FIBA Women’s World Cup';}
-    const mediaTag=lead.querySelector('.season-story-media span');if(mediaTag)mediaTag.textContent='SNACK SHAK BYTE · WORLD CUP FINAL';
-    const label=lead.querySelector('.season-story-label');if(label)label.textContent='USA VS FRANCE · ONE TROPHY';
-    const title=lead.querySelector('h3');if(title)title.textContent=post.title;
-    const copy=lead.querySelector('.season-story-copy > p:not(.season-story-label)');if(copy)copy.textContent=post.dek||'';
-    const cta=lead.querySelector('.season-story-copy b');if(cta)cta.innerHTML='Read the championship preview <span aria-hidden="true">→</span>';
   }
   function renderWeeklySpecials(){
     if(!posts.length)return;

@@ -21,45 +21,12 @@
     return loadPromise;
   }
   function featureHref(post){if(post.dashboardUrl)return post.dashboardUrl;const slug=encodeURIComponent(post.slug);return post.type==='feature'?`/food-for-thought.html?post=${slug}#story`:`/snack-shak-bytes.html?post=${slug}#story`;}
-  function latestStoryMarkup(items=[]){
-    return `<div class="week-story-list">${items.map((post,index)=>`<div class="week-story-item ${index===0?'lead':''}"><span class="week-feature-meta">${safe(post.seriesLabel||'SNACK SHAK')} · ${safe(dateLabel(post))}</span><strong class="week-story-title">${safe(post.title)}</strong>${index===0&&post.dek?`<p>${safe(short(post.dek,155))}</p>`:''}<a href="${safe(featureHref(post))}">${index===0?'Read the newest story':'Read story'} →</a></div>`).join('')}</div><a class="week-story-all" href="/snack-shak.html">See all Snack Shak stories →</a>`;
-  }
+  function latestStoryMarkup(items=[]){return `<div class="week-story-list">${items.map((post,index)=>`<div class="week-story-item ${index===0?'lead':''}"><span class="week-feature-meta">${safe(post.seriesLabel||'SNACK SHAK')} · ${safe(dateLabel(post))}</span><strong class="week-story-title">${safe(post.title)}</strong>${index===0&&post.dek?`<p>${safe(short(post.dek,155))}</p>`:''}<a href="${safe(featureHref(post))}">${index===0?'Read the newest story':'Read story'} →</a></div>`).join('')}</div><a class="week-story-all" href="/snack-shak.html">See all Snack Shak stories →</a>`;}
   function finalStory(){return posts.find(post=>post.slug==='usa-france-world-cup-final-2026')||null;}
-  function renderFinalByteToWeekHub(){
-    const post=finalStory();const host=document.getElementById('weekHubByte');if(!post||!host)return;
-    const target=featureHref(post);if(host.querySelector(`a[href="${target}"]`))return;
-    const image=post.image||post.storyImage||'/assets/images/fiba-group-play/jackie-young-usa-home.jpg';
-    host.innerHTML=`<figure class="week-editorial-media"><img src="${safe(image)}" alt="${safe(post.imageAlt||post.title)}" loading="eager" decoding="async"><span class="week-media-tag">WORLD CUP FINAL</span></figure><div class="week-editorial-body"><div class="week-editorial-top"><span class="week-card-kicker">SNACK SHAK BYTE</span><span class="week-card-date">${safe(dateLabel(post))}</span></div><span class="week-story-series">${safe(post.seriesLabel||'FIBA WORLD CUP FINAL')}</span><h3>${safe(post.title)}</h3><p>${safe(short(post.dek,205))}</p><a href="${safe(target)}">Open the final dashboard →</a></div>`;
-  }
-  function watchFinalByte(){
-    const host=document.getElementById('weekHubByte');if(!host||byteObserver)return;
-    byteObserver=new MutationObserver(()=>renderFinalByteToWeekHub());
-    byteObserver.observe(host,{childList:true,subtree:true});
-  }
-  function promoteFinalSpotlight(){
-    const post=finalStory();const spotlight=document.querySelector('.home-season-spotlight');if(!post||!spotlight)return;
-    const lead=spotlight.querySelector('.season-story-lead');
-    if(lead){
-      lead.href=featureHref(post);
-      const image=lead.querySelector('img');if(image){image.src=post.image||post.storyImage||'/assets/images/fiba-group-play/jackie-young-usa-home.jpg';image.alt=post.imageAlt||post.title;}
-      const tag=lead.querySelector('.season-story-media span');if(tag)tag.textContent='SNACK SHAK BYTE · WORLD CUP FINAL';
-      const label=lead.querySelector('.season-story-label');if(label)label.textContent='USA VS FRANCE · ONE TROPHY';
-      const title=lead.querySelector('h3');if(title)title.textContent=post.title;
-      const copy=lead.querySelector('.season-story-copy>p:not(.season-story-label)');if(copy)copy.textContent=short(post.dek,190);
-      const cta=lead.querySelector('b');if(cta)cta.innerHTML='Open the final dashboard <span aria-hidden="true">→</span>';
-    }
-    const featured=spotlight.querySelector('.season-spotlight-nav .is-featured');if(featured){featured.href=featureHref(post);featured.textContent='USA vs France final';}
-  }
-  function renderWeeklySpecials(){
-    if(!posts.length)return;
-    const snackHost=document.getElementById('homeWeekSnackLive');
-    const milestoneHost=document.getElementById('homeWeekMilestoneLive');
-    const milestone=posts.find(post=>norm(post.seriesLabel).includes('milestone'));
-    const latestStories=posts.filter(post=>post.slug!==milestone?.slug&&!norm(post.seriesLabel).includes('milestone')).slice(0,3);
-    if(snackHost&&latestStories.length)snackHost.innerHTML=latestStoryMarkup(latestStories);
-    if(milestoneHost&&milestone)milestoneHost.innerHTML=`<span class="week-feature-meta">${safe(milestone.seriesLabel||'MILESTONE MOMENT')} · ${safe(dateLabel(milestone))}</span><strong class="week-feature-title">${safe(milestone.title)}</strong><p>${safe(short(milestone.dek,205))}</p><a href="${safe(featureHref(milestone))}">Check the receipt →</a>`;
-    renderFinalByteToWeekHub();watchFinalByte();promoteFinalSpotlight();
-  }
+  function renderFinalByteToWeekHub(){const post=finalStory();const host=document.getElementById('weekHubByte');if(!post||!host)return;const target=featureHref(post);if(host.querySelector(`a[href="${target}"]`))return;const image=post.image||post.storyImage||'/assets/images/fiba-group-play/jackie-young-usa-home.jpg';host.innerHTML=`<figure class="week-editorial-media"><img src="${safe(image)}" alt="${safe(post.imageAlt||post.title)}" loading="eager" decoding="async"><span class="week-media-tag">WORLD CUP FINAL</span></figure><div class="week-editorial-body"><div class="week-editorial-top"><span class="week-card-kicker">SNACK SHAK BYTE</span><span class="week-card-date">${safe(dateLabel(post))}</span></div><span class="week-story-series">${safe(post.seriesLabel||'FIBA WORLD CUP FINAL')}</span><h3>${safe(post.title)}</h3><p>${safe(short(post.dek,205))}</p><a href="${safe(target)}">Open the final dashboard →</a></div>`;}
+  function watchFinalByte(){const host=document.getElementById('weekHubByte');if(!host||byteObserver)return;byteObserver=new MutationObserver(()=>renderFinalByteToWeekHub());byteObserver.observe(host,{childList:true,subtree:true});}
+  function promoteFinalSpotlight(){const post=finalStory();const spotlight=document.querySelector('.home-season-spotlight');if(!post||!spotlight)return;const lead=spotlight.querySelector('.season-story-lead');if(lead){lead.href=featureHref(post);const image=lead.querySelector('img');if(image){image.src=post.image||post.storyImage||'/assets/images/fiba-group-play/jackie-young-usa-home.jpg';image.alt=post.imageAlt||post.title;}const tag=lead.querySelector('.season-story-media span');if(tag)tag.textContent='SNACK SHAK BYTE · WORLD CUP FINAL';const label=lead.querySelector('.season-story-label');if(label)label.textContent='USA VS FRANCE · ONE TROPHY';const title=lead.querySelector('h3');if(title)title.textContent=post.title;const copy=lead.querySelector('.season-story-copy>p:not(.season-story-label)');if(copy)copy.textContent=short(post.dek,190);const cta=lead.querySelector('b');if(cta)cta.innerHTML='Open the final dashboard <span aria-hidden="true">→</span>';}const featured=spotlight.querySelector('.season-spotlight-nav .is-featured');if(featured){featured.href=featureHref(post);featured.textContent='USA vs France final';}}
+  function renderWeeklySpecials(){if(!posts.length)return;const snackHost=document.getElementById('homeWeekSnackLive');const milestoneHost=document.getElementById('homeWeekMilestoneLive');const milestone=posts.find(post=>norm(post.seriesLabel).includes('milestone'));const latestStories=posts.filter(post=>post.slug!==milestone?.slug&&!norm(post.seriesLabel).includes('milestone')).slice(0,3);if(snackHost&&latestStories.length)snackHost.innerHTML=latestStoryMarkup(latestStories);if(milestoneHost&&milestone)milestoneHost.innerHTML=`<span class="week-feature-meta">${safe(milestone.seriesLabel||'MILESTONE MOMENT')} · ${safe(dateLabel(milestone))}</span><strong class="week-feature-title">${safe(milestone.title)}</strong><p>${safe(short(milestone.dek,205))}</p><a href="${safe(featureHref(milestone))}">Check the receipt →</a>`;renderFinalByteToWeekHub();watchFinalByte();promoteFinalSpotlight();}
   function searchableText(post={}){const sections=(post.sections||[]).flatMap(section=>[section.title,...(section.paragraphs||[])]).join(' ');return norm(`${post.title||''} ${post.seriesLabel||''} ${post.dek||''} ${post.week||''} ${(post.players||[]).join(' ')} ${(post.teams||[]).join(' ')} ${sections}`);}
   function appendSearchMatches(query){const host=document.getElementById('homeSearchResults');const q=norm(query),terms=q.split(/\s+/).filter(Boolean);if(!host||q.length<2)return;const existing=new Set([...host.querySelectorAll('a[href]')].map(a=>a.getAttribute('href')));const articleMatches=posts.filter(post=>{const hay=searchableText(post);return terms.every(term=>hay.includes(term));}).slice(0,6).map(post=>({title:post.title,type:post.seriesLabel||'Article',href:featureHref(post),keywords:short(post.dek,130)}));if(!articleMatches.length)return;host.classList.add('open');articleMatches.reverse().forEach(item=>{if(existing.has(item.href))return;const link=document.createElement('a');link.className='home-search-result home-search-special';link.href=item.href;link.innerHTML=`<span>${safe(item.type)}</span><div><strong>${safe(item.title)}</strong><small>${safe(item.keywords||'Open article')}</small></div><b>→</b>`;host.prepend(link);existing.add(item.href);});}
   function wireSearch(){const input=document.getElementById('homeSiteSearch');if(!input)return;let timer=null;const sync=()=>{clearTimeout(timer);timer=setTimeout(()=>loadSpecials().then(()=>appendSearchMatches(input.value)),120);};input.addEventListener('input',sync);input.addEventListener('focus',sync);document.querySelectorAll('[data-home-search-chip]').forEach(button=>button.addEventListener('click',()=>setTimeout(sync,30)));}

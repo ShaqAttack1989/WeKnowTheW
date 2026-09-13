@@ -12,8 +12,7 @@
   async function loadSpecials(force=false){
     if(!force&&posts.length&&Date.now()-loadedAt<300000)return posts;
     if(loadPromise&&!force)return loadPromise;
-    // Load the archive first so the purpose-built current feeds win when a slug appears in more than one file.
-    const feeds=['/snack-shaq-posts.json','/snack-shak-specials.json','/snack-shak-breaking.json','/snack-shak-latest.json'];
+    const feeds=['/snack-shaq-posts.json','/snack-shak-specials.json','/snack-shak-breaking.json','/snack-shak-latest.json','/snack-shak-final.json'];
     loadPromise=Promise.allSettled(feeds.map(fetchPosts)).then(results=>{
       const bySlug=new Map();
       results.forEach(result=>{if(result.status==='fulfilled')result.value.forEach(post=>{if(post?.slug)bySlug.set(post.slug,post);});});
@@ -25,6 +24,25 @@
   function latestStoryMarkup(items=[]){
     return `<div class="week-story-list">${items.map((post,index)=>`<div class="week-story-item ${index===0?'lead':''}"><span class="week-feature-meta">${safe(post.seriesLabel||'SNACK SHAK')} · ${safe(dateLabel(post))}</span><strong class="week-story-title">${safe(post.title)}</strong>${index===0&&post.dek?`<p>${safe(short(post.dek,155))}</p>`:''}<a href="${safe(featureHref(post))}">${index===0?'Read the newest story':'Read story'} →</a></div>`).join('')}</div><a class="week-story-all" href="/snack-shak.html">See all Snack Shak stories →</a>`;
   }
+  function finalStory(){return posts.find(post=>post.slug==='usa-france-world-cup-final-2026')||null;}
+  function renderFinalByteToWeekHub(){
+    const post=finalStory();const host=document.getElementById('weekHubByte');if(!post||!host)return;
+    const image=post.image||post.storyImage||'/assets/images/fiba-group-play/france-action.jpg';
+    host.innerHTML=`<figure class="week-editorial-media"><img src="${safe(image)}" alt="${safe(post.imageAlt||post.title)}" loading="eager" decoding="async"><span class="week-media-tag">WORLD CUP FINAL</span></figure><div class="week-editorial-body"><div class="week-editorial-top"><span class="week-card-kicker">SNACK SHAK BYTE</span><span class="week-card-date">${safe(dateLabel(post))}</span></div><span class="week-story-series">${safe(post.seriesLabel||'FIBA WORLD CUP FINAL')}</span><h3>${safe(post.title)}</h3><p>${safe(short(post.dek,205))}</p><a href="${safe(featureHref(post))}">Open the final dashboard →</a></div>`;
+  }
+  function promoteFinalSpotlight(){
+    const post=finalStory();const spotlight=document.querySelector('.home-season-spotlight');if(!post||!spotlight)return;
+    const intro=spotlight.querySelector('.season-spotlight-copy > p:last-child');if(intro)intro.textContent='Berlin has reached the title game. USA brings the streak, France brings the tournament’s biggest scoring margin, and the homepage now leads with the championship matchup.';
+    const featured=spotlight.querySelector('.season-spotlight-nav .is-featured');if(featured){featured.href=featureHref(post);featured.textContent='USA vs France final';}
+    const lead=spotlight.querySelector('.season-story-lead');if(!lead)return;
+    lead.href=featureHref(post);
+    const img=lead.querySelector('img');if(img){img.src=post.image||'/assets/images/fiba-group-play/france-action.jpg';img.alt=post.imageAlt||'France in action at the 2026 FIBA Women’s World Cup';}
+    const mediaTag=lead.querySelector('.season-story-media span');if(mediaTag)mediaTag.textContent='SNACK SHAK BYTE · WORLD CUP FINAL';
+    const label=lead.querySelector('.season-story-label');if(label)label.textContent='USA VS FRANCE · ONE TROPHY';
+    const title=lead.querySelector('h3');if(title)title.textContent=post.title;
+    const copy=lead.querySelector('.season-story-copy > p:not(.season-story-label)');if(copy)copy.textContent=post.dek||'';
+    const cta=lead.querySelector('.season-story-copy b');if(cta)cta.innerHTML='Read the championship preview <span aria-hidden="true">→</span>';
+  }
   function renderWeeklySpecials(){
     if(!posts.length)return;
     const snackHost=document.getElementById('homeWeekSnackLive');
@@ -33,6 +51,8 @@
     const latestStories=posts.filter(post=>post.slug!==milestone?.slug&&!norm(post.seriesLabel).includes('milestone')).slice(0,3);
     if(snackHost&&latestStories.length)snackHost.innerHTML=latestStoryMarkup(latestStories);
     if(milestoneHost&&milestone)milestoneHost.innerHTML=`<span class="week-feature-meta">${safe(milestone.seriesLabel||'MILESTONE MOMENT')} · ${safe(dateLabel(milestone))}</span><strong class="week-feature-title">${safe(milestone.title)}</strong><p>${safe(short(milestone.dek,205))}</p><a href="${safe(featureHref(milestone))}">Check the receipt →</a>`;
+    renderFinalByteToWeekHub();
+    promoteFinalSpotlight();
   }
   function searchableText(post={}){const sections=(post.sections||[]).flatMap(section=>[section.title,...(section.paragraphs||[])]).join(' ');return norm(`${post.title||''} ${post.seriesLabel||''} ${post.dek||''} ${post.week||''} ${(post.players||[]).join(' ')} ${(post.teams||[]).join(' ')} ${sections}`);}
   function appendSearchMatches(query){const host=document.getElementById('homeSearchResults');const q=norm(query),terms=q.split(/\s+/).filter(Boolean);if(!host||q.length<2)return;const existing=new Set([...host.querySelectorAll('a[href]')].map(a=>a.getAttribute('href')));const articleMatches=posts.filter(post=>{const hay=searchableText(post);return terms.every(term=>hay.includes(term));}).slice(0,6).map(post=>({title:post.title,type:post.seriesLabel||'Article',href:featureHref(post),keywords:short(post.dek,130)}));if(!articleMatches.length)return;host.classList.add('open');articleMatches.reverse().forEach(item=>{if(existing.has(item.href))return;const link=document.createElement('a');link.className='home-search-result home-search-special';link.href=item.href;link.innerHTML=`<span>${safe(item.type)}</span><div><strong>${safe(item.title)}</strong><small>${safe(item.keywords||'Open article')}</small></div><b>→</b>`;host.prepend(link);existing.add(item.href);});}

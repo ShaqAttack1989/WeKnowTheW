@@ -19,3 +19,49 @@ body.final-game-page{margin:0;background:var(--fg-paper);color:var(--fg-ink);fon
 @media(max-width:900px){.fg-hero-grid{grid-template-columns:1fr;gap:24px;padding-top:34px}.fg-photo-duel{grid-template-columns:1fr 110px 1fr}.fg-photo-duel figure,.fg-photo-duel img{min-height:290px}.fg-heading{grid-template-columns:1fr;gap:15px}.fg-player-board{grid-template-columns:repeat(2,minmax(0,1fr))}.fg-key-grid{grid-template-columns:1fr}.fg-source-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:680px){.final-game-page .page-shell{width:min(100% - 22px,1180px)}.fg-hero .nav{align-items:flex-start}.fg-nav-links{justify-content:flex-end;gap:10px}.fg-nav-links a{font-size:.72rem}.fg-hero h1{font-size:clamp(3rem,15vw,4.8rem)}.fg-photo-duel{grid-template-columns:1fr;gap:9px}.fg-photo-duel figure,.fg-photo-duel img{min-height:250px}.fg-photo-vs{min-height:120px;order:2}.fg-photo-duel figure:last-child{order:3}.fg-section{padding:52px 0}.fg-prose{columns:1}.fg-number-strip{grid-template-columns:repeat(2,1fr)}.fg-number-strip article:nth-child(2){border-right:0}.fg-number-strip article:nth-child(-n+2){border-bottom:1px solid var(--fg-line)}.fg-country-board{grid-template-columns:1fr}.fg-country-stats{grid-template-columns:repeat(3,1fr)}.fg-player-board{grid-template-columns:1fr 1fr}.fg-player-photo{height:230px}.fg-history-panel{grid-template-columns:1fr}.fg-source-grid{grid-template-columns:1fr}.fg-heading h2{font-size:2.5rem}.fg-matchup{grid-template-columns:1fr auto 1fr}.fg-team-lockup img{width:48px;height:32px}.fg-team-lockup strong{font-size:1.35rem}.fg-tip b{font-size:1.1rem}}
 @media(max-width:420px){.fg-player-board{grid-template-columns:1fr}.fg-player-photo{height:330px}.fg-country-stats{grid-template-columns:1fr}.fg-country-stats div{display:flex;justify-content:space-between;align-items:center}.fg-country-score{grid-template-columns:1fr}.fg-country-score strong{font-size:2.7rem}.fg-history-big{grid-template-columns:1fr 1fr}.fg-history-timeline article{grid-template-columns:58px 1fr}.fg-section-nav .page-shell{gap:17px}.fg-meta{font-size:.67rem}}
+
+/* Readability pass: dashboard body copy and data stay at a true 12 pt minimum. */
+.fg-section-nav a,
+.page-crumbs,
+.fg-footer a{font-size:.875rem}
+
+.fg-countdown,
+.fg-fiba-link,
+.fg-tabs button,
+.fg-country-context,
+.fg-player-read,
+.fg-history-timeline span,
+.fg-key-grid p,
+.fg-source-grid span{font-size:1rem}
+
+.fg-countdown,
+.fg-country-context,
+.fg-player-read,
+.fg-history-timeline span,
+.fg-key-grid p,
+.fg-source-grid span{line-height:1.6}
+
+.fg-team-lockup small,
+.fg-tip span,
+.fg-tip strong,
+.fg-photo-duel figcaption,
+.fg-photo-vs span,
+.fg-photo-vs small,
+.fg-real-photo-note,
+.fg-number-strip span,
+.fg-country-name small,
+.fg-country-score span,
+.fg-country-stats small,
+.fg-player-photo span,
+.fg-player-copy>span,
+.fg-player-stats small,
+.fg-history-big span{font-size:.75rem;line-height:1.35}
+
+.fg-player-copy{padding:18px}
+.fg-player-note{font-size:.75rem;line-height:1.5}
+
+@media(max-width:680px){
+  .fg-nav-links a{font-size:.875rem}
+  .fg-tabs button{padding:12px 20px}
+  .fg-player-copy{padding:17px}
+}

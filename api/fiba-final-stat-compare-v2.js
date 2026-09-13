@@ -22,8 +22,8 @@ async function fetchText(url, timeoutMs = 9000) {
 }
 
 function publicFibaApiConfig(html = '') {
-  const apiUrl = String(html).match(/NEXT_CLIENT_APIM_URL\\":\\"([^\\"]+)/)?.[1];
-  const subscriptionKey = String(html).match(/NEXT_CLIENT_APIM_SUBSCRIPTION_KEY\\":\\"([^\\"]+)/)?.[1];
+  const apiUrl = String(html).match(/NEXT_CLIENT_APIM_URL\\\":\\\"([^\\\"]+)/)?.[1];
+  const subscriptionKey = String(html).match(/NEXT_CLIENT_APIM_SUBSCRIPTION_KEY\\\":\\\"([^\\\"]+)/)?.[1];
   return apiUrl && subscriptionKey ? { apiUrl, subscriptionKey } : null;
 }
 
@@ -58,22 +58,39 @@ function keyNorm(value = '') {
   return String(value).toLowerCase().replace(/[^a-z0-9]/g, '');
 }
 
-function firstNum(object, aliases = [], patterns = []) {
-  if (!object || typeof object !== 'object') return null;
-  for (const alias of aliases) {
-    const value = num(object[alias]);
-    if (value !== null) return value;
-  }
-  const normalized = new Map(Object.entries(object).map(([key, value]) => [keyNorm(key), value]));
-  for (const alias of aliases) {
-    const value = num(normalized.get(keyNorm(alias)));
-    if (value !== null) return value;
-  }
-  for (const [key, value] of normalized.entries()) {
-    if (patterns.some(pattern => pattern.test(key))) {
-      const parsed = num(value);
-      if (parsed !== null) return parsed;
+function numericLeaves(object, { includeArrays = false, maxDepth = 5 } = {}) {
+  const leaves = [];
+  const seen = new Set();
+  const walk = (value, path = [], depth = 0) => {
+    if (!value || typeof value !== 'object' || depth > maxDepth || seen.has(value)) return;
+    seen.add(value);
+    for (const [key, child] of Object.entries(value)) {
+      const nextPath = [...path, key];
+      const n = num(child);
+      if (n !== null && (typeof child !== 'object' || child === null)) {
+        leaves.push({ key: keyNorm(key), path: keyNorm(nextPath.join('')), value: n });
+        continue;
+      }
+      if (Array.isArray(child)) {
+        if (includeArrays) child.forEach((item, index) => walk(item, [...nextPath, String(index)], depth + 1));
+        continue;
+      }
+      if (child && typeof child === 'object') walk(child, nextPath, depth + 1);
     }
+  };
+  walk(object);
+  return leaves;
+}
+
+function firstNum(object, aliases = [], patterns = [], options = {}) {
+  if (!object || typeof object !== 'object') return null;
+  const aliasSet = new Set(aliases.map(keyNorm));
+  const leaves = numericLeaves(object, options);
+  for (const leaf of leaves) {
+    if (aliasSet.has(leaf.key) || aliasSet.has(leaf.path)) return leaf.value;
+  }
+  for (const leaf of leaves) {
+    if (patterns.some(pattern => pattern.test(leaf.key) || pattern.test(leaf.path))) return leaf.value;
   }
   return null;
 }
@@ -133,41 +150,53 @@ function buildResultTable(games = []) {
 function playersFromPayload(payload = {}) {
   if (Array.isArray(payload?.playerInCompetitionTeamStatistics)) return payload.playerInCompetitionTeamStatistics;
   for (const value of Object.values(payload || {})) {
-    if (value && typeof value === 'object' && !Array.isArray(value) && Array.isArray(value.playerInCompetitionTeamStatistics)) return value.playerInCompetitionTeamStatistics;
+    if (value && typeof value === 'object' && !Array.isArray(value) && Array.isArray(value.playerInCompetitionTeamStatistics)) {
+      return value.playerInCompetitionTeamStatistics;
+    }
   }
   return [];
 }
 
 const SPECS = {
-  fgm: { total: ['totalFieldGoalsMade','fieldGoalsMade'], pg: ['fieldGoalsMadePerGame','fieldGoalsMadePG'], totalPatterns: [/^totalfieldgoalsmade$/, /^fieldgoalsmade$/], pgPatterns: [/fieldgoalsmadepergame$/, /fieldgoalsmadepg$/] },
-  fga: { total: ['totalFieldGoalsAttempted','fieldGoalsAttempted','fieldGoalAttempts'], pg: ['fieldGoalsAttemptedPerGame','fieldGoalAttemptsPerGame','fieldGoalsAttemptedPG'], totalPatterns: [/^totalfieldgoalsattempted$/, /^fieldgoalsattempted$/, /^fieldgoalattempts$/], pgPatterns: [/fieldgoalsattemptedpergame$/, /fieldgoalattemptspergame$/] },
+  fgm: { total: ['totalFieldGoalsMade','fieldGoalsMade'], pg: ['fieldGoalsMadePerGame','fieldGoalsMadePG'], totalPatterns: [/totalfieldgoalsmade$/, /^fieldgoalsmade$/], pgPatterns: [/fieldgoalsmadepergame$/, /fieldgoalsmadepg$/] },
+  fga: { total: ['totalFieldGoalsAttempted','fieldGoalsAttempted','fieldGoalAttempts'], pg: ['fieldGoalsAttemptedPerGame','fieldGoalAttemptsPerGame','fieldGoalsAttemptedPG'], totalPatterns: [/totalfieldgoalsattempted$/, /^fieldgoalsattempted$/, /fieldgoalattempts$/], pgPatterns: [/fieldgoalsattemptedpergame$/, /fieldgoalattemptspergame$/] },
   threeM: { total: ['totalThreePointsMade','totalThreePointFieldGoalsMade','threePointsMade','threePointFieldGoalsMade'], pg: ['threePointsMadePerGame','threePointFieldGoalsMadePerGame','threePointsMadePG'], totalPatterns: [/three.*point.*made$/], pgPatterns: [/three.*point.*madepergame$/, /three.*point.*madepg$/] },
   threeA: { total: ['totalThreePointsAttempted','totalThreePointFieldGoalsAttempted','threePointsAttempted','threePointFieldGoalsAttempted','threePointAttempts'], pg: ['threePointsAttemptedPerGame','threePointFieldGoalsAttemptedPerGame','threePointAttemptsPerGame'], totalPatterns: [/three.*point.*attempt/], pgPatterns: [/three.*point.*attempt.*pergame$/] },
   twoM: { total: ['totalTwoPointsMade','totalTwoPointFieldGoalsMade','twoPointsMade','twoPointFieldGoalsMade'], pg: ['twoPointsMadePerGame','twoPointFieldGoalsMadePerGame'], totalPatterns: [/two.*point.*made$/], pgPatterns: [/two.*point.*madepergame$/] },
   twoA: { total: ['totalTwoPointsAttempted','totalTwoPointFieldGoalsAttempted','twoPointsAttempted','twoPointFieldGoalsAttempted','twoPointAttempts'], pg: ['twoPointsAttemptedPerGame','twoPointFieldGoalsAttemptedPerGame','twoPointAttemptsPerGame'], totalPatterns: [/two.*point.*attempt/], pgPatterns: [/two.*point.*attempt.*pergame$/] },
   ftm: { total: ['totalFreeThrowsMade','totalFreeThrowMade','freeThrowsMade','freeThrowMade'], pg: ['freeThrowsMadePerGame','freeThrowMadePerGame'], totalPatterns: [/free.*throw.*made$/], pgPatterns: [/free.*throw.*madepergame$/] },
   fta: { total: ['totalFreeThrowsAttempted','totalFreeThrowAttempted','freeThrowsAttempted','freeThrowAttempted','freeThrowAttempts'], pg: ['freeThrowsAttemptedPerGame','freeThrowAttemptedPerGame','freeThrowAttemptsPerGame'], totalPatterns: [/free.*throw.*attempt/], pgPatterns: [/free.*throw.*attempt.*pergame$/] },
-  orb: { total: ['totalOffensiveRebounds','offensiveRebounds','offensiveRebound','offensiveBoards','offensiveReboundsTotal'], pg: ['offensiveReboundsPerGame','offensiveReboundPerGame','offensiveReboundsPG','offensiveRebounds_PG','orpg'], totalPatterns: [/^totaloffensiverebounds?$/, /^offensiverebounds?$/, /^offensiveboards$/], pgPatterns: [/offensiverebounds?pergame$/, /offensivereboundspg$/, /^orpg$/] },
-  drb: { total: ['totalDefensiveRebounds','defensiveRebounds','defensiveRebound','defensiveBoards','defensiveReboundsTotal'], pg: ['defensiveReboundsPerGame','defensiveReboundPerGame','defensiveReboundsPG','defensiveRebounds_PG','drpg'], totalPatterns: [/^totaldefensiverebounds?$/, /^defensiverebounds?$/, /^defensiveboards$/], pgPatterns: [/defensiverebounds?pergame$/, /defensivereboundspg$/, /^drpg$/] },
+  orb: {
+    total: ['totalOffensiveRebounds','offensiveRebounds','offensiveRebound','offensiveBoards','offensiveReboundsTotal','offRebounds','oreb','orb'],
+    pg: ['offensiveReboundsPerGame','offensiveReboundPerGame','offensiveReboundsPG','offensiveRebounds_PG','offReboundsPerGame','orebpg','orpg'],
+    totalPatterns: [/(?:total)?offensive(?:team)?rebounds?$/, /off(?:ensive)?rebounds?$/, /^oreb$/, /^orb$/],
+    pgPatterns: [/offensive(?:team)?rebounds?pergame$/, /off(?:ensive)?rebounds?pergame$/, /^orebpg$/, /^orpg$/]
+  },
+  drb: {
+    total: ['totalDefensiveRebounds','defensiveRebounds','defensiveRebound','defensiveBoards','defensiveReboundsTotal','defRebounds','dreb','drb'],
+    pg: ['defensiveReboundsPerGame','defensiveReboundPerGame','defensiveReboundsPG','defensiveRebounds_PG','defReboundsPerGame','drebpg','drpg'],
+    totalPatterns: [/(?:total)?defensive(?:team)?rebounds?$/, /def(?:ensive)?rebounds?$/, /^dreb$/, /^drb$/],
+    pgPatterns: [/defensive(?:team)?rebounds?pergame$/, /def(?:ensive)?rebounds?pergame$/, /^drebpg$/, /^drpg$/]
+  },
   rebounds: { total: ['totalRebounds','rebounds','reboundsTotal'], pg: ['reboundsPerGame','totalReboundsPerGame','reboundsPG','rpg'], totalPatterns: [/^totalrebounds$/, /^rebounds$/], pgPatterns: [/totalreboundspergame$/, /^reboundspergame$/, /^rpg$/] },
-  assists: { total: ['totalAssists','assists'], pg: ['assistsPerGame','assistsPG','apg'], totalPatterns: [/^totalassists$/, /^assists$/], pgPatterns: [/assist.*pergame$/, /^apg$/] },
-  turnovers: { total: ['totalTurnovers','turnovers'], pg: ['turnoversPerGame','turnoversPG','topg'], totalPatterns: [/^totalturnovers$/, /^turnovers$/], pgPatterns: [/turnoverspergame$/, /^topg$/] },
-  steals: { total: ['totalSteals','steals'], pg: ['stealsPerGame','stealsPG','spg'], totalPatterns: [/^totalsteals$/, /^steals$/], pgPatterns: [/stealspergame$/, /^spg$/] },
-  blocks: { total: ['totalBlocks','blocks','blockedShots','totalBlockedShots'], pg: ['blocksPerGame','blockedShotsPerGame','blocksPG','bpg'], totalPatterns: [/^totalblocks$/, /^blocks$/, /^blockedshots$/], pgPatterns: [/blockspergame$/, /blockedshotspergame$/, /^bpg$/] },
-  fouls: { total: ['totalFouls','totalPersonalFouls','fouls','personalFouls'], pg: ['foulsPerGame','personalFoulsPerGame','foulsPG'], totalPatterns: [/^totalpersonalfouls$/, /^totalfouls$/, /^personalfouls$/, /^fouls$/], pgPatterns: [/personalfoulspergame$/, /foulspergame$/] }
+  assists: { total: ['totalAssists','assists'], pg: ['assistsPerGame','assistsPG','apg'], totalPatterns: [/totalassists$/, /^assists$/], pgPatterns: [/assist.*pergame$/, /^apg$/] },
+  turnovers: { total: ['totalTurnovers','turnovers'], pg: ['turnoversPerGame','turnoversPG','topg'], totalPatterns: [/totalturnovers$/, /^turnovers$/], pgPatterns: [/turnoverspergame$/, /^topg$/] },
+  steals: { total: ['totalSteals','steals'], pg: ['stealsPerGame','stealsPG','spg'], totalPatterns: [/totalsteals$/, /^steals$/], pgPatterns: [/stealspergame$/, /^spg$/] },
+  blocks: { total: ['totalBlocks','blocks','blockedShots','totalBlockedShots'], pg: ['blocksPerGame','blockedShotsPerGame','blocksPG','bpg'], totalPatterns: [/totalblocks$/, /^blocks$/, /blockedshots$/], pgPatterns: [/blockspergame$/, /blockedshotspergame$/, /^bpg$/] },
+  fouls: { total: ['totalFouls','totalPersonalFouls','fouls','personalFouls'], pg: ['foulsPerGame','personalFoulsPerGame','foulsPG'], totalPatterns: [/totalpersonalfouls$/, /totalfouls$/, /^personalfouls$/, /^fouls$/], pgPatterns: [/personalfoulspergame$/, /foulspergame$/] }
 };
 
 function gamesPlayed(player = {}) {
-  return firstNum(player, ['totalGamesPlayed','gamesPlayed','games','gp'], [/totalgamesplayed$/, /^gamesplayed$/, /^gp$/]);
+  return firstNum(player, ['totalGamesPlayed','gamesPlayed','games','gp'], [/totalgamesplayed$/, /^gamesplayed$/, /^gp$/], { includeArrays: false, maxDepth: 3 });
 }
 
 function sumStat(players, spec) {
   let total = 0;
   let found = false;
   for (const player of players) {
-    let value = firstNum(player, spec.total, spec.totalPatterns);
+    let value = firstNum(player, spec.total, spec.totalPatterns, { includeArrays: false, maxDepth: 4 });
     if (value === null) {
-      const pg = firstNum(player, spec.pg, spec.pgPatterns);
+      const pg = firstNum(player, spec.pg, spec.pgPatterns, { includeArrays: false, maxDepth: 4 });
       const gp = gamesPlayed(player);
       if (pg !== null && gp !== null) value = pg * gp;
     }
@@ -176,38 +205,49 @@ function sumStat(players, spec) {
   return found ? total : null;
 }
 
+function teamPayloadTotal(payload, spec, games) {
+  let total = firstNum(payload, spec.total, spec.totalPatterns, { includeArrays: false, maxDepth: 6 });
+  if (total !== null) return total;
+  const perGame = firstNum(payload, spec.pg, spec.pgPatterns, { includeArrays: false, maxDepth: 6 });
+  return perGame !== null && games ? perGame * games : null;
+}
+
 function safeDivide(a, b, factor = 1) {
   return a !== null && b !== null && b !== 0 ? (a / b) * factor : null;
 }
 
-function aggregateTeam(players, result = {}) {
+function aggregateTeam(players, result = {}, payload = {}) {
   const games = result.games || Math.max(0, ...players.map(player => gamesPlayed(player) || 0));
   const totalPoints = result.pointsFor || players.reduce((sum, player) => {
-    const total = firstNum(player, ['totalPoints','points'], [/^totalpoints$/, /^points$/]);
+    const total = firstNum(player, ['totalPoints','points'], [/totalpoints$/, /^points$/], { includeArrays: false, maxDepth: 4 });
     if (total !== null) return sum + total;
-    const pg = firstNum(player, ['pointsPerGame','ppg'], [/pointspergame$/, /^ppg$/]);
+    const pg = firstNum(player, ['pointsPerGame','ppg'], [/pointspergame$/, /^ppg$/], { includeArrays: false, maxDepth: 4 });
     const gp = gamesPlayed(player);
     return sum + (pg !== null && gp !== null ? pg * gp : 0);
   }, 0);
-  const fgm = sumStat(players, SPECS.fgm);
-  const fga = sumStat(players, SPECS.fga);
-  const threeM = sumStat(players, SPECS.threeM);
-  const threeA = sumStat(players, SPECS.threeA);
-  const twoMDirect = sumStat(players, SPECS.twoM);
-  const twoADirect = sumStat(players, SPECS.twoA);
+
+  const metric = spec => sumStat(players, spec) ?? teamPayloadTotal(payload, spec, games);
+  const fgm = metric(SPECS.fgm);
+  const fga = metric(SPECS.fga);
+  const threeM = metric(SPECS.threeM);
+  const threeA = metric(SPECS.threeA);
+  const twoMDirect = metric(SPECS.twoM);
+  const twoADirect = metric(SPECS.twoA);
   const twoM = twoMDirect ?? (fgm !== null && threeM !== null ? fgm - threeM : null);
   const twoA = twoADirect ?? (fga !== null && threeA !== null ? fga - threeA : null);
-  const ftm = sumStat(players, SPECS.ftm);
-  const fta = sumStat(players, SPECS.fta);
-  const orb = sumStat(players, SPECS.orb);
-  const drb = sumStat(players, SPECS.drb);
-  const reboundsDirect = sumStat(players, SPECS.rebounds);
+  const ftm = metric(SPECS.ftm);
+  const fta = metric(SPECS.fta);
+  let orb = metric(SPECS.orb);
+  let drb = metric(SPECS.drb);
+  const reboundsDirect = metric(SPECS.rebounds);
+  if (orb === null && drb !== null && reboundsDirect !== null) orb = Math.max(0, reboundsDirect - drb);
+  if (drb === null && orb !== null && reboundsDirect !== null) drb = Math.max(0, reboundsDirect - orb);
   const rebounds = reboundsDirect ?? (orb !== null && drb !== null ? orb + drb : null);
-  const assists = sumStat(players, SPECS.assists);
-  const turnovers = sumStat(players, SPECS.turnovers);
-  const steals = sumStat(players, SPECS.steals);
-  const blocks = sumStat(players, SPECS.blocks);
-  const fouls = sumStat(players, SPECS.fouls);
+  const assists = metric(SPECS.assists);
+  const turnovers = metric(SPECS.turnovers);
+  const steals = metric(SPECS.steals);
+  const blocks = metric(SPECS.blocks);
+  const fouls = metric(SPECS.fouls);
   const misses = fga !== null && fgm !== null ? fga - fgm : null;
   const ftMisses = fta !== null && ftm !== null ? fta - ftm : null;
   const efficiencyTotal = [totalPoints, rebounds, assists, steals, blocks].every(v => v !== null) && misses !== null && ftMisses !== null && turnovers !== null
@@ -315,19 +355,22 @@ module.exports = async function handler(req, res) {
     const teamEntries = [...ids.entries()];
     const statsResults = await Promise.allSettled(teamEntries.map(async ([code,id]) => {
       const payload = await fetchFibaJson(config, 'getgdapcompetitionteamstatisticsbyteamid', { gdapTeamId: id });
-      return { code, players: playersFromPayload(payload) };
+      return { code, payload, players: playersFromPayload(payload) };
     }));
+
     const allTeams = [];
     statsResults.forEach((result,index) => {
       if (result.status !== 'fulfilled') return;
       const code = teamEntries[index][0];
-      const players = result.value.players;
+      const { players, payload } = result.value;
       if (!players.length) return;
-      allTeams.push({ code, metrics: aggregateTeam(players, resultTable.get(code) || {}) });
+      allTeams.push({ code, metrics: aggregateTeam(players, resultTable.get(code) || {}, payload) });
     });
+
     const usa = allTeams.find(team => team.code === 'USA');
     const fra = allTeams.find(team => team.code === 'FRA');
     if (!usa || !fra) throw new Error('Finalist team statistics unavailable');
+
     const categories = CATEGORIES.map(category => {
       const ranks = rankTeams(allTeams, category.key, category.direction);
       return {
@@ -339,9 +382,10 @@ module.exports = async function handler(req, res) {
         france: { value: formatValue(fra.metrics[category.key], category.format), rank: ranks.get('FRA') || null }
       };
     });
+
     const missing = categories.filter(row => row.usa.value === '—' || row.france.value === '—').map(row => row.label);
     const recommendations = buildRecommendations(usa, fra);
-    res.setHeader('Cache-Control', 's-maxage=180, stale-while-revalidate=360');
+    res.setHeader('Cache-Control', 's-maxage=120, stale-while-revalidate=240');
     return res.status(200).json({
       competition: 'FIBA Women’s Basketball World Cup 2026',
       through: 'semifinals',
@@ -350,7 +394,7 @@ module.exports = async function handler(req, res) {
       completeCategoryCount: categories.length - missing.length,
       missingCategories: missing,
       updatedAt: new Date().toISOString(),
-      methodology: 'Values are aggregated from official FIBA competition team/player statistics and completed game results. Rankings compare available teams in the 2026 World Cup field.',
+      methodology: 'Values are aggregated from official FIBA competition team and player statistics plus completed game results. Nested FIBA statistic objects are included so rebound splits and other secondary categories are not dropped.',
       teams: { USA: TEAM_NAMES.USA, FRA: TEAM_NAMES.FRA },
       categories,
       recommendations

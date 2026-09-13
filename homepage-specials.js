@@ -6,7 +6,7 @@
   const fmtDate=value=>{const date=new Date(`${String(value||'').slice(0,10)}T12:00:00`);return Number.isNaN(date.getTime())?String(value||''):date.toLocaleDateString([],{month:'short',day:'numeric'});};
   const dateKey=post=>String(post?.updated||post?.published||'');
   const dateLabel=post=>`${post?.updated&&String(post.updated)>String(post.published||'')?'UPDATED ':' '}${fmtDate(dateKey(post))}`.trim();
-  let posts=[];let loadedAt=0;let loadPromise=null;
+  let posts=[];let loadedAt=0;let loadPromise=null;let byteObserver=null;
   function sortPosts(items=[]){return [...items].sort((a,b)=>dateKey(b).localeCompare(dateKey(a))||Number(b.priority||0)-Number(a.priority||0));}
   async function fetchPosts(url){const response=await fetch(`${url}?cb=${Date.now()}`,{headers:{Accept:'application/json','Cache-Control':'no-cache'},cache:'no-store'});if(!response.ok)return [];const payload=await response.json().catch(()=>({}));return Array.isArray(payload.posts)?payload.posts:[];}
   async function loadSpecials(force=false){
@@ -27,8 +27,14 @@
   function finalStory(){return posts.find(post=>post.slug==='usa-france-world-cup-final-2026')||null;}
   function renderFinalByteToWeekHub(){
     const post=finalStory();const host=document.getElementById('weekHubByte');if(!post||!host)return;
+    const target=featureHref(post);if(host.querySelector(`a[href="${target}"]`))return;
     const image=post.image||post.storyImage||'/assets/images/fiba-group-play/france-action.jpg';
-    host.innerHTML=`<figure class="week-editorial-media"><img src="${safe(image)}" alt="${safe(post.imageAlt||post.title)}" loading="eager" decoding="async"><span class="week-media-tag">WORLD CUP FINAL</span></figure><div class="week-editorial-body"><div class="week-editorial-top"><span class="week-card-kicker">SNACK SHAK BYTE</span><span class="week-card-date">${safe(dateLabel(post))}</span></div><span class="week-story-series">${safe(post.seriesLabel||'FIBA WORLD CUP FINAL')}</span><h3>${safe(post.title)}</h3><p>${safe(short(post.dek,205))}</p><a href="${safe(featureHref(post))}">Open the final dashboard →</a></div>`;
+    host.innerHTML=`<figure class="week-editorial-media"><img src="${safe(image)}" alt="${safe(post.imageAlt||post.title)}" loading="eager" decoding="async"><span class="week-media-tag">WORLD CUP FINAL</span></figure><div class="week-editorial-body"><div class="week-editorial-top"><span class="week-card-kicker">SNACK SHAK BYTE</span><span class="week-card-date">${safe(dateLabel(post))}</span></div><span class="week-story-series">${safe(post.seriesLabel||'FIBA WORLD CUP FINAL')}</span><h3>${safe(post.title)}</h3><p>${safe(short(post.dek,205))}</p><a href="${safe(target)}">Open the final dashboard →</a></div>`;
+  }
+  function watchFinalByte(){
+    const host=document.getElementById('weekHubByte');if(!host||byteObserver)return;
+    byteObserver=new MutationObserver(()=>renderFinalByteToWeekHub());
+    byteObserver.observe(host,{childList:true,subtree:true});
   }
   function promoteFinalSpotlight(){
     const post=finalStory();const spotlight=document.querySelector('.home-season-spotlight');if(!post||!spotlight)return;
@@ -51,8 +57,7 @@
     const latestStories=posts.filter(post=>post.slug!==milestone?.slug&&!norm(post.seriesLabel).includes('milestone')).slice(0,3);
     if(snackHost&&latestStories.length)snackHost.innerHTML=latestStoryMarkup(latestStories);
     if(milestoneHost&&milestone)milestoneHost.innerHTML=`<span class="week-feature-meta">${safe(milestone.seriesLabel||'MILESTONE MOMENT')} · ${safe(dateLabel(milestone))}</span><strong class="week-feature-title">${safe(milestone.title)}</strong><p>${safe(short(milestone.dek,205))}</p><a href="${safe(featureHref(milestone))}">Check the receipt →</a>`;
-    renderFinalByteToWeekHub();
-    promoteFinalSpotlight();
+    renderFinalByteToWeekHub();watchFinalByte();promoteFinalSpotlight();
   }
   function searchableText(post={}){const sections=(post.sections||[]).flatMap(section=>[section.title,...(section.paragraphs||[])]).join(' ');return norm(`${post.title||''} ${post.seriesLabel||''} ${post.dek||''} ${post.week||''} ${(post.players||[]).join(' ')} ${(post.teams||[]).join(' ')} ${sections}`);}
   function appendSearchMatches(query){const host=document.getElementById('homeSearchResults');const q=norm(query),terms=q.split(/\s+/).filter(Boolean);if(!host||q.length<2)return;const existing=new Set([...host.querySelectorAll('a[href]')].map(a=>a.getAttribute('href')));const articleMatches=posts.filter(post=>{const hay=searchableText(post);return terms.every(term=>hay.includes(term));}).slice(0,6).map(post=>({title:post.title,type:post.seriesLabel||'Article',href:featureHref(post),keywords:short(post.dek,130)}));if(!articleMatches.length)return;host.classList.add('open');articleMatches.reverse().forEach(item=>{if(existing.has(item.href))return;const link=document.createElement('a');link.className='home-search-result home-search-special';link.href=item.href;link.innerHTML=`<span>${safe(item.type)}</span><div><strong>${safe(item.title)}</strong><small>${safe(item.keywords||'Open article')}</small></div><b>→</b>`;host.prepend(link);existing.add(item.href);});}

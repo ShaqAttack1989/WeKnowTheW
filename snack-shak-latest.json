@@ -10,8 +10,10 @@
       "published": "2026-09-13",
       "week": "USA 97, France 79 · World Cup Final",
       "dashboardUrl": "/fiba-final-recap-2026.html",
-      "image": "/assets/images/fiba-group-play/jackie-young-usab-final-2026.jpg",
-      "imageAlt": "Jackie Young competing for USA Basketball at the 2026 FIBA Women's Basketball World Cup",
+      "image": "/assets/images/fiba-group-play/fiba-world-champions-usa-2026.jpg",
+      "storyImage": "/assets/images/fiba-group-play/fiba-world-champions-usa-2026.jpg",
+      "imageAlt": "Team USA celebrating the 2026 FIBA Women's Basketball World Cup championship in Berlin",
+      "imageSourceUrl": "https://about.fiba.basketball/en/news/usa-continue-dominance-with-12th-fiba-womens-basketball-world-cup-title",
       "teams": [
         "United States",
         "France"

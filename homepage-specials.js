@@ -13,7 +13,6 @@
   const fmtDate=value=>{const date=new Date(`${String(value||'').slice(0,10)}T12:00:00`);return Number.isNaN(date.getTime())?String(value||''):date.toLocaleDateString([],{month:'short',day:'numeric'});};
   const dateKey=post=>String(post?.updated||post?.published||'');
   const dateLabel=post=>`${post?.updated&&String(post.updated)>String(post.published||'')?'UPDATED ':' '}${fmtDate(dateKey(post))}`.trim();
-  const FINAL_IMAGE='/assets/images/fiba-group-play/jackie-young-usab-final-2026.jpg?v=20260913-usab-v1';
   const BYTE_FALLBACK='/assets/images/snack-shak/power-rankings-vs-standings-aug30.webp';
   const FOOD_FALLBACK='/assets/images/fiba-group-play/france-action.jpg';
 
@@ -44,7 +43,7 @@
     return post?.type==='feature'?`/food-for-thought.html?post=${slug}#story`:`/snack-shak-bytes.html?post=${slug}#story`;
   }
 
-  function finalStory(){return posts.find(post=>post.slug==='usa-france-world-cup-final-2026')||null;}
+  function finalStory(){return posts.find(post=>post.slug==='fiba-final-recap-2026')||posts.find(post=>post.slug==='usa-france-world-cup-final-2026')||null;}
   function isByte(post={}){return post.type==='byte'||norm(post.seriesLabel).includes('snack shak byte')||norm(post.seriesLabel).includes('byte');}
   function isFood(post={}){const label=norm(`${post.type||''} ${post.seriesLabel||''}`);return post.type==='feature'&&(label.includes('food for thought')||!label.includes('milestone'));}
 
@@ -109,24 +108,25 @@
     const post=finalStory();
     const spotlight=document.querySelector('.home-season-spotlight');
     if(!post||!spotlight)return;
+    const isRecap=post.slug==='fiba-final-recap-2026';
     const lead=spotlight.querySelector('.season-story-lead');
     if(lead){
       lead.href=featureHref(post);
       const image=lead.querySelector('img');
-      if(image){image.src=FINAL_IMAGE;image.alt=post.imageAlt||'Jackie Young in official USA Basketball World Cup action';}
+      if(image){image.src=imageFor(post,'food');image.alt=post.imageAlt||post.title||'FIBA Women’s World Cup story';}
       const tag=lead.querySelector('.season-story-media span');
-      if(tag)tag.textContent='SNACK SHAK BYTE · WORLD CUP FINAL';
+      if(tag)tag.textContent=isRecap?'FOOD FOR THOUGHT · WORLD CHAMPIONS':'SNACK SHAK BYTE · WORLD CUP FINAL';
       const label=lead.querySelector('.season-story-label');
-      if(label)label.textContent='USA VS FRANCE · ONE TROPHY';
+      if(label)label.textContent=isRecap?'USA 97 · FRANCE 79 · THE ADJUSTMENT WON':'USA VS FRANCE · ONE TROPHY';
       const title=lead.querySelector('h3');
       if(title)title.textContent=post.title;
       const copy=lead.querySelector('.season-story-copy>p:not(.season-story-label)');
       if(copy)copy.textContent=short(post.dek,190);
       const cta=lead.querySelector('b');
-      if(cta)cta.innerHTML='Open the final dashboard <span aria-hidden="true">→</span>';
+      if(cta)cta.innerHTML=`${isRecap?'Read the championship feature':'Open the final dashboard'} <span aria-hidden="true">→</span>`;
     }
     const featured=spotlight.querySelector('.season-spotlight-nav .is-featured');
-    if(featured){featured.href=featureHref(post);featured.textContent='USA vs France final';}
+    if(featured){featured.href=featureHref(post);featured.textContent=isRecap?'Championship recap':'USA vs France final';}
   }
 
   function latestStoryMarkup(items=[]){

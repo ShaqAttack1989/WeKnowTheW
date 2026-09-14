@@ -5,6 +5,7 @@
   const short=(v='',limit=165)=>{const t=String(v||'').replace(/\s+/g,' ').trim();return t.length<=limit?t:`${t.slice(0,limit).replace(/\s+\S*$/,'').trim()}…`;};
   const fmtDate=value=>{const d=new Date(`${String(value||'').slice(0,10)}T12:00:00`);return Number.isNaN(d.getTime())?String(value||''):d.toLocaleDateString([],{month:'short',day:'numeric'});};
   const fmtWeek=value=>{const d=new Date(`${String(value||'').slice(0,10)}T12:00:00`);return Number.isNaN(d.getTime())?String(value||''):d.toLocaleDateString([],{month:'short',day:'numeric',year:'numeric'});};
+  const articleHref=post=>post?.dashboardUrl||(post?.type==='feature'?`/food-for-thought.html?post=${encodeURIComponent(post.slug||'')}#story`:`/snack-shak-bytes.html?post=${encodeURIComponent(post.slug||'')}#story`);
 
   const teams=[
     ['Atlanta Dream','atlanta-dream'],['Chicago Sky','chicago-sky'],['Connecticut Sun','connecticut-sun'],['Dallas Wings','dallas-wings'],['Golden State Valkyries','golden-state-valkyries'],['Indiana Fever','indiana-fever'],['Las Vegas Aces','las-vegas-aces'],['Los Angeles Sparks','los-angeles-sparks'],['Minnesota Lynx','minnesota-lynx'],['New York Liberty','new-york-liberty'],['Phoenix Mercury','phoenix-mercury'],['Portland Fire','portland-fire'],['Seattle Storm','seattle-storm'],['Toronto Tempo','toronto-tempo'],['Washington Mystics','washington-mystics']
@@ -40,7 +41,7 @@
       const p=results[0].status==='fulfilled'?results[0].value:{};
       players=(Array.isArray(p.players)?p.players:[]).map(x=>({title:x.name,type:'Player',href:`/playerpedia.html?search=${encodeURIComponent(x.name)}`,keywords:`${x.name} ${x.team||''} ${x.position||''}`}));
       const s=results[1].status==='fulfilled'?results[1].value:{};
-      articles=(Array.isArray(s.posts)?s.posts:[]).map(x=>({title:x.title,type:'Article',href:`/snack-shak.html?post=${encodeURIComponent(x.slug)}#latest`,keywords:`${x.dek||''} ${x.week||''} ${(x.rankings||[]).map(r=>r.team).join(' ')}`}));
+      articles=(Array.isArray(s.posts)?s.posts:[]).map(x=>({title:x.title,type:'Article',href:articleHref(x),keywords:`${x.dek||''} ${x.week||''} ${(x.rankings||[]).map(r=>r.team).join(' ')}`}));
       const text=results[2].status==='fulfilled'?String(results[2].value||''):'';
       const seen=new Set();
       dictionary=[];
@@ -122,7 +123,7 @@
       if(broadcastHost)broadcastHost.innerHTML=tv.length?`<div class="week-broadcast-list">${tv.map(game=>`<div class="week-broadcast-row"><span>${safe(broadcasts(game).slice(0,2).join(' · '))}</span><strong>${safe(game.awayTeam||'TBD')} @ ${safe(game.homeTeam||'TBD')}</strong><b>${safe(gameWhen(game))}</b></div>`).join('')}</div><a href="/games.html">All broadcasts →</a>`:'<p>The independent feed has not tagged a national network for the next games yet. The full schedule remains one click away.</p><a href="/games.html">Check broadcasts →</a>';
       const milestone=milestoneFromPost(latestPost);
       if(milestoneHost)milestoneHost.innerHTML=milestone?`<h3>Milestone watch</h3><p>${safe(short(milestone,210))}</p><a href="/stat-kitchen.html">Track the numbers →</a>`:'<h3>Milestone watch</h3><p>Record chases and threshold moments will appear here with the weekly update.</p><a href="/milestone-moments.html">Open Milestone Moments →</a>';
-      if(snackHost)snackHost.innerHTML=latestPost.title?`<span class="week-snack-date">Released ${safe(fmtDate(latestPost.published))}</span><strong class="week-snack-title">${safe(latestPost.title)}</strong><p>${safe(short(latestPost.dek,175))}</p><a href="/snack-shak.html?post=${encodeURIComponent(latestPost.slug)}#latest">Read this week’s plate →</a>`:'<p>The next Snack Shak plate is still in the kitchen.</p><a href="/snack-shak.html">Open Snack Shak →</a>';
+      if(snackHost)snackHost.innerHTML=latestPost.title?`<span class="week-snack-date">Released ${safe(fmtDate(latestPost.published))}</span><strong class="week-snack-title">${safe(latestPost.title)}</strong><p>${safe(short(latestPost.dek,175))}</p><a href="${safe(articleHref(latestPost))}">Read this week’s plate →</a>`:'<p>The next Snack Shak plate is still in the kitchen.</p><a href="/snack-shak.html">Open Snack Shak →</a>';
       const sf=[...(rotations.startingFive||[])].sort((a,b)=>String(b.week).localeCompare(String(a.week)))[0];
       const bm=[...(rotations.benchMob||[])].sort((a,b)=>String(b.week).localeCompare(String(a.week)))[0];
       if(rotationHost){const five=(sf?.picks||[]).map(x=>x.name).join(', '),bench=(bm?.picks||[]).map(x=>x.name).join(', ');rotationHost.innerHTML=`<h3>Monday rotations</h3><div class="week-rotation-names"><strong>Starting Five:</strong> ${safe(five||'Next five pending')}<br><strong>Bench Mob:</strong> ${safe(bench||'Next bench pending')}</div><a href="/starting-five.html">Open Starting Five →</a> <a href="/bench-mob.html" style="margin-left:10px">Bench Mob →</a>`;}

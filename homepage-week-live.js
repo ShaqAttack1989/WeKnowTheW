@@ -133,7 +133,7 @@
   function storyHref(story={},kind='byte'){
     const direct=story.dashboardUrl||story.href||story.path||story.internalUrl;
     if(direct&&String(direct).startsWith('/'))return direct;
-    if(story.slug)return `/snack-shak.html?post=${encodeURIComponent(story.slug)}#latest`;
+    if(story.slug)return kind==='food'?`/food-for-thought.html?post=${encodeURIComponent(story.slug)}#story`:`/snack-shak-bytes.html?post=${encodeURIComponent(story.slug)}#story`;
     return kind==='food'?'/food-for-thought.html':'/snack-shak-bytes.html';
   }
   function storyLabel(story={}){return text(story.seriesLabel||story.series||story.category||story.type||'Snack Shak');}
@@ -145,6 +145,10 @@
   function renderEditorial(host,story,kind){
     if(!host)return;
     const archiveHref=kind==='food'?'/food-for-thought.html':'/snack-shak-bytes.html';
+    const destination=story?storyHref(story,kind):archiveHref;
+    host.dataset.href=destination;
+    host.setAttribute('role','link');
+    host.tabIndex=0;
     const photo=storyImage(story,kind==='food'?0:8);
     if(!story){
       host.innerHTML=`
@@ -169,6 +173,9 @@
   }
   function snapshot(host,{kicker,title,copy,meta='',href,label='Explore',secondaryHref='',secondaryLabel='',image='',imageAlt=''}){
     if(!host)return;
+    host.dataset.href=href;
+    host.setAttribute('role','link');
+    host.tabIndex=0;
     const photo=sitePhoto(image)||snapshotPhoto(kicker);
     host.innerHTML=`
       <div class='week-snapshot-media'><img src='${safe(photo)}' alt='${safe(imageAlt||title)}' loading='lazy' decoding='async'><span>${safe(kicker)}</span></div>
@@ -180,6 +187,21 @@
       </div>`;
   }
   function snapshotError(host,kicker,title,href){snapshot(host,{kicker,title,copy:'This section is reconnecting. The full page is still available.',href,label:'Open section'});}
+
+  function wireTileNavigation(){
+    const section=document.getElementById('this-week');
+    if(!section||section.dataset.tileNavigationReady==='1')return;
+    section.dataset.tileNavigationReady='1';
+    const open=event=>{
+      const tile=event.target.closest('.week-editorial-card[data-href],.week-snapshot-card[data-href]');
+      if(!tile||event.target.closest('a,button,input,select,textarea'))return;
+      if(event.type==='keydown'&&!['Enter',' '].includes(event.key))return;
+      if(event.type==='keydown')event.preventDefault();
+      location.href=tile.dataset.href;
+    };
+    section.addEventListener('click',open);
+    section.addEventListener('keydown',open);
+  }
 
   async function loadEditorial(){
     const feeds=['/snack-shak-latest.json','/snack-shak-breaking.json','/snack-shak-specials.json','/snack-shaq-posts.json'];
@@ -343,6 +365,7 @@
 
   function init(){
     if(!buildShell())return;
+    wireTileNavigation();
     loadHub();
     setInterval(()=>{if(!document.hidden)loadHub();},300000);
     window.addEventListener('focus',loadHub);

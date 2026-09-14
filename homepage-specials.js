@@ -82,11 +82,17 @@
     if(foodHost&&food){
       foodHost.className='week-editorial-card food';
       const href=featureHref(food);
+      foodHost.dataset.href=href;
+      foodHost.setAttribute('role','link');
+      foodHost.tabIndex=0;
       if(!foodHost.querySelector(`a[href="${href}"]`))foodHost.innerHTML=editorialMarkup(food,'food');
     }
     if(byteHost&&byte){
       byteHost.className='week-editorial-card byte';
       const href=featureHref(byte);
+      byteHost.dataset.href=href;
+      byteHost.setAttribute('role','link');
+      byteHost.tabIndex=0;
       if(!byteHost.querySelector(`a[href="${href}"]`))byteHost.innerHTML=editorialMarkup(byte,'byte');
     }
   }

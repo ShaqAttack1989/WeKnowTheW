@@ -60,7 +60,7 @@
 
   function postCard(post,players=[],people=new Map()){
     const label=post.seriesLabel||(/byte/i.test(post.type||'')?'SNACK SHAK BYTE':'SEASONED NOTES');
-    const href=`/snack-shak.html?post=${encodeURIComponent(post.slug)}#latest`;
+    const href=post.dashboardUrl||(post.type==='feature'?`/food-for-thought.html?post=${encodeURIComponent(post.slug)}#story`:`/snack-shak-bytes.html?post=${encodeURIComponent(post.slug)}#story`);
     return `<article class="team-editorial-update" data-team-editorial-story="${safe(post.slug)}"><div class="team-editorial-top"><span>WE KNOW THE W · ${safe(label)}</span><time>${safe(fmtDate(post.published))}</time></div><strong><a href="${safe(href)}">${safe(post.title||'Read the story')}</a></strong><p>${safe(short(post.dek||'',205))}</p>${players.length?`<div class="team-editorial-players">${players.map(name=>playerChip(name,people)).join('')}</div>`:''}<a class="team-editorial-read" href="${safe(href)}">Read the full story →</a></article>`;
   }
 

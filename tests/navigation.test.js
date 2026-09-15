@@ -7,6 +7,10 @@ const root = path.join(__dirname, '..');
 const site = fs.readFileSync(path.join(root, 'site.js'), 'utf8');
 const css = fs.readFileSync(path.join(root, 'site-navigation.css'), 'utf8');
 const legacySnackNav = fs.readFileSync(path.join(root, 'snack-shak-nav.js'), 'utf8');
+const homepageSpecials = fs.readFileSync(path.join(root, 'homepage-specials.js'), 'utf8');
+const snackCollections = fs.readFileSync(path.join(root, 'snack-shak-collections.js'), 'utf8');
+const snackBytesPage = fs.readFileSync(path.join(root, 'snack-shak-bytes.html'), 'utf8');
+const foodForThoughtPage = fs.readFileSync(path.join(root, 'food-for-thought.html'), 'utf8');
 const navSource = site.slice(site.indexOf('const structuredNav='), site.indexOf('if(navLinks)navLinks.innerHTML'));
 
 test('keeps the global menu to seven clear editorial sections', () => {
@@ -61,4 +65,27 @@ test('keeps desktop menu labels readable and the homepage hero compact', () => {
 
 test('older Snack Shak article helper cannot overwrite the new menu', () => {
   assert.match(legacySnackNav, /group\?\.querySelector\('\.nav-menu-section'\)\)return/);
+});
+
+test('homepage editorial tiles have their own click and keyboard navigation guard', () => {
+  assert.match(homepageSpecials, /function wireEditorialTileNavigation\(\)/);
+  assert.match(homepageSpecials, /\.week-editorial-card\[data-href\]/);
+  assert.match(homepageSpecials, /window\.location\.assign\(destination\)/);
+  assert.match(homepageSpecials, /grid\.addEventListener\('click',openTile\)/);
+  assert.match(homepageSpecials, /grid\.addEventListener\('keydown',openTile\)/);
+});
+
+test('Snack Shak tiles open stories directly and preserve browser history', () => {
+  for (const feed of ['snack-shak-final.json', 'snack-shak-latest.json', 'snack-shak-breaking.json', 'snack-shak-specials.json', 'snack-shaq-posts.json']) {
+    assert.match(snackCollections, new RegExp(feed.replace(/[.]/g, '\\.')));
+  }
+  assert.match(snackCollections, /data-story-slug/);
+  assert.match(snackCollections, /function showStory\(/);
+  assert.match(snackCollections, /history\.pushState/);
+  assert.match(snackCollections, /window\.addEventListener\('popstate'/);
+});
+
+test('Snack Shak collection pages load the navigation-fixed story bundle', () => {
+  assert.match(snackBytesPage, /snack-shak-collections\.js\?v=20260915-navigation-fix-v1/);
+  assert.match(foodForThoughtPage, /snack-shak-collections\.js\?v=20260915-navigation-fix-v1/);
 });

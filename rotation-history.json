@@ -1,7 +1,63 @@
 {
-  "updatedAt": "2026-08-30T21:30:00-04:00",
+  "updatedAt": "2026-09-14T23:30:00-04:00",
   "timezone": "America/New_York",
   "startingFive": [
+    {
+      "week": "2026-09-14",
+      "edition": "ALL FIBA WORLD CUP",
+      "picks": [
+        {
+          "name": "Jackie Young",
+          "label": "1 · PG",
+          "role": "Lead Guard",
+          "country": "USA",
+          "statLine": "12.3 PPG · 3.7 RPG · 3.2 APG",
+          "copy": "The All-Star Five guard gets the keys after giving the champions steady two way control, then delivering 18 points, 6 rebounds and 5 assists in the final.",
+          "photo": "https://assets.fiba.basketball/image/upload/w_720,h_960,c_pad,g_north/f_png/q_auto/.headshot--person_283322--competition_208875",
+          "profileUrl": "https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026/teams/usa/283322-jackie-young"
+        },
+        {
+          "name": "Gabby Williams",
+          "label": "2 · SG",
+          "role": "Two Way Guard",
+          "country": "France",
+          "statLine": "18.7 PPG · 4.8 RPG · 4.0 APG · 2.8 SPG",
+          "copy": "France's engine brought scoring, creation and elite point of attack defense all tournament, earning Best Defensive Player and an All-Star Five spot.",
+          "photo": "https://assets.fiba.basketball/image/upload/w_720,h_960,c_pad,g_north/f_png/q_auto/.headshot--person_216915--competition_208875",
+          "profileUrl": "https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026/teams/france/216915-gabby-williams"
+        },
+        {
+          "name": "Leonie Fiebich",
+          "label": "3 · SF",
+          "role": "Two Way Wing",
+          "country": "Germany",
+          "statLine": "9.9 PPG · 8.6 RPG · 3.6 APG",
+          "copy": "The All-Star Five wing gave Germany size, rebounding, connective passing and defensive versatility during the host nation's best World Cup finish.",
+          "photo": "https://assets.fiba.basketball/image/upload/w_720,h_960,c_pad,g_north/f_png/q_auto/.headshot--person_218988--competition_208875",
+          "profileUrl": "https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026/teams/germany/218988-leonie-fiebich"
+        },
+        {
+          "name": "Breanna Stewart",
+          "label": "4 · PF",
+          "role": "Power Forward",
+          "country": "USA",
+          "statLine": "12.8 PPG · 7.3 RPG · 2.8 APG",
+          "copy": "The first two time Women's World Cup MVP closes the frontcourt after a 22 point, 10 rebound championship game and another gold medal run.",
+          "photo": "https://assets.fiba.basketball/image/upload/w_720,h_960,c_pad,g_north/f_png/q_auto/.headshot--person_176575--competition_208875",
+          "profileUrl": "https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026/teams/usa/176575-breanna-stewart"
+        },
+        {
+          "name": "Emma Meesseman",
+          "label": "5 · C",
+          "role": "Point Forward Center",
+          "country": "Belgium",
+          "statLine": "21.0 PPG · 8.0 RPG · 4.8 APG · 25.0 EFF",
+          "copy": "The tournament leader in scoring and efficiency anchors the five with elite touch, passing and enough size to punish switching lineups from the middle.",
+          "photo": "https://assets.fiba.basketball/image/upload/w_720,h_960,c_pad,g_north/f_png/q_auto/.headshot--person_167505--competition_208875",
+          "profileUrl": "https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026/teams/belgium/167505-emma-meesseman"
+        }
+      ]
+    },
     {
       "week": "2026-08-31",
       "picks": [
@@ -109,6 +165,72 @@
     }
   ],
   "benchMob": [
+    {
+      "week": "2026-09-14",
+      "edition": "ALL FIBA WORLD CUP",
+      "picks": [
+        {
+          "role": "Sixth Woman · Chaos Guard",
+          "roleId": "sixth-woman",
+          "name": "Trinity San Antonio",
+          "country": "Puerto Rico",
+          "statLine": "15.5 PPG · 4.8 APG · 5.0 SPG",
+          "why": "The tournament steals leader changes a game immediately with ball pressure, pace and enough creation to run the second unit herself.",
+          "photo": "https://assets.fiba.basketball/image/upload/w_720,h_960,c_pad,g_north/f_png/q_auto/.headshot--person_323904--competition_208875",
+          "profileUrl": "https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026/teams/puerto-rico/323904-trinity-san-antonio"
+        },
+        {
+          "role": "Floor General",
+          "roleId": "floor-general",
+          "name": "Sevgi Uzun",
+          "country": "Türkiye",
+          "statLine": "17.7 PPG · 8.3 APG · 20.0 EFF",
+          "why": "The tournament assists leader supplies elite organization and scoring pressure, giving the Bench Mob a second creator who can control tempo.",
+          "photo": "https://assets.fiba.basketball/image/upload/w_720,h_960,c_pad,g_north/f_png/q_auto/.headshot--person_196252--competition_208875",
+          "profileUrl": "https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026/teams/turkiye/196252-sevgi-uzun"
+        },
+        {
+          "role": "Glass Cleaner",
+          "roleId": "glass-cleaner",
+          "name": "Angel Reese",
+          "country": "USA",
+          "statLine": "7.2 PPG · 5.0 RPG · 2.5 OREB",
+          "why": "In a compact role, Reese gives this unit exactly what it needs: extra possessions, physical rebounding and a motor that changes the possession count.",
+          "photo": "https://assets.fiba.basketball/image/upload/w_720,h_960,c_pad,g_north/f_png/q_auto/.headshot--person_255458--competition_208875",
+          "profileUrl": "https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026/teams/usa/255458-angel-reese"
+        },
+        {
+          "role": "Interior Scorer",
+          "roleId": "interior-scorer",
+          "name": "Xu Han",
+          "country": "China",
+          "statLine": "18.8 PPG · 10.8 RPG · 21.8 EFF",
+          "why": "A tournament double double gives the bench a true interior scoring hub, plus elite size and rebounding without sacrificing touch.",
+          "photo": "https://assets.fiba.basketball/image/upload/w_720,h_960,c_pad,g_north/f_png/q_auto/.headshot--person_224131--competition_208875",
+          "profileUrl": "https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026/teams/china/224131-xu-han"
+        },
+        {
+          "role": "Energy Big",
+          "roleId": "energy-big",
+          "name": "Sika Kone",
+          "country": "Mali",
+          "statLine": "16.0 PPG · 10.3 RPG · 60.6% FG",
+          "why": "Kone brings efficient paint scoring and double double rebounding, the kind of physical bench production that travels against any matchup.",
+          "photo": "https://assets.fiba.basketball/image/upload/w_720,h_960,c_pad,g_north/f_png/q_auto/.headshot--person_224434--competition_208875",
+          "profileUrl": "https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026/teams/mali/224434-sika-kone"
+        },
+        {
+          "role": "Rim Protector",
+          "roleId": "rim-protector",
+          "name": "Ramu Tokashiki",
+          "country": "Japan",
+          "statLine": "2.3 BPG · Tournament leader",
+          "why": "The World Cup blocks leader gives the second unit a specialist who can erase mistakes and make the rim feel smaller without needing touches.",
+          "photo": "https://assets.fiba.basketball/image/upload/w_720,h_960,c_pad,g_north/f_png/q_auto/.headshot--person_166703--competition_208875",
+          "profileUrl": "https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026/teams/japan/166703-ramu-tokashiki"
+        }
+      ]
+    },
     {
       "week": "2026-08-31",
       "picks": [
@@ -294,6 +416,59 @@
           "name": "Awa Fam",
           "statLine": "Seattle Storm · Center",
           "why": "The August 10 rebounding and rim-protection selection."
+        }
+      ]
+    }
+  ],
+  "honorableMention": [
+    {
+      "week": "2026-09-14",
+      "edition": "ALL FIBA WORLD CUP",
+      "picks": [
+        {
+          "name": "Iyana Martin",
+          "country": "Spain",
+          "role": "Guard",
+          "statLine": "17.5 PPG · 4.2 APG · 3.3 RPG · 2.2 SPG",
+          "copy": "The Rising Star and All-Star Five selection led bronze medalist Spain in scoring, assists and steals during a breakout World Cup debut.",
+          "photo": "https://assets.fiba.basketball/image/upload/w_720,h_960,c_pad,g_north/f_png/q_auto/.headshot--person_295079--competition_208875",
+          "profileUrl": "https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026/teams/spain/295079-iyana-martin"
+        },
+        {
+          "name": "Steph Talbot",
+          "country": "Australia",
+          "role": "Wing",
+          "statLine": "13.8 PPG · 8.6 RPG · 4.4 APG · 21.0 EFF",
+          "copy": "Talbot did nearly everything for an injury hit Australia team and earned All-Second Team recognition with one of the tournament's most complete stat lines.",
+          "photo": "https://assets.fiba.basketball/image/upload/w_720,h_960,c_pad,g_north/f_png/q_auto/.headshot--person_176788--competition_208875",
+          "profileUrl": "https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026/teams/australia/176788-steph-talbot"
+        },
+        {
+          "name": "Nyara Sabally",
+          "country": "Germany",
+          "role": "Forward",
+          "statLine": "12.1 PPG · 6.0 RPG · 2.0 APG",
+          "copy": "Sabally's power and mobility helped Germany reach its best World Cup finish and earned her an All-Second Team place.",
+          "photo": "https://assets.fiba.basketball/image/upload/w_720,h_960,c_pad,g_north/f_png/q_auto/.headshot--person_217770--competition_208875",
+          "profileUrl": "https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026/teams/germany/217770-nyara-sabally"
+        },
+        {
+          "name": "Janelle Salaun",
+          "country": "France",
+          "role": "Forward",
+          "statLine": "11.2 PPG · 5.8 RPG · 15.3 EFF",
+          "copy": "A vital two way piece in France's first World Cup finals run, Salaun earned All-Second Team honors with size, shooting and rebounding.",
+          "photo": "https://assets.fiba.basketball/image/upload/w_720,h_960,c_pad,g_north/f_png/q_auto/.headshot--person_237521--competition_208875",
+          "profileUrl": "https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026/teams/france/237521-janelle-salaun"
+        },
+        {
+          "name": "Dorka Juhasz",
+          "country": "Hungary",
+          "role": "Forward Center",
+          "statLine": "12.6 PPG · 10.4 RPG · 2.2 APG",
+          "copy": "Juhasz posted a tournament double double while carrying massive frontcourt responsibility during Hungary's impressive run into the final phase.",
+          "photo": "https://assets.fiba.basketball/image/upload/w_720,h_960,c_pad,g_north/f_png/q_auto/.headshot--person_219323--competition_208875",
+          "profileUrl": "https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026/teams/hungary/219323-dorka-juhasz"
         }
       ]
     }

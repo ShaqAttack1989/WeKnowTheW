@@ -33,33 +33,37 @@ function weekLabel(key){
   return new Intl.DateTimeFormat('en-US',{month:'long',day:'numeric',year:'numeric',timeZone:'UTC'}).format(d);
 }
 
-function bPlayerInfo(name,byName){
-  const cleanName=bCleanName(name);
+function bPlayerInfo(pick,byName){
+  const cleanName=bCleanName(pick.name);
   const player=byName.get(bKey(cleanName))||{name:cleanName};
   const displayName=bCleanName(player.name||cleanName);
   const playerKey=bKey(displayName);
-  const photo=BENCH_PHOTO_OVERRIDES.get(playerKey)||bPhoto(player);
-  const cutout=BENCH_PHOTO_OVERRIDES.has(playerKey)||Boolean(player.officialHeadshot||player.photoCutout);
+  const directFiba=String(pick.photo||'').trim();
+  const photo=/^https?:\/\//i.test(directFiba)?directFiba:(BENCH_PHOTO_OVERRIDES.get(playerKey)||bPhoto(player));
+  const cutout=Boolean(pick.photo)||BENCH_PHOTO_OVERRIDES.has(playerKey)||Boolean(player.officialHeadshot||player.photoCutout);
   const initials=displayName.split(/\s+/).filter(Boolean).map(part=>part[0]).join('').slice(0,2).toUpperCase();
   const media=photo?`<img class="${cutout?'player-cutout':''}" src="${bSafe(photo)}" alt="${bSafe(displayName)}" loading="lazy" decoding="async" onerror="this.replaceWith(Object.assign(document.createElement('span'),{textContent:'${bSafe(initials)}'}))">`:`<span>${bSafe(initials)}</span>`;
   const forcedTeam=BENCH_TEAM_OVERRIDES.get(playerKey)||'';
   const rosterTeam=String(player.team||'').trim();
-  const team=forcedTeam||(rosterTeam&&!/^WNBA$/i.test(rosterTeam)?rosterTeam:'');
+  const team=pick.country||forcedTeam||(rosterTeam&&!/^WNBA$/i.test(rosterTeam)?rosterTeam:'');
   const position=String(player.position||'').trim();
-  return {displayName,media,team,position};
+  const external=/^https?:\/\//i.test(String(pick.profileUrl||''));
+  const href=external?pick.profileUrl:`/playerpedia.html?search=${encodeURIComponent(displayName)}`;
+  return {displayName,media,team,position,href,external};
 }
 
 function bCurrentCards(picks,byName){
   return picks.map((pick,index)=>{
-    const info=bPlayerInfo(pick.name,byName);
+    const info=bPlayerInfo(pick,byName);
     const meta=[info.team,info.position||pick.position].filter(Boolean).map(bSafe).join(' · ');
-    return `<a class="portal-card featured-player-card${index===5?' lime':''}" href="/playerpedia.html?search=${encodeURIComponent(info.displayName)}">
+    const ext=info.external?' target="_blank" rel="noopener noreferrer"':'';
+    return `<a class="portal-card featured-player-card${index===5?' lime':''}" href="${bSafe(info.href)}"${ext}>
       <span class="featured-player-photo">${info.media}</span>
       <span>
         <span class="portal-label">${bSafe(pick.role)}</span>
         <strong>${bSafe(info.displayName)}</strong>
         ${meta?`<p><b>${meta}</b></p>`:''}
-        <p>${bSafe(pick.statLine||'')}</p>
+        <p><b>${bSafe(pick.statLine||'')}</b></p>
         <p>${bSafe(pick.why||pick.subtitle||'')}</p>
       </span>
     </a>`;
@@ -69,9 +73,10 @@ function bCurrentCards(picks,byName){
 function bArchiveWeek(rotation,byName){
   const picks=Array.isArray(rotation.picks)?rotation.picks:[];
   const rows=picks.map(pick=>{
-    const info=bPlayerInfo(pick.name,byName);
+    const info=bPlayerInfo(pick,byName);
     const meta=[pick.role,info.team,info.position].filter(Boolean).join(' · ');
-    return `<a class="rotation-archive-player" href="/playerpedia.html?search=${encodeURIComponent(info.displayName)}"><span>${bSafe(info.displayName)}</span><small>${bSafe(meta)}</small></a>`;
+    const ext=info.external?' target="_blank" rel="noopener noreferrer"':'';
+    return `<a class="rotation-archive-player" href="${bSafe(info.href)}"${ext}><span>${bSafe(info.displayName)}</span><small>${bSafe(meta)}</small></a>`;
   }).join('');
   const note=rotation.note?`<p class="rotation-archive-note">${bSafe(rotation.note)}</p>`:'';
   const count=rotation.partial?'Recorded selection':`${picks.length} players`;
@@ -84,7 +89,7 @@ async function loadBenchMob(){
   const methodology=document.getElementById('benchMobMethod');
   const archive=document.getElementById('benchMobArchive');
   if(!grid)return;
-  const revision='20260822-rotation-live-v3';
+  const revision='20260914-all-fiba-v1';
   try{
     const [historyRes,playersRes]=await Promise.all([
       fetch(`/rotation-history.json?rev=${revision}&ts=${Date.now()}`,{cache:'no-store',headers:{Accept:'application/json','Cache-Control':'no-cache'}}),
@@ -104,9 +109,14 @@ async function loadBenchMob(){
       current={week:new Date().toISOString().slice(0,10),picks:board.picks};
       rotations=[current];
     }
-    if(status)status.textContent=`Week of ${weekLabel(current.week)} · Weekly role-player board`;
+    const edition=current.edition?` · ${current.edition}`:'';
+    if(status)status.textContent=`Week of ${weekLabel(current.week)}${edition} · Six roles built for the job`;
     grid.innerHTML=bCurrentCards(current.picks,byName);
-    if(methodology)methodology.textContent='A weekly snapshot of scoring, efficiency, defense, playmaking and role fit. Each edition remains unchanged until the next rotation.';
+    if(methodology){
+      methodology.textContent=current.edition==='ALL FIBA WORLD CUP'
+        ?'Special World Cup edition built from official FIBA tournament production, awards, defense, playmaking and role fit. Player imagery is official FIBA imagery. No AI images are used.'
+        :'A weekly snapshot of scoring, efficiency, defense, playmaking and role fit. Each edition remains unchanged until the next rotation.';
+    }
     if(archive){
       const past=rotations.slice(1);
       archive.innerHTML=past.length?past.map(rotation=>bArchiveWeek(rotation,byName)).join(''):`<div class="rotation-empty"><strong>The archive starts here.</strong><p>This board will move into Past Bench Mobs after the next Monday rotation.</p></div>`;

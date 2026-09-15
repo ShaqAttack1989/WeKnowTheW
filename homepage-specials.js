@@ -104,6 +104,23 @@
     observer.observe(grid,{childList:true,subtree:true});
   }
 
+  function wireEditorialTileNavigation(){
+    const grid=document.querySelector('.week-editorial-grid');
+    if(!grid||grid.dataset.specialTileNav==='1')return;
+    grid.dataset.specialTileNav='1';
+    const openTile=event=>{
+      if(event.target.closest('a,button,input,select,textarea,label,summary'))return;
+      const tile=event.target.closest('.week-editorial-card[data-href]');
+      if(!tile||!grid.contains(tile))return;
+      if(event.type==='keydown'&&!['Enter',' '].includes(event.key))return;
+      if(event.type==='keydown')event.preventDefault();
+      const destination=tile.dataset.href;
+      if(destination)window.location.assign(destination);
+    };
+    grid.addEventListener('click',openTile);
+    grid.addEventListener('keydown',openTile);
+  }
+
   function promoteFinalSpotlight(){
     const post=finalStory();
     const spotlight=document.querySelector('.home-season-spotlight');
@@ -180,12 +197,14 @@
     promoteFinalSpotlight();
     enforceUniqueEditorials();
     watchEditorial();
+    wireEditorialTileNavigation();
     renderLegacyWeeklySpecials();
     const input=document.getElementById('homeSiteSearch');
     if(input?.value)appendSearchMatches(input.value);
   }
 
   wireSearch();
+  wireEditorialTileNavigation();
   refresh();
   setInterval(()=>{if(!document.hidden)refresh(true);},60000);
   window.addEventListener('focus',()=>refresh(true));

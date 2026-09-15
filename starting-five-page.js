@@ -27,23 +27,47 @@ const fallbackRotation={
   ]
 };
 
+function sItemPhoto(item={},player={}){
+  const direct=String(item.photo||'').trim();
+  if(/^https?:\/\//i.test(direct))return direct;
+  return sPhoto(player);
+}
 function sPlayerMedia(item,player){
-  const photo=sPhoto(player);
-  const cutout=Boolean(player.officialHeadshot||player.photoCutout);
+  const photo=sItemPhoto(item,player);
+  const cutout=Boolean(item.photo||player.officialHeadshot||player.photoCutout);
   if(photo)return `<img class="${cutout?'player-cutout':''}" src="${sSafe(photo)}" alt="${sSafe(item.name)}" loading="lazy" decoding="async" onerror="this.remove()">`;
   return `<span>${sSafe(item.name.split(' ').map(part=>part[0]).join('').slice(0,2))}</span>`;
 }
-
+function sLink(item={}){
+  if(/^https?:\/\//i.test(String(item.profileUrl||'')))return {href:item.profileUrl,target:' target="_blank" rel="noopener noreferrer"'};
+  return {href:`/playerpedia.html?search=${encodeURIComponent(item.name||'')}`,target:''};
+}
 function sCurrentCard(item,byName){
   const player=byName.get(sKey(item.name))||{name:item.name};
-  const team=String(player.team||'').trim();
-  return `<a class="portal-card featured-player-card" href="/playerpedia.html?search=${encodeURIComponent(item.name)}">
+  const link=sLink(item);
+  const meta=[item.country,String(player.team||'').trim()].filter(Boolean)[0]||'';
+  return `<a class="portal-card featured-player-card" href="${sSafe(link.href)}"${link.target}>
     <span class="featured-player-photo">${sPlayerMedia(item,player)}</span>
     <span>
       <span class="portal-label">${sSafe(item.label)} · ${sSafe(item.role)}</span>
       <strong>${sSafe(item.name)}</strong>
-      ${team?`<p><b>${sSafe(team)}</b></p>`:''}
+      ${meta?`<p><b>${sSafe(meta)}</b></p>`:''}
+      ${item.statLine?`<p><b>${sSafe(item.statLine)}</b></p>`:''}
       <p>${sSafe(item.copy)}</p>
+    </span>
+  </a>`;
+}
+function sHonorableCard(item,byName){
+  const player=byName.get(sKey(item.name))||{name:item.name};
+  const link=sLink(item);
+  return `<a class="portal-card featured-player-card" href="${sSafe(link.href)}"${link.target}>
+    <span class="featured-player-photo">${sPlayerMedia(item,player)}</span>
+    <span>
+      <span class="portal-label">HONORABLE MENTION · ${sSafe(item.role||'Player')}</span>
+      <strong>${sSafe(item.name)}</strong>
+      ${item.country?`<p><b>${sSafe(item.country)}</b></p>`:''}
+      ${item.statLine?`<p><b>${sSafe(item.statLine)}</b></p>`:''}
+      <p>${sSafe(item.copy||'')}</p>
     </span>
   </a>`;
 }
@@ -52,10 +76,28 @@ function sArchiveWeek(rotation,byName){
   const picks=Array.isArray(rotation.picks)?rotation.picks:[];
   const rows=picks.map(item=>{
     const player=byName.get(sKey(item.name))||{};
-    const meta=[item.label,item.role,player.team].filter(Boolean).join(' · ');
-    return `<a class="rotation-archive-player" href="/playerpedia.html?search=${encodeURIComponent(item.name)}"><span>${sSafe(item.name)}</span><small>${sSafe(meta)}</small></a>`;
+    const meta=[item.label,item.role,item.country,player.team].filter(Boolean).join(' · ');
+    const link=sLink(item);
+    return `<a class="rotation-archive-player" href="${sSafe(link.href)}"${link.target}><span>${sSafe(item.name)}</span><small>${sSafe(meta)}</small></a>`;
   }).join('');
   return `<details class="rotation-archive-week"><summary><span>Week of ${sSafe(sWeekLabel(rotation.week))}</span><b>${picks.length} players</b></summary><div class="rotation-archive-players">${rows}</div></details>`;
+}
+
+function sRenderHonorable(historyPayload,byName){
+  const archive=document.getElementById('rotation-archive');
+  if(!archive)return;
+  const editions=Array.isArray(historyPayload.honorableMention)?[...historyPayload.honorableMention]:[];
+  editions.sort((a,b)=>String(b.week||'').localeCompare(String(a.week||'')));
+  const current=editions[0];
+  if(!current||!Array.isArray(current.picks)||!current.picks.length)return;
+  let section=document.getElementById('honorable-mention');
+  if(!section){
+    section=document.createElement('section');
+    section.className='rotation-archive';
+    section.id='honorable-mention';
+    archive.parentNode.insertBefore(section,archive);
+  }
+  section.innerHTML=`<div class="page-heading compact-heading"><p class="kicker">${sSafe(current.edition||'HONORABLE MENTION')}</p><h2>All FIBA Honorable Mention</h2><p>Five more World Cup performances that made the cut brutally difficult.</p></div><div class="portal-grid featured-player-grid">${current.picks.map(item=>sHonorableCard(item,byName)).join('')}</div>`;
 }
 
 async function renderStartingFive(){
@@ -65,13 +107,14 @@ async function renderStartingFive(){
   if(!grid)return;
   let roster=[];
   let rotations=[fallbackRotation];
+  let historyPayload={};
   try{
     const [playersResponse,historyResponse]=await Promise.all([
       fetch('/api/players?headshots=transparent-v1',{headers:{Accept:'application/json'}}),
-      fetch(`/rotation-history.json?rev=20260822-rotation-live-v3&ts=${Date.now()}`,{cache:'no-store',headers:{Accept:'application/json','Cache-Control':'no-cache'}})
+      fetch(`/rotation-history.json?rev=20260914-all-fiba-v1&ts=${Date.now()}`,{cache:'no-store',headers:{Accept:'application/json','Cache-Control':'no-cache'}})
     ]);
     const playersPayload=await playersResponse.json().catch(()=>({}));
-    const historyPayload=await historyResponse.json().catch(()=>({}));
+    historyPayload=await historyResponse.json().catch(()=>({}));
     roster=Array.isArray(playersPayload.players)?playersPayload.players:[];
     if(Array.isArray(historyPayload.startingFive)&&historyPayload.startingFive.length)rotations=historyPayload.startingFive;
   }catch{}
@@ -79,8 +122,10 @@ async function renderStartingFive(){
   const current=rotations[0]||fallbackRotation;
   const picks=Array.isArray(current.picks)?current.picks:fallbackRotation.picks;
   const byName=new Map(roster.map(player=>[sKey(player.name),player]));
-  if(summary)summary.textContent=`Week of ${sWeekLabel(current.week)} · Five roles, one playable lineup.`;
-  grid.innerHTML=picks.map(item=>sCurrentCard(item,byName)).join('')+`<article class="portal-card lime"><span class="portal-label">HOW IT WORKS</span><strong>Shak builds the five by role.</strong><p>The lineup can change as the season changes, and every edition moves into the archive when a new five takes the floor.</p></article>`;
+  const edition=current.edition?` · ${current.edition}`:'';
+  if(summary)summary.textContent=`Week of ${sWeekLabel(current.week)}${edition} · Five roles, one playable lineup.`;
+  grid.innerHTML=picks.map(item=>sCurrentCard(item,byName)).join('')+`<article class="portal-card lime"><span class="portal-label">ALL FIBA EDITION</span><strong>Built for fit, not just fame.</strong><p>This five balances creation, defense, size, rebounding and tournament production. Current FIBA cards use official FIBA player imagery only. No AI images are used.</p></article>`;
+  sRenderHonorable(historyPayload,byName);
   if(archive){
     const past=rotations.slice(1);
     archive.innerHTML=past.length?past.map(rotation=>sArchiveWeek(rotation,byName)).join(''):`<div class="rotation-empty"><strong>The archive starts here.</strong><p>This five will move into Past Starting Fives when the next Monday rotation is published.</p></div>`;

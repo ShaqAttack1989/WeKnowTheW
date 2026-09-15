@@ -2,6 +2,83 @@
   "site": "Snack Shak",
   "posts": [
     {
+      "slug": "shaks-all-fiba-starting-five-bench-mob-2026",
+      "type": "byte",
+      "priority": 1200,
+      "seriesLabel": "SNACK SHAK BYTE · ALL FIBA EDITION",
+      "title": "Berlin Built a Superteam: Shak’s All FIBA Starting Five, Bench Mob and Five More",
+      "published": "2026-09-14",
+      "week": "FIBA World Cup · All Tournament Rotation",
+      "image": "https://assets.fiba.basketball/image/upload/w_720,h_960,c_pad,g_north/f_png/q_auto/.headshot--person_283322--competition_208875",
+      "storyImage": "https://assets.fiba.basketball/image/upload/w_720,h_960,c_pad,g_north/f_png/q_auto/.headshot--person_283322--competition_208875",
+      "imageAlt": "Official FIBA player image of Jackie Young at the 2026 Women's Basketball World Cup",
+      "storyImageCaption": "Official FIBA player imagery only. No AI imagery is used in this edition.",
+      "teams": ["United States", "France", "Germany", "Belgium", "Puerto Rico", "Türkiye", "China", "Mali", "Japan", "Spain", "Australia", "Hungary"],
+      "players": ["Jackie Young", "Gabby Williams", "Leonie Fiebich", "Breanna Stewart", "Emma Meesseman", "Trinity San Antonio", "Sevgi Uzun", "Angel Reese", "Xu Han", "Sika Kone", "Ramu Tokashiki", "Iyana Martin", "Steph Talbot", "Nyara Sabally", "Janelle Salaun", "Dorka Juhasz"],
+      "dek": "One World Cup, sixteen names, three tiers. Jackie Young runs Shak’s All FIBA Starting Five, Gabby Williams brings the havoc, Stewie brings the MVP, Emma Meesseman brings the tournament’s loudest efficiency, and the Bench Mob is loaded enough to start an argument by itself.",
+      "storyTable": {
+        "columns": ["Group", "Player", "Country", "Tournament case"],
+        "rows": [
+          ["Starting Five", "Jackie Young", "USA", "12.3 PPG, 3.7 RPG, 3.2 APG, plus 18 points, 6 rebounds and 5 assists in the final"],
+          ["Starting Five", "Gabby Williams", "France", "18.7 PPG, 4.0 APG, 2.8 SPG, All-Star Five and Best Defensive Player"],
+          ["Starting Five", "Leonie Fiebich", "Germany", "9.9 PPG, 8.6 RPG, 3.6 APG and an All-Star Five place"],
+          ["Starting Five", "Breanna Stewart", "USA", "12.8 PPG, 7.3 RPG, first two time Women's World Cup MVP"],
+          ["Starting Five", "Emma Meesseman", "Belgium", "21.0 PPG and 25.0 EFF, tournament leader in scoring and efficiency"],
+          ["Bench Mob", "Trinity San Antonio", "Puerto Rico", "15.5 PPG, 4.8 APG and a tournament best 5.0 SPG"],
+          ["Bench Mob", "Sevgi Uzun", "Türkiye", "17.7 PPG and a tournament best 8.3 APG"],
+          ["Bench Mob", "Angel Reese", "USA", "7.2 PPG, 5.0 RPG and 2.5 offensive rebounds per game in a compact role"],
+          ["Bench Mob", "Xu Han", "China", "18.8 PPG, 10.8 RPG and 21.8 EFF"],
+          ["Bench Mob", "Sika Kone", "Mali", "16.0 PPG, 10.3 RPG and 60.6 percent shooting"],
+          ["Bench Mob", "Ramu Tokashiki", "Japan", "Tournament leader at 2.3 blocks per game"],
+          ["Honorable Mention", "Iyana Martin", "Spain", "Rising Star, All-Star Five, 17.5 PPG, 4.2 APG and 2.2 SPG"],
+          ["Honorable Mention", "Steph Talbot", "Australia", "13.8 PPG, 8.6 RPG, 4.4 APG and 21.0 EFF"],
+          ["Honorable Mention", "Nyara Sabally", "Germany", "12.1 PPG, 6.0 RPG and All-Second Team recognition"],
+          ["Honorable Mention", "Janelle Salaun", "France", "11.2 PPG, 5.8 RPG and All-Second Team recognition"],
+          ["Honorable Mention", "Dorka Juhasz", "Hungary", "12.6 PPG, 10.4 RPG and a tournament double double" ]
+        ]
+      },
+      "sections": [
+        {
+          "title": "The five I would actually start",
+          "paragraphs": [
+            "Jackie Young gets the ball first. Her championship game made the case even louder, but the fit is what seals it. Young can organize, defend and score without needing every possession. Gabby Williams gives the backcourt a second creator and the tournament's most disruptive perimeter defender. Leonie Fiebich adds size, rebounding and connective passing on the wing.",
+            "Breanna Stewart is the automatic frontcourt choice after another gold medal and a second World Cup MVP. Emma Meesseman gets the final spot because lineup balance matters more to me than copying the official awards sheet. She led the tournament in scoring and efficiency while still creating for teammates. That is too much offense, size and intelligence to leave outside the first five."
+          ]
+        },
+        {
+          "title": "The Bench Mob would change the game",
+          "paragraphs": [
+            "Trinity San Antonio and Sevgi Uzun give the second unit pressure at both ends. San Antonio led the tournament in steals, while Uzun led it in assists. Angel Reese is there to turn one missed shot into another possession. Xu Han supplies a true interior scorer. Sika Kone brings efficient power, and Ramu Tokashiki gives the group a tournament leading rim protector.",
+            "That is the point of a Bench Mob. The second unit should not imitate the starters. It should introduce a new problem. This one can speed the game up, dominate the glass, pound the paint or lock down the rim depending on what the matchup needs."
+          ]
+        },
+        {
+          "title": "Honorable mention is not a consolation prize",
+          "paragraphs": [
+            "Iyana Martin was brilliant enough to make the official All-Star Five and win Rising Star while carrying Spain to bronze. Steph Talbot did everything for Australia. Nyara Sabally helped Germany make history. Janelle Salaun was central to France's first finals run, and Dorka Juhasz left Berlin averaging a double double.",
+            "There was no clean top ten in Berlin. There were too many players with real cases, which is exactly why the honorable mention group belongs on the board instead of disappearing beneath the cut line."
+          ]
+        }
+      ],
+      "debates": [
+        "Would you start Emma Meesseman over Iyana Martin if the goal is lineup balance rather than matching FIBA's official five?",
+        "Which Bench Mob player would force her way into your closing five first?",
+        "Did Iyana Martin do enough to make your first group despite Jackie Young's championship finish?"
+      ],
+      "foodSegment": {
+        "title": "Shak’s bite: this roster would be rude",
+        "script": "Jackie organizes it, Gabby wrecks it, Fiebich connects it, Stewie closes it and Emma makes every matchup uncomfortable. Then Trinity, Sevgi, Angel, Xu Han, Sika Kone and Ramu Tokashiki walk in off the bench. That is not a rotation. That is an international problem."
+      },
+      "sources": [
+        {"label": "Official FIBA Women's Basketball World Cup 2026", "url": "https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026"},
+        {"label": "Breanna Stewart named World Cup MVP", "url": "https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026/news/breanna-stewart-makes-history-as-two-time-womens-world-cup-tissot-mvp"},
+        {"label": "FIBA Women's World Cup All-Second Team", "url": "https://www.fiba.basketball/en/news/fiba-womens-basketball-world-cup-2026-all-second-team"},
+        {"label": "FIBA nation MVP review", "url": "https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026/news/who-was-each-nations-mvp-at-the-womens-world-cup"},
+        {"label": "Shak's Starting Five", "url": "https://www.weknowthew.com/starting-five.html"},
+        {"label": "Shak's Bench Mob", "url": "https://www.weknowthew.com/bench-mob.html"}
+      ]
+    },
+    {
       "slug": "usa-france-world-cup-final-2026",
       "type": "byte",
       "priority": 950,

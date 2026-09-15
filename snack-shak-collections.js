@@ -33,7 +33,7 @@
   function isMatch(post){return post.type!=='intro'&&(mode==='feature'?post.type==='feature':post.type!=='feature');}
   function href(post){return post.dashboardUrl||`${pagePath}?post=${encodeURIComponent(post.slug)}#story`;}
   function label(post){return mode==='feature'?'FOOD FOR THOUGHT':(post.seriesLabel||'SNACK SHAK BYTE');}
-  function card(post){const fit=post.imageFit==='contain'?' is-contain':post.imageFit==='top-cover'?' is-top-cover':'';const media=post.image?`<div class="snack-collection-card-media${fit}"><img src="${safe(post.image)}" alt="${safe(post.imageAlt||post.title||'')}" loading="lazy" decoding="async"></div>`:'';return `<a class="snack-collection-card ${mode} ${media?'has-media':''}" href="${safe(href(post))}">${media}<span>${safe(label(post))}</span><time datetime="${safe(post.published||'')}">${safe(format(post.published))}</time><strong>${safe(post.title)}</strong><p>${safe(post.dek||'Open this Snack Shak story.')}</p><b>${mode==='feature'?'Read the long article →':'Read the Byte →'}</b></a>`;}
+  function card(post){const fit=post.imageFit==='contain'?' is-contain':post.imageFit==='top-cover'?' is-top-cover':'';const media=post.image?`<div class="snack-collection-card-media${fit}"><img src="${safe(post.image)}" alt="${safe(post.imageAlt||post.title||'')}" loading="lazy" decoding="async"></div>`:'';return `<a class="snack-collection-card ${mode} ${media?'has-media':''}" data-story-slug="${safe(post.slug||'')}" href="${safe(href(post))}">${media}<span>${safe(label(post))}</span><time datetime="${safe(post.published||'')}">${safe(format(post.published))}</time><strong>${safe(post.title)}</strong><p>${safe(post.dek||'Open this Snack Shak story.')}</p><b>${mode==='feature'?'Read the long article →':'Read the Byte →'}</b></a>`;}
 
   function storyImageMarkup(post={}){const source=post.storyImage||post.image;if(!source)return'';return `<figure class="snack-story-graphic"><img src="${safe(source)}" alt="${safe(post.imageAlt||post.title||'')}" decoding="async">${post.storyImageCaption?`<figcaption>${safe(post.storyImageCaption)}</figcaption>`:''}</figure>`;}
   function rankingsMarkup(rankings=[]){if(!rankings.length)return'';return `<section class="snack-section"><h3>Power rankings</h3><div class="rankings-table"><div class="rank-row head"><span>#</span><span>Team</span><span>Move</span><span>What Shak is seeing</span></div>${rankings.map(item=>`<div class="rank-row"><span class="rank">${safe(item.rank)}</span><strong>${safe(item.team)}</strong><span class="move">${safe(item.movement||'')}</span><span>${safe(item.note||'')}</span></div>`).join('')}</div></section>`;}
@@ -51,6 +51,53 @@
   function sourcesMarkup(sources=[]){return sources.length?`<section class="source-list"><strong>Receipts</strong><p>${sources.map(source=>`<a href="${safe(source.url)}" target="_blank" rel="noopener noreferrer">${safe(source.label||'Source')}</a>`).join(' · ')}</p></section>`:'';}
   function storyMarkup(post){return `<a class="snack-story-back" href="${pagePath}">← Back to all ${mode==='feature'?'Food for Thought articles':'Snack Shak Bytes'}</a><article class="snack-post"><header class="snack-post-header ${mode==='feature'?'feature-header':''}"><span class="snack-series-label">${safe(label(post))}</span><div class="meta"><span>${safe(format(post.published))}</span>${post.week?`<span>•</span><span>${safe(post.week)}</span>`:''}</div><h2>${safe(post.title)}</h2><p class="dek">${safe(post.dek||'')}</p></header>${storyImageMarkup(post)}${rankingsMarkup(post.rankings)}${tableMarkup(post.storyTable)}${sectionsMarkup(post.sections)}${debatesMarkup(post.debates)}${foodMarkup(post.foodSegment)}${sourcesMarkup(post.sources)}</article>`;}
 
-  async function load(){const list=document.getElementById('snackCollectionGrid'),story=document.getElementById('snackCollectionStory');if(!list)return;try{const results=await Promise.allSettled(sources.map(fetchPosts));const bySlug=new Map();results.forEach(result=>{if(result.status==='fulfilled')result.value.forEach(post=>{if(post?.slug)isMatch(post)&&bySlug.set(post.slug,post);});});const posts=[...bySlug.values()].sort((a,b)=>String(b.published||'').localeCompare(String(a.published||''))||Number(b.priority||0)-Number(a.priority||0));list.innerHTML=posts.map(card).join('')||'<p>No stories are published in this collection yet.</p>';const requested=new URLSearchParams(location.search).get('post')?.replaceAll('snack-shaq','snack-shak');const active=posts.find(post=>post.slug===requested);if(active&&story){story.hidden=false;story.innerHTML=storyMarkup(active);document.title=`${active.title} | ${mode==='feature'?'Food for Thought':'Snack Shak Bytes'}`;if(location.hash==='#story')requestAnimationFrame(()=>story.scrollIntoView({block:'start'}));}}catch{list.innerHTML='<p>This collection is reconnecting to the story archive.</p>';}}
+  function showStory(post,story,{scroll=true,updateUrl=false}={}){
+    if(!post||!story)return false;
+    story.hidden=false;
+    story.innerHTML=storyMarkup(post);
+    document.title=`${post.title} | ${mode==='feature'?'Food for Thought':'Snack Shak Bytes'}`;
+    if(updateUrl){const destination=href(post);history.pushState({story:post.slug},'',destination);}
+    if(scroll)requestAnimationFrame(()=>story.scrollIntoView({block:'start',behavior:'smooth'}));
+    return true;
+  }
+
+  function wireCardNavigation(list,story,posts){
+    if(!list||list.dataset.storyNavigationReady==='1')return;
+    list.dataset.storyNavigationReady='1';
+    list.addEventListener('click',event=>{
+      const cardLink=event.target.closest('a.snack-collection-card[data-story-slug]');
+      if(!cardLink||!list.contains(cardLink))return;
+      const slug=cardLink.dataset.storySlug;
+      const post=posts.find(item=>item.slug===slug);
+      if(!post||post.dashboardUrl)return;
+      event.preventDefault();
+      showStory(post,story,{scroll:true,updateUrl:true});
+    });
+    window.addEventListener('popstate',()=>{
+      const requested=new URLSearchParams(location.search).get('post')?.replaceAll('snack-shaq','snack-shak');
+      const post=posts.find(item=>item.slug===requested);
+      if(post)showStory(post,story,{scroll:false,updateUrl:false});
+      else if(story){story.hidden=true;story.innerHTML='';}
+    });
+  }
+
+  async function load(){
+    const list=document.getElementById('snackCollectionGrid'),story=document.getElementById('snackCollectionStory');
+    if(!list)return;
+    try{
+      const results=await Promise.allSettled(sources.map(fetchPosts));
+      const bySlug=new Map();
+      results.forEach(result=>{if(result.status==='fulfilled')result.value.forEach(post=>{if(post?.slug)isMatch(post)&&bySlug.set(post.slug,post);});});
+      const posts=[...bySlug.values()].sort((a,b)=>String(b.published||'').localeCompare(String(a.published||''))||Number(b.priority||0)-Number(a.priority||0));
+      list.innerHTML=posts.map(card).join('')||'<p>No stories are published in this collection yet.</p>';
+      wireCardNavigation(list,story,posts);
+      const requested=new URLSearchParams(location.search).get('post')?.replaceAll('snack-shaq','snack-shak');
+      const active=posts.find(post=>post.slug===requested);
+      if(active&&story)showStory(active,story,{scroll:location.hash==='#story',updateUrl:false});
+      else if(requested&&story){story.hidden=false;story.innerHTML='<article class="snack-post"><h2>That story is reconnecting.</h2><p>The archive loaded, but this story was not found in the current feed. Try opening the tile again from the collection.</p></article>';}
+    }catch{
+      list.innerHTML='<p>This collection is reconnecting to the story archive.</p>';
+    }
+  }
   load();
 })();

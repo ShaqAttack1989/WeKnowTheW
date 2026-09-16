@@ -1,0 +1,79 @@
+{
+  "site": "Snack Shak",
+  "posts": [
+    {
+      "slug": "love-and-basketball-teammate-couples",
+      "type": "feature",
+      "priority": 1120,
+      "seriesLabel": "FOOD FOR THOUGHT · LOVE & BASKETBALL",
+      "title": "Love & Basketball: The Teammate Couples Tournament",
+      "published": "2026-09-16",
+      "week": "8 pairs · 1 bracket · W Score Pair Edition",
+      "dashboardUrl": "/love-and-basketball-wnba-couples.html",
+      "image": "https://s.hdnux.com/photos/01/66/13/60/30981171/3/ratio3x2_1920.jpg",
+      "storyImage": "https://s.hdnux.com/photos/01/66/13/60/30981171/3/ratio3x2_1920.jpg",
+      "imageAlt": "Paige Bueckers and Azzi Fudd together in Dallas Wings uniforms",
+      "teams": [
+        "Phoenix Mercury",
+        "Chicago Sky",
+        "Connecticut Sun",
+        "Dallas Wings",
+        "New York Liberty",
+        "France",
+        "Dynamo Kursk"
+      ],
+      "players": [
+        "Diana Taurasi",
+        "Penny Taylor",
+        "Courtney Vandersloot",
+        "Allie Quigley",
+        "DeWanna Bonner",
+        "Alyssa Thomas",
+        "Paige Bueckers",
+        "Azzi Fudd",
+        "Gabby Williams",
+        "Marine Johannes",
+        "Breanna Stewart",
+        "Marta Xargay",
+        "Jasmine Thomas",
+        "Natisha Hiedeman",
+        "Natasha Cloud",
+        "Isabelle Harrison"
+      ],
+      "dek": "Eight WNBA connected couples enter a head to head teammate résumé tournament, with real basketball photos, a transparent Pair W Score and live 2026 individual W Scores.",
+      "sections": [
+        {
+          "title": "Basketball only",
+          "paragraphs": [
+            "The bracket does not score anyone's relationship. Pair W Score grades only shared team success, collective peak, basketball fit, teammate longevity and big stage impact."
+          ]
+        },
+        {
+          "title": "The No. 1 seed",
+          "paragraphs": [
+            "Diana Taurasi and Penny Taylor enter at 99 after sharing three Phoenix Mercury championships. Courtney Vandersloot and Allie Quigley lead the other side of the bracket after a decade of Chicago chemistry and the 2021 WNBA title."
+          ]
+        }
+      ],
+      "debates": [
+        "Is three shared WNBA championships enough to make Taurasi and Taylor untouchable?",
+        "How high can Bueckers and Fudd climb if Dallas turns their college chemistry into WNBA success?",
+        "Does Williams and Johannes have the best pure basketball fit in the field?"
+      ],
+      "sources": [
+        {
+          "label": "Full interactive Love & Basketball feature",
+          "url": "https://www.weknowthew.com/love-and-basketball-wnba-couples.html"
+        },
+        {
+          "label": "WNBA history and player reporting",
+          "url": "https://www.wnba.com/"
+        },
+        {
+          "label": "FIBA French Connection feature",
+          "url": "https://www.fiba.basketball/en/events/womens-olympic-basketball-tournament-paris-2024/news/the-french-connection-gabby-on-mj-and-mj-on-gabby"
+        }
+      ]
+    }
+  ]
+}

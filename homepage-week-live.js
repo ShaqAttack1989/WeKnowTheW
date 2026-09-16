@@ -3,53 +3,37 @@
   const text=value=>String(value??'').replace(/\s+/g,' ').trim();
   const short=(value='',limit=175)=>{const clean=text(value);return clean.length<=limit?clean:`${clean.slice(0,limit).replace(/\s+\S*$/,'').trim()}…`;};
   const norm=value=>text(value).normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
+  const slugify=value=>norm(value).replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
   const dateValue=item=>item?.published||item?.date||item?.updatedAt||item?.updated||item?.week||'';
   const timeValue=value=>{const parsed=Date.parse(String(value||''));return Number.isFinite(parsed)?parsed:0;};
   const fmtDate=value=>{const parsed=new Date(String(value||''));return Number.isNaN(parsed.getTime())?text(value):parsed.toLocaleDateString([],{month:'short',day:'numeric',year:'numeric'});};
   const fmtShortDate=value=>{const parsed=new Date(String(value||''));return Number.isNaN(parsed.getTime())?text(value):parsed.toLocaleDateString([],{month:'short',day:'numeric'});};
-
-  const photoDeck=[
-    {src:'/assets/images/commissioner-search/cathy-engelbert.webp',alt:'Cathy Engelbert'},
-    {src:'/assets/images/commissioner-search/swin-cash.webp',alt:'Swin Cash'},
-    {src:'/assets/images/commissioner-search/sarah-mensah.webp',alt:'Sarah Mensah'},
-    {src:'/assets/images/commissioner-search/bethany-donaphin.webp',alt:'Bethany Donaphin'},
-    {src:'/assets/images/commissioner-search/jess-smith.webp',alt:'Jess Smith'},
-    {src:'/assets/images/commissioner-search/nneka-ogwumike.webp',alt:'Nneka Ogwumike'},
-    {src:'/assets/images/commissioner-search/renie-anderson.webp',alt:'Renie Anderson'},
-    {src:'/assets/images/commissioner-search/condoleezza-rice.webp',alt:'Condoleezza Rice'},
-    {src:'/assets/images/snack-shak/power-rankings-vs-standings-aug30.webp',alt:'WNBA power rankings and standings'}
-  ];
-  const fallbackPhoto=photoDeck[0].src;
-  const localPlayerPhotos={
-    'swin cash':photoDeck[1].src,
-    'nneka ogwumike':photoDeck[5].src,
-    'chiney ogwumike':photoDeck[5].src,
-    'sarah mensah':photoDeck[2].src,
-    'bethany donaphin':photoDeck[3].src,
-    'jess smith':photoDeck[4].src,
-    'renie anderson':photoDeck[6].src,
-    'condoleezza rice':photoDeck[7].src
-  };
   const sitePhoto=value=>/^(?:\/|https?:\/\/)/i.test(String(value||'').trim())?String(value).trim():'';
-  const storyImage=(story={},slot=0)=>{
-    const direct=[story.image,story.imageUrl,story.photo,story.thumbnail,story.heroImage,story.media?.image,story.media?.photo,story.media?.thumbnail].map(sitePhoto).find(Boolean);
-    if(direct)return direct;
-    const related=(Array.isArray(story.players)?story.players:[]).map(name=>localPlayerPhotos[norm(name)]).find(Boolean);
-    return related||photoDeck[slot%photoDeck.length].src;
+  const validFocus=value=>/^\d{1,3}%\s+\d{1,3}%$/.test(String(value||'').trim())?String(value).trim():'50% 50%';
+
+  const MEDIA={
+    stats:'/assets/images/snack-shak/power-rankings-vs-standings-aug30.webp',
+    mockAwards:'/assets/images/snack-shak/we-know-the-w-mock-awards-2026.svg'
   };
-  const snapshotPhoto=(kicker='')=>{
-    const key=norm(kicker);
-    if(key.includes('stat kitchen')||key.includes('live stats'))return photoDeck[8].src;
-    if(key.includes('rotation'))return photoDeck[5].src;
-    if(key.includes('games'))return photoDeck[2].src;
-    if(key.includes('player movement')||key.includes('player wire'))return photoDeck[4].src;
-    if(key.includes('availability'))return photoDeck[2].src;
-    if(key.includes('unrivaled'))return photoDeck[6].src;
-    if(key.includes('upshot'))return photoDeck[1].src;
-    if(key.includes('fiba'))return photoDeck[7].src;
-    if(key.includes('college'))return photoDeck[2].src;
-    return fallbackPhoto;
+
+  const TEAM_POSTERS={
+    'atlanta dream':'/assets/team-posters/atlanta-dream.webp',
+    'chicago sky':'/assets/team-posters/chicago-sky.webp',
+    'connecticut sun':'/assets/team-posters/connecticut-sun.webp',
+    'dallas wings':'/assets/team-posters/dallas-wings.webp',
+    'golden state valkyries':'/assets/team-posters/golden-state-valkyries.webp',
+    'indiana fever':'/assets/team-posters/indiana-fever.webp',
+    'las vegas aces':'/assets/team-posters/las-vegas-aces.webp',
+    'los angeles sparks':'/assets/team-posters/los-angeles-sparks.webp',
+    'minnesota lynx':'/assets/team-posters/minnesota-lynx.webp',
+    'new york liberty':'/assets/team-posters/new-york-liberty.webp',
+    'phoenix mercury':'/assets/team-posters/phoenix-mercury.webp',
+    'portland fire':'/assets/team-posters/portland-fire.webp',
+    'seattle storm':'/assets/team-posters/seattle-storm.webp',
+    'washington mystics':'/assets/team-posters/washington-mystics.webp'
   };
+
+  const teamPoster=name=>TEAM_POSTERS[norm(name)]||'';
   const fetchJson=async url=>{
     const joiner=url.includes('?')?'&':'?';
     const response=await fetch(`${url}${joiner}cb=${Date.now()}`,{headers:{Accept:'application/json','Cache-Control':'no-cache'},cache:'no-store'});
@@ -62,6 +46,43 @@
     if(!response.ok)throw new Error(`${url} returned ${response.status}`);
     return response.text();
   };
+
+  function mediaSpec({src='',alt='',focus='50% 50%',mobileFocus='',className=''}={}){
+    return {src:sitePhoto(src),alt:text(alt),focus:validFocus(focus),mobileFocus:validFocus(mobileFocus||focus),className:text(className)};
+  }
+
+  function mediaMarkup(media,kicker=''){
+    const items=(Array.isArray(media)?media:[media]).filter(Boolean).map(item=>mediaSpec(item)).filter(item=>item.src);
+    const label=safe(kicker);
+    if(!items.length){
+      return `<div class="week-snapshot-media week-media-fallback" role="img" aria-label="${safe(kicker||'We Know the W')} visual"><span>${label}</span><b aria-hidden="true">W</b></div>`;
+    }
+    const classes=items.length>1?'week-snapshot-media week-media-strip':'week-snapshot-media';
+    const images=items.map(item=>`<img src="${safe(item.src)}" alt="${safe(item.alt)}" loading="lazy" decoding="async" style="--media-focus:${safe(item.focus)};--media-focus-mobile:${safe(item.mobileFocus)}"${item.className?` class="${safe(item.className)}"`:''}>`).join('');
+    return `<div class="${classes}">${images}<span>${label}</span></div>`;
+  }
+
+  function wireMediaFallback(host){
+    if(!host)return;
+    host.querySelectorAll('.week-snapshot-media img,.week-editorial-media img').forEach(img=>{
+      img.addEventListener('error',()=>{
+        const media=img.closest('.week-snapshot-media,.week-editorial-media');
+        img.remove();
+        if(media&&!media.querySelector('img'))media.classList.add('week-media-fallback');
+      },{once:true});
+    });
+  }
+
+  function explicitStoryImage(story={}){
+    const direct=[story.tileImage,story.featuredImage,story.image,story.storyImage,story.imageUrl,story.thumbnail,story.heroImage,story.media?.image,story.media?.thumbnail]
+      .map(sitePhoto).find(Boolean)||'';
+    return mediaSpec({
+      src:direct,
+      alt:story.imageAlt||story.alt||story.title||'Story image',
+      focus:story.imageFocus||story.tileFocus||'50% 38%',
+      mobileFocus:story.mobileImageFocus||story.mobileTileFocus||story.imageFocus||story.tileFocus||'50% 32%'
+    });
+  }
 
   function buildShell(){
     const section=document.getElementById('this-week');
@@ -77,9 +98,9 @@
             <p>The freshest stories, numbers, roster news and basketball beyond the league, distilled from across We Know the W. Get the headline here, then go deeper.</p>
           </div>
           <div class="week-hub-head-visual" aria-hidden="true">
-            <span class="week-head-photo one"><img src="${safe(photoDeck[0].src)}" alt=""></span>
-            <span class="week-head-photo two"><img src="${safe(photoDeck[5].src)}" alt=""></span>
-            <span class="week-head-photo three"><img src="${safe(photoDeck[8].src)}" alt=""></span>
+            <span class="week-head-photo one"><img src="/assets/team-posters/atlanta-dream.webp" alt=""></span>
+            <span class="week-head-photo two"><img src="/assets/team-posters/dallas-wings.webp" alt=""></span>
+            <span class="week-head-photo three"><img src="/assets/team-posters/las-vegas-aces.webp" alt=""></span>
             <span class="week-head-visual-label">LIVE EDITION</span>
           </div>
           <span class="week-hub-stamp" id="weekHubStamp"><i aria-hidden="true"></i> Refreshing</span>
@@ -117,10 +138,7 @@
     if(!value||typeof value!=='object')return output;
     if(value.title&&typeof value.title==='string'){
       const signature=`${text(value.slug||value.title)}|${text(dateValue(value))}`;
-      if(!seen.has(signature)){
-        seen.add(signature);
-        output.push({...value,_source:source});
-      }
+      if(!seen.has(signature)){seen.add(signature);output.push({...value,_source:source});}
     }
     Object.values(value).forEach(item=>{if(item&&typeof item==='object')collectStories(item,source,output,seen);});
     return output;
@@ -142,6 +160,13 @@
   function isFood(story={}){return /food\s*for\s*thought|food.*thought|long\s*form|longform|deep\s*dive|analysis/.test(classificationText(story));}
   function freshest(stories=[],predicate=()=>true){return stories.filter(predicate).sort((a,b)=>timeValue(dateValue(b))-timeValue(dateValue(a))||Number(b.priority||0)-Number(a.priority||0))[0]||null;}
 
+  function editorialMedia(story,kind){
+    const image=explicitStoryImage(story||{});
+    const tag=kind==='food'?'FEATURED READ':'QUICK HIT';
+    if(!image.src)return `<figure class="week-editorial-media week-media-fallback" role="img" aria-label="${safe(story?.title||tag)}"><b aria-hidden="true">W</b><span class="week-media-tag">${tag}</span></figure>`;
+    return `<figure class="week-editorial-media"><img src="${safe(image.src)}" alt="${safe(image.alt)}" loading="${kind==='food'?'eager':'lazy'}" decoding="async" style="--media-focus:${safe(image.focus)};--media-focus-mobile:${safe(image.mobileFocus)}"><span class="week-media-tag">${tag}</span></figure>`;
+  }
+
   function renderEditorial(host,story,kind){
     if(!host)return;
     const archiveHref=kind==='food'?'/food-for-thought.html':'/snack-shak-bytes.html';
@@ -149,42 +174,22 @@
     host.dataset.href=destination;
     host.setAttribute('role','link');
     host.tabIndex=0;
-    const photo=storyImage(story,kind==='food'?0:8);
     if(!story){
-      host.innerHTML=`
-        <figure class='week-editorial-media'><img src='${safe(photo)}' alt='' loading='lazy' decoding='async'><span class='week-media-tag'>${kind==='food'?'FEATURE':'BYTE'}</span></figure>
-        <div class='week-editorial-body'>
-          <div class='week-editorial-top'><span class='week-card-kicker'>${kind==='food'?'FOOD FOR THOUGHT':'SNACK SHAK BYTE'}</span><span class='week-card-date'>RECONNECTING</span></div>
-          <h3>Fresh plate incoming.</h3>
-          <p>The newest ${kind==='food'?'long-form read':'quick bite'} is reconnecting to the homepage.</p>
-          <a href='${archiveHref}'>Open the archive →</a>
-        </div>`;
+      host.innerHTML=`${editorialMedia(null,kind)}<div class="week-editorial-body"><div class="week-editorial-top"><span class="week-card-kicker">${kind==='food'?'FOOD FOR THOUGHT':'SNACK SHAK BYTE'}</span><span class="week-card-date">RECONNECTING</span></div><h3>Fresh plate incoming.</h3><p>The newest ${kind==='food'?'long-form read':'quick bite'} is reconnecting to the homepage.</p><a href="${archiveHref}">Open the archive →</a></div>`;
+      wireMediaFallback(host);
       return;
     }
-    host.innerHTML=`
-      <figure class='week-editorial-media'><img src='${safe(photo)}' alt='${safe(story.title)}' loading='${kind==='food'?'eager':'lazy'}' decoding='async'><span class='week-media-tag'>${kind==='food'?'FEATURED READ':'QUICK HIT'}</span></figure>
-      <div class='week-editorial-body'>
-        <div class='week-editorial-top'><span class='week-card-kicker'>${kind==='food'?'FOOD FOR THOUGHT':'SNACK SHAK BYTE'}</span><span class='week-card-date'>${safe(fmtDate(dateValue(story)))}</span></div>
-        <span class='week-story-series'>${safe(storyLabel(story))}</span>
-        <h3>${safe(story.title)}</h3>
-        <p>${safe(storyText(story))}</p>
-        <a href='${safe(storyHref(story,kind))}'>${kind==='food'?'Read the full thought':'Grab the Byte'} →</a>
-      </div>`;
+    host.innerHTML=`${editorialMedia(story,kind)}<div class="week-editorial-body"><div class="week-editorial-top"><span class="week-card-kicker">${kind==='food'?'FOOD FOR THOUGHT':'SNACK SHAK BYTE'}</span><span class="week-card-date">${safe(fmtDate(dateValue(story)))}</span></div><span class="week-story-series">${safe(storyLabel(story))}</span><h3>${safe(story.title)}</h3><p>${safe(storyText(story))}</p><a href="${safe(storyHref(story,kind))}">${kind==='food'?'Read the full thought':'Grab the Byte'} →</a></div>`;
+    wireMediaFallback(host);
   }
-  function snapshot(host,{kicker,title,copy,meta='',href,label='Explore',secondaryHref='',secondaryLabel='',image='',imageAlt=''}){
+
+  function snapshot(host,{kicker,title,copy,meta='',href,label='Explore',secondaryHref='',secondaryLabel='',media=[]}){
     if(!host)return;
     host.dataset.href=href;
     host.setAttribute('role','link');
     host.tabIndex=0;
-    const photo=sitePhoto(image)||snapshotPhoto(kicker);
-    host.innerHTML=`
-      <div class='week-snapshot-media'><img src='${safe(photo)}' alt='${safe(imageAlt||title)}' loading='lazy' decoding='async'><span>${safe(kicker)}</span></div>
-      <div class='week-snapshot-content'>
-        <div class='week-snapshot-top'><span class='week-card-kicker'>${safe(kicker)}</span>${meta?`<span class='week-card-meta'>${safe(meta)}</span>`:''}</div>
-        <h3>${safe(title)}</h3>
-        <p>${safe(copy)}</p>
-        <div class='week-card-actions'><a href='${safe(href)}'>${safe(label)} →</a>${secondaryHref?`<a class='secondary' href='${safe(secondaryHref)}'>${safe(secondaryLabel||'More')} →</a>`:''}</div>
-      </div>`;
+    host.innerHTML=`${mediaMarkup(media,kicker)}<div class="week-snapshot-content"><div class="week-snapshot-top"><span class="week-card-kicker">${safe(kicker)}</span>${meta?`<span class="week-card-meta">${safe(meta)}</span>`:''}</div><h3>${safe(title)}</h3><p>${safe(copy)}</p><div class="week-card-actions"><a href="${safe(href)}">${safe(label)} →</a>${secondaryHref?`<a class="secondary" href="${safe(secondaryHref)}">${safe(secondaryLabel||'More')} →</a>`:''}</div></div>`;
+    wireMediaFallback(host);
   }
   function snapshotError(host,kicker,title,href){snapshot(host,{kicker,title,copy:'This section is reconnecting. The full page is still available.',href,label:'Open section'});}
 
@@ -194,7 +199,7 @@
     section.dataset.tileNavigationReady='1';
     const open=event=>{
       const tile=event.target.closest('.week-editorial-card[data-href],.week-snapshot-card[data-href]');
-      if(!tile||event.target.closest('a,button,input,select,textarea'))return;
+      if(!tile||event.target.closest('a,button,input,select,textarea,label,summary'))return;
       if(event.type==='keydown'&&!['Enter',' '].includes(event.key))return;
       if(event.type==='keydown')event.preventDefault();
       location.href=tile.dataset.href;
@@ -219,8 +224,7 @@
     const doc=new DOMParser().parseFromString(html,'text/html');
     doc.querySelectorAll('script,style,nav,footer').forEach(node=>node.remove());
     const candidates=[...doc.querySelectorAll('main .page-heading p,main .hero-copy,main article p,main .page-note,main section p,main p')]
-      .map(node=>text(node.textContent))
-      .filter(value=>value.length>=45&&value.length<=420)
+      .map(node=>text(node.textContent)).filter(value=>value.length>=45&&value.length<=420)
       .filter(value=>!/(independent, fan-built|back to top|all rights reserved|privacy|cookie)/i.test(value));
     return short(candidates[0]||'',185);
   }
@@ -229,7 +233,7 @@
     const stat=document.getElementById('weekHubStat');
     const results=await Promise.allSettled([fetchHtml('/stat-kitchen.html')]);
     const statCopy=results[0].status==='fulfilled'?usefulPageCopy(results[0].value):'';
-    snapshot(stat,{kicker:'STAT KITCHEN',title:'The latest numbers on the stove',copy:statCopy||'The Stat Kitchen is tracking the newest leaderboards, milestones and number-driven context from around the W.',meta:'LATEST SNAPSHOT',href:'/stat-kitchen.html',label:'Open Stat Kitchen'});
+    snapshot(stat,{kicker:'STAT KITCHEN',title:'The latest numbers on the stove',copy:statCopy||'The Stat Kitchen is tracking the newest leaderboards, milestones and number-driven context from around the W.',meta:'LATEST SNAPSHOT',href:'/stat-kitchen.html',label:'Open Stat Kitchen',media:[{src:MEDIA.stats,alt:'Current WNBA standings snapshot',focus:'50% 38%',mobileFocus:'50% 38%'}]});
   }
 
   function latestRotation(payload={},keyName){return [...(payload[keyName]||[])].sort((a,b)=>String(b.week||'').localeCompare(String(a.week||'')))[0]||{};}
@@ -238,9 +242,11 @@
     try{
       const data=await fetchJson('/rotation-history.json');
       const sf=latestRotation(data,'startingFive'),bm=latestRotation(data,'benchMob');
-      const names=(sf.picks||[]).map(item=>item.name).filter(Boolean);
+      const picks=Array.isArray(sf.picks)?sf.picks:[];
+      const names=picks.map(item=>item.name).filter(Boolean);
       const week=sf.week||bm.week;
-      snapshot(host,{kicker:'SHAK’S MOCK ROTATIONS',title:names.length?`The five: ${names.slice(0,3).join(', ')}${names.length>3?' +2':''}`:'This week’s five is setting',copy:names.length?`Shak’s latest Starting Five is ${names.join(', ')}. The Bench Mob is refreshed on the same weekly board.`:'The newest Starting Five and Bench Mob are reconnecting.',meta:week?`WEEK OF ${fmtShortDate(week)}`:'THIS WEEK',href:'/starting-five.html',label:'See Starting Five',secondaryHref:'/bench-mob.html',secondaryLabel:'Bench Mob'});
+      const rotationMedia=picks.slice(0,3).map(item=>({src:item.photo||'',alt:item.name||'Shak rotation selection',focus:'50% 20%',mobileFocus:'50% 16%'})).filter(item=>item.src);
+      snapshot(host,{kicker:'SHAK’S MOCK ROTATIONS',title:names.length?`The five: ${names.slice(0,3).join(', ')}${names.length>3?' +2':''}`:'This week’s five is setting',copy:names.length?`Shak’s latest Starting Five is ${names.join(', ')}. The Bench Mob is refreshed on the same weekly board.`:'The newest Starting Five and Bench Mob are reconnecting.',meta:week?`WEEK OF ${fmtShortDate(week)}`:'THIS WEEK',href:'/starting-five.html',label:'See Starting Five',secondaryHref:'/bench-mob.html',secondaryLabel:'Bench Mob',media:rotationMedia});
       return timeValue(week||data.updatedAt);
     }catch{snapshotError(host,'SHAK’S MOCK ROTATIONS','This week’s rotation','/starting-five.html');return 0;}
   }
@@ -252,7 +258,17 @@
     if(!parsed||Number.isNaN(parsed.getTime()))return game.date||'TBD';
     return parsed.toLocaleString([],{weekday:'short',month:'short',day:'numeric',hour:'numeric',minute:'2-digit'});
   }
-  function gameTitle(game={}){return `${game.awayTeam||game.away?.name||'TBD'} @ ${game.homeTeam||game.home?.name||'TBD'}`;}
+  function awayName(game={}){return game.awayTeam||game.away?.name||'TBD';}
+  function homeName(game={}){return game.homeTeam||game.home?.name||'TBD';}
+  function gameTitle(game={}){return `${awayName(game)} @ ${homeName(game)}`;}
+  function gameMedia(game={}){
+    const away=awayName(game),home=homeName(game);
+    return [
+      {src:teamPoster(away),alt:`${away} team artwork`,focus:'50% 50%'},
+      {src:teamPoster(home),alt:`${home} team artwork`,focus:'50% 50%'}
+    ].filter(item=>item.src);
+  }
+
   async function loadLeagueData(){
     const liveHost=document.getElementById('weekHubLive'),gamesHost=document.getElementById('weekHubGames');
     try{
@@ -263,9 +279,9 @@
       const upcoming=Array.isArray(stats.upcomingGames)?stats.upcomingGames:[];
       const team=leader?.team?.full_name||leader?.team||'Standings leader';
       const record=Number.isFinite(Number(leader?.wins))?`${leader.wins}-${leader.losses}`:'';
-      snapshot(liveHost,{kicker:'LIVE STATS',title:leader?`${team}${record?` · ${record}`:''}`:'Standings are refreshing',copy:live.length?`${live.length} WNBA game${live.length===1?' is':'s are'} live right now. The full standings and current game state are one click away.`:'No WNBA game is live at this moment. Current standings and season numbers are still refreshed on the live board.',meta:live.length?'LIVE NOW':'CURRENT SEASON',href:'/live-stats.html',label:'Open Live Stats'});
+      snapshot(liveHost,{kicker:'LIVE STATS',title:leader?`${team}${record?` · ${record}`:''}`:'Standings are refreshing',copy:live.length?`${live.length} WNBA game${live.length===1?' is':'s are'} live right now. The full standings and current game state are one click away.`:'No WNBA game is live at this moment. Current standings and season numbers are still refreshed on the live board.',meta:live.length?'LIVE NOW':'CURRENT SEASON',href:'/live-stats.html',label:'Open Live Stats',media:[{src:MEDIA.stats,alt:'WNBA live standings snapshot',focus:'50% 38%'}]});
       const game=live[0]||upcoming[0];
-      snapshot(gamesHost,{kicker:'GAMES',title:game?gameTitle(game):'Next tip is loading',copy:game?`${live.length?'Happening now':'Next on the schedule'} · ${gameTime(game)}${game.status?` · ${game.status}`:''}`:'The schedule is between loaded windows. Open Games for the full slate, results and broadcast information.',meta:live.length?'LIVE':'UP NEXT',href:'/games.html',label:'Open Games'});
+      snapshot(gamesHost,{kicker:'GAMES',title:game?gameTitle(game):'Next tip is loading',copy:game?`${live.length?'Happening now':'Next on the schedule'} · ${gameTime(game)}${game.status?` · ${game.status}`:''}`:'The schedule is between loaded windows. Open Games for the full slate, results and broadcast information.',meta:live.length?'LIVE':'UP NEXT',href:'/games.html',label:'Open Games',media:game?gameMedia(game):[]});
       return timeValue(stats.checkedAt||stats.updatedAt);
     }catch{
       snapshotError(liveHost,'LIVE STATS','Current standings','/live-stats.html');
@@ -283,64 +299,22 @@
     const move=(movement.transactions||[])[0];
     const injuries=Array.isArray(availability.injuries)?availability.injuries:[];
     const latestAvailability=injuries[0];
-    const injuryCount=Number(availability.injuryCount)||((availability.injuries||[]).length||0);
+    const injuryCount=Number(availability.injuryCount)||injuries.length||0;
     if(move){
       const action=text(move.type||'ROSTER MOVE').replace(/_/g,' ');
       const detail=short(move.detail||`${move.player} · ${move.team}`,135);
-      snapshot(movementHost,{kicker:'PLAYER MOVEMENT',title:`${move.player} · ${action}`,copy:detail,meta:move.date?fmtShortDate(move.date):'LATEST MOVE',href:'/player-movement.html',label:'Open Player Movement',image:move.photo||move.headshot||'',imageAlt:move.player||'Latest WNBA roster move'});
+      snapshot(movementHost,{kicker:'PLAYER MOVEMENT',title:`${move.player} · ${action}`,copy:detail,meta:move.date?fmtShortDate(move.date):'LATEST MOVE',href:'/player-movement.html',label:'Open Player Movement',media:move.photo?[{src:move.photo,alt:move.player||'Latest WNBA roster move',focus:'50% 18%',mobileFocus:'50% 15%'}]:[]});
     }else{
       snapshot(movementHost,{kicker:'PLAYER MOVEMENT',title:'The roster wire is refreshing',copy:'Signings, waivers, trades and contract changes will return here as soon as the live feed reconnects.',href:'/player-movement.html',label:'Open Player Movement'});
     }
     if(latestAvailability){
       const status=text(latestAvailability.status||'STATUS').replace(/_/g,' ');
       const latestLine=short(latestAvailability.reason||`${latestAvailability.player} · ${latestAvailability.team}`,120);
-      snapshot(availabilityHost,{kicker:'AVAILABILITY REPORT',title:`${injuryCount} tracked status${injuryCount===1?'':'es'}`,copy:`Latest: ${latestAvailability.player} · ${status}. ${latestLine}`,meta:availability.latestReportDate?fmtShortDate(availability.latestReportDate):'CURRENT REPORT',href:'/availability-report.html',label:'Open Availability',image:latestAvailability.photo||latestAvailability.headshot||'',imageAlt:latestAvailability.player||'Latest WNBA availability update'});
+      snapshot(availabilityHost,{kicker:'AVAILABILITY REPORT',title:`${injuryCount} tracked status${injuryCount===1?'':'es'}`,copy:`Latest: ${latestAvailability.player} · ${status}. ${latestLine}`,meta:availability.latestReportDate?fmtShortDate(availability.latestReportDate):'CURRENT REPORT',href:'/availability-report.html',label:'Open Availability',media:latestAvailability.photo?[{src:latestAvailability.photo,alt:latestAvailability.player||'Latest WNBA availability update',focus:'50% 18%',mobileFocus:'50% 15%'}]:[]});
     }else{
       snapshot(availabilityHost,{kicker:'AVAILABILITY REPORT',title:'The status board is refreshing',copy:'Current injury designations, game status and return notes will return here as soon as the official report reconnects.',href:'/availability-report.html',label:'Open Availability'});
     }
     return Math.max(timeValue(movement.checkedAt||movement.latestTransactionDate),timeValue(availability.checkedAt||availability.latestReportDate));
-  }
-
-  function collectObjects(value,output=[]){
-    if(Array.isArray(value)){value.forEach(item=>collectObjects(item,output));return output;}
-    if(!value||typeof value!=='object')return output;
-    output.push(value);
-    Object.values(value).forEach(item=>{if(item&&typeof item==='object')collectObjects(item,output);});
-    return output;
-  }
-  function fibaTeamName(side={}){return side.name||side.full_name||side.code||'';}
-  async function loadFiba(){
-    const host=document.getElementById('weekHubFiba');
-    try{
-      const data=await fetchJson('/api/fiba-world-cup');
-      const objects=collectObjects(data,[]);
-      const games=objects.filter(item=>item&&item!==data&&(item.home||item.homeTeam)&&(item.away||item.awayTeam));
-      const usaGames=games.filter(game=>/united states|\busa\b/i.test(`${fibaTeamName(game.home||{})} ${fibaTeamName(game.away||{})} ${game.homeTeam||''} ${game.awayTeam||''}`));
-      const future=usaGames.filter(game=>{
-        const value=game.startTimeUtc||game.date||'';
-        const when=timeValue(value);
-        return !when||when>=Date.now()-3*60*60*1000;
-      }).sort((a,b)=>timeValue(a.startTimeUtc||a.date)-timeValue(b.startTimeUtc||b.date));
-      const game=future[0]||usaGames[0];
-      let title='World Cup watch · Berlin 2026',copy='Team USA, group play, standings and player stats are tracked in the FIBA World Cup dashboard.';
-      if(game){
-        const home=game.homeTeam||fibaTeamName(game.home||{}),away=game.awayTeam||fibaTeamName(game.away||{});
-        title='USA World Cup watch';
-        copy=`${away||'TBD'} vs. ${home||'TBD'} · ${gameTime({...game,awayTeam:away,homeTeam:home})}. Follow the full tournament and Team USA from the dedicated dashboard.`;
-      }
-      snapshot(host,{kicker:'FIBA BASKETBALL',title,copy,meta:'WORLD CUP 2026',href:'/fiba-world-cup.html',label:'Open FIBA World Cup'});
-      return timeValue(data.checkedAt||data.updatedAt);
-    }catch{snapshotError(host,'FIBA BASKETBALL','World Cup watch','/fiba-world-cup.html');return 0;}
-  }
-
-  async function loadCollege(){
-    const host=document.getElementById('weekHubCollege');
-    try{
-      const data=await fetchJson('/college-snapshot-2025-26.json');
-      const champ=data.championship||{};
-      snapshot(host,{kicker:'COLLEGE HOOPS',title:champ.champion?`${champ.champion} · reigning champion`:'The college pipeline',copy:champ.champion?`${champ.champion} closed ${data.season||'the season'} at ${champ.record||'the top'} with a ${champ.score||''} title-game win over ${champ.runnerUp||'the runner-up'}. The offseason snapshot stays up while 2026-27 comes into view.`:'Prospects, leaders and the college-to-W pipeline live in Class Is in Session.',meta:data.season||'NCAAW',href:'/class-is-in-session.html',label:'Open College Hoops'});
-      return timeValue(champ.date);
-    }catch{snapshotError(host,'COLLEGE HOOPS','The college pipeline','/class-is-in-session.html');return 0;}
   }
 
   function setStamp(values=[]){

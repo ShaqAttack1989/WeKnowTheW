@@ -5,7 +5,7 @@
   const slug=params.get('team')||'';
   if(!slug)return;
 
-  const VERSION='20260830-burton-v1';
+  const VERSION='20260915-tina-charles-liberty-v1';
   const CURATED={
     'seattle-storm':[
       {
@@ -108,6 +108,17 @@
         sourceUrl:'https://wings.wnba.com/news/dallas-wings-sign-kitija-laksa',
         supersedes:['Kitija Laksa'],
         priority:2
+      }
+    ],
+    'new-york-liberty':[
+      {
+        date:'2026-09-15',
+        kind:'FRONT OFFICE',
+        player:'Tina Charles',
+        detail:'Liberty legend Tina Charles returned to the organization as a front-office intern while pursuing her master’s degree in Sports Management at UConn.',
+        sourceLabel:'New York Liberty / CT Insider',
+        sourceUrl:'https://www.ctpost.com/sports/uconn-womens-basketball/article/tina-charles-new-york-liberty-intern-masters-22433522.php',
+        priority:6
       }
     ],
     'las-vegas-aces':[

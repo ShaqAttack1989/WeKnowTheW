@@ -2,6 +2,55 @@
   "site": "Snack Shak",
   "posts": [
     {
+      "slug": "welcome-back-to-the-w-september-17-2026",
+      "type": "feature",
+      "priority": 1400,
+      "seriesLabel": "FOOD FOR THOUGHT · WELCOME BACK TO THE W",
+      "title": "Welcome Back to the W: Five Games, Ten Teams, One Final Sprint",
+      "published": "2026-09-15",
+      "week": "WNBA returns September 17 · Five game watch guide",
+      "dashboardUrl": "/welcome-back-to-the-w-2026.html",
+      "image": "https://assets.fiba.basketball/image/upload/w_720,h_960,c_pad,g_north/f_png/q_auto/.headshot--person_283322--competition_208875",
+      "storyImage": "https://assets.fiba.basketball/image/upload/w_720,h_960,c_pad,g_north/f_png/q_auto/.headshot--person_283322--competition_208875",
+      "imageAlt": "Official FIBA player image of Jackie Young, one of the WNBA players returning from the 2026 World Cup",
+      "storyImageCaption": "Official player photography only. The full guide uses current WNBA roster photos and team logos with no AI generated player imagery.",
+      "teams": ["Connecticut Sun", "Atlanta Dream", "Washington Mystics", "Chicago Sky", "Los Angeles Sparks", "Dallas Wings", "Phoenix Mercury", "Portland Fire", "Las Vegas Aces", "Seattle Storm"],
+      "players": ["Rhyne Howard", "Sonia Citron", "Rickea Jackson", "Paige Bueckers", "Carla Leite", "Jackie Young", "Dominique Malonga"],
+      "dek": "The passports are back in the drawer and the W jerseys are back on. September 17 brings five games, ten teams, two national TV windows and one final week to sharpen seed lines, rotations and playoff habits.",
+      "sections": [
+        {
+          "title": "The W comes back all at once",
+          "paragraphs": [
+            "The WNBA returns September 17 with Connecticut at Atlanta, Washington at Chicago, Los Angeles at Dallas, Phoenix at Portland and Las Vegas at Seattle. The first two games tip at 7:30 PM ET, Dallas follows at 8:00, and the late window begins at 10:00.",
+            "This is not a normal restart. The regular season ends September 24 and the playoffs begin September 27. That turns every possession into information about seeding, rhythm, workload and which teams can switch back from international basketball fastest."
+          ]
+        },
+        {
+          "title": "The guide is a dashboard, not a poster",
+          "paragraphs": [
+            "The full watch guide connects to the site's live 2026 standings and game feeds, official team artwork, current Playerpedia rosters and advanced player metrics. Scores, records, streaks, last ten form, PER and true shooting can update without rewriting the story.",
+            "It also teaches four things to watch beyond points: the first five minutes after the international break, the possession battle, what happens after a paint touch and which five players a coach trusts to close."
+          ]
+        },
+        {
+          "title": "Real players only",
+          "paragraphs": [
+            "Player cards use official WNBA headshots when available and real ESPN roster photography as the fallback. Team marks come from the site's existing team artwork feed. No AI generated player images are used in the guide."
+          ]
+        }
+      ],
+      "debates": [
+        "Which returning international player will look most different when she changes back to her WNBA role?",
+        "Which September 17 game tells us the most about playoff seeding?",
+        "What matters more on the first night back, fresh legs or immediate chemistry?"
+      ],
+      "sources": [
+        {"label": "Full Welcome Back to the W watch guide", "url": "https://www.weknowthew.com/welcome-back-to-the-w-2026.html"},
+        {"label": "WNBA World Cup FAQ and September 17 return schedule", "url": "https://www.wnba.com/news/2026-fiba-womens-basketball-world-cup-faq"},
+        {"label": "WNBA standings", "url": "https://www.wnba.com/standings"}
+      ]
+    },
+    {
       "slug": "shaks-all-fiba-starting-five-bench-mob-2026",
       "type": "byte",
       "priority": 1200,
@@ -34,7 +83,7 @@
           ["Honorable Mention", "Steph Talbot", "Australia", "13.8 PPG, 8.6 RPG, 4.4 APG and 21.0 EFF"],
           ["Honorable Mention", "Nyara Sabally", "Germany", "12.1 PPG, 6.0 RPG and All-Second Team recognition"],
           ["Honorable Mention", "Janelle Salaun", "France", "11.2 PPG, 5.8 RPG and All-Second Team recognition"],
-          ["Honorable Mention", "Dorka Juhasz", "Hungary", "12.6 PPG, 10.4 RPG and a tournament double double" ]
+          ["Honorable Mention", "Dorka Juhasz", "Hungary", "12.6 PPG, 10.4 RPG and a tournament double double"]
         ]
       },
       "sections": [

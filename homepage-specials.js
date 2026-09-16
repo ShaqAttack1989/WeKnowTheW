@@ -7,14 +7,14 @@
     document.head.appendChild(s);
   }
 
-  const safe=value=>String(value??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[ch]));
+  const safe=value=>String(value??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot',"'":'&#039;'}[ch]));
   const norm=value=>String(value||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,' ').trim();
   const short=(value='',limit=180)=>{const text=String(value||'').replace(/\s+/g,' ').trim();return text.length<=limit?text:`${text.slice(0,limit).replace(/\s+\S*$/,'').trim()}…`;};
   const fmtDate=value=>{const date=new Date(`${String(value||'').slice(0,10)}T12:00:00`);return Number.isNaN(date.getTime())?String(value||''):date.toLocaleDateString([],{month:'short',day:'numeric'});};
   const dateKey=post=>String(post?.updated||post?.published||'');
   const dateLabel=post=>`${post?.updated&&String(post.updated)>String(post.published||'')?'UPDATED ':' '}${fmtDate(dateKey(post))}`.trim();
   const BYTE_FALLBACK='/assets/images/snack-shak/power-rankings-vs-standings-aug30.webp';
-  const FOOD_FALLBACK='/assets/images/fiba-group-play/france-action.jpg';
+  const FOOD_FALLBACK='/assets/images/17995.png';
 
   let posts=[];
   let loadedAt=0;
@@ -43,23 +43,103 @@
     return post?.type==='feature'?`/food-for-thought.html?post=${slug}#story`:`/snack-shak-bytes.html?post=${slug}#story`;
   }
 
-  function finalStory(){return posts.find(post=>post.slug==='fiba-final-recap-2026')||posts.find(post=>post.slug==='usa-france-world-cup-final-2026')||null;}
   function isByte(post={}){return post.type==='byte'||norm(post.seriesLabel).includes('snack shak byte')||norm(post.seriesLabel).includes('byte');}
   function isFood(post={}){const label=norm(`${post.type||''} ${post.seriesLabel||''}`);return post.type==='feature'&&(label.includes('food for thought')||!label.includes('milestone'));}
+  function isFibaPost(post={}){
+    const hay=norm(`${post.slug||''} ${post.title||''} ${post.seriesLabel||''} ${post.dek||''} ${(post.teams||[]).join(' ')}`);
+    return hay.includes('fiba')||hay.includes('world cup')||hay.includes('berlin 2026')||hay.includes('usa france');
+  }
+
+  function sunsetFibaSpotlight(){
+    const spotlight=document.querySelector('.home-season-spotlight');
+    if(!spotlight)return;
+    spotlight.dataset.season='wnba-return';
+    spotlight.setAttribute('aria-label','WNBA regular season return spotlight');
+    spotlight.innerHTML=`<div class="page-shell">
+      <div class="season-spotlight-frame">
+        <header class="season-spotlight-head">
+          <div class="season-spotlight-copy">
+            <p class="season-spotlight-kicker"><span><i aria-hidden="true"></i> Now playing</span> WNBA regular season</p>
+            <h2 id="seasonSpotlightTitle">Welcome Back <em>to the W</em></h2>
+            <p>The World Cup window is closed. The league returns September 17 with five games, ten teams and one final week to sharpen the playoff picture.</p>
+          </div>
+          <aside class="season-spotlight-status" aria-label="Current WNBA schedule window">
+            <span>RETURNS</span>
+            <strong>SEPT. <br>17</strong>
+            <small>FINAL REGULAR SEASON SPRINT</small>
+          </aside>
+        </header>
+
+        <nav class="season-spotlight-nav" aria-label="WNBA return shortcuts">
+          <a class="is-featured" href="/welcome-back-to-the-w-2026.html">Sept. 17 watch guide</a>
+          <a href="/live-stats.html">Live Stats</a>
+          <a href="/around-the-w.html">Around the W</a>
+          <a href="/playerpedia.html">Playerpedia</a>
+        </nav>
+
+        <div class="season-story-grid">
+          <a class="season-story season-story-lead" href="/welcome-back-to-the-w-2026.html">
+            <figure class="season-story-media">
+              <img src="/assets/images/17989.png" alt="Atlanta Dream team artwork" loading="eager">
+              <span>SEPTEMBER 17 WATCH GUIDE</span>
+            </figure>
+            <div class="season-story-copy">
+              <p class="season-story-label">5 GAMES · 10 TEAMS · ONE FINAL WEEK</p>
+              <h3>Welcome back to the W.</h3>
+              <p>Build the return night watch plan with real player photos, team logos, live standings and dynamic dashboards.</p>
+              <b>Open the watch guide <span aria-hidden="true">→</span></b>
+            </div>
+          </a>
+
+          <a class="season-story" href="/live-stats.html">
+            <figure class="season-story-media">
+              <img src="/assets/images/17992.png" alt="Dallas Wings team artwork" loading="lazy">
+              <span>LIVE PLAYOFF RACE</span>
+            </figure>
+            <div class="season-story-copy">
+              <p class="season-story-label">STANDINGS · GAMES · STREAKS</p>
+              <h3>The playoff line is moving again.</h3>
+              <p>Track the top eight, current records, streaks, upcoming games and completed results from the live W dashboard.</p>
+              <b>Open Live Stats <span aria-hidden="true">→</span></b>
+            </div>
+          </a>
+
+          <a class="season-story" href="/around-the-w.html">
+            <figure class="season-story-media report-card-media">
+              <img src="/assets/images/17995.png" alt="Las Vegas Aces team artwork" loading="lazy">
+              <span>AROUND THE W</span>
+            </figure>
+            <div class="season-story-copy">
+              <p class="season-story-label">CURRENT SEASON HQ</p>
+              <h3>Back to club roles, seed fights and the closing sprint.</h3>
+              <p>Follow the current season from one front door with team pages, player movement, availability and the latest W stories.</p>
+              <b>Go Around the W <span aria-hidden="true">→</span></b>
+            </div>
+          </a>
+        </div>
+
+        <footer class="season-spotlight-foot">
+          <span>FIBA is archived. The WNBA regular season is back in the lead.</span>
+          <a href="/welcome-back-to-the-w-2026.html">Plan September 17 <span aria-hidden="true">→</span></a>
+        </footer>
+      </div>
+    </div>`;
+
+    const heroButton=document.querySelector('.hub-hero .hero-actions .button.ghost[href="#now-playing"]');
+    if(heroButton)heroButton.textContent='Welcome Back to the W';
+  }
 
   function spotlightUsed(){
     const used=new Set();
     document.querySelectorAll('.home-season-spotlight a[href]').forEach(link=>{const href=link.getAttribute('href');if(href)used.add(href);});
-    used.add('/fiba-world-cup-final-2026.html');
-    used.add('/snack-shak-bytes.html?post=team-usa-group-play-impact-report-card#story');
     return used;
   }
 
   function chooseUniqueEditorials(){
     const used=spotlightUsed();
-    const food=posts.find(post=>isFood(post)&&!used.has(featureHref(post)))||null;
+    const food=posts.find(post=>isFood(post)&&!isFibaPost(post)&&!used.has(featureHref(post)))||null;
     if(food)used.add(featureHref(food));
-    const byte=posts.find(post=>isByte(post)&&post.slug!=='usa-france-world-cup-final-2026'&&!used.has(featureHref(post)))||null;
+    const byte=posts.find(post=>isByte(post)&&!isFibaPost(post)&&!used.has(featureHref(post)))||null;
     return {food,byte};
   }
 
@@ -121,31 +201,6 @@
     grid.addEventListener('keydown',openTile);
   }
 
-  function promoteFinalSpotlight(){
-    const post=finalStory();
-    const spotlight=document.querySelector('.home-season-spotlight');
-    if(!post||!spotlight)return;
-    const isRecap=post.slug==='fiba-final-recap-2026';
-    const lead=spotlight.querySelector('.season-story-lead');
-    if(lead){
-      lead.href=featureHref(post);
-      const image=lead.querySelector('img');
-      if(image){image.src=imageFor(post,'food');image.alt=post.imageAlt||post.title||'FIBA Women’s World Cup story';}
-      const tag=lead.querySelector('.season-story-media span');
-      if(tag)tag.textContent=isRecap?'FOOD FOR THOUGHT · WORLD CHAMPIONS':'SNACK SHAK BYTE · WORLD CUP FINAL';
-      const label=lead.querySelector('.season-story-label');
-      if(label)label.textContent=isRecap?'USA 97 · FRANCE 79 · THE ADJUSTMENT WON':'USA VS FRANCE · ONE TROPHY';
-      const title=lead.querySelector('h3');
-      if(title)title.textContent=post.title;
-      const copy=lead.querySelector('.season-story-copy>p:not(.season-story-label)');
-      if(copy)copy.textContent=short(post.dek,190);
-      const cta=lead.querySelector('b');
-      if(cta)cta.innerHTML=`${isRecap?'Read the championship feature':'Open the final dashboard'} <span aria-hidden="true">→</span>`;
-    }
-    const featured=spotlight.querySelector('.season-spotlight-nav .is-featured');
-    if(featured){featured.href=featureHref(post);featured.textContent=isRecap?'Championship recap':'USA vs France final';}
-  }
-
   function latestStoryMarkup(items=[]){
     return `<div class="week-story-list">${items.map((post,index)=>`<div class="week-story-item ${index===0?'lead':''}"><span class="week-feature-meta">${safe(post.seriesLabel||'SNACK SHAK')} · ${safe(dateLabel(post))}</span><strong class="week-story-title">${safe(post.title)}</strong>${index===0&&post.dek?`<p>${safe(short(post.dek,155))}</p>`:''}<a href="${safe(featureHref(post))}">${index===0?'Read the newest story':'Read story'} →</a></div>`).join('')}</div><a class="week-story-all" href="/snack-shak.html">See all Snack Shak stories →</a>`;
   }
@@ -154,9 +209,9 @@
     const snackHost=document.getElementById('homeWeekSnackLive');
     const milestoneHost=document.getElementById('homeWeekMilestoneLive');
     if(!snackHost&&!milestoneHost)return;
-    const milestone=posts.find(post=>norm(post.seriesLabel).includes('milestone'));
+    const milestone=posts.find(post=>norm(post.seriesLabel).includes('milestone')&&!isFibaPost(post));
     const used=spotlightUsed();
-    const latestStories=posts.filter(post=>post.slug!==milestone?.slug&&!norm(post.seriesLabel).includes('milestone')&&!used.has(featureHref(post))).slice(0,3);
+    const latestStories=posts.filter(post=>post.slug!==milestone?.slug&&!norm(post.seriesLabel).includes('milestone')&&!isFibaPost(post)&&!used.has(featureHref(post))).slice(0,3);
     if(snackHost&&latestStories.length)snackHost.innerHTML=latestStoryMarkup(latestStories);
     if(milestoneHost&&milestone)milestoneHost.innerHTML=`<span class="week-feature-meta">${safe(milestone.seriesLabel||'MILESTONE MOMENT')} · ${safe(dateLabel(milestone))}</span><strong class="week-feature-title">${safe(milestone.title)}</strong><p>${safe(short(milestone.dek,205))}</p><a href="${safe(featureHref(milestone))}">Check the receipt →</a>`;
   }
@@ -193,8 +248,8 @@
   }
 
   async function refresh(force=false){
+    sunsetFibaSpotlight();
     await loadSpecials(force);
-    promoteFinalSpotlight();
     enforceUniqueEditorials();
     watchEditorial();
     wireEditorialTileNavigation();
@@ -203,6 +258,7 @@
     if(input?.value)appendSearchMatches(input.value);
   }
 
+  sunsetFibaSpotlight();
   wireSearch();
   wireEditorialTileNavigation();
   refresh();

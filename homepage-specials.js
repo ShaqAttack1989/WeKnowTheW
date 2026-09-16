@@ -7,7 +7,7 @@
     document.head.appendChild(s);
   }
 
-  const safe=value=>String(value??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot',"'":'&#039;'}[ch]));
+  const safe=value=>String(value??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[ch]));
   const norm=value=>String(value||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,' ').trim();
   const short=(value='',limit=180)=>{const text=String(value||'').replace(/\s+/g,' ').trim();return text.length<=limit?text:`${text.slice(0,limit).replace(/\s+\S*$/,'').trim()}…`;};
   const fmtDate=value=>{const date=new Date(`${String(value||'').slice(0,10)}T12:00:00`);return Number.isNaN(date.getTime())?String(value||''):date.toLocaleDateString([],{month:'short',day:'numeric'});};
@@ -61,7 +61,7 @@
           <div class="season-spotlight-copy">
             <p class="season-spotlight-kicker"><span><i aria-hidden="true"></i> Now playing</span> WNBA regular season</p>
             <h2 id="seasonSpotlightTitle">Welcome Back <em>to the W</em></h2>
-            <p>The World Cup window is closed. The league returns September 17 with five games, ten teams and one final week to sharpen the playoff picture.</p>
+            <p>The international break is over. The league returns September 17 with five games, ten teams and one final week to sharpen the playoff picture.</p>
           </div>
           <aside class="season-spotlight-status" aria-label="Current WNBA schedule window">
             <span>RETURNS</span>
@@ -119,7 +119,7 @@
         </div>
 
         <footer class="season-spotlight-foot">
-          <span>FIBA is archived. The WNBA regular season is back in the lead.</span>
+          <span>The WNBA regular season is back in the lead.</span>
           <a href="/welcome-back-to-the-w-2026.html">Plan September 17 <span aria-hidden="true">→</span></a>
         </footer>
       </div>

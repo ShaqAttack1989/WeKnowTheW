@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-27T21:52:51Z",
+  "updatedAt": "2026-09-16T22:50:00Z",
   "note": "Current-player movement and availability layer. Player Movement is maintained from the official WNBA Transactions report; Availability is maintained from the official WNBA Injury Report, with WNBA team releases used to confirm longer-term statuses.",
   "rosterOverrides": [
     {"name":"Brittney Griner","team":"Connecticut Sun","position":"Center","number":"42","status":"active","effectiveDate":"2026-04-11","reason":"Signed a one-year contract with Connecticut; confirmed on the current official Sun roster."},
@@ -67,7 +67,7 @@
     {"player":"DiJonai Carrington","team":"Chicago Sky","status":"OUT","reason":"Foot","updated":"2026-08-21","source":"WNBA Injury Report"},
     {"player":"Brionna Jones","team":"Atlanta Dream","status":"OUT","reason":"Leg","updated":"2026-08-16","source":"WNBA Injury Report"},
     {"player":"Aziaha James","team":"Dallas Wings","status":"OUT","reason":"Left leg","updated":"2026-08-20","source":"WNBA Injury Report"},
-    {"player":"Marina Mabrey","team":"Toronto Tempo","status":"OUT","reason":"Hamstring","updated":"2026-08-21","source":"WNBA Injury Report"},
+    {"player":"Marina Mabrey","team":"Toronto Tempo","status":"OUT FOR SEASON","reason":"Right adductor injury · ruled out for the final four games of the 2026 season; no surgery required and expected to recover fully ahead of 2027","updated":"2026-09-16","source":"Toronto Tempo announcement reported by Yahoo Sports","sourceUrl":"https://sports.yahoo.com/wnba/breaking-news/article/tempo-guard-marina-mabrey-out-for-rest-of-wnba-season-with-adductor-injury-161401247.html","carryover":true},
     {"player":"Nyara Sabally","team":"Toronto Tempo","status":"OUT","reason":"Calf","updated":"2026-08-21","source":"WNBA Injury Report"},
     {"player":"Maria Conde","team":"Toronto Tempo","status":"OUT","reason":"Calf","updated":"2026-08-21","source":"WNBA Injury Report"},
     {"player":"Leila Lacan","team":"Connecticut Sun","status":"AVAILABLE","reason":"Activated following overseas commitment and returned to game action","updated":"2026-05-28","source":"Connecticut Sun activation announcement / WNBA player profile"},
@@ -93,6 +93,7 @@
     {"label":"Minnesota Lynx current roster","url":"https://www.wnba.com/team/1611661324/minnesota-lynx"},
     {"label":"Dallas Wings current roster","url":"https://www.wnba.com/team/1611661321/dallas-wings"},
     {"label":"Dallas Wings: Azzi Fudd knee procedure","url":"https://wings.wnba.com/news/dallas-wings-guard-azzi-fudd-to-undergo-knee-procedure"},
+    {"label":"Toronto Tempo: Marina Mabrey season ending injury","url":"https://sports.yahoo.com/wnba/breaking-news/article/tempo-guard-marina-mabrey-out-for-rest-of-wnba-season-with-adductor-injury-161401247.html"},
     {"label":"Toronto Tempo: Zaay Green developmental contract","url":"https://tempo.wnba.com/"},
     {"label":"UPSHOT League","url":"https://upshotleague.com/"}
   ]

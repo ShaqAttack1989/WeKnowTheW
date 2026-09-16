@@ -2,6 +2,96 @@
   "site": "Snack Shak",
   "posts": [
     {
+      "slug": "we-know-the-w-2026-mock-awards",
+      "type": "feature",
+      "priority": 1500,
+      "seriesLabel": "FOOD FOR THOUGHT · 2026 MOCK AWARDS",
+      "title": "The Grades Made Their Case: Shak’s 2026 WNBA Mock Awards",
+      "published": "2026-09-16",
+      "week": "2026 WNBA awards · W Composite edition",
+      "image": "/assets/images/snack-shak/we-know-the-w-mock-awards-2026.svg",
+      "storyImage": "/assets/images/snack-shak/we-know-the-w-mock-awards-2026.svg",
+      "imageFit": "contain",
+      "imageAlt": "We Know the W 2026 mock WNBA awards card with A'ja Wilson as MVP and Defensive Player of the Year, Olivia Miles as Rookie of the Year, Megan DiLeo as Most Improved Player, Janelle Salaün as Sixth Player of the Year and Natalie Nakase as Coach of the Year",
+      "storyImageCaption": "We Know the W mock ballot using W Composite grades through September 16, 2026. This is an editorial exercise, not the official WNBA awards ballot.",
+      "teams": ["Las Vegas Aces", "Minnesota Lynx", "Indiana Fever", "Portland Fire", "Golden State Valkyries", "Toronto Tempo", "New York Liberty", "Washington Mystics", "Dallas Wings"],
+      "players": ["A'ja Wilson", "Olivia Miles", "Aliyah Boston", "Jackie Young", "Natasha Howard", "Megan DiLeo", "Janelle Salaün", "Kiki Rice", "Pauline Astier", "Lauren Betts", "Azzi Fudd"],
+      "dek": "The W Composite supplies the receipts, then the ballot makes the choices. A’ja Wilson sweeps the top two awards, Olivia Miles owns the rookie race, Natalie Nakase stays in the Coach of the Year seat, and one crowded 94 point tie decides the First Team.",
+      "storyTable": {
+        "columns": ["Award", "Pick", "Composite receipt", "The case"],
+        "rows": [
+          ["MVP", "A'ja Wilson", "96 · A+", "The highest grade on the board, with 26.0 points, 9.4 rebounds and a 32.0 PER."],
+          ["Defensive Player", "A'ja Wilson", "96 · A+ · 2.0 BPG", "The same player who drives the offense also protects the rim at an award level."],
+          ["Rookie of the Year", "Olivia Miles", "95 · A+", "The top rookie grade and second best grade in the entire league."],
+          ["Most Improved", "Megan DiLeo", "60 to 87 · plus 27", "The largest meaningful year over year W Score jump among established rotation players."],
+          ["Sixth Player", "Janelle Salaün", "85 · B+ · 0 starts", "Starter quality production and efficiency delivered entirely from a reserve role."],
+          ["Coach of the Year", "Natalie Nakase", "Golden State · 29 and 11", "The Valkyries sit second overall, two games off the league lead, with a four game winning streak."],
+          ["All WNBA First Team", "A'ja Wilson · Olivia Miles · Aliyah Boston · Jackie Young · Natasha Howard", "96 · 95 · 94 · 94 · 94", "The top two scores plus three selections from the five player 94 point tie."],
+          ["All Rookie Team", "Olivia Miles · Kiki Rice · Pauline Astier · Lauren Betts · Azzi Fudd", "95 · 87 · 85 · 83 · 81", "The five highest rookie grades on this editorial board."]
+        ]
+      },
+      "sections": [
+        {
+          "title": "Start with the score, then make the ballot",
+          "paragraphs": [
+            "The W Composite is the base layer. It blends league relative percentiles for PER, true shooting, scoring, assists, rebounding, steals and blocks, win shares per 40 and assist to turnover ratio. The scale runs from 55 to 99, and players with small samples are marked provisional.",
+            "A formula can organize the conversation, but it should not pretend to finish it. Award categories have their own rules. Role matters for Sixth Player. Year over year growth matters for Most Improved. Team performance and problem solving matter for Coach of the Year. The score gives us the receipts, then Shak makes the basketball call."
+          ]
+        },
+        {
+          "title": "A’ja Wilson owns both ends of the headline",
+          "paragraphs": [
+            "Wilson is the only player at 96, and the gap is not created by one loud category. She is averaging 26.0 points and 9.4 rebounds with a 32.0 PER and 62.0 percent true shooting. That is an MVP résumé before the defense enters the room.",
+            "Then the defense enters anyway. Wilson is averaging 2.0 blocks while carrying the largest offensive burden on this board. Giving her both MVP and Defensive Player of the Year is not double counting. It is recognizing that the league’s best composite season is elite on both sides of the floor."
+          ]
+        },
+        {
+          "title": "Olivia Miles turns the rookie race into a leaguewide statement",
+          "paragraphs": [
+            "Miles does not merely lead rookies. Her 95 is the second highest W Score in the league. Through 38 games she is producing 19.7 points, 6.0 assists and 4.6 rebounds with 60.8 percent true shooting.",
+            "That makes Rookie of the Year the simplest choice on the board. Kiki Rice, Pauline Astier, Lauren Betts and Azzi Fudd complete the All Rookie group, but Miles is playing on a different shelf."
+          ]
+        },
+        {
+          "title": "The role awards reward real change",
+          "paragraphs": [
+            "Megan DiLeo moves from a 60 in 2025 to an 87 in 2026. The leap is backed by 13.2 points per game, a 19.7 PER and 64.7 percent true shooting in a much larger role. Most Improved should reward the player whose game became meaningfully more valuable, not simply the player who received more minutes. DiLeo did both.",
+            "Janelle Salaün earns Sixth Player with an 85 grade, 12.9 points per game and no starts. Her case is exactly what the category is supposed to capture: a reserve whose production changes the level of a good team without needing a starter label."
+          ]
+        },
+        {
+          "title": "Natalie Nakase stays in the Coach of the Year seat",
+          "paragraphs": [
+            "Golden State is 29 and 11, second overall, two games behind Minnesota, riding a four game winning streak and carrying an 8 and 2 record over its last ten. That is the profile of a team that has built answers across a long season.",
+            "Nakase remains the pick because the Valkyries keep translating depth, role clarity and defensive commitment into wins. Coach of the Year should ask which team most consistently looks prepared for the problem in front of it. Golden State keeps answering yes."
+          ]
+        },
+        {
+          "title": "The 94 point tie needs an editorial tiebreaker",
+          "paragraphs": [
+            "Aliyah Boston, Caitlin Clark, Jackie Young, Natasha Howard and Paige Bueckers all carry a 94. There are only three First Team places left after Wilson and Miles, so the composite cannot separate the entire group by itself.",
+            "This ballot takes Boston, Young and Howard. Boston supplies interior efficiency and two way value. Young gives the lineup another creator, elite shooting efficiency and size at guard. Howard supplies frontcourt mobility, 7.7 rebounds, 1.7 steals and a 23.0 PER across 40 games. Clark and Bueckers are not outside because their seasons were weak. They are outside because a five player tie has to be broken somewhere, and this version favors lineup balance and two way coverage."
+          ]
+        }
+      ],
+      "debates": [
+        "Would your 94 point tiebreaker favor Caitlin Clark’s creation, Paige Bueckers’ scoring balance or the two way combination of Jackie Young and Natasha Howard?",
+        "Can any defensive candidate overcome A’ja Wilson’s value at both the rim and the center of Las Vegas’ offense?",
+        "Does Golden State’s closing stretch strengthen Natalie Nakase’s Coach of the Year case enough to make her the clear choice?"
+      ],
+      "foodSegment": {
+        "title": "The score starts the argument. It does not get the last word.",
+        "script": "A ballot without numbers is just a feeling. A ballot made only by numbers is just a spreadsheet. The W Composite tells us where the cases begin. The roles, the lineups and the season context tell us where Shak’s ballot ends."
+      },
+      "sources": [
+        {"label": "We Know the W 2026 player grades", "url": "https://www.weknowthew.com/api/player-grades?season=2026"},
+        {"label": "We Know the W live standings", "url": "https://www.weknowthew.com/live-stats.html"},
+        {"label": "Basketball Reference 2026 per game statistics", "url": "https://www.basketball-reference.com/wnba/years/2026_per_game.html"},
+        {"label": "Basketball Reference 2026 advanced statistics", "url": "https://www.basketball-reference.com/wnba/years/2026_advanced.html"},
+        {"label": "Official WNBA standings", "url": "https://www.wnba.com/standings"}
+      ]
+    },
+    {
       "slug": "welcome-back-to-the-w-september-17-2026",
       "type": "feature",
       "priority": 1400,

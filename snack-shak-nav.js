@@ -5,6 +5,23 @@
   let playoffFieldPromise=null;
   let spotlightObserver=null;
 
+  function ensureSpotlightDashboardAssets(){
+    if(!document.querySelector('link[data-spotlight-dashboards]')){
+      const link=document.createElement('link');
+      link.rel='stylesheet';
+      link.href='/homepage-spotlight-dashboards.css?v=20260917-v2';
+      link.dataset.spotlightDashboards='true';
+      document.head.appendChild(link);
+    }
+    if(!document.querySelector('script[data-spotlight-dashboards]')){
+      const script=document.createElement('script');
+      script.src='/homepage-spotlight-dashboards.js?v=20260917-v2';
+      script.dataset.spotlightDashboards='true';
+      script.defer=true;
+      document.head.appendChild(script);
+    }
+  }
+
   function playoffFieldSrc(){
     if(playoffFieldPromise)return playoffFieldPromise;
     playoffFieldPromise=Promise.all([1,2,3,4,5].map(index=>
@@ -90,7 +107,7 @@
     card.innerHTML=`<p class="kicker">COMMENTARY + ANALYSIS</p><h3>Snack Shak</h3><p>One editorial home, organized by reading length. Grab a quick Byte or settle in with Food for Thought.</p><div class="family-links"><a href="/snack-shak.html"><span>Open Snack Shak</span><span>→</span></a><a href="/snack-shak-bytes.html"><span>Snack Shak Bytes</span><span>→</span></a><a href="/food-for-thought.html"><span>Food for Thought</span><span>→</span></a></div>`;
   }
 
-  const run=()=>{normalizeNav();normalizeHomeCard();normalizeWelcomeBackCard();observeWelcomeBackCard();};
+  const run=()=>{ensureSpotlightDashboardAssets();normalizeNav();normalizeHomeCard();normalizeWelcomeBackCard();observeWelcomeBackCard();};
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',run,{once:true});else run();
   setTimeout(run,150);
   setTimeout(run,900);

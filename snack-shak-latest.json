@@ -2,6 +2,154 @@
   "site": "Snack Shak",
   "posts": [
     {
+      "slug": "liberty-post-fiba-finals-sleeper",
+      "type": "byte",
+      "priority": 1100,
+      "homepageSeason": "wnba-return",
+      "seriesLabel": "SNACK SHAK BYTE · NEW YORK LIBERTY",
+      "title": "Seven Passports, One Playbook: Are the Liberty the Post FIBA Finals Sleeper?",
+      "published": "2026-09-16",
+      "week": "Post World Cup reset · WNBA returns September 17",
+      "dashboardUrl": "/snack-shak-bytes.html?post=liberty-post-fiba-finals-sleeper#story",
+      "image": "/assets/images/snack-shak/liberty-post-fiba-sleeper.jpg",
+      "storyImage": "/assets/images/snack-shak/liberty-post-fiba-sleeper.jpg",
+      "imageAlt": "Liberty players Pauline Astier, Marine Johannes, Breanna Stewart, Leonie Fiebich and Raquel Carrera in a national team composite",
+      "storyImageCaption": "Five Liberty players reached the World Cup semifinals: Pauline Astier and Marine Johannes with France, Breanna Stewart with USA, Leonie Fiebich with Germany and Raquel Carrera with Spain. Graphic supplied by Shak, via ClutchPoints.",
+      "teams": [
+        "New York Liberty",
+        "United States",
+        "France",
+        "Germany",
+        "Spain",
+        "China",
+        "Nigeria"
+      ],
+      "players": [
+        "Breanna Stewart",
+        "Marine Johannes",
+        "Pauline Astier",
+        "Leonie Fiebich",
+        "Raquel Carrera",
+        "Han Xu",
+        "Elizabeth Balogun",
+        "Sabrina Ionescu",
+        "Jonquel Jones"
+      ],
+      "dek": "New York entered the break in sixth place, then sent a league-high seven players to six countries and put a Liberty player on every World Cup semifinalist. The talent is obvious. The playoff question is whether all of that international freedom can fit inside one Liberty offense.",
+      "storyTable": {
+        "columns": [
+          "Player",
+          "Country",
+          "World Cup receipt",
+          "Playoff translation"
+        ],
+        "rows": [
+          [
+            "Breanna Stewart",
+            "United States",
+            "12.8 PPG, 7.3 RPG, MVP and gold",
+            "The closer is already in championship rhythm."
+          ],
+          [
+            "Marine Johannes",
+            "France",
+            "14.0 PPG, a tournament-high 20 threes and silver",
+            "New York needs her range and imagination, not just spot-up minutes."
+          ],
+          [
+            "Pauline Astier",
+            "France",
+            "5.7 PPG, 2.7 APG, 58.3% FG and silver",
+            "A second organizer can keep the offense alive when pressure rises."
+          ],
+          [
+            "Leonie Fiebich",
+            "Germany",
+            "9.9 PPG, 8.6 RPG, 3.6 APG and All-Star Five",
+            "Size, rebounding and connective passing travel in any lineup."
+          ],
+          [
+            "Raquel Carrera",
+            "Spain",
+            "8.0 PPG, 5.7 RPG and bronze",
+            "A physical frontcourt option when playoff matchups get heavy."
+          ],
+          [
+            "Han Xu",
+            "China",
+            "18.8 PPG, 10.8 RPG and All-Second Team",
+            "A matchup breaker, if New York makes room for meaningful minutes."
+          ],
+          [
+            "Elizabeth Balogun",
+            "Nigeria",
+            "9.0 PPG, 2.7 RPG and 2.0 steals plus blocks per game",
+            "Length and activity deepen a defense that may need new answers."
+          ]
+        ]
+      },
+      "sections": [
+        {
+          "title": "This is what a sleeper looks like",
+          "paragraphs": [
+            "A team with Breanna Stewart, Sabrina Ionescu and Jonquel Jones should not be able to sneak up on anybody. Yet New York reached the World Cup break at 24 wins and 16 losses, sitting sixth in a crowded playoff race. That seed has become camouflage for a roster with much more championship equity than its place in the standings suggests.",
+            "No WNBA team sent more players to Berlin. Seven Liberty players represented six countries, and New York had at least one player on each of the four semifinal teams. They did not simply collect passport stamps. They carried offenses, cleaned the glass, created shots and made medal-winning decisions."
+          ]
+        },
+        {
+          "title": "The World Cup changed the question",
+          "paragraphs": [
+            "Stewart returned with gold, a second World Cup MVP award and a 22-point, 10-rebound performance in the final. Marine Johannes returned with silver after leading the tournament with 20 made threes. Leonie Fiebich became the first German player named to a Women's World Cup All-Star Five. Han Xu averaged 18.8 points and 10.8 rebounds. Raquel Carrera helped Spain win bronze, while Pauline Astier and Elizabeth Balogun showed they can make winning plays beyond the roles New York usually gives them.",
+            "So the question is no longer whether the Liberty have enough talent. Berlin settled that rather loudly. The question is whether New York can bring those fuller versions of its players back into one system without asking everybody to shrink again."
+          ]
+        },
+        {
+          "title": "Can seven international weapons fit one playoff rotation?",
+          "paragraphs": [
+            "They can, but being dynamic together does not mean everybody needs more shots. It means more ways to start and finish a possession. Let Johannes bend the floor instead of parking her in the corner. Use Fiebich as a rebounder and connector. Let Han punish smaller lineups. Trust Astier to organize a second unit. Keep Stewart moving through actions instead of making every important possession a rescue mission.",
+            "There is another advantage hiding in plain sight. While seven teammates competed in Berlin, Ionescu, Jones, Rebekah Gardner and the rest of New York's stay-home group had time to recover. The Liberty are not returning as one tired team. They are combining a rested core with an internationally sharpened one. That can be powerful, if the handoff is clean."
+          ]
+        },
+        {
+          "title": "The case against the sleeper pick",
+          "paragraphs": [
+            "A sixth seed still has to win difficult games away from home. The World Cup players also return with travel in their legs, different terminology in their heads and very little time to rebuild WNBA timing. International confidence can travel overnight. Chemistry usually prefers a connecting flight.",
+            "Role compression is the larger danger. If New York returns to predictable possessions, watches Stewart and Ionescu create everything, and treats the international breakout performances as souvenirs, the roster will look deep without playing deep. The postseason will punish that gap quickly."
+          ]
+        },
+        {
+          "title": "Shak's call: 8.2 out of 10 sleeper heat",
+          "paragraphs": [
+            "Yes, the Liberty are a real Finals sleeper. They are not the favorite, and the sixth seed is not an accident, but few lower-seeded teams can change style this many ways. New York can play through elite stars, size, shooting, switching, secondary creation or a giant at center. Most opponents can solve one version. A connected Liberty team can keep changing the exam.",
+            "The world just watched seven Liberty players become more of themselves. If New York lets them stay that way together, sixth place may become the most misleading number in the bracket."
+          ]
+        }
+      ],
+      "debates": [
+        "Should New York expand Han Xu's playoff role after her 18.8-point, 10.8-rebound World Cup?",
+        "Can the Liberty preserve Marine Johannes' freedom when the offense returns to its usual hierarchy?",
+        "Does international success make New York the most dangerous lower seed in the field?"
+      ],
+      "sources": [
+        {
+          "label": "New York Liberty: Libs Abroad World Cup recap",
+          "url": "https://liberty.wnba.com/news/libs-abroad-fiba-womens-basketball-world-cup-2026-recap"
+        },
+        {
+          "label": "Official WNBA standings",
+          "url": "https://www.wnba.com/standings"
+        },
+        {
+          "label": "Official FIBA World Cup tournament hub",
+          "url": "https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026"
+        },
+        {
+          "label": "USA vs. France final report",
+          "url": "https://www.reuters.com/sports/usa-overcome-14-point-deficit-beat-france-97-79-to-win-womens-world-cup-2026-09-13/"
+        }
+      ]
+    },
+    {
       "slug": "fiba-final-recap-2026",
       "type": "feature",
       "priority": 1000,

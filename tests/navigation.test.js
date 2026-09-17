@@ -85,7 +85,7 @@ test('Snack Shak tiles open stories directly and preserve browser history', () =
   assert.match(snackCollections, /window\.addEventListener\('popstate'/);
 });
 
-test('Snack Shak collection pages load the navigation-fixed story bundle', () => {
-  assert.match(snackBytesPage, /snack-shak-collections\.js\?v=20260915-navigation-fix-v1/);
-  assert.match(foodForThoughtPage, /snack-shak-collections\.js\?v=20260915-navigation-fix-v1/);
+test('Snack Shak collection pages load the current story bundle', () => {
+  assert.match(snackBytesPage, /snack-shak-collections\.js\?v=20260917-liberty-sleeper-v1/);
+  assert.match(foodForThoughtPage, /snack-shak-collections\.js\?v=20260917-liberty-sleeper-v1/);
 });

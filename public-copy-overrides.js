@@ -5,6 +5,9 @@
     .replace(/\s*No AI imagery is used in this edition\.?/gi,'')
     .replace(/\s*No synthetic player portraits\.?/gi,'')
     .replace(/\s*with no AI[- ]generated player imagery\.?/gi,'')
+    .replace(/\bReal roster photo of\b/gi,'Player photo of')
+    .replace(/\bReal player photography\b/gi,'Player photography')
+    .replace(/\bReal player photos\b/gi,'Player photos')
     .replace(/\s+/g,' ')
     .trim();
 
@@ -54,4 +57,36 @@
       return new Response(JSON.stringify(payload),{status:response.status,statusText:response.statusText,headers});
     }catch{return response;}
   };
+
+  function cleanElement(root){
+    if(!root||root.nodeType!==1)return;
+    const elements=[root,...root.querySelectorAll('*')];
+    for(const el of elements){
+      for(const attr of ['alt','title','aria-label']){
+        if(!el.hasAttribute?.(attr))continue;
+        const before=el.getAttribute(attr)||'';
+        const after=cleanText(before);
+        if(after!==before)el.setAttribute(attr,after);
+      }
+    }
+    const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);
+    let node;
+    while((node=walker.nextNode())){
+      const before=node.nodeValue||'';
+      const after=cleanText(before);
+      if(after!==before)node.nodeValue=after;
+    }
+  }
+
+  const run=()=>cleanElement(document.body);
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',run,{once:true});else run();
+  const observer=new MutationObserver(records=>{
+    for(const record of records){
+      for(const node of record.addedNodes){
+        if(node.nodeType===1)cleanElement(node);
+      }
+    }
+  });
+  const startObserver=()=>document.body&&observer.observe(document.body,{childList:true,subtree:true});
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',startObserver,{once:true});else startObserver();
 })();

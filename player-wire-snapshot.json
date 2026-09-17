@@ -1,0 +1,15 @@
+{
+  "generatedAt": null,
+  "movement": {
+    "latestTransactionDate": null,
+    "transactions": []
+  },
+  "availability": {
+    "latestReportDate": null,
+    "reportLabel": null,
+    "officialPdf": null,
+    "injuries": [],
+    "teamStatuses": []
+  },
+  "errors": []
+}

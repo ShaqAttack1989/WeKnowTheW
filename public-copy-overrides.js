@@ -7,9 +7,7 @@
     .replace(/\s*with no AI[- ]generated player imagery\.?/gi,'')
     .replace(/\bReal roster photo of\b/gi,'Player photo of')
     .replace(/\bReal player photography\b/gi,'Player photography')
-    .replace(/\bReal player photos\b/gi,'Player photos')
-    .replace(/\s+/g,' ')
-    .trim();
+    .replace(/\bReal player photos\b/gi,'Player photos');
 
   const scrub=value=>{
     if(typeof value==='string')return cleanText(value);

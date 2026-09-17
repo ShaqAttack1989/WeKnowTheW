@@ -21,9 +21,9 @@
     const style=document.createElement('style');
     style.id='welcomeBackPlayoffCardStyles';
     style.textContent=`
-      .home-season-spotlight .season-story-media.welcome-back-playoff-card{background:#160b33;display:flex;align-items:flex-start;justify-content:center;overflow:hidden;min-height:420px}
-      .home-season-spotlight .season-story-media.welcome-back-playoff-card img{display:block;width:100%!important;height:100%!important;max-height:560px;object-fit:contain!important;object-position:center top!important;background:#160b33}
-      @media(max-width:720px){.home-season-spotlight .season-story-media.welcome-back-playoff-card{min-height:360px}.home-season-spotlight .season-story-media.welcome-back-playoff-card img{max-height:500px}}
+      .home-season-spotlight .season-story-media.welcome-back-playoff-card{background:#160b33;display:flex;align-items:center;justify-content:center;overflow:hidden;min-height:420px}
+      .home-season-spotlight .season-story-media.welcome-back-playoff-card img{display:block;width:100%!important;height:100%!important;max-height:560px;object-fit:contain!important;object-position:center!important;background:#160b33}
+      @media(max-width:720px){.home-season-spotlight .season-story-media.welcome-back-playoff-card{aspect-ratio:1/1!important;min-height:0}.home-season-spotlight .season-story-media.welcome-back-playoff-card img{max-height:none}}
     `;
     document.head.appendChild(style);
   }

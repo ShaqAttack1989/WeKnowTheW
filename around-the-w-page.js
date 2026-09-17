@@ -31,8 +31,14 @@ function posterCard(team,record,href){
   </a>`;
 }
 
+function houstonPreviewCard(){
+  const houston={slug:'houston-comets',name:'Houston Comets',city:'Houston',tag:'HOU',primary:'#d71920',secondary:'#050505',accent:'#ffffff',text:'#ffffff',note:'Connecticut relocates · Toyota Center',recordLabel:'2027'};
+  return `<div class="directory-expansion-label"><span>2027 MARKET MOVE</span><strong>She's back: Houston Comets</strong></div>
+  ${posterCard(houston,null,'/houston-comets.html').replace('team-directory-card approved-local-poster','team-directory-card approved-local-poster expansion-preview-card')}`;
+}
+
 function clevelandPreviewCard(){
-  return `<div class="directory-expansion-label"><span>EXPANSION PREVIEW</span><strong>Next stop: Cleveland · 2028</strong></div>
+  return `<div class="directory-expansion-label"><span>2028 EXPANSION PREVIEW</span><strong>Next added team: Cleveland · 2028</strong></div>
   ${posterCard({...CLEVELAND_SIRENS, note:'Expansion team · Hear the Call', recordLabel:'2028'},null,CLEVELAND_SIRENS.href).replace('team-directory-card approved-local-poster','team-directory-card approved-local-poster expansion-preview-card')}`;
 }
 
@@ -43,7 +49,7 @@ function renderDirectory(records=[]){
     const record=records.find(r=>norm(r.team?.full_name)===norm(team.name));
     return posterCard(team,record);
   }).join('');
-  grid.innerHTML=currentCards+clevelandPreviewCard();
+  grid.innerHTML=currentCards+houstonPreviewCard()+clevelandPreviewCard();
 }
 
 async function loadAround(){

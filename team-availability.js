@@ -10,9 +10,14 @@
 
   let applying=false;
   let authoritativeHtml='';
-  const shortDate=value=>{
+  const isoDate=value=>{
     const raw=String(value||'').slice(0,10);
-    const iso=/^\d{4}-\d{2}-\d{2}$/.test(raw)?raw:(()=>{const m=String(value||'').match(/^(\d{2})\/(\d{2})\/(\d{4})/);return m?`${m[3]}-${m[1]}-${m[2]}`:'';})();
+    if(/^\d{4}-\d{2}-\d{2}$/.test(raw))return raw;
+    const m=String(value||'').match(/^(\d{2})\/(\d{2})\/(\d{4})/);
+    return m?`${m[3]}-${m[1]}-${m[2]}`:'';
+  };
+  const shortDate=value=>{
+    const iso=isoDate(value);
     if(!iso)return 'Current';
     const date=new Date(`${iso}T12:00:00`);
     return Number.isNaN(date.getTime())?'Current':new Intl.DateTimeFormat('en-US',{month:'short',day:'numeric'}).format(date);
@@ -55,20 +60,40 @@
           player:item.player||'Player update',
           detail:item.reason||'Availability update',
           date:shortDate(item.updated||item.gameDate),
+          sortDate:isoDate(item.updated||item.gameDate),
           context:[item.matchup,item.gameTime,item.crossCheckOnly?'Cross-check feed':''].filter(Boolean).join(' · '),
-          priority:item.officialCurrentReport?0:item.crossCheckOnly?1:2
-        }))
-        .sort((a,b)=>a.priority-b.priority||a.player.localeCompare(b.player));
+          seasonLong:String(item.status||'').toUpperCase().includes('SEASON')
+        }));
       const transactions=(Array.isArray(movement.transactions)?movement.transactions:[])
         .filter(item=>norm(item.team)===teamKey)
-        .slice(0,2)
-        .map(item=>({kind:item.type||'Movement',player:item.player||'Team update',detail:item.detail||'Roster update',date:shortDate(item.date),context:'Player Movement',priority:3}));
+        .map(item=>({
+          kind:item.type||'Movement',
+          player:item.player||'Team update',
+          detail:item.detail||'Roster update',
+          date:shortDate(item.date),
+          sortDate:isoDate(item.date),
+          context:'Player Movement',
+          seasonLong:false
+        }));
+
+      const combined=[...injuries,...transactions]
+        .sort((a,b)=>String(b.sortDate||'').localeCompare(String(a.sortDate||''))||String(a.player||'').localeCompare(String(b.player||'')));
+      const mustKeep=combined.filter(item=>item.seasonLong);
+      const otherRecent=combined.filter(item=>!item.seasonLong).slice(0,6);
+      const seen=new Set();
+      const updates=[...mustKeep,...otherRecent]
+        .sort((a,b)=>String(b.sortDate||'').localeCompare(String(a.sortDate||''))||String(a.player||'').localeCompare(String(b.player||'')))
+        .filter(item=>{
+          const id=`${item.sortDate}|${norm(item.player)}|${norm(item.kind)}`;
+          if(seen.has(id))return false;
+          seen.add(id);
+          return true;
+        });
 
       let html='';
       if(pending){
         html+=`<article class="team-availability-pending"><div><span>OFFICIAL REPORT</span><time>${esc(shortDate(pending.gameDate))}</time></div><strong>${esc(teamName)} · NOT YET SUBMITTED</strong><p>The WNBA has not yet received this team’s official availability report for ${esc(pending.matchup||'the upcoming game')}.</p></article>`;
       }
-      const updates=[...injuries,...transactions].slice(0,6);
       html+=updates.map(card).join('');
       if(!html){
         html=availability.partial
@@ -76,7 +101,7 @@
           : `<div class="dream-wire-clear"><span aria-hidden="true">✓</span><div><strong>No active ${esc(teamName)} availability entries in the current official report.</strong><p>The team box checks the same WNBA report as the full Availability page every 30 minutes.</p></div></div>`;
       }
       const sourceLabel=availability.fallbackSnapshot?'Availability cross-check':'Official availability';
-      const source=`<div class="team-availability-source">${sourceLabel}${!availability.fallbackSnapshot&&availability.reportLabel?` · ${esc(availability.reportLabel)}`:''}${availability.checkedAt?` · checked ${esc(checked(availability.checkedAt))}`:''} · <a href="/availability-report.html">full report →</a></div>`;
+      const source=`<div class="team-availability-source">Newest updates first · ${sourceLabel}${!availability.fallbackSnapshot&&availability.reportLabel?` · ${esc(availability.reportLabel)}`:''}${availability.checkedAt?` · checked ${esc(checked(availability.checkedAt))}`:''} · <a href="/availability-report.html">full report →</a></div>`;
       apply(html+source);
     }catch(error){
       if(!authoritativeHtml)apply(`<div class="team-error">The availability feed is temporarily unavailable. <a href="/availability-report.html">Open the full report →</a></div>`);

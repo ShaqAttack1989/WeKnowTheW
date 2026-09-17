@@ -1,0 +1,58 @@
+.wbw-team-copy{min-width:0}
+.wbw-team-copy b{line-height:1.2;overflow-wrap:anywhere}
+.wbw-team-copy small{line-height:1.4}
+.wbw-score span{line-height:1.15}
+
+@media (min-width:821px) and (max-width:1240px){
+  .wbw-matchup{
+    grid-template-columns:minmax(0,1fr) 88px minmax(0,1fr);
+    gap:14px;
+    align-items:start;
+    padding:22px 18px 24px;
+  }
+  .wbw-team-side{
+    grid-template-columns:50px minmax(0,1fr);
+    gap:10px;
+    align-items:start;
+    min-width:0;
+  }
+  .wbw-team-side.home{
+    grid-template-columns:minmax(0,1fr) 50px;
+  }
+  .wbw-team-logo{
+    width:50px;
+    height:50px;
+    padding:6px;
+  }
+  .wbw-team-copy b{
+    font-size:.94rem;
+    line-height:1.22;
+  }
+  .wbw-team-copy small{
+    margin-top:5px;
+    font-size:.76rem;
+    line-height:1.42;
+  }
+  .wbw-score{
+    min-width:88px;
+    padding-top:3px;
+  }
+  .wbw-score strong{
+    display:block;
+    font-size:1.55rem;
+    line-height:1.05;
+    white-space:nowrap;
+  }
+  .wbw-score span{
+    margin-top:7px;
+    font-size:.61rem;
+    line-height:1.15;
+    letter-spacing:0;
+    white-space:nowrap;
+  }
+}
+
+@media (min-width:821px) and (max-width:980px){
+  .wbw-game-grid{grid-template-columns:1fr}
+  .wbw-game-card.feature{grid-column:auto}
+}

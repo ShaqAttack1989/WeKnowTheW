@@ -7,10 +7,12 @@
 /* Sept. 17, 2026: keep both players visible in the Love & Basketball photography. */
 .hero-photo-b img{object-position:center 38%}
 .hero-photo-c img{object-position:center 24%}
+.hero-photo-b{z-index:4}
+.hero-photo-c{z-index:5}
 .lb-profile[data-profile-id="bonner-thomas"] .lb-profile-photo img{object-position:68% 40%}
 .lb-profile[data-profile-id="williams-johannes"] .lb-profile-photo img{object-position:center 24%}
 @media(max-width:760px){
   .hero-photo-a{z-index:2}
-  .hero-photo-b{width:56%;z-index:4}
-  .hero-photo-c{right:0;z-index:5}
+  .hero-photo-b{width:56%}
+  .hero-photo-c{right:0}
 }

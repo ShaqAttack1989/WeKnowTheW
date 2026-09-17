@@ -52,7 +52,6 @@
       if(!availabilityResponse.ok)throw new Error(availability.error||'Availability unavailable');
 
       const teamKey=norm(teamName);
-      const pending=(Array.isArray(availability.teamStatuses)?availability.teamStatuses:[]).find(item=>norm(item.team)===teamKey);
       const injuries=(Array.isArray(availability.injuries)?availability.injuries:[])
         .filter(item=>norm(item.team)===teamKey&&!['AVAILABLE','ACTIVE','CLEARED'].includes(String(item.status||'').toUpperCase()))
         .map(item=>({
@@ -90,11 +89,7 @@
           return true;
         });
 
-      let html='';
-      if(pending){
-        html+=`<article class="team-availability-pending"><div><span>OFFICIAL REPORT</span><time>${esc(shortDate(pending.gameDate))}</time></div><strong>${esc(teamName)} · NOT YET SUBMITTED</strong><p>The WNBA has not yet received this team’s official availability report for ${esc(pending.matchup||'the upcoming game')}.</p></article>`;
-      }
-      html+=updates.map(card).join('');
+      let html=updates.map(card).join('');
       if(!html){
         html=availability.partial
           ? `<div class="team-error"><strong>No current ${esc(teamName)} availability entries were returned by the partial feed.</strong><span>Do not treat this as an all-clear. Open the full report for the latest check.</span> <a href="/availability-report.html">Full report →</a></div>`

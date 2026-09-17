@@ -137,9 +137,9 @@
 
   function chooseUniqueEditorials(){
     const used=spotlightUsed();
-    const food=posts.find(post=>isFood(post)&&!isFibaPost(post)&&!used.has(featureHref(post)))||null;
+    const food=posts.find(post=>isFood(post)&&!used.has(featureHref(post)))||null;
     if(food)used.add(featureHref(food));
-    const byte=posts.find(post=>isByte(post)&&!isFibaPost(post)&&!used.has(featureHref(post)))||null;
+    const byte=posts.find(post=>isByte(post)&&!used.has(featureHref(post)))||null;
     return {food,byte};
   }
 

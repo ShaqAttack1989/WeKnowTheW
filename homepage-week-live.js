@@ -209,7 +209,7 @@
   }
 
   async function loadEditorial(){
-    const feeds=['/snack-shak-latest.json','/snack-shak-breaking.json','/snack-shak-specials.json','/snack-shaq-posts.json'];
+    const feeds=['/snack-shak-love-and-basketball.json','/snack-shak-latest.json','/snack-shak-breaking.json','/snack-shak-specials.json','/snack-shaq-posts.json'];
     const results=await Promise.allSettled(feeds.map(fetchJson));
     const stories=[];
     results.forEach((result,index)=>{if(result.status==='fulfilled')collectStories(result.value,feeds[index],stories);});

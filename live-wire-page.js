@@ -46,14 +46,6 @@ function availabilityRow(item={},extraClass=''){
     </div>
   </article>`;
 }
-function submissionRow(item={}){
-  const date=wShortDate(item.updated||item.gameDate||'');
-  const context=[date,item.matchup,item.gameTime].filter(Boolean).join(' · ');
-  return `<article class="wire-row availability-row submission-row">
-    <span class="wire-status not-yet-submitted">NOT SUBMITTED</span>
-    <div class="wire-copy"><strong>${wSafe(item.team||'Team')}</strong><p>The official WNBA report has not yet been submitted for this team.</p>${context?`<small class="wire-report-context">${wSafe(context)}</small>`:''}</div>
-  </article>`;
-}
 
 (async()=>{
   const mode=document.body.dataset.wirePage||'movement';
@@ -69,13 +61,8 @@ function submissionRow(item={}){
     if(mode==='availability'){
       const items=(Array.isArray(p.injuries)?p.injuries.filter(visibleInjury):[])
         .sort((a,b)=>wItemDate(b).localeCompare(wItemDate(a))||String(a.player||'').localeCompare(String(b.player||'')));
-      const submissions=(Array.isArray(p.teamStatuses)?p.teamStatuses:[])
-        .map(item=>({...item,__submission:true}))
-        .sort((a,b)=>wItemDate(b).localeCompare(wItemDate(a))||String(a.team||'').localeCompare(String(b.team||'')));
-      const rows=[...items,...submissions]
-        .sort((a,b)=>wItemDate(b).localeCompare(wItemDate(a))||Number(Boolean(a.__submission))-Number(Boolean(b.__submission))||String(a.player||a.team||'').localeCompare(String(b.player||b.team||'')));
-      if(updated)updated.textContent=`Checked ${wChecked(p.checkedAt)||'recently'} · newest update ${wShortDate(rows[0]?.updated||rows[0]?.gameDate)||'—'} · every 30 min`;
-      list.innerHTML=rows.length?rows.map(item=>item.__submission?submissionRow(item):availabilityRow(item,item.seasonLongCarryover?'season-long-row':item.officialCurrentReport?'official-report-row':'additional-report-row')).join(''):'<div class="wire-empty"><strong>No current availability entries returned.</strong></div>';
+      if(updated)updated.textContent=`Checked ${wChecked(p.checkedAt)||'recently'} · newest update ${wShortDate(items[0]?.updated||items[0]?.gameDate)||'—'} · every 30 min`;
+      list.innerHTML=items.length?items.map(item=>availabilityRow(item,item.seasonLongCarryover?'season-long-row':item.officialCurrentReport?'official-report-row':'additional-report-row')).join(''):'<div class="wire-empty"><strong>No current availability entries returned.</strong></div>';
       const reportHref=p.officialPdf||p.officialSource||'https://www.wnba.com/wnba-injury-report';
       const reportLabel=p.officialPdfLive?'latest official PDF ↗':'official WNBA Injury Report ↗';
       const seasonLong=items.filter(item=>String(item.status||'').toUpperCase().includes('SEASON')).length;

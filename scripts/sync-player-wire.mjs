@@ -23,13 +23,34 @@ function isoDate(value = '') {
   return match ? `${match[3]}-${match[1]}-${match[2]}` : '';
 }
 
+function inferTransactionType(detail = '', fallback = 'TRANSACTION') {
+  const text = String(detail || '').trim();
+  if (/^waived\b/i.test(text)) return 'WAIVED';
+  if (/^released\b/i.test(text)) return 'RELEASED';
+  if (/^signed\b/i.test(text)) return 'SIGNED';
+  if (/^claimed\b/i.test(text)) return 'CLAIMED';
+  if (/^acquired\b/i.test(text)) return 'ACQUIRED';
+  if (/^traded\b/i.test(text)) return 'TRADE';
+  if (/^set\b[\s\S]*\bas active\b/i.test(text)) return 'SET ACTIVE';
+  return String(fallback || 'TRANSACTION').toUpperCase();
+}
+
+function inferPlayerFromDetail(detail = '') {
+  const text = String(detail || '').trim();
+  const match = text.match(/^(?:Waived|Released|Signed|Claimed|Acquired|Traded|Set)\s+(?:(?:G|F|C|G\/F|F\/G|F\/C|C\/F)\s+)?(.+?)(?=\s+(?:to|as|off|from|after|for|and)\b|[.;]|$)/i);
+  return match?.[1]?.trim() || '';
+}
+
 function normalizeTransaction(item = {}) {
+  const detail = item.description || item.shortDescription || item.text || item.detail || [item.fromTeam, item.team].filter(Boolean).join(' → ') || 'Roster update';
+  const fallbackType = item.type?.description || item.type?.text || item.type || 'TRANSACTION';
+  const explicitPlayer = item.name || (typeof item.player === 'string' ? item.player : '') || item.athlete?.displayName || item.player?.displayName || '';
   return {
     date: isoDate(item.date || item.effectiveDate || ''),
-    type: String(item.type?.description || item.type?.text || item.type || 'TRANSACTION').toUpperCase(),
-    player: item.name || item.player || item.athlete?.displayName || item.player?.displayName || 'Player',
+    type: inferTransactionType(detail, fallbackType),
+    player: explicitPlayer || inferPlayerFromDetail(detail) || 'Player',
     team: item.team?.displayName || item.team || item.toTeam?.displayName || item.to?.displayName || item.fromTeam || 'WNBA',
-    detail: item.description || item.shortDescription || item.text || item.detail || [item.fromTeam, item.team].filter(Boolean).join(' → ') || 'Roster update',
+    detail,
     source: item.source || 'ESPN WNBA transaction feed',
     sourceUrl: item.sourceUrl || null
   };
@@ -50,7 +71,7 @@ function mergeTransactions(provider = [], previous = []) {
   const seen = new Set();
   return combined
     .map(normalizeTransaction)
-    .filter(item => item.player && item.date)
+    .filter(item => item.player && item.player !== 'Player' && item.date)
     .sort((a, b) => String(b.date).localeCompare(String(a.date)) || String(a.player).localeCompare(String(b.player)))
     .filter(item => {
       const signature = transactionSignature(item);

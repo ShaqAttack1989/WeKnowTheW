@@ -1,4 +1,5 @@
 const liveUpdates = require('../player-live-updates.json');
+const { LATEST_MOVEMENT_PATCH } = require('../lib/latest-movement-patch');
 const { CURRENT_MOVEMENT_PATCH } = require('../lib/current-movement-patch');
 const { officialHeadshot } = require('../lib/wnba-headshots');
 const { getWnbaTransactions, getWnbaRosters } = require('../lib/wehoop-espn');
@@ -20,14 +21,15 @@ function normalizeProvider(item = {}) {
 
 function combineTransactions(provider = []) {
   const combined = [
-    ...CURRENT_MOVEMENT_PATCH,
+    ...(Array.isArray(LATEST_MOVEMENT_PATCH) ? LATEST_MOVEMENT_PATCH : []),
+    ...(Array.isArray(CURRENT_MOVEMENT_PATCH) ? CURRENT_MOVEMENT_PATCH : []),
     ...(Array.isArray(liveUpdates.transactions) ? liveUpdates.transactions : []),
     ...provider.map(normalizeProvider)
   ];
   const seen = new Set();
   return combined
     .filter(item => item && item.player && item.date)
-    .sort((a, b) => String(b.date).localeCompare(String(a.date)) || String(a.player).localeCompare(String(b.player)))
+    .sort((a, b) => String(b.date).slice(0,10).localeCompare(String(a.date).slice(0,10)) || String(a.player).localeCompare(String(b.player)))
     .filter(item => {
       const signature = `${String(item.date).slice(0,10)}|${key(item.player)}|${key(item.team)}|${key(item.type)}`;
       if (seen.has(signature)) return false;
@@ -42,7 +44,7 @@ function addRosterCrossCheck(items, rosterData) {
   return items.map(item => {
     const currentTeam = liveTeams.get(key(item.player)) || '';
     const type = String(item.type || '').toUpperCase();
-    const destinationMove = /SIGNED|CLAIMED|TRADE|ACQUIRED|CONVERTED/.test(type);
+    const destinationMove = /SIGNED|CLAIMED|TRADE|ACQUIRED|CONVERTED|SET ACTIVE/.test(type);
     const exitMove = /WAIVED|RELEASED|BUYOUT/.test(type);
     let rosterCheck = 'Not independently confirmed in live roster feed';
     if (destinationMove && currentTeam && key(currentTeam) === key(item.team)) rosterCheck = `Current roster confirms ${currentTeam}`;
@@ -79,11 +81,12 @@ module.exports = async function handler(req, res) {
     checkedAt,
     latestTransactionDate,
     refreshCadence: 'live on request · scheduled daily cross-check',
+    sortOrder: 'date descending',
     officialSource: 'https://www.wnba.com/players/transactions?transaction=&team=all&month=0',
     crossCheckSources: [
       'Live WNBA roster feed via ESPN',
       'Basketball Reference 2026 WNBA transactions',
-      'Team announcements for confirmed signings'
+      'Official team and league transaction pages'
     ],
     transactionCount: transactions.length,
     rosterCrossCheckPlayers: Array.isArray(rosterData.players) ? rosterData.players.length : 0,

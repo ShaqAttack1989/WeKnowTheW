@@ -1,4 +1,5 @@
 const liveUpdates = require('../player-live-updates.json');
+const wireSnapshot = require('../player-wire-snapshot.json');
 const { LATEST_MOVEMENT_PATCH } = require('../lib/latest-movement-patch');
 const { CURRENT_MOVEMENT_PATCH } = require('../lib/current-movement-patch');
 const { officialHeadshot } = require('../lib/wnba-headshots');
@@ -12,10 +13,11 @@ function normalizeProvider(item = {}) {
   return {
     date: String(item.date || '').slice(0, 10),
     type: String(item.type || 'TRANSACTION').toUpperCase(),
-    player: item.name || 'Player',
+    player: item.name || item.player || 'Player',
     team: item.team || item.fromTeam || 'WNBA',
-    detail: item.description || [item.fromTeam, item.team].filter(Boolean).join(' → ') || 'Roster update',
-    source: item.source || 'ESPN transaction feed'
+    detail: item.description || item.detail || [item.fromTeam, item.team].filter(Boolean).join(' → ') || 'Roster update',
+    source: item.source || 'ESPN transaction feed',
+    sourceUrl: item.sourceUrl || null
   };
 }
 
@@ -23,11 +25,13 @@ function combineTransactions(provider = []) {
   const combined = [
     ...(Array.isArray(LATEST_MOVEMENT_PATCH) ? LATEST_MOVEMENT_PATCH : []),
     ...(Array.isArray(CURRENT_MOVEMENT_PATCH) ? CURRENT_MOVEMENT_PATCH : []),
+    ...(Array.isArray(wireSnapshot?.movement?.transactions) ? wireSnapshot.movement.transactions : []),
     ...(Array.isArray(liveUpdates.transactions) ? liveUpdates.transactions : []),
     ...provider.map(normalizeProvider)
   ];
   const seen = new Set();
   return combined
+    .map(normalizeProvider)
     .filter(item => item && item.player && item.date)
     .sort((a, b) => String(b.date).slice(0,10).localeCompare(String(a.date).slice(0,10)) || String(a.player).localeCompare(String(b.player)))
     .filter(item => {
@@ -75,17 +79,18 @@ module.exports = async function handler(req, res) {
   if (rosterResult.status === 'rejected') errors.push(`Roster cross-check: ${rosterResult.reason?.message || 'unavailable'}`);
 
   const transactions = addRosterCrossCheck(combineTransactions(providerTransactions), rosterData);
-  const latestTransactionDate = transactions[0]?.date || null;
+  const latestTransactionDate = transactions[0]?.date || wireSnapshot?.movement?.latestTransactionDate || null;
 
   return res.status(200).json({
     checkedAt,
+    snapshotGeneratedAt: wireSnapshot?.generatedAt || null,
     latestTransactionDate,
-    refreshCadence: 'live on request · scheduled daily cross-check',
+    refreshCadence: 'live on request · hourly background sync',
     sortOrder: 'date descending',
     officialSource: 'https://www.wnba.com/players/transactions?transaction=&team=all&month=0',
     crossCheckSources: [
       'Live WNBA roster feed via ESPN',
-      'Basketball Reference 2026 WNBA transactions',
+      'Hourly stored player wire snapshot',
       'Official team and league transaction pages'
     ],
     transactionCount: transactions.length,

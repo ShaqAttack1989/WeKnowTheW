@@ -8,6 +8,17 @@ function key(value = '') {
   return String(value).normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]/g, '');
 }
 
+function isoDate(value = '') {
+  const raw = String(value || '').slice(0, 10);
+  if (/^\d{4}-\d{2}-\d{2}$/.test(raw)) return raw;
+  const match = String(value || '').match(/^(\d{2})\/(\d{2})\/(\d{4})/);
+  return match ? `${match[3]}-${match[1]}-${match[2]}` : '';
+}
+
+function availabilityDate(item = {}) {
+  return isoDate(item.updated || item.gameDate || item.date || '');
+}
+
 function normalizeProvider(item = {}) {
   const raw = String(item.status || '').trim().toUpperCase();
   const status = raw === 'OUT' ? 'OUT'
@@ -98,7 +109,9 @@ function mergeAvailability(officialReport = {}, provider = []) {
     });
   }
 
-  return combined.filter(item => !['AVAILABLE','ACTIVE','CLEARED'].includes(String(item.status || '').toUpperCase()));
+  return combined
+    .filter(item => !['AVAILABLE','ACTIVE','CLEARED'].includes(String(item.status || '').toUpperCase()))
+    .sort((a, b) => availabilityDate(b).localeCompare(availabilityDate(a)) || String(a.player || '').localeCompare(String(b.player || '')));
 }
 
 module.exports = async function handler(req, res) {
@@ -135,7 +148,8 @@ module.exports = async function handler(req, res) {
     const headshot = officialHeadshot(item.player);
     return { ...item, wnbaId: headshot?.id || null, photo: headshot?.url || null };
   });
-  const teamStatuses = officialReport.fallback ? [] : (Array.isArray(officialReport.teamStatuses) ? officialReport.teamStatuses : []);
+  const teamStatuses = officialReport.fallback ? [] : (Array.isArray(officialReport.teamStatuses) ? officialReport.teamStatuses : [])
+    .sort((a,b)=>availabilityDate(b).localeCompare(availabilityDate(a))||String(a.team||'').localeCompare(String(b.team||'')));
 
   return res.status(200).json({
     checkedAt,

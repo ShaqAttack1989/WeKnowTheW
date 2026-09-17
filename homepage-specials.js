@@ -1,7 +1,7 @@
 (()=>{
   if(!document.querySelector('script[data-snack-shak-nav]')){
     const s=document.createElement('script');
-    s.src='/snack-shak-nav.js?v=20260917-photo-fit-v2';
+    s.src='/snack-shak-nav.js?v=20260917-home-poster-v3';
     s.dataset.snackShakNav='true';
     s.defer=true;
     document.head.appendChild(s);

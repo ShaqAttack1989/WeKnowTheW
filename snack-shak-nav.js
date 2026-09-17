@@ -23,7 +23,7 @@
     style.textContent=`
       .home-season-spotlight .season-story-media.welcome-back-playoff-card{background:#160b33;display:flex;align-items:center;justify-content:center;overflow:hidden;min-height:420px}
       .home-season-spotlight .season-story-media.welcome-back-playoff-card img{display:block;width:100%!important;height:100%!important;max-height:560px;object-fit:contain!important;object-position:center!important;background:#160b33}
-      @media(max-width:720px){.home-season-spotlight .season-story-media.welcome-back-playoff-card{aspect-ratio:1/1!important;min-height:0}.home-season-spotlight .season-story-media.welcome-back-playoff-card img{max-height:none}}
+      @media(max-width:980px){.home-season-spotlight .season-story-media.welcome-back-playoff-card{aspect-ratio:16/9!important;min-height:0}.home-season-spotlight .season-story-media.welcome-back-playoff-card img{max-height:none;object-fit:cover!important;object-position:center 9%!important}}
     `;
     document.head.appendChild(style);
   }

@@ -1,5 +1,55 @@
 (()=>{
   const snackLinks=`<a class="nav-direct-link" href="/snack-shak.html"><strong>Open Snack Shak</strong></a><a class="nav-direct-link" href="/snack-shak-bytes.html">Snack Shak Bytes</a><a class="nav-direct-link" href="/food-for-thought.html">Food for Thought</a>`;
+  const playoffFieldBase='/assets/images/snack-shak/welcome-back-playoff-field';
+  const playoffFieldAlt='2026 WNBA playoff field showing the eight seeded teams, records, featured players and championship history through September 16';
+  let playoffFieldPromise=null;
+  let spotlightObserver=null;
+
+  function playoffFieldSrc(){
+    if(playoffFieldPromise)return playoffFieldPromise;
+    playoffFieldPromise=Promise.all([1,2,3,4,5].map(index=>
+      fetch(`${playoffFieldBase}/part-${index}.txt?v=20260916`,{cache:'force-cache'}).then(response=>{
+        if(!response.ok)throw new Error(`playoff field image part ${index} returned ${response.status}`);
+        return response.text();
+      })
+    )).then(parts=>`data:image/jpeg;base64,${parts.join('')}`);
+    return playoffFieldPromise;
+  }
+
+  function ensureWelcomeBackStyles(){
+    if(document.getElementById('welcomeBackPlayoffCardStyles'))return;
+    const style=document.createElement('style');
+    style.id='welcomeBackPlayoffCardStyles';
+    style.textContent=`
+      .home-season-spotlight .season-story-media.welcome-back-playoff-card{background:#160b33;display:flex;align-items:flex-start;justify-content:center;overflow:hidden;min-height:420px}
+      .home-season-spotlight .season-story-media.welcome-back-playoff-card img{display:block;width:100%!important;height:100%!important;max-height:560px;object-fit:contain!important;object-position:center top!important;background:#160b33}
+      @media(max-width:720px){.home-season-spotlight .season-story-media.welcome-back-playoff-card{min-height:360px}.home-season-spotlight .season-story-media.welcome-back-playoff-card img{max-height:500px}}
+    `;
+    document.head.appendChild(style);
+  }
+
+  async function normalizeWelcomeBackCard(){
+    const card=document.querySelector('.home-season-spotlight a.season-story-lead[href="/welcome-back-to-the-w-2026.html"]');
+    const figure=card?.querySelector('.season-story-media');
+    const image=figure?.querySelector('img');
+    if(!image||image.dataset.playoffField==='true')return;
+    try{
+      const src=await playoffFieldSrc();
+      image.src=src;
+      image.alt=playoffFieldAlt;
+      image.loading='eager';
+      image.dataset.playoffField='true';
+      figure.classList.add('welcome-back-playoff-card');
+      ensureWelcomeBackStyles();
+    }catch(error){console.warn('Welcome Back playoff image could not load',error);}
+  }
+
+  function observeWelcomeBackCard(){
+    const root=document.querySelector('.home-season-spotlight');
+    if(!root||spotlightObserver)return;
+    spotlightObserver=new MutationObserver(()=>normalizeWelcomeBackCard());
+    spotlightObserver.observe(root,{childList:true,subtree:true});
+  }
 
   function normalizeNav(){
     const nav=document.getElementById('navLinks');
@@ -40,7 +90,8 @@
     card.innerHTML=`<p class="kicker">COMMENTARY + ANALYSIS</p><h3>Snack Shak</h3><p>One editorial home, organized by reading length. Grab a quick Byte or settle in with Food for Thought.</p><div class="family-links"><a href="/snack-shak.html"><span>Open Snack Shak</span><span>→</span></a><a href="/snack-shak-bytes.html"><span>Snack Shak Bytes</span><span>→</span></a><a href="/food-for-thought.html"><span>Food for Thought</span><span>→</span></a></div>`;
   }
 
-  const run=()=>{normalizeNav();normalizeHomeCard();};
+  const run=()=>{normalizeNav();normalizeHomeCard();normalizeWelcomeBackCard();observeWelcomeBackCard();};
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',run,{once:true});else run();
   setTimeout(run,150);
+  setTimeout(run,900);
 })();

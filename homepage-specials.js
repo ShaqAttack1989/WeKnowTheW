@@ -1,7 +1,7 @@
 (()=>{
   if(!document.querySelector('script[data-snack-shak-nav]')){
     const s=document.createElement('script');
-    s.src='/snack-shak-nav.js?v=20260917-home-poster-v3';
+    s.src='/snack-shak-nav.js?v=20260917-hires-poster-v4';
     s.dataset.snackShakNav='true';
     s.defer=true;
     document.head.appendChild(s);
@@ -46,7 +46,6 @@
   function isByte(post={}){return post.type==='byte'||norm(post.seriesLabel).includes('snack shak byte')||norm(post.seriesLabel).includes('byte');}
   function isFood(post={}){const label=norm(`${post.type||''} ${post.seriesLabel||''}`);return post.type==='feature'&&(label.includes('food for thought')||!label.includes('milestone'));}
   function isFibaPost(post={}){
-    if(post.homepageSeason==='wnba-return')return false;
     const hay=norm(`${post.slug||''} ${post.title||''} ${post.seriesLabel||''} ${post.dek||''} ${(post.teams||[]).join(' ')}`);
     return hay.includes('fiba')||hay.includes('world cup')||hay.includes('berlin 2026')||hay.includes('usa france');
   }
@@ -72,23 +71,23 @@
         </header>
 
         <nav class="season-spotlight-nav" aria-label="WNBA return shortcuts">
-          <a class="is-featured" href="/snack-shak-bytes.html?post=liberty-post-fiba-finals-sleeper#story">Liberty sleeper Byte</a>
-          <a href="/welcome-back-to-the-w-2026.html">Sept. 17 watch guide</a>
+          <a class="is-featured" href="/welcome-back-to-the-w-2026.html">Sept. 17 watch guide</a>
           <a href="/live-stats.html">Live Stats</a>
           <a href="/around-the-w.html">Around the W</a>
+          <a href="/playerpedia.html">Playerpedia</a>
         </nav>
 
         <div class="season-story-grid">
-          <a class="season-story season-story-lead" href="/snack-shak-bytes.html?post=liberty-post-fiba-finals-sleeper#story">
+          <a class="season-story season-story-lead" href="/welcome-back-to-the-w-2026.html">
             <figure class="season-story-media">
-              <img src="/assets/images/snack-shak/liberty-post-fiba-sleeper.jpg" alt="Five New York Liberty players in a World Cup national team composite" loading="eager">
-              <span>NEW SNACK SHAK BYTE</span>
+              <img src="/assets/images/17989.png" alt="Atlanta Dream team artwork" loading="eager">
+              <span>SEPTEMBER 17 WATCH GUIDE</span>
             </figure>
             <div class="season-story-copy">
-              <p class="season-story-label">7 PLAYERS · 6 COUNTRIES · ONE PLAYOFF QUESTION</p>
-              <h3>Are the Liberty the post FIBA Finals sleeper?</h3>
-              <p>The world saw what New York's players could do separately. Can the sixth seed become that dynamic together?</p>
-              <b>Grab the Snack Shak Byte <span aria-hidden="true">→</span></b>
+              <p class="season-story-label">5 GAMES · 10 TEAMS · ONE FINAL WEEK</p>
+              <h3>Welcome back to the W.</h3>
+              <p>Build the return night watch plan with real player photos, team logos, live standings and dynamic dashboards.</p>
+              <b>Open the watch guide <span aria-hidden="true">→</span></b>
             </div>
           </a>
 
@@ -105,23 +104,23 @@
             </div>
           </a>
 
-          <a class="season-story" href="/welcome-back-to-the-w-2026.html">
+          <a class="season-story" href="/around-the-w.html">
             <figure class="season-story-media report-card-media">
-              <img src="/assets/images/17989.png" alt="Atlanta Dream team artwork" loading="lazy">
-              <span>SEPTEMBER 17 WATCH GUIDE</span>
+              <img src="/assets/images/17995.png" alt="Las Vegas Aces team artwork" loading="lazy">
+              <span>AROUND THE W</span>
             </figure>
             <div class="season-story-copy">
-              <p class="season-story-label">5 GAMES · 10 TEAMS · ONE FINAL WEEK</p>
-              <h3>Welcome back to the W.</h3>
-              <p>Build the return night watch plan with real player photos, team logos, live standings and dynamic dashboards.</p>
-              <b>Open the watch guide <span aria-hidden="true">→</span></b>
+              <p class="season-story-label">CURRENT SEASON HQ</p>
+              <h3>Back to club roles, seed fights and the closing sprint.</h3>
+              <p>Follow the current season from one front door with team pages, player movement, availability and the latest W stories.</p>
+              <b>Go Around the W <span aria-hidden="true">→</span></b>
             </div>
           </a>
         </div>
 
         <footer class="season-spotlight-foot">
           <span>The WNBA regular season is back in the lead.</span>
-          <a href="/snack-shak-bytes.html?post=liberty-post-fiba-finals-sleeper#story">Read the Liberty sleeper case <span aria-hidden="true">→</span></a>
+          <a href="/welcome-back-to-the-w-2026.html">Plan September 17 <span aria-hidden="true">→</span></a>
         </footer>
       </div>
     </div>`;
@@ -138,9 +137,9 @@
 
   function chooseUniqueEditorials(){
     const used=spotlightUsed();
-    const food=posts.find(post=>isFood(post)&&!used.has(featureHref(post)))||null;
+    const food=posts.find(post=>isFood(post)&&!isFibaPost(post)&&!used.has(featureHref(post)))||null;
     if(food)used.add(featureHref(food));
-    const byte=posts.find(post=>isByte(post)&&!used.has(featureHref(post)))||null;
+    const byte=posts.find(post=>isByte(post)&&!isFibaPost(post)&&!used.has(featureHref(post)))||null;
     return {food,byte};
   }
 

@@ -1,37 +1,8 @@
 (()=>{
   const snackLinks=`<a class="nav-direct-link" href="/snack-shak.html"><strong>Open Snack Shak</strong></a><a class="nav-direct-link" href="/snack-shak-bytes.html">Snack Shak Bytes</a><a class="nav-direct-link" href="/food-for-thought.html">Food for Thought</a>`;
-  const playoffFieldBase='/assets/images/snack-shak/welcome-back-playoff-field';
+  const playoffFieldSrc='/assets/images/snack-shak/welcome-back-playoff-field-2026.jpg?v=20260917-hires-v1';
   const playoffFieldAlt='2026 WNBA playoff field showing the eight seeded teams, records, featured players and championship history through September 16';
-  let playoffFieldPromise=null;
   let spotlightObserver=null;
-
-  function ensureSpotlightDashboardAssets(){
-    if(!document.querySelector('link[data-spotlight-dashboards]')){
-      const link=document.createElement('link');
-      link.rel='stylesheet';
-      link.href='/homepage-spotlight-dashboards.css?v=20260917-v2';
-      link.dataset.spotlightDashboards='true';
-      document.head.appendChild(link);
-    }
-    if(!document.querySelector('script[data-spotlight-dashboards]')){
-      const script=document.createElement('script');
-      script.src='/homepage-spotlight-dashboards.js?v=20260917-v2';
-      script.dataset.spotlightDashboards='true';
-      script.defer=true;
-      document.head.appendChild(script);
-    }
-  }
-
-  function playoffFieldSrc(){
-    if(playoffFieldPromise)return playoffFieldPromise;
-    playoffFieldPromise=Promise.all([1,2,3,4,5].map(index=>
-      fetch(`${playoffFieldBase}/part-${index}.txt?v=20260916`,{cache:'force-cache'}).then(response=>{
-        if(!response.ok)throw new Error(`playoff field image part ${index} returned ${response.status}`);
-        return response.text();
-      })
-    )).then(parts=>`data:image/jpeg;base64,${parts.join('')}`);
-    return playoffFieldPromise;
-  }
 
   function ensureWelcomeBackStyles(){
     if(document.getElementById('welcomeBackPlayoffCardStyles'))return;
@@ -51,10 +22,10 @@
     const image=figure?.querySelector('img');
     if(!image||image.dataset.playoffField==='true')return;
     try{
-      const src=await playoffFieldSrc();
-      image.src=src;
+      image.src=playoffFieldSrc;
       image.alt=playoffFieldAlt;
       image.loading='eager';
+      image.decoding='async';
       image.dataset.playoffField='true';
       figure.classList.add('welcome-back-playoff-card');
       ensureWelcomeBackStyles();
@@ -107,7 +78,7 @@
     card.innerHTML=`<p class="kicker">COMMENTARY + ANALYSIS</p><h3>Snack Shak</h3><p>One editorial home, organized by reading length. Grab a quick Byte or settle in with Food for Thought.</p><div class="family-links"><a href="/snack-shak.html"><span>Open Snack Shak</span><span>→</span></a><a href="/snack-shak-bytes.html"><span>Snack Shak Bytes</span><span>→</span></a><a href="/food-for-thought.html"><span>Food for Thought</span><span>→</span></a></div>`;
   }
 
-  const run=()=>{ensureSpotlightDashboardAssets();normalizeNav();normalizeHomeCard();normalizeWelcomeBackCard();observeWelcomeBackCard();};
+  const run=()=>{normalizeNav();normalizeHomeCard();normalizeWelcomeBackCard();observeWelcomeBackCard();};
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',run,{once:true});else run();
   setTimeout(run,150);
   setTimeout(run,900);

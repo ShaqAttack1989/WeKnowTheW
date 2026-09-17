@@ -2,7 +2,7 @@
   const SEASON=2026;
   const GRID_ID='returnPlayerGrid';
   const TEAM_CODES={CON:['CON'],ATL:['ATL'],WAS:['WAS'],CHI:['CHI'],LAS:['LAS'],DAL:['DAL'],PHX:['PHX','PHO'],POR:['POR'],LVA:['LVA','LVA','VEG'],SEA:['SEA']};
-  const PLAYOFF_FIELD_BASE='/assets/images/snack-shak/welcome-back-playoff-field';
+  const PLAYOFF_FIELD_SRC='/assets/images/snack-shak/welcome-back-playoff-field-2026.jpg?v=20260917-hires-v1';
   const PLAYOFF_FIELD_ALT='2026 WNBA playoff field showing the eight seeded teams, records, featured players and championship history through September 16';
   const norm=value=>String(value||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,'');
   const finite=value=>Number.isFinite(Number(value));
@@ -23,19 +23,6 @@
   let totalsByName=new Map();
   let loadedAt=0;
   let loading=null;
-  let playoffFieldPromise=null;
-
-  function playoffFieldSrc(){
-    if(playoffFieldPromise)return playoffFieldPromise;
-    playoffFieldPromise=Promise.all([1,2,3,4,5].map(index=>
-      fetch(`${PLAYOFF_FIELD_BASE}/part-${index}.txt?v=20260916`,{cache:'force-cache'}).then(response=>{
-        if(!response.ok)throw new Error(`playoff field image part ${index} returned ${response.status}`);
-        return response.text();
-      })
-    )).then(parts=>`data:image/jpeg;base64,${parts.join('')}`);
-    return playoffFieldPromise;
-  }
-
   function ensurePlayoffFieldStyles(){
     if(document.getElementById('welcomeBackPlayoffFieldStyles'))return;
     const style=document.createElement('style');
@@ -64,14 +51,8 @@
     section.className='wbw-playoff-field-feature';
     section.id='playoffFieldFeature';
     section.setAttribute('aria-label','2026 WNBA playoff field');
-    section.innerHTML=`<div class="page-shell"><div class="wbw-playoff-field-intro"><p class="kicker">THE FIELD IS SET</p><h2>Eight teams. One trophy. The receipts are here.</h2><p>Seeds and records through Sept. 16, paired with each franchise's playoff history through 2025.</p></div><figure class="wbw-playoff-field-figure"><img alt="${PLAYOFF_FIELD_ALT}" width="420" height="525" loading="eager"><figcaption><strong>2026 PLAYOFF FIELD</strong> · Your quick visual before the September 17 return night sprint.</figcaption></figure></div>`;
+    section.innerHTML=`<div class="page-shell"><div class="wbw-playoff-field-intro"><p class="kicker">THE FIELD IS SET</p><h2>Eight teams. One trophy. The receipts are here.</h2><p>Seeds and records through Sept. 16, paired with each franchise's playoff history through 2025.</p></div><figure class="wbw-playoff-field-figure"><img src="${PLAYOFF_FIELD_SRC}" alt="${PLAYOFF_FIELD_ALT}" width="1229" height="1536" loading="eager" decoding="async"><figcaption><strong>2026 PLAYOFF FIELD</strong> · Your quick visual before the September 17 return night sprint.</figcaption></figure></div>`;
     main.insertBefore(section,briefing);
-    const image=section.querySelector('img');
-    try{image.src=await playoffFieldSrc();}
-    catch(error){
-      console.warn('Welcome Back playoff field image could not load',error);
-      section.remove();
-    }
   }
 
   function addTotal(row={}){

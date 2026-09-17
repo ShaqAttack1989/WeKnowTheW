@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Houston Comets 2027 return hub: Connecticut Sun relocation, Toyota Center, franchise lineage, original dynasty and the road back to Houston.">
+  <title>Houston Comets | We Know the W</title>
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/landing.css">
+  <link rel="stylesheet" href="/expansion.css?v=20260819a">
+  <style>
+    :root{--hou-red:#d71920;--hou-deep:#7d0912;--hou-black:#050505;--hou-ink:#151515;--hou-cream:#fffaf8;--hou-line:#ead9d7}
+    .comets-hero{position:relative;overflow:hidden;background:radial-gradient(circle at 82% 40%,rgba(215,25,32,.45),transparent 28%),linear-gradient(135deg,#050505 0 49%,#8d0b15 49% 62%,#d71920 62% 100%);color:#fff}
+    .comets-hero:after{content:"";position:absolute;right:-12vw;top:-28vw;width:52vw;height:52vw;border:2px solid rgba(255,255,255,.22);border-radius:50%;box-shadow:0 0 0 28px rgba(255,255,255,.025),0 0 0 64px rgba(255,255,255,.02);pointer-events:none}
+    .comets-hero .subhero-inner{position:relative;z-index:1;padding-bottom:56px}
+    .comets-kicker{display:inline-flex;gap:8px;align-items:center;background:#fff;color:#b3131b;padding:8px 12px;border-radius:999px;font-weight:900;letter-spacing:.08em;font-size:.8rem}
+    .comets-hero h1{font-size:clamp(3rem,10vw,7.5rem);line-height:.86;max-width:900px;margin:18px 0 18px;text-transform:uppercase;letter-spacing:-.055em}
+    .comets-hero h1 em{display:block;color:#fff;font-style:italic}
+    .comets-hero .lead{max-width:790px;font-size:clamp(1.05rem,2.4vw,1.35rem);line-height:1.6;color:#fff}
+    .comets-route{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}.comets-route a,.comets-route span{border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:9px 13px;color:#fff;text-decoration:none;background:rgba(0,0,0,.24)}
+    .return-board{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(260px,.7fr);gap:26px;align-items:stretch}
+    .return-card{border:1px solid var(--hou-line);border-radius:26px;background:#fff;box-shadow:0 18px 55px rgba(74,10,14,.08);overflow:hidden}
+    .return-card.primary{padding:30px;background:linear-gradient(145deg,#fff,#fff6f5)}
+    .return-card .stamp{display:inline-block;color:#fff;background:var(--hou-red);font-weight:900;letter-spacing:.08em;padding:7px 10px;border-radius:8px;font-size:.78rem}
+    .return-card h2{font-size:clamp(2rem,5vw,3.5rem);margin:15px 0 10px;line-height:1}.return-card p{line-height:1.65;color:#3d3434}
+    .launch-meter{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;padding:18px;background:#0a0a0a;color:#fff}
+    .launch-meter div{border:1px solid #313131;border-radius:16px;padding:17px}.launch-meter span{display:block;color:#ff8d91;font-size:.74rem;font-weight:900;letter-spacing:.08em}.launch-meter strong{display:block;font-size:1.15rem;margin-top:5px}
+    .status-banner{margin-top:18px;border-left:5px solid var(--hou-red);background:#fff4f3;padding:16px 18px;border-radius:0 16px 16px 0}.status-banner strong{display:block;margin-bottom:4px}
+    .two-history-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}.history-panel{border-radius:24px;padding:26px;border:1px solid #e6dedb;background:#fff}.history-panel.dark{background:#090909;color:#fff;border-color:#090909}.history-panel.dark p{color:#ddd}.history-panel span{font-size:.76rem;font-weight:900;letter-spacing:.1em;color:var(--hou-red)}.history-panel h3{font-size:1.65rem;margin:10px 0}.history-panel p{line-height:1.6;color:#474040}
+    .dynasty-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:20px}.dynasty-strip div{background:#fff;border:1px solid #eadfdd;border-radius:18px;padding:20px;text-align:center}.dynasty-strip strong{font-size:2rem;display:block;color:#a80f18}.dynasty-strip span{font-size:.82rem;color:#594e4e}
+    .handoff-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}.handoff-grid article{border-radius:22px;padding:24px;background:#fff;border:1px solid #e8dfdc}.handoff-grid b{display:inline-grid;place-items:center;width:36px;height:36px;border-radius:50%;background:#d71920;color:#fff}.handoff-grid h3{margin:14px 0 8px}.handoff-grid p{line-height:1.55;color:#514646}
+    .facility-band{background:#0a0a0a;color:#fff}.facility-band .page-heading p{color:#d9d9d9}.facility-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.facility-grid div{border:1px solid #333;border-radius:18px;padding:20px;background:#121212}.facility-grid strong{display:block;color:#ff777c;margin-bottom:6px}
+    .source-stack{display:flex;flex-wrap:wrap;gap:10px}.source-stack a{display:inline-flex;text-decoration:none;border:1px solid #dccac7;border-radius:999px;padding:10px 13px;color:#6f1118;background:#fff;font-weight:800}
+    @media(max-width:780px){.return-board,.two-history-grid{grid-template-columns:1fr}.handoff-grid{grid-template-columns:1fr}.facility-grid{grid-template-columns:repeat(2,1fr)}.dynasty-strip{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:480px){.facility-grid{grid-template-columns:1fr}.comets-hero h1{font-size:3.4rem}}
+  </style>
+</head>
+<body class="section-page">
+  <header class="subhero comets-hero">
+    <nav class="nav shell"><a class="brand" href="/"><span class="brand-mark">W</span><span>WE KNOW THE W</span></a><button class="menu-button" id="menuButton" aria-expanded="false" aria-controls="navLinks">Menu</button><div class="nav-links" id="navLinks"></div></nav>
+    <div class="page-shell subhero-inner">
+      <span class="comets-kicker">2027 · HOUSTON, TEXAS</span>
+      <h1>SHE'S <em>BACK.</em></h1>
+      <p class="lead">The Houston Comets return for the 2027 WNBA season after the league approved the sale and relocation of the Connecticut Sun to Houston. The name brings back the WNBA's first dynasty; the operating franchise arrives from Connecticut.</p>
+      <div class="comets-route"><a href="/around-the-w.html#team-pages">Around the W</a><a href="/expansion-w.html">Expansion Watch</a><span><b>2027</b> tip-off</span><span>Toyota Center</span><span>Fertitta Entertainment</span></div>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-section" style="background:var(--hou-cream)">
+      <div class="page-shell">
+        <div class="return-board">
+          <article class="return-card primary">
+            <span class="stamp">RETURN APPROVED · MAY 13, 2026</span>
+            <h2>The dynasty returns through relocation.</h2>
+            <p>The WNBA and NBA Boards of Governors unanimously approved Tilman J. Fertitta's purchase of the Connecticut Sun and the team's move to Houston beginning with the 2027 season. The Comets will be owned and operated by Fertitta Entertainment and play at Toyota Center.</p>
+            <div class="status-banner"><strong>Important: this is not a new expansion franchise.</strong><span>Houston replaces Connecticut on the league map in 2027, so the WNBA remains at 15 teams until Cleveland joins in 2028.</span></div>
+          </article>
+          <aside class="return-card">
+            <div class="launch-meter">
+              <div><span>TIP-OFF</span><strong>2027</strong></div>
+              <div><span>HOME</span><strong>Toyota Center</strong></div>
+              <div><span>OWNER</span><strong>Fertitta Entertainment</strong></div>
+              <div><span>STATUS</span><strong>Approved relocation</strong></div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="page-section">
+      <div class="page-shell">
+        <div class="page-heading"><p class="kicker">TWO HISTORIES MEET IN 2027</p><h2>The name returns. The franchise moves.</h2><p>Houston's comeback is unusual enough that both trails matter.</p></div>
+        <div class="two-history-grid">
+          <article class="history-panel dark"><span>THE OPERATING FRANCHISE TRAIL</span><h3>Orlando → Connecticut → Houston</h3><p>The franchise relocating to Houston began as the Orlando Miracle in 1999, became the Connecticut Sun in 2003 and will move to Houston after the 2026 season. Connecticut's official FAQ says Houston receives the rights to player and coach contracts that remain in force at handoff.</p></article>
+          <article class="history-panel"><span>THE COMETS LEGACY</span><h3>1997–2008 → 2027 return</h3><p>The original Houston Comets were one of the WNBA's first eight teams and won the league's first four championships. Houston's official return announcement says the Comets' records and history will carry forward into this next chapter.</p></article>
+        </div>
+        <div class="dynasty-strip" aria-label="Original Houston Comets history at a glance">
+          <div><strong>4</strong><span>straight WNBA titles · 1997–2000</span></div>
+          <div><strong>12</strong><span>original seasons · 1997–2008</span></div>
+          <div><strong>9</strong><span>playoff appearances</span></div>
+          <div><strong>241–149</strong><span>original regular-season record</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="page-section" style="background:#f6efee">
+      <div class="page-shell">
+        <div class="page-heading"><p class="kicker">HOW THE HANDOFF WORKS</p><h2>No expansion draft for Houston.</h2><p>Because Houston is receiving an existing franchise rather than becoming an added team, the roster path is different from Cleveland, Detroit and Philadelphia.</p></div>
+        <div class="handoff-grid">
+          <article><b>1</b><h3>Connecticut finishes 2026</h3><p>The Sun remain in Connecticut through the 2026 season before the franchise relocates.</p></article>
+          <article><b>2</b><h3>Contract rights transfer</h3><p>Houston receives rights to any player and coach contracts still held by the franchise when the handoff occurs.</p></article>
+          <article><b>3</b><h3>Houston builds for 2027</h3><p>Trades, free agency, the college draft and normal roster decisions will shape the first modern Comets roster. There is no separate Houston expansion draft.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="page-section facility-band">
+      <div class="page-shell">
+        <div class="page-heading"><p class="kicker">TOYOTA CENTER REIMAGINED</p><h2>A new home setup for a returning name.</h2><p>Houston says Toyota Center renovations will include expanded and modernized player spaces ahead of the 2027 season.</p></div>
+        <div class="facility-grid"><div><strong>PRACTICE</strong><span>Expanded basketball and training facilities</span></div><div><strong>RECOVERY</strong><span>Medical and recovery resources</span></div><div><strong>NUTRITION</strong><span>Player-focused nutrition support</span></div><div><strong>LOCKER ROOM</strong><span>New Comets player spaces</span></div></div>
+      </div>
+    </section>
+
+    <section class="page-section">
+      <div class="page-shell">
+        <div class="page-heading"><p class="kicker">THE FOUNDATION</p><h2>Cooper. Swoopes. Thompson. Chancellor.</h2><p>Cynthia Cooper, Sheryl Swoopes, Tina Thompson and head coach Van Chancellor anchored the league's first dynasty. The 2027 team will inherit a name that already carries championship expectations in Houston.</p></div>
+        <div class="expansion-next"><a href="/franchise-footprints.html#houston">Original Comets archive →</a><a href="/team.html?team=connecticut-sun">2026 Connecticut Sun hub →</a><a href="/expansion-w.html">WNBA Expansion Watch →</a></div>
+        <div class="page-heading compact" style="margin-top:38px"><p class="kicker">PRIMARY SOURCES</p><h2>Track the return at the source.</h2></div>
+        <div class="source-stack">
+          <a href="https://www.houstoncomets.com/" target="_blank" rel="noopener noreferrer">Official Houston Comets site ↗</a>
+          <a href="https://www.houstoncomets.com/articles/approved-sale" target="_blank" rel="noopener noreferrer">Comets approval announcement ↗</a>
+          <a href="https://www.wnba.com/news/wnba-nba-approve-connecticut-sun-sale" target="_blank" rel="noopener noreferrer">WNBA relocation release ↗</a>
+          <a href="https://sun.wnba.com/frequently-asked-questions" target="_blank" rel="noopener noreferrer">Connecticut Sun sale FAQ ↗</a>
+          <a href="https://sun.wnba.com/sun-history" target="_blank" rel="noopener noreferrer">Connecticut franchise history ↗</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script src="/site.js"></script>
+</body>
+</html>

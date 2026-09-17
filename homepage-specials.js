@@ -26,7 +26,7 @@
   async function loadSpecials(force=false){
     if(!force&&posts.length&&Date.now()-loadedAt<300000)return posts;
     if(loadPromise&&!force)return loadPromise;
-    const feeds=['/snack-shak-all-time.json','/snack-shaq-posts.json','/snack-shak-specials.json','/snack-shak-breaking.json','/snack-shak-latest.json','/snack-shak-final.json'];
+    const feeds=['/snack-shak-love-and-basketball.json','/snack-shak-all-time.json','/snack-shaq-posts.json','/snack-shak-specials.json','/snack-shak-breaking.json','/snack-shak-latest.json','/snack-shak-final.json'];
     loadPromise=Promise.allSettled(feeds.map(fetchPosts)).then(results=>{
       const bySlug=new Map();
       results.forEach(result=>{if(result.status==='fulfilled')result.value.forEach(post=>{if(post?.slug)bySlug.set(post.slug,post);});});

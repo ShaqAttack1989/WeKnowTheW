@@ -2,6 +2,8 @@
   const SEASON=2026;
   const GRID_ID='returnPlayerGrid';
   const TEAM_CODES={CON:['CON'],ATL:['ATL'],WAS:['WAS'],CHI:['CHI'],LAS:['LAS'],DAL:['DAL'],PHX:['PHX','PHO'],POR:['POR'],LVA:['LVA','LVA','VEG'],SEA:['SEA']};
+  const PLAYOFF_FIELD_BASE='/assets/images/snack-shak/welcome-back-playoff-field';
+  const PLAYOFF_FIELD_ALT='2026 WNBA playoff field showing the eight seeded teams, records, featured players and championship history through September 16';
   const norm=value=>String(value||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,'');
   const finite=value=>Number.isFinite(Number(value));
   const number=value=>finite(value)?Number(value):null;
@@ -21,6 +23,56 @@
   let totalsByName=new Map();
   let loadedAt=0;
   let loading=null;
+  let playoffFieldPromise=null;
+
+  function playoffFieldSrc(){
+    if(playoffFieldPromise)return playoffFieldPromise;
+    playoffFieldPromise=Promise.all([1,2,3,4,5].map(index=>
+      fetch(`${PLAYOFF_FIELD_BASE}/part-${index}.txt?v=20260916`,{cache:'force-cache'}).then(response=>{
+        if(!response.ok)throw new Error(`playoff field image part ${index} returned ${response.status}`);
+        return response.text();
+      })
+    )).then(parts=>`data:image/jpeg;base64,${parts.join('')}`);
+    return playoffFieldPromise;
+  }
+
+  function ensurePlayoffFieldStyles(){
+    if(document.getElementById('welcomeBackPlayoffFieldStyles'))return;
+    const style=document.createElement('style');
+    style.id='welcomeBackPlayoffFieldStyles';
+    style.textContent=`
+      .wbw-playoff-field-feature{padding:34px 0 20px;background:linear-gradient(180deg,#f4f0fa 0%,#fff 100%)}
+      .wbw-playoff-field-feature .wbw-playoff-field-intro{max-width:760px;margin:0 auto 18px;text-align:center}
+      .wbw-playoff-field-feature .wbw-playoff-field-intro .kicker{margin-bottom:7px}
+      .wbw-playoff-field-feature .wbw-playoff-field-intro h2{margin:0 0 8px;color:#160b33}
+      .wbw-playoff-field-feature .wbw-playoff-field-intro p:last-child{margin:0;color:#5f5770}
+      .wbw-playoff-field-figure{max-width:520px;margin:0 auto;background:#160b33;border-radius:24px;overflow:hidden;box-shadow:0 22px 60px rgba(21,10,48,.22)}
+      .wbw-playoff-field-figure img{display:block;width:100%;height:auto;background:#160b33}
+      .wbw-playoff-field-figure figcaption{padding:14px 18px 16px;color:#f8f5ff;background:#160b33;font-size:.9rem;line-height:1.45;text-align:center}
+      .wbw-playoff-field-figure figcaption strong{color:#c7ff35}
+      @media(max-width:640px){.wbw-playoff-field-feature{padding:24px 0 14px}.wbw-playoff-field-figure{border-radius:18px}.wbw-playoff-field-figure figcaption{font-size:.82rem}}
+    `;
+    document.head.appendChild(style);
+  }
+
+  async function ensurePlayoffFieldFeature(){
+    const main=document.querySelector('main');
+    const briefing=document.getElementById('briefing');
+    if(!main||!briefing||document.getElementById('playoffFieldFeature'))return;
+    ensurePlayoffFieldStyles();
+    const section=document.createElement('section');
+    section.className='wbw-playoff-field-feature';
+    section.id='playoffFieldFeature';
+    section.setAttribute('aria-label','2026 WNBA playoff field');
+    section.innerHTML=`<div class="page-shell"><div class="wbw-playoff-field-intro"><p class="kicker">THE FIELD IS SET</p><h2>Eight teams. One trophy. The receipts are here.</h2><p>Seeds and records through Sept. 16, paired with each franchise's playoff history through 2025.</p></div><figure class="wbw-playoff-field-figure"><img alt="${PLAYOFF_FIELD_ALT}" width="420" height="525" loading="eager"><figcaption><strong>2026 PLAYOFF FIELD</strong> · Your quick visual before the September 17 return night sprint.</figcaption></figure></div>`;
+    main.insertBefore(section,briefing);
+    const image=section.querySelector('img');
+    try{image.src=await playoffFieldSrc();}
+    catch(error){
+      console.warn('Welcome Back playoff field image could not load',error);
+      section.remove();
+    }
+  }
 
   function addTotal(row={}){
     const key=norm(row.name);
@@ -102,6 +154,7 @@
   }
 
   function boot(){
+    ensurePlayoffFieldFeature();
     const grid=document.getElementById(GRID_ID);
     if(!grid)return;
     let scheduled=false;

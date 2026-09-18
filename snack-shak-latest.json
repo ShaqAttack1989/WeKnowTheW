@@ -2,6 +2,71 @@
   "site": "Snack Shak",
   "posts": [
     {
+      "slug": "fiba-return-playoff-show-2026",
+      "type": "feature",
+      "priority": 1250,
+      "homepageSeason": "wnba-return",
+      "seriesLabel": "FOOD FOR THOUGHT · FIBA RETURN NIGHT",
+      "title": "Berlin to Buckets: The Playoff Teams Came Back Loud",
+      "published": "2026-09-18",
+      "week": "September 17 return night · 4 playoff teams · 4 wins · +131",
+      "dashboardUrl": "/fiba-return-playoff-show-2026.html",
+      "image": "https://cdn.wnba.com/sites/4/2025/11/Jackie917.png",
+      "storyImage": "https://cdn.wnba.com/sites/4/2025/11/Jackie917.png",
+      "imageAlt": "Jackie Young featured after scoring a career-high 35 points at Seattle on September 17, 2026",
+      "storyImageCaption": "Jackie Young scored a career-high 35 as Las Vegas beat Seattle on WNBA return night. Image via WNBA.com.",
+      "teams": [
+        "Atlanta Dream",
+        "Washington Mystics",
+        "Dallas Wings",
+        "Las Vegas Aces",
+        "Phoenix Mercury",
+        "Portland Fire"
+      ],
+      "players": [
+        "Jackie Young",
+        "Angel Reese",
+        "Rhyne Howard",
+        "Paige Bueckers",
+        "Kiki Iriafen",
+        "Jessica Shepard",
+        "A’ja Wilson"
+      ],
+      "dek": "Every playoff team that took the floor on September 17 won. Atlanta, Washington, Dallas and Las Vegas went 4–0, scored 424 points and beat their opponents by a combined 131. The FIBA break ended; the playoff pressure did not.",
+      "sections": [
+        {
+          "title": "Return night in one number",
+          "paragraphs": [
+            "The four playoff teams in action combined for a +131 scoring margin. Atlanta won by 44, Washington by 30, Dallas by 20 and Las Vegas by 37."
+          ]
+        },
+        {
+          "title": "Why it matters",
+          "paragraphs": [
+            "The results did not settle the playoff order, but they showed that the teams with postseason business did not need a grace period after the World Cup break. The standalone feature tracks the live seed order and next pressure points."
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "label": "Atlanta Dream return-night recap",
+          "url": "https://dream.wnba.com/news/dream-returns-with-a-decisive-win"
+        },
+        {
+          "label": "WNBA September 17 highlights",
+          "url": "https://www.wnba.com/watch"
+        },
+        {
+          "label": "Las Vegas Aces return-night gallery",
+          "url": "https://aces.wnba.com/news/gallery-aces-storm-9-17-2026"
+        },
+        {
+          "label": "We Know the W Live Stats",
+          "url": "https://www.weknowthew.com/live-stats.html"
+        }
+      ]
+    },
+    {
       "slug": "liberty-post-fiba-finals-sleeper",
       "type": "byte",
       "priority": 1100,

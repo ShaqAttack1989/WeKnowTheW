@@ -80,7 +80,7 @@
 
         <div class="season-story-grid">
           <a class="season-story season-story-lead" href="/snack-shak-bytes.html?post=liberty-post-fiba-finals-sleeper#story">
-            <figure class="season-story-media">
+            <figure class="season-story-media liberty-sleeper-media">
               <img src="/assets/images/snack-shak/liberty-post-fiba-sleeper.jpg" alt="Five New York Liberty players in a World Cup national team composite" loading="eager">
               <span>NEW SNACK SHAK BYTE</span>
             </figure>
@@ -106,8 +106,8 @@
           </a>
 
           <a class="season-story" href="/welcome-back-to-the-w-2026.html">
-            <figure class="season-story-media report-card-media">
-              <img src="/assets/images/17989.png" alt="Atlanta Dream team artwork" loading="lazy">
+            <figure class="season-story-media report-card-media welcome-back-media">
+              <img src="https://assets.fiba.basketball/image/upload/w_720,h_960,c_pad,g_north/f_png/q_auto/.headshot--person_283322--competition_208875" alt="Official FIBA player image of Jackie Young, one of the WNBA players returning from the 2026 World Cup" loading="lazy" decoding="async">
               <span>SEPTEMBER 17 WATCH GUIDE</span>
             </figure>
             <div class="season-story-copy">

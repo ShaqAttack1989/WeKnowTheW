@@ -53,81 +53,12 @@
 
   function sunsetFibaSpotlight(){
     const spotlight=document.querySelector('.home-season-spotlight');
-    if(!spotlight)return;
-    spotlight.dataset.season='wnba-return';
-    spotlight.setAttribute('aria-label','WNBA regular season return spotlight');
-    spotlight.innerHTML=`<div class="page-shell">
-      <div class="season-spotlight-frame">
-        <header class="season-spotlight-head">
-          <div class="season-spotlight-copy">
-            <p class="season-spotlight-kicker"><span><i aria-hidden="true"></i> Now playing</span> WNBA regular season</p>
-            <h2 id="seasonSpotlightTitle">Welcome Back <em>to the W</em></h2>
-            <p>The international break is over. The league returns September 17 with five games, ten teams and one final week to sharpen the playoff picture.</p>
-          </div>
-          <aside class="season-spotlight-status" aria-label="Current WNBA schedule window">
-            <span>RETURNS</span>
-            <strong>SEPT. <br>17</strong>
-            <small>FINAL REGULAR SEASON SPRINT</small>
-          </aside>
-        </header>
-
-        <nav class="season-spotlight-nav" aria-label="WNBA return shortcuts">
-          <a class="is-featured" href="/snack-shak-bytes.html?post=liberty-post-fiba-finals-sleeper#story">Liberty sleeper Byte</a>
-          <a href="/welcome-back-to-the-w-2026.html">Sept. 17 watch guide</a>
-          <a href="/live-stats.html">Live Stats</a>
-          <a href="/around-the-w.html">Around the W</a>
-        </nav>
-
-        <div class="season-story-grid">
-          <a class="season-story season-story-lead" href="/snack-shak-bytes.html?post=liberty-post-fiba-finals-sleeper#story">
-            <figure class="season-story-media liberty-sleeper-media">
-              <img src="/assets/images/snack-shak/liberty-post-fiba-sleeper.jpg" alt="Five New York Liberty players in a World Cup national team composite" loading="eager">
-              <span>NEW SNACK SHAK BYTE</span>
-            </figure>
-            <div class="season-story-copy">
-              <p class="season-story-label">7 PLAYERS · 6 COUNTRIES · ONE PLAYOFF QUESTION</p>
-              <h3>Are the Liberty the post FIBA Finals sleeper?</h3>
-              <p>The world saw what New York's players could do separately. Can the sixth seed become that dynamic together?</p>
-              <b>Grab the Snack Shak Byte <span aria-hidden="true">→</span></b>
-            </div>
-          </a>
-
-          <a class="season-story" href="/live-stats.html">
-            <figure class="season-story-media">
-              <img src="/assets/images/17992.png" alt="Dallas Wings team artwork" loading="lazy">
-              <span>LIVE PLAYOFF RACE</span>
-            </figure>
-            <div class="season-story-copy">
-              <p class="season-story-label">STANDINGS · GAMES · STREAKS</p>
-              <h3>The playoff line is moving again.</h3>
-              <p>Track the top eight, current records, streaks, upcoming games and completed results from the live W dashboard.</p>
-              <b>Open Live Stats <span aria-hidden="true">→</span></b>
-            </div>
-          </a>
-
-          <a class="season-story" href="/welcome-back-to-the-w-2026.html">
-            <figure class="season-story-media report-card-media welcome-back-media">
-              <img src="https://assets.fiba.basketball/image/upload/w_720,h_960,c_pad,g_north/f_png/q_auto/.headshot--person_283322--competition_208875" alt="Official FIBA player image of Jackie Young, one of the WNBA players returning from the 2026 World Cup" loading="lazy" decoding="async">
-              <span>SEPTEMBER 17 WATCH GUIDE</span>
-            </figure>
-            <div class="season-story-copy">
-              <p class="season-story-label">5 GAMES · 10 TEAMS · ONE FINAL WEEK</p>
-              <h3>Welcome back to the W.</h3>
-              <p>Build the return night watch plan with real player photos, team logos, live standings and dynamic dashboards.</p>
-              <b>Open the watch guide <span aria-hidden="true">→</span></b>
-            </div>
-          </a>
-        </div>
-
-        <footer class="season-spotlight-foot">
-          <span>The WNBA regular season is back in the lead.</span>
-          <a href="/snack-shak-bytes.html?post=liberty-post-fiba-finals-sleeper#story">Read the Liberty sleeper case <span aria-hidden="true">→</span></a>
-        </footer>
-      </div>
-    </div>`;
-
+    if(spotlight){
+      spotlight.dataset.season='wnba-return';
+      spotlight.setAttribute('aria-label','WNBA return night and final week spotlight');
+    }
     const heroButton=document.querySelector('.hub-hero .hero-actions .button.ghost[href="#now-playing"]');
-    if(heroButton)heroButton.textContent='Welcome Back to the W';
+    if(heroButton)heroButton.textContent='Return Night +131';
   }
 
   function spotlightUsed(){
@@ -138,9 +69,9 @@
 
   function chooseUniqueEditorials(){
     const used=spotlightUsed();
-    const food=posts.find(post=>isFood(post)&&!used.has(featureHref(post)))||null;
+    const food=posts.find(post=>isFood(post))||null;
     if(food)used.add(featureHref(food));
-    const byte=posts.find(post=>isByte(post)&&!used.has(featureHref(post)))||null;
+    const byte=posts.find(post=>isByte(post)&&!used.has(featureHref(post)))||posts.find(post=>isByte(post))||null;
     return {food,byte};
   }
 

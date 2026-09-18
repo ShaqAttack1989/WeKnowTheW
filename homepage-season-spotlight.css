@@ -90,6 +90,9 @@
 
 
 /* Sept. 10, 2026: editorial report card lead */
+.season-story-media.liberty-sleeper-media img{object-position:50% 8%}
+.season-story-media.welcome-back-media{background:#120a29}
+.season-story-media.welcome-back-media img{object-fit:contain;object-position:center top;background:#120a29}
 .season-story-media.report-card-media{background:#120a29}
 .season-story-media.report-card-media img{object-position:top center}
 .season-story:hover .season-story-media.report-card-media img{transform:scale(1.015)}

@@ -1,6 +1,7 @@
 (()=>{
   const DATE='2026-09-17';
   const PLAYOFF=new Set(['Atlanta Dream','Washington Mystics','Dallas Wings','Las Vegas Aces','Minnesota Lynx','Golden State Valkyries','Indiana Fever','New York Liberty']);
+  const CODE={'Connecticut Sun':'CON','Atlanta Dream':'ATL','Washington Mystics':'WAS','Chicago Sky':'CHI','Los Angeles Sparks':'LAS','Dallas Wings':'DAL','Phoenix Mercury':'PHX','Portland Fire':'POR','Las Vegas Aces':'LVA','Seattle Storm':'SEA'};
   const MATCHUPS=[
     {away:'Connecticut Sun',home:'Atlanta Dream',winner:'Atlanta Dream',fallback:[59,103],margin:44},
     {away:'Washington Mystics',home:'Chicago Sky',winner:'Washington Mystics',fallback:[110,80],margin:30},
@@ -20,9 +21,9 @@
     host.innerHTML=MATCHUPS.map(m=>{
       const g=findGame(games,m),scores=finalScores(g,m),winnerHome=norm(m.winner)===norm(m.home),winnerTag=PLAYOFF.has(m.winner)?'PLAYOFF TEAM':'DEVELOPMENT GAME';
       const winnerScore=winnerHome?scores[1]:scores[0],loserScore=winnerHome?scores[0]:scores[1];
-      const winnerCode=m.winner.split(' ').map(x=>x[0]).join('').slice(-3).toUpperCase();
+      const winnerCode=CODE[m.winner]||m.winner.slice(0,3).toUpperCase();
       const loser=m.winner===m.home?m.away:m.home;
-      const loserCode=loser.split(' ').map(x=>x[0]).join('').slice(-3).toUpperCase();
+      const loserCode=CODE[loser]||loser.slice(0,3).toUpperCase();
       return '<article class="return-score-card '+(PLAYOFF.has(m.winner)?'playoff':'')+'"><span>'+winnerTag+'</span><strong>'+safe(winnerCode)+' '+safe(winnerScore)+'</strong><b>'+safe(loserCode)+' '+safe(loserScore)+'</b><em>+'+safe(Math.abs(winnerScore-loserScore))+'</em></article>';
     }).join('');
   }

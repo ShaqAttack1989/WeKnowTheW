@@ -48,8 +48,10 @@ const HISTORICAL_BY_NAME = new Map((PLAYERPEDIA_HISTORICAL_INDEX.players || []).
 const CAREER_BY_NAME = new Map(Object.entries(PLAYERPEDIA_CAREER_STATS.byKey || {}));
 function careerFields(name = '', historical = null) {
   const stats = CAREER_BY_NAME.get(key(name)) || null;
-  const firstWnbaSeason = Number(historical?.firstWnbaSeason || stats?.firstSeason || 0) || null;
-  const lastWnbaSeason = Number(historical?.lastWnbaSeason || stats?.lastSeason || 0) || null;
+  const firstCandidates = [historical?.firstWnbaSeason, stats?.firstSeason].map(Number).filter(Number.isFinite).filter(Boolean);
+  const lastCandidates = [historical?.lastWnbaSeason, stats?.lastSeason].map(Number).filter(Number.isFinite).filter(Boolean);
+  const firstWnbaSeason = firstCandidates.length ? Math.min(...firstCandidates) : null;
+  const lastWnbaSeason = lastCandidates.length ? Math.max(...lastCandidates) : null;
   if (!stats && !firstWnbaSeason && !lastWnbaSeason) return {};
   const statCoverage = Number(stats?.statCoverage || 0);
   const careerStats = stats ? {

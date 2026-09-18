@@ -72,7 +72,7 @@ function filtered(){const q=normalizeText(playerSearch.value),qKey=playerKey(pla
 function render(){
   const list=filtered();
   playerCount.textContent=`${list.length} ${list.length===1?'player':'players'} shown`;
-  playerGrid.innerHTML=list.length?list.map(p=>`<button class="player-card" type="button" data-player-id="${pSafe(p.id)}">${avatarMarkup(p)}<span class="player-card-copy"><span class="player-card-topline">${pSafe(p.position||'Player')}${p.number?` · #${pSafe(p.number)}`:''}</span><strong>${pSafe(p.name)}</strong><span>${pSafe(p.team||'Current roster')}</span></span><span class="player-card-arrow">→</span></button>`).join(''):'<div class="player-empty"><strong>No players match those filters.</strong><span>Try another letter, team or search.</span></div>';
+  playerGrid.innerHTML=list.length?list.map(p=>`<button class="player-card" type="button" data-player-id="${pSafe(p.id)}">${avatarMarkup(p)}<span class="player-card-copy"><span class="player-card-topline">${pSafe(p.position||'Player')}${p.number?` · #${pSafe(p.number)}`:''}</span><strong>${pSafe(p.name)}</strong><span>${pSafe(p.team||(p.historicalPlayerpedia?'WNBA History':'Current roster'))}</span></span><span class="player-card-arrow">→</span></button>`).join(''):'<div class="player-empty"><strong>No players match those filters.</strong><span>Try another letter, team or search.</span></div>';
 }
 
 function fillTeams(){playerTeamFilter.innerHTML=['<option value="">All current teams</option>',...teams.map(t=>`<option value="${pSafe(t.id)}">${pSafe(t.name)}</option>`)].join('');}
@@ -81,7 +81,7 @@ function renderPlayerWire(payload={}){
   const transactions=Array.isArray(payload.transactions)?payload.transactions:[];
   const injuries=Array.isArray(payload.injuries)?payload.injuries:[];
   const updateDate=payload.liveUpdatesUpdatedAt?new Date(payload.liveUpdatesUpdatedAt):null;
-  if(liveRosterCount)liveRosterCount.textContent=`${allPlayers.length} current players · ${teams.length} teams`;
+  if(liveRosterCount)liveRosterCount.textContent=`${payload.currentPlayerCount||0} current players · ${payload.historicalPlayerCount||0} historical profiles · ${teams.length} teams`;
   if(liveRosterUpdated)liveRosterUpdated.textContent=updateDate&&!Number.isNaN(updateDate.getTime())?`Roster information checked ${updateDate.toLocaleDateString([],{month:'short',day:'numeric',year:'numeric'})}.`:'Current roster information connected.';
   if(movementUpdated)movementUpdated.textContent=updateDate&&!Number.isNaN(updateDate.getTime())?`Updated ${updateDate.toLocaleDateString([],{month:'short',day:'numeric'})}`:'';
   if(injuryUpdated)injuryUpdated.textContent=updateDate&&!Number.isNaN(updateDate.getTime())?`Updated ${updateDate.toLocaleDateString([],{month:'short',day:'numeric'})}`:'';
@@ -124,7 +124,7 @@ async function load(){
     }
     const partialText=payload.partial?' · some roster feeds retrying later':'';
     const photoCount=allPlayers.filter(player=>playerPhoto(player)).length;
-    status.textContent=`${allPlayers.length} current players · ${photoCount} player photos connected · ${advancedFeedReady?'live efficiency metrics connected':'advanced metrics retrying'}${partialText}`;
+    status.textContent=`${allPlayers.length} Playerpedia profiles · ${payload.currentPlayerCount||0} current · ${payload.historicalPlayerCount||0} historical · ${photoCount} photos · ${advancedFeedReady?'live efficiency metrics connected':'advanced metrics retrying'}${partialText}`;
   }catch(e){
     playerGrid.innerHTML=`<div class="error-box"><strong>Playerpedia roster feed could not load.</strong><span>${pSafe(e.message)}</span></div>`;
     if(transactionFeed)transactionFeed.innerHTML='<div class="wire-row"><strong>Player movement feed unavailable.</strong></div>';
@@ -140,7 +140,11 @@ playerSearch.addEventListener('input',()=>{if(letter)activateLetter('');render()
 playerTeamFilter.addEventListener('change',render);
 reset.addEventListener('click',()=>{activateLetter('');playerSearch.value='';playerTeamFilter.value='';clearSearchUrl();render();});
 
-function facts(player){return [['Jersey',player.number?`#${player.number}`:''],['Born',player.birthDate],['From',player.birthPlace],['Nationality',player.nationality],['Height',player.height],['College',player.college]].filter(x=>x[1]).map(([l,v])=>`<div class="profile-fact"><span>${pSafe(l)}</span><strong>${pSafe(v)}</strong></div>`).join('');}
+function facts(player){
+  const careerYears=player.firstWnbaSeason?(player.firstWnbaSeason===player.lastWnbaSeason?String(player.firstWnbaSeason):`${player.firstWnbaSeason}–${player.lastWnbaSeason||'present'}`):'';
+  return [['Jersey',player.number?`#${player.number}`:''],['WNBA career',careerYears],['Born',player.birthDate],['From',player.birthPlace],['Nationality',player.nationality],['Height',player.height],['College',player.college]]
+    .filter(x=>x[1]).map(([l,v])=>`<div class="profile-fact"><span>${pSafe(l)}</span><strong>${pSafe(v)}</strong></div>`).join('');
+}
 
 function uniqueFactCandidate(candidates=[],bio=''){
   for(const candidate of candidates.map(compactText).filter(Boolean)){
@@ -170,6 +174,10 @@ function amazingFact(payload,player,name,honors=[]){
 
   const advanced=statsFact(name);
   if(advanced&&!overlapsBio(advanced,bio))return advanced;
+  if(player.historicalPlayerpedia&&player.firstWnbaSeason){
+    const years=player.firstWnbaSeason===player.lastWnbaSeason?String(player.firstWnbaSeason):`${player.firstWnbaSeason}–${player.lastWnbaSeason||player.firstWnbaSeason}`;
+    return `${name} is part of the all-time Playerpedia archive, with a WNBA career spanning ${years}.`;
+  }
 
   const structured=[];
   if(player.number)structured.push(`${name} wears #${player.number} for ${player.team||'her current WNBA team'}.`);
@@ -187,6 +195,21 @@ function metricsMarkup(name){
   const ts=formatTs(row.tsPct);
   return `<div class="why-metrics"><div class="why-metric"><span>PLAYER EFFICIENCY RATING</span><strong>${pSafe(per)}</strong><small>PER · per-minute all-around production</small></div><div class="why-metric"><span>TRUE SHOOTING</span><strong>${pSafe(ts)}</strong><small>TS% · scoring efficiency across 2s, 3s + free throws</small></div></div>`;
 }
+function careerMetricsMarkup(player={}){
+  const c=player.careerStats;
+  if(!c)return '';
+  const stat=value=>hasMetric(value)?Number(value).toFixed(1):'0.0';
+  const coverage=Number(c.statCoverage||player.statCoverage||0);
+  const eligible=coverage>=3;
+  return `<section class="profile-subsection"><h4>WNBA career snapshot</h4><div class="why-metrics">
+    <div class="why-metric"><span>PPG</span><strong>${pSafe(stat(c.ppg))}</strong><small>career per game</small></div>
+    <div class="why-metric"><span>RPG</span><strong>${pSafe(stat(c.rpg))}</strong><small>career per game</small></div>
+    <div class="why-metric"><span>APG</span><strong>${pSafe(stat(c.apg))}</strong><small>career per game</small></div>
+    <div class="why-metric"><span>SPG</span><strong>${pSafe(stat(c.spg))}</strong><small>career per game</small></div>
+    <div class="why-metric"><span>BPG</span><strong>${pSafe(stat(c.bpg))}</strong><small>career per game</small></div>
+    <div class="why-metric"><span>WEIGHTED SCORE</span><strong>${pSafe(stat(c.weightedScore))}</strong><small>35% PTS · 20% REB · 20% AST · 12.5% STL · 12.5% BLK</small></div>
+  </div><p class="why-source">${pSafe(c.games||0)} games · ${pSafe(c.seasons||0)} seasons · ${coverage}/5 sourced gameplay stats · ${eligible?'eligible for stat-driven Run the W modes':'Playerpedia / Do You Know the W only'}.</p></section>`;
+}
 
 async function openProfile(id){
   const roster=allPlayers.find(p=>String(p.id)===String(id));
@@ -196,7 +219,7 @@ async function openProfile(id){
 
   let payload={player:roster||{},honours:[],milestones:[]};
   let detailUnavailable=false;
-  if(roster&&!roster.curated&&!String(id).startsWith('curated-')){
+  if(roster&&!roster.curated&&!roster.historicalPlayerpedia&&!String(id).startsWith('curated-')){
     try{
       const response=await fetch(`/api/player?id=${encodeURIComponent(id)}`,{headers:{Accept:'application/json'}});
       const data=await response.json().catch(()=>({}));
@@ -221,9 +244,13 @@ async function openProfile(id){
   const detailsNote=detailUnavailable?'<p class="profile-data-note">Some biographical details are still loading; current roster and season information remain available.</p>':'';
   const refreshed=advancedUpdatedAt?new Date(advancedUpdatedAt):null;
   const refreshedText=refreshed&&!Number.isNaN(refreshed.getTime())?` Last refreshed ${refreshed.toLocaleString([],{month:'short',day:'numeric',hour:'numeric',minute:'2-digit'})}.`:'';
-  const statNote=advancedFeedReady?`<p class="why-source">2026 efficiency metrics refresh with official WNBA season data and available advanced-stat sources.${pSafe(refreshedText)}</p>`:'<p class="why-source">Advanced metrics are temporarily unavailable and will repopulate automatically when the season feed reconnects.</p>';
+  const statNote=p.historicalPlayerpedia
+    ? '<p class="why-source">Career numbers aggregate We Know the W historical season snapshots from the player’s WNBA seasons. Missing stat fields are stored as 0 only after source coverage is counted.</p>'
+    : advancedFeedReady?`<p class="why-source">2026 efficiency metrics refresh with official WNBA season data and available advanced-stat sources.${pSafe(refreshedText)}</p>`:'<p class="why-source">Advanced metrics are temporarily unavailable and will repopulate automatically when the season feed reconnects.</p>';
+  const currentMetrics=p.historicalPlayerpedia?'':metricsMarkup(name);
+  const careerMetrics=careerMetricsMarkup(p);
 
-  modalBody.innerHTML=`<div class="profile-hero">${avatarMarkup({...p,name},true)}<div><p class="kicker">PLAYERPEDIA</p><h3 id="playerModalTitle">${pSafe(name)}</h3><p class="profile-teamline">${pSafe([p.team||roster?.team,p.position||roster?.position].filter(Boolean).join(' · '))}</p></div></div><div class="profile-facts">${facts(p)}</div>${liveNote}${p.description?`<section class="profile-subsection"><h4>Quick bio</h4><p>${pSafe(p.description)}</p></section>`:''}${honors.length?`<section class="profile-subsection"><h4>Honors & awards</h4><div class="profile-tags">${honors.map(h=>`<span>${pSafe(h)}</span>`).join('')}</div></section>`:''}<section class="why-we-know-her"><span>WHY WE KNOW HER</span><strong>${pSafe(name)} · the numbers + the story.</strong>${metricsMarkup(name)}<div class="amazing-fact"><span>AMAZING FACT</span><p>${pSafe(fact)}</p></div>${statNote}</section>${detailsNote}`;
+  modalBody.innerHTML=`<div class="profile-hero">${avatarMarkup({...p,name},true)}<div><p class="kicker">PLAYERPEDIA</p><h3 id="playerModalTitle">${pSafe(name)}</h3><p class="profile-teamline">${pSafe([p.team||roster?.team,p.position||roster?.position].filter(Boolean).join(' · '))}</p></div></div><div class="profile-facts">${facts(p)}</div>${careerMetrics}${liveNote}${p.description?`<section class="profile-subsection"><h4>Quick bio</h4><p>${pSafe(p.description)}</p></section>`:''}${honors.length?`<section class="profile-subsection"><h4>Honors & awards</h4><div class="profile-tags">${honors.map(h=>`<span>${pSafe(h)}</span>`).join('')}</div></section>`:''}<section class="why-we-know-her"><span>WHY WE KNOW HER</span><strong>${pSafe(name)} · the numbers + the story.</strong>${currentMetrics}<div class="amazing-fact"><span>AMAZING FACT</span><p>${pSafe(fact)}</p></div>${statNote}</section>${detailsNote}`;
 }
 
 playerGrid.addEventListener('click',e=>{const card=e.target.closest('[data-player-id]');if(card)openProfile(card.dataset.playerId);});

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-18T04:37:06.227Z",
+  "generatedAt": "2026-09-18T09:39:11.834Z",
   "movement": {
     "latestTransactionDate": "2026-09-16",
     "transactions": [
@@ -1366,8 +1366,8 @@
   },
   "availability": {
     "latestReportDate": "2026-09-18",
-    "reportLabel": "09/18/2026 12:30 AM ET",
-    "officialPdf": "https://ak-static.cms.nba.com/referee/wnba_injury/Injury-Report_2026-09-18_12_30AM.pdf",
+    "reportLabel": "09/18/2026 05:30 AM ET",
+    "officialPdf": "https://ak-static.cms.nba.com/referee/wnba_injury/Injury-Report_2026-09-18_05_30AM.pdf",
     "injuries": [
       {
         "player": "Anastasiia Olairi Kosu",

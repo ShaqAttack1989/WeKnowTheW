@@ -4,6 +4,8 @@ const { CURRENT_AVAILABILITY_PATCH } = require('../lib/current-availability-patc
 const { officialHeadshot } = require('../lib/wnba-headshots');
 const { OFFICIAL_ROSTER_SNAPSHOT } = require('../lib/official-roster-snapshot');
 const { getWnbaRosters, getWnbaInjuries, getWnbaTransactions } = require('../lib/wehoop-espn');
+const PLAYERPEDIA_HISTORICAL_INDEX = require('../data/playerpedia-historical-index.json');
+const PLAYERPEDIA_CAREER_STATS = require('../data/playerpedia-career-stats.json');
 
 // Players who must remain searchable even when a provider's historical roster
 // endpoint stops returning them. This is intentionally a retention layer, not
@@ -41,6 +43,83 @@ const RETAINED_PLAYERPEDIA = [
 
 function key(value = '') {
   return String(value).normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]/g, '');
+}
+const HISTORICAL_BY_NAME = new Map((PLAYERPEDIA_HISTORICAL_INDEX.players || []).map(item => [key(item.name), item]));
+const CAREER_BY_NAME = new Map(Object.entries(PLAYERPEDIA_CAREER_STATS.byKey || {}));
+function careerFields(name = '', historical = null) {
+  const stats = CAREER_BY_NAME.get(key(name)) || null;
+  const firstWnbaSeason = Number(historical?.firstWnbaSeason || stats?.firstSeason || 0) || null;
+  const lastWnbaSeason = Number(historical?.lastWnbaSeason || stats?.lastSeason || 0) || null;
+  if (!stats && !firstWnbaSeason && !lastWnbaSeason) return {};
+  const statCoverage = Number(stats?.statCoverage || 0);
+  const careerStats = stats ? {
+    games: Number(stats.games || 0),
+    seasons: Number(stats.seasons || 0),
+    ppg: Number(stats.ppg || 0),
+    rpg: Number(stats.rpg || 0),
+    apg: Number(stats.apg || 0),
+    spg: Number(stats.spg || 0),
+    bpg: Number(stats.bpg || 0),
+    statCoverage,
+    weightedScore: Number(stats.weightedScore || 0)
+  } : null;
+  return {
+    firstWnbaSeason,
+    lastWnbaSeason,
+    careerStats,
+    statCoverage,
+    gameEligible: statCoverage >= 3,
+    weightedScore: Number(stats?.weightedScore || 0)
+  };
+}
+function baseFromHistorical(item = {}) {
+  const name = item.name || '';
+  const { firstName, lastName } = splitName(name);
+  const stats = CAREER_BY_NAME.get(key(name)) || {};
+  const official = officialHeadshot(name);
+  const photo = official?.url || '';
+  const lastTeam = stats.team || '';
+  return {
+    id: item.wnbaId ? `wnba-${item.wnbaId}` : `history-${key(name)}`,
+    wnbaId: String(item.wnbaId || ''),
+    espnId: '',
+    name,
+    firstName,
+    lastName,
+    teamId: '',
+    team: lastTeam ? `WNBA History · last: ${lastTeam}` : 'WNBA History',
+    position: stats.position || 'Player',
+    number: '',
+    nationality: '',
+    birthDate: '',
+    height: '',
+    weight: '',
+    photo,
+    photoThumb: photo,
+    photoCutout: photo,
+    officialHeadshot: photo,
+    headshot: photo,
+    photoOfficial: Boolean(photo),
+    photoSource: photo ? 'Official WNBA headshot CDN' : '',
+    photoSourceUrl: '',
+    rosterSourceUrl: PLAYERPEDIA_HISTORICAL_INDEX.metadata?.sourceUrl || '',
+    currentRoster: false,
+    historicalPlayerpedia: true,
+    archiveOnly: true,
+    lastTeam,
+    ...careerFields(name, item),
+    dataSources: ['WNBA legacy historical player index', 'We Know the W historical season-stat API']
+  };
+}
+function baseFromCareerArchive(stats = {}) {
+  const name = stats.name || '';
+  return baseFromHistorical({
+    name,
+    wnbaId: '',
+    firstWnbaSeason: stats.firstSeason,
+    lastWnbaSeason: stats.lastSeason,
+    legacyStatus: 'I'
+  });
 }
 function splitName(name = '') {
   const parts = String(name).trim().split(/\s+/).filter(Boolean);
@@ -291,6 +370,33 @@ function buildRoster(rosterData = {}, recentRosterData = {}, recentSeason = 2025
     byName.set(playerKey, baseFromRetained(retained, teamIds, recentSeason));
   }
 
+  // Road-to-1,000-scale historical layer. Existing current/recent profiles win;
+  // the archive only fills players not already present and adds career metrics.
+  for (const item of PLAYERPEDIA_HISTORICAL_INDEX.players || []) {
+    const playerKey = key(item.name);
+    if (!playerKey) continue;
+    if (!byName.has(playerKey)) byName.set(playerKey, baseFromHistorical(item));
+  }
+  for (const stats of Object.values(PLAYERPEDIA_CAREER_STATS.byKey || {})) {
+    const playerKey = key(stats.name);
+    if (!playerKey || byName.has(playerKey)) continue;
+    byName.set(playerKey, baseFromCareerArchive(stats));
+  }
+  for (const [playerKey, player] of byName.entries()) {
+    const historical = HISTORICAL_BY_NAME.get(playerKey) || null;
+    const career = careerFields(player.name, historical);
+    if (Object.keys(career).length) {
+      byName.set(playerKey, {
+        ...player,
+        ...career,
+        firstWnbaSeason: career.firstWnbaSeason || player.firstWnbaSeason || null,
+        lastWnbaSeason: player.currentRoster === true ? 2026 : (career.lastWnbaSeason || player.lastWnbaSeason || null),
+        historicalPlayerpedia: Boolean(player.historicalPlayerpedia || historical),
+        dataSources: [...new Set([...(player.dataSources || []), 'Road to 1,000 historical benchmark', 'We Know the W career-stat archive'])]
+      });
+    }
+  }
+
   for (const [playerKey, override] of overrideMap.entries()) {
     const status = String(override.status || '').toLowerCase();
     const existing = byName.get(playerKey);
@@ -390,15 +496,17 @@ module.exports = async function handler(req, res) {
 
   const players = buildRoster(rosterData, recentRosterData, 2025);
   const currentPlayers = players.filter(player => player.currentRoster !== false);
-  const recentPlayers = players.filter(player => player.currentRoster === false);
+  const historicalPlayers = players.filter(player => player.historicalPlayerpedia);
+  const recentPlayers = players.filter(player => player.currentRoster === false && !player.historicalPlayerpedia);
+  const gameEligiblePlayers = players.filter(player => player.gameEligible);
   const teams = [...new Map(currentPlayers.filter(player => player.team && !/^Free Agent/i.test(player.team)).map(player => [key(player.team), { id: player.teamId || key(player.team), name: player.team }])).values()].sort((a,b)=>a.name.localeCompare(b.name));
   const transactions = mergeTransactions(providerTransactions);
   const injuries = mergeInjuries(providerInjuries);
   if (!players.length) return res.status(502).json({ error: 'No roster provider returned usable WNBA players.', checkedAt, errors });
 
   return res.status(200).json({
-    source: 'Live 2026 ESPN WNBA rosters + official WNBA roster snapshot gap-fill + 2025 Playerpedia archive + retained free-agent safeguard + curated transaction corrections',
-    sources: ['Live ESPN WNBA roster feed','Official WNBA roster snapshot gap-fill','2025 ESPN WNBA roster archive','Playerpedia retained-player safeguard','WNBA Transactions Report cross-check','Curated transaction corrections'],
+    source: 'All-time WNBA Playerpedia: Road to 1,000 historical benchmark + WNBA legacy historical index + 1997-2026 season-stat archive + live 2026 roster feeds',
+    sources: ['Road to 1,000 historical benchmark','WNBA legacy historical player index','We Know the W 1997-2026 season-stat archive','Live ESPN WNBA roster feed','Official WNBA roster snapshot gap-fill','2025 ESPN WNBA roster archive','Playerpedia retained-player safeguard','WNBA Transactions Report cross-check','Curated transaction corrections'],
     leagueId: 4516,
     updatedAt: checkedAt,
     rosterCheckedAt: checkedAt,
@@ -409,7 +517,18 @@ module.exports = async function handler(req, res) {
     playerCount: players.length,
     currentPlayerCount: currentPlayers.length,
     recentPlayerCount: recentPlayers.length,
-    playerpediaCoverage: { currentSeason: 2026, recentArchiveSeason: 2025, retainedSafeguards: RETAINED_PLAYERPEDIA.length, officialSnapshotGapFill: true, rule: 'Once a player appears in the WNBA player pool, Playerpedia keeps her searchable through roster changes, free agency, individual provider gaps and archive-provider gaps.' },
+    historicalPlayerCount: historicalPlayers.length,
+    gameEligiblePlayerCount: gameEligiblePlayers.length,
+    playerpediaCoverage: {
+      currentSeason: 2026,
+      recentArchiveSeason: 2025,
+      historicalIndexPlayers: Number(PLAYERPEDIA_HISTORICAL_INDEX.metadata?.playerCount || 0),
+      careerStatPlayers: Number(PLAYERPEDIA_CAREER_STATS.metadata?.playerCount || 0),
+      retainedSafeguards: RETAINED_PLAYERPEDIA.length,
+      officialSnapshotGapFill: true,
+      gameEligibilityRule: 'At least 3 of PPG, RPG, APG, SPG, BPG must be sourced for performance-based game modes. Missing values are zero-filled only after coverage is counted.',
+      rule: 'Playerpedia keeps the all-time WNBA archive searchable while live roster status remains authoritative for current players.'
+    },
     transactions,
     transactionCount: transactions.length,
     injuries,

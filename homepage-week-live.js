@@ -16,24 +16,22 @@
     mockAwards:'/assets/images/snack-shak/we-know-the-w-mock-awards-2026.svg'
   };
 
-  const TEAM_POSTERS={
-    'atlanta dream':'/assets/team-posters/atlanta-dream.webp',
-    'chicago sky':'/assets/team-posters/chicago-sky.webp',
-    'connecticut sun':'/assets/team-posters/connecticut-sun.webp',
-    'dallas wings':'/assets/team-posters/dallas-wings.webp',
-    'golden state valkyries':'/assets/team-posters/golden-state-valkyries.webp',
-    'indiana fever':'/assets/team-posters/indiana-fever.webp',
-    'las vegas aces':'/assets/team-posters/las-vegas-aces.webp',
-    'los angeles sparks':'/assets/team-posters/los-angeles-sparks.webp',
-    'minnesota lynx':'/assets/team-posters/minnesota-lynx.webp',
-    'new york liberty':'/assets/team-posters/new-york-liberty.webp',
-    'phoenix mercury':'/assets/team-posters/phoenix-mercury.webp',
-    'portland fire':'/assets/team-posters/portland-fire.webp',
-    'seattle storm':'/assets/team-posters/seattle-storm.webp',
-    'washington mystics':'/assets/team-posters/washington-mystics.webp'
-  };
-
-  const teamPoster=name=>TEAM_POSTERS[norm(name)]||'';
+  const TEAM_BADGES=new Map();
+  const teamBadge=name=>TEAM_BADGES.get(norm(name))||'';
+  function storeTeamBadges(payload={}){
+    const teams=Array.isArray(payload.teams)?payload.teams:[];
+    teams.forEach(team=>{
+      const src=sitePhoto(team?.badge||team?.logo||'');
+      if(team?.name&&src)TEAM_BADGES.set(norm(team.name),src);
+    });
+  }
+  function hydrateHeaderBadges(){
+    document.querySelectorAll('[data-team-logo]').forEach(host=>{
+      const name=host.getAttribute('data-team-logo')||'';
+      const src=teamBadge(name);
+      host.innerHTML=src?'<img src="'+safe(src)+'" alt="" loading="lazy" decoding="async">':'<b aria-hidden="true">W</b>';
+    });
+  }
   const fetchJson=async url=>{
     const joiner=url.includes('?')?'&':'?';
     const response=await fetch(`${url}${joiner}cb=${Date.now()}`,{headers:{Accept:'application/json','Cache-Control':'no-cache'},cache:'no-store'});
@@ -57,7 +55,8 @@
     if(!items.length){
       return `<div class="week-snapshot-media week-media-fallback" role="img" aria-label="${safe(kicker||'We Know the W')} visual"><span>${label}</span><b aria-hidden="true">W</b></div>`;
     }
-    const classes=items.length>1?'week-snapshot-media week-media-strip':'week-snapshot-media';
+    let classes=items.length>1?'week-snapshot-media week-media-strip':'week-snapshot-media';
+    if(items.some(item=>item.className.split(/\s+/).includes('official-team-logo')))classes+=' official-team-logos';
     const images=items.map(item=>`<img src="${safe(item.src)}" alt="${safe(item.alt)}" loading="lazy" decoding="async" style="--media-focus:${safe(item.focus)};--media-focus-mobile:${safe(item.mobileFocus)}"${item.className?` class="${safe(item.className)}"`:''}>`).join('');
     return `<div class="${classes}">${images}<span>${label}</span></div>`;
   }
@@ -98,9 +97,9 @@
             <p>The freshest stories, numbers, roster news and basketball beyond the league, distilled from across We Know the W. Get the headline here, then go deeper.</p>
           </div>
           <div class="week-hub-head-visual" aria-hidden="true">
-            <span class="week-head-photo one"><img src="/assets/team-posters/atlanta-dream.webp" alt=""></span>
-            <span class="week-head-photo two"><img src="/assets/team-posters/dallas-wings.webp" alt=""></span>
-            <span class="week-head-photo three"><img src="/assets/team-posters/las-vegas-aces.webp" alt=""></span>
+            <span class="week-head-photo one" data-team-logo="Atlanta Dream"><b aria-hidden="true">W</b></span>
+            <span class="week-head-photo two" data-team-logo="Dallas Wings"><b aria-hidden="true">W</b></span>
+            <span class="week-head-photo three" data-team-logo="Las Vegas Aces"><b aria-hidden="true">W</b></span>
             <span class="week-head-visual-label">LIVE EDITION</span>
           </div>
           <span class="week-hub-stamp" id="weekHubStamp"><i aria-hidden="true"></i> Refreshing</span>
@@ -264,8 +263,8 @@
   function gameMedia(game={}){
     const away=awayName(game),home=homeName(game);
     return [
-      {src:teamPoster(away),alt:`${away} team artwork`,focus:'50% 50%'},
-      {src:teamPoster(home),alt:`${home} team artwork`,focus:'50% 50%'}
+      {src:teamBadge(away),alt:`${away} official team logo`,focus:'50% 50%',className:'official-team-logo'},
+      {src:teamBadge(home),alt:`${home} official team logo`,focus:'50% 50%',className:'official-team-logo'}
     ].filter(item=>item.src);
   }
 
@@ -273,6 +272,8 @@
     const liveHost=document.getElementById('weekHubLive'),gamesHost=document.getElementById('weekHubGames');
     try{
       const stats=await fetchJson('/api/stats?season=2026');
+      try{storeTeamBadges(await fetchJson('/api/teams?homepage=official-badges'));}catch{}
+      hydrateHeaderBadges();
       const rows=standingsRows(stats).sort((a,b)=>Number(a.overall_rank||a.playoff_seed||999)-Number(b.overall_rank||b.playoff_seed||999));
       const leader=rows[0];
       const live=Array.isArray(stats.liveGames)?stats.liveGames:[];

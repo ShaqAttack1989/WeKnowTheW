@@ -1,91 +1,769 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "headers": [
-    {"source":"/(.*)","headers":[{"key":"X-Content-Type-Options","value":"nosniff"},{"key":"Referrer-Policy","value":"strict-origin-when-cross-origin"}]},
-    {"source":"/styles.css","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},
-    {"source":"/site.js","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},
-    {"source":"/homepage-week-live.css","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},
-    {"source":"/homepage-week-live.js","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},
-    {"source":"/homepage-specials.js","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},
-    {"source":"/snack-shak.html","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},
-    {"source":"/snack-shak-bytes.html","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},
-    {"source":"/food-for-thought.html","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},
-    {"source":"/the-call-up.html","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},
-    {"source":"/the-call-up-page.js","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},
-    {"source":"/upshot-hub.css","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},
-    {"source":"/upshot-live.json","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},
-    {"source":"/snack-shak-hub.js","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},
-    {"source":"/snack-shak-collections.js","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},
-    {"source":"/snack-shaq.js","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},
-    {"source":"/snack-shak-latest.json","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},
-    {"source":"/snack-shak-breaking.json","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},
-    {"source":"/snack-shak-specials.json","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},
-    {"source":"/snack-shaq-posts.json","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},
-    {"source":"/playerpedia.html","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},
-    {"source":"/playerpedia-offseason-badges.js","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},
-    {"source":"/playerpedia-depth.js","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},
-    {"source":"/pro-offseason-affiliations.json","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},
-    {"source":"/data/playerpedia-facts-ab.json","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},
-    {"source":"/playerpedia-legacy.js","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},
-    {"source":"/playerpedia-research-desk.js","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},
-    {"source":"/playerpedia-research-desk.css","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},
-    {"source":"/playerpedia-grade-consistency.js","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},
-    {"source":"/retired-players.html","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},
-    {"source":"/retired-players.js","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},
-    {"source":"/retired-player-upgrade.js","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},
-    {"source":"/retired-stats-upgrade.js","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},
-    {"source":"/coaches.html","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},
-    {"source":"/courtside-page.js","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},
-    {"source":"/courtside-culture.css","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},
-    {"source":"/locker-room.html","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},
-    {"source":"/locker-player-transfer.js","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},
-    {"source":"/legendary-wnba-duos.html","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},
-    {"source":"/who-got-next.html","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},
-    {"source":"/wpba.html","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},
-    {"source":"/wpba-page.js","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},
-    {"source":"/wpba.css","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},
-    {"source":"/data/wpba-2026.json","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},
-    {"source":"/index.html","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},
-    {"source":"/team.html","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},
-    {"source":"/team-feed-updates.js","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},
-    {"source":"/team-rivalry.js","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},
-    {"source":"/team-culture-identity.js","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},
-    {"source":"/team-dna.js","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},
-    {"source":"/team-dna.css","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},
-    {"source":"/team-story-pathway.js","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},
-    {"source":"/team-story-pathway.css","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},
-    {"source":"/unrivaled.html","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},
-    {"source":"/unrivaled-page.js","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},
-    {"source":"/unrivaled-hub.css","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},
-    {"source":"/unrivaled-on-tour-2027.html","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},
-    {"source":"/unrivaled-tour-2027.css","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},
-    {"source":"/no-offseason-fiba.js","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},
-    {"source":"/no-offseason-nav.js","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},
-    {"source":"/fiba-world-cup.html","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},
-    {"source":"/fiba-final-four-2026.html","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},
-    {"source":"/fiba-final-four.css","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},
-    {"source":"/fiba-final-four.js","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},
-    {"source":"/team-usa.html","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},
-    {"source":"/team-usa-3x3.html","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},
-    {"source":"/team-usa-olympics.html","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},
-    {"source":"/team-usa-americup.html","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},
-    {"source":"/team-usa-qualifying.html","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},
-    {"source":"/team-usa-development.html","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},
-    {"source":"/team-usa.css","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},
-    {"source":"/team-usa.js","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},
-    {"source":"/kelsey-mitchell-1000-points.html","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},
-    {"source":"/rickea-jackson-unrivaled-status.html","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},
-    {"source":"/aja-wilson-south-carolina-nike-deal.html","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},
-    {"source":"/api/players","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},
-    {"source":"/api/player-movement","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},
-    {"source":"/api/team-dna","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]},
-    {"source":"/api/rivalries","headers":[{"key":"Cache-Control","value":"no-store, max-age=0"}]}
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        }
+      ]
+    },
+    {
+      "source": "/styles.css",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store, max-age=0"
+        }
+      ]
+    },
+    {
+      "source": "/site.js",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store, max-age=0"
+        }
+      ]
+    },
+    {
+      "source": "/homepage-week-live.css",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store, max-age=0"
+        }
+      ]
+    },
+    {
+      "source": "/homepage-week-live.js",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store, max-age=0"
+        }
+      ]
+    },
+    {
+      "source": "/homepage-specials.js",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store, max-age=0"
+        }
+      ]
+    },
+    {
+      "source": "/snack-shak.html",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store, max-age=0"
+        }
+      ]
+    },
+    {
+      "source": "/snack-shak-bytes.html",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store, max-age=0"
+        }
+      ]
+    },
+    {
+      "source": "/food-for-thought.html",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store, max-age=0"
+        }
+      ]
+    },
+    {
+      "source": "/the-call-up.html",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store, max-age=0"
+        }
+      ]
+    },
+    {
+      "source": "/the-call-up-page.js",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store, max-age=0"
+        }
+      ]
+    },
+    {
+      "source": "/upshot-hub.css",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store, max-age=0"
+        }
+      ]
+    },
+    {
+      "source": "/upshot-live.json",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store, max-age=0"
+        }
+      ]
+    },
+    {
+      "source": "/snack-shak-hub.js",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store, max-age=0"
+        }
+      ]
+    },
+    {
+      "source": "/snack-shak-collections.js",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store, max-age=0"
+        }
+      ]
+    },
+    {
+      "source": "/snack-shaq.js",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store, max-age=0"
+        }
+      ]
+    },
+    {
+      "source": "/snack-shak-latest.json",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store, max-age=0"
+        }
+      ]
+    },
+    {
+      "source": "/snack-shak-breaking.json",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store, max-age=0"
+        }
+      ]
+    },
+    {
+      "source": "/snack-shak-specials.json",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store, max-age=0"
+        }
+      ]
+    },
+    {
+      "source": "/snack-shaq-posts.json",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store, max-age=0"
+        }
+      ]
+    },
+    {
+      "source": "/playerpedia.html",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store, max-age=0"
+        }
+      ]
+    },
+    {
+      "source": "/playerpedia-offseason-badges.js",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store, max-age=0"
+        }
+      ]
+    },
+    {
+      "source": "/playerpedia-depth.js",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store, max-age=0"
+        }
+      ]
+    },
+    {
+      "source": "/pro-offseason-affiliations.json",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store, max-age=0"
+        }
+      ]
+    },
+    {
+      "source": "/data/playerpedia-facts-ab.json",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store, max-age=0"
+        }
+      ]
+    },
+    {
+      "source": "/playerpedia-legacy.js",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store, max-age=0"
+        }
+      ]
+    },
+    {
+      "source": "/playerpedia-research-desk.js",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store, max-age=0"
+        }
+      ]
+    },
+    {
+      "source": "/playerpedia-research-desk.css",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store, max-age=0"
+        }
+      ]
+    },
+    {
+      "source": "/playerpedia-grade-consistency.js",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store, max-age=0"
+        }
+      ]
+    },
+    {
+      "source": "/retired-players.html",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store, max-age=0"
+        }
+      ]
+    },
+    {
+      "source": "/retired-players.js",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store, max-age=0"
+        }
+      ]
+    },
+    {
+      "source": "/retired-player-upgrade.js",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store, max-age=0"
+        }
+      ]
+    },
+    {
+      "source": "/retired-stats-upgrade.js",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store, max-age=0"
+        }
+      ]
+    },
+    {
+      "source": "/coaches.html",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store, max-age=0"
+        }
+      ]
+    },
+    {
+      "source": "/courtside-page.js",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store, max-age=0"
+        }
+      ]
+    },
+    {
+      "source": "/courtside-culture.css",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store, max-age=0"
+        }
+      ]
+    },
+    {
+      "source": "/locker-room.html",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store, max-age=0"
+        }
+      ]
+    },
+    {
+      "source": "/locker-player-transfer.js",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store, max-age=0"
+        }
+      ]
+    },
+    {
+      "source": "/legendary-wnba-duos.html",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store, max-age=0"
+        }
+      ]
+    },
+    {
+      "source": "/who-got-next.html",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store, max-age=0"
+        }
+      ]
+    },
+    {
+      "source": "/wpba.html",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store, max-age=0"
+        }
+      ]
+    },
+    {
+      "source": "/wpba-page.js",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store, max-age=0"
+        }
+      ]
+    },
+    {
+      "source": "/wpba.css",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store, max-age=0"
+        }
+      ]
+    },
+    {
+      "source": "/data/wpba-2026.json",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store, max-age=0"
+        }
+      ]
+    },
+    {
+      "source": "/index.html",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store, max-age=0"
+        }
+      ]
+    },
+    {
+      "source": "/team.html",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store, max-age=0"
+        }
+      ]
+    },
+    {
+      "source": "/team-feed-updates.js",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store, max-age=0"
+        }
+      ]
+    },
+    {
+      "source": "/team-rivalry.js",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store, max-age=0"
+        }
+      ]
+    },
+    {
+      "source": "/team-culture-identity.js",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store, max-age=0"
+        }
+      ]
+    },
+    {
+      "source": "/team-dna.js",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store, max-age=0"
+        }
+      ]
+    },
+    {
+      "source": "/team-dna.css",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store, max-age=0"
+        }
+      ]
+    },
+    {
+      "source": "/team-story-pathway.js",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store, max-age=0"
+        }
+      ]
+    },
+    {
+      "source": "/team-story-pathway.css",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store, max-age=0"
+        }
+      ]
+    },
+    {
+      "source": "/unrivaled.html",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store, max-age=0"
+        }
+      ]
+    },
+    {
+      "source": "/unrivaled-page.js",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store, max-age=0"
+        }
+      ]
+    },
+    {
+      "source": "/unrivaled-hub.css",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store, max-age=0"
+        }
+      ]
+    },
+    {
+      "source": "/unrivaled-on-tour-2027.html",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store, max-age=0"
+        }
+      ]
+    },
+    {
+      "source": "/unrivaled-tour-2027.css",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store, max-age=0"
+        }
+      ]
+    },
+    {
+      "source": "/no-offseason-fiba.js",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store, max-age=0"
+        }
+      ]
+    },
+    {
+      "source": "/no-offseason-nav.js",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store, max-age=0"
+        }
+      ]
+    },
+    {
+      "source": "/fiba-world-cup.html",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store, max-age=0"
+        }
+      ]
+    },
+    {
+      "source": "/fiba-final-four-2026.html",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store, max-age=0"
+        }
+      ]
+    },
+    {
+      "source": "/fiba-final-four.css",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store, max-age=0"
+        }
+      ]
+    },
+    {
+      "source": "/fiba-final-four.js",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store, max-age=0"
+        }
+      ]
+    },
+    {
+      "source": "/team-usa.html",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store, max-age=0"
+        }
+      ]
+    },
+    {
+      "source": "/team-usa-3x3.html",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store, max-age=0"
+        }
+      ]
+    },
+    {
+      "source": "/team-usa-olympics.html",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store, max-age=0"
+        }
+      ]
+    },
+    {
+      "source": "/team-usa-americup.html",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store, max-age=0"
+        }
+      ]
+    },
+    {
+      "source": "/team-usa-qualifying.html",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store, max-age=0"
+        }
+      ]
+    },
+    {
+      "source": "/team-usa-development.html",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store, max-age=0"
+        }
+      ]
+    },
+    {
+      "source": "/team-usa.css",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store, max-age=0"
+        }
+      ]
+    },
+    {
+      "source": "/team-usa.js",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store, max-age=0"
+        }
+      ]
+    },
+    {
+      "source": "/kelsey-mitchell-1000-points.html",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store, max-age=0"
+        }
+      ]
+    },
+    {
+      "source": "/rickea-jackson-unrivaled-status.html",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store, max-age=0"
+        }
+      ]
+    },
+    {
+      "source": "/aja-wilson-south-carolina-nike-deal.html",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store, max-age=0"
+        }
+      ]
+    },
+    {
+      "source": "/api/players",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store, max-age=0"
+        }
+      ]
+    },
+    {
+      "source": "/api/player-movement",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store, max-age=0"
+        }
+      ]
+    },
+    {
+      "source": "/api/team-dna",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store, max-age=0"
+        }
+      ]
+    },
+    {
+      "source": "/api/rivalries",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store, max-age=0"
+        }
+      ]
+    },
+    {
+      "source": "/fiba-return-playoff-show-2026.html",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store, max-age=0"
+        }
+      ]
+    },
+    {
+      "source": "/fiba-return-playoff-show-2026.css",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store, max-age=0"
+        }
+      ]
+    },
+    {
+      "source": "/fiba-return-playoff-show-2026.js",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store, max-age=0"
+        }
+      ]
+    }
   ],
   "crons": [
-    {"path":"/api/player-movement","schedule":"0 9 * * *"},
-    {"path":"/api/players","schedule":"5 9 * * *"},
-    {"path":"/api/availability","schedule":"*/30 * * * *"},
-    {"path":"/api/fiba-world-cup","schedule":"*/2 * 4-13 9 *"},
-    {"path":"/api/team-usa-stat-kitchen","schedule":"17 * * * *"}
+    {
+      "path": "/api/player-movement",
+      "schedule": "0 9 * * *"
+    },
+    {
+      "path": "/api/players",
+      "schedule": "5 9 * * *"
+    },
+    {
+      "path": "/api/availability",
+      "schedule": "*/30 * * * *"
+    },
+    {
+      "path": "/api/fiba-world-cup",
+      "schedule": "*/2 * 4-13 9 *"
+    },
+    {
+      "path": "/api/team-usa-stat-kitchen",
+      "schedule": "17 * * * *"
+    }
   ]
 }

@@ -9,7 +9,8 @@
 .week-hub-stamp i{width:8px;height:8px;border-radius:50%;background:#d8ff4f;box-shadow:0 0 0 4px rgba(216,255,79,.12)}
 .week-hub-head-visual{position:relative;flex:0 0 172px;width:172px;height:126px;margin-top:-5px}
 .week-head-photo{position:absolute;display:block;overflow:hidden;width:66px;height:94px;border:3px solid rgba(255,255,255,.86);border-radius:18px;background:#2a1452;box-shadow:0 14px 28px rgba(0,0,0,.25)}
-.week-head-photo img{display:block;width:100%;height:100%;object-fit:cover;object-position:center}
+.week-head-photo img{display:block;width:100%;height:100%;object-fit:contain;object-position:center;padding:8px;background:#fff}
+.week-head-photo>b{display:grid;width:100%;height:100%;place-items:center;color:#c7ff35;font-size:1.45rem;font-weight:950}
 .week-head-photo.one{left:2px;top:20px;transform:rotate(-10deg)}
 .week-head-photo.two{left:49px;top:8px;z-index:2;transform:rotate(3deg)}
 .week-head-photo.three{right:2px;top:20px;z-index:1;transform:rotate(10deg)}
@@ -59,6 +60,10 @@
 .week-snapshot-media img{display:block;min-width:0;width:100%;height:100%;flex:1 1 0;object-fit:cover;object-position:var(--media-focus,50% 50%);opacity:.96;transition:transform .35s ease,opacity .35s ease}
 .week-snapshot-media.week-media-strip img{width:0;border-right:1px solid rgba(255,255,255,.18)}
 .week-snapshot-media.week-media-strip img:last-of-type{border-right:0}
+.week-snapshot-media.official-team-logos{background:#fff}
+.week-snapshot-media.official-team-logos img.official-team-logo{object-fit:contain;object-position:center;padding:14px;background:#fff;opacity:1}
+.week-snapshot-media.official-team-logos::after{background:linear-gradient(90deg,rgba(22,10,49,.10),rgba(22,10,49,0) 78%)}
+.week-snapshot-media.official-team-logos>span{padding:5px 8px;border-radius:999px;background:#2a1452;color:#fff;text-shadow:none}
 .week-snapshot-media::after{position:absolute;inset:0;content:'';background:linear-gradient(90deg,rgba(22,10,49,.62),rgba(22,10,49,.04) 78%);pointer-events:none}
 .week-snapshot-media span{position:absolute;left:14px;bottom:12px;z-index:2;color:#fff;font-size:.58rem;font-weight:950;letter-spacing:.1em;text-shadow:0 1px 5px rgba(0,0,0,.4)}
 .week-snapshot-card:hover .week-snapshot-media img{transform:scale(1.025);opacity:1}

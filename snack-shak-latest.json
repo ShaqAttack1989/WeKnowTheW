@@ -2,6 +2,80 @@
   "site": "Snack Shak",
   "posts": [
     {
+      "slug": "aja-wilson-mvp-race-2026",
+      "type": "feature",
+      "priority": 1400,
+      "homepageSeason": "wnba-return",
+      "seriesLabel": "FOOD FOR THOUGHT · 2026 MVP RACE",
+      "title": "The Race Is Real. The Trophy Is A’ja’s to Lose.",
+      "published": "2026-09-19",
+      "week": "Final week · MVP case board",
+      "dashboardUrl": "/aja-wilson-mvp-race-2026.html",
+      "image": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1628932.png",
+      "storyImage": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1628932.png",
+      "imageFit": "contain",
+      "imageAlt": "Official WNBA headshot of Las Vegas Aces center A’ja Wilson",
+      "storyImageCaption": "A’ja Wilson enters the final week at the top of the official WNBA MVP analysis and the current MVP betting market.",
+      "teams": [
+        "Las Vegas Aces",
+        "Minnesota Lynx",
+        "Indiana Fever",
+        "Dallas Wings"
+      ],
+      "players": [
+        "A’ja Wilson",
+        "Olivia Miles",
+        "Kelsey Mitchell",
+        "Caitlin Clark",
+        "Paige Bueckers"
+      ],
+      "dek": "Five candidates, five different definitions of value. The live case board tests scoring, playmaking, efficiency, team context and published on/off impact — and the most complete argument still points to A’ja Wilson.",
+      "sections": [
+        {
+          "title": "The case in one number",
+          "paragraphs": [
+            "Las Vegas has a +12.1 net rating with Wilson on the court and -14.2 with her off in the WNBA’s September 17 MVP analysis. That 26.3-point swing is the center of the argument: the Aces become a fundamentally different team when No. 22 sits."
+          ]
+        },
+        {
+          "title": "The race got louder",
+          "paragraphs": [
+            "Kelsey Mitchell broke Wilson’s single-season points record on September 18 and reached 1,034 points. Olivia Miles remains the engine of the league-leading Lynx, Caitlin Clark owns the strongest pure playmaking case in the group, and Paige Bueckers continues to pair efficient scoring with high-level creation for playoff-bound Dallas."
+          ]
+        },
+        {
+          "title": "Why it is still A’ja’s to lose",
+          "paragraphs": [
+            "Wilson leads the league in scoring average and blocks, carries the league’s highest usage rate in the WNBA’s latest MVP analysis, anchors a top-three team and owns the strongest published two-way impact profile among the leading candidates. There are better counterarguments now. There is not yet a better complete argument."
+          ]
+        }
+      ],
+      "debates": [
+        "Should total points matter more than scoring average when Kelsey Mitchell now owns the single-season record?",
+        "How much extra MVP weight should Olivia Miles receive for driving the No. 1 team as a rookie?",
+        "Does Indiana having two legitimate MVP candidates strengthen the Fever’s case or split it?"
+      ],
+      "sources": [
+        {
+          "label": "WNBA: Race to 2026 Kia MVP — Mitchell Enters the Fold",
+          "url": "https://www.wnba.com/news/race-to-2026-kia-mvp-mitchell-enters-the-fold"
+        },
+        {
+          "label": "BetMGM: 2026 WNBA MVP odds",
+          "url": "https://sports.betmgm.com/en/blog/wnba/wnba-mvp-odds-prediction-bm23/"
+        },
+        {
+          "label": "CBS Sports: Mitchell breaks single-season points record",
+          "url": "https://www.cbssports.com/wnba/news/kelsey-mitchell-breaks-aja-wilsons-wnba-single-season-points-record/"
+        },
+        {
+          "label": "Official WNBA standings",
+          "url": "https://www.wnba.com/standings"
+        }
+      ],
+      "updated": "2026-09-19"
+    },
+    {
       "slug": "fiba-return-playoff-show-2026",
       "type": "feature",
       "priority": 1250,

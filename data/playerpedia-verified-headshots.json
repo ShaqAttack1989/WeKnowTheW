@@ -1,0 +1,1971 @@
+{
+  "metadata": {
+    "generatedAt": "2026-09-19T00:37:48.328Z",
+    "source": "Official WNBA headshot CDN",
+    "verifiedReal": 245,
+    "placeholderRejected": 707,
+    "placeholderLength": 12531
+  },
+  "byId": {
+    "100101": {
+      "name": "Teresa Weatherspoon",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/100101.png",
+      "years": [
+        1997,
+        2004
+      ]
+    },
+    "100215": {
+      "name": "Vanessa Nygaard",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/100215.png",
+      "years": [
+        1999,
+        2003
+      ]
+    },
+    "100342": {
+      "name": "Becky Hammon",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/100342.png",
+      "years": [
+        1999,
+        2014
+      ]
+    },
+    "100370": {
+      "name": "Stephanie White",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/100370.png",
+      "years": [
+        1999,
+        2004
+      ]
+    },
+    "100389": {
+      "name": "Val Whiting",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/100389.png",
+      "years": [
+        1999,
+        2002
+      ]
+    },
+    "100414": {
+      "name": "Elaine Powell",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/100414.png",
+      "years": [
+        1999,
+        2008
+      ]
+    },
+    "100678": {
+      "name": "Jenny Mowe",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/100678.png",
+      "years": [
+        2001,
+        2003
+      ]
+    },
+    "100720": {
+      "name": "Sue Bird",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/100720.png",
+      "years": [
+        2002,
+        2022
+      ]
+    },
+    "100812": {
+      "name": "Erika de Souza",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/100812.png",
+      "years": [
+        2002,
+        2017
+      ]
+    },
+    "100862": {
+      "name": "Bethany Donaphin",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/100862.png",
+      "years": [
+        2003,
+        2004
+      ]
+    },
+    "100888": {
+      "name": "Plenette Pierson",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/100888.png",
+      "years": [
+        2003,
+        2017
+      ]
+    },
+    "100915": {
+      "name": "Lindsay Whalen",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/100915.png",
+      "years": [
+        2004,
+        2018
+      ]
+    },
+    "100928": {
+      "name": "Ebony Hoffman",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/100928.png",
+      "years": [
+        2004,
+        2014
+      ]
+    },
+    "100940": {
+      "name": "Diana Taurasi",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/100940.png",
+      "years": [
+        2004,
+        2024
+      ]
+    },
+    "100944": {
+      "name": "Rebekkah Brunson",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/100944.png",
+      "years": [
+        2004,
+        2018
+      ]
+    },
+    "100949": {
+      "name": "Alana Beard",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/100949.png",
+      "years": [
+        2004,
+        2019
+      ]
+    },
+    "100952": {
+      "name": "Jia Perkins",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/100952.png",
+      "years": [
+        2004,
+        2017
+      ]
+    },
+    "101023": {
+      "name": "Sancho Lyttle",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/101023.png",
+      "years": [
+        2005,
+        2019
+      ]
+    },
+    "101030": {
+      "name": "Tanisha Wright",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/101030.png",
+      "years": [
+        2005,
+        2019
+      ]
+    },
+    "101033": {
+      "name": "Roneeka Hodges",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/101033.png",
+      "years": [
+        2005,
+        2015
+      ]
+    },
+    "101039": {
+      "name": "Erin Phillips",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/101039.png",
+      "years": [
+        2006,
+        2016
+      ]
+    },
+    "200665": {
+      "name": "Cappie Pondexter",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/200665.png",
+      "years": [
+        2006,
+        2018
+      ]
+    },
+    "200671": {
+      "name": "Seimone Augustus",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/200671.png",
+      "years": [
+        2006,
+        2020
+      ]
+    },
+    "200673": {
+      "name": "Monique Currie",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/200673.png",
+      "years": [
+        2006,
+        2018
+      ]
+    },
+    "200676": {
+      "name": "Candice Dupree",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/200676.png",
+      "years": [
+        2006,
+        2021
+      ]
+    },
+    "200681": {
+      "name": "Barbara Turner",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/200681.png",
+      "years": [
+        2006,
+        2009
+      ]
+    },
+    "200691": {
+      "name": "Mistie Bass",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/200691.png",
+      "years": [
+        2006,
+        2016
+      ]
+    },
+    "201049": {
+      "name": "Noelle Quinn",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/201049.png",
+      "years": [
+        2007,
+        2018
+      ]
+    },
+    "201050": {
+      "name": "Tiffany Jackson",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/201050.png",
+      "years": [
+        2007,
+        2017
+      ]
+    },
+    "201056": {
+      "name": "Ivory Latta",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/201056.png",
+      "years": [
+        2007,
+        2017
+      ]
+    },
+    "201062": {
+      "name": "Shay Murphy",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/201062.png",
+      "years": [
+        2007,
+        2017
+      ]
+    },
+    "201067": {
+      "name": "Camille Little",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/201067.png",
+      "years": [
+        2007,
+        2019
+      ]
+    },
+    "201477": {
+      "name": "Tamera Young",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/201477.png",
+      "years": [
+        2008,
+        2019
+      ]
+    },
+    "201480": {
+      "name": "Sylvia Fowles",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/201480.png",
+      "years": [
+        2008,
+        2022
+      ]
+    },
+    "201485": {
+      "name": "Jolene Anderson",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/201485.png",
+      "years": [
+        2008,
+        2008
+      ]
+    },
+    "201492": {
+      "name": "Matee Ajavon",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/201492.png",
+      "years": [
+        2008,
+        2017
+      ]
+    },
+    "201496": {
+      "name": "Candace Parker",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/201496.png",
+      "years": [
+        2008,
+        2023
+      ]
+    },
+    "201502": {
+      "name": "Essence Carson",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/201502.png",
+      "years": [
+        2008,
+        2020
+      ]
+    },
+    "201503": {
+      "name": "Erlana Larkins",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/201503.png",
+      "years": [
+        2008,
+        2018
+      ]
+    },
+    "201506": {
+      "name": "LaToya Sanders",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/201506.png",
+      "years": [
+        2008,
+        2019
+      ]
+    },
+    "201507": {
+      "name": "Leilani Mitchell",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/201507.png",
+      "years": [
+        2008,
+        2021
+      ]
+    },
+    "201516": {
+      "name": "Allie Quigley",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/201516.png",
+      "years": [
+        2008,
+        2022
+      ]
+    },
+    "201518": {
+      "name": "Crystal Langhorne",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/201518.png",
+      "years": [
+        2008,
+        2020
+      ]
+    },
+    "201530": {
+      "name": "Sequoia Holmes",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/201530.png",
+      "years": [
+        2008,
+        2018
+      ]
+    },
+    "201881": {
+      "name": "Angel McCoughtry",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/201881.png",
+      "years": [
+        2009,
+        2022
+      ]
+    },
+    "201889": {
+      "name": "Marissa Coleman",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/201889.png",
+      "years": [
+        2009,
+        2018
+      ]
+    },
+    "201896": {
+      "name": "Briann January",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/201896.png",
+      "years": [
+        2009,
+        2022
+      ]
+    },
+    "201904": {
+      "name": "Renee Montgomery",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/201904.png",
+      "years": [
+        2009,
+        2019
+      ]
+    },
+    "201907": {
+      "name": "Courtney Paris",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/201907.png",
+      "years": [
+        2009,
+        2019
+      ]
+    },
+    "201911": {
+      "name": "Kristi Toliver",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/201911.png",
+      "years": [
+        2009,
+        2023
+      ]
+    },
+    "201913": {
+      "name": "Kia Vaughn",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/201913.png",
+      "years": [
+        2009,
+        2022
+      ]
+    },
+    "201914": {
+      "name": "Ashley Walker",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/201914.png",
+      "years": [
+        2009,
+        2019
+      ]
+    },
+    "201919": {
+      "name": "Shavonte Zellous",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/201919.png",
+      "years": [
+        2009,
+        2021
+      ]
+    },
+    "202250": {
+      "name": "Tina Charles",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/202250.png",
+      "years": [
+        2010,
+        2025
+      ]
+    },
+    "202254": {
+      "name": "Kelsey Griffin",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/202254.png",
+      "years": [
+        2010,
+        2014
+      ]
+    },
+    "202255": {
+      "name": "Allison Hightower",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/202255.png",
+      "years": [
+        2010,
+        2017
+      ]
+    },
+    "202259": {
+      "name": "Epiphanny Prince",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/202259.png",
+      "years": [
+        2010,
+        2023
+      ]
+    },
+    "202278": {
+      "name": "Abi Olajuwon",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/202278.png",
+      "years": [
+        2010,
+        2011
+      ]
+    },
+    "202623": {
+      "name": "Aneika Morello",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/202623.png",
+      "years": [
+        2012,
+        2017
+      ]
+    },
+    "202626": {
+      "name": "Jenna O'Hea",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/202626.png",
+      "years": [
+        2011,
+        2016
+      ]
+    },
+    "202632": {
+      "name": "Maya Moore",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/202632.png",
+      "years": [
+        2011,
+        2019
+      ]
+    },
+    "202633": {
+      "name": "Liz Cambage",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/202633.png",
+      "years": [
+        2011,
+        2022
+      ]
+    },
+    "202638": {
+      "name": "Jessica Breland",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/202638.png",
+      "years": [
+        2011,
+        2021
+      ]
+    },
+    "202640": {
+      "name": "Karima Christmas-Kelly",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/202640.png",
+      "years": [
+        2011,
+        2020
+      ]
+    },
+    "202641": {
+      "name": "Sydney Colson",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/202641.png",
+      "years": [
+        2011,
+        2025
+      ]
+    },
+    "202644": {
+      "name": "Amber Harris",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/202644.png",
+      "years": [
+        2011,
+        2018
+      ]
+    },
+    "202645": {
+      "name": "Ify Ibekwe",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/202645.png",
+      "years": [
+        2011,
+        2017
+      ]
+    },
+    "202650": {
+      "name": "Jantel Lavender",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/202650.png",
+      "years": [
+        2011,
+        2022
+      ]
+    },
+    "202652": {
+      "name": "Alex Montgomery",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/202652.png",
+      "years": [
+        2011,
+        2018
+      ]
+    },
+    "202656": {
+      "name": "Jeanette Pohlen-Mavunga",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/202656.png",
+      "years": [
+        2011,
+        2017
+      ]
+    },
+    "202658": {
+      "name": "Danielle Robinson",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/202658.png",
+      "years": [
+        2011,
+        2023
+      ]
+    },
+    "202662": {
+      "name": "Jasmine Thomas",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/202662.png",
+      "years": [
+        2011,
+        2023
+      ]
+    },
+    "202663": {
+      "name": "Krystal Thomas",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/202663.png",
+      "years": [
+        2011,
+        2018
+      ]
+    },
+    "202670": {
+      "name": "Carolyn Swords",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/202670.png",
+      "years": [
+        2011,
+        2020
+      ]
+    },
+    "202680": {
+      "name": "Darxia Morris",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/202680.png",
+      "years": [
+        2014,
+        2017
+      ]
+    },
+    "203015": {
+      "name": "Shekinna Stricklen",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/203015.png",
+      "years": [
+        2012,
+        2021
+      ]
+    },
+    "203016": {
+      "name": "Devereaux Peters",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/203016.png",
+      "years": [
+        2012,
+        2018
+      ]
+    },
+    "203017": {
+      "name": "Glory Johnson",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/203017.png",
+      "years": [
+        2012,
+        2020
+      ]
+    },
+    "203018": {
+      "name": "Shenise Johnson",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/203018.png",
+      "years": [
+        2012,
+        2020
+      ]
+    },
+    "203024": {
+      "name": "Damiris Dantas",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/203024.png",
+      "years": [
+        2014,
+        2026
+      ]
+    },
+    "203029": {
+      "name": "Riquna Williams",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/203029.png",
+      "years": [
+        2012,
+        2022
+      ]
+    },
+    "203034": {
+      "name": "Keisha Hampton",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/203034.png",
+      "years": [
+        2016,
+        2017
+      ]
+    },
+    "203035": {
+      "name": "Shey Peddy",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/203035.png",
+      "years": [
+        2019,
+        2025
+      ]
+    },
+    "203041": {
+      "name": "Lynetta Kizer",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/203041.png",
+      "years": [
+        2012,
+        2018
+      ]
+    },
+    "203043": {
+      "name": "Jacki Gemelos",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/203043.png",
+      "years": [
+        2015,
+        2020
+      ]
+    },
+    "203069": {
+      "name": "Avery Warley-Talbert",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/203069.png",
+      "years": [
+        2012,
+        2020
+      ]
+    },
+    "203389": {
+      "name": "Yvonne Turner",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/203389.png",
+      "years": [
+        2017,
+        2023
+      ]
+    },
+    "203399": {
+      "name": "Elena Delle Donne",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/203399.png",
+      "years": [
+        2013,
+        2023
+      ]
+    },
+    "203400": {
+      "name": "Skylar Diggins-Smith",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/203400.png",
+      "years": [
+        2013,
+        2022
+      ]
+    },
+    "203401": {
+      "name": "Tayler Hill",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/203401.png",
+      "years": [
+        2013,
+        2019
+      ]
+    },
+    "203402": {
+      "name": "Kelsey Bone",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/203402.png",
+      "years": [
+        2013,
+        2018
+      ]
+    },
+    "203403": {
+      "name": "Tianna Hawkins",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/203403.png",
+      "years": [
+        2013,
+        2023
+      ]
+    },
+    "203405": {
+      "name": "Kayla Alexander",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/203405.png",
+      "years": [
+        2013,
+        2026
+      ]
+    },
+    "203406": {
+      "name": "Layshia Clarendon",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/203406.png",
+      "years": [
+        2013,
+        2024
+      ]
+    },
+    "203408": {
+      "name": "Kelly Faris",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/203408.png",
+      "years": [
+        2013,
+        2016
+      ]
+    },
+    "203410": {
+      "name": "Alex Bentley",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/203410.png",
+      "years": [
+        2013,
+        2019
+      ]
+    },
+    "203411": {
+      "name": "Sugar Rodgers",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/203411.png",
+      "years": [
+        2013,
+        2020
+      ]
+    },
+    "203416": {
+      "name": "Emma Meesseman",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/203416.png",
+      "years": [
+        2013,
+        2025
+      ]
+    },
+    "203437": {
+      "name": "Tierra Ruffin-Pratt",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/203437.png",
+      "years": [
+        2013,
+        2020
+      ]
+    },
+    "203563": {
+      "name": "Chelsea Hopkins",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/203563.png",
+      "years": [
+        2013,
+        2018
+      ]
+    },
+    "203823": {
+      "name": "Chiney Ogwumike",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/203823.png",
+      "years": [
+        2014,
+        2023
+      ]
+    },
+    "203829": {
+      "name": "Bria Hartley",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/203829.png",
+      "years": [
+        2014,
+        2025
+      ]
+    },
+    "203831": {
+      "name": "Natalie Achonwa",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/203831.png",
+      "years": [
+        2015,
+        2022
+      ]
+    },
+    "203835": {
+      "name": "Jordan Hooper",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/203835.png",
+      "years": [
+        2014,
+        2017
+      ]
+    },
+    "203838": {
+      "name": "Astou Ndour-Fall",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/203838.png",
+      "years": [
+        2014,
+        2024
+      ]
+    },
+    "203839": {
+      "name": "Tiffany Bias",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/203839.png",
+      "years": [
+        2014,
+        2019
+      ]
+    },
+    "203843": {
+      "name": "Maggie Lucas",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/203843.png",
+      "years": [
+        2014,
+        2018
+      ]
+    },
+    "203845": {
+      "name": "Jennifer Hamson",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/203845.png",
+      "years": [
+        2015,
+        2017
+      ]
+    },
+    "203848": {
+      "name": "Meighan Simmons",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/203848.png",
+      "years": [
+        2016,
+        2017
+      ]
+    },
+    "203849": {
+      "name": "Theresa Plaisance",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/203849.png",
+      "years": [
+        2014,
+        2022
+      ]
+    },
+    "203857": {
+      "name": "Jamierra Faulkner",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/203857.png",
+      "years": [
+        2014,
+        2019
+      ]
+    },
+    "203859": {
+      "name": "Asia Taylor",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/203859.png",
+      "years": [
+        2014,
+        2019
+      ]
+    },
+    "203863": {
+      "name": "Haley Peters",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/203863.png",
+      "years": [
+        2016,
+        2025
+      ]
+    },
+    "203887": {
+      "name": "Victoria Macaulay",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/203887.png",
+      "years": [
+        2015,
+        2019
+      ]
+    },
+    "204297": {
+      "name": "Cayla George",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/204297.png",
+      "years": [
+        2015,
+        2023
+      ]
+    },
+    "204300": {
+      "name": "Marta Xargay",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/204300.png",
+      "years": [
+        2015,
+        2016
+      ]
+    },
+    "204309": {
+      "name": "Clarissa Dos Santos",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/204309.png",
+      "years": [
+        2015,
+        2016
+      ]
+    },
+    "204317": {
+      "name": "Ramu Tokashiki",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/204317.png",
+      "years": [
+        2015,
+        2017
+      ]
+    },
+    "204320": {
+      "name": "Amanda Zahui B",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/204320.png",
+      "years": [
+        2015,
+        2023
+      ]
+    },
+    "204321": {
+      "name": "Kaleena Mosqueda-Lewis",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/204321.png",
+      "years": [
+        2015,
+        2020
+      ]
+    },
+    "204325": {
+      "name": "Crystal Bradford",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/204325.png",
+      "years": [
+        2015,
+        2025
+      ]
+    },
+    "204327": {
+      "name": "Brittany Boyd-Jones",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/204327.png",
+      "years": [
+        2015,
+        2021
+      ]
+    },
+    "204331": {
+      "name": "Brianna Kiesel",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/204331.png",
+      "years": [
+        2015,
+        2017
+      ]
+    },
+    "204332": {
+      "name": "Cierra Burdick",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/204332.png",
+      "years": [
+        2015,
+        2021
+      ]
+    },
+    "204334": {
+      "name": "Reshanda Gray",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/204334.png",
+      "years": [
+        2015,
+        2022
+      ]
+    },
+    "204335": {
+      "name": "Betnijah Laney",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/204335.png",
+      "years": [
+        2015,
+        2022
+      ]
+    },
+    "204336": {
+      "name": "Alex Harden",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/204336.png",
+      "years": [
+        2015,
+        2016
+      ]
+    },
+    "204355": {
+      "name": "Blake Dietrick",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/204355.png",
+      "years": [
+        2016,
+        2021
+      ]
+    },
+    "204362": {
+      "name": "Jennifer O'Neill",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/204362.png",
+      "years": [
+        2015,
+        2015
+      ]
+    },
+    "1627669": {
+      "name": "Moriah Jefferson",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1627669.png",
+      "years": [
+        2016,
+        2025
+      ]
+    },
+    "1627670": {
+      "name": "Morgan Tuck",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1627670.png",
+      "years": [
+        2016,
+        2020
+      ]
+    },
+    "1627672": {
+      "name": "Aerial Powers",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1627672.png",
+      "years": [
+        2016,
+        2025
+      ]
+    },
+    "1627676": {
+      "name": "Tiffany Mitchell",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1627676.png",
+      "years": [
+        2016,
+        2025
+      ]
+    },
+    "1627677": {
+      "name": "Imani McGee-Stafford",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1627677.png",
+      "years": [
+        2016,
+        2019
+      ]
+    },
+    "1627678": {
+      "name": "Bria Holmes",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1627678.png",
+      "years": [
+        2016,
+        2021
+      ]
+    },
+    "1627679": {
+      "name": "Adut Bulgak",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1627679.png",
+      "years": [
+        2016,
+        2017
+      ]
+    },
+    "1627680": {
+      "name": "Rachel Hollivay",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1627680.png",
+      "years": [
+        2016,
+        2017
+      ]
+    },
+    "1627681": {
+      "name": "Jazmon Gwathmey",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1627681.png",
+      "years": [
+        2016,
+        2018
+      ]
+    },
+    "1627685": {
+      "name": "Ruth Hamblin",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1627685.png",
+      "years": [
+        2016,
+        2016
+      ]
+    },
+    "1627687": {
+      "name": "Jillian Alleyne",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1627687.png",
+      "years": [
+        2019,
+        2021
+      ]
+    },
+    "1627689": {
+      "name": "Bashaara Graves",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1627689.png",
+      "years": [
+        2016,
+        2017
+      ]
+    },
+    "1627691": {
+      "name": "Ameryst Alston",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1627691.png",
+      "years": [
+        2016,
+        2017
+      ]
+    },
+    "1627704": {
+      "name": "Alisia Jenkins",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1627704.png",
+      "years": [
+        2020,
+        2020
+      ]
+    },
+    "1628248": {
+      "name": "Nayo Raincock-Ekunwe",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1628248.png",
+      "years": [
+        2017,
+        2019
+      ]
+    },
+    "1628261": {
+      "name": "Shao Ting",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1628261.png",
+      "years": [
+        2019,
+        2019
+      ]
+    },
+    "1628262": {
+      "name": "Evelyn Akhator",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1628262.png",
+      "years": [
+        2017,
+        2017
+      ]
+    },
+    "1628263": {
+      "name": "Lindsay Allen",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1628263.png",
+      "years": [
+        2017,
+        2025
+      ]
+    },
+    "1628265": {
+      "name": "Sophie Brunner",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1628265.png",
+      "years": [
+        2017,
+        2017
+      ]
+    },
+    "1628267": {
+      "name": "Saniya Chong",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1628267.png",
+      "years": [
+        2017,
+        2018
+      ]
+    },
+    "1628268": {
+      "name": "Alaina Coates",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1628268.png",
+      "years": [
+        2018,
+        2023
+      ]
+    },
+    "1628273": {
+      "name": "Kaela Davis",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1628273.png",
+      "years": [
+        2017,
+        2024
+      ]
+    },
+    "1628282": {
+      "name": "Sydney Wiese",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1628282.png",
+      "years": [
+        2017,
+        2021
+      ]
+    },
+    "1628283": {
+      "name": "Alexis Jones",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1628283.png",
+      "years": [
+        2017,
+        2020
+      ]
+    },
+    "1628284": {
+      "name": "Alexis Peterson",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1628284.png",
+      "years": [
+        2017,
+        2017
+      ]
+    },
+    "1628286": {
+      "name": "Erica McCall",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1628286.png",
+      "years": [
+        2017,
+        2021
+      ]
+    },
+    "1628287": {
+      "name": "Jennie Simms",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1628287.png",
+      "years": [
+        2017,
+        2023
+      ]
+    },
+    "1628289": {
+      "name": "Feyonda Fitzgerald",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1628289.png",
+      "years": [
+        2017,
+        2017
+      ]
+    },
+    "1628292": {
+      "name": "Breanna Lewis",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1628292.png",
+      "years": [
+        2017,
+        2018
+      ]
+    },
+    "1628297": {
+      "name": "Alexis Prince",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1628297.png",
+      "years": [
+        2017,
+        2025
+      ]
+    },
+    "1628298": {
+      "name": "Lanay Montgomery",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1628298.png",
+      "years": [
+        2017,
+        2017
+      ]
+    },
+    "1628300": {
+      "name": "Makayla Epps",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1628300.png",
+      "years": [
+        2017,
+        2017
+      ]
+    },
+    "1628304": {
+      "name": "Yvonne Anderson",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1628304.png",
+      "years": [
+        2022,
+        2025
+      ]
+    },
+    "1628358": {
+      "name": "Maimouna Diarra",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1628358.png",
+      "years": [
+        2017,
+        2017
+      ]
+    },
+    "1628866": {
+      "name": "Endy Miyem",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1628866.png",
+      "years": [
+        2018,
+        2018
+      ]
+    },
+    "1628868": {
+      "name": "Hind Ben Abdelkader",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1628868.png",
+      "years": [
+        2018,
+        2018
+      ]
+    },
+    "1628882": {
+      "name": "Lexie Brown",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1628882.png",
+      "years": [
+        2018,
+        2026
+      ]
+    },
+    "1628890": {
+      "name": "Diamond DeShields",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1628890.png",
+      "years": [
+        2018,
+        2024
+      ]
+    },
+    "1628895": {
+      "name": "Marie Gülich",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1628895.png",
+      "years": [
+        2018,
+        2020
+      ]
+    },
+    "1628897": {
+      "name": "Linnae Harper",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1628897.png",
+      "years": [
+        2018,
+        2023
+      ]
+    },
+    "1628906": {
+      "name": "Stephanie Mavunga",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1628906.png",
+      "years": [
+        2018,
+        2020
+      ]
+    },
+    "1628907": {
+      "name": "Brooke McCarty-Williams",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1628907.png",
+      "years": [
+        2019,
+        2019
+      ]
+    },
+    "1628911": {
+      "name": "Teana Muldrow",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1628911.png",
+      "years": [
+        2018,
+        2018
+      ]
+    },
+    "1628913": {
+      "name": "Jaime Nared",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1628913.png",
+      "years": [
+        2018,
+        2019
+      ]
+    },
+    "1628917": {
+      "name": "JiSu Park",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1628917.png",
+      "years": [
+        2018,
+        2021
+      ]
+    },
+    "1628926": {
+      "name": "Maria Vadeeva",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1628926.png",
+      "years": [
+        2018,
+        2019
+      ]
+    },
+    "1628927": {
+      "name": "Victoria Vivians",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1628927.png",
+      "years": [
+        2018,
+        2024
+      ]
+    },
+    "1628929": {
+      "name": "Kristy Wallace",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1628929.png",
+      "years": [
+        2022,
+        2024
+      ]
+    },
+    "1628933": {
+      "name": "Imani Wright",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1628933.png",
+      "years": [
+        2018,
+        2018
+      ]
+    },
+    "1629476": {
+      "name": "AD Durr",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1629476.png",
+      "years": [
+        2019,
+        2023
+      ]
+    },
+    "1629479": {
+      "name": "Teaira McCowan",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1629479.png",
+      "years": [
+        2019,
+        2026
+      ]
+    },
+    "1629480": {
+      "name": "Kalani Brown",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1629480.png",
+      "years": [
+        2019,
+        2026
+      ]
+    },
+    "1629484": {
+      "name": "Megan Gustafson",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1629484.png",
+      "years": [
+        2019,
+        2022
+      ]
+    },
+    "1629485": {
+      "name": "Kristine Anigwe",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1629485.png",
+      "years": [
+        2019,
+        2023
+      ]
+    },
+    "1629492": {
+      "name": "Beatrice Mompremier",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1629492.png",
+      "years": [
+        2020,
+        2022
+      ]
+    },
+    "1629495": {
+      "name": "Kenisha Bell",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1629495.png",
+      "years": [
+        2019,
+        2019
+      ]
+    },
+    "1629500": {
+      "name": "Anriel Howard",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1629500.png",
+      "years": [
+        2019,
+        2019
+      ]
+    },
+    "1629502": {
+      "name": "Paris Kea",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1629502.png",
+      "years": [
+        2019,
+        2020
+      ]
+    },
+    "1629505": {
+      "name": "Chloe Jackson",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1629505.png",
+      "years": [
+        2019,
+        2019
+      ]
+    },
+    "1629506": {
+      "name": "Kiara Leslie",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1629506.png",
+      "years": [
+        2019,
+        2021
+      ]
+    },
+    "1629566": {
+      "name": "Xu Han",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1629566.png",
+      "years": [
+        2019,
+        2022
+      ]
+    },
+    "1629569": {
+      "name": "Maite Cazorla",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1629569.png",
+      "years": [
+        2019,
+        2019
+      ]
+    },
+    "1629570": {
+      "name": "Megan Huff",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1629570.png",
+      "years": [
+        2020,
+        2020
+      ]
+    },
+    "1629573": {
+      "name": "Arica Carter",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1629573.png",
+      "years": [
+        2019,
+        2019
+      ]
+    },
+    "1630093": {
+      "name": "Bella Alarie",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1630093.png",
+      "years": [
+        2020,
+        2021
+      ]
+    },
+    "1630095": {
+      "name": "Brittany Brewer",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1630095.png",
+      "years": [
+        2020,
+        2020
+      ]
+    },
+    "1630099": {
+      "name": "Te'a Cooper",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1630099.png",
+      "years": [
+        2020,
+        2021
+      ]
+    },
+    "1630100": {
+      "name": "Lauren Cox",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1630100.png",
+      "years": [
+        2020,
+        2023
+      ]
+    },
+    "1630101": {
+      "name": "Crystal Dangerfield",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1630101.png",
+      "years": [
+        2020,
+        2024
+      ]
+    },
+    "1630104": {
+      "name": "Kathleen Doyle",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1630104.png",
+      "years": [
+        2020,
+        2020
+      ]
+    },
+    "1630110": {
+      "name": "Haley Gorecki",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1630110.png",
+      "years": [
+        2021,
+        2021
+      ]
+    },
+    "1630113": {
+      "name": "Ruthy Hebard",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1630113.png",
+      "years": [
+        2020,
+        2023
+      ]
+    },
+    "1630114": {
+      "name": "Mikiah Herbert Harrigan",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1630114.png",
+      "years": [
+        2020,
+        2024
+      ]
+    },
+    "1630115": {
+      "name": "Joyner Holmes",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1630115.png",
+      "years": [
+        2020,
+        2026
+      ]
+    },
+    "1630118": {
+      "name": "Stella Johnson",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1630118.png",
+      "years": [
+        2020,
+        2021
+      ]
+    },
+    "1630119": {
+      "name": "Jazmine Jones",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1630119.png",
+      "years": [
+        2020,
+        2022
+      ]
+    },
+    "1630120": {
+      "name": "Stephanie Jones",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1630120.png",
+      "years": [
+        2021,
+        2022
+      ]
+    },
+    "1630127": {
+      "name": "Leaonna Odom",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1630127.png",
+      "years": [
+        2020,
+        2021
+      ]
+    },
+    "1630131": {
+      "name": "Kylee Shook",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1630131.png",
+      "years": [
+        2020,
+        2021
+      ]
+    },
+    "1630136": {
+      "name": "Megan Walker",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1630136.png",
+      "years": [
+        2020,
+        2022
+      ]
+    },
+    "1630137": {
+      "name": "Stephanie Watts",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1630137.png",
+      "years": [
+        2021,
+        2021
+      ]
+    },
+    "1630139": {
+      "name": "Jocelyn Willoughby",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1630139.png",
+      "years": [
+        2020,
+        2023
+      ]
+    },
+    "1630150": {
+      "name": "Chennedy Carter",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1630150.png",
+      "years": [
+        2020,
+        2026
+      ]
+    },
+    "1630153": {
+      "name": "Jaylyn Agnew",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1630153.png",
+      "years": [
+        2020,
+        2021
+      ]
+    },
+    "1630154": {
+      "name": "Kamiah Smalls",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1630154.png",
+      "years": [
+        2020,
+        2026
+      ]
+    },
+    "1630385": {
+      "name": "Shyla Heal",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1630385.png",
+      "years": [
+        2021,
+        2021
+      ]
+    },
+    "1630435": {
+      "name": "Destiny Slocum",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1630435.png",
+      "years": [
+        2021,
+        2022
+      ]
+    },
+    "1630437": {
+      "name": "Chelsey Perry",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1630437.png",
+      "years": [
+        2021,
+        2021
+      ]
+    },
+    "1630438": {
+      "name": "Kysre Gondrezick",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1630438.png",
+      "years": [
+        2021,
+        2024
+      ]
+    },
+    "1630440": {
+      "name": "Chelsea Dungee",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1630440.png",
+      "years": [
+        2021,
+        2021
+      ]
+    },
+    "1630441": {
+      "name": "Arella Guirantes",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1630441.png",
+      "years": [
+        2021,
+        2023
+      ]
+    },
+    "1630444": {
+      "name": "Jasmine Walker",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1630444.png",
+      "years": [
+        2021,
+        2022
+      ]
+    },
+    "1630452": {
+      "name": "Rennia Davis",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1630452.png",
+      "years": [
+        2021,
+        2022
+      ]
+    },
+    "1630453": {
+      "name": "Aleah Goodman",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1630453.png",
+      "years": [
+        2021,
+        2021
+      ]
+    },
+    "1630454": {
+      "name": "Charli Collier",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1630454.png",
+      "years": [
+        2021,
+        2022
+      ]
+    },
+    "1630458": {
+      "name": "Aaliyah Wilson",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1630458.png",
+      "years": [
+        2021,
+        2021
+      ]
+    },
+    "1630459": {
+      "name": "DiDi Richards",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1630459.png",
+      "years": [
+        2021,
+        2024
+      ]
+    },
+    "1630461": {
+      "name": "Kiana Williams",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1630461.png",
+      "years": [
+        2021,
+        2026
+      ]
+    },
+    "1630479": {
+      "name": "Sparkle Taylor",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1630479.png",
+      "years": [
+        2022,
+        2022
+      ]
+    },
+    "1630957": {
+      "name": "Rui Machida",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1630957.png",
+      "years": [
+        2022,
+        2022
+      ]
+    },
+    "1630961": {
+      "name": "Tina Krajisnik",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1630961.png",
+      "years": [
+        2022,
+        2022
+      ]
+    },
+    "1631002": {
+      "name": "Nia Clouden",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1631002.png",
+      "years": [
+        2022,
+        2023
+      ]
+    },
+    "1631013": {
+      "name": "Aisha Sheppard",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1631013.png",
+      "years": [
+        2022,
+        2022
+      ]
+    },
+    "1631029": {
+      "name": "Jasmine Dickey",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1631029.png",
+      "years": [
+        2022,
+        2023
+      ]
+    },
+    "1631031": {
+      "name": "Queen Egbo",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1631031.png",
+      "years": [
+        2022,
+        2024
+      ]
+    },
+    "1631032": {
+      "name": "Lorela Cubaj",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1631032.png",
+      "years": [
+        2022,
+        2024
+      ]
+    },
+    "1631046": {
+      "name": "Hannah Sjerven",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1631046.png",
+      "years": [
+        2022,
+        2022
+      ]
+    },
+    "1631056": {
+      "name": "Amy Atwell",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1631056.png",
+      "years": [
+        2022,
+        2024
+      ]
+    },
+    "1631068": {
+      "name": "Sam Thomas",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1631068.png",
+      "years": [
+        2022,
+        2023
+      ]
+    },
+    "1631072": {
+      "name": "Elissa Cunane",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1631072.png",
+      "years": [
+        2022,
+        2022
+      ]
+    },
+    "1631073": {
+      "name": "Raina Perez",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1631073.png",
+      "years": [
+        2022,
+        2022
+      ]
+    },
+    "1631089": {
+      "name": "Destanni Henderson",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1631089.png",
+      "years": [
+        2022,
+        2024
+      ]
+    },
+    "1631091": {
+      "name": "Evina Westbrook",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1631091.png",
+      "years": [
+        2022,
+        2023
+      ]
+    },
+    "1631147": {
+      "name": "Kianna Smith",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1631147.png",
+      "years": [
+        2022,
+        2022
+      ]
+    },
+    "1631263": {
+      "name": "Nikolina Milic",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1631263.png",
+      "years": [
+        2022,
+        2026
+      ]
+    },
+    "1643458": {
+      "name": "Saylor Poffenbarger",
+      "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1643458.png",
+      "years": [
+        2026,
+        2026
+      ]
+    }
+  }
+}

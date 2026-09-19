@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-19T14:21:07.053Z",
+  "generatedAt": "2026-09-19T17:57:45.944Z",
   "movement": {
     "latestTransactionDate": "2026-09-18",
     "transactions": [
@@ -1375,8 +1375,8 @@
   },
   "availability": {
     "latestReportDate": "2026-09-19",
-    "reportLabel": "09/19/2026 10:15 AM ET",
-    "officialPdf": "https://ak-static.cms.nba.com/referee/wnba_injury/Injury-Report_2026-09-19_10_15AM.pdf",
+    "reportLabel": "09/19/2026 01:45 PM ET",
+    "officialPdf": "https://ak-static.cms.nba.com/referee/wnba_injury/Injury-Report_2026-09-19_01_45PM.pdf",
     "injuries": [
       {
         "player": "Alanna Smith",
@@ -1446,7 +1446,7 @@
       {
         "player": "Kahleah Copper",
         "team": "Phoenix Mercury",
-        "status": "QUESTIONABLE",
+        "status": "OUT",
         "reason": "Injury/Illness - Right Groin; -",
         "gameDate": "09/19/2026",
         "gameTime": "01:00 (ET)",
@@ -1477,19 +1477,6 @@
         "gameDate": "09/19/2026",
         "gameTime": "07:00 (ET)",
         "matchup": "CHI@ATL",
-        "updated": "2026-09-19",
-        "source": "Official WNBA Injury Report PDF",
-        "officialCurrentReport": true,
-        "crossCheckOnly": false
-      },
-      {
-        "player": "Odyssey Sims",
-        "team": "Dallas Wings",
-        "status": "QUESTIONABLE",
-        "reason": "Injury/Illness - Right Knee; right knee",
-        "gameDate": "09/19/2026",
-        "gameTime": "01:00 (ET)",
-        "matchup": "PHX@DAL",
         "updated": "2026-09-19",
         "source": "Official WNBA Injury Report PDF",
         "officialCurrentReport": true,

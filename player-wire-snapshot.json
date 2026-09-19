@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-19T17:57:45.944Z",
+  "generatedAt": "2026-09-19T20:33:28.352Z",
   "movement": {
     "latestTransactionDate": "2026-09-18",
     "transactions": [
@@ -1375,9 +1375,22 @@
   },
   "availability": {
     "latestReportDate": "2026-09-19",
-    "reportLabel": "09/19/2026 01:45 PM ET",
-    "officialPdf": "https://ak-static.cms.nba.com/referee/wnba_injury/Injury-Report_2026-09-19_01_45PM.pdf",
+    "reportLabel": "09/19/2026 04:30 PM ET",
+    "officialPdf": "https://ak-static.cms.nba.com/referee/wnba_injury/Injury-Report_2026-09-19_04_30PM.pdf",
     "injuries": [
+      {
+        "player": "Maria Conde",
+        "team": "Toronto Tempo",
+        "status": "QUESTIONABLE",
+        "reason": "Injury/Illness - N/a; Illness",
+        "gameDate": "09/20/2026",
+        "gameTime": "03:00 (ET)",
+        "matchup": "NYL@TOR",
+        "updated": "2026-09-20",
+        "source": "Official WNBA Injury Report PDF",
+        "officialCurrentReport": true,
+        "crossCheckOnly": false
+      },
       {
         "player": "Alanna Smith",
         "team": "Dallas Wings",
@@ -1418,6 +1431,19 @@
         "crossCheckOnly": false
       },
       {
+        "player": "Cecilia Zandalasini",
+        "team": "Golden State Valkyries",
+        "status": "QUESTIONABLE",
+        "reason": "Injury/Illness - Na; Illness",
+        "gameDate": "09/19/2026",
+        "gameTime": "09:00 (ET)",
+        "matchup": "SEA@GSV",
+        "updated": "2026-09-19",
+        "source": "Official WNBA Injury Report PDF",
+        "officialCurrentReport": true,
+        "crossCheckOnly": false
+      },
+      {
         "player": "DiJonai Carrington",
         "team": "Chicago Sky",
         "status": "OUT",
@@ -1425,6 +1451,32 @@
         "gameDate": "09/19/2026",
         "gameTime": "07:00 (ET)",
         "matchup": "CHI@ATL",
+        "updated": "2026-09-19",
+        "source": "Official WNBA Injury Report PDF",
+        "officialCurrentReport": true,
+        "crossCheckOnly": false
+      },
+      {
+        "player": "Gabby Williams",
+        "team": "Golden State Valkyries",
+        "status": "OUT",
+        "reason": "Injury/Illness - Na; Reconditioning",
+        "gameDate": "09/19/2026",
+        "gameTime": "09:00 (ET)",
+        "matchup": "SEA@GSV",
+        "updated": "2026-09-19",
+        "source": "Official WNBA Injury Report PDF",
+        "officialCurrentReport": true,
+        "crossCheckOnly": false
+      },
+      {
+        "player": "Janelle Salaun",
+        "team": "Golden State Valkyries",
+        "status": "OUT",
+        "reason": "Injury/Illness - Na; Reconditioning",
+        "gameDate": "09/19/2026",
+        "gameTime": "09:00 (ET)",
+        "matchup": "SEA@GSV",
         "updated": "2026-09-19",
         "source": "Official WNBA Injury Report PDF",
         "officialCurrentReport": true,
@@ -1760,30 +1812,6 @@
         "gameTime": "09:00 (ET)",
         "matchup": "SEA@LVA",
         "updated": "2026-09-20"
-      },
-      {
-        "team": "Toronto Tempo",
-        "status": "NOT YET SUBMITTED",
-        "gameDate": "09/20/2026",
-        "gameTime": "03:00 (ET)",
-        "matchup": "NYL@TOR",
-        "updated": "2026-09-20"
-      },
-      {
-        "team": "Washington Mystics",
-        "status": "NOT YET SUBMITTED",
-        "gameDate": "09/20/2026",
-        "gameTime": "04:00 (ET)",
-        "matchup": "WAS@IND",
-        "updated": "2026-09-20"
-      },
-      {
-        "team": "Golden State Valkyries",
-        "status": "NOT YET SUBMITTED",
-        "gameDate": "09/19/2026",
-        "gameTime": "09:00 (ET)",
-        "matchup": "SEA@GSV",
-        "updated": "2026-09-19"
       }
     ]
   },

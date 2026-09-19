@@ -1,8 +1,17 @@
 {
-  "generatedAt": "2026-09-19T20:33:28.352Z",
+  "generatedAt": "2026-09-19T22:56:15.292Z",
   "movement": {
-    "latestTransactionDate": "2026-09-18",
+    "latestTransactionDate": "2026-09-19",
     "transactions": [
+      {
+        "date": "2026-09-19",
+        "type": "SIGNED",
+        "player": "Kamila Borkowska",
+        "team": "Toronto Tempo",
+        "detail": "Signed C Kamila Borkowska to a player development contract.",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null
+      },
       {
         "date": "2026-09-18",
         "type": "RELEASED",
@@ -1375,9 +1384,61 @@
   },
   "availability": {
     "latestReportDate": "2026-09-19",
-    "reportLabel": "09/19/2026 04:30 PM ET",
-    "officialPdf": "https://ak-static.cms.nba.com/referee/wnba_injury/Injury-Report_2026-09-19_04_30PM.pdf",
+    "reportLabel": "09/19/2026 06:45 PM ET",
+    "officialPdf": "https://ak-static.cms.nba.com/referee/wnba_injury/Injury-Report_2026-09-19_06_45PM.pdf",
     "injuries": [
+      {
+        "player": "Anastasiia Olairi Kosu",
+        "team": "Minnesota Lynx",
+        "status": "OUT",
+        "reason": "Injury/Illness - Right Foot; R. Foot",
+        "gameDate": "09/20/2026",
+        "gameTime": "01:00 (ET)",
+        "matchup": "MIN@CON",
+        "updated": "2026-09-20",
+        "source": "Official WNBA Injury Report PDF",
+        "officialCurrentReport": true,
+        "crossCheckOnly": false
+      },
+      {
+        "player": "Brittney Griner",
+        "team": "Connecticut Sun",
+        "status": "QUESTIONABLE",
+        "reason": "Injury/Illness - Left Knee; -",
+        "gameDate": "09/20/2026",
+        "gameTime": "01:00 (ET)",
+        "matchup": "MIN@CON",
+        "updated": "2026-09-20",
+        "source": "Official WNBA Injury Report PDF",
+        "officialCurrentReport": true,
+        "crossCheckOnly": false
+      },
+      {
+        "player": "Caitlin Clark",
+        "team": "Indiana Fever",
+        "status": "PROBABLE",
+        "reason": "Injury/Illness - Back; Back",
+        "gameDate": "09/20/2026",
+        "gameTime": "04:00 (ET)",
+        "matchup": "WAS@IND",
+        "updated": "2026-09-20",
+        "source": "Official WNBA Injury Report PDF",
+        "officialCurrentReport": true,
+        "crossCheckOnly": false
+      },
+      {
+        "player": "Kennedy Burke",
+        "team": "Connecticut Sun",
+        "status": "OUT",
+        "reason": "Injury/Illness - Right Shoulder; -",
+        "gameDate": "09/20/2026",
+        "gameTime": "01:00 (ET)",
+        "matchup": "MIN@CON",
+        "updated": "2026-09-20",
+        "source": "Official WNBA Injury Report PDF",
+        "officialCurrentReport": true,
+        "crossCheckOnly": false
+      },
       {
         "player": "Maria Conde",
         "team": "Toronto Tempo",
@@ -1386,6 +1447,19 @@
         "gameDate": "09/20/2026",
         "gameTime": "03:00 (ET)",
         "matchup": "NYL@TOR",
+        "updated": "2026-09-20",
+        "source": "Official WNBA Injury Report PDF",
+        "officialCurrentReport": true,
+        "crossCheckOnly": false
+      },
+      {
+        "player": "Olivia Nelson- Ododa",
+        "team": "Connecticut Sun",
+        "status": "OUT",
+        "reason": "Injury/Illness - Right Knee; -",
+        "gameDate": "09/20/2026",
+        "gameTime": "01:00 (ET)",
+        "matchup": "MIN@CON",
         "updated": "2026-09-20",
         "source": "Official WNBA Injury Report PDF",
         "officialCurrentReport": true,
@@ -1522,9 +1596,22 @@
         "crossCheckOnly": false
       },
       {
+        "player": "Matilde Villa",
+        "team": "Atlanta Dream",
+        "status": "OUT",
+        "reason": "Coach's Decision",
+        "gameDate": "09/19/2026",
+        "gameTime": "07:00 (ET)",
+        "matchup": "CHI@ATL",
+        "updated": "2026-09-19",
+        "source": "Official WNBA Injury Report PDF",
+        "officialCurrentReport": true,
+        "crossCheckOnly": false
+      },
+      {
         "player": "Natasha Cloud",
         "team": "Chicago Sky",
-        "status": "QUESTIONABLE",
+        "status": "OUT",
         "reason": "Injury/Illness - Left Knee; Left Knee",
         "gameDate": "09/19/2026",
         "gameTime": "07:00 (ET)",
@@ -1750,22 +1837,6 @@
     ],
     "teamStatuses": [
       {
-        "team": "Connecticut Sun",
-        "status": "NOT YET SUBMITTED",
-        "gameDate": "09/20/2026",
-        "gameTime": "01:00 (ET)",
-        "matchup": "MIN@CON",
-        "updated": "2026-09-20"
-      },
-      {
-        "team": "Indiana Fever",
-        "status": "NOT YET SUBMITTED",
-        "gameDate": "09/20/2026",
-        "gameTime": "04:00 (ET)",
-        "matchup": "WAS@IND",
-        "updated": "2026-09-20"
-      },
-      {
         "team": "Las Vegas Aces",
         "status": "NOT YET SUBMITTED",
         "gameDate": "09/20/2026",
@@ -1779,22 +1850,6 @@
         "gameDate": "09/20/2026",
         "gameTime": "07:00 (ET)",
         "matchup": "PDX@LAS",
-        "updated": "2026-09-20"
-      },
-      {
-        "team": "Minnesota Lynx",
-        "status": "NOT YET SUBMITTED",
-        "gameDate": "09/20/2026",
-        "gameTime": "01:00 (ET)",
-        "matchup": "MIN@CON",
-        "updated": "2026-09-20"
-      },
-      {
-        "team": "New York Liberty",
-        "status": "NOT YET SUBMITTED",
-        "gameDate": "09/20/2026",
-        "gameTime": "03:00 (ET)",
-        "matchup": "NYL@TOR",
         "updated": "2026-09-20"
       },
       {

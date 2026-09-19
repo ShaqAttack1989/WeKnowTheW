@@ -432,7 +432,7 @@ function buildRoster(rosterData = {}, recentRosterData = {}, recentSeason = 2025
           officialHeadshot: url,
           headshot: url,
           photoOfficial: true,
-          photoSource: 'Official WNBA headshot CDN · verified',
+          photoSource: 'Official WNBA headshot · verified',
           photoSourceUrl: player.photoSourceUrl || `https://www.wnba.com/player/${player.wnbaId}`,
           dataSources: [...new Set([...(player.dataSources || []), 'Verified official WNBA historical headshot CDN'])]
         }

@@ -10,7 +10,7 @@
   }
 })();
 
-const UI_FIXES_HREF='/ui-fixes.css?v=20260829-nav-v1';
+const UI_FIXES_HREF='/ui-fixes.css?v=20260919-responsive-type-v1';
 if(!document.querySelector('link[data-ui-fixes]')){const link=document.createElement('link');link.rel='stylesheet';link.href=UI_FIXES_HREF;link.dataset.uiFixes='true';document.head.appendChild(link);}
 const NAVIGATION_HREF='/site-navigation.css?v=20260830-readable-v2';
 if(!document.querySelector('link[data-site-navigation]')){const link=document.createElement('link');link.rel='stylesheet';link.href=NAVIGATION_HREF;link.dataset.siteNavigation='true';document.head.appendChild(link);}

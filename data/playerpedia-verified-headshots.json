@@ -1,12 +1,80 @@
 {
   "metadata": {
-    "generatedAt": "2026-09-19T00:37:48.328Z",
-    "source": "Official WNBA headshot CDN",
-    "verifiedReal": 245,
+    "generatedAt": "2026-09-19T00:41:03.990Z",
+    "sources": [
+      "Official WNBA current headshot CDN",
+      "Official NBA/WNBA legacy headshot archive"
+    ],
+    "verifiedReal": 340,
+    "modernCdnVerified": 245,
+    "legacyArchiveVerified": 95,
     "placeholderRejected": 707,
-    "placeholderLength": 12531
+    "falseLegacyResponsesRejected": 6
   },
   "byId": {
+    "100017": {
+      "name": "Bridgette Gordon",
+      "url": "https://ak-static.cms.nba.com/wp-content/uploads/headshots/wnba/100017.png",
+      "years": [
+        1997,
+        1998
+      ],
+      "source": "WNBA/NBA legacy headshot archive"
+    },
+    "100022": {
+      "name": "Chantel Tremitiere",
+      "url": "https://ak-static.cms.nba.com/wp-content/uploads/headshots/wnba/100022.png",
+      "years": [
+        1997,
+        2000
+      ],
+      "source": "WNBA/NBA legacy headshot archive"
+    },
+    "100031": {
+      "name": "Bridget Pettis",
+      "url": "https://ak-static.cms.nba.com/wp-content/uploads/headshots/wnba/100031.png",
+      "years": [
+        1997,
+        2006
+      ],
+      "source": "WNBA/NBA legacy headshot archive"
+    },
+    "100059": {
+      "name": "Andrea Stinson",
+      "url": "https://ak-static.cms.nba.com/wp-content/uploads/headshots/wnba/100059.png",
+      "years": [
+        1997,
+        2005
+      ],
+      "source": "WNBA/NBA legacy headshot archive"
+    },
+    "100065": {
+      "name": "Andrea Congreaves",
+      "url": "https://ak-static.cms.nba.com/wp-content/uploads/headshots/wnba/100065.png",
+      "years": [
+        1997,
+        1999
+      ],
+      "source": "WNBA/NBA legacy headshot archive"
+    },
+    "100094": {
+      "name": "Anita Maxwell",
+      "url": "https://ak-static.cms.nba.com/wp-content/uploads/headshots/wnba/100094.png",
+      "years": [
+        1997,
+        1997
+      ],
+      "source": "WNBA/NBA legacy headshot archive"
+    },
+    "100100": {
+      "name": "Adrienne Johnson",
+      "url": "https://ak-static.cms.nba.com/wp-content/uploads/headshots/wnba/100100.png",
+      "years": [
+        1997,
+        2003
+      ],
+      "source": "WNBA/NBA legacy headshot archive"
+    },
     "100101": {
       "name": "Teresa Weatherspoon",
       "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/100101.png",
@@ -14,6 +82,15 @@
         1997,
         2004
       ]
+    },
+    "100170": {
+      "name": "Allison Feaster",
+      "url": "https://ak-static.cms.nba.com/wp-content/uploads/headshots/wnba/100170.png",
+      "years": [
+        1998,
+        2008
+      ],
+      "source": "WNBA/NBA legacy headshot archive"
     },
     "100215": {
       "name": "Vanessa Nygaard",
@@ -23,6 +100,51 @@
         2003
       ]
     },
+    "100216": {
+      "name": "Alicia Thompson",
+      "url": "https://ak-static.cms.nba.com/wp-content/uploads/headshots/wnba/100216.png",
+      "years": [
+        1998,
+        2005
+      ],
+      "source": "WNBA/NBA legacy headshot archive"
+    },
+    "100224": {
+      "name": "Andrea Kuklova",
+      "url": "https://ak-static.cms.nba.com/wp-content/uploads/headshots/wnba/100224.png",
+      "years": [
+        1998,
+        1999
+      ],
+      "source": "WNBA/NBA legacy headshot archive"
+    },
+    "100225": {
+      "name": "Brandy Reed",
+      "url": "https://ak-static.cms.nba.com/wp-content/uploads/headshots/wnba/100225.png",
+      "years": [
+        1998,
+        2002
+      ],
+      "source": "WNBA/NBA legacy headshot archive"
+    },
+    "100231": {
+      "name": "Adia Barnes",
+      "url": "https://ak-static.cms.nba.com/wp-content/uploads/headshots/wnba/100231.png",
+      "years": [
+        1998,
+        2004
+      ],
+      "source": "WNBA/NBA legacy headshot archive"
+    },
+    "100294": {
+      "name": "Cass Bauer-Bilodeau",
+      "url": "https://ak-static.cms.nba.com/wp-content/uploads/headshots/wnba/100294.png",
+      "years": [
+        1999,
+        2002
+      ],
+      "source": "WNBA/NBA legacy headshot archive"
+    },
     "100342": {
       "name": "Becky Hammon",
       "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/100342.png",
@@ -30,6 +152,33 @@
         1999,
         2014
       ]
+    },
+    "100344": {
+      "name": "Carolyn Young",
+      "url": "https://ak-static.cms.nba.com/wp-content/uploads/headshots/wnba/100344.png",
+      "years": [
+        2001,
+        2002
+      ],
+      "source": "WNBA/NBA legacy headshot archive"
+    },
+    "100356": {
+      "name": "Chamique Holdsclaw",
+      "url": "https://ak-static.cms.nba.com/wp-content/uploads/headshots/wnba/100356.png",
+      "years": [
+        1999,
+        2010
+      ],
+      "source": "WNBA/NBA legacy headshot archive"
+    },
+    "100363": {
+      "name": "Adrienne Goodson",
+      "url": "https://ak-static.cms.nba.com/wp-content/uploads/headshots/wnba/100363.png",
+      "years": [
+        1999,
+        2005
+      ],
+      "source": "WNBA/NBA legacy headshot archive"
     },
     "100370": {
       "name": "Stephanie White",
@@ -39,6 +188,15 @@
         2004
       ]
     },
+    "100387": {
+      "name": "Astou Ndiaye-Diatta",
+      "url": "https://ak-static.cms.nba.com/wp-content/uploads/headshots/wnba/100387.png",
+      "years": [
+        1999,
+        2007
+      ],
+      "source": "WNBA/NBA legacy headshot archive"
+    },
     "100389": {
       "name": "Val Whiting",
       "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/100389.png",
@@ -46,6 +204,42 @@
         1999,
         2002
       ]
+    },
+    "100401": {
+      "name": "Annie Burgess",
+      "url": "https://ak-static.cms.nba.com/wp-content/uploads/headshots/wnba/100401.png",
+      "years": [
+        1999,
+        2003
+      ],
+      "source": "WNBA/NBA legacy headshot archive"
+    },
+    "100402": {
+      "name": "Andrea Lloyd-Curry",
+      "url": "https://ak-static.cms.nba.com/wp-content/uploads/headshots/wnba/100402.png",
+      "years": [
+        1999,
+        2000
+      ],
+      "source": "WNBA/NBA legacy headshot archive"
+    },
+    "100403": {
+      "name": "Angie Potthoff",
+      "url": "https://ak-static.cms.nba.com/wp-content/uploads/headshots/wnba/100403.png",
+      "years": [
+        1999,
+        2000
+      ],
+      "source": "WNBA/NBA legacy headshot archive"
+    },
+    "100411": {
+      "name": "Carla McGhee",
+      "url": "https://ak-static.cms.nba.com/wp-content/uploads/headshots/wnba/100411.png",
+      "years": [
+        1999,
+        2002
+      ],
+      "source": "WNBA/NBA legacy headshot archive"
     },
     "100414": {
       "name": "Elaine Powell",
@@ -55,6 +249,123 @@
         2008
       ]
     },
+    "100429": {
+      "name": "Alisa Burras",
+      "url": "https://ak-static.cms.nba.com/wp-content/uploads/headshots/wnba/100429.png",
+      "years": [
+        1999,
+        2003
+      ],
+      "source": "WNBA/NBA legacy headshot archive"
+    },
+    "100445": {
+      "name": "Ann Wauters",
+      "url": "https://ak-static.cms.nba.com/wp-content/uploads/headshots/wnba/100445.png",
+      "years": [
+        2000,
+        2016
+      ],
+      "source": "WNBA/NBA legacy headshot archive"
+    },
+    "100484": {
+      "name": "Betty Lennox",
+      "url": "https://ak-static.cms.nba.com/wp-content/uploads/headshots/wnba/100484.png",
+      "years": [
+        2000,
+        2011
+      ],
+      "source": "WNBA/NBA legacy headshot archive"
+    },
+    "100493": {
+      "name": "Anna DeForge",
+      "url": "https://ak-static.cms.nba.com/wp-content/uploads/headshots/wnba/100493.png",
+      "years": [
+        2000,
+        2009
+      ],
+      "source": "WNBA/NBA legacy headshot archive"
+    },
+    "100503": {
+      "name": "Andrea Garner",
+      "url": "https://ak-static.cms.nba.com/wp-content/uploads/headshots/wnba/100503.png",
+      "years": [
+        2000,
+        2000
+      ],
+      "source": "WNBA/NBA legacy headshot archive"
+    },
+    "100542": {
+      "name": "Charisse Sampson",
+      "url": "https://ak-static.cms.nba.com/wp-content/uploads/headshots/wnba/100542.png",
+      "years": [
+        2000,
+        2000
+      ],
+      "source": "WNBA/NBA legacy headshot archive"
+    },
+    "100549": {
+      "name": "Amy Herrig",
+      "url": "https://ak-static.cms.nba.com/wp-content/uploads/headshots/wnba/100549.png",
+      "years": [
+        2000,
+        2002
+      ],
+      "source": "WNBA/NBA legacy headshot archive"
+    },
+    "100554": {
+      "name": "Beth Cunningham",
+      "url": "https://ak-static.cms.nba.com/wp-content/uploads/headshots/wnba/100554.png",
+      "years": [
+        2000,
+        2000
+      ],
+      "source": "WNBA/NBA legacy headshot archive"
+    },
+    "100636": {
+      "name": "Angelina Wolvert",
+      "url": "https://ak-static.cms.nba.com/wp-content/uploads/headshots/wnba/100636.png",
+      "years": [
+        2001,
+        2001
+      ],
+      "source": "WNBA/NBA legacy headshot archive"
+    },
+    "100642": {
+      "name": "Amanda Lassiter",
+      "url": "https://ak-static.cms.nba.com/wp-content/uploads/headshots/wnba/100642.png",
+      "years": [
+        2001,
+        2006
+      ],
+      "source": "WNBA/NBA legacy headshot archive"
+    },
+    "100652": {
+      "name": "Camille Cooper",
+      "url": "https://ak-static.cms.nba.com/wp-content/uploads/headshots/wnba/100652.png",
+      "years": [
+        2001,
+        2002
+      ],
+      "source": "WNBA/NBA legacy headshot archive"
+    },
+    "100667": {
+      "name": "Brooke Wyckoff",
+      "url": "https://ak-static.cms.nba.com/wp-content/uploads/headshots/wnba/100667.png",
+      "years": [
+        2001,
+        2009
+      ],
+      "source": "WNBA/NBA legacy headshot archive"
+    },
+    "100674": {
+      "name": "Carolyn Moos",
+      "url": "https://ak-static.cms.nba.com/wp-content/uploads/headshots/wnba/100674.png",
+      "years": [
+        2002,
+        2002
+      ],
+      "source": "WNBA/NBA legacy headshot archive"
+    },
     "100678": {
       "name": "Jenny Mowe",
       "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/100678.png",
@@ -62,6 +373,33 @@
         2001,
         2003
       ]
+    },
+    "100688": {
+      "name": "Cara Consuegra",
+      "url": "https://ak-static.cms.nba.com/wp-content/uploads/headshots/wnba/100688.png",
+      "years": [
+        2001,
+        2001
+      ],
+      "source": "WNBA/NBA legacy headshot archive"
+    },
+    "100695": {
+      "name": "Audrey Sauret",
+      "url": "https://ak-static.cms.nba.com/wp-content/uploads/headshots/wnba/100695.png",
+      "years": [
+        2001,
+        2002
+      ],
+      "source": "WNBA/NBA legacy headshot archive"
+    },
+    "100696": {
+      "name": "Belinda Snell",
+      "url": "https://ak-static.cms.nba.com/wp-content/uploads/headshots/wnba/100696.png",
+      "years": [
+        2005,
+        2011
+      ],
+      "source": "WNBA/NBA legacy headshot archive"
     },
     "100720": {
       "name": "Sue Bird",
@@ -71,6 +409,60 @@
         2022
       ]
     },
+    "100723": {
+      "name": "Asjha Jones",
+      "url": "https://ak-static.cms.nba.com/wp-content/uploads/headshots/wnba/100723.png",
+      "years": [
+        2002,
+        2015
+      ],
+      "source": "WNBA/NBA legacy headshot archive"
+    },
+    "100740": {
+      "name": "Ayana Walker",
+      "url": "https://ak-static.cms.nba.com/wp-content/uploads/headshots/wnba/100740.png",
+      "years": [
+        2002,
+        2007
+      ],
+      "source": "WNBA/NBA legacy headshot archive"
+    },
+    "100744": {
+      "name": "Brandi McCain",
+      "url": "https://ak-static.cms.nba.com/wp-content/uploads/headshots/wnba/100744.png",
+      "years": [
+        2002,
+        2003
+      ],
+      "source": "WNBA/NBA legacy headshot archive"
+    },
+    "100786": {
+      "name": "Anastasia Kostaki",
+      "url": "https://ak-static.cms.nba.com/wp-content/uploads/headshots/wnba/100786.png",
+      "years": [
+        2003,
+        2006
+      ],
+      "source": "WNBA/NBA legacy headshot archive"
+    },
+    "100803": {
+      "name": "Begona Garcia",
+      "url": "https://ak-static.cms.nba.com/wp-content/uploads/headshots/wnba/100803.png",
+      "years": [
+        2002,
+        2002
+      ],
+      "source": "WNBA/NBA legacy headshot archive"
+    },
+    "100807": {
+      "name": "Bernadette Ngoyisa",
+      "url": "https://ak-static.cms.nba.com/wp-content/uploads/headshots/wnba/100807.png",
+      "years": [
+        2002,
+        2008
+      ],
+      "source": "WNBA/NBA legacy headshot archive"
+    },
     "100812": {
       "name": "Erika de Souza",
       "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/100812.png",
@@ -78,6 +470,15 @@
         2002,
         2017
       ]
+    },
+    "100860": {
+      "name": "Aiysha Smith",
+      "url": "https://ak-static.cms.nba.com/wp-content/uploads/headshots/wnba/100860.png",
+      "years": [
+        2003,
+        2004
+      ],
+      "source": "WNBA/NBA legacy headshot archive"
     },
     "100862": {
       "name": "Bethany Donaphin",
@@ -87,6 +488,24 @@
         2004
       ]
     },
+    "100870": {
+      "name": "Chandra Johnson",
+      "url": "https://ak-static.cms.nba.com/wp-content/uploads/headshots/wnba/100870.png",
+      "years": [
+        2003,
+        2003
+      ],
+      "source": "WNBA/NBA legacy headshot archive"
+    },
+    "100873": {
+      "name": "Chantelle Anderson",
+      "url": "https://ak-static.cms.nba.com/wp-content/uploads/headshots/wnba/100873.png",
+      "years": [
+        2003,
+        2007
+      ],
+      "source": "WNBA/NBA legacy headshot archive"
+    },
     "100888": {
       "name": "Plenette Pierson",
       "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/100888.png",
@@ -94,6 +513,15 @@
         2003,
         2017
       ]
+    },
+    "100912": {
+      "name": "Agnieszka Bibrzycka",
+      "url": "https://ak-static.cms.nba.com/wp-content/uploads/headshots/wnba/100912.png",
+      "years": [
+        2003,
+        2006
+      ],
+      "source": "WNBA/NBA legacy headshot archive"
     },
     "100915": {
       "name": "Lindsay Whalen",
@@ -103,6 +531,15 @@
         2018
       ]
     },
+    "100918": {
+      "name": "Candace Futrell",
+      "url": "https://ak-static.cms.nba.com/wp-content/uploads/headshots/wnba/100918.png",
+      "years": [
+        2004,
+        2004
+      ],
+      "source": "WNBA/NBA legacy headshot archive"
+    },
     "100928": {
       "name": "Ebony Hoffman",
       "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/100928.png",
@@ -110,6 +547,33 @@
         2004,
         2014
       ]
+    },
+    "100935": {
+      "name": "Amber Jacobs",
+      "url": "https://ak-static.cms.nba.com/wp-content/uploads/headshots/wnba/100935.png",
+      "years": [
+        2004,
+        2008
+      ],
+      "source": "WNBA/NBA legacy headshot archive"
+    },
+    "100938": {
+      "name": "Amisha Carter",
+      "url": "https://ak-static.cms.nba.com/wp-content/uploads/headshots/wnba/100938.png",
+      "years": [
+        2004,
+        2005
+      ],
+      "source": "WNBA/NBA legacy headshot archive"
+    },
+    "100939": {
+      "name": "Cathy Joens",
+      "url": "https://ak-static.cms.nba.com/wp-content/uploads/headshots/wnba/100939.png",
+      "years": [
+        2007,
+        2008
+      ],
+      "source": "WNBA/NBA legacy headshot archive"
     },
     "100940": {
       "name": "Diana Taurasi",
@@ -167,6 +631,15 @@
         2015
       ]
     },
+    "101036": {
+      "name": "Angelina Williams",
+      "url": "https://ak-static.cms.nba.com/wp-content/uploads/headshots/wnba/101036.png",
+      "years": [
+        2005,
+        2006
+      ],
+      "source": "WNBA/NBA legacy headshot archive"
+    },
     "101039": {
       "name": "Erin Phillips",
       "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/101039.png",
@@ -174,6 +647,42 @@
         2006,
         2016
       ]
+    },
+    "101047": {
+      "name": "Ashley Battle",
+      "url": "https://ak-static.cms.nba.com/wp-content/uploads/headshots/wnba/101047.png",
+      "years": [
+        2005,
+        2010
+      ],
+      "source": "WNBA/NBA legacy headshot archive"
+    },
+    "101049": {
+      "name": "Cathrine Kraayeveld",
+      "url": "https://ak-static.cms.nba.com/wp-content/uploads/headshots/wnba/101049.png",
+      "years": [
+        2005,
+        2013
+      ],
+      "source": "WNBA/NBA legacy headshot archive"
+    },
+    "101064": {
+      "name": "Caity Matter",
+      "url": "https://ak-static.cms.nba.com/wp-content/uploads/headshots/wnba/101064.png",
+      "years": [
+        2005,
+        2005
+      ],
+      "source": "WNBA/NBA legacy headshot archive"
+    },
+    "101065": {
+      "name": "Anna Montanana",
+      "url": "https://ak-static.cms.nba.com/wp-content/uploads/headshots/wnba/101065.png",
+      "years": [
+        2009,
+        2009
+      ],
+      "source": "WNBA/NBA legacy headshot archive"
     },
     "200665": {
       "name": "Cappie Pondexter",
@@ -215,6 +724,24 @@
         2009
       ]
     },
+    "200685": {
+      "name": "Ann Strother",
+      "url": "https://ak-static.cms.nba.com/wp-content/uploads/headshots/wnba/200685.png",
+      "years": [
+        2006,
+        2008
+      ],
+      "source": "WNBA/NBA legacy headshot archive"
+    },
+    "200687": {
+      "name": "Ambrosia Anderson",
+      "url": "https://ak-static.cms.nba.com/wp-content/uploads/headshots/wnba/200687.png",
+      "years": [
+        2006,
+        2006
+      ],
+      "source": "WNBA/NBA legacy headshot archive"
+    },
     "200691": {
       "name": "Mistie Bass",
       "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/200691.png",
@@ -222,6 +749,42 @@
         2006,
         2016
       ]
+    },
+    "200693": {
+      "name": "Brooke Queenan",
+      "url": "https://ak-static.cms.nba.com/wp-content/uploads/headshots/wnba/200693.png",
+      "years": [
+        2006,
+        2008
+      ],
+      "source": "WNBA/NBA legacy headshot archive"
+    },
+    "200720": {
+      "name": "Brittany Wilkins",
+      "url": "https://ak-static.cms.nba.com/wp-content/uploads/headshots/wnba/200720.png",
+      "years": [
+        2006,
+        2008
+      ],
+      "source": "WNBA/NBA legacy headshot archive"
+    },
+    "200725": {
+      "name": "Brandi Davis",
+      "url": "https://ak-static.cms.nba.com/wp-content/uploads/headshots/wnba/200725.png",
+      "years": [
+        2006,
+        2006
+      ],
+      "source": "WNBA/NBA legacy headshot archive"
+    },
+    "201048": {
+      "name": "Armintie Herrington",
+      "url": "https://ak-static.cms.nba.com/wp-content/uploads/headshots/wnba/201048.png",
+      "years": [
+        2007,
+        2015
+      ],
+      "source": "WNBA/NBA legacy headshot archive"
     },
     "201049": {
       "name": "Noelle Quinn",
@@ -238,6 +801,42 @@
         2007,
         2017
       ]
+    },
+    "201051": {
+      "name": "Bernice Mosby",
+      "url": "https://ak-static.cms.nba.com/wp-content/uploads/headshots/wnba/201051.png",
+      "years": [
+        2007,
+        2009
+      ],
+      "source": "WNBA/NBA legacy headshot archive"
+    },
+    "201053": {
+      "name": "Ashley Shields",
+      "url": "https://ak-static.cms.nba.com/wp-content/uploads/headshots/wnba/201053.png",
+      "years": [
+        2007,
+        2008
+      ],
+      "source": "WNBA/NBA legacy headshot archive"
+    },
+    "201054": {
+      "name": "Alison Bales",
+      "url": "https://ak-static.cms.nba.com/wp-content/uploads/headshots/wnba/201054.png",
+      "years": [
+        2007,
+        2011
+      ],
+      "source": "WNBA/NBA legacy headshot archive"
+    },
+    "201055": {
+      "name": "Carla Thomas",
+      "url": "https://ak-static.cms.nba.com/wp-content/uploads/headshots/wnba/201055.png",
+      "years": [
+        2007,
+        2007
+      ],
+      "source": "WNBA/NBA legacy headshot archive"
     },
     "201056": {
       "name": "Ivory Latta",
@@ -263,6 +862,24 @@
         2019
       ]
     },
+    "201084": {
+      "name": "Brooke Smith",
+      "url": "https://ak-static.cms.nba.com/wp-content/uploads/headshots/wnba/201084.png",
+      "years": [
+        2008,
+        2010
+      ],
+      "source": "WNBA/NBA legacy headshot archive"
+    },
+    "201115": {
+      "name": "Amy Sanders",
+      "url": "https://ak-static.cms.nba.com/wp-content/uploads/headshots/wnba/201115.png",
+      "years": [
+        2007,
+        2007
+      ],
+      "source": "WNBA/NBA legacy headshot archive"
+    },
     "201477": {
       "name": "Tamera Young",
       "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/201477.png",
@@ -279,6 +896,15 @@
         2022
       ]
     },
+    "201483": {
+      "name": "Amber Holt",
+      "url": "https://ak-static.cms.nba.com/wp-content/uploads/headshots/wnba/201483.png",
+      "years": [
+        2008,
+        2012
+      ],
+      "source": "WNBA/NBA legacy headshot archive"
+    },
     "201485": {
       "name": "Jolene Anderson",
       "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/201485.png",
@@ -286,6 +912,15 @@
         2008,
         2008
       ]
+    },
+    "201487": {
+      "name": "Alexis Hornbuckle",
+      "url": "https://ak-static.cms.nba.com/wp-content/uploads/headshots/wnba/201487.png",
+      "years": [
+        2008,
+        2013
+      ],
+      "source": "WNBA/NBA legacy headshot archive"
     },
     "201492": {
       "name": "Matee Ajavon",
@@ -302,6 +937,15 @@
         2008,
         2023
       ]
+    },
+    "201499": {
+      "name": "Candice Wiggins",
+      "url": "https://ak-static.cms.nba.com/wp-content/uploads/headshots/wnba/201499.png",
+      "years": [
+        2008,
+        2015
+      ],
+      "source": "WNBA/NBA legacy headshot archive"
     },
     "201502": {
       "name": "Essence Carson",
@@ -335,6 +979,15 @@
         2021
       ]
     },
+    "201513": {
+      "name": "Charel Allen",
+      "url": "https://ak-static.cms.nba.com/wp-content/uploads/headshots/wnba/201513.png",
+      "years": [
+        2008,
+        2008
+      ],
+      "source": "WNBA/NBA legacy headshot archive"
+    },
     "201516": {
       "name": "Allie Quigley",
       "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/201516.png",
@@ -350,6 +1003,15 @@
         2008,
         2020
       ]
+    },
+    "201529": {
+      "name": "Adrianne Ross",
+      "url": "https://ak-static.cms.nba.com/wp-content/uploads/headshots/wnba/201529.png",
+      "years": [
+        2008,
+        2008
+      ],
+      "source": "WNBA/NBA legacy headshot archive"
     },
     "201530": {
       "name": "Sequoia Holmes",
@@ -367,6 +1029,15 @@
         2022
       ]
     },
+    "201884": {
+      "name": "Chante Black",
+      "url": "https://ak-static.cms.nba.com/wp-content/uploads/headshots/wnba/201884.png",
+      "years": [
+        2009,
+        2013
+      ],
+      "source": "WNBA/NBA legacy headshot archive"
+    },
     "201889": {
       "name": "Marissa Coleman",
       "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/201889.png",
@@ -382,6 +1053,15 @@
         2009,
         2022
       ]
+    },
+    "201902": {
+      "name": "Britany Miller",
+      "url": "https://ak-static.cms.nba.com/wp-content/uploads/headshots/wnba/201902.png",
+      "years": [
+        2009,
+        2009
+      ],
+      "source": "WNBA/NBA legacy headshot archive"
     },
     "201904": {
       "name": "Renee Montgomery",
@@ -431,6 +1111,15 @@
         2021
       ]
     },
+    "202249": {
+      "name": "Abby Bishop",
+      "url": "https://ak-static.cms.nba.com/wp-content/uploads/headshots/wnba/202249.png",
+      "years": [
+        2010,
+        2016
+      ],
+      "source": "WNBA/NBA legacy headshot archive"
+    },
     "202250": {
       "name": "Tina Charles",
       "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/202250.png",
@@ -455,6 +1144,15 @@
         2017
       ]
     },
+    "202256": {
+      "name": "Alison Lacey",
+      "url": "https://ak-static.cms.nba.com/wp-content/uploads/headshots/wnba/202256.png",
+      "years": [
+        2010,
+        2010
+      ],
+      "source": "WNBA/NBA legacy headshot archive"
+    },
     "202259": {
       "name": "Epiphanny Prince",
       "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/202259.png",
@@ -463,6 +1161,33 @@
         2023
       ]
     },
+    "202262": {
+      "name": "Ashley Houts",
+      "url": "https://ak-static.cms.nba.com/wp-content/uploads/headshots/wnba/202262.png",
+      "years": [
+        2010,
+        2010
+      ],
+      "source": "WNBA/NBA legacy headshot archive"
+    },
+    "202264": {
+      "name": "Chanel Mokango",
+      "url": "https://ak-static.cms.nba.com/wp-content/uploads/headshots/wnba/202264.png",
+      "years": [
+        2010,
+        2010
+      ],
+      "source": "WNBA/NBA legacy headshot archive"
+    },
+    "202269": {
+      "name": "Amanda Thompson",
+      "url": "https://ak-static.cms.nba.com/wp-content/uploads/headshots/wnba/202269.png",
+      "years": [
+        2010,
+        2014
+      ],
+      "source": "WNBA/NBA legacy headshot archive"
+    },
     "202278": {
       "name": "Abi Olajuwon",
       "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/202278.png",
@@ -470,6 +1195,24 @@
         2010,
         2011
       ]
+    },
+    "202280": {
+      "name": "Alexis Gray-Lawson",
+      "url": "https://ak-static.cms.nba.com/wp-content/uploads/headshots/wnba/202280.png",
+      "years": [
+        2011,
+        2012
+      ],
+      "source": "WNBA/NBA legacy headshot archive"
+    },
+    "202283": {
+      "name": "Brittainey Raven",
+      "url": "https://ak-static.cms.nba.com/wp-content/uploads/headshots/wnba/202283.png",
+      "years": [
+        2010,
+        2010
+      ],
+      "source": "WNBA/NBA legacy headshot archive"
     },
     "202623": {
       "name": "Aneika Morello",
@@ -502,6 +1245,15 @@
         2011,
         2022
       ]
+    },
+    "202637": {
+      "name": "Angie Bjorklund",
+      "url": "https://ak-static.cms.nba.com/wp-content/uploads/headshots/wnba/202637.png",
+      "years": [
+        2011,
+        2011
+      ],
+      "source": "WNBA/NBA legacy headshot archive"
     },
     "202638": {
       "name": "Jessica Breland",
@@ -671,6 +1423,15 @@
         2025
       ]
     },
+    "203040": {
+      "name": "April Sykes",
+      "url": "https://ak-static.cms.nba.com/wp-content/uploads/headshots/wnba/203040.png",
+      "years": [
+        2012,
+        2012
+      ],
+      "source": "WNBA/NBA legacy headshot archive"
+    },
     "203041": {
       "name": "Lynetta Kizer",
       "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/203041.png",
@@ -686,6 +1447,15 @@
         2015,
         2020
       ]
+    },
+    "203046": {
+      "name": "Briana Butler",
+      "url": "https://ak-static.cms.nba.com/wp-content/uploads/headshots/wnba/203046.png",
+      "years": [
+        2012,
+        2015
+      ],
+      "source": "WNBA/NBA legacy headshot archive"
     },
     "203069": {
       "name": "Avery Warley-Talbert",
@@ -759,6 +1529,15 @@
         2024
       ]
     },
+    "203407": {
+      "name": "A'dia Mathies",
+      "url": "https://ak-static.cms.nba.com/wp-content/uploads/headshots/wnba/203407.png",
+      "years": [
+        2013,
+        2013
+      ],
+      "source": "WNBA/NBA legacy headshot archive"
+    },
     "203408": {
       "name": "Kelly Faris",
       "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/203408.png",
@@ -791,6 +1570,15 @@
         2025
       ]
     },
+    "203428": {
+      "name": "Anne Marie Armstrong",
+      "url": "https://ak-static.cms.nba.com/wp-content/uploads/headshots/wnba/203428.png",
+      "years": [
+        2013,
+        2013
+      ],
+      "source": "WNBA/NBA legacy headshot archive"
+    },
     "203437": {
       "name": "Tierra Ruffin-Pratt",
       "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/203437.png",
@@ -806,6 +1594,15 @@
         2013,
         2018
       ]
+    },
+    "203813": {
+      "name": "Anna Cruz",
+      "url": "https://ak-static.cms.nba.com/wp-content/uploads/headshots/wnba/203813.png",
+      "years": [
+        2014,
+        2016
+      ],
+      "source": "WNBA/NBA legacy headshot archive"
     },
     "203823": {
       "name": "Chiney Ogwumike",
@@ -911,6 +1708,15 @@
         2025
       ]
     },
+    "203876": {
+      "name": "Aaryn Ellenberg",
+      "url": "https://ak-static.cms.nba.com/wp-content/uploads/headshots/wnba/203876.png",
+      "years": [
+        2014,
+        2014
+      ],
+      "source": "WNBA/NBA legacy headshot archive"
+    },
     "203887": {
       "name": "Victoria Macaulay",
       "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/203887.png",
@@ -934,6 +1740,15 @@
         2015,
         2016
       ]
+    },
+    "204302": {
+      "name": "Ana Dabovic",
+      "url": "https://ak-static.cms.nba.com/wp-content/uploads/headshots/wnba/204302.png",
+      "years": [
+        2015,
+        2016
+      ],
+      "source": "WNBA/NBA legacy headshot archive"
     },
     "204309": {
       "name": "Clarissa Dos Santos",
@@ -974,6 +1789,15 @@
         2015,
         2025
       ]
+    },
+    "204326": {
+      "name": "Ally Malott",
+      "url": "https://ak-static.cms.nba.com/wp-content/uploads/headshots/wnba/204326.png",
+      "years": [
+        2015,
+        2016
+      ],
+      "source": "WNBA/NBA legacy headshot archive"
     },
     "204327": {
       "name": "Brittany Boyd-Jones",
@@ -1023,6 +1847,24 @@
         2016
       ]
     },
+    "204337": {
+      "name": "Brittany Hrynko",
+      "url": "https://ak-static.cms.nba.com/wp-content/uploads/headshots/wnba/204337.png",
+      "years": [
+        2015,
+        2015
+      ],
+      "source": "WNBA/NBA legacy headshot archive"
+    },
+    "204348": {
+      "name": "Andrea Hoover",
+      "url": "https://ak-static.cms.nba.com/wp-content/uploads/headshots/wnba/204348.png",
+      "years": [
+        2015,
+        2015
+      ],
+      "source": "WNBA/NBA legacy headshot archive"
+    },
     "204355": {
       "name": "Blake Dietrick",
       "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/204355.png",
@@ -1038,6 +1880,15 @@
         2015,
         2015
       ]
+    },
+    "1627635": {
+      "name": "Carla Cortijo",
+      "url": "https://ak-static.cms.nba.com/wp-content/uploads/headshots/wnba/1627635.png",
+      "years": [
+        2015,
+        2016
+      ],
+      "source": "WNBA/NBA legacy headshot archive"
     },
     "1627669": {
       "name": "Moriah Jefferson",
@@ -1126,6 +1977,15 @@
         2019,
         2021
       ]
+    },
+    "1627688": {
+      "name": "Brene Moseley",
+      "url": "https://ak-static.cms.nba.com/wp-content/uploads/headshots/wnba/1627688.png",
+      "years": [
+        2016,
+        2016
+      ],
+      "source": "WNBA/NBA legacy headshot archive"
     },
     "1627689": {
       "name": "Bashaara Graves",

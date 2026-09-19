@@ -9,7 +9,7 @@
       "seriesLabel": "FOOD FOR THOUGHT · FIBA RETURN NIGHT",
       "title": "Berlin to Buckets: The Playoff Teams Came Back Loud",
       "published": "2026-09-18",
-      "week": "September 17 return night · 4 playoff teams · 4 wins · +131",
+      "week": "September 17 return night · Updated after Sept. 18 playoff ripple",
       "dashboardUrl": "/fiba-return-playoff-show-2026.html",
       "image": "https://cdn.wnba.com/sites/4/2025/11/Jackie917.png",
       "storyImage": "https://cdn.wnba.com/sites/4/2025/11/Jackie917.png",
@@ -32,18 +32,25 @@
         "Jessica Shepard",
         "A’ja Wilson"
       ],
-      "dek": "Every playoff team that took the floor on September 17 won. Atlanta, Washington, Dallas and Las Vegas went 4–0, scored 424 points and beat their opponents by a combined 131. The FIBA break ended; the playoff pressure did not.",
+      "dek": "Return night opened with four playoff teams going 4–0 by a combined +131. One night later, New York beat No. 1 Minnesota, Indiana stayed tied with Atlanta in the top-four fight, and Golden State clinched first-round home court while moving within one game of the top seed.",
       "sections": [
         {
           "title": "Return night in one number",
           "paragraphs": [
-            "The four playoff teams in action combined for a +131 scoring margin. Atlanta won by 44, Washington by 30, Dallas by 20 and Las Vegas by 37."
+            "The four playoff teams in action on September 17 combined for a +131 scoring margin. Atlanta won by 44, Washington by 30, Dallas by 20 and Las Vegas by 37."
+          ]
+        },
+        {
+          "title": "Friday changed the bracket math",
+          "paragraphs": [
+            "New York beat Minnesota 93–81 to move to 25–16 and sixth in the current playoff order. Minnesota fell to 31–10 and has lost three straight.",
+            "Golden State beat Portland 82–66, improved to 30–11, clinched first-round home court and moved within one game of Minnesota for the No. 1 seed. Indiana also improved to 27–14 with a 103–85 win over Toronto, keeping the No. 4 race with Atlanta alive."
           ]
         },
         {
           "title": "Why it matters",
           "paragraphs": [
-            "The results did not settle the playoff order, but they showed that the teams with postseason business did not need a grace period after the World Cup break. The standalone feature tracks the live seed order and next pressure points."
+            "The return from Berlin is no longer a one-night story. Contenders are converting international momentum, depth and rest into meaningful seeding pressure, and the standalone feature now tracks both the original +131 return night and the next-day playoff ripple."
           ]
         }
       ],
@@ -63,8 +70,17 @@
         {
           "label": "We Know the W Live Stats",
           "url": "https://www.weknowthew.com/live-stats.html"
+        },
+        {
+          "label": "Associated Press: Liberty 93, Lynx 81",
+          "url": "https://www.washingtonpost.com/sports/wnba/2026/09/18/liberty-lynx-score/7a8c5036-b3d0-11f1-92c2-5c918f4a6127_story.html"
+        },
+        {
+          "label": "San Francisco Chronicle: Valkyries 82, Fire 66",
+          "url": "https://www.sfchronicle.com/sports/warriors/article/short-handed-valkyries-return-break-rout-22439180.php"
         }
-      ]
+      ],
+      "updated": "2026-09-19"
     },
     {
       "slug": "liberty-post-fiba-finals-sleeper",
@@ -74,7 +90,7 @@
       "seriesLabel": "SNACK SHAK BYTE · NEW YORK LIBERTY",
       "title": "Seven Passports, One Playbook: Are the Liberty the Post FIBA Finals Sleeper?",
       "published": "2026-09-16",
-      "week": "Post World Cup reset · WNBA returns September 17",
+      "week": "Post World Cup reset · Updated after NYL 93, MIN 81",
       "dashboardUrl": "/snack-shak-bytes.html?post=liberty-post-fiba-finals-sleeper#story",
       "image": "/assets/images/snack-shak/liberty-post-fiba-sleeper.jpg",
       "storyImage": "/assets/images/snack-shak/liberty-post-fiba-sleeper.jpg",
@@ -100,7 +116,7 @@
         "Sabrina Ionescu",
         "Jonquel Jones"
       ],
-      "dek": "New York entered the break in sixth place, then sent a league-high seven players to six countries and put a Liberty player on every World Cup semifinalist. The talent is obvious. The playoff question is whether all of that international freedom can fit inside one Liberty offense.",
+      "dek": "New York sent a league-high seven players to the World Cup, then came out of the break and beat No. 1 Minnesota 93–81 on the road. The Liberty are 25–16 and sixth in the current playoff order. The sleeper question just got its first receipt.",
       "storyTable": {
         "columns": [
           "Player",
@@ -169,6 +185,13 @@
           ]
         },
         {
+          "title": "The first post-break receipt came in Minnesota",
+          "paragraphs": [
+            "The theory got a real test immediately. New York went to Minnesota and beat the top-seeded Lynx 93–81 despite having seven players return from the World Cup. Breanna Stewart led the way with 24 points and 10 rebounds, Sabrina Ionescu added 17 points and six assists, Pauline Astier scored 14, and Marine Johannès added 13 off the bench.",
+            "That matters because the concern was never whether New York had enough individual talent. It was whether the international versions of these players could come back without shrinking into narrower club roles. Against Minnesota, the Liberty got creation, shooting and closing contributions from several places. They moved to 25–16 and sixth in the current playoff order while handing Minnesota a third straight loss."
+          ]
+        },
+        {
           "title": "Can seven international weapons fit one playoff rotation?",
           "paragraphs": [
             "They can, but being dynamic together does not mean everybody needs more shots. It means more ways to start and finish a possession. Let Johannes bend the floor instead of parking her in the corner. Use Fiebich as a rebounder and connector. Let Han punish smaller lineups. Trust Astier to organize a second unit. Keep Stewart moving through actions instead of making every important possession a rescue mission.",
@@ -211,8 +234,17 @@
         {
           "label": "USA vs. France final report",
           "url": "https://www.reuters.com/sports/usa-overcome-14-point-deficit-beat-france-97-79-to-win-womens-world-cup-2026-09-13/"
+        },
+        {
+          "label": "Associated Press: Liberty beat Lynx 93–81",
+          "url": "https://www.washingtonpost.com/sports/wnba/2026/09/18/liberty-lynx-score/7a8c5036-b3d0-11f1-92c2-5c918f4a6127_story.html"
+        },
+        {
+          "label": "Post-break Liberty report from Minnesota",
+          "url": "https://nypost.com/2026/09/18/sports/liberty-beat-down-lynx-in-post-fiba-break-playoff-push/"
         }
-      ]
+      ],
+      "updated": "2026-09-19"
     },
     {
       "slug": "fiba-final-recap-2026",

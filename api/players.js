@@ -6,6 +6,7 @@ const { OFFICIAL_ROSTER_SNAPSHOT } = require('../lib/official-roster-snapshot');
 const { getWnbaRosters, getWnbaInjuries, getWnbaTransactions } = require('../lib/wehoop-espn');
 const PLAYERPEDIA_HISTORICAL_INDEX = require('../data/playerpedia-historical-index.json');
 const PLAYERPEDIA_CAREER_STATS = require('../data/playerpedia-career-stats.json');
+const VERIFIED_PLAYERPEDIA_HEADSHOTS = require('../data/playerpedia-verified-headshots.json');
 
 // Players who must remain searchable even when a provider's historical roster
 // endpoint stops returning them. This is intentionally a retention layer, not
@@ -46,6 +47,7 @@ function key(value = '') {
 }
 const HISTORICAL_BY_NAME = new Map((PLAYERPEDIA_HISTORICAL_INDEX.players || []).map(item => [key(item.name), item]));
 const CAREER_BY_NAME = new Map(Object.entries(PLAYERPEDIA_CAREER_STATS.byKey || {}));
+const VERIFIED_HEADSHOT_BY_ID = VERIFIED_PLAYERPEDIA_HEADSHOTS.byId || {};
 function careerFields(name = '', historical = null) {
   const stats = CAREER_BY_NAME.get(key(name)) || null;
   const firstCandidates = [historical?.firstWnbaSeason, stats?.firstSeason].map(Number).filter(Number.isFinite).filter(Boolean);
@@ -419,9 +421,25 @@ function buildRoster(rosterData = {}, recentRosterData = {}, recentSeason = 2025
 
   const photoRules = new Map((liveUpdates.photoRules || []).map(item => [key(item.name), item]));
   const normalized = [...byName.values()].map(player => {
-    const rule = photoRules.get(key(player.name));
-    if (!rule?.blockRosterApiPhoto) return player;
-    return { ...player, photo: '', photoThumb: '', photoCutout: '', headshot: '', photoSource: '', photoSourceUrl: '', photoNeedsDetail: Boolean(rule.preferDetailApiPhoto), photoRuleNote: rule.reason || '' };
+    const verified = VERIFIED_HEADSHOT_BY_ID[String(player.wnbaId || '')];
+    const url = cleanUrl(verified?.url || '');
+    const hydrated = url && !player.officialHeadshot
+      ? {
+          ...player,
+          photo: url,
+          photoThumb: url,
+          photoCutout: url,
+          officialHeadshot: url,
+          headshot: url,
+          photoOfficial: true,
+          photoSource: 'Official WNBA headshot CDN · verified',
+          photoSourceUrl: player.photoSourceUrl || `https://www.wnba.com/player/${player.wnbaId}`,
+          dataSources: [...new Set([...(player.dataSources || []), 'Verified official WNBA historical headshot CDN'])]
+        }
+      : player;
+    const rule = photoRules.get(key(hydrated.name));
+    if (!rule?.blockRosterApiPhoto) return hydrated;
+    return { ...hydrated, photo: '', photoThumb: '', photoCutout: '', headshot: '', photoSource: '', photoSourceUrl: '', photoNeedsDetail: Boolean(rule.preferDetailApiPhoto), photoRuleNote: rule.reason || '' };
   }).filter(player => player.name && player.team);
   const canonicalPlayers = new Map();
   const completeness = player => [player.wnbaId, player.officialHeadshot, player.photo, player.position && player.position !== 'Player', player.number].filter(Boolean).length;
@@ -508,7 +526,7 @@ module.exports = async function handler(req, res) {
 
   return res.status(200).json({
     source: 'All-time WNBA Playerpedia: Road to 1,000 historical benchmark + WNBA legacy historical index + 1997-2026 season-stat archive + live 2026 roster feeds',
-    sources: ['Road to 1,000 historical benchmark','WNBA legacy historical player index','We Know the W 1997-2026 season-stat archive','Live ESPN WNBA roster feed','Official WNBA roster snapshot gap-fill','2025 ESPN WNBA roster archive','Playerpedia retained-player safeguard','WNBA Transactions Report cross-check','Curated transaction corrections'],
+    sources: ['Road to 1,000 historical benchmark','WNBA legacy historical player index','We Know the W 1997-2026 season-stat archive','Live ESPN WNBA roster feed','Official WNBA roster snapshot gap-fill','2025 ESPN WNBA roster archive','Playerpedia retained-player safeguard','WNBA Transactions Report cross-check','Curated transaction corrections','Verified official WNBA historical headshot CDN'],
     leagueId: 4516,
     updatedAt: checkedAt,
     rosterCheckedAt: checkedAt,
@@ -526,6 +544,8 @@ module.exports = async function handler(req, res) {
       recentArchiveSeason: 2025,
       historicalIndexPlayers: Number(PLAYERPEDIA_HISTORICAL_INDEX.metadata?.playerCount || 0),
       careerStatPlayers: Number(PLAYERPEDIA_CAREER_STATS.metadata?.playerCount || 0),
+      verifiedHistoricalHeadshots: Number(VERIFIED_PLAYERPEDIA_HEADSHOTS.metadata?.verifiedReal || 0),
+      rejectedCdnPlaceholders: Number(VERIFIED_PLAYERPEDIA_HEADSHOTS.metadata?.placeholderRejected || 0),
       retainedSafeguards: RETAINED_PLAYERPEDIA.length,
       officialSnapshotGapFill: true,
       gameEligibilityRule: 'At least 3 of PPG, RPG, APG, SPG, BPG must be sourced for performance-based game modes. Missing values are zero-filled only after coverage is counted.',

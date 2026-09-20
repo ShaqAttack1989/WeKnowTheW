@@ -324,6 +324,13 @@ function applyOverride(player, override, teamIds) {
   if (override.position) next.position = override.position;
   if (override.number !== undefined && override.number !== null) next.number = String(override.number);
   if (override.lastWnbaSeason) next.lastWnbaSeason = Number(override.lastWnbaSeason);
+  if (override.birthDate) next.birthDate = override.birthDate;
+  if (override.birthPlace) next.birthPlace = override.birthPlace;
+  if (override.nationality) next.nationality = override.nationality;
+  if (override.height) next.height = override.height;
+  if (override.weight) next.weight = override.weight;
+  if (override.college) next.college = override.college;
+  if (override.description) next.description = override.description;
   if (override.sourceUrl) {
     next.rosterSourceUrl = override.sourceUrl;
     next.photoSourceUrl = next.photoSourceUrl || override.sourceUrl;

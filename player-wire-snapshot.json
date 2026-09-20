@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-20T11:14:53.405Z",
+  "generatedAt": "2026-09-20T15:59:22.395Z",
   "movement": {
     "latestTransactionDate": "2026-09-19",
     "transactions": [
@@ -1402,8 +1402,8 @@
   },
   "availability": {
     "latestReportDate": "2026-09-20",
-    "reportLabel": "09/20/2026 07:00 AM ET",
-    "officialPdf": "https://ak-static.cms.nba.com/referee/wnba_injury/Injury-Report_2026-09-20_07_00AM.pdf",
+    "reportLabel": "09/20/2026 11:45 AM ET",
+    "officialPdf": "https://ak-static.cms.nba.com/referee/wnba_injury/Injury-Report_2026-09-20_11_45AM.pdf",
     "injuries": [
       {
         "player": "Aaliyah Nye",
@@ -1511,6 +1511,19 @@
         "crossCheckOnly": false
       },
       {
+        "player": "Elena Buenavida",
+        "team": "Minnesota Lynx",
+        "status": "OUT",
+        "reason": "Coach's Decision",
+        "gameDate": "09/20/2026",
+        "gameTime": "01:00 (ET)",
+        "matchup": "MIN@CON",
+        "updated": "2026-09-20",
+        "source": "Official WNBA Injury Report PDF",
+        "officialCurrentReport": true,
+        "crossCheckOnly": false
+      },
+      {
         "player": "Jordan Harrison",
         "team": "Portland Fire",
         "status": "QUESTIONABLE",
@@ -1539,7 +1552,7 @@
       {
         "player": "Maria Conde",
         "team": "Toronto Tempo",
-        "status": "QUESTIONABLE",
+        "status": "PROBABLE",
         "reason": "Injury/Illness - N/a; Illness",
         "gameDate": "09/20/2026",
         "gameTime": "03:00 (ET)",

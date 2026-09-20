@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-20T06:07:53.768Z",
+  "generatedAt": "2026-09-20T06:30:05.977Z",
   "movement": {
     "latestTransactionDate": "2026-09-19",
     "transactions": [
@@ -29,6 +29,15 @@
         "detail": "Waived G Sug Sutton.",
         "source": "ESPN via WeHoop-compatible endpoint",
         "sourceUrl": null
+      },
+      {
+        "date": "2026-09-15",
+        "type": "SIGNED DEVELOPMENTAL",
+        "player": "Hailey Van Lith",
+        "team": "Connecticut Sun",
+        "detail": "Re-signed to a developmental contract with Connecticut; the official WNBA profile lists her as a Sun developmental player.",
+        "source": "Official WNBA profile",
+        "sourceUrl": "https://www.wnba.com/player/1642817/hailey-van-lith/profile"
       },
       {
         "date": "2026-09-12",
@@ -1384,8 +1393,8 @@
   },
   "availability": {
     "latestReportDate": "2026-09-20",
-    "reportLabel": "09/20/2026 02:00 AM ET",
-    "officialPdf": "https://ak-static.cms.nba.com/referee/wnba_injury/Injury-Report_2026-09-20_02_00AM.pdf",
+    "reportLabel": "09/20/2026 02:30 AM ET",
+    "officialPdf": "https://ak-static.cms.nba.com/referee/wnba_injury/Injury-Report_2026-09-20_02_30AM.pdf",
     "injuries": [
       {
         "player": "Aaliyah Nye",

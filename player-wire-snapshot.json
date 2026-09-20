@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-20T01:01:26.132Z",
+  "generatedAt": "2026-09-20T06:07:53.768Z",
   "movement": {
     "latestTransactionDate": "2026-09-19",
     "transactions": [
@@ -1383,9 +1383,9 @@
     ]
   },
   "availability": {
-    "latestReportDate": "2026-09-19",
-    "reportLabel": "09/19/2026 09:00 PM ET",
-    "officialPdf": "https://ak-static.cms.nba.com/referee/wnba_injury/Injury-Report_2026-09-19_09_00PM.pdf",
+    "latestReportDate": "2026-09-20",
+    "reportLabel": "09/20/2026 02:00 AM ET",
+    "officialPdf": "https://ak-static.cms.nba.com/referee/wnba_injury/Injury-Report_2026-09-20_02_00AM.pdf",
     "injuries": [
       {
         "player": "Aaliyah Nye",
@@ -1464,6 +1464,20 @@
         "source": "Official WNBA Injury Report PDF",
         "officialCurrentReport": true,
         "crossCheckOnly": false
+      },
+      {
+        "player": "Cecilia Zandalasini",
+        "team": "Golden State Valkyries",
+        "status": "OUT",
+        "reason": "Illness · Zandalasini (illness) is listed as out for Saturday's game versus Seattle.",
+        "updated": "2026-09-20",
+        "returnDate": "2026-09-22",
+        "matchup": "",
+        "gameTime": "",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null,
+        "officialCurrentReport": false,
+        "crossCheckOnly": true
       },
       {
         "player": "Dearica Hamby",
@@ -1557,173 +1571,74 @@
         "crossCheckOnly": false
       },
       {
-        "player": "Alanna Smith",
-        "team": "Dallas Wings",
-        "status": "OUT",
-        "reason": "Injury/Illness - Left Leg; left lower leg",
-        "gameDate": "09/19/2026",
-        "gameTime": "01:00 (ET)",
-        "matchup": "PHX@DAL",
-        "updated": "2026-09-19",
-        "source": "Official WNBA Injury Report PDF",
-        "officialCurrentReport": true,
-        "crossCheckOnly": false
-      },
-      {
-        "player": "Azura Stevens",
-        "team": "Chicago Sky",
-        "status": "OUT",
-        "reason": "Injury/Illness - Right Knee; Right Knee",
-        "gameDate": "09/19/2026",
-        "gameTime": "07:00 (ET)",
-        "matchup": "CHI@ATL",
-        "updated": "2026-09-19",
-        "source": "Official WNBA Injury Report PDF",
-        "officialCurrentReport": true,
-        "crossCheckOnly": false
-      },
-      {
-        "player": "Brionna Jones",
-        "team": "Atlanta Dream",
-        "status": "OUT",
-        "reason": "Injury/Illness - Left Leg; N/A",
-        "gameDate": "09/19/2026",
-        "gameTime": "07:00 (ET)",
-        "matchup": "CHI@ATL",
-        "updated": "2026-09-19",
-        "source": "Official WNBA Injury Report PDF",
-        "officialCurrentReport": true,
-        "crossCheckOnly": false
-      },
-      {
-        "player": "Cecilia Zandalasini",
-        "team": "Golden State Valkyries",
-        "status": "OUT",
-        "reason": "Injury/Illness - Na; Illness",
-        "gameDate": "09/19/2026",
-        "gameTime": "09:00 (ET)",
-        "matchup": "SEA@GSV",
-        "updated": "2026-09-19",
-        "source": "Official WNBA Injury Report PDF",
-        "officialCurrentReport": true,
-        "crossCheckOnly": false
-      },
-      {
-        "player": "DiJonai Carrington",
-        "team": "Chicago Sky",
-        "status": "OUT",
-        "reason": "Injury/Illness - Left Foot; Left Foot",
-        "gameDate": "09/19/2026",
-        "gameTime": "07:00 (ET)",
-        "matchup": "CHI@ATL",
-        "updated": "2026-09-19",
-        "source": "Official WNBA Injury Report PDF",
-        "officialCurrentReport": true,
-        "crossCheckOnly": false
-      },
-      {
         "player": "Gabby Williams",
         "team": "Golden State Valkyries",
         "status": "OUT",
-        "reason": "Injury/Illness - Na; Reconditioning",
-        "gameDate": "09/19/2026",
-        "gameTime": "09:00 (ET)",
-        "matchup": "SEA@GSV",
+        "reason": "Not Injury Related · Williams (reconditioning) has been ruled out for Saturday's game against Seattle.",
         "updated": "2026-09-19",
-        "source": "Official WNBA Injury Report PDF",
-        "officialCurrentReport": true,
-        "crossCheckOnly": false
+        "returnDate": "2026-09-22",
+        "matchup": "",
+        "gameTime": "",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null,
+        "officialCurrentReport": false,
+        "crossCheckOnly": true
       },
       {
         "player": "Janelle Salaun",
         "team": "Golden State Valkyries",
         "status": "OUT",
-        "reason": "Injury/Illness - Na; Reconditioning",
-        "gameDate": "09/19/2026",
-        "gameTime": "09:00 (ET)",
-        "matchup": "SEA@GSV",
+        "reason": "Not Injury Related · Salaun (reconditioning) has been ruled out for Saturday's game against the Storm.",
         "updated": "2026-09-19",
-        "source": "Official WNBA Injury Report PDF",
-        "officialCurrentReport": true,
-        "crossCheckOnly": false
-      },
-      {
-        "player": "Jordan Horston",
-        "team": "Seattle Storm",
-        "status": "OUT",
-        "reason": "Injury/Illness - Right Shoulder; Injury",
-        "gameDate": "09/19/2026",
-        "gameTime": "09:00 (ET)",
-        "matchup": "SEA@GSV",
-        "updated": "2026-09-19",
-        "source": "Official WNBA Injury Report PDF",
-        "officialCurrentReport": true,
-        "crossCheckOnly": false
-      },
-      {
-        "player": "Kahleah Copper",
-        "team": "Phoenix Mercury",
-        "status": "OUT",
-        "reason": "Injury/Illness - Right Groin; -",
-        "gameDate": "09/19/2026",
-        "gameTime": "01:00 (ET)",
-        "matchup": "PHX@DAL",
-        "updated": "2026-09-19",
-        "source": "Official WNBA Injury Report PDF",
-        "officialCurrentReport": true,
-        "crossCheckOnly": false
-      },
-      {
-        "player": "Katie Lou Samuelson",
-        "team": "Seattle Storm",
-        "status": "OUT",
-        "reason": "Injury/Illness - Left Knee; Injury",
-        "gameDate": "09/19/2026",
-        "gameTime": "09:00 (ET)",
-        "matchup": "SEA@GSV",
-        "updated": "2026-09-19",
-        "source": "Official WNBA Injury Report PDF",
-        "officialCurrentReport": true,
-        "crossCheckOnly": false
-      },
-      {
-        "player": "Matilde Villa",
-        "team": "Atlanta Dream",
-        "status": "OUT",
-        "reason": "Coach's Decision",
-        "gameDate": "09/19/2026",
-        "gameTime": "07:00 (ET)",
-        "matchup": "CHI@ATL",
-        "updated": "2026-09-19",
-        "source": "Official WNBA Injury Report PDF",
-        "officialCurrentReport": true,
-        "crossCheckOnly": false
+        "returnDate": "2026-09-22",
+        "matchup": "",
+        "gameTime": "",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null,
+        "officialCurrentReport": false,
+        "crossCheckOnly": true
       },
       {
         "player": "Natasha Cloud",
         "team": "Chicago Sky",
         "status": "OUT",
-        "reason": "Injury/Illness - Left Knee; Left Knee",
-        "gameDate": "09/19/2026",
-        "gameTime": "07:00 (ET)",
-        "matchup": "CHI@ATL",
+        "reason": "Knee · Cloud (knee) is listed as out for Saturday's game versus Atlanta.",
         "updated": "2026-09-19",
-        "source": "Official WNBA Injury Report PDF",
-        "officialCurrentReport": true,
-        "crossCheckOnly": false
+        "returnDate": "2026-09-22",
+        "matchup": "",
+        "gameTime": "",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null,
+        "officialCurrentReport": false,
+        "crossCheckOnly": true
       },
       {
-        "player": "Zia Cooke",
-        "team": "Seattle Storm",
+        "player": "Azura Stevens",
+        "team": "Chicago Sky",
         "status": "OUT",
-        "reason": "Injury/Illness - Right Knee; Injury",
-        "gameDate": "09/19/2026",
-        "gameTime": "09:00 (ET)",
-        "matchup": "SEA@GSV",
-        "updated": "2026-09-19",
-        "source": "Official WNBA Injury Report PDF",
-        "officialCurrentReport": true,
-        "crossCheckOnly": false
+        "reason": "Knee · Stevens (knee) has been ruled out for Saturday's game in Atlanta.",
+        "updated": "2026-09-18",
+        "returnDate": "2026-09-22",
+        "matchup": "",
+        "gameTime": "",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null,
+        "officialCurrentReport": false,
+        "crossCheckOnly": true
+      },
+      {
+        "player": "DiJonai Carrington",
+        "team": "Chicago Sky",
+        "status": "OUT",
+        "reason": "Foot · Carrington (foot) is out for Saturday's game against the Dream.",
+        "updated": "2026-09-18",
+        "returnDate": "2026-09-22",
+        "matchup": "",
+        "gameTime": "",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null,
+        "officialCurrentReport": false,
+        "crossCheckOnly": true
       },
       {
         "player": "Marina Mabrey",
@@ -1882,26 +1797,18 @@
         "seasonLongCarryover": true
       },
       {
-        "player": "Iliana Rupert",
-        "team": "Golden State Valkyries",
-        "status": "OUT FOR SEASON",
-        "reason": "Pregnancy",
-        "updated": "2026-05-28",
-        "source": "WNBA Injury Report",
-        "officialCurrentReport": false,
-        "trackedCarryover": true,
-        "seasonLongCarryover": true
-      },
-      {
         "player": "Rickea Jackson",
         "team": "Chicago Sky",
-        "status": "OUT FOR SEASON",
-        "reason": "Left knee · torn ACL",
+        "status": "OUT",
+        "reason": "Knee · The Sky announced Tuesday that Jackson will miss the remainder of the season after suffering a torn ACL in her left knee during Sunday's 86-79 win over the Lynx.",
         "updated": "2026-05-19",
-        "source": "WNBA Injury Report",
+        "returnDate": "2027-05-01",
+        "matchup": "",
+        "gameTime": "",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null,
         "officialCurrentReport": false,
-        "trackedCarryover": true,
-        "seasonLongCarryover": true
+        "crossCheckOnly": true
       },
       {
         "player": "Ema Cechova",
@@ -1913,9 +1820,55 @@
         "officialCurrentReport": false,
         "trackedCarryover": true,
         "seasonLongCarryover": true
+      },
+      {
+        "player": "Iliana Rupert",
+        "team": "Golden State Valkyries",
+        "status": "OUT",
+        "reason": "Not Injury Related · Rupert is pregnant, and the Valkyries have filed for a replacement contract ahead of the 2026 season, Alexa Philippou of ESPN.com reports Thursday.",
+        "updated": "2026-05-07",
+        "returnDate": "2027-05-01",
+        "matchup": "",
+        "gameTime": "",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null,
+        "officialCurrentReport": false,
+        "crossCheckOnly": true
       }
     ],
     "teamStatuses": [
+      {
+        "team": "Atlanta Dream",
+        "status": "NOT YET SUBMITTED",
+        "gameDate": "09/21/2026",
+        "gameTime": "08:00 (ET)",
+        "matchup": "ATL@NYL",
+        "updated": "2026-09-21"
+      },
+      {
+        "team": "Dallas Wings",
+        "status": "NOT YET SUBMITTED",
+        "gameDate": "09/21/2026",
+        "gameTime": "10:00 (ET)",
+        "matchup": "DAL@PHX",
+        "updated": "2026-09-21"
+      },
+      {
+        "team": "New York Liberty",
+        "status": "NOT YET SUBMITTED",
+        "gameDate": "09/21/2026",
+        "gameTime": "08:00 (ET)",
+        "matchup": "ATL@NYL",
+        "updated": "2026-09-21"
+      },
+      {
+        "team": "Phoenix Mercury",
+        "status": "NOT YET SUBMITTED",
+        "gameDate": "09/21/2026",
+        "gameTime": "10:00 (ET)",
+        "matchup": "DAL@PHX",
+        "updated": "2026-09-21"
+      },
       {
         "team": "Seattle Storm",
         "status": "NOT YET SUBMITTED",

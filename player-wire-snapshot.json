@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-20T15:59:22.395Z",
+  "generatedAt": "2026-09-20T18:43:30.012Z",
   "movement": {
     "latestTransactionDate": "2026-09-19",
     "transactions": [
@@ -1402,8 +1402,8 @@
   },
   "availability": {
     "latestReportDate": "2026-09-20",
-    "reportLabel": "09/20/2026 11:45 AM ET",
-    "officialPdf": "https://ak-static.cms.nba.com/referee/wnba_injury/Injury-Report_2026-09-20_11_45AM.pdf",
+    "reportLabel": "09/20/2026 02:30 PM ET",
+    "officialPdf": "https://ak-static.cms.nba.com/referee/wnba_injury/Injury-Report_2026-09-20_02_30PM.pdf",
     "injuries": [
       {
         "player": "Aaliyah Nye",
@@ -1447,7 +1447,7 @@
       {
         "player": "Brittney Griner",
         "team": "Connecticut Sun",
-        "status": "QUESTIONABLE",
+        "status": "OUT",
         "reason": "Injury/Illness - Left Knee; -",
         "gameDate": "09/20/2026",
         "gameTime": "01:00 (ET)",
@@ -1524,13 +1524,65 @@
         "crossCheckOnly": false
       },
       {
+        "player": "Elizabeth Balogun",
+        "team": "New York Liberty",
+        "status": "OUT",
+        "reason": "Not With Team",
+        "gameDate": "09/20/2026",
+        "gameTime": "03:00 (ET)",
+        "matchup": "NYL@TOR",
+        "updated": "2026-09-20",
+        "source": "Official WNBA Injury Report PDF",
+        "officialCurrentReport": true,
+        "crossCheckOnly": false
+      },
+      {
+        "player": "Jade Melbourne",
+        "team": "Seattle Storm",
+        "status": "PROBABLE",
+        "reason": "Injury/Illness - Illness; Illness",
+        "gameDate": "09/20/2026",
+        "gameTime": "09:00 (ET)",
+        "matchup": "SEA@LVA",
+        "updated": "2026-09-20",
+        "source": "Official WNBA Injury Report PDF",
+        "officialCurrentReport": true,
+        "crossCheckOnly": false
+      },
+      {
         "player": "Jordan Harrison",
-        "team": "Portland Fire",
+        "team": "",
         "status": "QUESTIONABLE",
         "reason": "Injury/Illness - Right Ankle; Injury",
         "gameDate": "09/20/2026",
         "gameTime": "07:00 (ET)",
         "matchup": "PDX@LAS",
+        "updated": "2026-09-20",
+        "source": "Official WNBA Injury Report PDF",
+        "officialCurrentReport": true,
+        "crossCheckOnly": false
+      },
+      {
+        "player": "Kamila Borkowska",
+        "team": "Toronto Tempo",
+        "status": "OUT",
+        "reason": "Coach's Decision",
+        "gameDate": "09/20/2026",
+        "gameTime": "03:00 (ET)",
+        "matchup": "NYL@TOR",
+        "updated": "2026-09-20",
+        "source": "Official WNBA Injury Report PDF",
+        "officialCurrentReport": true,
+        "crossCheckOnly": false
+      },
+      {
+        "player": "Katie Lou Samuelson",
+        "team": "Seattle Storm",
+        "status": "OUT",
+        "reason": "Injury/Illness - Left Knee; Injury",
+        "gameDate": "09/20/2026",
+        "gameTime": "09:00 (ET)",
+        "matchup": "SEA@LVA",
         "updated": "2026-09-20",
         "source": "Official WNBA Injury Report PDF",
         "officialCurrentReport": true,
@@ -1550,10 +1602,10 @@
         "crossCheckOnly": false
       },
       {
-        "player": "Maria Conde",
+        "player": "Maria Gakdeng",
         "team": "Toronto Tempo",
-        "status": "PROBABLE",
-        "reason": "Injury/Illness - N/a; Illness",
+        "status": "OUT",
+        "reason": "Coach's Decision",
         "gameDate": "09/20/2026",
         "gameTime": "03:00 (ET)",
         "matchup": "NYL@TOR",
@@ -1576,6 +1628,19 @@
         "crossCheckOnly": false
       },
       {
+        "player": "Rayah Marshall",
+        "team": "Connecticut Sun",
+        "status": "OUT",
+        "reason": "Coach's Decision",
+        "gameDate": "09/20/2026",
+        "gameTime": "01:00 (ET)",
+        "matchup": "MIN@CON",
+        "updated": "2026-09-20",
+        "source": "Official WNBA Injury Report PDF",
+        "officialCurrentReport": true,
+        "crossCheckOnly": false
+      },
+      {
         "player": "Sania Feagin",
         "team": "Portland Fire",
         "status": "OUT",
@@ -1589,13 +1654,39 @@
         "crossCheckOnly": false
       },
       {
+        "player": "Saniya Rivers",
+        "team": "Connecticut Sun",
+        "status": "OUT",
+        "reason": "Injury/Illness - Left Ankle; -",
+        "gameDate": "09/20/2026",
+        "gameTime": "01:00 (ET)",
+        "matchup": "MIN@CON",
+        "updated": "2026-09-20",
+        "source": "Official WNBA Injury Report PDF",
+        "officialCurrentReport": true,
+        "crossCheckOnly": false
+      },
+      {
         "player": "Teja Oblak",
-        "team": "Portland Fire",
+        "team": "",
         "status": "OUT",
         "reason": "Injury/Illness - Left Knee; Injury",
         "gameDate": "09/20/2026",
         "gameTime": "07:00 (ET)",
         "matchup": "PDX@LAS",
+        "updated": "2026-09-20",
+        "source": "Official WNBA Injury Report PDF",
+        "officialCurrentReport": true,
+        "crossCheckOnly": false
+      },
+      {
+        "player": "Zia Cooke",
+        "team": "Seattle Storm",
+        "status": "OUT",
+        "reason": "Injury/Illness - Right Knee; Injury",
+        "gameDate": "09/20/2026",
+        "gameTime": "09:00 (ET)",
+        "matchup": "SEA@LVA",
         "updated": "2026-09-20",
         "source": "Official WNBA Injury Report PDF",
         "officialCurrentReport": true,
@@ -1899,14 +1990,6 @@
         "gameTime": "10:00 (ET)",
         "matchup": "DAL@PHX",
         "updated": "2026-09-21"
-      },
-      {
-        "team": "Seattle Storm",
-        "status": "NOT YET SUBMITTED",
-        "gameDate": "09/20/2026",
-        "gameTime": "09:00 (ET)",
-        "matchup": "SEA@LVA",
-        "updated": "2026-09-20"
       }
     ]
   },

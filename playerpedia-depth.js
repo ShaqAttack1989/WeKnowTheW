@@ -90,6 +90,8 @@
     if(unrivaled)items.push({label:'UNRIVALED',text:`${unrivaled[1]} · ${season3?'2027 Season 3 roster':'2026 club'}`,url:aff.sources?.unrivaled||''});
     const au=(aff.athletesUnlimited?.players||[]).find(row=>key(row?.[0])===id);
     if(au)items.push({label:'ATHLETES UNLIMITED',text:`${au[1]} · ${aff.athletesUnlimited?.label||2026}`,url:aff.sources?.au||''});
+    const upshot=(aff.upshot?.players||[]).find(row=>key(row?.[0])===id);
+    if(upshot)items.push({label:'UPSHOT LEAGUE',text:`${upshot[1]} · ${upshot[2]||`${aff.upshot?.season||2026} season`}`,url:aff.sources?.upshotMaria||aff.sources?.upshot||''});
     const tauihi=(aff.tauihi?.players||[]).find(row=>key(row?.[0])===id);
     if(tauihi)items.push({label:'TAUIHI AOTEAROA',text:`${tauihi[1]} · ${tauihi[2]||`${aff.tauihi?.season||2026} season`}`,url:aff.sources?.tauihi||''});
     return items;

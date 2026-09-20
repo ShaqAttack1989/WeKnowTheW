@@ -2,6 +2,78 @@
   "site": "Snack Shak",
   "posts": [
     {
+      "slug": "usa-wheelchair-world-champions-2026",
+      "type": "byte",
+      "priority": 1600,
+      "seriesLabel": "SNACK SHAK BYTE · USA WHEELCHAIR BASKETBALL",
+      "title": "One Free Throw, Sixteen Years, and Gold: USA Is Back on Top",
+      "published": "2026-09-20",
+      "week": "IWBF World Championship · USA 77, Canada 76",
+      "dashboardUrl": "/snack-shak-bytes.html?post=usa-wheelchair-world-champions-2026#story",
+      "teams": [
+        "United States",
+        "Canada"
+      ],
+      "players": [
+        "Lindsey Zurbrugg",
+        "Courtney Ryan",
+        "Rose Hollermann",
+        "Ixhelt Gonzalez",
+        "Arelle Middleton"
+      ],
+      "dek": "Canada tied it with 39.1 seconds left. Courtney Ryan hit the free throw that made it 77–76. Twenty seconds later, Team USA had its first women’s wheelchair basketball world title since 2010 and a new runway toward LA 2028.",
+      "sections": [
+        {
+          "title": "The last point became the whole story",
+          "paragraphs": [
+            "A championship game can hold an entire sixteen-year wait inside one free throw. Host Canada pulled even at 76 with 39.1 seconds left in Ottawa. Courtney Ryan went to the line with 20.8 seconds remaining, missed the first and made the second. That was the final point of the 2026 women’s world championship.",
+            "Lindsey Zurbrugg led the United States with 26 points. Rose Hollermann and Ryan scored 17 each, and Ryan finished one rebound and one assist shy of a triple-double with nine assists and eight boards. Canada still had chances after the go-ahead free throw, but the U.S. defense survived the final possessions and the horn made 77–76 official."
+          ]
+        },
+        {
+          "title": "Sixteen years between world titles",
+          "paragraphs": [
+            "The United States won the first women’s wheelchair basketball World Championship in 1990 and its second in 2010. Ottawa makes three. The gap matters because this was not a program strolling back into a familiar seat. The Netherlands had won the previous two world titles, and the U.S. had not even reached a world final since 2010.",
+            "That history made the last minute feel heavier. Team USA did not need a comfortable ending. It needed one more point, one more stop and one more possession that did not belong to Canada."
+          ]
+        },
+        {
+          "title": "Now LA 2028 looks different",
+          "paragraphs": [
+            "The U.S. women won Paralympic silver in Paris in 2024 after bronze in Tokyo. Now the same broader program enters the next Paralympic cycle as the reigning world champion. Eleven of the twelve players on the Ottawa roster had previous Paralympic wheelchair basketball experience, while 18-year-old Arelle Middleton brought Paralympic experience from track and field.",
+            "A home Paralympics is still two years away, which is forever in roster time. But world gold changes the starting point. Team USA is no longer chasing proof that it can get back to the top. Ottawa just supplied the receipt."
+          ]
+        }
+      ],
+      "debates": [
+        "Does the 2026 world title change how you view Team USA heading toward LA 2028?",
+        "Who was the championship-game difference maker: Zurbrugg’s 26 points, Ryan’s all-around line or the final defensive stand?",
+        "What part of the veteran core should Team USA protect most as the roster evolves?"
+      ],
+      "foodSegment": {
+        "title": "Shak’s bite: one point, sixteen years",
+        "script": "Canada erased the lead. The building was ready for one more swing. Courtney Ryan made one free throw, the U.S. got the stop, and sixteen years disappeared at the horn. World champions again. Sometimes the whole meal is one point."
+      },
+      "sources": [
+        {
+          "label": "NBC Sports · USA wins first women’s world title since 2010",
+          "url": "https://www.nbcsports.com/paralympics/news/wheelchair-basketball-world-championships-2026"
+        },
+        {
+          "label": "IWBF · Wheelchair basketball history",
+          "url": "https://www.iwbf.org/our-sport/history"
+        },
+        {
+          "label": "NWBA · 2026 U.S. women’s national team roster",
+          "url": "https://www.nwba.org/news_article/show/1360484"
+        },
+        {
+          "label": "2026 IWBF World Championships · Ottawa",
+          "url": "https://www.wheelchairbasketball.ca/event/2026-iwbf-wheelchair-basketball-world-championships/"
+        }
+      ]
+    },
+    {
       "slug": "aja-wilson-mvp-race-2026",
       "type": "feature",
       "priority": 1400,

@@ -152,7 +152,7 @@
         note:`${Number(leader.ppg).toFixed(1)} points per game through ${leader.gp} game${Number(leader.gp)===1?'':'s'}.`
       }:{
         label:'WORLD TITLES',
-        value:String(payload.usa?.worldTitles||11),
+        value:String(payload.usa?.worldTitles||12),
         note:'The latest official FIBA Player of the Game fills after USA completes a game.'
       },
       spotlightHeading:'TEAM USA PLAYERS OF THE GAME',

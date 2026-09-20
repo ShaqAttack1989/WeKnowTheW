@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-19T22:56:15.292Z",
+  "generatedAt": "2026-09-20T01:01:26.132Z",
   "movement": {
     "latestTransactionDate": "2026-09-19",
     "transactions": [
@@ -1384,9 +1384,22 @@
   },
   "availability": {
     "latestReportDate": "2026-09-19",
-    "reportLabel": "09/19/2026 06:45 PM ET",
-    "officialPdf": "https://ak-static.cms.nba.com/referee/wnba_injury/Injury-Report_2026-09-19_06_45PM.pdf",
+    "reportLabel": "09/19/2026 09:00 PM ET",
+    "officialPdf": "https://ak-static.cms.nba.com/referee/wnba_injury/Injury-Report_2026-09-19_09_00PM.pdf",
     "injuries": [
+      {
+        "player": "Aaliyah Nye",
+        "team": "Los Angeles Sparks",
+        "status": "DOUBTFUL",
+        "reason": "Injury/Illness - Left Ankle; L Ankle",
+        "gameDate": "09/20/2026",
+        "gameTime": "07:00 (ET)",
+        "matchup": "PDX@LAS",
+        "updated": "2026-09-20",
+        "source": "Official WNBA Injury Report PDF",
+        "officialCurrentReport": true,
+        "crossCheckOnly": false
+      },
       {
         "player": "Anastasiia Olairi Kosu",
         "team": "Minnesota Lynx",
@@ -1395,6 +1408,19 @@
         "gameDate": "09/20/2026",
         "gameTime": "01:00 (ET)",
         "matchup": "MIN@CON",
+        "updated": "2026-09-20",
+        "source": "Official WNBA Injury Report PDF",
+        "officialCurrentReport": true,
+        "crossCheckOnly": false
+      },
+      {
+        "player": "Bridget Carleton",
+        "team": "Portland Fire",
+        "status": "QUESTIONABLE",
+        "reason": "Injury/Illness - Left Ankle; Injury",
+        "gameDate": "09/20/2026",
+        "gameTime": "07:00 (ET)",
+        "matchup": "PDX@LAS",
         "updated": "2026-09-20",
         "source": "Official WNBA Injury Report PDF",
         "officialCurrentReport": true,
@@ -1421,6 +1447,45 @@
         "gameDate": "09/20/2026",
         "gameTime": "04:00 (ET)",
         "matchup": "WAS@IND",
+        "updated": "2026-09-20",
+        "source": "Official WNBA Injury Report PDF",
+        "officialCurrentReport": true,
+        "crossCheckOnly": false
+      },
+      {
+        "player": "Cameron Brink",
+        "team": "Los Angeles Sparks",
+        "status": "DOUBTFUL",
+        "reason": "Injury/Illness - Right Ankle; R Ankle",
+        "gameDate": "09/20/2026",
+        "gameTime": "07:00 (ET)",
+        "matchup": "PDX@LAS",
+        "updated": "2026-09-20",
+        "source": "Official WNBA Injury Report PDF",
+        "officialCurrentReport": true,
+        "crossCheckOnly": false
+      },
+      {
+        "player": "Dearica Hamby",
+        "team": "Los Angeles Sparks",
+        "status": "DOUBTFUL",
+        "reason": "Injury/Illness - Left knee; L Knee",
+        "gameDate": "09/20/2026",
+        "gameTime": "07:00 (ET)",
+        "matchup": "PDX@LAS",
+        "updated": "2026-09-20",
+        "source": "Official WNBA Injury Report PDF",
+        "officialCurrentReport": true,
+        "crossCheckOnly": false
+      },
+      {
+        "player": "Jordan Harrison",
+        "team": "Portland Fire",
+        "status": "QUESTIONABLE",
+        "reason": "Injury/Illness - Right Ankle; Injury",
+        "gameDate": "09/20/2026",
+        "gameTime": "07:00 (ET)",
+        "matchup": "PDX@LAS",
         "updated": "2026-09-20",
         "source": "Official WNBA Injury Report PDF",
         "officialCurrentReport": true,
@@ -1460,6 +1525,32 @@
         "gameDate": "09/20/2026",
         "gameTime": "01:00 (ET)",
         "matchup": "MIN@CON",
+        "updated": "2026-09-20",
+        "source": "Official WNBA Injury Report PDF",
+        "officialCurrentReport": true,
+        "crossCheckOnly": false
+      },
+      {
+        "player": "Sania Feagin",
+        "team": "Portland Fire",
+        "status": "OUT",
+        "reason": "Injury/Illness - Left Knee; Injury",
+        "gameDate": "09/20/2026",
+        "gameTime": "07:00 (ET)",
+        "matchup": "PDX@LAS",
+        "updated": "2026-09-20",
+        "source": "Official WNBA Injury Report PDF",
+        "officialCurrentReport": true,
+        "crossCheckOnly": false
+      },
+      {
+        "player": "Teja Oblak",
+        "team": "Portland Fire",
+        "status": "OUT",
+        "reason": "Injury/Illness - Left Knee; Injury",
+        "gameDate": "09/20/2026",
+        "gameTime": "07:00 (ET)",
+        "matchup": "PDX@LAS",
         "updated": "2026-09-20",
         "source": "Official WNBA Injury Report PDF",
         "officialCurrentReport": true,
@@ -1507,7 +1598,7 @@
       {
         "player": "Cecilia Zandalasini",
         "team": "Golden State Valkyries",
-        "status": "QUESTIONABLE",
+        "status": "OUT",
         "reason": "Injury/Illness - Na; Illness",
         "gameDate": "09/19/2026",
         "gameTime": "09:00 (ET)",
@@ -1791,17 +1882,6 @@
         "seasonLongCarryover": true
       },
       {
-        "player": "Sania Feagin",
-        "team": "Portland Fire",
-        "status": "OUT FOR SEASON",
-        "reason": "Left knee · torn ACL",
-        "updated": "2026-07-08",
-        "source": "WNBA Injury Report",
-        "officialCurrentReport": false,
-        "trackedCarryover": true,
-        "seasonLongCarryover": true
-      },
-      {
         "player": "Iliana Rupert",
         "team": "Golden State Valkyries",
         "status": "OUT FOR SEASON",
@@ -1836,30 +1916,6 @@
       }
     ],
     "teamStatuses": [
-      {
-        "team": "Las Vegas Aces",
-        "status": "NOT YET SUBMITTED",
-        "gameDate": "09/20/2026",
-        "gameTime": "09:00 (ET)",
-        "matchup": "SEA@LVA",
-        "updated": "2026-09-20"
-      },
-      {
-        "team": "Los Angeles Sparks",
-        "status": "NOT YET SUBMITTED",
-        "gameDate": "09/20/2026",
-        "gameTime": "07:00 (ET)",
-        "matchup": "PDX@LAS",
-        "updated": "2026-09-20"
-      },
-      {
-        "team": "Portland Fire",
-        "status": "NOT YET SUBMITTED",
-        "gameDate": "09/20/2026",
-        "gameTime": "07:00 (ET)",
-        "matchup": "PDX@LAS",
-        "updated": "2026-09-20"
-      },
       {
         "team": "Seattle Storm",
         "status": "NOT YET SUBMITTED",

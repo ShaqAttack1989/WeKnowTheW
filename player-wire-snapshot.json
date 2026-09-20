@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-20T06:30:05.977Z",
+  "generatedAt": "2026-09-20T06:42:08.158Z",
   "movement": {
     "latestTransactionDate": "2026-09-19",
     "transactions": [
@@ -11,6 +11,15 @@
         "detail": "Signed C Kamila Borkowska to a player development contract.",
         "source": "ESPN via WeHoop-compatible endpoint",
         "sourceUrl": null
+      },
+      {
+        "date": "2026-09-19",
+        "type": "SIGNED",
+        "player": "Maria Gakdeng",
+        "team": "Toronto Tempo",
+        "detail": "Signed a developmental contract with Toronto after her 2026 UPSHOT season with the Greensboro Groove.",
+        "source": "Toronto Tempo",
+        "sourceUrl": "https://www.oursportscentral.com/services/releases/toronto-tempo-sign-maria-gakdeng-to-developmental-contract/n-6414753"
       },
       {
         "date": "2026-09-18",

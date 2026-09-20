@@ -60,11 +60,26 @@
         "source": "https://www.wnba.com/player/204296/rebecca-allen/bio"
       },
       "franchiseTrail": [
-        {"team": "New York Liberty", "years": "2015–2022"},
-        {"team": "Connecticut Sun", "years": "2023"},
-        {"team": "Phoenix Mercury", "years": "2024"},
-        {"team": "Chicago Sky", "years": "2025"},
-        {"team": "New York Liberty", "years": "2026 · current"}
+        {
+          "team": "New York Liberty",
+          "years": "2015–2022"
+        },
+        {
+          "team": "Connecticut Sun",
+          "years": "2023"
+        },
+        {
+          "team": "Phoenix Mercury",
+          "years": "2024"
+        },
+        {
+          "team": "Chicago Sky",
+          "years": "2025"
+        },
+        {
+          "team": "New York Liberty",
+          "years": "2026 · current"
+        }
       ],
       "franchiseTrailSource": "https://www.basketball-reference.com/wnba/players/a/allenre01w.html",
       "collegeInternational": {
@@ -174,6 +189,32 @@
     "maddywestbeld": {
       "offCourt": "Her sister Kathryn Westbeld also played at Notre Dame before reaching the WNBA.",
       "offCourtLink": "/playerpedia.html?search=Kathryn%20Westbeld#playerpedia-directory"
+    },
+    "mariagakdeng": {
+      "collegeInternational": {
+        "college": "Boston College (2021–23) · North Carolina (2023–25)",
+        "clubs": [
+          "KSC Szekszárd · Hungary · 2025–26",
+          "Greensboro Groove · UPSHOT League · 2026",
+          "Celta Baloncesto Femenino · Spain · 2026–27"
+        ],
+        "nationalTeam": [
+          "South Sudan · 2025 AfroBasket bronze medal",
+          "South Sudan · 2026 World Cup qualifiers"
+        ],
+        "source": "https://www.oursportscentral.com/services/releases/toronto-tempo-sign-maria-gakdeng-to-developmental-contract/n-6414753"
+      },
+      "achievements": [
+        "Helped South Sudan win bronze at the 2025 AfroBasket tournament, the first team-sport medal in the country’s history.",
+        "Second-Team All-ACC in 2025 at North Carolina.",
+        "ACC All-Freshman Team in 2022 at Boston College."
+      ],
+      "achievementsSources": [
+        "https://www.oursportscentral.com/services/releases/toronto-tempo-sign-maria-gakdeng-to-developmental-contract/n-6414753",
+        "https://dream.wnba.com/news/atlanta-dream-signs-maria-gakdeng-to-training-camp-contract"
+      ],
+      "memorable": "Seven games with the Greensboro Groove became another UPSHOT-to-WNBA bridge when Toronto signed her to a developmental contract on Sept. 19, 2026.",
+      "memorableSource": "https://www.oursportscentral.com/services/releases/toronto-tempo-sign-maria-gakdeng-to-developmental-contract/n-6414753"
     }
   }
 }

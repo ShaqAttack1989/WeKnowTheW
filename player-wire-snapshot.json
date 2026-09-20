@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-20T18:43:30.012Z",
+  "generatedAt": "2026-09-20T21:29:26.772Z",
   "movement": {
     "latestTransactionDate": "2026-09-19",
     "transactions": [
@@ -1402,9 +1402,22 @@
   },
   "availability": {
     "latestReportDate": "2026-09-20",
-    "reportLabel": "09/20/2026 02:30 PM ET",
-    "officialPdf": "https://ak-static.cms.nba.com/referee/wnba_injury/Injury-Report_2026-09-20_02_30PM.pdf",
+    "reportLabel": "09/20/2026 05:15 PM ET",
+    "officialPdf": "https://ak-static.cms.nba.com/referee/wnba_injury/Injury-Report_2026-09-20_05_15PM.pdf",
     "injuries": [
+      {
+        "player": "Brionna Jones",
+        "team": "Atlanta Dream",
+        "status": "OUT",
+        "reason": "Injury/Illness - Left Leg; N/A",
+        "gameDate": "09/21/2026",
+        "gameTime": "08:00 (ET)",
+        "matchup": "ATL@NYL",
+        "updated": "2026-09-21",
+        "source": "Official WNBA Injury Report PDF",
+        "officialCurrentReport": true,
+        "crossCheckOnly": false
+      },
       {
         "player": "Aaliyah Nye",
         "team": "Los Angeles Sparks",
@@ -1452,19 +1465,6 @@
         "gameDate": "09/20/2026",
         "gameTime": "01:00 (ET)",
         "matchup": "MIN@CON",
-        "updated": "2026-09-20",
-        "source": "Official WNBA Injury Report PDF",
-        "officialCurrentReport": true,
-        "crossCheckOnly": false
-      },
-      {
-        "player": "Caitlin Clark",
-        "team": "Indiana Fever",
-        "status": "PROBABLE",
-        "reason": "Injury/Illness - Back; Back",
-        "gameDate": "09/20/2026",
-        "gameTime": "04:00 (ET)",
-        "matchup": "WAS@IND",
         "updated": "2026-09-20",
         "source": "Official WNBA Injury Report PDF",
         "officialCurrentReport": true,
@@ -1959,14 +1959,6 @@
       }
     ],
     "teamStatuses": [
-      {
-        "team": "Atlanta Dream",
-        "status": "NOT YET SUBMITTED",
-        "gameDate": "09/21/2026",
-        "gameTime": "08:00 (ET)",
-        "matchup": "ATL@NYL",
-        "updated": "2026-09-21"
-      },
       {
         "team": "Dallas Wings",
         "status": "NOT YET SUBMITTED",

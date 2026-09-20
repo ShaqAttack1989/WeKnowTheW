@@ -2,6 +2,74 @@
   "site": "Snack Shak",
   "posts": [
     {
+      "slug": "playoff-race-final-week-sept20-2026",
+      "type": "byte",
+      "priority": 1700,
+      "homepageSeason": "wnba-return",
+      "seriesLabel": "SNACK SHAK BYTE · PLAYOFF RACE",
+      "title": "Everybody’s In. Nobody’s Settled.",
+      "published": "2026-09-20",
+      "week": "Final week · playoff seeding",
+      "dashboardUrl": "/snack-shak-bytes.html?post=playoff-race-final-week-sept20-2026#story",
+      "teams": [
+        "Minnesota Lynx",
+        "Golden State Valkyries",
+        "Las Vegas Aces",
+        "Atlanta Dream",
+        "Indiana Fever",
+        "Dallas Wings",
+        "New York Liberty",
+        "Washington Mystics"
+      ],
+      "players": [
+        "Napheesa Collier",
+        "Olivia Miles"
+      ],
+      "dek": "The eight playoff teams are set. The bracket is not. Minnesota moved to 32–10 on Sunday, Golden State is still on its heels, and the middle of the bracket has almost no breathing room.",
+      "sections": [
+        {
+          "title": "The field is set. The seats are not.",
+          "paragraphs": [
+            "Everybody knows who is going to the playoffs. Now we are arguing over where everybody is sitting.",
+            "Minnesota beat Connecticut 101–89 on Sunday and moved to 32–10. Golden State is 31–11, so the No. 1 race is still alive with the final week running out of room. The Valkyries already have first-round home court. Minnesota is trying to make sure the road to the Finals runs through them."
+          ]
+        },
+        {
+          "title": "The middle is where it gets messy",
+          "paragraphs": [
+            "Las Vegas and Atlanta are fighting to stay in the top four, Indiana is right behind them, and Dallas has pushed itself into the conversation with six straight wins. New York and Washington entered Sunday close enough that one result can move the bracket again.",
+            "That is the part worth watching now. Nobody is fighting just to get in anymore. They are fighting over home court, matchups and who gets stuck across from Minnesota."
+          ]
+        },
+        {
+          "title": "Shak’s bite",
+          "paragraphs": [
+            "Berlin is over. The regular season is almost over. The playoff teams came back swinging, and somehow the bracket got less clear instead of more. Everybody has a ticket. Nobody knows their seat yet."
+          ]
+        }
+      ],
+      "debates": [
+        "Which team do you least want to see in the first round?",
+        "How much does first-round home court matter in this year’s field?",
+        "Who has helped themselves the most since the FIBA break?"
+      ],
+      "foodSegment": {
+        "title": "Shak’s bite: everybody has a ticket",
+        "script": "Everybody has a playoff ticket. Nobody knows where they’re sitting. Minnesota is trying to lock down the top, Golden State is still hanging around, and the middle of the bracket is one big traffic jam. Welcome to the last week of the W."
+      },
+      "sources": [
+        {
+          "label": "WNBA · 2026 standings and final-week race",
+          "url": "https://www.wnba.com/news/2026-power-rankings-week-14"
+        },
+        {
+          "label": "We Know the W · Live Stats",
+          "url": "https://www.weknowthew.com/live-stats.html"
+        }
+      ],
+      "updated": "2026-09-20"
+    },
+    {
       "slug": "usa-wheelchair-world-champions-2026",
       "type": "byte",
       "priority": 1600,

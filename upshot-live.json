@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-02T16:43:00Z",
+  "updatedAt": "2026-09-20T06:50:00Z",
   "league": "UPSHOT League",
   "season": 2026,
   "label": "Complete inaugural season record",
@@ -104,7 +104,7 @@
       "light": "#3be29a",
       "qualified": false,
       "seasonFinish": "Third place",
-      "note": "Greensboro finished third in year one. The Groove's inaugural season included statement wins, All-UPSHOT guard Diamond Johnson and the league's second WNBA call-up in Christyn Williams.",
+      "note": "Greensboro finished third in year one. The Groove's inaugural season included statement wins, All-UPSHOT guard Diamond Johnson and two players who later signed WNBA developmental deals: Christyn Williams with Dallas and Maria Gakdeng with Toronto.",
       "officialUrl": "https://grooveupshot.com/"
     },
     {
@@ -275,6 +275,16 @@
       "stats": "13.3 PPG · 4.2 RPG · 3.7 APG · 41.6 FG% in 34 UPSHOT games",
       "milestone": "Third UPSHOT League player from the inaugural season to earn a WNBA contract.",
       "sourceUrl": "https://sparks.wnba.com/news/los-angeles-sparks-sign-shyanne-sellers-to-development-contract"
+    },
+    {
+      "player": "Maria Gakdeng",
+      "from": "Greensboro Groove",
+      "to": "Toronto Tempo",
+      "date": "2026-09-19",
+      "contract": "Developmental contract",
+      "stats": "5.1 PPG · 8.3 RPG · 1.1 BPG · 0.9 APG · 0.9 SPG in 7 UPSHOT games",
+      "milestone": "Fourth inaugural-season UPSHOT player to earn a WNBA contract.",
+      "sourceUrl": "https://www.oursportscentral.com/services/releases/toronto-tempo-sign-maria-gakdeng-to-developmental-contract/n-6414753"
     }
   ],
   "recentGames": [
@@ -336,8 +346,8 @@
     },
     {
       "label": "WNBA pipeline",
-      "value": "3 call-ups",
-      "detail": "Michelle Onyiah, Christyn Williams and Shyanne Sellers"
+      "value": "4 call-ups",
+      "detail": "Michelle Onyiah, Christyn Williams, Shyanne Sellers and Maria Gakdeng"
     },
     {
       "label": "Regular season",
@@ -395,6 +405,11 @@
       "date": "Aug. 31, 2026",
       "title": "The pipeline reaches three",
       "detail": "Jacksonville Waves guard Shyanne Sellers signs a WNBA Player Development Pool contract with the Los Angeles Sparks, becoming the third inaugural-season UPSHOT player to earn a WNBA contract."
+    },
+    {
+      "date": "Sept. 19, 2026",
+      "title": "The pipeline reaches four",
+      "detail": "Greensboro Groove center Maria Gakdeng signs a developmental contract with the Toronto Tempo, becoming the fourth inaugural-season UPSHOT player to earn a WNBA contract."
     }
   ],
   "next": "Three inaugural-season UPSHOT players have now earned WNBA contracts: Michelle Onyiah, Christyn Williams and Shyanne Sellers.",
@@ -454,6 +469,10 @@
     {
       "label": "Savannah Steel",
       "url": "https://upshotleague.com/teams/savannah-steel/"
+    },
+    {
+      "label": "Toronto Tempo · Maria Gakdeng signing",
+      "url": "https://www.oursportscentral.com/services/releases/toronto-tempo-sign-maria-gakdeng-to-developmental-contract/n-6414753"
     }
   ],
   "seasonWindow": {

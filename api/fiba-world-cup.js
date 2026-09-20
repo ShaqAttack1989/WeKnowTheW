@@ -1280,7 +1280,7 @@ function usaSummary(standings) {
   const usa = groupD?.teams.find(item => item.code === 'USA');
   return {
     worldRank: 1,
-    worldTitles: 11,
+    worldTitles: 12,
     group: 'D',
     wins: usa?.wins || 0,
     losses: usa?.losses || 0,

@@ -2,6 +2,384 @@
   "site": "Snack Shak",
   "posts": [
     {
+      "slug": "playoff-trio-test-2026",
+      "type": "feature",
+      "priority": 1300,
+      "homepageSeason": "wnba-playoffs",
+      "seriesLabel": "FOOD FOR THOUGHT · 2026 PLAYOFF TRIOS",
+      "title": "The Playoff Trio Test: Who Scores, Who Stops, and Who Matches Their Seed?",
+      "published": "2026-09-21",
+      "week": "Playoff field set · stats through Sept. 20",
+      "image": "https://cdn.wnba.com/sites/1611661322/2026/09/GettyImages-2295801192-scaled.jpg",
+      "storyImage": "https://cdn.wnba.com/sites/1611661322/2026/09/GettyImages-2295801192-scaled.jpg",
+      "storyImageSourceUrl": "https://mystics.wnba.com/news/game-recap-mystics-at-fever-2",
+      "imageFit": "top-cover",
+      "imageAlt": "Washington Mystics players attack the basket against the Indiana Fever in an official WNBA game photo",
+      "storyImageCaption": "Washington's young core helped the Mystics beat Indiana 93-77 on Sept. 20. Official WNBA photography via the Washington Mystics.",
+      "teams": [
+        "Minnesota Lynx",
+        "Golden State Valkyries",
+        "Las Vegas Aces",
+        "Atlanta Dream",
+        "Indiana Fever",
+        "New York Liberty",
+        "Washington Mystics",
+        "Dallas Wings"
+      ],
+      "players": [
+        "Olivia Miles",
+        "Napheesa Collier",
+        "Kayla McBride",
+        "Gabby Williams",
+        "Veronica Burton",
+        "Kiah Stokes",
+        "A'ja Wilson",
+        "Jackie Young",
+        "Chelsea Gray",
+        "Allisha Gray",
+        "Rhyne Howard",
+        "Angel Reese",
+        "Kelsey Mitchell",
+        "Caitlin Clark",
+        "Aliyah Boston",
+        "Breanna Stewart",
+        "Sabrina Ionescu",
+        "Jonquel Jones",
+        "Shakira Austin",
+        "Sonia Citron",
+        "Kiki Iriafen",
+        "Paige Bueckers",
+        "Arike Ogunbowale",
+        "Jessica Shepard"
+      ],
+      "dek": "The top eight stayed in the same order after the FIBA break, but they did not come back looking the same. Here is the trio each playoff team trusts to create points, erase them, or do a little of both.",
+      "trioDashboard": {
+        "title": "Three players. Two sides of the ball. Eight very different playoff plans.",
+        "intro": "Switch the board between scoring production, defensive context, and the first two games after the FIBA break. The seed on each card stays put so you can see where the numbers agree with the standings and where they start an argument.",
+        "asOf": "THROUGH SEPT. 20",
+        "window": "POST-FIBA: SEPT. 17 TO 20",
+        "methodology": "Production is ranked by the trio's combined 2026 points per game, with assists and team offensive rating shown for context. Limiting scoring is ranked by team defensive rating because defense belongs to all five players; trio steals and blocks show activity without pretending they tell the whole story. Post-FIBA form covers two games per team. It is a temperature check, not a season-sized conclusion.",
+        "teams": [
+          {
+            "team": "Minnesota Lynx",
+            "code": "MIN",
+            "color": "#0c5c4a",
+            "seed": 1,
+            "record": "32-10",
+            "preRecord": "31-9",
+            "identity": "Balanced creation with three-level scoring",
+            "offenseRank": 3,
+            "defenseRank": 4,
+            "fibaRank": 8,
+            "ppg": 55.8,
+            "apg": 10.9,
+            "stocks": 6.2,
+            "offRtg": 115.1,
+            "defRtg": 105.6,
+            "postRecord": "1-1",
+            "postMargin": 0,
+            "postOppPpg": 91.0,
+            "offenseNote": "Miles, Collier, and McBride all score at least 17.9 per game. Miles supplies the table setting while McBride stretches the floor.",
+            "defenseNote": "Collier and Miles give Minnesota length at the point of attack, while McBride keeps pressure on the ball. The trio averages 6.2 steals plus blocks.",
+            "breakNote": "The trio held near its season scoring level at 54.0 points per game, but Minnesota split its two games and saw its lead over Golden State shrink to one game.",
+            "players": [
+              {"name": "Olivia Miles", "id": "1643426", "ppg": 19.8, "apg": 6.0},
+              {"name": "Napheesa Collier", "id": "1629483", "ppg": 18.1, "apg": 2.7},
+              {"name": "Kayla McBride", "id": "203825", "ppg": 17.9, "apg": 2.2}
+            ]
+          },
+          {
+            "team": "Golden State Valkyries",
+            "code": "GSV",
+            "color": "#6f2da8",
+            "seed": 2,
+            "record": "31-11",
+            "preRecord": "29-11",
+            "identity": "Defense first, every trip down",
+            "offenseRank": 8,
+            "defenseRank": 1,
+            "fibaRank": 5,
+            "ppg": 29.8,
+            "apg": 9.1,
+            "stocks": 6.1,
+            "offRtg": 110.5,
+            "defRtg": 100.4,
+            "postRecord": "2-0",
+            "postMargin": 14.5,
+            "postOppPpg": 61.5,
+            "offenseNote": "This is not Golden State's top scoring trio. It is the trio that defines how the Valkyries win. Salaün, Hayes, and Chen supply more of the points.",
+            "defenseNote": "No playoff team allows fewer points per 100 possessions. Burton crowds the ball, Williams blows up actions, and Stokes protects the rim.",
+            "breakNote": "Golden State allowed only 61.5 points per game while Gabby Williams sat out both games after her World Cup run. That is equal parts impressive and mildly terrifying.",
+            "players": [
+              {"name": "Gabby Williams", "id": "1628931", "ppg": 14.3, "apg": 2.2},
+              {"name": "Veronica Burton", "id": "1631007", "ppg": 12.0, "apg": 5.7},
+              {"name": "Kiah Stokes", "id": "204329", "ppg": 3.5, "apg": 1.2}
+            ]
+          },
+          {
+            "team": "Las Vegas Aces",
+            "code": "LVA",
+            "color": "#c8102e",
+            "seed": 3,
+            "record": "29-13",
+            "preRecord": "27-13",
+            "identity": "The league's most trusted closing trio",
+            "offenseRank": 2,
+            "defenseRank": 5,
+            "fibaRank": 2,
+            "ppg": 57.5,
+            "apg": 16.5,
+            "stocks": 6.2,
+            "offRtg": 114.1,
+            "defRtg": 107.5,
+            "postRecord": "2-0",
+            "postMargin": 29.0,
+            "postOppPpg": 77.0,
+            "offenseNote": "Wilson bends the defense, Young punishes the second read, and Gray still knows exactly which button to push late. Their 16.5 assists matter as much as the scoring.",
+            "defenseNote": "The team defense ranks fifth in this field, but Wilson gives every coverage a reset button. Young can take the most difficult perimeter assignment.",
+            "breakNote": "The trio jumped from 57.5 season points per game to 68.5 after the break. Wilson averaged 29.5 and Young averaged 29.0. FIBA did not cool them off.",
+            "players": [
+              {"name": "A'ja Wilson", "id": "1628932", "ppg": 26.2, "apg": 3.2},
+              {"name": "Jackie Young", "id": "1629498", "ppg": 19.4, "apg": 6.6},
+              {"name": "Chelsea Gray", "id": "203833", "ppg": 11.9, "apg": 6.7}
+            ]
+          },
+          {
+            "team": "Atlanta Dream",
+            "code": "ATL",
+            "color": "#d7282f",
+            "seed": 4,
+            "record": "28-14",
+            "preRecord": "26-14",
+            "identity": "The cleanest two-way trio in the field",
+            "offenseRank": 4,
+            "defenseRank": 2,
+            "fibaRank": 1,
+            "ppg": 53.6,
+            "apg": 9.1,
+            "stocks": 7.5,
+            "offRtg": 112.9,
+            "defRtg": 104.9,
+            "postRecord": "2-0",
+            "postMargin": 34.5,
+            "postOppPpg": 70.0,
+            "offenseNote": "Gray and Howard stretch the floor while Reese creates paint pressure and extra possessions. None of the three has to win the same way.",
+            "defenseNote": "Their 7.5 steals plus blocks lead every trio on this board. Howard creates chaos, Gray stays attached, and Reese closes the possession on the glass.",
+            "breakNote": "Atlanta posted the best return-week margin at plus 34.5. Reese averaged 26.5 points, while Howard moved the ball and the trio combined for 8.5 steals plus blocks per game.",
+            "players": [
+              {"name": "Allisha Gray", "id": "1628277", "ppg": 19.0, "apg": 2.6},
+              {"name": "Rhyne Howard", "id": "1631009", "ppg": 18.0, "apg": 3.7},
+              {"name": "Angel Reese", "id": "1642291", "ppg": 16.6, "apg": 2.8}
+            ]
+          },
+          {
+            "team": "Indiana Fever",
+            "code": "IND",
+            "color": "#fdbb30",
+            "seed": 5,
+            "record": "27-15",
+            "preRecord": "26-14",
+            "identity": "The loudest offense and the biggest swing",
+            "offenseRank": 1,
+            "defenseRank": 8,
+            "fibaRank": 7,
+            "ppg": 64.2,
+            "apg": 14.3,
+            "stocks": 5.5,
+            "offRtg": 117.8,
+            "defRtg": 110.7,
+            "postRecord": "1-1",
+            "postMargin": 1.0,
+            "postOppPpg": 89.0,
+            "offenseNote": "No trio in the field scores more. Mitchell's efficiency, Clark's range and passing, and Boston's interior touch force opponents to guard the whole floor.",
+            "defenseNote": "Indiana ranks last among playoff teams in defensive rating. Boston can cover mistakes, but she should not have to clean up every leak by herself.",
+            "breakNote": "The trio still averaged 61.5 points after the break, but Indiana split the games and Boston fell to 7.5 points per game. The triangle works best when the paint gets fed too.",
+            "players": [
+              {"name": "Kelsey Mitchell", "id": "1628909", "ppg": 25.1, "apg": 2.8},
+              {"name": "Caitlin Clark", "id": "1642286", "ppg": 22.7, "apg": 8.4},
+              {"name": "Aliyah Boston", "id": "1641648", "ppg": 16.4, "apg": 3.1}
+            ]
+          },
+          {
+            "team": "New York Liberty",
+            "code": "NYL",
+            "color": "#00a9a5",
+            "seed": 6,
+            "record": "26-16",
+            "preRecord": "24-16",
+            "identity": "A lower seed with championship muscle memory",
+            "offenseRank": 6,
+            "defenseRank": 7,
+            "fibaRank": 3,
+            "ppg": 50.1,
+            "apg": 10.7,
+            "stocks": 5.6,
+            "offRtg": 113.5,
+            "defRtg": 108.5,
+            "postRecord": "2-0",
+            "postMargin": 24.5,
+            "postOppPpg": 75.0,
+            "offenseNote": "The season numbers are quieter than the names. Stewart remains the pressure point, Jones owns the glass, and Ionescu can turn one paint touch into a three-point avalanche.",
+            "defenseNote": "The rating says seventh in this field. The post-break activity says pay attention: the trio produced 8.0 steals plus blocks per game in two wins.",
+            "breakNote": "New York beat first-place Minnesota and then scored 106 in Toronto. Stewart averaged 25.5 points, while Ionescu shifted toward creation at 7.5 assists per game.",
+            "players": [
+              {"name": "Breanna Stewart", "id": "1627668", "ppg": 20.7, "apg": 3.2},
+              {"name": "Sabrina Ionescu", "id": "1629477", "ppg": 14.8, "apg": 4.9},
+              {"name": "Jonquel Jones", "id": "1627673", "ppg": 14.6, "apg": 2.6}
+            ]
+          },
+          {
+            "team": "Washington Mystics",
+            "code": "WAS",
+            "color": "#c8102e",
+            "seed": 7,
+            "record": "26-16",
+            "preRecord": "24-16",
+            "identity": "Young size that already plays grown-up defense",
+            "offenseRank": 7,
+            "defenseRank": 3,
+            "fibaRank": 4,
+            "ppg": 49.3,
+            "apg": 8.5,
+            "stocks": 4.9,
+            "offRtg": 106.3,
+            "defRtg": 105.2,
+            "postRecord": "2-0",
+            "postMargin": 23.0,
+            "postOppPpg": 78.5,
+            "offenseNote": "Austin and Iriafen punish the glass, while Citron keeps the floor connected. Their combined 22.7 rebounds lead every trio on the board.",
+            "defenseNote": "Washington ranks third in this playoff field on defense. Size, rebounding, and Citron's positional discipline let the Mystics finish possessions instead of defending twice.",
+            "breakNote": "Washington returned 2-0 even though Citron missed the first game. Against Indiana, Iriafen and Austin both went for 20-point double-doubles and Citron added nine assists.",
+            "players": [
+              {"name": "Shakira Austin", "id": "1631022", "ppg": 17.0, "apg": 2.6},
+              {"name": "Sonia Citron", "id": "1642785", "ppg": 16.8, "apg": 4.4},
+              {"name": "Kiki Iriafen", "id": "1642792", "ppg": 15.5, "apg": 1.5}
+            ]
+          },
+          {
+            "team": "Dallas Wings",
+            "code": "DAL",
+            "color": "#0a4d68",
+            "seed": 8,
+            "record": "26-16",
+            "preRecord": "24-16",
+            "identity": "Three creators hiding behind the eighth seed",
+            "offenseRank": 5,
+            "defenseRank": 6,
+            "fibaRank": 6,
+            "ppg": 50.2,
+            "apg": 14.2,
+            "stocks": 3.2,
+            "offRtg": 112.8,
+            "defRtg": 107.6,
+            "postRecord": "2-0",
+            "postMargin": 12.5,
+            "postOppPpg": 79.5,
+            "offenseNote": "Bueckers and Ogunbowale draw the eyes, but Shepard is the hinge. Her scoring, rebounding, and passing keep Dallas from becoming a turn-taking offense.",
+            "defenseNote": "The trio does not create many steals or blocks, yet Dallas sits sixth in this field defensively. The challenge is getting stops without losing its best offensive spacing.",
+            "breakNote": "The Wings came back 2-0 and this trio averaged 17.5 assists. Shepard supplied 8.5 of them, giving Dallas another way to organize when the guards get crowded.",
+            "players": [
+              {"name": "Paige Bueckers", "id": "1642784", "ppg": 20.6, "apg": 5.8},
+              {"name": "Arike Ogunbowale", "id": "1629481", "ppg": 15.3, "apg": 3.3},
+              {"name": "Jessica Shepard", "id": "1629491", "ppg": 14.3, "apg": 5.1}
+            ]
+          }
+        ]
+      },
+      "sections": [
+        {
+          "title": "The standings stayed still. The pressure did not.",
+          "paragraphs": [
+            "Every playoff team returned from the World Cup break in the same seed it holds now. Minnesota remained first. Golden State remained second. Las Vegas, Atlanta, and Indiana held the middle. New York, Washington, and Dallas stayed tied at 26 wins, with the official tiebreak order placing them sixth, seventh, and eighth.",
+            "That sounds calm until you look at the scores. Every playoff team returned at .500 or better, and six won both games. Atlanta outscored opponents by 34.5 points per game, Las Vegas by 29.0, New York by 24.5, and Washington by 23.0. The chairs did not move, but several teams came back trying to flip the table."
+          ]
+        },
+        {
+          "title": "Minnesota has the best seed, not the loudest trio.",
+          "paragraphs": [
+            "Olivia Miles, Napheesa Collier, and Kayla McBride rank third in combined scoring and fourth in team defensive context. That balance helps explain why Minnesota still owns the league's best record. There is no single coverage that solves all three: Miles can get downhill or create, McBride punishes help, and Collier connects both ends.",
+            "The catch is continuity. Collier has played only 14 games, so the Lynx have spent most of the year building first-place habits without a full season from one of their best players. The first two games back produced a flat zero scoring margin. Minnesota is still the standard, but the cushion is gone."
+          ]
+        },
+        {
+          "title": "Golden State is the only team whose trio starts with a stop.",
+          "paragraphs": [
+            "Gabby Williams, Veronica Burton, and Kiah Stokes rank last in combined scoring on this board because that is not their assignment. Their job is to make the opponent's first option uncomfortable, the second option late, and the third option somebody the scouting report was willing to live with.",
+            "Golden State owns the best defensive rating in the field and held Portland and Seattle to 61.5 points per game after the break. Williams did not play in either game. If she returns ready, the second seed may add its most disruptive defender to a group that just went 2-0 without her."
+          ]
+        },
+        {
+          "title": "Las Vegas has the trio nobody wants to see in the last five minutes.",
+          "paragraphs": [
+            "A'ja Wilson, Jackie Young, and Chelsea Gray combine for 57.5 points and 16.5 assists per game. Wilson can finish the possession, Young can win the advantage, and Gray can decide which matchup gets tested until it breaks. Their second-place production rank undersells how well the three jobs fit together.",
+            "The return was loud. Wilson averaged 29.5 points, Young averaged 29.0, and the trio reached 68.5 points per game as Las Vegas went 2-0 with a plus 29.0 margin. That is not a warm-up. That is a warning label."
+          ]
+        },
+        {
+          "title": "Atlanta owns the most complete trio on the board.",
+          "paragraphs": [
+            "Allisha Gray, Rhyne Howard, and Angel Reese are fourth in scoring and second in team defense. They also lead every trio here with 7.5 combined steals and blocks per game. Gray and Howard make the floor wide. Reese makes the possession longer. All three can turn defense into points before the opponent gets set.",
+            "Atlanta's post-break trio scoring dipped slightly, but the team won by 34.5 points per game. Reese averaged 26.5 points, Howard created 6.0 assists per game, and the trio averaged 8.5 steals plus blocks. That is the difference between three stars sharing a court and three players multiplying one another."
+          ]
+        },
+        {
+          "title": "Indiana can win a shootout. The playoffs will ask for another answer.",
+          "paragraphs": [
+            "Kelsey Mitchell, Caitlin Clark, and Aliyah Boston are the clear production champions at 64.2 combined points per game. Indiana also owns the best team offensive rating in the league. Mitchell's efficiency, Clark's passing range, and Boston's interior skill can make a defense pick the least comfortable way to lose.",
+            "The other side is the issue. Indiana ranks eighth among these teams in defensive rating and returned with a 1-1 record and a plus 1.0 margin. Boston averaged only 7.5 points in those two games. If the Fever become too perimeter-heavy, a great trio turns into two scorers and a cleanup crew."
+          ]
+        },
+        {
+          "title": "New York is playing better than sixth place sounds.",
+          "paragraphs": [
+            "Breanna Stewart, Sabrina Ionescu, and Jonquel Jones rank sixth in scoring and seventh in team defense, which lines up neatly with New York's seed. The last two games did not look neat at all. The Liberty beat first-place Minnesota, scored 106 in Toronto, and posted a plus 24.5 margin.",
+            "Stewart came back from a World Cup MVP run averaging 25.5 points. Ionescu shifted toward playmaking at 7.5 assists, and the trio averaged 8.0 steals plus blocks. New York may still be sixth in the standings, but it no longer looks like the sixth-most dangerous team."
+          ]
+        },
+        {
+          "title": "Washington is the seed nobody should read too quickly.",
+          "paragraphs": [
+            "Shakira Austin, Sonia Citron, and Kiki Iriafen rank seventh in trio scoring, but third in team defense and first in combined rebounding at 22.7 per game. Their production is not built on one guard carrying every late clock. It is built on size, patience, paint touches, and finishing the defensive possession.",
+            "The Mystics returned 2-0 even with Citron missing the first game. Against Indiana, Iriafen and Austin both recorded 20-point double-doubles, while Citron added 16 points and nine assists. Seventh seed, yes. Seventh-best trio, no."
+          ]
+        },
+        {
+          "title": "Dallas has three creators, not two stars and a helper.",
+          "paragraphs": [
+            "Paige Bueckers and Arike Ogunbowale are the obvious pressure points. Jessica Shepard is what changes the geometry. She averages 14.3 points, 10.9 rebounds, and 5.1 assists, which gives Dallas a frontcourt organizer when guards are blitzed or denied.",
+            "The trio averaged 17.5 assists after the break and Dallas won both games. The Wings still rank only sixth among playoff teams on defense, so their path is narrow: keep the ball moving, avoid empty possessions, and make the opponent guard all three creators on the same trip."
+          ]
+        },
+        {
+          "title": "Shak's call: the best trio depends on the question.",
+          "paragraphs": [
+            "Need the most points? Indiana. Need one closing possession? Las Vegas. Need to drag a game into the mud? Golden State. Need the cleanest two-way blend? Atlanta. Need a lower seed capable of wrecking the bracket? Washington and New York are standing right there.",
+            "The standings reward the full season, and they should. A playoff series is a different exam. It asks whether your three most important players can keep solving the same opponent after the easy answers are gone. Atlanta has the fewest obvious weak spots. Las Vegas has the most trustworthy closer. Indiana has the highest offensive ceiling. That is why the bracket is settled and the argument is just getting started."
+          ]
+        }
+      ],
+      "debates": [
+        "Would you rather enter a playoff series with Indiana's first-ranked trio offense or Golden State's first-ranked defense?",
+        "Is Atlanta's two-way balance more valuable than Las Vegas having the best closer in A'ja Wilson?",
+        "Which tied 26-16 team is most dangerous: New York, Washington, or Dallas?",
+        "Does Minnesota's balance still make the Lynx the favorite after a 1-1 return from the break?"
+      ],
+      "foodSegment": {
+        "title": "A Big Three Is a Job Description",
+        "script": "Three famous names do not automatically make a playoff trio. Somebody has to create the advantage. Somebody has to finish it. Somebody has to stop the other team from doing the same thing. Indiana brings the biggest plate of points. Golden State takes the plate away. Atlanta might be the one team that can do both before you sit down."
+      },
+      "sources": [
+        {"label": "Official WNBA standings, Sept. 21", "url": "https://www.wnba.com/standings"},
+        {"label": "Official WNBA 2026 schedule and box scores", "url": "https://www.wnba.com/schedule?season=2026&month=all"},
+        {"label": "Basketball-Reference 2026 team ratings", "url": "https://www.basketball-reference.com/wnba/years/2026.html"},
+        {"label": "Basketball-Reference 2026 player totals", "url": "https://www.basketball-reference.com/wnba/years/2026_totals.html"},
+        {"label": "Mystics at Fever official recap", "url": "https://mystics.wnba.com/news/game-recap-mystics-at-fever-2"},
+        {"label": "Aces sweep Storm official recap", "url": "https://aces.wnba.com/news/game-recap-aces-complete-season-sweep-against-seattle-with-98-77-win"},
+        {"label": "Liberty return win over Lynx", "url": "https://liberty.wnba.com/news/liberty-return-from-break-with-93-81-win-over-lynx"},
+        {"label": "Wings defeat Mercury official recap", "url": "https://wings.wnba.com/news/dallas-defeats-phoenix-87-82-in-final-regular-season-home-game"}
+      ]
+    },
+    {
       "slug": "playoff-race-final-week-sept20-2026",
       "type": "byte",
       "priority": 1700,

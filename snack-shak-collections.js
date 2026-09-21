@@ -49,8 +49,11 @@
   }
   function tableMarkup(table={}){const columns=Array.isArray(table.columns)?table.columns:[],rows=Array.isArray(table.rows)?table.rows:[];if(!columns.length||!rows.length)return'';const hasPeople=columns.some(column=>String(column).toLowerCase()==='player')&&columns.some(column=>String(column).toLowerCase()==='country');if(hasPeople)ensureStoryTableMediaStyles();return `<section class="snack-section story-table-section"><div class="story-table-scroll"><div class="story-table${hasPeople?' has-people':''}" style="--story-cols:${columns.length}"><div class="story-table-row head">${columns.map(column=>`<span>${safe(column)}</span>`).join('')}</div>${rows.map(row=>`<div class="story-table-row">${row.map((cell,index)=>storyCellMarkup(columns[index],cell,index)).join('')}</div>`).join('')}</div></div></section>`;}
   function trioPlayerMarkup(player={}){
-    const photo=player.photo||(player.id?`https://cdn.wnba.com/headshots/wnba/latest/1040x760/${encodeURIComponent(player.id)}.png`:playerPhoto(player.name));
-    return `<figure class="trio-player"><div class="trio-player-photo">${photo?`<img src="${safe(photo)}" alt="Official WNBA headshot of ${safe(player.name)}" loading="lazy" decoding="async" onerror="this.hidden=true">`:''}</div><figcaption><strong>${safe(player.name)}</strong><span>${safe(player.ppg)} PPG · ${safe(player.apg)} APG</span></figcaption></figure>`;
+    const id=player.id?encodeURIComponent(player.id):'';
+    const photo=player.photo||(id?`https://cdn.wnba.com/headshots/wnba/latest/260x190/${id}.png`:playerPhoto(player.name));
+    const fallback=id?`https://cdn.wnba.com/headshots/wnba/latest/1040x760/${id}.png?retry=1`:'';
+    const recovery=fallback?` data-fallback="${safe(fallback)}" onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback}else{this.hidden=true}"`:' onerror="this.hidden=true"';
+    return `<figure class="trio-player"><div class="trio-player-photo">${photo?`<img src="${safe(photo)}" alt="Official WNBA headshot of ${safe(player.name)}" loading="lazy" decoding="async"${recovery}>`:''}</div><figcaption><strong>${safe(player.name)}</strong><span>${safe(player.ppg)} PPG · ${safe(player.apg)} APG</span></figcaption></figure>`;
   }
   function trioModePanel(mode,team,maxima){
     if(mode==='defense'){

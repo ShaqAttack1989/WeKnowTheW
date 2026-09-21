@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-21T16:59:39.254Z",
+  "generatedAt": "2026-09-21T21:00:14.032Z",
   "movement": {
     "latestTransactionDate": "2026-09-20",
     "transactions": [
@@ -1411,9 +1411,100 @@
   },
   "availability": {
     "latestReportDate": "2026-09-21",
-    "reportLabel": "09/21/2026 12:45 PM ET",
-    "officialPdf": "https://ak-static.cms.nba.com/referee/wnba_injury/Injury-Report_2026-09-21_12_45PM.pdf",
+    "reportLabel": "09/21/2026 05:00 PM ET",
+    "officialPdf": "https://ak-static.cms.nba.com/referee/wnba_injury/Injury-Report_2026-09-21_05_00PM.pdf",
     "injuries": [
+      {
+        "player": "Anastasiia Olairi Kosu",
+        "team": "Minnesota Lynx",
+        "status": "OUT",
+        "reason": "Injury/Illness - Right Foot; Right foot",
+        "gameDate": "09/22/2026",
+        "gameTime": "08:00 (ET)",
+        "matchup": "MIN@IND",
+        "updated": "2026-09-22",
+        "source": "Official WNBA Injury Report PDF",
+        "officialCurrentReport": true,
+        "crossCheckOnly": false
+      },
+      {
+        "player": "Brittney Griner",
+        "team": "Connecticut Sun",
+        "status": "OUT",
+        "reason": "Injury/Illness - Left Knee; -",
+        "gameDate": "09/22/2026",
+        "gameTime": "07:30 (ET)",
+        "matchup": "CON@WAS",
+        "updated": "2026-09-22",
+        "source": "Official WNBA Injury Report PDF",
+        "officialCurrentReport": true,
+        "crossCheckOnly": false
+      },
+      {
+        "player": "Caitlin Clark",
+        "team": "Indiana Fever",
+        "status": "PROBABLE",
+        "reason": "Injury/Illness - Back; Back",
+        "gameDate": "09/22/2026",
+        "gameTime": "08:00 (ET)",
+        "matchup": "MIN@IND",
+        "updated": "2026-09-22",
+        "source": "Official WNBA Injury Report PDF",
+        "officialCurrentReport": true,
+        "crossCheckOnly": false
+      },
+      {
+        "player": "Kennedy Burke",
+        "team": "Connecticut Sun",
+        "status": "OUT",
+        "reason": "Injury/Illness - Right Shoulder; -",
+        "gameDate": "09/22/2026",
+        "gameTime": "07:30 (ET)",
+        "matchup": "CON@WAS",
+        "updated": "2026-09-22",
+        "source": "Official WNBA Injury Report PDF",
+        "officialCurrentReport": true,
+        "crossCheckOnly": false
+      },
+      {
+        "player": "Olivia Miles",
+        "team": "Minnesota Lynx",
+        "status": "QUESTIONABLE",
+        "reason": "Injury/Illness - Left Calf; Left calf",
+        "gameDate": "09/22/2026",
+        "gameTime": "08:00 (ET)",
+        "matchup": "MIN@IND",
+        "updated": "2026-09-22",
+        "source": "Official WNBA Injury Report PDF",
+        "officialCurrentReport": true,
+        "crossCheckOnly": false
+      },
+      {
+        "player": "Olivia Nelson- Ododa",
+        "team": "Connecticut Sun",
+        "status": "OUT",
+        "reason": "Injury/Illness - Right Knee; -",
+        "gameDate": "09/22/2026",
+        "gameTime": "07:30 (ET)",
+        "matchup": "CON@WAS",
+        "updated": "2026-09-22",
+        "source": "Official WNBA Injury Report PDF",
+        "officialCurrentReport": true,
+        "crossCheckOnly": false
+      },
+      {
+        "player": "Saniya Rivers",
+        "team": "Connecticut Sun",
+        "status": "OUT",
+        "reason": "Injury/Illness - Left Ankle; -",
+        "gameDate": "09/22/2026",
+        "gameTime": "07:30 (ET)",
+        "matchup": "CON@WAS",
+        "updated": "2026-09-22",
+        "source": "Official WNBA Injury Report PDF",
+        "officialCurrentReport": true,
+        "crossCheckOnly": false
+      },
       {
         "player": "Alanna Smith",
         "team": "Dallas Wings",
@@ -1432,6 +1523,19 @@
         "team": "Atlanta Dream",
         "status": "OUT",
         "reason": "Injury/Illness - Left Leg; N/A",
+        "gameDate": "09/21/2026",
+        "gameTime": "08:00 (ET)",
+        "matchup": "ATL@NYL",
+        "updated": "2026-09-21",
+        "source": "Official WNBA Injury Report PDF",
+        "officialCurrentReport": true,
+        "crossCheckOnly": false
+      },
+      {
+        "player": "Elizabeth Balogun",
+        "team": "New York Liberty",
+        "status": "OUT",
+        "reason": "Not With Team",
         "gameDate": "09/21/2026",
         "gameTime": "08:00 (ET)",
         "matchup": "ATL@NYL",
@@ -1719,27 +1823,11 @@
         "updated": "2026-09-22"
       },
       {
-        "team": "Connecticut Sun",
-        "status": "NOT YET SUBMITTED",
-        "gameDate": "09/22/2026",
-        "gameTime": "07:30 (ET)",
-        "matchup": "CON@WAS",
-        "updated": "2026-09-22"
-      },
-      {
         "team": "Golden State Valkyries",
         "status": "NOT YET SUBMITTED",
         "gameDate": "09/22/2026",
         "gameTime": "10:00 (ET)",
         "matchup": "GSV@PDX",
-        "updated": "2026-09-22"
-      },
-      {
-        "team": "Indiana Fever",
-        "status": "NOT YET SUBMITTED",
-        "gameDate": "09/22/2026",
-        "gameTime": "08:00 (ET)",
-        "matchup": "MIN@IND",
         "updated": "2026-09-22"
       },
       {
@@ -1759,14 +1847,6 @@
         "updated": "2026-09-22"
       },
       {
-        "team": "Minnesota Lynx",
-        "status": "NOT YET SUBMITTED",
-        "gameDate": "09/22/2026",
-        "gameTime": "08:00 (ET)",
-        "matchup": "MIN@IND",
-        "updated": "2026-09-22"
-      },
-      {
         "team": "Portland Fire",
         "status": "NOT YET SUBMITTED",
         "gameDate": "09/22/2026",
@@ -1781,22 +1861,6 @@
         "gameTime": "08:00 (ET)",
         "matchup": "TOR@CHI",
         "updated": "2026-09-22"
-      },
-      {
-        "team": "Washington Mystics",
-        "status": "NOT YET SUBMITTED",
-        "gameDate": "09/22/2026",
-        "gameTime": "07:30 (ET)",
-        "matchup": "CON@WAS",
-        "updated": "2026-09-22"
-      },
-      {
-        "team": "New York Liberty",
-        "status": "NOT YET SUBMITTED",
-        "gameDate": "09/21/2026",
-        "gameTime": "08:00 (ET)",
-        "matchup": "ATL@NYL",
-        "updated": "2026-09-21"
       }
     ]
   },

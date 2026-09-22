@@ -16,7 +16,6 @@
       {date:'2026-08-23',category:'story',kind:'PLAYOFFS',title:'Atlanta Dream',detail:'Clinched a fourth consecutive WNBA playoff berth.',href:'https://dream.wnba.com/news',priority:5}
     ],
     'chicago-sky':[
-      {date:'2026-08-21',category:'story',kind:'CLUTCH ROOKIE',title:'Sydney Taylor',detail:'Taylor became the first WNBA rookie to make multiple game-winning shots with five seconds or fewer remaining in a season.',href:'https://www.wnba.com/news/2026-eos-awards-lookahead-all-rookie-team',priority:8},
       {date:'2026-06-26',category:'story',kind:'WNBA ROOKIE RECORD',title:'Sydney Taylor',detail:'Taylor produced the most efficient 25-point game by a rookie in WNBA history against Portland: 72.7% from the field, 85.7% from three and perfect at the line.',href:'https://sky.wnba.com/news/recap-sky-shatter-records-upon-courtney-vandersloots-return-in-124-94-triumph-over-fire',priority:9}
     ],
     'connecticut-sun':[

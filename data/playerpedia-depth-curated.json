@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-22T16:10:00Z",
+  "updatedAt": "2026-09-22T08:35:00-04:00",
   "rules": {
     "pronunciation": "Only use a written pronunciation when a team, league or other reliable media guide explicitly provides it. When a player-recorded audio pronunciation is available, link to that instead of inventing phonetics.",
     "offCourt": "Only include a personal, family, education, advocacy, business, media, music or nickname connection when it is documented in the Playerpedia bio tracker or a cited public source.",
@@ -227,6 +227,62 @@
       "offCourtLink": "/the-call-up.html#leadership",
       "memorable": "After a Hall of Fame playing career, Holdsclaw added another role in women’s basketball in 2026 by joining UPSHOT’s ownership group as an investor.",
       "memorableSource": "https://www.oursportscentral.com/services/releases/chamique-holdsclaw-joins-upshot-league-as-investor/n-6415301"
+    },
+    "aminatagueye": {
+      "entry": {
+        "status": "Rest-of-season signing",
+        "year": 2026,
+        "team": "Golden State Valkyries",
+        "note": "Golden State signed Gueye late in the 2026 regular season after her run with France at the FIBA Women's Basketball World Cup. She wears No. 31 for the Valkyries.",
+        "source": "https://valkyries.wnba.com/news/aminata-gueye-signs-20260921"
+      },
+      "collegeInternational": {
+        "college": "No U.S. college. Gueye developed through the French and European club system.",
+        "clubs": [
+          "Villeneuve d'Ascq LM · France · EuroLeague / EuroCup",
+          "Casademont Zaragoza · Spain · 2025–26",
+          "BA Sparta Praha · Czechia · listed club at the 2026 FIBA World Cup"
+        ],
+        "nationalTeam": [
+          "France · 2026 FIBA Women's Basketball World Cup",
+          "France · 2026 World Cup Qualifying Tournament",
+          "France · U20, U19 and U18 international teams"
+        ],
+        "source": "https://www.fiba.basketball/en/players/269523-aminata-gueye"
+      },
+      "achievements": [
+        "2025 EuroCup Women champion with Villeneuve d'Ascq LM.",
+        "Averaged 13.1 points and 8.8 rebounds in 10 EuroCup games in the 2025 title run.",
+        "Won the 2025–26 Supercopa de España de Baloncesto Femenino with Casademont Zaragoza.",
+        "Helped Zaragoza finish third at the 2026 EuroLeague Women Final Six.",
+        "Represented France at the 2026 FIBA Women's Basketball World Cup."
+      ],
+      "achievementsSources": [
+        "https://valkyries.wnba.com/news/aminata-gueye-signs-20260921",
+        "https://www.fiba.basketball/en/players/269523-aminata-gueye"
+      ],
+      "memorable": "Gueye went from France's 2026 World Cup roster to a late-season WNBA opportunity with Golden State, joining fellow French internationals Janelle Salaün and Gabby Williams on the Valkyries.",
+      "memorableSource": "https://valkyries.wnba.com/news/aminata-gueye-signs-20260921"
+    },
+    "sydneytaylor": {
+      "entry": {
+        "status": "Undrafted free agent",
+        "year": 2026,
+        "team": "Chicago Sky",
+        "note": "Taylor signed a Sky training-camp contract on April 13 and earned a standard-roster spot after the preseason.",
+        "source": "https://cdn.wnba.com/sites/1611661329/2026/05/2026-Chicago-Sky-Media-Guide.pdf"
+      },
+      "achievements": [
+        "Produced the most efficient 25-point game by a rookie in WNBA history on June 26, 2026 against Portland, shooting 72.7% from the field, 85.7% from three and 100% at the line.",
+        "Became the first WNBA rookie to make multiple game-winning shots with five seconds or fewer remaining in a season.",
+        "Entered the final stretch of the 2026 season third among rookies in scoring at 13.8 points per game."
+      ],
+      "achievementsSources": [
+        "https://sky.wnba.com/news/recap-sky-shatter-records-upon-courtney-vandersloots-return-in-124-94-triumph-over-fire",
+        "https://www.wnba.com/news/2026-eos-awards-lookahead-all-rookie-team"
+      ],
+      "memorable": "Taylor's June 26 eruption against Portland became the most efficient 25-point game by a rookie in league history, one of several clutch marks in an undrafted breakout season.",
+      "memorableSource": "https://sky.wnba.com/news/recap-sky-shatter-records-upon-courtney-vandersloots-return-in-124-94-triumph-over-fire"
     }
   }
 }

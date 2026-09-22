@@ -128,12 +128,18 @@
     };
   }
   function dedupe(items=[]){
-    const seen=new Set();
-    return items.filter(item=>{
-      const key=`${item.date}|${norm(item.category)}|${norm(item.title)}|${norm(item.kind)}|${norm(item.detail).slice(0,80)}`;
-      if(seen.has(key))return false;
-      seen.add(key);return true;
-    });
+    const kept=[];
+    for(const item of items){
+      const itemTime=Date.parse((item.date||'')+'T12:00:00');
+      const duplicate=kept.some(other=>{
+        if(norm(other.category)!==norm(item.category)||norm(other.title)!==norm(item.title)||norm(other.kind)!==norm(item.kind))return false;
+        const otherTime=Date.parse((other.date||'')+'T12:00:00');
+        if(!Number.isFinite(itemTime)||!Number.isFinite(otherTime))return other.date===item.date;
+        return Math.abs(itemTime-otherTime)<=3*86400000;
+      });
+      if(!duplicate)kept.push(item);
+    }
+    return kept;
   }
   function sortUpdates(items=[]){
     return [...items].sort((a,b)=>String(b.date||'').localeCompare(String(a.date||''))||(Number(b.priority)||0)-(Number(a.priority)||0)||String(a.title||'').localeCompare(String(b.title||'')));

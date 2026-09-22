@@ -378,3 +378,83 @@
 @media(prefers-reduced-motion:reduce){
   .w-score-game,.w-desk-link,.w-headline strong{transition:none}
 }
+
+
+/* Homepage media crop + navigation collision fixes */
+.w-desk-main .week-snapshot-media.player-headshots{
+  background:linear-gradient(135deg,#160a31,#5d23bf);
+}
+.w-desk-main .week-snapshot-media.player-headshots img.player-headshot{
+  object-fit:contain!important;
+  object-position:center bottom!important;
+  background:transparent!important;
+  padding:4px 4px 0;
+}
+.w-desk-main .week-snapshot-media.week-media-strip.player-headshots img.player-headshot{
+  object-fit:contain!important;
+  object-position:center bottom!important;
+  padding:4px 2px 0;
+}
+.w-desk-main .week-snapshot-media.dashboard-preview{
+  background:#160a31;
+}
+.w-desk-main .week-snapshot-media.dashboard-preview img.dashboard-preview{
+  object-fit:contain!important;
+  object-position:center center!important;
+  background:#160a31!important;
+  padding:0;
+}
+.w-desk-main .week-editorial-media img{
+  object-position:var(--media-focus,50% 38%)!important;
+}
+@media(max-width:700px){
+  .w-desk-main .week-editorial-media img{
+    object-position:var(--media-focus-mobile,var(--media-focus,50% 34%))!important;
+  }
+}
+
+@media(min-width:1101px){
+  .w-home-nav-sticky .site-navigation{
+    padding-inline:max(14px,calc((100vw - 1520px)/2))!important;
+    gap:12px!important;
+  }
+  .w-home-nav-sticky .site-navigation .brand{
+    gap:7px!important;
+    font-size:.82rem!important;
+    letter-spacing:.04em!important;
+    flex-shrink:0;
+  }
+  .w-home-nav-sticky .site-navigation .brand-mark{
+    width:32px!important;
+    height:32px!important;
+    flex:0 0 32px;
+  }
+  .w-home-nav-sticky .site-navigation .nav-links{
+    gap:0!important;
+    overflow:visible;
+  }
+  .w-home-nav-sticky .site-navigation .nav-parent{
+    padding-inline:6px!important;
+    font-size:.78rem!important;
+  }
+  .w-home-nav-sticky .site-navigation .nav-search-button{
+    padding-inline:10px!important;
+    font-size:.78rem!important;
+  }
+}
+@media(min-width:1101px) and (max-width:1320px){
+  .w-home-nav-sticky .site-navigation .brand>span:last-child{
+    font-size:.76rem!important;
+  }
+  .w-home-nav-sticky .site-navigation .nav-parent{
+    font-size:.74rem!important;
+    padding-inline:5px!important;
+  }
+}
+@media(max-width:1100px){
+  .home-page.mobile-nav-open .w-home-nav-sticky .site-navigation .nav-links.open{
+    top:calc(var(--w-home-scorebar-height) + var(--w-home-nav-height))!important;
+    max-height:calc(100vh - var(--w-home-scorebar-height) - var(--w-home-nav-height))!important;
+    max-height:calc(100dvh - var(--w-home-scorebar-height) - var(--w-home-nav-height))!important;
+  }
+}

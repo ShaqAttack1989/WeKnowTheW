@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-20T06:50:00Z",
+  "updatedAt": "2026-09-22T16:20:00Z",
   "league": "UPSHOT League",
   "season": 2026,
   "label": "Complete inaugural season record",
@@ -481,5 +481,14 @@
     "regularSeasonEnd": "2026-08-23",
     "end": "2026-08-29",
     "detail": "34-game regular season · Championship Aug. 29"
-  }
+  },
+  "leadershipUpdates": [
+    {
+      "date": "2026-09-21",
+      "person": "Chamique Holdsclaw",
+      "role": "Investor · Ownership Group + Ambassador",
+      "detail": "UPSHOT announced Holdsclaw as an investor as the league prepares to expand to six teams in 2027.",
+      "sourceUrl": "https://www.oursportscentral.com/services/releases/chamique-holdsclaw-joins-upshot-league-as-investor/n-6415301"
+    }
+  ]
 }

@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#140a2f">
+  <title>Team Season Report | We Know the W</title>
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/landing.css">
+  <link rel="stylesheet" href="/team-season-report.css?v=20260922-v1">
+</head>
+<body class="team-report-page">
+  <header>
+    <nav class="nav shell" aria-label="Main navigation">
+      <a class="brand" href="/"><span class="brand-mark">W</span><span>WE KNOW THE W</span></a>
+      <button class="menu-button" id="menuButton" aria-expanded="false" aria-controls="navLinks">Menu</button>
+      <div class="nav-links" id="navLinks"></div>
+    </nav>
+    <section class="team-report-hero">
+      <div class="page-shell">
+        <p class="eyebrow">AROUND THE W · TEAM REPORT</p>
+        <h1 id="reportTeamName">Team season report</h1>
+        <p id="reportTeamCopy">The full 2026 update archive.</p>
+        <small id="reportStamp">Loading archive…</small>
+      </div>
+    </section>
+  </header>
+  <main class="page-shell" style="padding-top:28px">
+    <a class="team-report-back" id="reportBack" href="/around-the-w.html">← Back to team page</a>
+    <div class="team-report-toolbar" aria-label="Filter team report">
+      <button type="button" class="active" data-report-filter="all">All</button>
+      <button type="button" data-report-filter="movement">Roster movement</button>
+      <button type="button" data-report-filter="availability">Availability</button>
+      <button type="button" data-report-filter="story">Stories & milestones</button>
+    </div>
+    <section class="team-report-grid" id="teamReportGrid" aria-live="polite"><div class="team-report-empty">Loading the 2026 team archive…</div></section>
+  </main>
+  <footer class="footer"><div class="shell footer-inner"><div><strong>WE KNOW THE W</strong><p>Independent, fan-built women’s basketball encyclopedia.</p></div><a href="/around-the-w.html">Around the W ↑</a></div></footer>
+  <script src="/site.js"></script>
+  <script src="/team-data.js"></script>
+  <script src="/team-updates-data.js?v=20260922-v1"></script>
+  <script src="/team-season-report.js?v=20260922-v1"></script>
+</body>
+</html>

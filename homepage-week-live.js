@@ -6,8 +6,9 @@
   const slugify=value=>norm(value).replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
   const dateValue=item=>item?.published||item?.date||item?.updatedAt||item?.updated||item?.week||'';
   const timeValue=value=>{const parsed=Date.parse(String(value||''));return Number.isFinite(parsed)?parsed:0;};
-  const fmtDate=value=>{const parsed=new Date(String(value||''));return Number.isNaN(parsed.getTime())?text(value):parsed.toLocaleDateString([],{month:'short',day:'numeric',year:'numeric'});};
-  const fmtShortDate=value=>{const parsed=new Date(String(value||''));return Number.isNaN(parsed.getTime())?text(value):parsed.toLocaleDateString([],{month:'short',day:'numeric'});};
+  const localDate=value=>{const raw=String(value||'').trim();const parsed=new Date(/^\d{4}-\d{2}-\d{2}$/.test(raw)?`${raw}T12:00:00`:raw);return parsed;};
+  const fmtDate=value=>{const parsed=localDate(value);return Number.isNaN(parsed.getTime())?text(value):parsed.toLocaleDateString([],{month:'short',day:'numeric',year:'numeric'});};
+  const fmtShortDate=value=>{const parsed=localDate(value);return Number.isNaN(parsed.getTime())?text(value):parsed.toLocaleDateString([],{month:'short',day:'numeric'});};
   const sitePhoto=value=>/^(?:\/|https?:\/\/)/i.test(String(value||'').trim())?String(value).trim():'';
   const validFocus=value=>/^\d{1,3}%\s+\d{1,3}%$/.test(String(value||'').trim())?String(value).trim():'50% 50%';
 

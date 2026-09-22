@@ -1,4 +1,4 @@
-const LOCKER_UPDATED = 'Aug 23, 2026';
+const LOCKER_UPDATED = 'Sep 22, 2026';
 const lockerHeadshot = id => `https://cdn.wnba.com/headshots/wnba/latest/1040x760/${id}.png`;
 
 const LOCKER_SECTIONS = [
@@ -51,13 +51,14 @@ const FRANCHISE_CHANGES = [
   {year:'2003 to 2009',kind:'Closed chapters',title:'Six franchises leave the active map',copy:'Miami, Portland, Cleveland, Charlotte, Houston and Sacramento each closed. Their history remains, but none became a current team line.',tone:'#8f829b'},
   {year:'2025',kind:'Expansion',title:'Golden State Valkyries join',copy:'The Bay Area opens a new franchise chapter and becomes the league’s 13th team.',slug:'golden-state-valkyries',tone:'#6d35a8'},
   {year:'2026',kind:'Expansion',title:'Toronto Tempo and Portland Fire debut',copy:'Toronto becomes the first WNBA franchise outside the United States. Portland uses a historic market name for a new organization, not a continuation of the 2000 to 2002 club.',slugs:['toronto-tempo','portland-fire'],tone:'#2477c5'},
+  {year:'2026 → 2027',kind:'Sale + relocation + returning identity',title:'Connecticut Sun relocate to Houston; Comets name returns',copy:'The league approved the sale of the Sun to Fertitta Entertainment and a 2027 move to Houston. The operating franchise line continues from Orlando to Connecticut to Houston, while the historic Comets identity and records return. Jennifer Rizzotti said in September 2026 that she will move with the team and serve as President of Basketball Operations in Houston.',slug:'connecticut-sun',tone:'#d71920'},
   {year:'2028 to 2030',kind:'Next expansion wave',title:'Cleveland, Detroit and Philadelphia build new teams',copy:'These are new expansion franchises in returning or new markets. Cleveland begins in 2028, Detroit in 2029 and Philadelphia in 2030.',slug:'cleveland-sirens',tone:'#0d4fa3'}
 ];
 
 const CONTINUING_BRANCHES = [
   {title:'The Aces line',slug:'las-vegas-aces',championships:'Titles travel with the franchise',stops:[['1997 to 2002','Utah Starzz'],['2003 to 2013','San Antonio Silver Stars'],['2014 to 2017','San Antonio Stars'],['2018 to today','Las Vegas Aces']]},
   {title:'The Wings line',slug:'dallas-wings',championships:'Detroit’s three titles remain in this record book',stops:[['1998 to 2009','Detroit Shock'],['2010 to 2015','Tulsa Shock'],['2016 to today','Dallas Wings']]},
-  {title:'The Sun line',slug:'connecticut-sun',championships:'One franchise, two markets',stops:[['1999 to 2002','Orlando Miracle'],['2003 to today','Connecticut Sun']]}
+  {title:'The Sun → Houston operating line',slug:'connecticut-sun',championships:'The operating franchise moves again in 2027',stops:[['1999 to 2002','Orlando Miracle'],['2003 to 2026','Connecticut Sun'],['2027 onward','Houston Comets · operating franchise']]} 
 ];
 
 const ROOTED_BRANCHES = [
@@ -73,7 +74,7 @@ const ROOTED_BRANCHES = [
 
 const CLOSED_BRANCHES = [
   {years:'1997 to 2003',team:'Cleveland Rockers',note:'Cleveland returns with a separate expansion franchise in 2028.',route:'/team.html?team=cleveland-sirens',routeLabel:'Meet the Cleveland Sirens'},
-  {years:'1997 to 2008',team:'Houston Comets',note:'The league’s first dynasty won four straight championships.',photo:lockerHeadshot('100073')},
+  {years:'1997 to 2008',team:'Houston Comets, original club',note:'The league’s first dynasty won four straight championships. The Comets name and history return in 2027 through the relocated Connecticut operating franchise.',route:'/houston-comets.html',routeLabel:'Follow the 2027 Comets return',photo:lockerHeadshot('100073')},
   {years:'1997 to 2009',team:'Sacramento Monarchs',note:'The 2005 champions remain one of the most beloved closed chapters.',photo:lockerHeadshot('100419')},
   {years:'1997 to 2006',team:'Charlotte Sting',note:'An original franchise and 2001 Finals participant.'},
   {years:'2000 to 2002',team:'Miami Sol',note:'A three-season South Florida chapter.'},

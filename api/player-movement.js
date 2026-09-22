@@ -66,8 +66,10 @@ function combineTransactions(provider = []) {
 
 function addRosterCrossCheck(items, rosterData) {
   const rosterPlayers = Array.isArray(rosterData?.players) ? rosterData.players : [];
+  const livePlayers = new Map(rosterPlayers.map(player => [key(player.name), player]));
   const liveTeams = new Map(rosterPlayers.map(player => [key(player.name), player.team || '']));
   return items.map(item => {
+    const livePlayer = livePlayers.get(key(item.player)) || null;
     const currentTeam = liveTeams.get(key(item.player)) || '';
     const type = String(item.type || '').toUpperCase();
     const destinationMove = /SIGNED|CLAIMED|TRADE|ACQUIRED|CONVERTED|SET ACTIVE/.test(type);
@@ -77,7 +79,15 @@ function addRosterCrossCheck(items, rosterData) {
     else if (exitMove && (!currentTeam || key(currentTeam) !== key(item.team))) rosterCheck = currentTeam ? `Live roster now lists ${currentTeam}` : 'Live roster no longer lists player';
     else if (currentTeam) rosterCheck = `Live roster lists ${currentTeam}`;
     const headshot = officialHeadshot(item.player);
-    return { ...item, currentTeam: currentTeam || null, rosterCheck, wnbaId: headshot?.id || null, photo: headshot?.url || null };
+    const livePhoto = String(livePlayer?.headshot || '').trim();
+    return {
+      ...item,
+      currentTeam: currentTeam || null,
+      rosterCheck,
+      wnbaId: headshot?.id || null,
+      espnId: livePlayer?.id || null,
+      photo: headshot?.url || livePhoto || null
+    };
   });
 }
 

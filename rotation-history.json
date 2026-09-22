@@ -1,7 +1,58 @@
 {
-  "updatedAt": "2026-09-14T23:30:00-04:00",
+  "updatedAt": "2026-09-22T03:30:00-04:00",
   "timezone": "America/New_York",
   "startingFive": [
+    {
+      "week": "2026-09-21",
+      "edition": "WNBA FINAL WEEK",
+      "picks": [
+        {
+          "name": "Paige Bueckers",
+          "label": "1 · PG",
+          "role": "Lead Guard",
+          "statLine": "20.6 PPG · 5.8 APG",
+          "copy": "The lead creator stays at the point for the final-week five, pairing scoring craft with the passing needed to organize every other weapon.",
+          "photo": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1642784.png",
+          "profileUrl": "https://www.wnba.com/player/1642784/paige-bueckers"
+        },
+        {
+          "name": "Kelsey Mitchell",
+          "label": "2 · SG",
+          "role": "Shooting Guard",
+          "statLine": "25.1 PPG · 2026 single-season scoring record",
+          "copy": "Mitchell keeps the two after turning relentless movement and shot making into the league's new single-season scoring mark.",
+          "photo": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1628909.png",
+          "profileUrl": "https://www.wnba.com/player/1628909/kelsey-mitchell"
+        },
+        {
+          "name": "Napheesa Collier",
+          "label": "3 · SF",
+          "role": "Two Way Wing",
+          "statLine": "18.1 PPG · Minnesota two-way connector",
+          "copy": "Collier gives the lineup the wing defender and matchup solver it needs while keeping Minnesota's first-place balance intact.",
+          "photo": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1629483.png",
+          "profileUrl": "https://www.wnba.com/player/1629483/napheesa-collier"
+        },
+        {
+          "name": "Angel Reese",
+          "label": "4 · PF",
+          "role": "Power Forward",
+          "statLine": "16.6 PPG · record-setting rebounding season",
+          "copy": "Reese keeps the four with elite possession creation on the glass, paint pressure and a post-FIBA scoring surge for Atlanta.",
+          "photo": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1642291.png",
+          "profileUrl": "https://www.wnba.com/player/1642291/angel-reese"
+        },
+        {
+          "name": "A'ja Wilson",
+          "label": "5 · C",
+          "role": "Center",
+          "statLine": "26.2 PPG · elite two-way anchor",
+          "copy": "Wilson remains the anchor: dominant interior scoring, rim protection, rebounding and the cleanest late-game answer in the group.",
+          "photo": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1628932.png",
+          "profileUrl": "https://www.wnba.com/player/1628932/aja-wilson"
+        }
+      ]
+    },
     {
       "week": "2026-09-14",
       "edition": "ALL FIBA WORLD CUP",
@@ -165,6 +216,60 @@
     }
   ],
   "benchMob": [
+    {
+      "week": "2026-09-21",
+      "edition": "WNBA FINAL WEEK",
+      "picks": [
+        {
+          "role": "Sixth Woman",
+          "roleId": "sixth-woman",
+          "name": "Kiki Rice",
+          "statLine": "Instant scoring and pace",
+          "why": "Rice stays first off the bench because she can change tempo, attack a tilted floor and give the group a scoring jolt without needing the offense rebuilt around her.",
+          "photo": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1643445.png"
+        },
+        {
+          "role": "Microwave Scorer",
+          "roleId": "microwave",
+          "name": "Tiffany Hayes",
+          "statLine": "Veteran downhill pressure",
+          "why": "Hayes brings the veteran version of instant offense: physical drives, timely threes and enough defensive edge to keep the second unit from becoming one-way.",
+          "photo": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/203026.png"
+        },
+        {
+          "role": "3 & D Wing",
+          "roleId": "three-d",
+          "name": "Allisha Gray",
+          "statLine": "19.0 PPG · two-way wing production",
+          "why": "Gray gives the Bench Mob shooting, rebounding and a dependable perimeter defender who can slide into almost any lineup without changing its shape.",
+          "photo": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1628277.png"
+        },
+        {
+          "role": "Glue Player · Floor General",
+          "roleId": "glue",
+          "name": "Natasha Cloud",
+          "statLine": "Organization · ball pressure · connective passing",
+          "why": "Cloud is the stabilizer, keeping possessions organized while bringing point-of-attack pressure and the willingness to make the extra pass.",
+          "photo": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/204333.png"
+        },
+        {
+          "role": "Backup Floor General",
+          "roleId": "backup-pg",
+          "name": "Veronica Burton",
+          "statLine": "12.0 PPG · 5.7 APG",
+          "why": "Burton supplies clean decision making and elite ball pressure, giving the unit another creator who can control pace without wasting possessions.",
+          "photo": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1631007.png"
+        },
+        {
+          "role": "Energy Big",
+          "roleId": "energy-big",
+          "name": "Awak Kuier",
+          "statLine": "Length · rim protection · floor spacing",
+          "why": "Kuier closes the group with mobility and length, adding rim protection and enough shooting range to keep the second unit from shrinking the floor.",
+          "photo": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1630386.png"
+        }
+      ]
+    },
     {
       "week": "2026-09-14",
       "edition": "ALL FIBA WORLD CUP",

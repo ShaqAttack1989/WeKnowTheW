@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-22T14:45:17.864Z",
+  "generatedAt": "2026-09-22T18:48:44.249Z",
   "movement": {
     "latestTransactionDate": "2026-09-20",
     "transactions": [
@@ -1411,8 +1411,8 @@
   },
   "availability": {
     "latestReportDate": "2026-09-22",
-    "reportLabel": "09/22/2026 10:45 AM ET",
-    "officialPdf": "https://ak-static.cms.nba.com/referee/wnba_injury/Injury-Report_2026-09-22_10_45AM.pdf",
+    "reportLabel": "09/22/2026 02:45 PM ET",
+    "officialPdf": "https://ak-static.cms.nba.com/referee/wnba_injury/Injury-Report_2026-09-22_02_45PM.pdf",
     "injuries": [
       {
         "player": "Aaliyah Nye",
@@ -1690,7 +1690,7 @@
       {
         "player": "Temi Fagbenle",
         "team": "Toronto Tempo",
-        "status": "QUESTIONABLE",
+        "status": "OUT",
         "reason": "Personal Reasons",
         "gameDate": "09/22/2026",
         "gameTime": "08:00 (ET)",

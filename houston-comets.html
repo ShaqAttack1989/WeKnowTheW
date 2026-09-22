@@ -29,9 +29,10 @@
     .two-history-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}.history-panel{border-radius:24px;padding:26px;border:1px solid #e6dedb;background:#fff}.history-panel.dark{background:#090909;color:#fff;border-color:#090909}.history-panel.dark p{color:#ddd}.history-panel span{font-size:.76rem;font-weight:900;letter-spacing:.1em;color:var(--hou-red)}.history-panel h3{font-size:1.65rem;margin:10px 0}.history-panel p{line-height:1.6;color:#474040}
     .dynasty-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:20px}.dynasty-strip div{background:#fff;border:1px solid #eadfdd;border-radius:18px;padding:20px;text-align:center}.dynasty-strip strong{font-size:2rem;display:block;color:#a80f18}.dynasty-strip span{font-size:.82rem;color:#594e4e}
     .handoff-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}.handoff-grid article{border-radius:22px;padding:24px;background:#fff;border:1px solid #e8dfdc}.handoff-grid b{display:inline-grid;place-items:center;width:36px;height:36px;border-radius:50%;background:#d71920;color:#fff}.handoff-grid h3{margin:14px 0 8px}.handoff-grid p{line-height:1.55;color:#514646}
+    .leadership-board{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(260px,.75fr);gap:18px;align-items:stretch}.leadership-card{padding:26px;border:1px solid var(--hou-line);border-radius:24px;background:#fff}.leadership-card.primary{border-left:6px solid var(--hou-red)}.leadership-card span{display:block;color:var(--hou-red);font-size:.75rem;font-weight:900;letter-spacing:.09em}.leadership-card h3{margin:8px 0 10px;font-size:1.7rem}.leadership-card p{margin:0;color:#4d4343;line-height:1.62}.leadership-card a{display:inline-flex;margin-top:16px;color:#9b1018;font-weight:900;text-decoration:none}.leadership-card.dark{background:#0a0a0a;border-color:#0a0a0a;color:#fff}.leadership-card.dark h3{color:#fff}.leadership-card.dark p{color:#d5d5d5}
     .facility-band{background:#0a0a0a;color:#fff}.facility-band .page-heading p{color:#d9d9d9}.facility-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.facility-grid div{border:1px solid #333;border-radius:18px;padding:20px;background:#121212}.facility-grid strong{display:block;color:#ff777c;margin-bottom:6px}
     .source-stack{display:flex;flex-wrap:wrap;gap:10px}.source-stack a{display:inline-flex;text-decoration:none;border:1px solid #dccac7;border-radius:999px;padding:10px 13px;color:#6f1118;background:#fff;font-weight:800}
-    @media(max-width:780px){.return-board,.two-history-grid{grid-template-columns:1fr}.handoff-grid{grid-template-columns:1fr}.facility-grid{grid-template-columns:repeat(2,1fr)}.dynasty-strip{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:780px){.return-board,.two-history-grid,.leadership-board{grid-template-columns:1fr}.handoff-grid{grid-template-columns:1fr}.facility-grid{grid-template-columns:repeat(2,1fr)}.dynasty-strip{grid-template-columns:repeat(2,1fr)}}
     @media(max-width:480px){.facility-grid{grid-template-columns:1fr}.comets-hero h1{font-size:3.4rem}}
   </style>
 </head>
@@ -95,6 +96,16 @@
       </div>
     </section>
 
+    <section class="page-section">
+      <div class="page-shell">
+        <div class="page-heading"><p class="kicker">LEADERSHIP CONTINUITY · REPORTED SEPT. 21</p><h2>Jennifer Rizzotti says she is going to Houston with the team.</h2><p>Rizzotti, the Connecticut Sun's current team president, told NBC Connecticut that she plans to relocate with the franchise and serve as President of Basketball Operations in Houston. Houston's official Comets site has not yet posted a matching leadership announcement, so We Know the W is labeling this as a directly reported commitment from Rizzotti rather than an official Comets staff release.</p></div>
+        <div class="leadership-board">
+          <article class="leadership-card primary"><span>CURRENT ROLE · CONNECTICUT</span><h3>Jennifer Rizzotti</h3><p>Rizzotti is listed by the Sun as Team President. Her basketball résumé includes UConn's 1995 undefeated national championship team, a long coaching career, USA Basketball leadership and front-office work with Connecticut.</p><a href="https://sun.wnba.com/jennifer-rizzotti-team-president" target="_blank" rel="noopener noreferrer">Connecticut Sun profile ↗</a></article>
+          <article class="leadership-card dark"><span>2027 · HOUSTON</span><h3>President of Basketball Operations</h3><p>Rizzotti told NBC Connecticut she will move with the franchise and retain a basketball-operations leadership role when the team becomes the Houston Comets in 2027.</p><a href="https://www.nbcconnecticut.com/news/local/connecticut-sun-president-jennifer-rizzotti-headed-to-houston-with-team/3777073/" target="_blank" rel="noopener noreferrer">NBC Connecticut interview ↗</a></article>
+        </div>
+      </div>
+    </section>
+
     <section class="page-section facility-band">
       <div class="page-shell">
         <div class="page-heading"><p class="kicker">TOYOTA CENTER REIMAGINED</p><h2>A new home setup for a returning name.</h2><p>Houston says Toyota Center renovations will include expanded and modernized player spaces ahead of the 2027 season.</p></div>
@@ -113,6 +124,7 @@
           <a href="https://www.wnba.com/news/wnba-nba-approve-connecticut-sun-sale" target="_blank" rel="noopener noreferrer">WNBA relocation release ↗</a>
           <a href="https://sun.wnba.com/frequently-asked-questions" target="_blank" rel="noopener noreferrer">Connecticut Sun sale FAQ ↗</a>
           <a href="https://sun.wnba.com/sun-history" target="_blank" rel="noopener noreferrer">Connecticut franchise history ↗</a>
+          <a href="https://www.nbcconnecticut.com/news/local/connecticut-sun-president-jennifer-rizzotti-headed-to-houston-with-team/3777073/" target="_blank" rel="noopener noreferrer">Rizzotti Houston leadership report ↗</a>
         </div>
       </div>
     </section>

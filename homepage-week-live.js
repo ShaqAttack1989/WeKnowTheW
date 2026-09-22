@@ -16,6 +16,9 @@
     stats:'/assets/images/snack-shak/power-rankings-vs-standings-aug30.webp',
     mockAwards:'/assets/images/snack-shak/we-know-the-w-mock-awards-2026.svg'
   };
+  const PLAYER_FALLBACK_PHOTOS=new Map([
+    [norm('Aminata Gueye'),'https://assets.fiba.basketball/image/upload/w_720,h_960,c_pad,g_north/f_png/q_auto/.headshot--person_269523--competition_208875']
+  ]);
 
   const TEAM_BADGES=new Map();
   const teamBadge=name=>TEAM_BADGES.get(norm(name))||'';
@@ -303,7 +306,7 @@
     const playerList=playersR.status==='fulfilled'&&Array.isArray(playersR.value?.players)?playersR.value.players:[];
     const playerPhoto=name=>{
       const player=playerList.find(item=>norm(item?.name)===norm(name));
-      return sitePhoto(player?.photo||player?.headshot||player?.officialHeadshot||player?.photoThumb||'');
+      return sitePhoto(player?.photo||player?.headshot||player?.officialHeadshot||player?.photoThumb||'')||PLAYER_FALLBACK_PHOTOS.get(norm(name))||'';
     };
     const move=(movement.transactions||[])[0];
     const injuries=Array.isArray(availability.injuries)?availability.injuries:[];

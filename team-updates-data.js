@@ -15,8 +15,15 @@
       {date:'2026-08-24',category:'story',kind:'FRANCHISE RECORD',title:'Allisha Gray',detail:'Set a Dream single-season record with her 247th made field goal.',href:'https://dream.wnba.com/news/historic-night-for-reese-as-dream-goes-4-0-on-west-coast-road-trip',priority:7},
       {date:'2026-08-23',category:'story',kind:'PLAYOFFS',title:'Atlanta Dream',detail:'Clinched a fourth consecutive WNBA playoff berth.',href:'https://dream.wnba.com/news',priority:5}
     ],
+    'chicago-sky':[
+      {date:'2026-08-21',category:'story',kind:'CLUTCH ROOKIE',title:'Sydney Taylor',detail:'Taylor became the first WNBA rookie to make multiple game-winning shots with five seconds or fewer remaining in a season.',href:'https://www.wnba.com/news/2026-eos-awards-lookahead-all-rookie-team',priority:8},
+      {date:'2026-06-26',category:'story',kind:'WNBA ROOKIE RECORD',title:'Sydney Taylor',detail:'Taylor produced the most efficient 25-point game by a rookie in WNBA history against Portland: 72.7% from the field, 85.7% from three and perfect at the line.',href:'https://sky.wnba.com/news/recap-sky-shatter-records-upon-courtney-vandersloots-return-in-124-94-triumph-over-fire',priority:9}
+    ],
+    'connecticut-sun':[
+      {date:'2026-09-21',category:'story',kind:'FRONT OFFICE · RELOCATION',title:'Jennifer Rizzotti',detail:'Rizzotti told NBC Connecticut she is moving with the franchise to Houston and will serve as President of Basketball Operations there in 2027.',href:'https://www.nbcconnecticut.com/news/local/connecticut-sun-president-jennifer-rizzotti-headed-to-houston-with-team/3777073/',priority:10}
+    ],
     'golden-state-valkyries':[
-      {date:'2026-09-21',category:'movement',kind:'SIGNED',title:'Aminata Gueye',detail:'Golden State signed center Aminata Gueye to a rest-of-season contract and waived Nadia Fingall.',href:'https://valkyries.wnba.com/news/aminata-gueye-signs-20260921',priority:10},
+      {date:'2026-09-21',category:'movement',kind:'SIGNED',title:'Aminata Gueye',detail:'Golden State signed 6-foot-3 French center Aminata Gueye to a rest-of-season contract after her 2026 FIBA World Cup run and waived Nadia Fingall.',href:'https://valkyries.wnba.com/news/aminata-gueye-signs-20260921',priority:10},
       {date:'2026-08-27',category:'story',kind:'WNBA FIRST',title:'Veronica Burton',detail:'Burton totaled 20 assists with zero turnovers across a back-to-back, recognized by Golden State as a WNBA first.',href:'https://valkyries.wnba.com/news/player/1631007/veronica-burton',priority:7},
       {date:'2026-08-26',category:'story',kind:'BENCH LEADER',title:'Janelle Salaün',detail:'Reached 485 points off the bench, the league-leading bench scoring total at the time.',href:'https://www.statmuse.com/wnba/ask/most-total-points-off-the-bench-2026',priority:5}
     ],

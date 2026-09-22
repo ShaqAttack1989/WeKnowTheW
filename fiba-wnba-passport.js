@@ -121,7 +121,7 @@
     if(groupButton){group=groupButton.dataset.passportGroup;render();}
   });
 
-  fetch('/data/fiba-wnba-passport-2026.json?v=20260907',{cache:'no-store',headers:{Accept:'application/json'}})
+  fetch('/data/fiba-wnba-passport-2026.json?v=20260922-gueye-v2',{cache:'no-store',headers:{Accept:'application/json'}})
     .then(response=>{if(!response.ok)throw new Error('passport '+response.status);return response.json();})
     .then(payload=>{
       data=payload;

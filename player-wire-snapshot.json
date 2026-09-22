@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-22T18:48:44.249Z",
+  "generatedAt": "2026-09-22T22:01:20.649Z",
   "movement": {
     "latestTransactionDate": "2026-09-20",
     "transactions": [
@@ -1411,9 +1411,35 @@
   },
   "availability": {
     "latestReportDate": "2026-09-22",
-    "reportLabel": "09/22/2026 02:45 PM ET",
-    "officialPdf": "https://ak-static.cms.nba.com/referee/wnba_injury/Injury-Report_2026-09-22_02_45PM.pdf",
+    "reportLabel": "09/22/2026 06:00 PM ET",
+    "officialPdf": "https://ak-static.cms.nba.com/referee/wnba_injury/Injury-Report_2026-09-22_06_00PM.pdf",
     "injuries": [
+      {
+        "player": "Brionna Jones",
+        "team": "Atlanta Dream",
+        "status": "OUT",
+        "reason": "Injury/Illness - Left Leg; N/A",
+        "gameDate": "09/23/2026",
+        "gameTime": "08:00 (ET)",
+        "matchup": "ATL@NYL",
+        "updated": "2026-09-23",
+        "source": "Official WNBA Injury Report PDF",
+        "officialCurrentReport": true,
+        "crossCheckOnly": false
+      },
+      {
+        "player": "Elizabeth Balogun",
+        "team": "New York Liberty",
+        "status": "OUT",
+        "reason": "Not With Team",
+        "gameDate": "09/23/2026",
+        "gameTime": "08:00 (ET)",
+        "matchup": "ATL@NYL",
+        "updated": "2026-09-23",
+        "source": "Official WNBA Injury Report PDF",
+        "officialCurrentReport": true,
+        "crossCheckOnly": false
+      },
       {
         "player": "Aaliyah Nye",
         "team": "Los Angeles Sparks",
@@ -1906,27 +1932,11 @@
     ],
     "teamStatuses": [
       {
-        "team": "Atlanta Dream",
-        "status": "NOT YET SUBMITTED",
-        "gameDate": "09/23/2026",
-        "gameTime": "08:00 (ET)",
-        "matchup": "ATL@NYL",
-        "updated": "2026-09-23"
-      },
-      {
         "team": "Dallas Wings",
         "status": "NOT YET SUBMITTED",
         "gameDate": "09/23/2026",
         "gameTime": "10:00 (ET)",
         "matchup": "DAL@SEA",
-        "updated": "2026-09-23"
-      },
-      {
-        "team": "New York Liberty",
-        "status": "NOT YET SUBMITTED",
-        "gameDate": "09/23/2026",
-        "gameTime": "08:00 (ET)",
-        "matchup": "ATL@NYL",
         "updated": "2026-09-23"
       },
       {

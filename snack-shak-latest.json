@@ -590,13 +590,12 @@
         }
       ],
       "updated": "2026-09-20",
-      "image": "https://cdn.wnba.com/sites/1611661322/2026/09/GettyImages-2295801192-scaled.jpg",
-      "storyImage": "https://cdn.wnba.com/sites/1611661322/2026/09/GettyImages-2295801192-scaled.jpg",
-      "imageAlt": "Washington Mystics and Indiana Fever in an official WNBA game photo during the final playoff-seeding stretch",
-      "imageFocus": "50% 28%",
-      "mobileImageFocus": "50% 24%",
-      "storyImageCaption": "Official WNBA photography from the final regular-season playoff seeding stretch.",
-      "storyImageSourceUrl": "https://mystics.wnba.com/news/game-recap-mystics-at-fever-2"
+      "image": "/assets/images/snack-shak/welcome-back-playoff-field-story.jpg",
+      "storyImage": "/assets/images/snack-shak/welcome-back-playoff-field-story.jpg",
+      "imageAlt": "We Know the W playoff field story graphic for the 2026 final-week seeding race",
+      "imageFocus": "50% 42%",
+      "mobileImageFocus": "50% 38%",
+      "storyImageCaption": "Official WNBA photography from the final regular-season playoff seeding stretch."
     },
     {
       "slug": "usa-wheelchair-world-champions-2026",

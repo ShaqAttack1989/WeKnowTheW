@@ -57,6 +57,8 @@
     }
     let classes=items.length>1?'week-snapshot-media week-media-strip':'week-snapshot-media';
     if(items.some(item=>item.className.split(/\s+/).includes('official-team-logo')))classes+=' official-team-logos';
+    if(items.some(item=>item.className.split(/\s+/).includes('player-headshot')))classes+=' player-headshots';
+    if(items.some(item=>item.className.split(/\s+/).includes('dashboard-preview')))classes+=' dashboard-preview';
     const images=items.map(item=>`<img src="${safe(item.src)}" alt="${safe(item.alt)}" loading="lazy" decoding="async" style="--media-focus:${safe(item.focus)};--media-focus-mobile:${safe(item.mobileFocus)}"${item.className?` class="${safe(item.className)}"`:''}>`).join('');
     return `<div class="${classes}">${images}<span>${label}</span></div>`;
   }
@@ -232,7 +234,7 @@
     const stat=document.getElementById('weekHubStat');
     const results=await Promise.allSettled([fetchHtml('/stat-kitchen.html')]);
     const statCopy=results[0].status==='fulfilled'?usefulPageCopy(results[0].value):'';
-    snapshot(stat,{kicker:'STAT KITCHEN',title:'The latest numbers on the stove',copy:statCopy||'The Stat Kitchen is tracking the newest leaderboards, milestones and number-driven context from around the W.',meta:'LATEST SNAPSHOT',href:'/stat-kitchen.html',label:'Open Stat Kitchen',media:[{src:MEDIA.stats,alt:'Current WNBA standings snapshot',focus:'50% 38%',mobileFocus:'50% 38%'}]});
+    snapshot(stat,{kicker:'STAT KITCHEN',title:'The latest numbers on the stove',copy:statCopy||'The Stat Kitchen is tracking the newest leaderboards, milestones and number-driven context from around the W.',meta:'LATEST SNAPSHOT',href:'/stat-kitchen.html',label:'Open Stat Kitchen',media:[{src:MEDIA.stats,alt:'Current WNBA standings snapshot',focus:'50% 38%',mobileFocus:'50% 38%',className:'dashboard-preview'}]});
   }
 
   function latestRotation(payload={},keyName){return [...(payload[keyName]||[])].sort((a,b)=>String(b.week||'').localeCompare(String(a.week||'')))[0]||{};}
@@ -244,7 +246,7 @@
       const picks=Array.isArray(sf.picks)?sf.picks:[];
       const names=picks.map(item=>item.name).filter(Boolean);
       const week=sf.week||bm.week;
-      const rotationMedia=picks.slice(0,3).map(item=>({src:item.photo||'',alt:item.name||'Shak rotation selection',focus:'50% 20%',mobileFocus:'50% 16%'})).filter(item=>item.src);
+      const rotationMedia=picks.slice(0,3).map(item=>({src:item.photo||'',alt:item.name||'Shak rotation selection',focus:'50% 20%',mobileFocus:'50% 16%',className:'player-headshot'})).filter(item=>item.src);
       snapshot(host,{kicker:'SHAK’S MOCK ROTATIONS',title:names.length?`The five: ${names.slice(0,3).join(', ')}${names.length>3?' +2':''}`:'This week’s five is setting',copy:names.length?`Shak’s latest Starting Five is ${names.join(', ')}. The Bench Mob is refreshed on the same weekly board.`:'The newest Starting Five and Bench Mob are reconnecting.',meta:week?`WEEK OF ${fmtShortDate(week)}`:'THIS WEEK',href:'/starting-five.html',label:'See Starting Five',secondaryHref:'/bench-mob.html',secondaryLabel:'Bench Mob',media:rotationMedia});
       return timeValue(week||data.updatedAt);
     }catch{snapshotError(host,'SHAK’S MOCK ROTATIONS','This week’s rotation','/starting-five.html');return 0;}
@@ -280,7 +282,7 @@
       const upcoming=Array.isArray(stats.upcomingGames)?stats.upcomingGames:[];
       const team=leader?.team?.full_name||leader?.team||'Standings leader';
       const record=Number.isFinite(Number(leader?.wins))?`${leader.wins}-${leader.losses}`:'';
-      snapshot(liveHost,{kicker:'LIVE STATS',title:leader?`${team}${record?` · ${record}`:''}`:'Standings are refreshing',copy:live.length?`${live.length} WNBA game${live.length===1?' is':'s are'} live right now. The full standings and current game state are one click away.`:'No WNBA game is live at this moment. Current standings and season numbers are still refreshed on the live board.',meta:live.length?'LIVE NOW':'CURRENT SEASON',href:'/live-stats.html',label:'Open Live Stats',media:[{src:MEDIA.stats,alt:'WNBA live standings snapshot',focus:'50% 38%'}]});
+      snapshot(liveHost,{kicker:'LIVE STATS',title:leader?`${team}${record?` · ${record}`:''}`:'Standings are refreshing',copy:live.length?`${live.length} WNBA game${live.length===1?' is':'s are'} live right now. The full standings and current game state are one click away.`:'No WNBA game is live at this moment. Current standings and season numbers are still refreshed on the live board.',meta:live.length?'LIVE NOW':'CURRENT SEASON',href:'/live-stats.html',label:'Open Live Stats',media:[{src:MEDIA.stats,alt:'WNBA live standings snapshot',focus:'50% 38%',className:'dashboard-preview'}]});
       const game=live[0]||upcoming[0];
       snapshot(gamesHost,{kicker:'GAMES',title:game?gameTitle(game):'Next tip is loading',copy:game?`${live.length?'Happening now':'Next on the schedule'} · ${gameTime(game)}${game.status?` · ${game.status}`:''}`:'The schedule is between loaded windows. Open Games for the full slate, results and broadcast information.',meta:live.length?'LIVE':'UP NEXT',href:'/games.html',label:'Open Games',media:game?gameMedia(game):[]});
       return timeValue(stats.checkedAt||stats.updatedAt);
@@ -294,9 +296,14 @@
   async function loadPlayerWire(){
     const movementHost=document.getElementById('weekHubMovement');
     const availabilityHost=document.getElementById('weekHubAvailability');
-    const [moveR,availR]=await Promise.allSettled([fetchJson('/api/player-movement'),fetchJson('/api/availability')]);
+    const [moveR,availR,playersR]=await Promise.allSettled([fetchJson('/api/player-movement'),fetchJson('/api/availability'),fetchJson('/api/players')]);
     const movement=moveR.status==='fulfilled'?moveR.value:{};
     const availability=availR.status==='fulfilled'?availR.value:{};
+    const playerList=playersR.status==='fulfilled'&&Array.isArray(playersR.value?.players)?playersR.value.players:[];
+    const playerPhoto=name=>{
+      const player=playerList.find(item=>norm(item?.name)===norm(name));
+      return sitePhoto(player?.photo||player?.headshot||player?.officialHeadshot||player?.photoThumb||'');
+    };
     const move=(movement.transactions||[])[0];
     const injuries=Array.isArray(availability.injuries)?availability.injuries:[];
     const latestAvailability=injuries[0];
@@ -304,14 +311,16 @@
     if(move){
       const action=text(move.type||'ROSTER MOVE').replace(/_/g,' ');
       const detail=short(move.detail||`${move.player} · ${move.team}`,135);
-      snapshot(movementHost,{kicker:'PLAYER MOVEMENT',title:`${move.player} · ${action}`,copy:detail,meta:move.date?fmtShortDate(move.date):'LATEST MOVE',href:'/player-movement.html',label:'Open Player Movement',media:move.photo?[{src:move.photo,alt:move.player||'Latest WNBA roster move',focus:'50% 18%',mobileFocus:'50% 15%'}]:[]});
+      const movePhoto=sitePhoto(move.photo||'')||playerPhoto(move.player);
+      snapshot(movementHost,{kicker:'PLAYER MOVEMENT',title:`${move.player} · ${action}`,copy:detail,meta:move.date?fmtShortDate(move.date):'LATEST MOVE',href:'/player-movement.html',label:'Open Player Movement',media:movePhoto?[{src:movePhoto,alt:move.player||'Latest WNBA roster move',focus:'50% 18%',mobileFocus:'50% 15%',className:'player-headshot'}]:[]});
     }else{
       snapshot(movementHost,{kicker:'PLAYER MOVEMENT',title:'The roster wire is refreshing',copy:'Signings, waivers, trades and contract changes will return here as soon as the live feed reconnects.',href:'/player-movement.html',label:'Open Player Movement'});
     }
     if(latestAvailability){
       const status=text(latestAvailability.status||'STATUS').replace(/_/g,' ');
       const latestLine=short(latestAvailability.reason||`${latestAvailability.player} · ${latestAvailability.team}`,120);
-      snapshot(availabilityHost,{kicker:'AVAILABILITY REPORT',title:`${injuryCount} tracked status${injuryCount===1?'':'es'}`,copy:`Latest: ${latestAvailability.player} · ${status}. ${latestLine}`,meta:availability.latestReportDate?fmtShortDate(availability.latestReportDate):'CURRENT REPORT',href:'/availability-report.html',label:'Open Availability',media:latestAvailability.photo?[{src:latestAvailability.photo,alt:latestAvailability.player||'Latest WNBA availability update',focus:'50% 18%',mobileFocus:'50% 15%'}]:[]});
+      const availabilityPhoto=sitePhoto(latestAvailability.photo||'')||playerPhoto(latestAvailability.player);
+      snapshot(availabilityHost,{kicker:'AVAILABILITY REPORT',title:`${injuryCount} tracked status${injuryCount===1?'':'es'}`,copy:`Latest: ${latestAvailability.player} · ${status}. ${latestLine}`,meta:availability.latestReportDate?fmtShortDate(availability.latestReportDate):'CURRENT REPORT',href:'/availability-report.html',label:'Open Availability',media:availabilityPhoto?[{src:availabilityPhoto,alt:latestAvailability.player||'Latest WNBA availability update',focus:'50% 18%',mobileFocus:'50% 15%',className:'player-headshot'}]:[]});
     }else{
       snapshot(availabilityHost,{kicker:'AVAILABILITY REPORT',title:'The status board is refreshing',copy:'Current injury designations, game status and return notes will return here as soon as the official report reconnects.',href:'/availability-report.html',label:'Open Availability'});
     }

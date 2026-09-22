@@ -76,7 +76,8 @@
     const raw=text(game.status||game.statusText||'');
     if(bucket==='live')return raw||'LIVE';
     if(bucket==='past')return raw||'FINAL';
-    return raw&&!/scheduled|upcoming/i.test(raw)?raw:gameTime(game);
+    const tip=gameTime(game);
+    return tip==='TBD'?'TBD':`${tip} EST`;
   }
   function teamName(game,side){return text(game?.[`${side}Team`]||game?.[side]?.name||game?.[side]?.full_name||'TBD');}
   function teamScore(game,side,bucket){

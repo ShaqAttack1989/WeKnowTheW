@@ -5,7 +5,7 @@
   const sitePhoto=value=>/^(?:\/|https?:\/\/)/i.test(String(value||'').trim())?String(value).trim():'';
   const timeValue=value=>{const t=Date.parse(String(value||''));return Number.isFinite(t)?t:0;};
   const storyDate=item=>item?.published||item?.date||item?.updatedAt||item?.updated||'';
-  const fmtShort=value=>{const d=new Date(String(value||''));return Number.isNaN(d.getTime())?'':d.toLocaleDateString([],{month:'short',day:'numeric'});};
+  const fmtShort=value=>{const raw=String(value||'').trim();const d=new Date(/^\d{4}-\d{2}-\d{2}$/.test(raw)?`${raw}T12:00:00`:raw);return Number.isNaN(d.getTime())?'':d.toLocaleDateString([],{month:'short',day:'numeric'});};
   const teamCode=name=>text(name).split(/\s+/).filter(Boolean).map(part=>part[0]).join('').slice(0,3).toUpperCase()||'W';
   const EASTERN='America/New_York';
 

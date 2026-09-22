@@ -78,14 +78,29 @@
             "defRtg": 105.6,
             "postRecord": "1-1",
             "postMargin": 0,
-            "postOppPpg": 91.0,
+            "postOppPpg": 91,
             "offenseNote": "Miles, Collier, and McBride all score at least 17.9 per game. Miles supplies the table setting while McBride stretches the floor.",
             "defenseNote": "Collier and Miles give Minnesota length at the point of attack, while McBride keeps pressure on the ball. The trio averages 6.2 steals plus blocks.",
             "breakNote": "The trio held near its season scoring level at 54.0 points per game, but Minnesota split its two games and saw its lead over Golden State shrink to one game.",
             "players": [
-              {"name": "Olivia Miles", "id": "1643426", "ppg": 19.8, "apg": 6.0},
-              {"name": "Napheesa Collier", "id": "1629483", "ppg": 18.1, "apg": 2.7},
-              {"name": "Kayla McBride", "id": "203825", "ppg": 17.9, "apg": 2.2}
+              {
+                "name": "Olivia Miles",
+                "id": "1643426",
+                "ppg": 19.8,
+                "apg": 6
+              },
+              {
+                "name": "Napheesa Collier",
+                "id": "1629483",
+                "ppg": 18.1,
+                "apg": 2.7
+              },
+              {
+                "name": "Kayla McBride",
+                "id": "203825",
+                "ppg": 17.9,
+                "apg": 2.2
+              }
             ]
           },
           {
@@ -111,9 +126,24 @@
             "defenseNote": "No playoff team allows fewer points per 100 possessions. Burton crowds the ball, Williams blows up actions, and Stokes protects the rim.",
             "breakNote": "Golden State allowed only 61.5 points per game while Gabby Williams sat out both games after her World Cup run. That is equal parts impressive and mildly terrifying.",
             "players": [
-              {"name": "Gabby Williams", "id": "1628931", "ppg": 14.3, "apg": 2.2},
-              {"name": "Veronica Burton", "id": "1631007", "ppg": 12.0, "apg": 5.7},
-              {"name": "Kiah Stokes", "id": "204329", "ppg": 3.5, "apg": 1.2}
+              {
+                "name": "Gabby Williams",
+                "id": "1628931",
+                "ppg": 14.3,
+                "apg": 2.2
+              },
+              {
+                "name": "Veronica Burton",
+                "id": "1631007",
+                "ppg": 12,
+                "apg": 5.7
+              },
+              {
+                "name": "Kiah Stokes",
+                "id": "204329",
+                "ppg": 3.5,
+                "apg": 1.2
+              }
             ]
           },
           {
@@ -133,15 +163,30 @@
             "offRtg": 114.1,
             "defRtg": 107.5,
             "postRecord": "2-0",
-            "postMargin": 29.0,
-            "postOppPpg": 77.0,
+            "postMargin": 29,
+            "postOppPpg": 77,
             "offenseNote": "Wilson bends the defense, Young punishes the second read, and Gray still knows exactly which button to push late. Their 16.5 assists matter as much as the scoring.",
             "defenseNote": "The team defense ranks fifth in this field, but Wilson gives every coverage a reset button. Young can take the most difficult perimeter assignment.",
             "breakNote": "The trio jumped from 57.5 season points per game to 68.5 after the break. Wilson averaged 29.5 and Young averaged 29.0. FIBA did not cool them off.",
             "players": [
-              {"name": "A'ja Wilson", "id": "1628932", "ppg": 26.2, "apg": 3.2},
-              {"name": "Jackie Young", "id": "1629498", "ppg": 19.4, "apg": 6.6},
-              {"name": "Chelsea Gray", "id": "203833", "ppg": 11.9, "apg": 6.7}
+              {
+                "name": "A'ja Wilson",
+                "id": "1628932",
+                "ppg": 26.2,
+                "apg": 3.2
+              },
+              {
+                "name": "Jackie Young",
+                "id": "1629498",
+                "ppg": 19.4,
+                "apg": 6.6
+              },
+              {
+                "name": "Chelsea Gray",
+                "id": "203833",
+                "ppg": 11.9,
+                "apg": 6.7
+              }
             ]
           },
           {
@@ -162,14 +207,29 @@
             "defRtg": 104.9,
             "postRecord": "2-0",
             "postMargin": 34.5,
-            "postOppPpg": 70.0,
+            "postOppPpg": 70,
             "offenseNote": "Gray and Howard stretch the floor while Reese creates paint pressure and extra possessions. None of the three has to win the same way.",
             "defenseNote": "Their 7.5 steals plus blocks lead every trio on this board. Howard creates chaos, Gray stays attached, and Reese closes the possession on the glass.",
             "breakNote": "Atlanta posted the best return-week margin at plus 34.5. Reese averaged 26.5 points, while Howard moved the ball and the trio combined for 8.5 steals plus blocks per game.",
             "players": [
-              {"name": "Allisha Gray", "id": "1628277", "ppg": 19.0, "apg": 2.6},
-              {"name": "Rhyne Howard", "id": "1631009", "ppg": 18.0, "apg": 3.7},
-              {"name": "Angel Reese", "id": "1642291", "ppg": 16.6, "apg": 2.8}
+              {
+                "name": "Allisha Gray",
+                "id": "1628277",
+                "ppg": 19,
+                "apg": 2.6
+              },
+              {
+                "name": "Rhyne Howard",
+                "id": "1631009",
+                "ppg": 18,
+                "apg": 3.7
+              },
+              {
+                "name": "Angel Reese",
+                "id": "1642291",
+                "ppg": 16.6,
+                "apg": 2.8
+              }
             ]
           },
           {
@@ -189,15 +249,30 @@
             "offRtg": 117.8,
             "defRtg": 110.7,
             "postRecord": "1-1",
-            "postMargin": 1.0,
-            "postOppPpg": 89.0,
+            "postMargin": 1,
+            "postOppPpg": 89,
             "offenseNote": "No trio in the field scores more. Mitchell's efficiency, Clark's range and passing, and Boston's interior touch force opponents to guard the whole floor.",
             "defenseNote": "Indiana ranks last among playoff teams in defensive rating. Boston can cover mistakes, but she should not have to clean up every leak by herself.",
             "breakNote": "The trio still averaged 61.5 points after the break, but Indiana split the games and Boston fell to 7.5 points per game. The triangle works best when the paint gets fed too.",
             "players": [
-              {"name": "Kelsey Mitchell", "id": "1628909", "ppg": 25.1, "apg": 2.8},
-              {"name": "Caitlin Clark", "id": "1642286", "ppg": 22.7, "apg": 8.4},
-              {"name": "Aliyah Boston", "id": "1641648", "ppg": 16.4, "apg": 3.1}
+              {
+                "name": "Kelsey Mitchell",
+                "id": "1628909",
+                "ppg": 25.1,
+                "apg": 2.8
+              },
+              {
+                "name": "Caitlin Clark",
+                "id": "1642286",
+                "ppg": 22.7,
+                "apg": 8.4
+              },
+              {
+                "name": "Aliyah Boston",
+                "id": "1641648",
+                "ppg": 16.4,
+                "apg": 3.1
+              }
             ]
           },
           {
@@ -218,14 +293,29 @@
             "defRtg": 108.5,
             "postRecord": "2-0",
             "postMargin": 24.5,
-            "postOppPpg": 75.0,
+            "postOppPpg": 75,
             "offenseNote": "The season numbers are quieter than the names. Stewart remains the pressure point, Jones owns the glass, and Ionescu can turn one paint touch into a three-point avalanche.",
             "defenseNote": "The rating says seventh in this field. The post-break activity says pay attention: the trio produced 8.0 steals plus blocks per game in two wins.",
             "breakNote": "New York beat first-place Minnesota and then scored 106 in Toronto. Stewart averaged 25.5 points, while Ionescu shifted toward creation at 7.5 assists per game.",
             "players": [
-              {"name": "Breanna Stewart", "id": "1627668", "ppg": 20.7, "apg": 3.2},
-              {"name": "Sabrina Ionescu", "id": "1629477", "ppg": 14.8, "apg": 4.9},
-              {"name": "Jonquel Jones", "id": "1627673", "ppg": 14.6, "apg": 2.6}
+              {
+                "name": "Breanna Stewart",
+                "id": "1627668",
+                "ppg": 20.7,
+                "apg": 3.2
+              },
+              {
+                "name": "Sabrina Ionescu",
+                "id": "1629477",
+                "ppg": 14.8,
+                "apg": 4.9
+              },
+              {
+                "name": "Jonquel Jones",
+                "id": "1627673",
+                "ppg": 14.6,
+                "apg": 2.6
+              }
             ]
           },
           {
@@ -245,15 +335,30 @@
             "offRtg": 106.3,
             "defRtg": 105.2,
             "postRecord": "2-0",
-            "postMargin": 23.0,
+            "postMargin": 23,
             "postOppPpg": 78.5,
             "offenseNote": "Austin and Iriafen punish the glass, while Citron keeps the floor connected. Their combined 22.7 rebounds lead every trio on the board.",
             "defenseNote": "Washington ranks third in this playoff field on defense. Size, rebounding, and Citron's positional discipline let the Mystics finish possessions instead of defending twice.",
             "breakNote": "Washington returned 2-0 even though Citron missed the first game. Against Indiana, Iriafen and Austin both went for 20-point double-doubles and Citron added nine assists.",
             "players": [
-              {"name": "Shakira Austin", "id": "1631022", "ppg": 17.0, "apg": 2.6},
-              {"name": "Sonia Citron", "id": "1642785", "ppg": 16.8, "apg": 4.4},
-              {"name": "Kiki Iriafen", "id": "1642792", "ppg": 15.5, "apg": 1.5}
+              {
+                "name": "Shakira Austin",
+                "id": "1631022",
+                "ppg": 17,
+                "apg": 2.6
+              },
+              {
+                "name": "Sonia Citron",
+                "id": "1642785",
+                "ppg": 16.8,
+                "apg": 4.4
+              },
+              {
+                "name": "Kiki Iriafen",
+                "id": "1642792",
+                "ppg": 15.5,
+                "apg": 1.5
+              }
             ]
           },
           {
@@ -279,9 +384,24 @@
             "defenseNote": "The trio does not create many steals or blocks, yet Dallas sits sixth in this field defensively. The challenge is getting stops without losing its best offensive spacing.",
             "breakNote": "The Wings came back 2-0 and this trio averaged 17.5 assists. Shepard supplied 8.5 of them, giving Dallas another way to organize when the guards get crowded.",
             "players": [
-              {"name": "Paige Bueckers", "id": "1642784", "ppg": 20.6, "apg": 5.8},
-              {"name": "Arike Ogunbowale", "id": "1629481", "ppg": 15.3, "apg": 3.3},
-              {"name": "Jessica Shepard", "id": "1629491", "ppg": 14.3, "apg": 5.1}
+              {
+                "name": "Paige Bueckers",
+                "id": "1642784",
+                "ppg": 20.6,
+                "apg": 5.8
+              },
+              {
+                "name": "Arike Ogunbowale",
+                "id": "1629481",
+                "ppg": 15.3,
+                "apg": 3.3
+              },
+              {
+                "name": "Jessica Shepard",
+                "id": "1629491",
+                "ppg": 14.3,
+                "apg": 5.1
+              }
             ]
           }
         ]
@@ -369,14 +489,38 @@
         "script": "Three famous names do not automatically make a playoff trio. Somebody has to create the advantage. Somebody has to finish it. Somebody has to stop the other team from doing the same thing. Indiana brings the biggest plate of points. Golden State takes the plate away. Atlanta might be the one team that can do both before you sit down."
       },
       "sources": [
-        {"label": "Official WNBA standings, Sept. 21", "url": "https://www.wnba.com/standings"},
-        {"label": "Official WNBA 2026 schedule and box scores", "url": "https://www.wnba.com/schedule?season=2026&month=all"},
-        {"label": "Basketball-Reference 2026 team ratings", "url": "https://www.basketball-reference.com/wnba/years/2026.html"},
-        {"label": "Basketball-Reference 2026 player totals", "url": "https://www.basketball-reference.com/wnba/years/2026_totals.html"},
-        {"label": "Mystics at Fever official recap", "url": "https://mystics.wnba.com/news/game-recap-mystics-at-fever-2"},
-        {"label": "Aces sweep Storm official recap", "url": "https://aces.wnba.com/news/game-recap-aces-complete-season-sweep-against-seattle-with-98-77-win"},
-        {"label": "Liberty return win over Lynx", "url": "https://liberty.wnba.com/news/liberty-return-from-break-with-93-81-win-over-lynx"},
-        {"label": "Wings defeat Mercury official recap", "url": "https://wings.wnba.com/news/dallas-defeats-phoenix-87-82-in-final-regular-season-home-game"}
+        {
+          "label": "Official WNBA standings, Sept. 21",
+          "url": "https://www.wnba.com/standings"
+        },
+        {
+          "label": "Official WNBA 2026 schedule and box scores",
+          "url": "https://www.wnba.com/schedule?season=2026&month=all"
+        },
+        {
+          "label": "Basketball-Reference 2026 team ratings",
+          "url": "https://www.basketball-reference.com/wnba/years/2026.html"
+        },
+        {
+          "label": "Basketball-Reference 2026 player totals",
+          "url": "https://www.basketball-reference.com/wnba/years/2026_totals.html"
+        },
+        {
+          "label": "Mystics at Fever official recap",
+          "url": "https://mystics.wnba.com/news/game-recap-mystics-at-fever-2"
+        },
+        {
+          "label": "Aces sweep Storm official recap",
+          "url": "https://aces.wnba.com/news/game-recap-aces-complete-season-sweep-against-seattle-with-98-77-win"
+        },
+        {
+          "label": "Liberty return win over Lynx",
+          "url": "https://liberty.wnba.com/news/liberty-return-from-break-with-93-81-win-over-lynx"
+        },
+        {
+          "label": "Wings defeat Mercury official recap",
+          "url": "https://wings.wnba.com/news/dallas-defeats-phoenix-87-82-in-final-regular-season-home-game"
+        }
       ]
     },
     {
@@ -445,7 +589,14 @@
           "url": "https://www.weknowthew.com/live-stats.html"
         }
       ],
-      "updated": "2026-09-20"
+      "updated": "2026-09-20",
+      "image": "https://cdn.wnba.com/sites/1611661322/2026/09/GettyImages-2295801192-scaled.jpg",
+      "storyImage": "https://cdn.wnba.com/sites/1611661322/2026/09/GettyImages-2295801192-scaled.jpg",
+      "imageAlt": "Washington Mystics and Indiana Fever in an official WNBA game photo during the final playoff-seeding stretch",
+      "imageFocus": "50% 28%",
+      "mobileImageFocus": "50% 24%",
+      "storyImageCaption": "Official WNBA photography from the final regular-season playoff seeding stretch.",
+      "storyImageSourceUrl": "https://mystics.wnba.com/news/game-recap-mystics-at-fever-2"
     },
     {
       "slug": "usa-wheelchair-world-champions-2026",

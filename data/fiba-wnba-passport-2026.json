@@ -1,11 +1,11 @@
 {
-  "updatedAt": "2026-09-03T00:00:00Z",
-  "sourceLabel": "WNBA Official Release · Sept. 3, 2026",
+  "updatedAt": "2026-09-22T08:35:00-04:00",
+  "sourceLabel": "WNBA World Cup roster release + post-tournament WNBA roster updates",
   "sourceUrl": "https://www.wnba.com/news/2026-fiba-womens-basketball-world-cup-wnba-rosters",
   "summary": {
-    "current": 51,
+    "current": 52,
     "former": 19,
-    "total": 70,
+    "total": 71,
     "countriesWithCurrent": 15,
     "wnbaTeamsRepresented": 14
   },
@@ -74,15 +74,8 @@
   "players": [
     {
       "country": "Australia",
-      "name": "Chloe Bibby",
-      "team": "Minnesota Lynx",
-      "status": "Current",
-      "allStar": false
-    },
-    {
-      "country": "Australia",
-      "name": "Isobel Borlase",
-      "team": "Atlanta Dream",
+      "name": "Alanna Smith",
+      "team": "Dallas Wings",
       "status": "Current",
       "allStar": false
     },
@@ -95,6 +88,20 @@
     },
     {
       "country": "Australia",
+      "name": "Alex Wilson",
+      "team": null,
+      "status": "Former",
+      "allStar": false
+    },
+    {
+      "country": "Australia",
+      "name": "Chloe Bibby",
+      "team": "Minnesota Lynx",
+      "status": "Current",
+      "allStar": false
+    },
+    {
+      "country": "Australia",
       "name": "Ezi Magbegor",
       "team": "Seattle Storm",
       "status": "Current",
@@ -102,15 +109,15 @@
     },
     {
       "country": "Australia",
-      "name": "Jade Melbourne",
-      "team": "Seattle Storm",
+      "name": "Isobel Borlase",
+      "team": "Atlanta Dream",
       "status": "Current",
       "allStar": false
     },
     {
       "country": "Australia",
-      "name": "Alanna Smith",
-      "team": "Dallas Wings",
+      "name": "Jade Melbourne",
+      "team": "Seattle Storm",
       "status": "Current",
       "allStar": false
     },
@@ -129,30 +136,9 @@
       "allStar": false
     },
     {
-      "country": "Australia",
-      "name": "Alex Wilson",
-      "team": null,
-      "status": "Former",
-      "allStar": false
-    },
-    {
-      "country": "Belgium",
-      "name": "Julie Allemand",
-      "team": "Toronto Tempo",
-      "status": "Current",
-      "allStar": false
-    },
-    {
       "country": "Belgium",
       "name": "Antonia Delaere",
       "team": "Minnesota Lynx",
-      "status": "Current",
-      "allStar": false
-    },
-    {
-      "country": "Belgium",
-      "name": "Kyara Linskens",
-      "team": "Phoenix Mercury",
       "status": "Current",
       "allStar": false
     },
@@ -165,9 +151,23 @@
     },
     {
       "country": "Belgium",
+      "name": "Julie Allemand",
+      "team": "Toronto Tempo",
+      "status": "Current",
+      "allStar": false
+    },
+    {
+      "country": "Belgium",
       "name": "Julie Vanloo",
       "team": null,
       "status": "Former",
+      "allStar": false
+    },
+    {
+      "country": "Belgium",
+      "name": "Kyara Linskens",
+      "team": "Phoenix Mercury",
+      "status": "Current",
       "allStar": false
     },
     {
@@ -186,15 +186,45 @@
     },
     {
       "country": "France",
-      "name": "Pauline Astier",
-      "team": "New York Liberty",
+      "name": "Aminata Gueye",
+      "team": "Golden State Valkyries",
+      "status": "Current",
+      "allStar": false,
+      "postTournamentSigning": true,
+      "sourceUrl": "https://valkyries.wnba.com/news/aminata-gueye-signs-20260921"
+    },
+    {
+      "country": "France",
+      "name": "Carla Leite",
+      "team": "Portland Fire",
       "status": "Current",
       "allStar": false
     },
     {
       "country": "France",
-      "name": "Valériane Ayayi",
-      "team": "Phoenix Mercury",
+      "name": "Dominique Malonga",
+      "team": "Seattle Storm",
+      "status": "Current",
+      "allStar": true
+    },
+    {
+      "country": "France",
+      "name": "Gabby Williams",
+      "team": "Golden State Valkyries",
+      "status": "Current",
+      "allStar": true
+    },
+    {
+      "country": "France",
+      "name": "Janelle Salaün",
+      "team": "Golden State Valkyries",
+      "status": "Current",
+      "allStar": false
+    },
+    {
+      "country": "France",
+      "name": "Leïla Lacan",
+      "team": "Connecticut Sun",
       "status": "Current",
       "allStar": false
     },
@@ -214,34 +244,6 @@
     },
     {
       "country": "France",
-      "name": "Leïla Lacan",
-      "team": "Connecticut Sun",
-      "status": "Current",
-      "allStar": false
-    },
-    {
-      "country": "France",
-      "name": "Carla Leite",
-      "team": "Portland Fire",
-      "status": "Current",
-      "allStar": false
-    },
-    {
-      "country": "France",
-      "name": "Dominique Malonga",
-      "team": "Seattle Storm",
-      "status": "Current",
-      "allStar": true
-    },
-    {
-      "country": "France",
-      "name": "Janelle Salaün",
-      "team": "Golden State Valkyries",
-      "status": "Current",
-      "allStar": false
-    },
-    {
-      "country": "France",
       "name": "Migna Toure",
       "team": null,
       "status": "Former",
@@ -249,10 +251,24 @@
     },
     {
       "country": "France",
-      "name": "Gabby Williams",
-      "team": "Golden State Valkyries",
+      "name": "Pauline Astier",
+      "team": "New York Liberty",
       "status": "Current",
-      "allStar": true
+      "allStar": false
+    },
+    {
+      "country": "France",
+      "name": "Valériane Ayayi",
+      "team": "Phoenix Mercury",
+      "status": "Current",
+      "allStar": false
+    },
+    {
+      "country": "Germany",
+      "name": "Alexis Peterson",
+      "team": null,
+      "status": "Former",
+      "allStar": false
     },
     {
       "country": "Germany",
@@ -284,13 +300,6 @@
     },
     {
       "country": "Germany",
-      "name": "Alexis Peterson",
-      "team": null,
-      "status": "Former",
-      "allStar": false
-    },
-    {
-      "country": "Germany",
       "name": "Nyara Sabally",
       "team": "Toronto Tempo",
       "status": "Current",
@@ -312,9 +321,9 @@
     },
     {
       "country": "Italy",
-      "name": "Lorela Cubaj",
-      "team": null,
-      "status": "Former",
+      "name": "Cecilia Zandalasini",
+      "team": "Golden State Valkyries",
+      "status": "Current",
       "allStar": false
     },
     {
@@ -326,16 +335,16 @@
     },
     {
       "country": "Italy",
-      "name": "Cecilia Zandalasini",
-      "team": "Golden State Valkyries",
-      "status": "Current",
+      "name": "Lorela Cubaj",
+      "team": null,
+      "status": "Former",
       "allStar": false
     },
     {
       "country": "Japan",
-      "name": "Rui Machida",
-      "team": null,
-      "status": "Former",
+      "name": "Mai Yamamoto",
+      "team": "Las Vegas Aces",
+      "status": "Current",
       "allStar": false
     },
     {
@@ -347,9 +356,9 @@
     },
     {
       "country": "Japan",
-      "name": "Mai Yamamoto",
-      "team": "Las Vegas Aces",
-      "status": "Current",
+      "name": "Rui Machida",
+      "team": null,
+      "status": "Former",
       "allStar": false
     },
     {
@@ -363,6 +372,13 @@
       "country": "Mali",
       "name": "Sika Koné",
       "team": "Atlanta Dream",
+      "status": "Current",
+      "allStar": false
+    },
+    {
+      "country": "Nigeria",
+      "name": "Amy Okonkwo",
+      "team": "Portland Fire",
       "status": "Current",
       "allStar": false
     },
@@ -382,13 +398,6 @@
     },
     {
       "country": "Nigeria",
-      "name": "Victoria Macaulay",
-      "team": null,
-      "status": "Former",
-      "allStar": false
-    },
-    {
-      "country": "Nigeria",
       "name": "Murjanatu Musa",
       "team": null,
       "status": "Former",
@@ -396,9 +405,9 @@
     },
     {
       "country": "Nigeria",
-      "name": "Amy Okonkwo",
-      "team": "Portland Fire",
-      "status": "Current",
+      "name": "Victoria Macaulay",
+      "team": null,
+      "status": "Former",
       "allStar": false
     },
     {
@@ -417,16 +426,23 @@
     },
     {
       "country": "Spain",
-      "name": "Elena Buenavida",
-      "team": "Minnesota Lynx",
-      "status": "Current Dev. Player",
+      "name": "Alicia Florez",
+      "team": "Washington Mystics",
+      "status": "Current",
       "allStar": false
     },
     {
       "country": "Spain",
-      "name": "Raquel Carrera",
-      "team": "New York Liberty",
+      "name": "Awa Fam",
+      "team": "Seattle Storm",
       "status": "Current",
+      "allStar": false
+    },
+    {
+      "country": "Spain",
+      "name": "Elena Buenavida",
+      "team": "Minnesota Lynx",
+      "status": "Current Dev. Player",
       "allStar": false
     },
     {
@@ -452,15 +468,8 @@
     },
     {
       "country": "Spain",
-      "name": "Awa Fam",
-      "team": "Seattle Storm",
-      "status": "Current",
-      "allStar": false
-    },
-    {
-      "country": "Spain",
-      "name": "Alicia Florez",
-      "team": "Washington Mystics",
+      "name": "Raquel Carrera",
+      "team": "New York Liberty",
       "status": "Current",
       "allStar": false
     },
@@ -487,62 +496,6 @@
     },
     {
       "country": "United States",
-      "name": "Paige Bueckers",
-      "team": "Dallas Wings",
-      "status": "Current",
-      "allStar": true
-    },
-    {
-      "country": "United States",
-      "name": "Sonia Citron",
-      "team": "Washington Mystics",
-      "status": "Current",
-      "allStar": true
-    },
-    {
-      "country": "United States",
-      "name": "Caitlin Clark",
-      "team": "Indiana Fever",
-      "status": "Current",
-      "allStar": true
-    },
-    {
-      "country": "United States",
-      "name": "Napheesa Collier",
-      "team": "Minnesota Lynx",
-      "status": "Current",
-      "allStar": true
-    },
-    {
-      "country": "United States",
-      "name": "Kahleah Copper",
-      "team": "Phoenix Mercury",
-      "status": "Current",
-      "allStar": true
-    },
-    {
-      "country": "United States",
-      "name": "Chelsea Gray",
-      "team": "Las Vegas Aces",
-      "status": "Current",
-      "allStar": true
-    },
-    {
-      "country": "United States",
-      "name": "Rhyne Howard",
-      "team": "Atlanta Dream",
-      "status": "Current",
-      "allStar": true
-    },
-    {
-      "country": "United States",
-      "name": "Kiki Iriafen",
-      "team": "Washington Mystics",
-      "status": "Current",
-      "allStar": true
-    },
-    {
-      "country": "United States",
       "name": "Angel Reese",
       "team": "Atlanta Dream",
       "status": "Current",
@@ -557,10 +510,76 @@
     },
     {
       "country": "United States",
+      "name": "Caitlin Clark",
+      "team": "Indiana Fever",
+      "status": "Current",
+      "allStar": true
+    },
+    {
+      "country": "United States",
+      "name": "Chelsea Gray",
+      "team": "Las Vegas Aces",
+      "status": "Current",
+      "allStar": true
+    },
+    {
+      "country": "United States",
       "name": "Jackie Young",
       "team": "Las Vegas Aces",
       "status": "Current",
       "allStar": true
+    },
+    {
+      "country": "United States",
+      "name": "Kahleah Copper",
+      "team": "Phoenix Mercury",
+      "status": "Current",
+      "allStar": true
+    },
+    {
+      "country": "United States",
+      "name": "Kiki Iriafen",
+      "team": "Washington Mystics",
+      "status": "Current",
+      "allStar": true
+    },
+    {
+      "country": "United States",
+      "name": "Napheesa Collier",
+      "team": "Minnesota Lynx",
+      "status": "Current",
+      "allStar": true
+    },
+    {
+      "country": "United States",
+      "name": "Paige Bueckers",
+      "team": "Dallas Wings",
+      "status": "Current",
+      "allStar": true
+    },
+    {
+      "country": "United States",
+      "name": "Rhyne Howard",
+      "team": "Atlanta Dream",
+      "status": "Current",
+      "allStar": true
+    },
+    {
+      "country": "United States",
+      "name": "Sonia Citron",
+      "team": "Washington Mystics",
+      "status": "Current",
+      "allStar": true
+    }
+  ],
+  "postTournamentUpdates": [
+    {
+      "date": "2026-09-21",
+      "player": "Aminata Gueye",
+      "country": "France",
+      "team": "Golden State Valkyries",
+      "note": "Signed by Golden State after representing France at the 2026 FIBA Women's Basketball World Cup.",
+      "sourceUrl": "https://valkyries.wnba.com/news/aminata-gueye-signs-20260921"
     }
   ]
 }

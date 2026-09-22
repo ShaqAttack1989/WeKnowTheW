@@ -82,6 +82,9 @@ const CLOSED_BRANCHES = [
 ];
 
 const LOCKER_SOURCES = [
+  ['Houston Comets approved return','https://www.houstoncomets.com/articles/approved-sale'],
+  ['WNBA approval of Sun sale and Houston relocation','https://www.wnba.com/news/wnba-nba-approve-connecticut-sun-sale'],
+  ['Jennifer Rizzotti on moving to Houston','https://www.nbcconnecticut.com/news/local/connecticut-sun-president-jennifer-rizzotti-headed-to-houston-with-team/3777073/'],
   ['WNBA expansion to 18 teams','https://www.wnba.com/news/wnba-expansion-cleveland-detroit-philadelphia'],
   ['Las Vegas Aces franchise history','https://aces.wnba.com/franchisehistory'],
   ['Dallas Wings franchise draft history','https://www.wnba.com/wnba-draft-history-dallas-wings'],

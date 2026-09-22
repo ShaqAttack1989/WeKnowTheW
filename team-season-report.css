@@ -1,0 +1,20 @@
+.team-report-page{background:#f6f2f8;color:#17131f}
+.team-report-hero{padding:48px 0 36px;background:linear-gradient(135deg,#140a2f,#5c1fc1);color:#fff}
+.team-report-hero .page-shell{display:grid;gap:12px}
+.team-report-hero .eyebrow{color:#d8ff4f}
+.team-report-hero h1{margin:0;font-size:clamp(2.2rem,5vw,4.6rem);line-height:.94;letter-spacing:-.05em}
+.team-report-hero p{max-width:780px;margin:0;color:rgba(255,255,255,.78);line-height:1.6}
+.team-report-toolbar{display:flex;flex-wrap:wrap;gap:8px;margin:24px 0 18px}
+.team-report-toolbar button{border:1px solid #ded4e6;border-radius:999px;padding:9px 13px;background:#fff;color:#3f3450;font:inherit;font-size:.78rem;font-weight:900;cursor:pointer}
+.team-report-toolbar button.active{background:#140a2f;color:#d8ff4f;border-color:#140a2f}
+.team-report-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;padding-bottom:48px}
+.team-report-card{padding:18px;border:1px solid #e3dbe8;border-left:5px solid var(--team-primary,#6c2ad9);border-radius:18px;background:#fff;box-shadow:0 8px 24px rgba(20,10,47,.05)}
+.team-report-card header{display:flex;justify-content:space-between;gap:12px;align-items:center}
+.team-report-card header span{color:var(--team-primary-text,#5c1fc1);font-size:.68rem;font-weight:950;letter-spacing:.08em}
+.team-report-card header time{color:#776d80;font-size:.72rem;font-weight:850}
+.team-report-card h2{margin:8px 0 7px;font-size:1.15rem;line-height:1.15}
+.team-report-card p{margin:0;color:#665d6f;font-size:.9rem;line-height:1.55}
+.team-report-card a{display:inline-flex;margin-top:12px;color:#5c1fc1;font-size:.78rem;font-weight:950;text-decoration:none}
+.team-report-empty{grid-column:1/-1;padding:30px;border:1px dashed #d9cfe1;border-radius:18px;background:#fff;color:#6d6375}
+.team-report-back{display:inline-flex;margin:0 0 18px;color:#5c1fc1;font-weight:900;text-decoration:none}
+@media(max-width:760px){.team-report-grid{grid-template-columns:1fr}.team-report-hero{padding-top:36px}.team-report-card{padding:16px}}

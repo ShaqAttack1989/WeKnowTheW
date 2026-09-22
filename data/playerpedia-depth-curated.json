@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-03T19:55:00Z",
+  "updatedAt": "2026-09-22T16:10:00Z",
   "rules": {
     "pronunciation": "Only use a written pronunciation when a team, league or other reliable media guide explicitly provides it. When a player-recorded audio pronunciation is available, link to that instead of inventing phonetics.",
     "offCourt": "Only include a personal, family, education, advocacy, business, media, music or nickname connection when it is documented in the Playerpedia bio tracker or a cited public source.",
@@ -215,6 +215,18 @@
       ],
       "memorable": "Seven games with the Greensboro Groove became another UPSHOT-to-WNBA bridge when Toronto signed her to a developmental contract on Sept. 19, 2026.",
       "memorableSource": "https://www.oursportscentral.com/services/releases/toronto-tempo-sign-maria-gakdeng-to-developmental-contract/n-6414753"
+    },
+    "natashahoward": {
+      "offCourt": "Howard became a published author in September 2026 with The Vision Through My Lens: My Life in Basketball and Beyond, coauthored with Deyscha Smith. The memoir follows her path from a difficult childhood through a championship basketball career and the life she built beyond the court.",
+      "offCourtSource": "https://www.akashicbooks.com/catalog/vision-through-my-lens/",
+      "offCourtLink": "/herstory-life-chapters.html"
+    },
+    "chamiqueholdsclaw": {
+      "offCourt": "Holdsclaw joined the UPSHOT League ownership group as an investor in September 2026, adding a Hall of Fame player voice to a league built around expanding professional opportunities for women as it grows into new markets for 2027.",
+      "offCourtSource": "https://www.oursportscentral.com/services/releases/chamique-holdsclaw-joins-upshot-league-as-investor/n-6415301",
+      "offCourtLink": "/the-call-up.html#leadership",
+      "memorable": "After a Hall of Fame playing career, Holdsclaw added another role in women’s basketball in 2026 by joining UPSHOT’s ownership group as an investor.",
+      "memorableSource": "https://www.oursportscentral.com/services/releases/chamique-holdsclaw-joins-upshot-league-as-investor/n-6415301"
     }
   }
 }

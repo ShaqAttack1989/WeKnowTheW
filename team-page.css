@@ -207,3 +207,80 @@ body.team-page{background:#fffaf0;color:#17131f;}
   .dream-retired-card{align-items:flex-start;padding:22px;}
   .retired-zero{font-size:4.5rem;}
 }
+
+
+/* Unified team update desk */
+.dream-update-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:10px;
+}
+.dream-update-grid .team-update-card{
+  min-width:0;
+  overflow:hidden;
+  padding:0;
+  border-left:4px solid var(--team-primary);
+}
+.team-update-card-link{
+  display:block;
+  height:100%;
+  padding:17px 18px;
+  color:inherit;
+  text-decoration:none;
+}
+.team-update-card-link:hover,
+.team-update-card-link:focus-visible{
+  background:color-mix(in srgb,var(--team-primary) 6%,#fff);
+  outline:none;
+}
+.dream-update-grid .team-update-card>div,
+.team-update-card-link>div{
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  align-items:center;
+}
+.dream-update-grid .team-update-card span{
+  color:var(--team-primary-text);
+  font-size:.7rem;
+  font-weight:950;
+  letter-spacing:.08em;
+}
+.dream-update-grid .team-update-card time{
+  color:#766d7d;
+  font-size:.74rem;
+  font-weight:850;
+  white-space:nowrap;
+}
+.dream-update-grid .team-update-card strong{
+  display:block;
+  margin:8px 0 6px;
+  font-size:1rem;
+  line-height:1.18;
+}
+.dream-update-grid .team-update-card p{
+  margin:0;
+  color:#6f6879;
+  font-size:.86rem;
+  line-height:1.45;
+}
+.dream-update-grid .team-update-card small{
+  display:block;
+  margin-top:9px;
+  color:#817789;
+  font-size:.69rem;
+  font-weight:850;
+}
+.team-update-story{border-left-color:#6c2ad9!important}
+.team-update-movement{border-left-color:#d7193f!important}
+.team-update-availability{border-left-color:#e19200!important}
+.team-availability-source{
+  margin-top:12px;
+  color:#6f6879;
+  font-size:.78rem;
+  line-height:1.45;
+}
+.team-availability-source a{color:var(--team-primary-text);font-weight:900}
+@media(max-width:700px){
+  .dream-update-grid{grid-template-columns:1fr}
+}

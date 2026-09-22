@@ -8,6 +8,9 @@ const { getWnbaTransactions, getWnbaRosters } = require('../lib/wehoop-espn');
 function key(value = '') {
   return String(value).normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]/g, '');
 }
+const MOVEMENT_PHOTO_FALLBACKS = new Map([
+  ['aminatagueye', 'https://assets.fiba.basketball/image/upload/w_720,h_960,c_pad,g_north/f_png/q_auto/.headshot--person_269523--competition_208875']
+]);
 
 function inferTransactionType(detail = '', fallback = 'TRANSACTION') {
   const text = String(detail || '').trim();
@@ -86,7 +89,7 @@ function addRosterCrossCheck(items, rosterData) {
       rosterCheck,
       wnbaId: headshot?.id || null,
       espnId: livePlayer?.id || null,
-      photo: headshot?.url || livePhoto || null
+      photo: headshot?.url || livePhoto || MOVEMENT_PHOTO_FALLBACKS.get(key(item.player)) || null
     };
   });
 }

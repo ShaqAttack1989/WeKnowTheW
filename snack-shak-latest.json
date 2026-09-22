@@ -2,6 +2,87 @@
   "site": "Snack Shak",
   "posts": [
     {
+      "slug": "seats-are-moving-playoff-race-sept22-2026",
+      "type": "byte",
+      "priority": 1750,
+      "homepageSeason": "wnba-return",
+      "seriesLabel": "SNACK SHAK BYTE · PLAYOFF RACE",
+      "title": "The Seats Are Moving",
+      "published": "2026-09-22",
+      "updated": "2026-09-22",
+      "week": "Final week · Sept. 22",
+      "dashboardUrl": "/snack-shak-bytes.html?post=seats-are-moving-playoff-race-sept22-2026#story",
+      "teams": [
+        "Atlanta Dream",
+        "New York Liberty",
+        "Dallas Wings",
+        "Phoenix Mercury",
+        "Minnesota Lynx",
+        "Golden State Valkyries",
+        "Las Vegas Aces",
+        "Indiana Fever",
+        "Washington Mystics"
+      ],
+      "players": [
+        "Jordin Canada",
+        "Angel Reese",
+        "Breanna Stewart",
+        "Paige Bueckers",
+        "Kahleah Copper"
+      ],
+      "dek": "Everybody already has a playoff ticket. Now the seats are moving. Atlanta took another step toward home court, New York is officially opening on the road, and Dallas finally got clipped after six straight wins.",
+      "sections": [
+        {
+          "title": "Atlanta keeps handling business",
+          "paragraphs": [
+            "Atlanta came back from Berlin and apparently decided losing could wait. The Dream beat New York 95-84 on Monday and moved to 29-14.",
+            "That makes three straight wins since the break. One more win over New York on Wednesday, or one Indiana loss, locks up first-round home court for Atlanta."
+          ]
+        },
+        {
+          "title": "New York, pack a road bag",
+          "paragraphs": [
+            "The Liberty had a nice little run going. They beat Minnesota, put 106 on Toronto and came home with a chance to keep pushing up the bracket.",
+            "Atlanta ended that. New York is 26-17 now, and first-round home court is officially gone. The Liberty are in. They are just starting the playoffs in somebody else's building."
+          ]
+        },
+        {
+          "title": "Dallas finally blinked",
+          "paragraphs": [
+            "Dallas won six straight and made the bottom of the bracket a whole lot more interesting. Then Phoenix stole one by a point.",
+            "Kahleah Copper's layup with two seconds left gave the Mercury an 87-86 win. Paige Bueckers had 30 points and seven assists, but the last shot did not fall. Dallas is 26-17 with one game left."
+          ]
+        },
+        {
+          "title": "Shak's bite",
+          "paragraphs": [
+            "Everybody has a ticket. Nobody has the same seat they thought they had a few days ago.",
+            "Atlanta is trying to keep home court. New York knows it is traveling. Dallas just lost its six-game heater. Minnesota still has Golden State behind it, and Vegas is sitting right in the middle of the top-four mess.",
+            "Two days left. Keep the bracket in pencil."
+          ]
+        }
+      ],
+      "debates": [
+        "Which road team would you least want to see in the first round?",
+        "Does Atlanta lock up home court Wednesday?",
+        "Who gets the best matchup out of the 5 through 8 shuffle?"
+      ],
+      "sources": [
+        {
+          "label": "WNBA standings",
+          "url": "https://www.wnba.com/standings"
+        },
+        {
+          "label": "Atlanta 95, New York 84 recap",
+          "url": "https://www.cbssports.com/wnba/gametracker/recap/WNBA_20260921_ATL@NYL/"
+        },
+        {
+          "label": "We Know the W · Berlin to Buckets",
+          "url": "https://www.weknowthew.com/fiba-return-playoff-show-2026.html"
+        }
+      ]
+    },
+    {
       "slug": "playoff-trio-test-2026",
       "type": "feature",
       "priority": 1300,
@@ -522,80 +603,6 @@
           "url": "https://wings.wnba.com/news/dallas-defeats-phoenix-87-82-in-final-regular-season-home-game"
         }
       ]
-    },
-    {
-      "slug": "playoff-race-final-week-sept20-2026",
-      "type": "byte",
-      "priority": 1700,
-      "homepageSeason": "wnba-return",
-      "seriesLabel": "SNACK SHAK BYTE · PLAYOFF RACE",
-      "title": "Everybody’s In. Nobody’s Settled.",
-      "published": "2026-09-20",
-      "week": "Final week · playoff seeding",
-      "dashboardUrl": "/snack-shak-bytes.html?post=playoff-race-final-week-sept20-2026#story",
-      "teams": [
-        "Minnesota Lynx",
-        "Golden State Valkyries",
-        "Las Vegas Aces",
-        "Atlanta Dream",
-        "Indiana Fever",
-        "Dallas Wings",
-        "New York Liberty",
-        "Washington Mystics"
-      ],
-      "players": [
-        "Napheesa Collier",
-        "Olivia Miles"
-      ],
-      "dek": "The eight playoff teams are set. The bracket is not. Minnesota moved to 32–10 on Sunday, Golden State is still on its heels, and the middle of the bracket has almost no breathing room.",
-      "sections": [
-        {
-          "title": "The field is set. The seats are not.",
-          "paragraphs": [
-            "Everybody knows who is going to the playoffs. Now we are arguing over where everybody is sitting.",
-            "Minnesota beat Connecticut 101–89 on Sunday and moved to 32–10. Golden State is 31–11, so the No. 1 race is still alive with the final week running out of room. The Valkyries already have first-round home court. Minnesota is trying to make sure the road to the Finals runs through them."
-          ]
-        },
-        {
-          "title": "The middle is where it gets messy",
-          "paragraphs": [
-            "Las Vegas and Atlanta are fighting to stay in the top four, Indiana is right behind them, and Dallas has pushed itself into the conversation with six straight wins. New York and Washington entered Sunday close enough that one result can move the bracket again.",
-            "That is the part worth watching now. Nobody is fighting just to get in anymore. They are fighting over home court, matchups and who gets stuck across from Minnesota."
-          ]
-        },
-        {
-          "title": "Shak’s bite",
-          "paragraphs": [
-            "Berlin is over. The regular season is almost over. The playoff teams came back swinging, and somehow the bracket got less clear instead of more. Everybody has a ticket. Nobody knows their seat yet."
-          ]
-        }
-      ],
-      "debates": [
-        "Which team do you least want to see in the first round?",
-        "How much does first-round home court matter in this year’s field?",
-        "Who has helped themselves the most since the FIBA break?"
-      ],
-      "foodSegment": {
-        "title": "Shak’s bite: everybody has a ticket",
-        "script": "Everybody has a playoff ticket. Nobody knows where they’re sitting. Minnesota is trying to lock down the top, Golden State is still hanging around, and the middle of the bracket is one big traffic jam. Welcome to the last week of the W."
-      },
-      "sources": [
-        {
-          "label": "WNBA · 2026 standings and final-week race",
-          "url": "https://www.wnba.com/news/2026-power-rankings-week-14"
-        },
-        {
-          "label": "We Know the W · Live Stats",
-          "url": "https://www.weknowthew.com/live-stats.html"
-        }
-      ],
-      "updated": "2026-09-20",
-      "image": "/assets/images/snack-shak/welcome-back-playoff-field-story.jpg",
-      "storyImage": "/assets/images/snack-shak/welcome-back-playoff-field-story.jpg",
-      "imageAlt": "We Know the W playoff field story graphic for the 2026 final-week seeding race",
-      "imageFocus": "50% 42%",
-      "mobileImageFocus": "50% 38%",
-      "storyImageCaption": "Official WNBA photography from the final regular-season playoff seeding stretch."
     },
     {
       "slug": "usa-wheelchair-world-champions-2026",

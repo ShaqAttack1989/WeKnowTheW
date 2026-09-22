@@ -396,13 +396,15 @@
   padding:4px 2px 0;
 }
 .w-desk-main .week-snapshot-media.dashboard-preview{
+  min-height:132px;
   background:#160a31;
 }
 .w-desk-main .week-snapshot-media.dashboard-preview img.dashboard-preview{
-  object-fit:contain!important;
-  object-position:center center!important;
+  object-fit:cover!important;
+  object-position:var(--media-focus,50% 28%)!important;
   background:#160a31!important;
   padding:0;
+  transform:scale(1.01);
 }
 .w-desk-main .week-editorial-media img{
   object-position:var(--media-focus,50% 38%)!important;

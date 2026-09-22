@@ -1,25 +1,24 @@
-(function(){
+(()=>{
   const root=document.getElementById('dreamTeamUpdates');
-  if(!root)return;
+  if(!root||!window.WTeamUpdates)return;
+
   const esc=(value='')=>String(value).replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[ch]));
-  const norm=(value='')=>String(value).normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]/g,'');
   const slug=new URLSearchParams(location.search).get('team')||'';
   if(slug==='cleveland-sirens')return;
-  const teamName=(typeof MASCOT_TEAMS!=='undefined'&&MASCOT_TEAMS[slug]?.team)||document.getElementById('teamName')?.textContent||'';
+  const teamData=typeof teamBySlug==='function'?teamBySlug(slug):null;
+  const teamName=teamData?.name||document.getElementById('teamName')?.textContent||'';
   if(!teamName)return;
 
-  let applying=false;
-  let authoritativeHtml='';
-  const isoDate=value=>{
-    const raw=String(value||'').slice(0,10);
-    if(/^\d{4}-\d{2}-\d{2}$/.test(raw))return raw;
-    const m=String(value||'').match(/^(\d{2})\/(\d{2})\/(\d{4})/);
-    return m?`${m[3]}-${m[1]}-${m[2]}`:'';
-  };
+  const heading=document.querySelector('.dream-roster-wire .dream-panel-heading span');
+  const title=document.getElementById('dreamRosterWireHeading');
+  const fullLink=document.querySelector('.dream-roster-wire .dream-panel-heading a');
+  if(heading)heading.textContent='ROSTER · AVAILABILITY · STORIES';
+  if(title)title.textContent='The latest team updates';
+  if(fullLink){fullLink.textContent='Full report →';fullLink.href=`/team-season-report.html?team=${encodeURIComponent(slug)}`;}
+
   const shortDate=value=>{
-    const iso=isoDate(value);
-    if(!iso)return 'Current';
-    const date=new Date(`${iso}T12:00:00`);
+    const iso=String(value||'').slice(0,10);
+    const date=new Date(/^\d{4}-\d{2}-\d{2}$/.test(iso)?`${iso}T12:00:00`:value);
     return Number.isNaN(date.getTime())?'Current':new Intl.DateTimeFormat('en-US',{month:'short',day:'numeric'}).format(date);
   };
   const checked=value=>{
@@ -28,81 +27,26 @@
     return new Intl.DateTimeFormat('en-US',{timeZone:'America/New_York',month:'short',day:'numeric',hour:'numeric',minute:'2-digit'}).format(date)+' ET';
   };
   function card(item){
-    return `<article><div><span>${esc(item.kind)}</span><time>${esc(item.date||'Current')}</time></div><strong>${esc(item.player)}</strong><p>${esc(item.detail)}</p>${item.context?`<small>${esc(item.context)}</small>`:''}</article>`;
+    const href=item.href||'';
+    const content=`<div><span>${esc(item.kind||'UPDATE')}</span><time datetime="${esc(item.date||'')}">${esc(shortDate(item.date))}</time></div><strong>${esc(item.title||'Team update')}</strong><p>${esc(item.detail||'')}</p><small>${esc(item.category==='story'?'We Know the W story':item.category==='movement'?'Player Movement':'Availability')}</small>`;
+    return href?`<article class="team-update-card team-update-${esc(item.category||'update')}"><a class="team-update-card-link" href="${esc(href)}">${content}</a></article>`:`<article class="team-update-card">${content}</article>`;
   }
-  function apply(html){
-    authoritativeHtml=html;
-    applying=true;
-    root.innerHTML=html;
-    queueMicrotask(()=>{applying=false;});
-  }
-  const observer=new MutationObserver(()=>{
-    if(!applying&&authoritativeHtml&&root.innerHTML!==authoritativeHtml)apply(authoritativeHtml);
-  });
-  observer.observe(root,{childList:true,subtree:true});
-
   async function refresh(){
     try{
-      const [availabilityResponse,movementResponse]=await Promise.all([
-        fetch('/api/availability',{headers:{Accept:'application/json'},cache:'no-store'}),
-        fetch('/api/player-movement',{headers:{Accept:'application/json'},cache:'no-store'})
-      ]);
-      const availability=await availabilityResponse.json().catch(()=>({}));
-      const movement=await movementResponse.json().catch(()=>({}));
-      if(!availabilityResponse.ok)throw new Error(availability.error||'Availability unavailable');
-
-      const teamKey=norm(teamName);
-      const injuries=(Array.isArray(availability.injuries)?availability.injuries:[])
-        .filter(item=>norm(item.team)===teamKey&&!['AVAILABLE','ACTIVE','CLEARED'].includes(String(item.status||'').toUpperCase()))
-        .map(item=>({
-          kind:item.status||'Availability',
-          player:item.player||'Player update',
-          detail:item.reason||'Availability update',
-          date:shortDate(item.updated||item.gameDate),
-          sortDate:isoDate(item.updated||item.gameDate),
-          context:[item.matchup,item.gameTime,item.crossCheckOnly?'Cross-check feed':''].filter(Boolean).join(' · '),
-          seasonLong:String(item.status||'').toUpperCase().includes('SEASON')
-        }));
-      const transactions=(Array.isArray(movement.transactions)?movement.transactions:[])
-        .filter(item=>norm(item.team)===teamKey)
-        .map(item=>({
-          kind:item.type||'Movement',
-          player:item.player||'Team update',
-          detail:item.detail||'Roster update',
-          date:shortDate(item.date),
-          sortDate:isoDate(item.date),
-          context:'Player Movement',
-          seasonLong:false
-        }));
-
-      const combined=[...injuries,...transactions]
-        .sort((a,b)=>String(b.sortDate||'').localeCompare(String(a.sortDate||''))||String(a.player||'').localeCompare(String(b.player||'')));
-      const mustKeep=combined.filter(item=>item.seasonLong);
-      const otherRecent=combined.filter(item=>!item.seasonLong).slice(0,6);
-      const seen=new Set();
-      const updates=[...mustKeep,...otherRecent]
-        .sort((a,b)=>String(b.sortDate||'').localeCompare(String(a.sortDate||''))||String(a.player||'').localeCompare(String(b.player||'')))
-        .filter(item=>{
-          const id=`${item.sortDate}|${norm(item.player)}|${norm(item.kind)}`;
-          if(seen.has(id))return false;
-          seen.add(id);
-          return true;
-        });
-
-      let html=updates.map(card).join('');
-      if(!html){
-        html=availability.partial
-          ? `<div class="team-error"><strong>No current ${esc(teamName)} availability entries were returned by the partial feed.</strong><span>Do not treat this as an all-clear. Open the full report for the latest check.</span> <a href="/availability-report.html">Full report →</a></div>`
-          : `<div class="dream-wire-clear"><span aria-hidden="true">✓</span><div><strong>No active ${esc(teamName)} availability entries in the current official report.</strong><p>The team box checks the same WNBA report as the full Availability page every 30 minutes.</p></div></div>`;
-      }
-      const sourceLabel=availability.fallbackSnapshot?'Availability cross-check':'Official availability';
-      const source=`<div class="team-availability-source">Newest updates first · ${sourceLabel}${!availability.fallbackSnapshot&&availability.reportLabel?` · ${esc(availability.reportLabel)}`:''}${availability.checkedAt?` · checked ${esc(checked(availability.checkedAt))}`:''} · <a href="/availability-report.html">full report →</a></div>`;
-      apply(html+source);
+      const result=await WTeamUpdates.loadTeamUpdates(teamName,slug);
+      const updates=result.dashboard||[];
+      root.innerHTML=updates.length?updates.map(card).join(''):`<div class="dream-wire-clear"><span aria-hidden="true">✓</span><div><strong>No current ${esc(teamName)} updates are loaded.</strong><p>Use the full report to review the 2026 season archive.</p></div></div>`;
+      const oldSource=root.parentElement?.querySelector('.team-availability-source');
+      if(oldSource)oldSource.remove();
+      const source=document.createElement('div');
+      source.className='team-availability-source';
+      source.innerHTML=`Newest updates first · roster movement · availability · site stories${result.checkedAt?` · checked ${esc(checked(result.checkedAt))}`:''} · <a href="/team-season-report.html?team=${encodeURIComponent(slug)}">full report →</a>`;
+      root.insertAdjacentElement('afterend',source);
     }catch(error){
-      if(!authoritativeHtml)apply(`<div class="team-error">The availability feed is temporarily unavailable. <a href="/availability-report.html">Open the full report →</a></div>`);
+      root.innerHTML=`<div class="team-error">The team update desk is temporarily unavailable. <a href="/team-season-report.html?team=${encodeURIComponent(slug)}">Open the full report →</a></div>`;
     }
   }
-
-  setTimeout(refresh,250);
-  setInterval(refresh,30*60*1000);
+  refresh();
+  setInterval(()=>{if(!document.hidden)refresh();},30*60*1000);
+  window.addEventListener('focus',refresh);
 })();

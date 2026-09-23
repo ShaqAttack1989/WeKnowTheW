@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-20T06:50:00Z",
+  "updatedAt": "2026-09-23T07:05:00-04:00",
   "logos": {
     "unrivaled": "https://www.unrivaled.basketball/unrivaled_wordmark.png",
     "au": "https://upload.wikimedia.org/wikipedia/commons/c/cd/Athletes_unlimited_logo.png"
@@ -613,7 +613,7 @@
       [
         "Deja Kelly",
         "Charlotte Crown",
-        "2026 champion · Championship MVP"
+        "2026 champion · Ann Meyers Drysdale Championship MVP · Dallas Wings developmental call-up"
       ],
       [
         "Maria Gakdeng",
@@ -643,6 +643,7 @@
     "teamUSAUpdate": "https://www.foxsports.com/articles/wnba/us-stars-aja-wilson-and-kelsey-plum-to-miss-the-fiba-womens-world-cup",
     "fibaWorldCup": "https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026",
     "tauihi": "https://sports.yahoo.com/articles/hailey-van-lith-signs-tokomanawa-235056577.html",
-    "upshotMaria": "https://www.oursportscentral.com/services/releases/toronto-tempo-sign-maria-gakdeng-to-developmental-contract/n-6414753"
+    "upshotMaria": "https://www.oursportscentral.com/services/releases/toronto-tempo-sign-maria-gakdeng-to-developmental-contract/n-6414753",
+    "upshotDejaKelly": "https://www.oursportscentral.com/services/releases/dallas-wings-sign-deja-kelly-to-developmental-player-contract/n-6415741"
   }
 }

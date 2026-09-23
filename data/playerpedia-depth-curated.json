@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-22T08:35:00-04:00",
+  "updatedAt": "2026-09-23T07:05:00-04:00",
   "rules": {
     "pronunciation": "Only use a written pronunciation when a team, league or other reliable media guide explicitly provides it. When a player-recorded audio pronunciation is available, link to that instead of inventing phonetics.",
     "offCourt": "Only include a personal, family, education, advocacy, business, media, music or nickname connection when it is documented in the Playerpedia bio tracker or a cited public source.",
@@ -283,6 +283,36 @@
       ],
       "memorable": "Taylor's June 26 eruption against Portland became the most efficient 25-point game by a rookie in league history, one of several clutch marks in an undrafted breakout season.",
       "memorableSource": "https://sky.wnba.com/news/recap-sky-shatter-records-upon-courtney-vandersloots-return-in-124-94-triumph-over-fire"
+    },
+    "dejakelly": {
+      "entry": {
+        "status": "Developmental Player contract",
+        "year": 2026,
+        "team": "Dallas Wings",
+        "note": "Dallas signed Kelly on Sept. 22 after she led the Charlotte Crown to the inaugural UPSHOT League championship. She wears No. 2.",
+        "source": "https://www.oursportscentral.com/services/releases/dallas-wings-sign-deja-kelly-to-developmental-player-contract/n-6415741"
+      },
+      "collegeInternational": {
+        "college": "North Carolina (2020–24) · Oregon (2024–25)",
+        "clubs": [
+          "Charlotte Crown · UPSHOT League · 2026",
+          "Dallas Wings · WNBA Developmental Player · 2026"
+        ],
+        "source": "https://www.oursportscentral.com/services/releases/dallas-wings-sign-deja-kelly-to-developmental-player-contract/n-6415741"
+      },
+      "achievements": [
+        "2026 UPSHOT League champion with the Charlotte Crown.",
+        "2026 Ann Meyers Drysdale Championship MVP after 29 points, six rebounds, three assists and two steals in the 81-76 title win over Jacksonville.",
+        "Led the 2026 UPSHOT League in scoring (18.1 PPG) and assists (4.0 APG).",
+        "All-UPSHOT Team in the league's inaugural season.",
+        "Finished her North Carolina career No. 8 on the program's all-time scoring list with 1,858 points."
+      ],
+      "achievementsSources": [
+        "https://www.oursportscentral.com/services/releases/dallas-wings-sign-deja-kelly-to-developmental-player-contract/n-6415741",
+        "https://crownupshot.com/crown-pull-off-comeback-to-win-upshot-championship/"
+      ],
+      "memorable": "Kelly turned the inaugural UPSHOT season into a direct bridge back to the WNBA: league scoring and assists leader, Charlotte champion, Championship MVP, then a Dallas Wings developmental contract less than a month later.",
+      "memorableSource": "https://www.oursportscentral.com/services/releases/dallas-wings-sign-deja-kelly-to-developmental-player-contract/n-6415741"
     }
   }
 }

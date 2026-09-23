@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-23T00:23:29.446Z",
+  "generatedAt": "2026-09-23T05:53:38.327Z",
   "movement": {
     "latestTransactionDate": "2026-09-20",
     "transactions": [
@@ -1410,9 +1410,9 @@
     ]
   },
   "availability": {
-    "latestReportDate": "2026-09-22",
-    "reportLabel": "09/22/2026 08:15 PM ET",
-    "officialPdf": "https://ak-static.cms.nba.com/referee/wnba_injury/Injury-Report_2026-09-22_08_15PM.pdf",
+    "latestReportDate": "2026-09-23",
+    "reportLabel": "09/23/2026 01:45 AM ET",
+    "officialPdf": "https://ak-static.cms.nba.com/referee/wnba_injury/Injury-Report_2026-09-23_01_45AM.pdf",
     "injuries": [
       {
         "player": "Alanna Smith",
@@ -1467,8 +1467,22 @@
         "crossCheckOnly": false
       },
       {
+        "player": "Holly Winterburn",
+        "team": "Portland Fire",
+        "status": "OUT",
+        "reason": "Back · Winterburn (back) has been ruled out for Tuesday's game against Golden State.",
+        "updated": "2026-09-23",
+        "returnDate": "2027-05-01",
+        "matchup": "",
+        "gameTime": "",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null,
+        "officialCurrentReport": false,
+        "crossCheckOnly": true
+      },
+      {
         "player": "Katie Lou Samuelson",
-        "team": "",
+        "team": "Seattle Storm",
         "status": "OUT",
         "reason": "Injury/Illness - Left Knee; Injury",
         "gameDate": "09/23/2026",
@@ -1478,6 +1492,20 @@
         "source": "Official WNBA Injury Report PDF",
         "officialCurrentReport": true,
         "crossCheckOnly": false
+      },
+      {
+        "player": "Nyadiew Puoch",
+        "team": "Portland Fire",
+        "status": "OUT",
+        "reason": "Knee · Puoch (knee) is listed as out for Tuesday's game against Golden State.",
+        "updated": "2026-09-23",
+        "returnDate": "2027-05-01",
+        "matchup": "",
+        "gameTime": "",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null,
+        "officialCurrentReport": false,
+        "crossCheckOnly": true
       },
       {
         "player": "Zia Cooke",
@@ -1493,329 +1521,18 @@
         "crossCheckOnly": false
       },
       {
-        "player": "Aaliyah Nye",
-        "team": "Los Angeles Sparks",
-        "status": "OUT",
-        "reason": "Injury/Illness - Left Ankle; L Ankle",
-        "gameDate": "09/22/2026",
-        "gameTime": "10:00 (ET)",
-        "matchup": "LAS@LVA",
-        "updated": "2026-09-22",
-        "source": "Official WNBA Injury Report PDF",
-        "officialCurrentReport": true,
-        "crossCheckOnly": false
-      },
-      {
-        "player": "Aicha Coulibaly",
-        "team": "",
-        "status": "OUT",
-        "reason": "Injury/Illness - Right Knee; Right Knee",
-        "gameDate": "09/22/2026",
-        "gameTime": "08:00 (ET)",
-        "matchup": "TOR@CHI",
-        "updated": "2026-09-22",
-        "source": "Official WNBA Injury Report PDF",
-        "officialCurrentReport": true,
-        "crossCheckOnly": false
-      },
-      {
-        "player": "Anastasiia Olairi Kosu",
-        "team": "Minnesota Lynx",
-        "status": "OUT",
-        "reason": "Injury/Illness - Right Foot; Right foot",
-        "gameDate": "09/22/2026",
-        "gameTime": "08:00 (ET)",
-        "matchup": "MIN@IND",
-        "updated": "2026-09-22",
-        "source": "Official WNBA Injury Report PDF",
-        "officialCurrentReport": true,
-        "crossCheckOnly": false
-      },
-      {
-        "player": "Ariel Atkins",
-        "team": "Los Angeles Sparks",
-        "status": "PROBABLE",
-        "reason": "Injury/Illness - Illness; Illness",
-        "gameDate": "09/22/2026",
-        "gameTime": "10:00 (ET)",
-        "matchup": "LAS@LVA",
-        "updated": "2026-09-22",
-        "source": "Official WNBA Injury Report PDF",
-        "officialCurrentReport": true,
-        "crossCheckOnly": false
-      },
-      {
-        "player": "Azura Stevens",
-        "team": "",
-        "status": "OUT",
-        "reason": "Injury/Illness - Right Knee; Right Knee",
-        "gameDate": "09/22/2026",
-        "gameTime": "08:00 (ET)",
-        "matchup": "TOR@CHI",
-        "updated": "2026-09-22",
-        "source": "Official WNBA Injury Report PDF",
-        "officialCurrentReport": true,
-        "crossCheckOnly": false
-      },
-      {
-        "player": "Bridget Carleton",
-        "team": "Portland Fire",
-        "status": "QUESTIONABLE",
-        "reason": "Injury/Illness - Left Ankle; Injury",
-        "gameDate": "09/22/2026",
-        "gameTime": "10:00 (ET)",
-        "matchup": "GSV@PDX",
-        "updated": "2026-09-22",
-        "source": "Official WNBA Injury Report PDF",
-        "officialCurrentReport": true,
-        "crossCheckOnly": false
-      },
-      {
-        "player": "Brittney Griner",
-        "team": "Connecticut Sun",
-        "status": "OUT",
-        "reason": "Injury/Illness - Left Knee; -",
-        "gameDate": "09/22/2026",
-        "gameTime": "07:30 (ET)",
-        "matchup": "CON@WAS",
-        "updated": "2026-09-22",
-        "source": "Official WNBA Injury Report PDF",
-        "officialCurrentReport": true,
-        "crossCheckOnly": false
-      },
-      {
-        "player": "Cameron Brink",
-        "team": "Los Angeles Sparks",
-        "status": "OUT",
-        "reason": "Injury/Illness - Right Ankle; R Ankle",
-        "gameDate": "09/22/2026",
-        "gameTime": "10:00 (ET)",
-        "matchup": "LAS@LVA",
-        "updated": "2026-09-22",
-        "source": "Official WNBA Injury Report PDF",
-        "officialCurrentReport": true,
-        "crossCheckOnly": false
-      },
-      {
-        "player": "Dearica Hamby",
-        "team": "Los Angeles Sparks",
-        "status": "OUT",
-        "reason": "Injury/Illness - Left Knee; L Knee",
-        "gameDate": "09/22/2026",
-        "gameTime": "10:00 (ET)",
-        "matchup": "LAS@LVA",
-        "updated": "2026-09-22",
-        "source": "Official WNBA Injury Report PDF",
-        "officialCurrentReport": true,
-        "crossCheckOnly": false
-      },
-      {
-        "player": "DiJonai Carrington",
-        "team": "Chicago Sky",
-        "status": "OUT",
-        "reason": "Injury/Illness - Left Foot; Left Foot",
-        "gameDate": "09/22/2026",
-        "gameTime": "08:00 (ET)",
-        "matchup": "TOR@CHI",
-        "updated": "2026-09-22",
-        "source": "Official WNBA Injury Report PDF",
-        "officialCurrentReport": true,
-        "crossCheckOnly": false
-      },
-      {
-        "player": "Elena Buenavida",
-        "team": "Minnesota Lynx",
-        "status": "OUT",
-        "reason": "Coach's Decision",
-        "gameDate": "09/22/2026",
-        "gameTime": "08:00 (ET)",
-        "matchup": "MIN@IND",
-        "updated": "2026-09-22",
-        "source": "Official WNBA Injury Report PDF",
-        "officialCurrentReport": true,
-        "crossCheckOnly": false
-      },
-      {
-        "player": "Hailey Van Lith",
-        "team": "Connecticut Sun",
-        "status": "OUT",
-        "reason": "Coach's Decision",
-        "gameDate": "09/22/2026",
-        "gameTime": "07:30 (ET)",
-        "matchup": "CON@WAS",
-        "updated": "2026-09-22",
-        "source": "Official WNBA Injury Report PDF",
-        "officialCurrentReport": true,
-        "crossCheckOnly": false
-      },
-      {
-        "player": "Holly Winterburn",
-        "team": "Portland Fire",
-        "status": "QUESTIONABLE",
-        "reason": "Injury/Illness - Lumbar Spine; Injury",
-        "gameDate": "09/22/2026",
-        "gameTime": "10:00 (ET)",
-        "matchup": "GSV@PDX",
-        "updated": "2026-09-22",
-        "source": "Official WNBA Injury Report PDF",
-        "officialCurrentReport": true,
-        "crossCheckOnly": false
-      },
-      {
-        "player": "Jordan Harrison",
-        "team": "Portland Fire",
-        "status": "PROBABLE",
-        "reason": "Injury/Illness - Right Ankle; Injury",
-        "gameDate": "09/22/2026",
-        "gameTime": "10:00 (ET)",
-        "matchup": "GSV@PDX",
-        "updated": "2026-09-22",
-        "source": "Official WNBA Injury Report PDF",
-        "officialCurrentReport": true,
-        "crossCheckOnly": false
-      },
-      {
-        "player": "Kamila Borkowska",
-        "team": "Toronto Tempo",
-        "status": "OUT",
-        "reason": "Coach's Decision",
-        "gameDate": "09/22/2026",
-        "gameTime": "08:00 (ET)",
-        "matchup": "TOR@CHI",
-        "updated": "2026-09-22",
-        "source": "Official WNBA Injury Report PDF",
-        "officialCurrentReport": true,
-        "crossCheckOnly": false
-      },
-      {
-        "player": "Kennedy Burke",
-        "team": "Connecticut Sun",
-        "status": "OUT",
-        "reason": "Injury/Illness - Right Shoulder; -",
-        "gameDate": "09/22/2026",
-        "gameTime": "07:30 (ET)",
-        "matchup": "CON@WAS",
-        "updated": "2026-09-22",
-        "source": "Official WNBA Injury Report PDF",
-        "officialCurrentReport": true,
-        "crossCheckOnly": false
-      },
-      {
-        "player": "Maria Gakdeng",
-        "team": "Toronto Tempo",
-        "status": "OUT",
-        "reason": "Coach's Decision",
-        "gameDate": "09/22/2026",
-        "gameTime": "08:00 (ET)",
-        "matchup": "TOR@CHI",
-        "updated": "2026-09-22",
-        "source": "Official WNBA Injury Report PDF",
-        "officialCurrentReport": true,
-        "crossCheckOnly": false
-      },
-      {
-        "player": "Monique Akoa Makani",
-        "team": "Los Angeles Sparks",
-        "status": "PROBABLE",
-        "reason": "Injury/Illness - Left thigh; L thigh",
-        "gameDate": "09/22/2026",
-        "gameTime": "10:00 (ET)",
-        "matchup": "LAS@LVA",
-        "updated": "2026-09-22",
-        "source": "Official WNBA Injury Report PDF",
-        "officialCurrentReport": true,
-        "crossCheckOnly": false
-      },
-      {
-        "player": "Natasha Cloud",
-        "team": "Chicago Sky",
-        "status": "OUT",
-        "reason": "Injury/Illness - Left Knee; Left Knee",
-        "gameDate": "09/22/2026",
-        "gameTime": "08:00 (ET)",
-        "matchup": "TOR@CHI",
-        "updated": "2026-09-22",
-        "source": "Official WNBA Injury Report PDF",
-        "officialCurrentReport": true,
-        "crossCheckOnly": false
-      },
-      {
-        "player": "Olivia Miles",
-        "team": "Minnesota Lynx",
-        "status": "OUT",
-        "reason": "Injury/Illness - Left Calf; Left calf",
-        "gameDate": "09/22/2026",
-        "gameTime": "08:00 (ET)",
-        "matchup": "MIN@IND",
-        "updated": "2026-09-22",
-        "source": "Official WNBA Injury Report PDF",
-        "officialCurrentReport": true,
-        "crossCheckOnly": false
-      },
-      {
-        "player": "Olivia Nelson- Ododa",
-        "team": "Connecticut Sun",
-        "status": "OUT",
-        "reason": "Injury/Illness - Right Knee; -",
-        "gameDate": "09/22/2026",
-        "gameTime": "07:30 (ET)",
-        "matchup": "CON@WAS",
-        "updated": "2026-09-22",
-        "source": "Official WNBA Injury Report PDF",
-        "officialCurrentReport": true,
-        "crossCheckOnly": false
-      },
-      {
-        "player": "Sania Feagin",
-        "team": "Portland Fire",
-        "status": "OUT",
-        "reason": "Injury/Illness - Left Knee; Injury",
-        "gameDate": "09/22/2026",
-        "gameTime": "10:00 (ET)",
-        "matchup": "GSV@PDX",
-        "updated": "2026-09-22",
-        "source": "Official WNBA Injury Report PDF",
-        "officialCurrentReport": true,
-        "crossCheckOnly": false
-      },
-      {
-        "player": "Saniya Rivers",
-        "team": "Connecticut Sun",
-        "status": "OUT",
-        "reason": "Injury/Illness - Left Ankle; -",
-        "gameDate": "09/22/2026",
-        "gameTime": "07:30 (ET)",
-        "matchup": "CON@WAS",
-        "updated": "2026-09-22",
-        "source": "Official WNBA Injury Report PDF",
-        "officialCurrentReport": true,
-        "crossCheckOnly": false
-      },
-      {
         "player": "Teja Oblak",
         "team": "Portland Fire",
         "status": "OUT",
-        "reason": "Injury/Illness - Left Knee; Injury",
-        "gameDate": "09/22/2026",
-        "gameTime": "10:00 (ET)",
-        "matchup": "GSV@PDX",
-        "updated": "2026-09-22",
-        "source": "Official WNBA Injury Report PDF",
-        "officialCurrentReport": true,
-        "crossCheckOnly": false
-      },
-      {
-        "player": "Temi Fagbenle",
-        "team": "Toronto Tempo",
-        "status": "OUT",
-        "reason": "Personal Reasons",
-        "gameDate": "09/22/2026",
-        "gameTime": "08:00 (ET)",
-        "matchup": "TOR@CHI",
-        "updated": "2026-09-22",
-        "source": "Official WNBA Injury Report PDF",
-        "officialCurrentReport": true,
-        "crossCheckOnly": false
+        "reason": "Knee · Oblak (knee) has been ruled out for Tuesday's game against the Valkyries.",
+        "updated": "2026-09-21",
+        "returnDate": "2027-05-01",
+        "matchup": "",
+        "gameTime": "",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null,
+        "officialCurrentReport": false,
+        "crossCheckOnly": true
       },
       {
         "player": "Marina Mabrey",
@@ -1941,6 +1658,20 @@
         "seasonLongCarryover": true
       },
       {
+        "player": "Luisa Geiselsoder",
+        "team": "Portland Fire",
+        "status": "OUT",
+        "reason": "Personal · Geiselsoder (personal) won't return this season, according to Sean Highkin of RoseGardenReport.com.",
+        "updated": "2026-08-08",
+        "returnDate": "2027-05-01",
+        "matchup": "",
+        "gameTime": "",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null,
+        "officialCurrentReport": false,
+        "crossCheckOnly": true
+      },
+      {
         "player": "Damiris Dantas",
         "team": "Indiana Fever",
         "status": "OUT FOR SEASON",
@@ -1954,13 +1685,16 @@
       {
         "player": "Sarah Ashlee Barker",
         "team": "Portland Fire",
-        "status": "OUT FOR SEASON",
-        "reason": "Knee · torn ACL",
-        "updated": "2026-07-25",
-        "source": "WNBA Injury Report",
+        "status": "OUT",
+        "reason": "Knee · The Fire announced Friday that Barker will undergo surgery to repair a torn ACL and will miss the remainder of the 2026 campaign.",
+        "updated": "2026-07-24",
+        "returnDate": "2027-05-01",
+        "matchup": "",
+        "gameTime": "",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null,
         "officialCurrentReport": false,
-        "trackedCarryover": true,
-        "seasonLongCarryover": true
+        "crossCheckOnly": true
       },
       {
         "player": "Janiah Barker",
@@ -1974,11 +1708,11 @@
         "seasonLongCarryover": true
       },
       {
-        "player": "Jovana Nogic",
-        "team": "Phoenix Mercury",
+        "player": "Sania Feagin",
+        "team": "Portland Fire",
         "status": "OUT",
-        "reason": "Not Injury Related · Nogic (not injury related) intends to play professionally in Russia and won't return to Phoenix this season, Aya Abdeen of TheIXSports.com reports.",
-        "updated": "2026-06-28",
+        "reason": "Knee · Feagin (knee) was diagnosed with a torn left ACL on Thursday and will miss the rest of the 2026 campaign, WNBA reporter Kareem Copeland reports.",
+        "updated": "2026-07-09",
         "returnDate": "2027-05-01",
         "matchup": "",
         "gameTime": "",
@@ -2021,7 +1755,88 @@
         "seasonLongCarryover": true
       }
     ],
-    "teamStatuses": []
+    "teamStatuses": [
+      {
+        "team": "Chicago Sky",
+        "status": "NOT YET SUBMITTED",
+        "gameDate": "09/24/2026",
+        "gameTime": "07:30 (ET)",
+        "matchup": "CHI@WAS",
+        "updated": "2026-09-24"
+      },
+      {
+        "team": "Connecticut Sun",
+        "status": "NOT YET SUBMITTED",
+        "gameDate": "09/24/2026",
+        "gameTime": "07:00 (ET)",
+        "matchup": "TOR@CON",
+        "updated": "2026-09-24"
+      },
+      {
+        "team": "Golden State Valkyries",
+        "status": "NOT YET SUBMITTED",
+        "gameDate": "09/24/2026",
+        "gameTime": "10:00 (ET)",
+        "matchup": "GSV@LAS",
+        "updated": "2026-09-24"
+      },
+      {
+        "team": "Indiana Fever",
+        "status": "NOT YET SUBMITTED",
+        "gameDate": "09/24/2026",
+        "gameTime": "08:00 (ET)",
+        "matchup": "IND@MIN",
+        "updated": "2026-09-24"
+      },
+      {
+        "team": "Las Vegas Aces",
+        "status": "NOT YET SUBMITTED",
+        "gameDate": "09/24/2026",
+        "gameTime": "10:00 (ET)",
+        "matchup": "LVA@PHX",
+        "updated": "2026-09-24"
+      },
+      {
+        "team": "Los Angeles Sparks",
+        "status": "NOT YET SUBMITTED",
+        "gameDate": "09/24/2026",
+        "gameTime": "10:00 (ET)",
+        "matchup": "GSV@LAS",
+        "updated": "2026-09-24"
+      },
+      {
+        "team": "Minnesota Lynx",
+        "status": "NOT YET SUBMITTED",
+        "gameDate": "09/24/2026",
+        "gameTime": "08:00 (ET)",
+        "matchup": "IND@MIN",
+        "updated": "2026-09-24"
+      },
+      {
+        "team": "Phoenix Mercury",
+        "status": "NOT YET SUBMITTED",
+        "gameDate": "09/24/2026",
+        "gameTime": "10:00 (ET)",
+        "matchup": "LVA@PHX",
+        "updated": "2026-09-24"
+      },
+      {
+        "team": "Toronto Tempo",
+        "status": "NOT YET SUBMITTED",
+        "gameDate": "09/24/2026",
+        "gameTime": "07:00 (ET)",
+        "matchup": "TOR@CON",
+        "updated": "2026-09-24"
+      },
+      {
+        "team": "Washington Mystics",
+        "status": "NOT YET SUBMITTED",
+        "gameDate": "09/24/2026",
+        "gameTime": "07:30 (ET)",
+        "matchup": "CHI@WAS",
+        "updated": "2026-09-24"
+      }
+    ]
   },
   "errors": []
 }

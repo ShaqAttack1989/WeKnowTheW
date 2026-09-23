@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-23T16:49:52.331Z",
+  "generatedAt": "2026-09-23T20:15:30.241Z",
   "movement": {
     "latestTransactionDate": "2026-09-20",
     "transactions": [
@@ -1411,8 +1411,8 @@
   },
   "availability": {
     "latestReportDate": "2026-09-23",
-    "reportLabel": "09/23/2026 12:45 PM ET",
-    "officialPdf": "https://ak-static.cms.nba.com/referee/wnba_injury/Injury-Report_2026-09-23_12_45PM.pdf",
+    "reportLabel": "09/23/2026 04:15 PM ET",
+    "officialPdf": "https://ak-static.cms.nba.com/referee/wnba_injury/Injury-Report_2026-09-23_04_15PM.pdf",
     "injuries": [
       {
         "player": "Alanna Smith",
@@ -1435,6 +1435,19 @@
         "gameDate": "09/23/2026",
         "gameTime": "10:00 (ET)",
         "matchup": "DAL@SEA",
+        "updated": "2026-09-23",
+        "source": "Official WNBA Injury Report PDF",
+        "officialCurrentReport": true,
+        "crossCheckOnly": false
+      },
+      {
+        "player": "Breanna Stewart",
+        "team": "New York Liberty",
+        "status": "QUESTIONABLE",
+        "reason": "Injury/Illness - Left Knee; Soreness",
+        "gameDate": "09/23/2026",
+        "gameTime": "08:00 (ET)",
+        "matchup": "ATL@NYL",
         "updated": "2026-09-23",
         "source": "Official WNBA Injury Report PDF",
         "officialCurrentReport": true,
@@ -1826,14 +1839,6 @@
         "gameDate": "09/24/2026",
         "gameTime": "07:00 (ET)",
         "matchup": "TOR@CON",
-        "updated": "2026-09-24"
-      },
-      {
-        "team": "Washington Mystics",
-        "status": "NOT YET SUBMITTED",
-        "gameDate": "09/24/2026",
-        "gameTime": "07:30 (ET)",
-        "matchup": "CHI@WAS",
         "updated": "2026-09-24"
       }
     ]

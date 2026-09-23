@@ -2,6 +2,197 @@
   "site": "Snack Shak",
   "posts": [
     {
+      "slug": "lynx-fever-bench-test-2026",
+      "type": "feature",
+      "priority": 1800,
+      "homepageSeason": "wnba-playoffs",
+      "seriesLabel": "FOOD FOR THOUGHT · PLAYOFF BENCH TEST",
+      "title": "The Fever Got the Bench. What Did Minnesota Actually Give Away?",
+      "published": "2026-09-23",
+      "updated": "2026-09-23",
+      "week": "Final week · bench check",
+      "dashboardUrl": "/food-for-thought.html?post=lynx-fever-bench-test-2026#story",
+      "image": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1642286.png",
+      "storyImage": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1642286.png",
+      "storyImageSourceUrl": "https://www.wnba.com/game/1022600320",
+      "imageAlt": "Official WNBA headshot of Indiana Fever guard Caitlin Clark",
+      "storyImageCaption": "Indiana beat Minnesota 96-77 on Sept. 22. Image: official WNBA player media.",
+      "teams": [
+        "Minnesota Lynx",
+        "Indiana Fever",
+        "Golden State Valkyries",
+        "New York Liberty",
+        "Dallas Wings",
+        "Las Vegas Aces",
+        "Washington Mystics",
+        "Atlanta Dream"
+      ],
+      "players": [
+        "Caitlin Clark",
+        "Kelsey Mitchell",
+        "Olivia Miles",
+        "Chloe Bibby",
+        "Liatu King",
+        "Janelle Salaun",
+        "Marine Johannes",
+        "Sophie Cunningham",
+        "Jewell Loyd"
+      ],
+      "dek": "Indiana needed the win. Minnesota needed to get healthy. By halftime, those priorities were obvious. The Fever took the 96-77 win, but the second half became something else: a live playoff-depth test.",
+      "rankings": [
+        {
+          "rank": 1,
+          "team": "Golden State Valkyries",
+          "movement": "36.1 bench PPG",
+          "note": "The deepest playoff bench by a mile. Janelle Salaun is a Sixth Player favorite, Tiffany Hayes brings another veteran creator, and Golden State can change lineups without changing its identity."
+        },
+        {
+          "rank": 2,
+          "team": "New York Liberty",
+          "movement": "23.0 bench PPG",
+          "note": "Marine Johannes gives New York instant offense and movement. The Liberty second unit is efficient enough to survive short starter rests without asking one player to do everything."
+        },
+        {
+          "rank": 3,
+          "team": "Dallas Wings",
+          "movement": "21.6 bench PPG",
+          "note": "Dallas gets useful scoring and activity from its reserves. The question is how much of that survives when playoff rotations shrink."
+        },
+        {
+          "rank": 4,
+          "team": "Las Vegas Aces",
+          "movement": "21.4 bench PPG",
+          "note": "Jewell Loyd gives Vegas something most benches do not have: a former All-Star who can still take over possessions. The Aces do not need huge bench minutes, just dependable ones."
+        },
+        {
+          "rank": 5,
+          "team": "Indiana Fever",
+          "movement": "21.1 bench PPG",
+          "note": "Sophie Cunningham keeps pace and spacing around the stars. Indiana's bench is not the headline, but it can keep the offense from falling off a cliff."
+        },
+        {
+          "rank": 6,
+          "team": "Washington Mystics",
+          "movement": "20.3 bench PPG",
+          "note": "Young, physical and willing to defend. Washington's depth matters because the Mystics can keep size on the floor when the starters sit."
+        },
+        {
+          "rank": 7,
+          "team": "Atlanta Dream",
+          "movement": "17.9 bench PPG",
+          "note": "Atlanta leans harder on its starting group. The bench has been efficient, but the playoff question is whether it can buy enough clean minutes for the stars."
+        },
+        {
+          "rank": 8,
+          "team": "Minnesota Lynx",
+          "movement": "14.3 bench PPG",
+          "note": "Lowest regular-season bench scoring among the playoff field, but Tuesday showed why raw bench PPG can lie. Minnesota's reserves cut a 29-point hole to eight before Indiana's starters closed it out."
+        }
+      ],
+      "storyTable": {
+        "columns": [
+          "Sixth woman",
+          "Team",
+          "Bench case",
+          "Playoff job"
+        ],
+        "rows": [
+          [
+            "Janelle Salaun",
+            "Golden State",
+            "12.9 PPG, 39.7% from three, league-leading 492 bench points",
+            "Primary second-unit scorer and a real late-game option"
+          ],
+          [
+            "Marine Johannes",
+            "New York",
+            "8.7 PPG with playmaking and movement shooting",
+            "Change the geometry of the floor when New York gets sticky"
+          ],
+          [
+            "Sophie Cunningham",
+            "Indiana",
+            "8.3 PPG in bench games, 43%+ from three",
+            "Keep pace, spacing and edge around Clark and Mitchell"
+          ],
+          [
+            "Jewell Loyd",
+            "Las Vegas",
+            "Veteran shot creation from the second unit",
+            "Give Vegas a scorer who does not need the starters to create her look"
+          ]
+        ]
+      },
+      "sections": [
+        {
+          "title": "Did Minnesota prioritize rest?",
+          "paragraphs": [
+            "Not from the opening tip. Olivia Miles was already out with a calf injury, but Minnesota started Napheesa Collier, Kayla McBride, Courtney Williams and the rest of its available first unit. Indiana then punched them in the mouth. The Fever led 31-16 after one quarter and pushed the margin to 29 in the first half.",
+            "That is when Cheryl Reeve changed the assignment. She sat her starters for most of the final two and a half quarters because she did not want to risk another injury. So yes, rest and health became the priority, but only after Indiana had already taken control. Calling the entire win gift wrapped lets Minnesota's starters off too easily."
+          ]
+        },
+        {
+          "title": "Still, Indiana got a very nice gift",
+          "paragraphs": [
+            "Indiana needed this one to keep its home-court hopes alive. Instead of spending 40 minutes dealing with Minnesota's best five, the Fever spent most of the second half playing the Lynx reserves.",
+            "The funny part is that the bench made Indiana work. Chloe Bibby hit five threes and scored 15. Liatu King had 12 points, four rebounds and three steals. Aari McDonald added 10 points and five assists. Minnesota cut a 29-point deficit to eight before Caitlin Clark, Kelsey Mitchell and Aliyah Boston finally shut the door."
+          ]
+        },
+        {
+          "title": "That is the part Minnesota should keep",
+          "paragraphs": [
+            "The loss matters because the No. 1 seed still is not clinched. The way the bench responded matters for a different reason. Playoff benches are not supposed to win four-minute stretches by accident. They have to survive foul trouble, injuries and the ugly minutes when a starter needs air.",
+            "Minnesota ranks last among the eight playoff teams in regular-season bench scoring. Tuesday did not magically make the Lynx the deepest team in the field. It did show that their reserves can defend, run and drag a game back into range when the stars are sitting."
+          ]
+        },
+        {
+          "title": "Golden State has the bench everybody else has to answer",
+          "paragraphs": [
+            "Golden State is in its own category. The Valkyries are around 36 bench points per game, roughly 13 more than the next playoff team. Janelle Salaun has 492 points off the bench, the most in the league, while shooting 39.7 percent from three.",
+            "That depth already mattered after Berlin. With several World Cup players resting, Golden State still beat Portland 82-66 behind Laeticia Amihere and Kaitlyn Chen. That is not emergency depth. That is part of the system."
+          ]
+        },
+        {
+          "title": "The Sixth Woman board",
+          "paragraphs": [
+            "Salaun is the standard here. ESPN's four-person awards panel unanimously picked her for Sixth Player of the Year, and the production backs up the attention. Marine Johannes gives New York a different kind of weapon, Sophie Cunningham keeps Indiana's second unit connected to its spacing, and Jewell Loyd gives Las Vegas a scorer with starter-level experience.",
+            "The playoffs will shrink rotations, but that makes these players more important, not less. The question is not who has ten playable bodies. It is who has a sixth and seventh player a coach actually trusts when the game gets tight."
+          ]
+        },
+        {
+          "title": "Shak's read",
+          "paragraphs": [
+            "Indiana earned the lead. Minnesota chose not to chase it with its starters. Both things can be true.",
+            "The Fever got exactly what they needed: a win without having to beat Minnesota's best lineup for four quarters. The Lynx got something too: a long look at the players who may have to save a playoff possession, a quarter or a game when the plan goes sideways.",
+            "Thursday's rematch is the one that tells us more. If Minnesota brings the full group and treats it like a playoff tune-up, then we finally get the matchup Tuesday was supposed to be."
+          ]
+        }
+      ],
+      "debates": [
+        "Did Minnesota make the right call pulling the starters?",
+        "Which playoff bench do you trust most for a seven-minute stretch?",
+        "Would you rather have one elite sixth woman or three dependable reserves?"
+      ],
+      "sources": [
+        {
+          "label": "WNBA game recap · Indiana 96, Minnesota 77",
+          "url": "https://www.wnba.com/watch/video/game-recap-indiana-fever-96-minnesota-lynx-77-09-22-2026"
+        },
+        {
+          "label": "WNBA game page · Lynx at Fever",
+          "url": "https://www.wnba.com/game/1022600320"
+        },
+        {
+          "label": "2026 playoff bench totals · RealGM",
+          "url": "https://basketball.realgm.com/wnba/team-stats/2027/Totals/Team_Bench/Regular_Season"
+        },
+        {
+          "label": "ESPN · 2026 Sixth Player ballot",
+          "url": "https://www.espn.com/wnba/story/_/id/49013337/wnba-2026-awards-mvp-rookie-year-coach-dpoy-most-improved-sixth-woman"
+        }
+      ]
+    },
+    {
       "slug": "seats-are-moving-playoff-race-sept22-2026",
       "type": "byte",
       "priority": 1750,

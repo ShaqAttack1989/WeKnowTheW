@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-24T14:58:24.561Z",
+  "generatedAt": "2026-09-24T19:04:22.785Z",
   "movement": {
     "latestTransactionDate": "2026-09-22",
     "transactions": [
@@ -1420,8 +1420,8 @@
   },
   "availability": {
     "latestReportDate": "2026-09-24",
-    "reportLabel": "09/24/2026 10:45 AM ET",
-    "officialPdf": "https://ak-static.cms.nba.com/referee/wnba_injury/Injury-Report_2026-09-24_10_45AM.pdf",
+    "reportLabel": "09/24/2026 03:00 PM ET",
+    "officialPdf": "https://ak-static.cms.nba.com/referee/wnba_injury/Injury-Report_2026-09-24_03_00PM.pdf",
     "injuries": [
       {
         "player": "Aaliyah Nye",
@@ -1584,7 +1584,7 @@
       {
         "player": "Maria Conde",
         "team": "Toronto Tempo",
-        "status": "QUESTIONABLE",
+        "status": "OUT",
         "reason": "Injury/Illness - Back; Injury",
         "gameDate": "09/24/2026",
         "gameTime": "07:00 (ET)",

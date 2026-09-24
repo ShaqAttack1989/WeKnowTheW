@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-24T19:04:22.785Z",
+  "generatedAt": "2026-09-24T22:18:20.404Z",
   "movement": {
     "latestTransactionDate": "2026-09-22",
     "transactions": [
@@ -1420,8 +1420,8 @@
   },
   "availability": {
     "latestReportDate": "2026-09-24",
-    "reportLabel": "09/24/2026 03:00 PM ET",
-    "officialPdf": "https://ak-static.cms.nba.com/referee/wnba_injury/Injury-Report_2026-09-24_03_00PM.pdf",
+    "reportLabel": "09/24/2026 06:15 PM ET",
+    "officialPdf": "https://ak-static.cms.nba.com/referee/wnba_injury/Injury-Report_2026-09-24_06_15PM.pdf",
     "injuries": [
       {
         "player": "Aaliyah Nye",
@@ -1523,6 +1523,19 @@
         "gameDate": "09/24/2026",
         "gameTime": "10:00 (ET)",
         "matchup": "GSV@LAS",
+        "updated": "2026-09-24",
+        "source": "Official WNBA Injury Report PDF",
+        "officialCurrentReport": true,
+        "crossCheckOnly": false
+      },
+      {
+        "player": "Dana Evans",
+        "team": "Las Vegas Aces",
+        "status": "OUT",
+        "reason": "Injury/Illness - Right Knee; R. Knee",
+        "gameDate": "09/24/2026",
+        "gameTime": "10:00 (ET)",
+        "matchup": "LVA@PHX",
         "updated": "2026-09-24",
         "source": "Official WNBA Injury Report PDF",
         "officialCurrentReport": true,

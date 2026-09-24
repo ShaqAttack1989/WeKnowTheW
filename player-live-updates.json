@@ -1,100 +1,676 @@
 {
-  "updatedAt": "2026-09-16T22:50:00Z",
+  "updatedAt": "2026-09-24T10:30:00Z",
   "note": "Current-player movement and availability layer. Player Movement is maintained from the official WNBA Transactions report; Availability is maintained from the official WNBA Injury Report, with WNBA team releases used to confirm longer-term statuses.",
   "rosterOverrides": [
-    {"name":"Brittney Griner","team":"Connecticut Sun","position":"Center","number":"42","status":"active","effectiveDate":"2026-04-11","reason":"Signed a one-year contract with Connecticut; confirmed on the current official Sun roster."},
-    {"name":"Cheyenne Parker-Tyus","aliases":["Cheyenne Parker"],"team":"Las Vegas Aces","position":"Forward","number":"32","status":"active","effectiveDate":"2026-04-18","reason":"Confirmed on the current official Las Vegas Aces roster."},
-    {"name":"Nia Coffey","team":"Minnesota Lynx","position":"Forward","number":"12","status":"active","effectiveDate":"2026-08-22","reason":"Confirmed on the current official Minnesota Lynx roster."},
-    {"name":"Haley Jones","team":"Dallas Wings","position":"Forward-Guard","number":"30","status":"development","effectiveDate":"2026-08-22","reason":"Confirmed as a developmental player on the current official Dallas Wings roster."},
-    {"name":"Naz Hillmon","team":"Atlanta Dream","position":"Forward","number":"00","status":"active","effectiveDate":"2026-08-22","reason":"Confirmed on the current official Atlanta Dream roster."},
-    {"name":"Te-Hina Paopao","team":"Atlanta Dream","position":"Guard","number":"2","status":"active","effectiveDate":"2026-08-22","reason":"Confirmed on the current official Atlanta Dream roster."},
-    {"name":"Jordin Canada","team":"Atlanta Dream","position":"Guard","number":"3","status":"active","effectiveDate":"2026-08-22","reason":"Confirmed on the current official Atlanta Dream roster."},
-    {"name": "Jaylyn Sherrod", "team": "", "position": "Guard", "number": "4", "status": "waived", "effectiveDate": "2026-08-27", "reason": "Waived by Atlanta in its announcement of DeWanna Bonner’s signing.", "lastTeam": "Atlanta Dream", "sourceUrl": "https://dream.wnba.com/news/atlanta-dream-signs-two-time-wnba-champion-dewanna-bonner"},
-    {"name":"Angel Reese","team":"Atlanta Dream","position":"Forward","number":"5","status":"active","effectiveDate":"2026-08-22","reason":"Confirmed on the current official Atlanta Dream roster."},
-    {"name":"Rhyne Howard","team":"Atlanta Dream","position":"Guard","number":"10","status":"active","effectiveDate":"2026-08-22","reason":"Confirmed on the current official Atlanta Dream roster."},
-    {"name":"Madina Okot","team":"Atlanta Dream","position":"Center","number":"11","status":"active","effectiveDate":"2026-08-22","reason":"Confirmed on the current official Atlanta Dream roster."},
-    {"name":"Allisha Gray","team":"Atlanta Dream","position":"Guard","number":"15","status":"active","effectiveDate":"2026-08-22","reason":"Confirmed on the current official Atlanta Dream roster."},
-    {"name":"Isobel Borlase","team":"Atlanta Dream","position":"Guard","number":"20","status":"active","effectiveDate":"2026-08-22","reason":"Confirmed on the current official Atlanta Dream roster."},
-    {"name":"Indya Nivar","team":"Atlanta Dream","position":"Guard","number":"21","status":"development","effectiveDate":"2026-08-22","reason":"Confirmed as a developmental player on the current official Atlanta Dream roster."},
-    {"name":"Sika Kone","team":"Atlanta Dream","position":"Forward","number":"23","status":"active","effectiveDate":"2026-08-22","reason":"Confirmed on the current official Atlanta Dream roster."},
-    {"name": "Aaliyah Nye", "team": "", "position": "Guard-Forward", "number": "32", "status": "waived", "effectiveDate": "2026-08-27", "reason": "Waived by Atlanta in its announcement of DeWanna Bonner’s signing.", "lastTeam": "Atlanta Dream", "sourceUrl": "https://dream.wnba.com/news/atlanta-dream-signs-two-time-wnba-champion-dewanna-bonner"},
-    {"name":"Shatori Walker-Kimbrough","team":"Atlanta Dream","position":"Guard","number":"33","status":"active","effectiveDate":"2026-08-22","reason":"Confirmed on the current official Atlanta Dream roster."},
-    {"name":"Brionna Jones","team":"Atlanta Dream","position":"Forward","number":"42","status":"active","effectiveDate":"2026-08-22","reason":"Confirmed on the current official Atlanta Dream roster."},
-    {"name":"Betnijah Laney-Hamilton","team":"Washington Mystics","position":"Guard-Forward","status":"active","effectiveDate":"2026-08-08","reason":"Claimed off waivers after New York release."},
-    {"name":"Rori Harmon","team":"Washington Mystics","position":"Guard","status":"development","effectiveDate":"2026-08-10","reason":"Signed a Player Development Contract with Washington after being waived on Aug. 8."},
-    {"name":"Chennedy Carter","team":"","position":"Guard","status":"waived","effectiveDate":"2026-07-07","reason":"Waived by the Las Vegas Aces."},
-    {"name":"Christyn Williams","team":"Dallas Wings","position":"Guard","status":"development","effectiveDate":"2026-08-14","reason":"Signed developmental player contract after playing for Greensboro Groove in the UPSHOT League."},
-    {"name":"Michelle Onyiah","team":"Indiana Fever","position":"Forward","status":"development","effectiveDate":"2026-07-31","reason":"Signed developmental player contract after playing for Charlotte Crown in the UPSHOT League."},
-    {"name":"Zaay Green","team":"Toronto Tempo","position":"Guard","status":"development","effectiveDate":"2026-08-12","reason":"Signed a developmental contract with Toronto."},
-    {"name":"Kelsey Plum","team":"Phoenix Mercury","position":"Guard","status":"active","effectiveDate":"2026-08-02","reason":"Traded from Los Angeles to Phoenix."},
-    {"name":"Monique Akoa Makani","team":"Los Angeles Sparks","position":"Guard","status":"active","effectiveDate":"2026-08-02","reason":"Acquired from Phoenix in the Kelsey Plum trade."},
-    {"name":"Aneesah Morrow","team":"Toronto Tempo","position":"Forward","status":"active","effectiveDate":"2026-07-31","reason":"Acquired from Connecticut before the 2026 trade deadline."}
+    {
+      "name": "Deja Kelly",
+      "team": "Dallas Wings",
+      "position": "Guard",
+      "number": "2",
+      "status": "development",
+      "effectiveDate": "2026-09-22",
+      "reason": "Signed a Developmental Player contract after leading Charlotte Crown to the inaugural UPSHOT League championship and earning Ann Meyers Drysdale Championship MVP honors.",
+      "sourceUrl": "https://www.oursportscentral.com/services/releases/dallas-wings-sign-deja-kelly-to-developmental-player-contract/n-6415741"
+    },
+    {
+      "name": "Brittney Griner",
+      "team": "Connecticut Sun",
+      "position": "Center",
+      "number": "42",
+      "status": "active",
+      "effectiveDate": "2026-04-11",
+      "reason": "Signed a one-year contract with Connecticut; confirmed on the current official Sun roster."
+    },
+    {
+      "name": "Cheyenne Parker-Tyus",
+      "aliases": [
+        "Cheyenne Parker"
+      ],
+      "team": "Las Vegas Aces",
+      "position": "Forward",
+      "number": "32",
+      "status": "active",
+      "effectiveDate": "2026-04-18",
+      "reason": "Confirmed on the current official Las Vegas Aces roster."
+    },
+    {
+      "name": "Nia Coffey",
+      "team": "Minnesota Lynx",
+      "position": "Forward",
+      "number": "12",
+      "status": "active",
+      "effectiveDate": "2026-08-22",
+      "reason": "Confirmed on the current official Minnesota Lynx roster."
+    },
+    {
+      "name": "Haley Jones",
+      "team": "Dallas Wings",
+      "position": "Forward-Guard",
+      "number": "30",
+      "status": "development",
+      "effectiveDate": "2026-08-22",
+      "reason": "Confirmed as a developmental player on the current official Dallas Wings roster."
+    },
+    {
+      "name": "Naz Hillmon",
+      "team": "Atlanta Dream",
+      "position": "Forward",
+      "number": "00",
+      "status": "active",
+      "effectiveDate": "2026-08-22",
+      "reason": "Confirmed on the current official Atlanta Dream roster."
+    },
+    {
+      "name": "Te-Hina Paopao",
+      "team": "Atlanta Dream",
+      "position": "Guard",
+      "number": "2",
+      "status": "active",
+      "effectiveDate": "2026-08-22",
+      "reason": "Confirmed on the current official Atlanta Dream roster."
+    },
+    {
+      "name": "Jordin Canada",
+      "team": "Atlanta Dream",
+      "position": "Guard",
+      "number": "3",
+      "status": "active",
+      "effectiveDate": "2026-08-22",
+      "reason": "Confirmed on the current official Atlanta Dream roster."
+    },
+    {
+      "name": "Jaylyn Sherrod",
+      "team": "",
+      "position": "Guard",
+      "number": "4",
+      "status": "waived",
+      "effectiveDate": "2026-08-27",
+      "reason": "Waived by Atlanta in its announcement of DeWanna Bonner’s signing.",
+      "lastTeam": "Atlanta Dream",
+      "sourceUrl": "https://dream.wnba.com/news/atlanta-dream-signs-two-time-wnba-champion-dewanna-bonner"
+    },
+    {
+      "name": "Angel Reese",
+      "team": "Atlanta Dream",
+      "position": "Forward",
+      "number": "5",
+      "status": "active",
+      "effectiveDate": "2026-08-22",
+      "reason": "Confirmed on the current official Atlanta Dream roster."
+    },
+    {
+      "name": "Rhyne Howard",
+      "team": "Atlanta Dream",
+      "position": "Guard",
+      "number": "10",
+      "status": "active",
+      "effectiveDate": "2026-08-22",
+      "reason": "Confirmed on the current official Atlanta Dream roster."
+    },
+    {
+      "name": "Madina Okot",
+      "team": "Atlanta Dream",
+      "position": "Center",
+      "number": "11",
+      "status": "active",
+      "effectiveDate": "2026-08-22",
+      "reason": "Confirmed on the current official Atlanta Dream roster."
+    },
+    {
+      "name": "Allisha Gray",
+      "team": "Atlanta Dream",
+      "position": "Guard",
+      "number": "15",
+      "status": "active",
+      "effectiveDate": "2026-08-22",
+      "reason": "Confirmed on the current official Atlanta Dream roster."
+    },
+    {
+      "name": "Isobel Borlase",
+      "team": "Atlanta Dream",
+      "position": "Guard",
+      "number": "20",
+      "status": "active",
+      "effectiveDate": "2026-08-22",
+      "reason": "Confirmed on the current official Atlanta Dream roster."
+    },
+    {
+      "name": "Indya Nivar",
+      "team": "Atlanta Dream",
+      "position": "Guard",
+      "number": "21",
+      "status": "development",
+      "effectiveDate": "2026-08-22",
+      "reason": "Confirmed as a developmental player on the current official Atlanta Dream roster."
+    },
+    {
+      "name": "Sika Kone",
+      "team": "Atlanta Dream",
+      "position": "Forward",
+      "number": "23",
+      "status": "active",
+      "effectiveDate": "2026-08-22",
+      "reason": "Confirmed on the current official Atlanta Dream roster."
+    },
+    {
+      "name": "Aaliyah Nye",
+      "team": "",
+      "position": "Guard-Forward",
+      "number": "32",
+      "status": "waived",
+      "effectiveDate": "2026-08-27",
+      "reason": "Waived by Atlanta in its announcement of DeWanna Bonner’s signing.",
+      "lastTeam": "Atlanta Dream",
+      "sourceUrl": "https://dream.wnba.com/news/atlanta-dream-signs-two-time-wnba-champion-dewanna-bonner"
+    },
+    {
+      "name": "Shatori Walker-Kimbrough",
+      "team": "Atlanta Dream",
+      "position": "Guard",
+      "number": "33",
+      "status": "active",
+      "effectiveDate": "2026-08-22",
+      "reason": "Confirmed on the current official Atlanta Dream roster."
+    },
+    {
+      "name": "Brionna Jones",
+      "team": "Atlanta Dream",
+      "position": "Forward",
+      "number": "42",
+      "status": "active",
+      "effectiveDate": "2026-08-22",
+      "reason": "Confirmed on the current official Atlanta Dream roster."
+    },
+    {
+      "name": "Betnijah Laney-Hamilton",
+      "team": "Washington Mystics",
+      "position": "Guard-Forward",
+      "status": "active",
+      "effectiveDate": "2026-08-08",
+      "reason": "Claimed off waivers after New York release."
+    },
+    {
+      "name": "Rori Harmon",
+      "team": "Washington Mystics",
+      "position": "Guard",
+      "status": "development",
+      "effectiveDate": "2026-08-10",
+      "reason": "Signed a Player Development Contract with Washington after being waived on Aug. 8."
+    },
+    {
+      "name": "Chennedy Carter",
+      "team": "",
+      "position": "Guard",
+      "status": "waived",
+      "effectiveDate": "2026-07-07",
+      "reason": "Waived by the Las Vegas Aces."
+    },
+    {
+      "name": "Christyn Williams",
+      "team": "Dallas Wings",
+      "position": "Guard",
+      "status": "development",
+      "effectiveDate": "2026-08-14",
+      "reason": "Signed developmental player contract after playing for Greensboro Groove in the UPSHOT League."
+    },
+    {
+      "name": "Michelle Onyiah",
+      "team": "Indiana Fever",
+      "position": "Forward",
+      "status": "development",
+      "effectiveDate": "2026-07-31",
+      "reason": "Signed developmental player contract after playing for Charlotte Crown in the UPSHOT League."
+    },
+    {
+      "name": "Zaay Green",
+      "team": "Toronto Tempo",
+      "position": "Guard",
+      "status": "development",
+      "effectiveDate": "2026-08-12",
+      "reason": "Signed a developmental contract with Toronto."
+    },
+    {
+      "name": "Kelsey Plum",
+      "team": "Phoenix Mercury",
+      "position": "Guard",
+      "status": "active",
+      "effectiveDate": "2026-08-02",
+      "reason": "Traded from Los Angeles to Phoenix."
+    },
+    {
+      "name": "Monique Akoa Makani",
+      "team": "Los Angeles Sparks",
+      "position": "Guard",
+      "status": "active",
+      "effectiveDate": "2026-08-02",
+      "reason": "Acquired from Phoenix in the Kelsey Plum trade."
+    },
+    {
+      "name": "Aneesah Morrow",
+      "team": "Toronto Tempo",
+      "position": "Forward",
+      "status": "active",
+      "effectiveDate": "2026-07-31",
+      "reason": "Acquired from Connecticut before the 2026 trade deadline."
+    }
   ],
   "photoRules": [
-    {"name":"Dana Evans","blockRosterApiPhoto":true,"preferDetailApiPhoto":true,"reason":"Roster-list artwork has been observed to resolve to the wrong person; use verified profile artwork or Commons instead."}
+    {
+      "name": "Dana Evans",
+      "blockRosterApiPhoto": true,
+      "preferDetailApiPhoto": true,
+      "reason": "Roster-list artwork has been observed to resolve to the wrong person; use verified profile artwork or Commons instead."
+    }
   ],
   "transactions": [
-    {"date":"2026-08-14","type":"SIGNED","player":"Christyn Williams","team":"Dallas Wings","detail":"Developmental player contract; moved up from Greensboro Groove (UPSHOT).","source":"WNBA Transactions Report"},
-    {"date":"2026-08-12","type":"SIGNED","player":"Zaay Green","team":"Toronto Tempo","detail":"Signed a developmental contract with Toronto.","source":"WNBA Transactions Report"},
-    {"date":"2026-08-10","type":"SIGNED","player":"Rori Harmon","team":"Washington Mystics","detail":"Signed a Player Development Contract with Washington.","source":"WNBA Transactions Report"},
-    {"date":"2026-08-08","type":"CLAIMED","player":"Betnijah Laney-Hamilton","team":"Washington Mystics","detail":"Claimed off waivers after release by New York.","source":"WNBA Transactions Report"},
-    {"date":"2026-08-08","type":"WAIVED","player":"Rori Harmon","team":"Washington Mystics","detail":"Waived to create roster space for Laney-Hamilton.","source":"WNBA Transactions Report"},
-    {"date":"2026-08-06","type":"WAIVED","player":"Betnijah Laney-Hamilton","team":"New York Liberty","detail":"Released; later claimed by Washington.","source":"WNBA Transactions Report"},
-    {"date":"2026-08-06","type":"SIGNED","player":"Marine Fauthoux","team":"New York Liberty","detail":"Developmental contract converted to a multiyear deal.","source":"WNBA Transactions Report"},
-    {"date":"2026-08-02","type":"TRADE","player":"Kelsey Plum","team":"Phoenix Mercury","detail":"Acquired from Los Angeles; Sparks received Monique Akoa Makani plus 2027 first- and 2028 second-round picks.","source":"WNBA Transactions Report"},
-    {"date":"2026-08-02","type":"TRADE","player":"Monique Akoa Makani","team":"Los Angeles Sparks","detail":"Acquired from Phoenix in the Kelsey Plum trade.","source":"WNBA Transactions Report"},
-    {"date":"2026-07-31","type":"SIGNED","player":"Michelle Onyiah","team":"Indiana Fever","detail":"Developmental player contract; first UPSHOT League player to earn a WNBA contract.","source":"WNBA Transactions Report"},
-    {"date":"2026-07-31","type":"TRADE","player":"Aneesah Morrow","team":"Toronto Tempo","detail":"Acquired from Connecticut for the rights to Maria Kliundikova and a 2028 second-round pick.","source":"WNBA Transactions Report"},
-    {"date":"2026-07-07","type":"WAIVED","player":"Chennedy Carter","team":"Las Vegas Aces","detail":"Waived by Las Vegas.","source":"WNBA Transactions Report"}
+    {
+      "date": "2026-09-22",
+      "type": "SIGNED",
+      "player": "Deja Kelly",
+      "team": "Dallas Wings",
+      "detail": "Developmental Player contract; joined Dallas after winning the inaugural UPSHOT League championship and Championship MVP with Charlotte Crown. Will wear No. 2.",
+      "source": "Dallas Wings"
+    },
+    {
+      "date": "2026-08-14",
+      "type": "SIGNED",
+      "player": "Christyn Williams",
+      "team": "Dallas Wings",
+      "detail": "Developmental player contract; moved up from Greensboro Groove (UPSHOT).",
+      "source": "WNBA Transactions Report"
+    },
+    {
+      "date": "2026-08-12",
+      "type": "SIGNED",
+      "player": "Zaay Green",
+      "team": "Toronto Tempo",
+      "detail": "Signed a developmental contract with Toronto.",
+      "source": "WNBA Transactions Report"
+    },
+    {
+      "date": "2026-08-10",
+      "type": "SIGNED",
+      "player": "Rori Harmon",
+      "team": "Washington Mystics",
+      "detail": "Signed a Player Development Contract with Washington.",
+      "source": "WNBA Transactions Report"
+    },
+    {
+      "date": "2026-08-08",
+      "type": "CLAIMED",
+      "player": "Betnijah Laney-Hamilton",
+      "team": "Washington Mystics",
+      "detail": "Claimed off waivers after release by New York.",
+      "source": "WNBA Transactions Report"
+    },
+    {
+      "date": "2026-08-08",
+      "type": "WAIVED",
+      "player": "Rori Harmon",
+      "team": "Washington Mystics",
+      "detail": "Waived to create roster space for Laney-Hamilton.",
+      "source": "WNBA Transactions Report"
+    },
+    {
+      "date": "2026-08-06",
+      "type": "WAIVED",
+      "player": "Betnijah Laney-Hamilton",
+      "team": "New York Liberty",
+      "detail": "Released; later claimed by Washington.",
+      "source": "WNBA Transactions Report"
+    },
+    {
+      "date": "2026-08-06",
+      "type": "SIGNED",
+      "player": "Marine Fauthoux",
+      "team": "New York Liberty",
+      "detail": "Developmental contract converted to a multiyear deal.",
+      "source": "WNBA Transactions Report"
+    },
+    {
+      "date": "2026-08-02",
+      "type": "TRADE",
+      "player": "Kelsey Plum",
+      "team": "Phoenix Mercury",
+      "detail": "Acquired from Los Angeles; Sparks received Monique Akoa Makani plus 2027 first- and 2028 second-round picks.",
+      "source": "WNBA Transactions Report"
+    },
+    {
+      "date": "2026-08-02",
+      "type": "TRADE",
+      "player": "Monique Akoa Makani",
+      "team": "Los Angeles Sparks",
+      "detail": "Acquired from Phoenix in the Kelsey Plum trade.",
+      "source": "WNBA Transactions Report"
+    },
+    {
+      "date": "2026-07-31",
+      "type": "SIGNED",
+      "player": "Michelle Onyiah",
+      "team": "Indiana Fever",
+      "detail": "Developmental player contract; first UPSHOT League player to earn a WNBA contract.",
+      "source": "WNBA Transactions Report"
+    },
+    {
+      "date": "2026-07-31",
+      "type": "TRADE",
+      "player": "Aneesah Morrow",
+      "team": "Toronto Tempo",
+      "detail": "Acquired from Connecticut for the rights to Maria Kliundikova and a 2028 second-round pick.",
+      "source": "WNBA Transactions Report"
+    },
+    {
+      "date": "2026-07-07",
+      "type": "WAIVED",
+      "player": "Chennedy Carter",
+      "team": "Las Vegas Aces",
+      "detail": "Waived by Las Vegas.",
+      "source": "WNBA Transactions Report"
+    }
   ],
   "injuries": [
-    {"player":"Aneesah Morrow","team":"Toronto Tempo","status":"OUT FOR SEASON","reason":"Left knee · ruled out for the remainder of the 2026 season","updated":"2026-08-23","source":"Toronto Tempo / Sandy Brondello","carryover":true},
-    {"player":"Brittney Sykes","team":"Toronto Tempo","status":"OUT FOR SEASON","reason":"Left foot · ruled out for the remainder of the 2026 season","updated":"2026-08-23","source":"Toronto Tempo / Sandy Brondello","carryover":true},
-    {"player":"NaLyssa Smith","team":"Las Vegas Aces","status":"OUT","reason":"Left knee · left the Aug. 23 game and did not return; evaluation pending","updated":"2026-08-23","source":"Las Vegas Aces game report","carryover":true},
-    {"player":"Azzi Fudd","team":"Dallas Wings","status":"OUT FOR SEASON","reason":"Right knee · arthroscopic procedure; will miss the remainder of the 2026 season","updated":"2026-08-19","source":"WNBA Injury Report / Dallas Wings"},
-    {"player":"Rickea Jackson","team":"Chicago Sky","status":"OUT FOR SEASON","reason":"Left knee · torn ACL","updated":"2026-05-19","source":"WNBA Injury Report"},
-    {"player":"Janiah Barker","team":"Las Vegas Aces","status":"OUT FOR SEASON","reason":"Leg","updated":"2026-07-15","source":"WNBA Injury Report"},
-    {"player":"Ema Cechova","team":"Minnesota Lynx","status":"OUT FOR SEASON","reason":"Right knee · torn ACL","updated":"2026-05-15","source":"WNBA Injury Report"},
-    {"player":"Sarah Ashlee Barker","team":"Portland Fire","status":"OUT FOR SEASON","reason":"Knee · torn ACL","updated":"2026-07-25","source":"WNBA Injury Report"},
-    {"player":"Sania Feagin","team":"Portland Fire","status":"OUT FOR SEASON","reason":"Left knee · torn ACL","updated":"2026-07-08","source":"WNBA Injury Report"},
-    {"player":"Iliana Rupert","team":"Golden State Valkyries","status":"OUT FOR SEASON","reason":"Pregnancy","updated":"2026-05-28","source":"WNBA Injury Report"},
-    {"player":"Damiris Dantas","team":"Indiana Fever","status":"OUT FOR SEASON","reason":"Knee · meniscus surgery","updated":"2026-08-04","source":"WNBA Injury Report"},
-
-    {"player":"Satou Sabally","team":"New York Liberty","status":"NWT","reason":"Head","updated":"2026-08-21","source":"WNBA Injury Report"},
-    {"player":"Leonie Fiebich","team":"New York Liberty","status":"QUESTIONABLE","reason":"Left foot","updated":"2026-08-21","source":"WNBA Injury Report"},
-    {"player":"Jonquel Jones","team":"New York Liberty","status":"QUESTIONABLE","reason":"Left ankle","updated":"2026-08-21","source":"WNBA Injury Report"},
-    {"player":"Skylar Diggins","team":"Chicago Sky","status":"OUT","reason":"Right knee","updated":"2026-08-12","source":"WNBA Injury Report"},
-    {"player":"DiJonai Carrington","team":"Chicago Sky","status":"OUT","reason":"Foot","updated":"2026-08-21","source":"WNBA Injury Report"},
-    {"player":"Brionna Jones","team":"Atlanta Dream","status":"OUT","reason":"Leg","updated":"2026-08-16","source":"WNBA Injury Report"},
-    {"player":"Aziaha James","team":"Dallas Wings","status":"OUT","reason":"Left leg","updated":"2026-08-20","source":"WNBA Injury Report"},
-    {"player":"Marina Mabrey","team":"Toronto Tempo","status":"OUT FOR SEASON","reason":"Right adductor injury · ruled out for the final four games of the 2026 season; no surgery required and expected to recover fully ahead of 2027","updated":"2026-09-16","source":"Toronto Tempo announcement reported by Yahoo Sports","sourceUrl":"https://sports.yahoo.com/wnba/breaking-news/article/tempo-guard-marina-mabrey-out-for-rest-of-wnba-season-with-adductor-injury-161401247.html","carryover":true},
-    {"player":"Nyara Sabally","team":"Toronto Tempo","status":"OUT","reason":"Calf","updated":"2026-08-21","source":"WNBA Injury Report"},
-    {"player":"Maria Conde","team":"Toronto Tempo","status":"OUT","reason":"Calf","updated":"2026-08-21","source":"WNBA Injury Report"},
-    {"player":"Leila Lacan","team":"Connecticut Sun","status":"AVAILABLE","reason":"Activated following overseas commitment and returned to game action","updated":"2026-05-28","source":"Connecticut Sun activation announcement / WNBA player profile"},
-
-    {"player":"Brittney Griner","team":"Connecticut Sun","status":"DAY TO DAY","reason":"Knee","updated":"2026-08-21","source":"WNBA Injury Report"},
-    {"player":"Aaliyah Edwards","team":"Connecticut Sun","status":"DAY TO DAY","reason":"Ankle","updated":"2026-08-21","source":"WNBA Injury Report"},
-    {"player":"Dana Evans","team":"Las Vegas Aces","status":"DAY TO DAY","reason":"Leg","updated":"2026-08-21","source":"WNBA Injury Report"},
-    {"player":"Kelsey Plum","team":"Phoenix Mercury","status":"DAY TO DAY","reason":"Calf","updated":"2026-08-18","source":"WNBA Injury Report"},
-    {"player":"Natisha Hiedeman","team":"Seattle Storm","status":"DAY TO DAY","reason":"Shoulder","updated":"2026-08-19","source":"WNBA Injury Report"},
-    {"player":"Jordan Horston","team":"Seattle Storm","status":"DAY TO DAY","reason":"Shoulder","updated":"2026-08-19","source":"WNBA Injury Report"},
-
-    {"player":"Sydney Taylor","team":"Chicago Sky","status":"AVAILABLE","reason":"No longer listed on the current WNBA injury report","updated":"2026-08-22","source":"WNBA Injury Report"},
-    {"player":"Azura Stevens","team":"Chicago Sky","status":"AVAILABLE","reason":"No longer listed on the current WNBA injury report","updated":"2026-08-22","source":"WNBA Injury Report"},
-    {"player":"Sabrina Ionescu","team":"New York Liberty","status":"AVAILABLE","reason":"No longer listed on the current WNBA injury report","updated":"2026-08-21","source":"WNBA Injury Report"}
+    {
+      "player": "Aneesah Morrow",
+      "team": "Toronto Tempo",
+      "status": "OUT FOR SEASON",
+      "reason": "Left knee · ruled out for the remainder of the 2026 season",
+      "updated": "2026-08-23",
+      "source": "Toronto Tempo / Sandy Brondello",
+      "carryover": true
+    },
+    {
+      "player": "Brittney Sykes",
+      "team": "Toronto Tempo",
+      "status": "OUT FOR SEASON",
+      "reason": "Left foot · ruled out for the remainder of the 2026 season",
+      "updated": "2026-08-23",
+      "source": "Toronto Tempo / Sandy Brondello",
+      "carryover": true
+    },
+    {
+      "player": "NaLyssa Smith",
+      "team": "Las Vegas Aces",
+      "status": "OUT",
+      "reason": "Left knee · left the Aug. 23 game and did not return; evaluation pending",
+      "updated": "2026-08-23",
+      "source": "Las Vegas Aces game report",
+      "carryover": true
+    },
+    {
+      "player": "Azzi Fudd",
+      "team": "Dallas Wings",
+      "status": "OUT FOR SEASON",
+      "reason": "Right knee · arthroscopic procedure; will miss the remainder of the 2026 season",
+      "updated": "2026-08-19",
+      "source": "WNBA Injury Report / Dallas Wings"
+    },
+    {
+      "player": "Rickea Jackson",
+      "team": "Chicago Sky",
+      "status": "OUT FOR SEASON",
+      "reason": "Left knee · torn ACL",
+      "updated": "2026-05-19",
+      "source": "WNBA Injury Report"
+    },
+    {
+      "player": "Janiah Barker",
+      "team": "Las Vegas Aces",
+      "status": "OUT FOR SEASON",
+      "reason": "Leg",
+      "updated": "2026-07-15",
+      "source": "WNBA Injury Report"
+    },
+    {
+      "player": "Ema Cechova",
+      "team": "Minnesota Lynx",
+      "status": "OUT FOR SEASON",
+      "reason": "Right knee · torn ACL",
+      "updated": "2026-05-15",
+      "source": "WNBA Injury Report"
+    },
+    {
+      "player": "Sarah Ashlee Barker",
+      "team": "Portland Fire",
+      "status": "OUT FOR SEASON",
+      "reason": "Knee · torn ACL",
+      "updated": "2026-07-25",
+      "source": "WNBA Injury Report"
+    },
+    {
+      "player": "Sania Feagin",
+      "team": "Portland Fire",
+      "status": "OUT FOR SEASON",
+      "reason": "Left knee · torn ACL",
+      "updated": "2026-07-08",
+      "source": "WNBA Injury Report"
+    },
+    {
+      "player": "Iliana Rupert",
+      "team": "Golden State Valkyries",
+      "status": "OUT FOR SEASON",
+      "reason": "Pregnancy",
+      "updated": "2026-05-28",
+      "source": "WNBA Injury Report"
+    },
+    {
+      "player": "Damiris Dantas",
+      "team": "Indiana Fever",
+      "status": "OUT FOR SEASON",
+      "reason": "Knee · meniscus surgery",
+      "updated": "2026-08-04",
+      "source": "WNBA Injury Report"
+    },
+    {
+      "player": "Satou Sabally",
+      "team": "New York Liberty",
+      "status": "NWT",
+      "reason": "Head",
+      "updated": "2026-08-21",
+      "source": "WNBA Injury Report"
+    },
+    {
+      "player": "Leonie Fiebich",
+      "team": "New York Liberty",
+      "status": "QUESTIONABLE",
+      "reason": "Left foot",
+      "updated": "2026-08-21",
+      "source": "WNBA Injury Report"
+    },
+    {
+      "player": "Jonquel Jones",
+      "team": "New York Liberty",
+      "status": "QUESTIONABLE",
+      "reason": "Left ankle",
+      "updated": "2026-08-21",
+      "source": "WNBA Injury Report"
+    },
+    {
+      "player": "Skylar Diggins",
+      "team": "Chicago Sky",
+      "status": "OUT",
+      "reason": "Right knee",
+      "updated": "2026-08-12",
+      "source": "WNBA Injury Report"
+    },
+    {
+      "player": "DiJonai Carrington",
+      "team": "Chicago Sky",
+      "status": "OUT",
+      "reason": "Foot",
+      "updated": "2026-08-21",
+      "source": "WNBA Injury Report"
+    },
+    {
+      "player": "Brionna Jones",
+      "team": "Atlanta Dream",
+      "status": "OUT",
+      "reason": "Leg",
+      "updated": "2026-08-16",
+      "source": "WNBA Injury Report"
+    },
+    {
+      "player": "Aziaha James",
+      "team": "Dallas Wings",
+      "status": "OUT",
+      "reason": "Left leg",
+      "updated": "2026-08-20",
+      "source": "WNBA Injury Report"
+    },
+    {
+      "player": "Marina Mabrey",
+      "team": "Toronto Tempo",
+      "status": "OUT FOR SEASON",
+      "reason": "Right adductor injury · ruled out for the final four games of the 2026 season; no surgery required and expected to recover fully ahead of 2027",
+      "updated": "2026-09-16",
+      "source": "Toronto Tempo announcement reported by Yahoo Sports",
+      "sourceUrl": "https://sports.yahoo.com/wnba/breaking-news/article/tempo-guard-marina-mabrey-out-for-rest-of-wnba-season-with-adductor-injury-161401247.html",
+      "carryover": true
+    },
+    {
+      "player": "Nyara Sabally",
+      "team": "Toronto Tempo",
+      "status": "OUT",
+      "reason": "Calf",
+      "updated": "2026-08-21",
+      "source": "WNBA Injury Report"
+    },
+    {
+      "player": "Maria Conde",
+      "team": "Toronto Tempo",
+      "status": "OUT",
+      "reason": "Calf",
+      "updated": "2026-08-21",
+      "source": "WNBA Injury Report"
+    },
+    {
+      "player": "Leila Lacan",
+      "team": "Connecticut Sun",
+      "status": "AVAILABLE",
+      "reason": "Activated following overseas commitment and returned to game action",
+      "updated": "2026-05-28",
+      "source": "Connecticut Sun activation announcement / WNBA player profile"
+    },
+    {
+      "player": "Brittney Griner",
+      "team": "Connecticut Sun",
+      "status": "DAY TO DAY",
+      "reason": "Knee",
+      "updated": "2026-08-21",
+      "source": "WNBA Injury Report"
+    },
+    {
+      "player": "Aaliyah Edwards",
+      "team": "Connecticut Sun",
+      "status": "DAY TO DAY",
+      "reason": "Ankle",
+      "updated": "2026-08-21",
+      "source": "WNBA Injury Report"
+    },
+    {
+      "player": "Dana Evans",
+      "team": "Las Vegas Aces",
+      "status": "DAY TO DAY",
+      "reason": "Leg",
+      "updated": "2026-08-21",
+      "source": "WNBA Injury Report"
+    },
+    {
+      "player": "Kelsey Plum",
+      "team": "Phoenix Mercury",
+      "status": "DAY TO DAY",
+      "reason": "Calf",
+      "updated": "2026-08-18",
+      "source": "WNBA Injury Report"
+    },
+    {
+      "player": "Natisha Hiedeman",
+      "team": "Seattle Storm",
+      "status": "DAY TO DAY",
+      "reason": "Shoulder",
+      "updated": "2026-08-19",
+      "source": "WNBA Injury Report"
+    },
+    {
+      "player": "Jordan Horston",
+      "team": "Seattle Storm",
+      "status": "DAY TO DAY",
+      "reason": "Shoulder",
+      "updated": "2026-08-19",
+      "source": "WNBA Injury Report"
+    },
+    {
+      "player": "Sydney Taylor",
+      "team": "Chicago Sky",
+      "status": "AVAILABLE",
+      "reason": "No longer listed on the current WNBA injury report",
+      "updated": "2026-08-22",
+      "source": "WNBA Injury Report"
+    },
+    {
+      "player": "Azura Stevens",
+      "team": "Chicago Sky",
+      "status": "AVAILABLE",
+      "reason": "No longer listed on the current WNBA injury report",
+      "updated": "2026-08-22",
+      "source": "WNBA Injury Report"
+    },
+    {
+      "player": "Sabrina Ionescu",
+      "team": "New York Liberty",
+      "status": "AVAILABLE",
+      "reason": "No longer listed on the current WNBA injury report",
+      "updated": "2026-08-21",
+      "source": "WNBA Injury Report"
+    }
   ],
   "sources": [
-    {"label":"Official WNBA Transactions Report","url":"https://www.wnba.com/players/transactions?transaction=&team=all&month=0"},
-    {"label":"Official WNBA Injury Report","url":"https://www.wnba.com/wnba-injury-report"},
-    {"label":"Connecticut Sun current roster","url":"https://sun.wnba.com/roster"},
-    {"label":"Connecticut Sun: Brittney Griner signing","url":"https://www.wnba.com/news/connecticut-sun-sign-brittney-griner"},
-    {"label":"Las Vegas Aces current roster","url":"https://www.wnba.com/team/1611661319/las-vegas-aces"},
-    {"label":"Atlanta Dream current roster","url":"https://dream.wnba.com/roster"},
-    {"label":"Minnesota Lynx current roster","url":"https://www.wnba.com/team/1611661324/minnesota-lynx"},
-    {"label":"Dallas Wings current roster","url":"https://www.wnba.com/team/1611661321/dallas-wings"},
-    {"label":"Dallas Wings: Azzi Fudd knee procedure","url":"https://wings.wnba.com/news/dallas-wings-guard-azzi-fudd-to-undergo-knee-procedure"},
-    {"label":"Toronto Tempo: Marina Mabrey season ending injury","url":"https://sports.yahoo.com/wnba/breaking-news/article/tempo-guard-marina-mabrey-out-for-rest-of-wnba-season-with-adductor-injury-161401247.html"},
-    {"label":"Toronto Tempo: Zaay Green developmental contract","url":"https://tempo.wnba.com/"},
-    {"label":"UPSHOT League","url":"https://upshotleague.com/"}
+    {
+      "label": "Official WNBA Transactions Report",
+      "url": "https://www.wnba.com/players/transactions?transaction=&team=all&month=0"
+    },
+    {
+      "label": "Official WNBA Injury Report",
+      "url": "https://www.wnba.com/wnba-injury-report"
+    },
+    {
+      "label": "Connecticut Sun current roster",
+      "url": "https://sun.wnba.com/roster"
+    },
+    {
+      "label": "Connecticut Sun: Brittney Griner signing",
+      "url": "https://www.wnba.com/news/connecticut-sun-sign-brittney-griner"
+    },
+    {
+      "label": "Las Vegas Aces current roster",
+      "url": "https://www.wnba.com/team/1611661319/las-vegas-aces"
+    },
+    {
+      "label": "Atlanta Dream current roster",
+      "url": "https://dream.wnba.com/roster"
+    },
+    {
+      "label": "Minnesota Lynx current roster",
+      "url": "https://www.wnba.com/team/1611661324/minnesota-lynx"
+    },
+    {
+      "label": "Dallas Wings current roster",
+      "url": "https://www.wnba.com/team/1611661321/dallas-wings"
+    },
+    {
+      "label": "Dallas Wings: Azzi Fudd knee procedure",
+      "url": "https://wings.wnba.com/news/dallas-wings-guard-azzi-fudd-to-undergo-knee-procedure"
+    },
+    {
+      "label": "Toronto Tempo: Marina Mabrey season ending injury",
+      "url": "https://sports.yahoo.com/wnba/breaking-news/article/tempo-guard-marina-mabrey-out-for-rest-of-wnba-season-with-adductor-injury-161401247.html"
+    },
+    {
+      "label": "Toronto Tempo: Zaay Green developmental contract",
+      "url": "https://tempo.wnba.com/"
+    },
+    {
+      "label": "UPSHOT League",
+      "url": "https://upshotleague.com/"
+    }
   ]
 }

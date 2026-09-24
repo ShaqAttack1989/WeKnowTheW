@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-23T23:37:41.704Z",
+  "generatedAt": "2026-09-24T04:38:37.730Z",
   "movement": {
     "latestTransactionDate": "2026-09-20",
     "transactions": [
@@ -1410,10 +1410,23 @@
     ]
   },
   "availability": {
-    "latestReportDate": "2026-09-23",
-    "reportLabel": "09/23/2026 07:30 PM ET",
-    "officialPdf": "https://ak-static.cms.nba.com/referee/wnba_injury/Injury-Report_2026-09-23_07_30PM.pdf",
+    "latestReportDate": "2026-09-24",
+    "reportLabel": "09/24/2026 12:30 AM ET",
+    "officialPdf": "https://ak-static.cms.nba.com/referee/wnba_injury/Injury-Report_2026-09-24_12_30AM.pdf",
     "injuries": [
+      {
+        "player": "Aaliyah Nye",
+        "team": "Los Angeles Sparks",
+        "status": "OUT",
+        "reason": "Injury/Illness - Left ankle; L ankle",
+        "gameDate": "09/24/2026",
+        "gameTime": "10:00 (ET)",
+        "matchup": "GSV@LAS",
+        "updated": "2026-09-24",
+        "source": "Official WNBA Injury Report PDF",
+        "officialCurrentReport": true,
+        "crossCheckOnly": false
+      },
       {
         "player": "Aicha Coulibaly",
         "team": "Chicago Sky",
@@ -1439,6 +1452,20 @@
         "source": "Official WNBA Injury Report PDF",
         "officialCurrentReport": true,
         "crossCheckOnly": false
+      },
+      {
+        "player": "Angel Reese",
+        "team": "Atlanta Dream",
+        "status": "OUT",
+        "reason": "Face · Reese sustained an apparent facial injury in the second quarter of Wednesday's 83-65 win over the Liberty and did not return during the second half, finishing with six points (2-7 FG, 0-1 3Pt, 2-2 FT), six rebounds, three assists and three steals across 17 minutes.",
+        "updated": "2026-09-24",
+        "returnDate": "2026-09-27",
+        "matchup": "",
+        "gameTime": "",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null,
+        "officialCurrentReport": false,
+        "crossCheckOnly": true
       },
       {
         "player": "Azura Stevens",
@@ -1480,6 +1507,32 @@
         "crossCheckOnly": false
       },
       {
+        "player": "Cameron Brink",
+        "team": "Los Angeles Sparks",
+        "status": "OUT",
+        "reason": "Injury/Illness - Right ankle; R ankle",
+        "gameDate": "09/24/2026",
+        "gameTime": "10:00 (ET)",
+        "matchup": "GSV@LAS",
+        "updated": "2026-09-24",
+        "source": "Official WNBA Injury Report PDF",
+        "officialCurrentReport": true,
+        "crossCheckOnly": false
+      },
+      {
+        "player": "Dearica Hamby",
+        "team": "Los Angeles Sparks",
+        "status": "PROBABLE",
+        "reason": "Injury/Illness - Left knee; L knee",
+        "gameDate": "09/24/2026",
+        "gameTime": "10:00 (ET)",
+        "matchup": "GSV@LAS",
+        "updated": "2026-09-24",
+        "source": "Official WNBA Injury Report PDF",
+        "officialCurrentReport": true,
+        "crossCheckOnly": false
+      },
+      {
         "player": "DiJonai Carrington",
         "team": "Chicago Sky",
         "status": "OUT",
@@ -1491,6 +1544,20 @@
         "source": "Official WNBA Injury Report PDF",
         "officialCurrentReport": true,
         "crossCheckOnly": false
+      },
+      {
+        "player": "Jonquel Jones",
+        "team": "New York Liberty",
+        "status": "OUT",
+        "reason": "Ankle · Jones (ankle) won't return to Wednesday's game against Atlanta, Annie Costabile of The Athletic reports. She finished with 10 points (3-7 FG, 1-4 3Pt, 3-4 FT), 14 rebounds, one assist and one block over 20 minutes.",
+        "updated": "2026-09-24",
+        "returnDate": "2026-09-27",
+        "matchup": "",
+        "gameTime": "",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null,
+        "officialCurrentReport": false,
+        "crossCheckOnly": true
       },
       {
         "player": "Kennedy Burke",
@@ -1559,7 +1626,7 @@
       },
       {
         "player": "Saniya Rivers",
-        "team": "",
+        "team": "Connecticut Sun",
         "status": "OUT",
         "reason": "Injury/Illness - Left Ankle; -",
         "gameDate": "09/24/2026",
@@ -1569,6 +1636,20 @@
         "source": "Official WNBA Injury Report PDF",
         "officialCurrentReport": true,
         "crossCheckOnly": false
+      },
+      {
+        "player": "Taina Mair",
+        "team": "Seattle Storm",
+        "status": "OUT",
+        "reason": "Coach's Decision · Mair (coach's decision) has been ruled out for Wednesday's game against the Wings.",
+        "updated": "2026-09-24",
+        "returnDate": "2027-05-01",
+        "matchup": "",
+        "gameTime": "",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null,
+        "officialCurrentReport": false,
+        "crossCheckOnly": true
       },
       {
         "player": "Temi Fagbenle",
@@ -1584,69 +1665,18 @@
         "crossCheckOnly": false
       },
       {
-        "player": "Alanna Smith",
-        "team": "Dallas Wings",
-        "status": "OUT",
-        "reason": "Injury/Illness - Left Leg; lower left leg",
-        "gameDate": "09/23/2026",
-        "gameTime": "10:00 (ET)",
-        "matchup": "DAL@SEA",
-        "updated": "2026-09-23",
-        "source": "Official WNBA Injury Report PDF",
-        "officialCurrentReport": true,
-        "crossCheckOnly": false
-      },
-      {
-        "player": "Alysha Clark",
-        "team": "Dallas Wings",
-        "status": "OUT",
-        "reason": "Injury/Illness - Face; face",
-        "gameDate": "09/23/2026",
-        "gameTime": "10:00 (ET)",
-        "matchup": "DAL@SEA",
-        "updated": "2026-09-23",
-        "source": "Official WNBA Injury Report PDF",
-        "officialCurrentReport": true,
-        "crossCheckOnly": false
-      },
-      {
         "player": "Breanna Stewart",
         "team": "New York Liberty",
         "status": "OUT",
-        "reason": "Injury/Illness - Left Knee; Soreness",
-        "gameDate": "09/23/2026",
-        "gameTime": "08:00 (ET)",
-        "matchup": "ATL@NYL",
+        "reason": "Knee · Stewart won't play in Wednesday's game against the Dream due to left knee soreness, per Myles Ehrlich of Winsidr.com.",
         "updated": "2026-09-23",
-        "source": "Official WNBA Injury Report PDF",
-        "officialCurrentReport": true,
-        "crossCheckOnly": false
-      },
-      {
-        "player": "Brionna Jones",
-        "team": "Atlanta Dream",
-        "status": "OUT",
-        "reason": "Injury/Illness - Left Leg; N/A",
-        "gameDate": "09/23/2026",
-        "gameTime": "08:00 (ET)",
-        "matchup": "ATL@NYL",
-        "updated": "2026-09-23",
-        "source": "Official WNBA Injury Report PDF",
-        "officialCurrentReport": true,
-        "crossCheckOnly": false
-      },
-      {
-        "player": "Elizabeth Balogun",
-        "team": "New York Liberty",
-        "status": "OUT",
-        "reason": "Not With Team",
-        "gameDate": "09/23/2026",
-        "gameTime": "08:00 (ET)",
-        "matchup": "ATL@NYL",
-        "updated": "2026-09-23",
-        "source": "Official WNBA Injury Report PDF",
-        "officialCurrentReport": true,
-        "crossCheckOnly": false
+        "returnDate": "2026-09-27",
+        "matchup": "",
+        "gameTime": "",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null,
+        "officialCurrentReport": false,
+        "crossCheckOnly": true
       },
       {
         "player": "Holly Winterburn",
@@ -1663,30 +1693,18 @@
         "crossCheckOnly": true
       },
       {
-        "player": "Katie Lou Samuelson",
-        "team": "Seattle Storm",
-        "status": "OUT",
-        "reason": "Injury/Illness - Left Knee; Injury",
-        "gameDate": "09/23/2026",
-        "gameTime": "10:00 (ET)",
-        "matchup": "DAL@SEA",
-        "updated": "2026-09-23",
-        "source": "Official WNBA Injury Report PDF",
-        "officialCurrentReport": true,
-        "crossCheckOnly": false
-      },
-      {
         "player": "Matilde Villa",
         "team": "Atlanta Dream",
         "status": "OUT",
-        "reason": "Coach's Decision",
-        "gameDate": "09/23/2026",
-        "gameTime": "08:00 (ET)",
-        "matchup": "ATL@NYL",
+        "reason": "Coach's Decision · Villa (coach's decision) has been ruled out for Wednesday's game against New York.",
         "updated": "2026-09-23",
-        "source": "Official WNBA Injury Report PDF",
-        "officialCurrentReport": true,
-        "crossCheckOnly": false
+        "returnDate": "2027-05-01",
+        "matchup": "",
+        "gameTime": "",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null,
+        "officialCurrentReport": false,
+        "crossCheckOnly": true
       },
       {
         "player": "Nyadiew Puoch",
@@ -1706,14 +1724,43 @@
         "player": "Zia Cooke",
         "team": "Seattle Storm",
         "status": "OUT",
-        "reason": "Injury/Illness - Right Knee; Injury",
-        "gameDate": "09/23/2026",
-        "gameTime": "10:00 (ET)",
-        "matchup": "DAL@SEA",
+        "reason": "Knee · Cooke (knee) has been ruled out for Wednesday's game against Dallas.",
         "updated": "2026-09-23",
-        "source": "Official WNBA Injury Report PDF",
-        "officialCurrentReport": true,
-        "crossCheckOnly": false
+        "returnDate": "2027-05-01",
+        "matchup": "",
+        "gameTime": "",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null,
+        "officialCurrentReport": false,
+        "crossCheckOnly": true
+      },
+      {
+        "player": "Alysha Clark",
+        "team": "Dallas Wings",
+        "status": "OUT",
+        "reason": "Face · Clark (face) is listed as out for Wednesday's game versus the Storm.",
+        "updated": "2026-09-22",
+        "returnDate": "2026-09-27",
+        "matchup": "",
+        "gameTime": "",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null,
+        "officialCurrentReport": false,
+        "crossCheckOnly": true
+      },
+      {
+        "player": "Elizabeth Balogun",
+        "team": "New York Liberty",
+        "status": "OUT",
+        "reason": "Not Injury Related · Balogun (not with team) is out for Wednesday's game against the Dream.",
+        "updated": "2026-09-22",
+        "returnDate": "2027-05-01",
+        "matchup": "",
+        "gameTime": "",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null,
+        "officialCurrentReport": false,
+        "crossCheckOnly": true
       },
       {
         "player": "Teja Oblak",
@@ -1721,6 +1768,34 @@
         "status": "OUT",
         "reason": "Knee · Oblak (knee) has been ruled out for Tuesday's game against the Valkyries.",
         "updated": "2026-09-21",
+        "returnDate": "2027-05-01",
+        "matchup": "",
+        "gameTime": "",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null,
+        "officialCurrentReport": false,
+        "crossCheckOnly": true
+      },
+      {
+        "player": "Alanna Smith",
+        "team": "Dallas Wings",
+        "status": "OUT",
+        "reason": "Lower Leg · Smith (lower leg) has no timetable for a return, Myah Taylor of Dallas Morning News reports.",
+        "updated": "2026-09-17",
+        "returnDate": "2026-09-27",
+        "matchup": "",
+        "gameTime": "",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null,
+        "officialCurrentReport": false,
+        "crossCheckOnly": true
+      },
+      {
+        "player": "Brionna Jones",
+        "team": "Atlanta Dream",
+        "status": "OUT",
+        "reason": "Leg · Jones will miss the remainder of the season after sustaining a left leg injury against the Sun on Aug. 13, Annie Costabile of The Athletic reports.",
+        "updated": "2026-09-17",
         "returnDate": "2027-05-01",
         "matchup": "",
         "gameTime": "",
@@ -1742,6 +1817,20 @@
         "crossCheckOnly": false,
         "trackedCarryover": true,
         "seasonLongCarryover": true
+      },
+      {
+        "player": "Katie Lou Samuelson",
+        "team": "Seattle Storm",
+        "status": "OUT",
+        "reason": "Knee · The Storm announced Friday that Samuelson underwent successful left knee surgery and will miss the remainder of the season.",
+        "updated": "2026-09-11",
+        "returnDate": "2027-05-01",
+        "matchup": "",
+        "gameTime": "",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null,
+        "officialCurrentReport": false,
+        "crossCheckOnly": true
       },
       {
         "player": "Ezi Magbegor",
@@ -1844,13 +1933,30 @@
       {
         "player": "Azzi Fudd",
         "team": "Dallas Wings",
-        "status": "OUT FOR SEASON",
-        "reason": "Right knee · arthroscopic procedure; will miss the remainder of the 2026 season",
+        "status": "OUT",
+        "reason": "Knee · Fudd will undergo an arthroscopic procedure to address her right knee soreness and will be sidelined for the remainder of the 2026 season.",
         "updated": "2026-08-19",
-        "source": "WNBA Injury Report / Dallas Wings",
+        "returnDate": "2027-04-15",
+        "matchup": "",
+        "gameTime": "",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null,
         "officialCurrentReport": false,
-        "trackedCarryover": true,
-        "seasonLongCarryover": true
+        "crossCheckOnly": true
+      },
+      {
+        "player": "Costanza Verona",
+        "team": "Dallas Wings",
+        "status": "OUT",
+        "reason": "Personal · Verona's contract was temporarily suspended by the Wings Saturday.",
+        "updated": "2026-08-08",
+        "returnDate": "2027-05-01",
+        "matchup": "",
+        "gameTime": "",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null,
+        "officialCurrentReport": false,
+        "crossCheckOnly": true
       },
       {
         "player": "Luisa Geiselsoder",
@@ -1950,40 +2056,7 @@
         "seasonLongCarryover": true
       }
     ],
-    "teamStatuses": [
-      {
-        "team": "Golden State Valkyries",
-        "status": "NOT YET SUBMITTED",
-        "gameDate": "09/24/2026",
-        "gameTime": "10:00 (ET)",
-        "matchup": "GSV@LAS",
-        "updated": "2026-09-24"
-      },
-      {
-        "team": "Las Vegas Aces",
-        "status": "NOT YET SUBMITTED",
-        "gameDate": "09/24/2026",
-        "gameTime": "10:00 (ET)",
-        "matchup": "LVA@PHX",
-        "updated": "2026-09-24"
-      },
-      {
-        "team": "Los Angeles Sparks",
-        "status": "NOT YET SUBMITTED",
-        "gameDate": "09/24/2026",
-        "gameTime": "10:00 (ET)",
-        "matchup": "GSV@LAS",
-        "updated": "2026-09-24"
-      },
-      {
-        "team": "Phoenix Mercury",
-        "status": "NOT YET SUBMITTED",
-        "gameDate": "09/24/2026",
-        "gameTime": "10:00 (ET)",
-        "matchup": "LVA@PHX",
-        "updated": "2026-09-24"
-      }
-    ]
+    "teamStatuses": []
   },
   "errors": []
 }

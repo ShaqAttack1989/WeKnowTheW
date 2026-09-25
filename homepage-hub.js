@@ -35,7 +35,7 @@
     if(extrasPromise)return extrasPromise;
     extrasPromise=Promise.allSettled([
       fetch('/api/players',{headers:{Accept:'application/json'}}).then(r=>r.ok?r.json():{}),
-      fetch('/snack-shaq-posts.json',{headers:{Accept:'application/json'}}).then(r=>r.ok?r.json():{}),
+      (window.WHomeData?.get?window.WHomeData.get('/snack-shaq-posts.json',{ttl:60000}):fetch('/snack-shaq-posts.json',{headers:{Accept:'application/json'}}).then(r=>r.ok?r.json():{})),
       fetch('/basketball-dictionary-page.js',{headers:{Accept:'text/plain'}}).then(r=>r.ok?r.text():'')
     ]).then(results=>{
       const p=results[0].status==='fulfilled'?results[0].value:{};
@@ -107,8 +107,8 @@
     const gamesHost=document.getElementById('homeWeekGames'),milestoneHost=document.getElementById('homeWeekMilestone'),broadcastHost=document.getElementById('homeWeekBroadcasts'),snackHost=document.getElementById('homeWeekSnack'),rotationHost=document.getElementById('homeWeekRotations'),stamp=document.getElementById('homeWeekStamp');
     try{
       const [statsR,rotR,snackR]=await Promise.allSettled([
-        fetch('/api/stats?season=2026',{headers:{Accept:'application/json'},cache:'no-store'}).then(r=>r.ok?r.json():{}),
-        fetch('/rotation-history.json',{headers:{Accept:'application/json'},cache:'no-store'}).then(r=>r.ok?r.json():{}),
+        (window.WHomeData?.get?window.WHomeData.get('/api/stats?season=2026',{ttl:15000}):fetch('/api/stats?season=2026',{headers:{Accept:'application/json'},cache:'no-store'}).then(r=>r.ok?r.json():{})),
+        (window.WHomeData?.get?window.WHomeData.get('/rotation-history.json',{ttl:60000}):fetch('/rotation-history.json',{headers:{Accept:'application/json'},cache:'no-store'}).then(r=>r.ok?r.json():{})),
         fetch('/snack-shaq-posts.json',{headers:{Accept:'application/json'}}).then(r=>r.ok?r.json():{})
       ]);
       const stats=statsR.status==='fulfilled'?statsR.value:{};

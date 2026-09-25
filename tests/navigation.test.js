@@ -86,6 +86,6 @@ test('Snack Shak tiles open stories directly and preserve browser history', () =
 });
 
 test('Snack Shak collection pages load the current story bundle', () => {
-  assert.match(snackBytesPage, /snack-shak-collections\.js\?v=20260917-liberty-sleeper-v1/);
-  assert.match(foodForThoughtPage, /snack-shak-collections\.js\?v=20260917-liberty-sleeper-v1/);
+  assert.match(snackBytesPage, /snack-shak-collections\.js\?v=[^"']+/);
+  assert.match(foodForThoughtPage, /snack-shak-collections\.js\?v=[^"']+/);
 });

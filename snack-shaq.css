@@ -188,6 +188,7 @@
 .trio-team-card>header>div>span{display:block;color:#6e6474;font-size:.7rem;font-weight:950;letter-spacing:.09em;text-transform:uppercase}
 .trio-team-card>header h4{margin:2px 0 3px;font-size:1.35rem;line-height:1.05}
 .trio-team-card>header p{margin:0;color:#665d6d;font-size:.82rem!important;line-height:1.35!important;font-weight:800}
+.trio-seed-compare{display:inline-flex;margin-top:8px;padding:5px 9px;border-radius:999px;background:color-mix(in srgb,var(--trio-color) 13%,#fff);color:#362842;font-size:.66rem;line-height:1;font-weight:950;letter-spacing:.045em;text-transform:uppercase}
 .trio-player-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:17px 0}
 .trio-player{min-width:0;margin:0;text-align:center}
 .trio-player-photo{height:94px;overflow:hidden;border-radius:15px 15px 9px 9px;background:linear-gradient(180deg,#eee7f6,#d8ccea)}

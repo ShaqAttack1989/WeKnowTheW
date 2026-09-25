@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-23T07:05:00-04:00",
+  "updatedAt": "2026-09-25T13:27:00-04:00",
   "rules": {
     "pronunciation": "Only use a written pronunciation when a team, league or other reliable media guide explicitly provides it. When a player-recorded audio pronunciation is available, link to that instead of inventing phonetics.",
     "offCourt": "Only include a personal, family, education, advocacy, business, media, music or nickname connection when it is documented in the Playerpedia bio tracker or a cited public source.",
@@ -15,8 +15,23 @@
     "nnekaogwumike": {
       "pronunciation": "NEH-kuh oh-gwoo-MIH-kay",
       "pronunciationSource": "https://sparks.wnba.com/2026-media-central",
-      "offCourt": "Longtime WNBPA president and a central player leader in the bargaining that produced the 2026 collective bargaining agreement.",
-      "offCourtLink": "/union-behind-the-2026-cba.html"
+      "offCourt": "Longtime WNBPA president, central player leader in the bargaining that produced the 2026 collective bargaining agreement, and a 2026 Freedom Award honoree of the National Civil Rights Museum.",
+      "offCourtLink": "/herstory-community.html",
+      "offCourtSource": "https://civilrightsmuseum.org/freedom-award/honorees-entertainment/",
+      "achievements": [
+        "2016 WNBA MVP and 2016 WNBA champion with the Los Angeles Sparks.",
+        "Selected as a 2026 Freedom Award honoree by the National Civil Rights Museum for a public legacy that includes player leadership, mentoring, girls in sports, and civic engagement.",
+        "Closed her WNBA career on Sept. 24, 2026 with 17 points and 15 rebounds against Golden State.",
+        "Recorded 19 double-doubles in 2026, a Sparks single-season record.",
+        "Los Angeles announced after her final game that its new El Segundo practice facility will be named for Ogwumike."
+      ],
+      "achievementsSources": [
+        "https://civilrightsmuseum.org/freedom-award/honorees-entertainment/",
+        "https://www.latimes.com/sports/sparks/story/2026-09-24/los-angeles-sparks-golden-state-valkyries-wnba-game-recap",
+        "https://sparks.wnba.com/news/nneka-ogwumike-announces-retirement-from-the-wnba-following-the-2026-season"
+      ],
+      "memorable": "Ogwumike's final WNBA night became a full-circle Los Angeles legacy moment: 17 points, 15 rebounds, a Sparks single-season double-double record, a postgame retirement ceremony, and the announcement that the franchise's new practice facility will carry her name.",
+      "memorableSource": "https://www.latimes.com/sports/sparks/story/2026-09-24/los-angeles-sparks-golden-state-valkyries-wnba-game-recap"
     },
     "dearicahamby": {
       "pronunciation": "Dee-ERIC-uh Ham-bee",

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-25T01:25:28.332Z",
+  "generatedAt": "2026-09-25T07:41:27.181Z",
   "movement": {
     "latestTransactionDate": "2026-09-22",
     "transactions": [
@@ -1420,8 +1420,8 @@
   },
   "availability": {
     "latestReportDate": "2026-09-24",
-    "reportLabel": "09/24/2026 09:15 PM ET",
-    "officialPdf": "https://ak-static.cms.nba.com/referee/wnba_injury/Injury-Report_2026-09-24_09_15PM.pdf",
+    "reportLabel": "09/24/2026 11:45 PM ET",
+    "officialPdf": "https://ak-static.cms.nba.com/referee/wnba_injury/Injury-Report_2026-09-24_11_45PM.pdf",
     "injuries": [
       {
         "player": "Aaliyah Nye",

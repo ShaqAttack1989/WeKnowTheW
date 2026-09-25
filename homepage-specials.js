@@ -22,7 +22,7 @@
   let observer=null;
 
   function sortPosts(items=[]){return [...items].sort((a,b)=>dateKey(b).localeCompare(dateKey(a))||Number(b.priority||0)-Number(a.priority||0));}
-  async function fetchPosts(url){const response=await fetch(`${url}?cb=${Date.now()}`,{headers:{Accept:'application/json','Cache-Control':'no-cache'},cache:'no-store'});if(!response.ok)return [];const payload=await response.json().catch(()=>({}));return Array.isArray(payload.posts)?payload.posts:[];}
+  async function fetchPosts(url){const payload=window.WHomeData?.get?await window.WHomeData.get(url,{ttl:60000}):await fetch(`${url}?cb=${Date.now()}`,{headers:{Accept:'application/json','Cache-Control':'no-cache'},cache:'no-store'}).then(async response=>response.ok?response.json():({})).catch(()=>({}));return Array.isArray(payload.posts)?payload.posts:[];}
   async function loadSpecials(force=false){
     if(!force&&posts.length&&Date.now()-loadedAt<300000)return posts;
     if(loadPromise&&!force)return loadPromise;
@@ -82,7 +82,7 @@
   function editorialMarkup(post,kind){
     const food=kind==='food';
     const image=imageFor(post,kind);
-    return `<figure class="week-editorial-media"><img src="${safe(image)}" alt="${safe(post?.imageAlt||post?.title||'Story image')}" loading="eager" decoding="async"><span class="week-media-tag">${food?'FEATURED READ':'QUICK HIT'}</span></figure><div class="week-editorial-body"><div class="week-editorial-top"><span class="week-card-kicker">${food?'FOOD FOR THOUGHT':'SNACK SHAK BYTE'}</span><span class="week-card-date">${safe(dateLabel(post))}</span></div><span class="week-story-series">${safe(post?.seriesLabel||(food?'FOOD FOR THOUGHT':'SNACK SHAK BYTE'))}</span><h3>${safe(post?.title||'Latest story')}</h3><p>${safe(short(post?.dek||'',205))}</p><a href="${safe(featureHref(post))}">${food?'Read the full thought':'Grab the Byte'} →</a></div>`;
+    return `<figure class="week-editorial-media"><img src="${safe(image)}" alt="${safe(post?.imageAlt||post?.title||'Story image')}" loading="${food?'eager':'lazy'}" fetchpriority="${food?'high':'auto'}" decoding="async"><span class="week-media-tag">${food?'FEATURED READ':'QUICK HIT'}</span></figure><div class="week-editorial-body"><div class="week-editorial-top"><span class="week-card-kicker">${food?'FOOD FOR THOUGHT':'SNACK SHAK BYTE'}</span><span class="week-card-date">${safe(dateLabel(post))}</span></div><span class="week-story-series">${safe(post?.seriesLabel||(food?'FOOD FOR THOUGHT':'SNACK SHAK BYTE'))}</span><h3>${safe(post?.title||'Latest story')}</h3><p>${safe(short(post?.dek||'',205))}</p><a href="${safe(featureHref(post))}">${food?'Read the full thought':'Grab the Byte'} →</a></div>`;
   }
 
   function enforceUniqueEditorials(){

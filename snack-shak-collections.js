@@ -43,20 +43,55 @@
   async function updatePlayoffBoard(){const board=document.getElementById('snackPlayoffBoard');if(!board)return;try{const response=await fetch(`/api/competition?season=2026&cb=${Date.now()}`,{cache:'no-store'});if(!response.ok)throw Error('unavailable');const data=await response.json();const games=(data.playoffs?.games||[]).filter(game=>game.date>='2026-09-27'&&game.date<='2026-09-28'&&[['Minnesota Lynx','New York Liberty'],['Golden State Valkyries','Dallas Wings'],['Las Vegas Aces','Indiana Fever'],['Atlanta Dream','Washington Mystics']].some(pair=>pair.includes(game.homeTeam)&&pair.includes(game.awayTeam)));board.innerHTML=games.map(game=>{const date=game.startTimeUtc?new Date(game.startTimeUtc):null;const time=date&&!Number.isNaN(date.getTime())?new Intl.DateTimeFormat('en-US',{timeZone:'America/New_York',hour:'numeric',minute:'2-digit'}).format(date)+' ET':'Time TBD';const score=game.completed||game.state==='in'?` · ${safe(game.awayScore??'–')}–${safe(game.homeScore??'–')} · ${safe(game.status||'')}`:'';return `<a href="${game.officialFallback?`https://www.wnba.com/game/${encodeURIComponent(game.id)}`:`/games.html`}" target="_blank" rel="noopener noreferrer" style="display:block;padding:14px;margin:8px 0;border-radius:12px;background:#f4eefb;color:#29134a;text-decoration:none"><strong>${safe(game.awayTeam)} at ${safe(game.homeTeam)}</strong><br><small>${safe(time)}${score} · Official game ↗</small></a>`;}).join('')||'<p>Fixtures are temporarily unavailable. See the official WNBA bracket.</p>';}catch{board.innerHTML='<p>Live scores are temporarily unavailable. <a href="https://www.wnba.com/playoffs/2026">See the official bracket ↗</a></p>';}}
   function playoffWatchMarkup(board={}){
     const matchups=Array.isArray(board.matchups)?board.matchups:[];if(!matchups.length)return'';
-    const cards=matchups.map(m=>`<article class="playoff-watch-card" data-playoff-matchup="${safe(m.id)}"><header><div><span>SEED ${safe(m.highSeed)}</span><strong>${safe(m.highTeam)}</strong><small>${safe(m.highRecord)}</small></div><b>VS</b><div><span>SEED ${safe(m.lowSeed)}</span><strong>${safe(m.lowTeam)}</strong><small>${safe(m.lowRecord)}</small></div></header><div class="playoff-score-split"><div><span>REGULAR SEASON</span><strong>${safe(m.regularSeries)}</strong><small>head-to-head only</small></div><div><span>PLAYOFF SERIES</span><strong data-playoff-series>0-0</strong><small data-playoff-game>Game 1 next</small></div></div><div class="playoff-next"><span>GAME 1</span><strong>${safe(m.game1)}</strong></div><div class="playoff-stars">${(m.stars||[]).map((name,i)=>`<figure><img src="${safe((m.starPhotos||[])[i]||'')}" alt="Official WNBA headshot of ${safe(name)}" loading="lazy" onerror="this.hidden=true"><figcaption>${safe(name)}</figcaption></figure>`).join('')}</div><div class="playoff-watch-tabs" role="tablist"><button type="button" data-watch-tab="read" aria-pressed="true">Matchup read</button><button type="button" data-watch-tab="form">Who's hot</button><button type="button" data-watch-tab="bench">Bench</button><button type="button" data-watch-tab="availability">Availability</button><button type="button" data-watch-tab="score">W Score</button></div><div class="playoff-watch-panel" data-watch-panel="read"><p><b>How do they beat you?</b> ${safe(m.beat)}</p><p><b>What can break them?</b> ${safe(m.break)}</p><p><b>Who has to show up?</b> ${safe(m.must)}</p></div><div class="playoff-watch-panel" data-watch-panel="form" hidden><p>${safe(m.hot)}</p></div><div class="playoff-watch-panel" data-watch-panel="bench" hidden><p>${safe(m.bench)}</p></div><div class="playoff-watch-panel" data-watch-panel="availability" hidden><p>${safe(m.availability)}</p><a href="/availability-report.html">Open live availability →</a></div><div class="playoff-watch-panel" data-watch-panel="score" hidden><p><b>We Know the W Score:</b> <span data-w-score>${safe(m.wScore||'Live')}</span></p><small>Context board, not a prediction. Offense, defense, depth, recent form and availability are kept separate from the playoff series score.</small></div></article>`).join('');
-    return `<section class="snack-section playoff-watch-dashboard" data-playoff-watch><div class="playoff-watch-head"><span>PLAYOFF WATCH GUIDE · LIVE BOARD</span><h3>${safe(board.title||'The Playoff Watch Party')}</h3><p>${safe(board.subtitle||'')}</p><small>${safe(board.asOf||'')}</small></div><div class="playoff-watch-summary"><div><strong>8</strong><span>teams</span></div><div><strong>4</strong><span>first-round series</span></div><div><strong>0-0</strong><span>playoffs start clean</span></div></div><div class="playoff-watch-grid">${cards}</div><p class="playoff-watch-note">Regular-season head-to-head is context. Playoff series wins are tracked separately and update from the postseason feed.</p></section>`;
+    const palette={
+      'min-nyl':['#0c2340','#6eceb2','#78be20'],
+      'gsv-dal':['#5f259f','#0c2340','#c4d600'],
+      'lva-ind':['#c8102e','#002d62','#fdbb30'],
+      'atl-was':['#c8102e','#002b5c','#69b3e7']
+    };
+    const cards=matchups.map(m=>{
+      const colors=palette[m.id]||['#2a1248','#6f25e8','#d8ff4f'];
+      const stars=(m.stars||[]).map((name,i)=>`<figure><img src="${safe((m.starPhotos||[])[i]||'')}" alt="Official WNBA headshot of ${safe(name)}" loading="lazy" decoding="async" onerror="this.hidden=true"><figcaption><span>STAR WATCH</span><strong>${safe(name)}</strong></figcaption></figure>`).join('');
+      return `<article class="playoff-matchup-row" data-playoff-matchup="${safe(m.id)}" style="--match-a:${safe(colors[0])};--match-b:${safe(colors[1])};--match-pop:${safe(colors[2])}">
+        <header class="playoff-matchup-band">
+          <div class="playoff-team-side is-a"><span>SEED ${safe(m.highSeed)}</span><strong>${safe(m.highTeam)}</strong><small>${safe(m.highRecord)}</small></div>
+          <div class="playoff-vs-mark"><b>VS</b><small>FIRST ROUND</small></div>
+          <div class="playoff-team-side is-b"><span>SEED ${safe(m.lowSeed)}</span><strong>${safe(m.lowTeam)}</strong><small>${safe(m.lowRecord)}</small></div>
+        </header>
+        <div class="playoff-matchup-scoreline">
+          <div><span>REGULAR SEASON</span><strong>${safe(m.regularSeries)}</strong><small>head-to-head only</small></div>
+          <div class="is-series"><span>PLAYOFF SERIES</span><strong data-playoff-series>0-0</strong><small data-playoff-game>Game 1 next</small></div>
+          <div class="is-next"><span>GAME 1</span><strong>${safe(m.game1)}</strong><small>all times Eastern</small></div>
+        </div>
+        <div class="playoff-matchup-main">
+          <div class="playoff-star-watch">${stars}</div>
+          <div class="playoff-read-grid">
+            <div><span>HOW DO THEY BEAT YOU?</span><p>${safe(m.beat)}</p></div>
+            <div><span>WHAT CAN BREAK THEM?</span><p>${safe(m.break)}</p></div>
+            <div><span>WHO HAS TO SHOW UP?</span><p>${safe(m.must)}</p></div>
+          </div>
+        </div>
+        <div class="playoff-context-strip">
+          <div><span>WHO'S HOT</span><p>${safe(m.hot)}</p></div>
+          <div><span>BENCH CHECK</span><p>${safe(m.bench)}</p></div>
+          <a href="/availability-report.html"><span>AVAILABILITY</span><p>${safe(m.availability)}</p><b>LIVE REPORT →</b></a>
+          <div class="is-w-score"><span>WE KNOW THE W SCORE</span><strong data-w-score>${safe(m.wScore||'LIVE')}</strong><small>context, not a prediction</small></div>
+        </div>
+      </article>`;
+    }).join('');
+    return `<section class="snack-section playoff-watch-dashboard fiba-inspired" data-playoff-watch><div class="playoff-watch-head"><div><span>PLAYOFF WATCH GUIDE · LIVE BOARD</span><h3>${safe(board.title||'The Playoff Watch Party')}</h3><p>${safe(board.subtitle||'')}</p></div><small>${safe(board.asOf||'')}</small></div><div class="playoff-watch-summary"><div><strong>8</strong><span>teams</span></div><div><strong>4</strong><span>first-round series</span></div><div><strong>0-0</strong><span>every series starts clean</span></div></div><div class="playoff-matchup-stack">${cards}</div><p class="playoff-watch-note">Regular-season head-to-head is context. Playoff series wins are tracked separately and refresh from the postseason feed.</p></section>`;
   }
   function wirePlayoffWatch(story){
     const root=story?.querySelector('[data-playoff-watch]');if(!root||root.dataset.ready==='1')return;root.dataset.ready='1';
-    root.querySelectorAll('.playoff-watch-card').forEach(card=>card.querySelectorAll('[data-watch-tab]').forEach(button=>button.addEventListener('click',()=>{const mode=button.dataset.watchTab;card.querySelectorAll('[data-watch-tab]').forEach(b=>b.setAttribute('aria-pressed',String(b===button)));card.querySelectorAll('[data-watch-panel]').forEach(p=>p.hidden=p.dataset.watchPanel!==mode);})));
-    const refresh=async()=>{try{const response=await fetch('/api/competition?season=2026&cb='+Date.now(),{cache:'no-store'});if(!response.ok)return;const payload=await response.json();const series=payload.playoffs?.series||[];root.querySelectorAll('[data-playoff-matchup]').forEach(card=>{const id=card.dataset.playoffMatchup,config=(window.__playoffWatchMatchups||{})[id];if(!config)return;const row=series.find(s=>[s.teamA,s.teamB].includes(config.a)&&[s.teamA,s.teamB].includes(config.b));if(!row)return;const winsA=row.teamA===config.a?row.winsA:row.winsB,winsB=row.teamB===config.b?row.winsB:row.winsA;const score=card.querySelector('[data-playoff-series]'),game=card.querySelector('[data-playoff-game]');if(score)score.textContent=winsA+'-'+winsB;if(game){const played=(row.games||[]).length;game.textContent=played?('Game '+(played+1)+' next'): 'Game 1 next';}});}catch{}};
+    const refresh=async()=>{try{const response=await fetch('/api/competition?season=2026&cb='+Date.now(),{cache:'no-store'});if(!response.ok)return;const payload=await response.json();const series=payload.playoffs?.series||[];root.querySelectorAll('[data-playoff-matchup]').forEach(card=>{const id=card.dataset.playoffMatchup,config=(window.__playoffWatchMatchups||{})[id];if(!config)return;const row=series.find(item=>[item.teamA,item.teamB].includes(config.a)&&[item.teamA,item.teamB].includes(config.b));if(!row)return;const aWins=row.teamA===config.a?row.winsA:row.winsB;const bWins=row.teamB===config.b?row.winsB:row.winsA;const score=card.querySelector('[data-playoff-series]'),game=card.querySelector('[data-playoff-game]');if(score)score.textContent=aWins+'-'+bWins;if(game){const played=(row.games||[]).length;game.textContent=played?('Game '+(played+1)+' next'):'Game 1 next';}});}catch{}};
     window.__playoffWatchMatchups={};
     [
       {id:'min-nyl',a:'Minnesota Lynx',b:'New York Liberty'},
       {id:'gsv-dal',a:'Golden State Valkyries',b:'Dallas Wings'},
       {id:'lva-ind',a:'Las Vegas Aces',b:'Indiana Fever'},
       {id:'atl-was',a:'Atlanta Dream',b:'Washington Mystics'}
-    ].forEach(m=>window.__playoffWatchMatchups[m.id]=m);refresh();setInterval(()=>{if(!document.hidden)refresh();},60000);
+    ].forEach(m=>window.__playoffWatchMatchups[m.id]=m);
+    refresh();setInterval(()=>{if(!document.hidden)refresh();},60000);
   }
   function rankingsMarkup(rankings=[]){if(!rankings.length)return'';return `<section class="snack-section"><h3>Power rankings</h3><div class="rankings-table"><div class="rank-row head"><span>#</span><span>Team</span><span>Move</span><span>What Shak is seeing</span></div>${rankings.map(item=>`<div class="rank-row"><span class="rank">${safe(item.rank)}</span><strong>${safe(item.team)}</strong><span class="move">${safe(item.movement||'')}</span><span>${safe(item.note||'')}</span></div>`).join('')}</div></section>`;}
   function storyCellMarkup(column,cell,index){
@@ -122,10 +157,27 @@
   function sourcesMarkup(sources=[]){return sources.length?`<section class="source-list"><strong>Receipts</strong><p>${sources.map(source=>`<a href="${safe(source.url)}" target="_blank" rel="noopener noreferrer">${safe(source.label||'Source')}</a>`).join(' · ')}</p></section>`:'';}
   function storyMarkup(post){return `<a class="snack-story-back" href="${pagePath}">← Back to all ${mode==='feature'?'Food for Thought articles':'Snack Shak Bytes'}</a><article class="snack-post"><header class="snack-post-header ${mode==='feature'?'feature-header':''}"><span class="snack-series-label">${safe(label(post))}</span><div class="meta"><span>${safe(format(post.published))}</span>${post.week?`<span>•</span><span>${safe(post.week)}</span>`:''}</div><h2>${safe(post.title)}</h2><p class="dek">${safe(post.dek||'')}</p></header>${storyImageMarkup(post)}${playoffWatchMarkup(post.playoffWatch)}${playoffBoardMarkup(post)}${rankingsMarkup(post.rankings)}${tableMarkup(post.storyTable)}${trioDashboardMarkup(post.trioDashboard)}${sectionsMarkup(post.sections)}${debatesMarkup(post.debates)}${foodMarkup(post.foodSegment)}${sourcesMarkup(post.sources)}</article>`;}
 
+  function setCollectionArchiveMode(activeSlug=''){
+    const list=document.getElementById('snackCollectionGrid');
+    list?.querySelectorAll('[data-story-slug]').forEach(card=>{card.hidden=Boolean(activeSlug)&&card.dataset.storySlug===activeSlug;});
+    const section=document.querySelector('.snack-collection-section'),heading=section?.querySelector('.section-heading h2'),copy=section?.querySelector('.section-heading p:last-child'),kicker=section?.querySelector('.section-heading .kicker');
+    if(!heading)return;
+    if(activeSlug){
+      if(kicker)kicker.textContent='ARCHIVE · NEWEST FIRST';
+      heading.textContent=mode==='feature'?'More Food for Thought':'More Snack Shak Bytes';
+      if(copy)copy.textContent='The story you opened stays on top. Newer archive entries follow first, with older reads below.';
+    }else{
+      if(kicker)kicker.textContent=mode==='feature'?'LONG READS':'QUICK READS';
+      heading.textContent=mode==='feature'?'Deeper stories, one clean collection.':'Every Byte, one clean collection.';
+      if(copy)copy.textContent=mode==='feature'?'Every long article is organized here, newest first.':'New stories appear here automatically, newest first.';
+    }
+  }
+
   function showStory(post,story,{scroll=true,updateUrl=false}={}){
     if(!post||!story)return false;
     story.hidden=false;
     story.innerHTML=storyMarkup(post);
+    setCollectionArchiveMode(post.slug||'');
     if(post.slug==='the-playoff-watch-party-2026')updatePlayoffBoard();
     wirePlayoffWatch(story);
     wireTrioDashboard(story);
@@ -151,7 +203,7 @@
       const requested=new URLSearchParams(location.search).get('post')?.replaceAll('snack-shaq','snack-shak');
       const post=posts.find(item=>item.slug===requested);
       if(post)showStory(post,story,{scroll:false,updateUrl:false});
-      else if(story){story.hidden=true;story.innerHTML='';}
+      else if(story){story.hidden=true;story.innerHTML='';setCollectionArchiveMode('');}
     });
   }
 

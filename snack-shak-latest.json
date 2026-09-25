@@ -2,6 +2,65 @@
   "site": "Snack Shak",
   "posts": [
     {
+      "slug": "week-15-player-of-the-week-reese-wilson-2026",
+      "type": "byte",
+      "priority": 2400,
+      "seriesLabel": "SNACK SHAK BYTE · WEEK 15 HONORS",
+      "title": "Three Straight in the East, 33 in the West: Reese and Wilson Close Week 15",
+      "published": "2026-09-25",
+      "updated": "2026-09-25",
+      "week": "Week 15 · final regular-season week",
+      "image": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1642291.png",
+      "imageFit": "contain",
+      "imageAlt": "Official WNBA portrait of Atlanta Dream forward Angel Reese",
+      "dek": "Angel Reese made it three straight Eastern Conference weekly awards, while A'ja Wilson tied the WNBA career record with her 33rd Player of the Week honor.",
+      "players": [
+        "Angel Reese",
+        "A'ja Wilson"
+      ],
+      "teams": [
+        "Atlanta Dream",
+        "Las Vegas Aces"
+      ],
+      "sections": [
+        {
+          "title": "East: Angel Reese made it three straight",
+          "paragraphs": [
+            "Reese was named Eastern Conference Player of the Week for the third consecutive time, becoming the first player in Atlanta Dream history to win the honor three weeks in a row. Atlanta went 4-0 in the final week, and Reese averaged 19.3 points, 9.0 rebounds, 3.0 assists, 1.3 steals and 1.5 blocks while shooting 60.4 percent from the field.",
+            "The award is the fifth weekly honor of Reese's WNBA career. She was also named a WNBA Peak Performer after leading the league at 12.3 rebounds per game, and she became the first WNBA player to reach 500 rebounds in a single season."
+          ]
+        },
+        {
+          "title": "West: A'ja Wilson added No. 33",
+          "paragraphs": [
+            "Wilson was named Western Conference Player of the Week after averaging 27.8 points, 8.8 rebounds and 3.8 assists during the final week of the regular season.",
+            "It was Wilson's fifth weekly award of 2026 and the 33rd of her career, tying the WNBA record for career Player of the Week honors."
+          ]
+        },
+        {
+          "title": "That is one way to walk into the playoffs",
+          "paragraphs": [
+            "The timing is the headline. Reese enters Atlanta's first-round series after three straight weekly honors and a league rebounding title. Wilson enters Las Vegas' postseason with another historic regular season capped by a record-tying weekly award.",
+            "The regular season is over. Neither star exactly eased into the postseason."
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "label": "Atlanta Dream: Angel Reese named Eastern Conference Player of the Week for third consecutive week",
+          "url": "https://dream.wnba.com/news/angel-reese-named-wnba-eastern-conference-player-of-the-week-for-third-consecutive-week"
+        },
+        {
+          "label": "Atlanta Dream: Reese earns second consecutive weekly honor on Sept. 1",
+          "url": "https://dream.wnba.com/news/angel-reese-named-wnba-eastern-conference-player-of-the-week-for-second-consecutive-week"
+        },
+        {
+          "label": "Las Vegas Aces: A'ja Wilson earns record-tying 33rd weekly honor",
+          "url": "https://aces.wnba.com/news/aja-wilson-earns-wnba-record-tying-33rd-wnba-player-of-the-week-honor-and-fifth-of-the-season"
+        }
+      ]
+    },
+    {
       "slug": "the-playoff-watch-party-2026",
       "type": "feature",
       "priority": 2200,

@@ -157,10 +157,28 @@ function parseHtml(html=''){
       games:number(cell(row,['g'])),fgPct:number(cell(row,['fg_pct'])),threePct:number(cell(row,['fg3_pct'])),ast:number(cell(row,['ast'])),stl:number(cell(row,['stl'])),blk:number(cell(row,['blk'])),tov:number(cell(row,['tov'])),ppg:number(cell(row,['pts_per_g','pts'])),oppPpg:number(cell(row,['opp_pts_per_g']))
     });
   }
-  const best=new Map();for(const row of rows){const k=key(row.name);const old=best.get(k);if(!old||Object.values(row).filter(v=>v!==null&&v!=='').length>Object.values(old).filter(v=>v!==null&&v!=='').length)best.set(k,row);}return [...best.values()];
+  const best=new Map();for(const row of rows){const k=key(row.name);const old=best.get(k);if(!old||Object.values(row).filter(v=>v!==null&&v!=='').length>Object.values(old).filter(v=>v!==null&&v!=='').length)best.set(k,row);}
+  // The advanced and per-game tables have separate rows. Merge the per-game
+  // table by team instead of requiring offensive rating in every row.
+  for(const match of String(html).matchAll(/<tr[^>]*>([\s\S]*?)<\/tr>/gi)){
+    const row=match[1],name=cleanName(cell(row,['team','team_name'])),team=best.get(key(name));
+    if(!team)continue;
+    const games=number(cell(row,['g','games']));
+    const ppg=number(cell(row,['pts','pts_per_g']));
+    const ast=number(cell(row,['ast']));
+    // Per-game team rows include assists and points; advanced rows do not.
+    if(games===null||ppg===null||ast===null)continue;
+    const fields={games,ppg,ast,threePct:number(cell(row,['fg3_pct','three_pt_pct'])),stl:number(cell(row,['stl'])),blk:number(cell(row,['blk'])),tov:number(cell(row,['tov']))};
+    for(const [field,value] of Object.entries(fields))if(value!==null&&team[field]===null)team[field]=value;
+  }
+  for(const team of best.values()){
+    // Points allowed = points scored minus average scoring margin.
+    if(team.oppPpg===null&&team.ppg!==null&&team.mov!==null)team.oppPpg=Number((team.ppg-team.mov).toFixed(2));
+  }
+  return [...best.values()];
 }
 function rank(players,field,direction='desc',rankName){
-  const valid=players.filter(item=>Number.isFinite(Number(item[field]))).sort((a,b)=>direction==='asc'?Number(a[field])-Number(b[field]):Number(b[field])-Number(a[field]));
+  const valid=players.filter(item=>item[field]!==null&&item[field]!==undefined&&item[field]!==''&&Number.isFinite(Number(item[field]))).sort((a,b)=>direction==='asc'?Number(a[field])-Number(b[field]):Number(b[field])-Number(a[field]));
   valid.forEach((item,index)=>{item[rankName||`${field}Rank`]=index+1;item[`${rankName||`${field}Rank`}Pool`]=valid.length;});
 }
 function addRanks(players=[]){

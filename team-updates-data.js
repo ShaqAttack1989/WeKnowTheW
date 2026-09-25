@@ -8,6 +8,7 @@
   ];
   const CURATED={
     'atlanta-dream':[
+      {date:'2026-09-25',category:'story',kind:'PLAYER OF THE WEEK',title:'Angel Reese',detail:'Named Eastern Conference Player of the Week for the third consecutive week after averaging 19.3 points, 9.0 rebounds, 3.0 assists, 1.3 steals and 1.5 blocks while Atlanta went 4-0 to close the regular season.',href:'https://dream.wnba.com/news/angel-reese-named-wnba-eastern-conference-player-of-the-week-for-third-consecutive-week',priority:13},
       {date:'2026-09-01',category:'story',kind:'WNBA RECORD',title:'Angel Reese',detail:'Reese set a new WNBA single-season record with her 29th double-double, adding to her single-game and single-season rebounding records.',href:'https://dream.wnba.com/news/angel-reese-named-wnba-eastern-conference-player-of-the-week-for-second-consecutive-week',priority:10},
       {date:'2026-08-27',category:'movement',kind:'SIGNED',title:'DeWanna Bonner',detail:'Atlanta signed the two-time WNBA champion and six-time All-Star to a rest-of-season contract for the playoff push.',href:'https://dream.wnba.com/news/atlanta-dream-signs-two-time-wnba-champion-dewanna-bonner',priority:8},
       {date:'2026-08-24',category:'story',kind:'WNBA RECORD',title:'Angel Reese',detail:'Set the WNBA single-game rebounding record with 26 boards and broke the single-season rebounds record in the win over Los Angeles.',href:'https://dream.wnba.com/news/historic-night-for-reese-as-dream-goes-4-0-on-west-coast-road-trip',priority:9},
@@ -27,6 +28,7 @@
       {date:'2026-08-26',category:'story',kind:'BENCH LEADER',title:'Janelle Salaün',detail:'Reached 485 points off the bench, the league-leading bench scoring total at the time.',href:'https://www.statmuse.com/wnba/ask/most-total-points-off-the-bench-2026',priority:5}
     ],
     'las-vegas-aces':[
+      {date:'2026-09-25',category:'story',kind:'PLAYER OF THE WEEK',title:"A'ja Wilson",detail:'Named Western Conference Player of the Week after averaging 27.8 points, 8.8 rebounds and 3.8 assists during the final week of the regular season. The honor was her fifth of 2026 and tied the WNBA career record with 33 weekly awards.',href:'https://aces.wnba.com/news/aja-wilson-earns-wnba-record-tying-33rd-wnba-player-of-the-week-honor-and-fifth-of-the-season',priority:13},
       {date:'2026-08-27',category:'availability',kind:'OUT FOR SEASON',title:'NaLyssa Smith',detail:'Las Vegas announced Smith would miss the remainder of the 2026 season after a non-contact left-leg injury.',href:'https://aces.wnba.com/news/nalyssa-smith-sidelined-for-remainder-of-season',priority:8},
       {date:'2026-08-25',category:'story',kind:'HONOR',title:"A'ja Wilson",detail:'Earned the 32nd Western Conference Player of the Week award of her career.',href:'https://aces.wnba.com/news/aja-wilson-earns-32nd-career-western-conference-player-of-the-week-award',priority:5}
     ],

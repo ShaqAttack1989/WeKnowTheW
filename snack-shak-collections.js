@@ -61,7 +61,7 @@
         <div class="playoff-matchup-scoreline">
           <div><span>REGULAR SEASON</span><strong>${safe(m.regularSeries)}</strong><small>head-to-head only</small></div>
           <div class="is-series"><span>PLAYOFF SERIES</span><strong data-playoff-series>0-0</strong><small data-playoff-game>Game 1 next</small></div>
-          <div class="is-next"><span>GAME 1</span><strong>${safe(m.game1)}</strong><small>all times Eastern</small></div>
+          <div class="is-next"><span>GAME 1</span><strong data-playoff-tip>${safe(m.game1)}</strong><small>all times Eastern</small></div>
         </div>
         <div class="playoff-matchup-main">
           <div class="playoff-star-watch">${stars}</div>
@@ -75,15 +75,36 @@
           <div><span>WHO'S HOT</span><p>${safe(m.hot)}</p></div>
           <div><span>BENCH CHECK</span><p>${safe(m.bench)}</p></div>
           <a href="/availability-report.html"><span>AVAILABILITY</span><p>${safe(m.availability)}</p><b>LIVE REPORT →</b></a>
-          <div class="is-w-score"><span>WE KNOW THE W SCORE</span><strong data-w-score>${safe(m.wScore||'LIVE')}</strong><small>context, not a prediction</small></div>
+          <div class="is-w-score"><span>WE KNOW THE W SCORE</span><div class="playoff-w-score-pair"><b>${safe(m.highCode||'HIGH')} <strong>${safe(m.highWScore??'—')}</strong></b><b>${safe(m.lowCode||'LOW')} <strong>${safe(m.lowWScore??'—')}</strong></b></div><small>final regular-season composite</small></div>
         </div>
       </article>`;
     }).join('');
-    return `<section class="snack-section playoff-watch-dashboard fiba-inspired" data-playoff-watch><div class="playoff-watch-head"><div><span>PLAYOFF WATCH GUIDE · LIVE BOARD</span><h3>${safe(board.title||'The Playoff Watch Party')}</h3><p>${safe(board.subtitle||'')}</p></div><small>${safe(board.asOf||'')}</small></div><div class="playoff-watch-summary"><div><strong>8</strong><span>teams</span></div><div><strong>4</strong><span>first-round series</span></div><div><strong>0-0</strong><span>every series starts clean</span></div></div><div class="playoff-matchup-stack">${cards}</div><p class="playoff-watch-note">Regular-season head-to-head is context. Playoff series wins are tracked separately and refresh from the postseason feed.</p></section>`;
+    return `<section class="snack-section playoff-watch-dashboard fiba-inspired" data-playoff-watch><div class="playoff-watch-head"><div><span>PLAYOFF WATCH GUIDE · LIVE BOARD</span><h3>${safe(board.title||'The Playoff Watch Party')}</h3><p>${safe(board.subtitle||'')}</p></div><small>${safe(board.asOf||'')}</small></div><div class="playoff-watch-summary"><div><strong>8</strong><span>teams</span></div><div><strong>4</strong><span>first-round series</span></div><div><strong>0-0</strong><span>every series starts clean</span></div></div><div class="playoff-matchup-stack">${cards}</div><p class="playoff-watch-note">Regular-season head-to-head is context. Playoff series wins are tracked separately and refresh from the postseason feed. ${safe(board.scoreMethod||'')}</p></section>`;
   }
   function wirePlayoffWatch(story){
     const root=story?.querySelector('[data-playoff-watch]');if(!root||root.dataset.ready==='1')return;root.dataset.ready='1';
-    const refresh=async()=>{try{const response=await fetch('/api/competition?season=2026&cb='+Date.now(),{cache:'no-store'});if(!response.ok)return;const payload=await response.json();const series=payload.playoffs?.series||[];root.querySelectorAll('[data-playoff-matchup]').forEach(card=>{const id=card.dataset.playoffMatchup,config=(window.__playoffWatchMatchups||{})[id];if(!config)return;const row=series.find(item=>[item.teamA,item.teamB].includes(config.a)&&[item.teamA,item.teamB].includes(config.b));if(!row)return;const aWins=row.teamA===config.a?row.winsA:row.winsB;const bWins=row.teamB===config.b?row.winsB:row.winsA;const score=card.querySelector('[data-playoff-series]'),game=card.querySelector('[data-playoff-game]');if(score)score.textContent=aWins+'-'+bWins;if(game){const played=(row.games||[]).length;game.textContent=played?('Game '+(played+1)+' next'):'Game 1 next';}});}catch{}};
+    const refresh=async()=>{try{
+      const response=await fetch('/api/competition?season=2026&cb='+Date.now(),{cache:'no-store'});if(!response.ok)return;
+      const payload=await response.json(),series=payload.playoffs?.series||[],games=payload.playoffs?.games||[];
+      const day=value=>{if(!value)return'';const d=new Date(value+'T12:00:00-04:00');return Number.isNaN(d.getTime())?'':new Intl.DateTimeFormat('en-US',{timeZone:'America/New_York',weekday:'short',month:'short',day:'numeric'}).format(d);};
+      const tip=value=>{if(!value)return'';const d=new Date(value);return Number.isNaN(d.getTime())?'':new Intl.DateTimeFormat('en-US',{timeZone:'America/New_York',hour:'numeric',minute:'2-digit'}).format(d)+' ET';};
+      root.querySelectorAll('[data-playoff-matchup]').forEach(card=>{
+        const id=card.dataset.playoffMatchup,config=(window.__playoffWatchMatchups||{})[id];if(!config)return;
+        const row=series.find(item=>[item.teamA,item.teamB].includes(config.a)&&[item.teamA,item.teamB].includes(config.b));
+        const score=card.querySelector('[data-playoff-series]'),gameState=card.querySelector('[data-playoff-game]');
+        if(row){
+          const aWins=row.teamA===config.a?row.winsA:row.winsB,bWins=row.teamB===config.b?row.winsB:row.winsA;
+          if(score)score.textContent=aWins+'-'+bWins;
+          if(gameState){const played=(row.games||[]).length;gameState.textContent=played?('Game '+(played+1)+' next'):'Game 1 next';}
+        }
+        const opener=games.find(game=>[game.homeTeam,game.awayTeam].includes(config.a)&&[game.homeTeam,game.awayTeam].includes(config.b)&&Number(game.gameNumber||1)===1);
+        const tipHost=card.querySelector('[data-playoff-tip]');
+        if(opener&&tipHost){
+          const when=day(opener.date),time=opener.startTimeUtc?tip(opener.startTimeUtc):'',network=(opener.broadcasts||[])[0]||'';
+          tipHost.textContent=[when,time||'Time TBD',network].filter(Boolean).join(' · ');
+        }
+      });
+    }catch{}};
     window.__playoffWatchMatchups={};
     [
       {id:'min-nyl',a:'Minnesota Lynx',b:'New York Liberty'},

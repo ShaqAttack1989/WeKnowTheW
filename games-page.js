@@ -1,4 +1,4 @@
-let gamesPayload=null,competitionPayload=null,gamesMode='live',gamesTeam='all',gamesCompetition=Date.now()>=Date.parse('2026-09-25T00:00:00-04:00')?'playoffs':'season',gamesRefreshActive=false,liveRefreshActive=false;
+let gamesPayload=null,competitionPayload=null,gamesMode='upcoming',gamesTeam='all',gamesCompetition='playoffs',gamesRefreshActive=false,liveRefreshActive=false;
 
 const CUP_2026_CLIENT_FALLBACK=[
   {id:'2026-commissioners-cup-final',date:'2026-06-30',startTimeUtc:'2026-06-30T20:00:00-04:00',homeTeam:'New York Liberty',awayTeam:'Las Vegas Aces',homeScore:93,awayScore:85,status:'Final',state:'post',completed:true,officialFallback:true,broadcasts:['Prime Video']},
@@ -125,7 +125,15 @@ async function loadGames(initial=false){
     if(window.WGameBroadcasts?.enrichGames)stats.liveGames=WGameBroadcasts.enrichGames(stats.liveGames||[],officialGames);
     gamesPayload=stats;
     competitionPayload=compResult.status==='fulfilled'?compResult.value:{cup:{poolGames:[],championshipGames:[]},playoffs:{games:[],started:false}};
-    if(initial){if(gamesCompetition==='playoffs'){gamesMode='upcoming';document.querySelectorAll('[data-games-competition]').forEach(b=>{const on=b.dataset.gamesCompetition==='playoffs';b.classList.toggle('active',on);b.setAttribute('aria-pressed',String(on));});const note=document.getElementById('gamesCompetitionNote');if(note)note.textContent='First round begins Sept. 27 · opening matchups confirmed by WNBA';}else if(gamesMode==='live'&&!stats.liveGames.length)gamesMode='upcoming';}
+    if(initial&&gamesCompetition==='playoffs'){
+      const playoffGames=competitionPayload?.playoffs?.games||[];
+      const hasLive=playoffGames.some(game=>String(game.state||'').toLowerCase()==='in');
+      const hasUpcoming=playoffGames.some(game=>!game.completed&&String(game.state||'').toLowerCase()!=='in');
+      gamesMode=hasLive?'live':hasUpcoming?'upcoming':'past';
+      document.querySelectorAll('[data-games-competition]').forEach(button=>{const on=button.dataset.gamesCompetition==='playoffs';button.classList.toggle('active',on);button.setAttribute('aria-pressed',String(on));});
+      const note=document.getElementById('gamesCompetitionNote');
+      if(note)note.textContent=hasLive?'Playoffs live now · scores refresh automatically':hasUpcoming?'2026 regular season complete · first round begins Sept. 27':'2026 playoffs · completed games';
+    }
     WGameCards.populateFilter(document.getElementById('gamesTeamFilter'),stats);
     renderGames();
     setStatus(officialGames.length?'where to watch synced to official WNBA schedule':'broadcast schedule reconnecting');

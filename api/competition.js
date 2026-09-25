@@ -46,8 +46,17 @@ function mergeGames(primary=[],authoritative=[]){
   for(const game of authoritative){
     const existingKey=[...map.keys()].find(key=>{const current=map.get(key);return [current.homeTeam,current.awayTeam].sort().join('|')===[game.homeTeam,game.awayTeam].sort().join('|')&&Math.abs(Date.parse(current.date)-Date.parse(game.date))<=86400000;});
     const existing=existingKey&&map.get(existingKey);
-    // The official fixture fills missing ESPN data; an in-progress or final feed wins.
-    if(!existing||(!existing.completed&&String(existing.state||'').toLowerCase()!=='in'&&scoreValue(existing.homeScore)===null)){if(existingKey)map.delete(existingKey);map.set(gameKey(game),game);}
+    if(!existing){map.set(gameKey(game),game);continue;}
+    const existingLive=existing.completed||String(existing.state||'').toLowerCase()==='in'||scoreValue(existing.homeScore)!==null;
+    const fallbackLive=game.completed||String(game.state||'').toLowerCase()==='in'||scoreValue(game.homeScore)!==null;
+    // Provider schedule owns real tip times and state. Fallback only fills fields the provider does not have.
+    // If the fallback later carries a live/final score while the provider does not, use that state without discarding provider timing.
+    const merged={...game,...existing};
+    if(fallbackLive&&!existingLive)Object.assign(merged,{homeScore:game.homeScore,awayScore:game.awayScore,status:game.status,state:game.state,completed:game.completed});
+    if(!existing.startTimeUtc&&game.startTimeUtc)merged.startTimeUtc=game.startTimeUtc;
+    if((!Array.isArray(existing.broadcasts)||!existing.broadcasts.length)&&Array.isArray(game.broadcasts))merged.broadcasts=game.broadcasts;
+    if(existingKey)map.delete(existingKey);
+    map.set(gameKey(merged),merged);
   }
   return [...map.values()].sort((a,b)=>Date.parse(a.startTimeUtc||`${a.date}T23:59:59-04:00`)-Date.parse(b.startTimeUtc||`${b.date}T23:59:59-04:00`));
 }

@@ -72,9 +72,8 @@
       "published": "2026-09-25",
       "updated": "2026-09-25",
       "week": "The final season · 2003–2026",
-      "image": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1627673.png",
-      "imageFit": "contain",
-      "imageAlt": "Official WNBA portrait of Connecticut Sun great Jonquel Jones",
+      "image": "https://cdn.wnba.com/sites/1611661323/2026/09/gettyimages-2296356188-594x594-1.jpg",
+      "imageAlt": "Connecticut Sun fans celebrate the franchise at its final home game in Mohegan Sun Arena",
       "dek": "The final record was 11–33. The final result was a win. Between those two facts sits 24 seasons of Connecticut basketball that deserve to be remembered.",
       "sections": [
         {
@@ -137,7 +136,10 @@
           "label": "Connecticut Sun honors Jonquel Jones",
           "url": "https://sun.wnba.com/news/connecticut-sun-honor-jonquel-jones-as-sun-legend"
         }
-      ]
+      ],
+      "storyImage": "https://cdn.wnba.com/sites/1611661323/2026/09/gettyimages-2296356188-594x594-1.jpg",
+      "storyImageCaption": "A final-night tribute in Connecticut. Image: Connecticut Sun / Getty Images.",
+      "storyImageSourceUrl": "https://sun.wnba.com/news/sun-defeat-tempo-in-final-game-of-franchise-history"
     },
     {
       "slug": "lynx-fever-bench-test-2026",

@@ -92,7 +92,11 @@
             "beat": "Minnesota wins by controlling the paint, defending without fouling and making New York work through multiple creators.",
             "break": "New York can break the script if its spacing turns Minnesota's half-court defense into a chase.",
             "must": "Collier sets Minnesota's two-way ceiling. Stewart has to make the 1-vs-8 label feel irrelevant.",
-            "wScore": "LIVE"
+            "wScore": "LIVE",
+            "highCode": "MIN",
+            "lowCode": "NYL",
+            "highWScore": 79.9,
+            "lowWScore": 67.9
           },
           {
             "id": "gsv-dal",
@@ -118,7 +122,11 @@
             "beat": "Golden State wins by turning defense into bad possessions and forcing Dallas away from comfortable guard creation.",
             "break": "Dallas can crack it if Bueckers and Ogunbowale create clean paint touches before Golden State's defense gets set.",
             "must": "Williams is Golden State's pressure point on both ends. Bueckers has to solve a defense that swept Dallas 3-0.",
-            "wScore": "LIVE"
+            "wScore": "LIVE",
+            "highCode": "GSV",
+            "lowCode": "DAL",
+            "highWScore": 77.2,
+            "lowWScore": 75.4
           },
           {
             "id": "lva-ind",
@@ -129,7 +137,7 @@
             "lowTeam": "Indiana Fever",
             "lowRecord": "28-16",
             "regularSeries": "IND 2-1",
-            "game1": "Sun · Time TBD · Prime Video",
+            "game1": "Sun · Sept. 27 · Time TBD · Prime Video",
             "stars": [
               "A'ja Wilson",
               "Kelsey Mitchell"
@@ -144,7 +152,11 @@
             "beat": "Las Vegas wins when Wilson bends the floor at both ends and the guards punish the extra attention.",
             "break": "Indiana can break Vegas with the same pace and perimeter pressure that produced two regular-season wins.",
             "must": "Wilson is the matchup. Mitchell has to keep Indiana's offense moving when the half court gets crowded.",
-            "wScore": "LIVE"
+            "wScore": "LIVE",
+            "highCode": "LVA",
+            "lowCode": "IND",
+            "highWScore": 87.7,
+            "lowWScore": 74.8
           },
           {
             "id": "atl-was",
@@ -170,9 +182,14 @@
             "beat": "Atlanta wins when Gray and Howard create enough offense to let its defense dictate the game.",
             "break": "Washington can turn this into a frontcourt fight and make every Atlanta possession expensive.",
             "must": "Gray has to drive Atlanta's scoring. Austin's rim protection can change the geometry of the entire series.",
-            "wScore": "LIVE"
+            "wScore": "LIVE",
+            "highCode": "ATL",
+            "lowCode": "WAS",
+            "highWScore": 88.6,
+            "lowWScore": 80.5
           }
-        ]
+        ],
+        "scoreMethod": "Final regular-season W Score: 40% trio production, 35% team defense, 25% post-FIBA form. Availability is shown separately and does not silently change the score."
       },
       "debates": [
         "Which lower seed has the most useful regular-season evidence?",

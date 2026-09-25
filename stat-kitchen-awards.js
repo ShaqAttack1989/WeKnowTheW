@@ -35,7 +35,7 @@
   function renderMonthly(){
     const target=document.getElementById('monthlyAwards');
     const legend=document.getElementById('monthlyAwardLegend');
-    if(legend)legend.innerHTML='<strong>MONTHLY KEY</strong><span><i class="legend-dot kia"></i> Kia WNBA honor</span><span><i class="legend-dot current"></i> Latest month</span><span>Conference labels match Weekly Heat Check</span>';
+    if(legend){const latestMonth=monthlyAwards[0]?.month||'Latest';const septemberPending=!monthlyAwards.some(item=>norm(item.month)==='september');legend.innerHTML=`<strong>MONTHLY KEY</strong><span><i class="legend-dot kia"></i> Kia WNBA honor</span><span><i class="legend-dot current"></i> Latest official month · ${safe(latestMonth)} 2026</span><span>Conference labels match Weekly Heat Check</span>${septemberPending?'<span>September honors pending official WNBA release</span>':''}`;}
     if(!target)return;
     target.innerHTML=monthlyAwards.map((item,index)=>`<section class="monthly-award-period ${index===0?'latest-month':''}"><div class="monthly-period-label"><span>${safe(item.month.toUpperCase())} 2026</span><strong>Announced ${safe(item.announced||'')}</strong>${index===0?'<b>LATEST</b>':''}</div><div class="monthly-award-grid">${monthlyCard('East',item.east,index,index===0)}${monthlyCard('West',item.west,index,index===0)}</div></section>`).join('');
   }

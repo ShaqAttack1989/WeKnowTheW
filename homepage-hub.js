@@ -134,6 +134,6 @@
     }
   }
 
-  loadThisWeek();
-  window.requestIdleCallback?requestIdleCallback(()=>loadExtras(),{timeout:1800}):setTimeout(()=>loadExtras(),800);
+  // The newer homepage-week-live module owns the weekly dashboard.
+  // Search-heavy player/archive data now loads only after the user types or taps a search chip.
 })();

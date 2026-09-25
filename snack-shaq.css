@@ -292,3 +292,42 @@
   .playoff-star-watch{grid-template-columns:1fr 1fr}
   .playoff-context-strip{grid-template-columns:1fr}
 }
+
+
+/* Playoff Watch readability standard: 12pt / 16px minimum body and label text */
+.playoff-watch-dashboard.fiba-inspired .playoff-watch-head>div>span,
+.playoff-watch-dashboard.fiba-inspired .playoff-watch-head p,
+.playoff-watch-dashboard.fiba-inspired .playoff-watch-head>small,
+.playoff-watch-dashboard.fiba-inspired .playoff-watch-summary span,
+.playoff-watch-dashboard.fiba-inspired .playoff-team-side span,
+.playoff-watch-dashboard.fiba-inspired .playoff-team-side small,
+.playoff-watch-dashboard.fiba-inspired .playoff-vs-mark small,
+.playoff-watch-dashboard.fiba-inspired .playoff-matchup-scoreline span,
+.playoff-watch-dashboard.fiba-inspired .playoff-matchup-scoreline small,
+.playoff-watch-dashboard.fiba-inspired .playoff-star-watch figcaption span,
+.playoff-watch-dashboard.fiba-inspired .playoff-star-watch figcaption strong,
+.playoff-watch-dashboard.fiba-inspired .playoff-read-grid span,
+.playoff-watch-dashboard.fiba-inspired .playoff-read-grid p,
+.playoff-watch-dashboard.fiba-inspired .playoff-context-strip span,
+.playoff-watch-dashboard.fiba-inspired .playoff-context-strip p,
+.playoff-watch-dashboard.fiba-inspired .playoff-context-strip a b,
+.playoff-watch-dashboard.fiba-inspired .playoff-context-strip .is-w-score small,
+.playoff-watch-dashboard.fiba-inspired .playoff-watch-note{font-size:16px;line-height:1.45}
+.playoff-watch-dashboard.fiba-inspired .playoff-team-side strong{font-size:clamp(20px,2vw,26px)}
+.playoff-watch-dashboard.fiba-inspired .playoff-vs-mark b{font-size:18px}
+.playoff-watch-dashboard.fiba-inspired .playoff-matchup-scoreline strong{font-size:18px}
+.playoff-watch-dashboard.fiba-inspired .playoff-star-watch figcaption strong{font-weight:900}
+.playoff-watch-dashboard.fiba-inspired .playoff-context-strip .is-w-score strong{font-size:24px}
+@media(max-width:620px){
+  .playoff-watch-dashboard.fiba-inspired .playoff-team-side strong{font-size:18px}
+  .playoff-watch-dashboard.fiba-inspired .playoff-matchup-scoreline span,
+  .playoff-watch-dashboard.fiba-inspired .playoff-matchup-scoreline small,
+  .playoff-watch-dashboard.fiba-inspired .playoff-star-watch figcaption span,
+  .playoff-watch-dashboard.fiba-inspired .playoff-star-watch figcaption strong,
+  .playoff-watch-dashboard.fiba-inspired .playoff-read-grid span,
+  .playoff-watch-dashboard.fiba-inspired .playoff-read-grid p,
+  .playoff-watch-dashboard.fiba-inspired .playoff-context-strip span,
+  .playoff-watch-dashboard.fiba-inspired .playoff-context-strip p,
+  .playoff-watch-dashboard.fiba-inspired .playoff-context-strip a b,
+  .playoff-watch-dashboard.fiba-inspired .playoff-context-strip .is-w-score small{font-size:16px}
+}

@@ -489,3 +489,7 @@ body{font-size:var(--w-type-body);}
     line-height:1.5;
   }
 }
+
+/* Sitewide word spacing normalization */
+html,body{word-spacing:normal}
+body :where(h1,h2,h3,h4,h5,h6,p,a,button,label,li,dt,dd,th,td,small,strong,span){word-spacing:normal}

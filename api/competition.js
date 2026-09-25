@@ -98,7 +98,13 @@ module.exports=async function handler(req,res){
 
   const [regularResult,postseasonResult]=await Promise.allSettled([fetchType(season,2),fetchType(season,3)]);
   const regular=regularResult.status==='fulfilled'?regularResult.value:[];
-  const postseason=season===2026?mergeGames(postseasonResult.status==='fulfilled'?postseasonResult.value:[],PLAYOFF_2026_OPENERS):postseasonResult.status==='fulfilled'?postseasonResult.value:[];
+  let postseason=season===2026?mergeGames(postseasonResult.status==='fulfilled'?postseasonResult.value:[],PLAYOFF_2026_OPENERS):postseasonResult.status==='fulfilled'?postseasonResult.value:[];
+  if(season===2026){
+    const seed={'Minnesota Lynx':1,'Golden State Valkyries':2,'Las Vegas Aces':3,'Atlanta Dream':4,'Washington Mystics':5,'Indiana Fever':6,'Dallas Wings':7,'New York Liberty':8};
+    const regularSeries={'Minnesota Lynx|New York Liberty':'NYL 2-1','Dallas Wings|Golden State Valkyries':'GSV 3-0','Indiana Fever|Las Vegas Aces':'IND 2-1','Atlanta Dream|Washington Mystics':'WAS 2-1'};
+    const counts=new Map();
+    postseason=postseason.sort((a,b)=>Date.parse(a.startTimeUtc||a.date)-Date.parse(b.startTimeUtc||b.date)).map(game=>{const pair=[game.homeTeam,game.awayTeam].sort().join('|'),number=(counts.get(pair)||0)+1;counts.set(pair,number);return {...game,playoff:true,round:'First Round',gameNumber:number,homeSeed:seed[game.homeTeam]||null,awaySeed:seed[game.awayTeam]||null,regularSeasonSeries:regularSeries[pair]||'',competitionLabel:`Playoffs · First Round · Game ${number}`};});
+  }
   const providerErrors=[];
   if(regularResult.status==='rejected')providerErrors.push(`regular season: ${regularResult.reason?.message||'unavailable'}`);
   if(postseasonResult.status==='rejected')providerErrors.push(`postseason: ${postseasonResult.reason?.message||'unavailable'}`);

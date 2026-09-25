@@ -64,11 +64,17 @@
     return null;
   }
   function gameTime(game={}){
-    const d=gameInstant(game);
+    const explicit=String(game.startTimeUtc||game.timestamp||game.strTimestamp||game.time||'').trim();
+    if(!explicit||/tbd/i.test(String(game.status||game.statusText||'')))return 'TBD';
+    const d=gameInstant({...game,date:''});
     if(!d)return 'TBD';
     return new Intl.DateTimeFormat('en-US',{timeZone:EASTERN,hour:'numeric',minute:'2-digit'}).format(d);
   }
   function gameDay(game={}){
+    if(game.date){
+      const direct=new Date(String(game.date).slice(0,10)+'T12:00:00-04:00');
+      if(!Number.isNaN(direct.getTime()))return new Intl.DateTimeFormat('en-US',{timeZone:EASTERN,month:'short',day:'numeric'}).format(direct);
+    }
     const d=gameInstant(game);
     if(!d)return 'WNBA';
     return new Intl.DateTimeFormat('en-US',{timeZone:EASTERN,month:'short',day:'numeric'}).format(d);
@@ -78,7 +84,7 @@
     if(bucket==='live')return raw||'LIVE';
     if(bucket==='past')return raw||'FINAL';
     const tip=gameTime(game);
-    return tip==='TBD'?'TBD':`${tip} EST`;
+    return tip==='TBD'?'TBD':`${tip} ET`;
   }
   function teamName(game,side){return text(game?.[`${side}Team`]||game?.[side]?.name||game?.[side]?.full_name||'TBD');}
   function teamScore(game,side,bucket){

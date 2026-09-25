@@ -39,6 +39,7 @@
     });
   }
   const fetchJson=async url=>{
+    if(window.WHomeData?.get)return window.WHomeData.get(url,{ttl:15000});
     const joiner=url.includes('?')?'&':'?';
     const response=await fetch(`${url}${joiner}cb=${Date.now()}`,{headers:{Accept:'application/json','Cache-Control':'no-cache'},cache:'no-store'});
     if(!response.ok)throw new Error(`${url} returned ${response.status}`);

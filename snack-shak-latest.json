@@ -4,46 +4,44 @@
     {
       "slug": "the-playoff-watch-party-2026",
       "type": "feature",
-      "priority": 2000,
+      "priority": 2200,
       "homepageSeason": "wnba-playoffs",
       "seriesLabel": "FOOD FOR THOUGHT · PLAYOFF WATCH GUIDE",
       "title": "The Playoff Watch Party: Eight Teams, Four Doors, One Crown",
       "published": "2026-09-25",
       "updated": "2026-09-25",
       "week": "First round · Sept. 27",
-      "image": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1628932.png",
-      "imageFit": "contain",
-      "imageAlt": "Official WNBA portrait of A’ja Wilson",
-      "dek": "Pull up a chair. The field is fixed, Game 1 tips Sunday and every series has a reason to keep a second screen open.",
+      "image": "https://cdn.wnba.com/sites/1611661319/2026/09/2026-09-17-_-Las-Vegas-Aces-_-Scott-Eklund_-NBAE-_72-scaled.jpg",
+      "imageFit": "top-cover",
+      "imageAlt": "Official WNBA game photography from the 2026 season",
+      "dek": "The bracket is locked. Now the useful questions start: who is hot, who has the stars, who owns the season series, who has enough bench, and what can actually break each matchup?",
       "sections": [
         {
-          "title": "The opening whistle: Minnesota (1) vs. New York (8)",
+          "title": "Four series, four different kinds of pressure",
           "paragraphs": [
-            "Sunday, Sept. 27 · 2 p.m. ET · ABC. The Lynx earned the top seed; the Liberty get the hardest possible road from the eighth spot. Can New York find enough creation to make the favorite uncomfortable?"
+            "Minnesota has the seed. New York has the recent win. Golden State has a 3-0 regular-season sweep over Dallas, but the Wings arrive scorching hot. Indiana took two of three from Las Vegas. Washington took two of three from Atlanta. The bracket is clean; the matchups are not.",
+            "Use the dashboard above instead of reading the seeds like a prediction. Regular-season series wins are shown separately from the playoff series score, because 2-1 in July is context, not a head start on Sunday."
           ]
         },
         {
-          "title": "The new guard: Golden State (2) vs. Dallas (7)",
+          "title": "The bracket is now a living page",
           "paragraphs": [
-            "Sunday, Sept. 27 · 4 p.m. ET · ABC. Golden State made an expansion season look like an instant contender. Dallas brings Paige Bueckers and a dangerous offense. Watch which bench survives a shorter postseason rotation."
+            "Once Game 1 tips, the playoff record updates independently from the regular-season series line. Completed playoff games move into the series state, the next game becomes the one to watch, and an eliminated team can fade without rewriting the whole guide.",
+            "The first round is best of three in a 1-1-1 format. The semifinals are best of five. The Finals are best of seven."
           ]
         },
         {
-          "title": "The star test: Las Vegas (3) vs. Indiana (6)",
+          "title": "What I am watching first",
           "paragraphs": [
-            "Sunday, Sept. 27 · time to be confirmed · Prime Video. A’ja Wilson anchors the Aces; Indiana arrives with Caitlin Clark and Kelsey Mitchell. Check the live schedule for the tip time before making plans."
+            "The 2-vs-7 game has the sharpest collision of form and history: Golden State swept Dallas in the regular season, while Dallas won seven of its last eight. The 3-vs-6 series has the opposite problem for the higher seed: Indiana already owns a 2-1 regular-season edge over Las Vegas.",
+            "And then there is Minnesota-New York. An eighth seed walking into a No. 1 seed's building after beating that same team 93-81 nine days earlier is exactly why this is a watch party and not a coronation."
           ]
         },
         {
-          "title": "The late window: Atlanta (4) vs. Washington (5)",
+          "title": "Keep two scoreboards in your head",
           "paragraphs": [
-            "Sunday, Sept. 27 · 9 p.m. ET · USA. Atlanta has home court, and Washington has already proved it can disrupt higher seeds. Watch for the possession-by-possession swing."
-          ]
-        },
-        {
-          "title": "Keep the bracket in pencil",
-          "paragraphs": [
-            "The first round is best of three, with a 1–1–1 home format. The semifinals are best of five; the Finals are best of seven. Follow the live game board for scores and schedule updates."
+            "The regular-season series tells us what already worked. The playoff series tells us what matters now. They should never be displayed as the same number. A team can enter Sunday with a 3-0 season sweep and still be 0-0 when the ball goes up.",
+            "That separation now carries through the We Know the W game cards and the playoff dashboard."
           ]
         }
       ],
@@ -60,6 +58,126 @@
           "label": "WNBA 2026 postseason schedule and format",
           "url": "https://www.wnba.com/news/2026-wnba-postseason-faq"
         }
+      ],
+      "dashboardUrl": "/food-for-thought.html?post=the-playoff-watch-party-2026#story",
+      "storyImage": "https://cdn.wnba.com/sites/1611661319/2026/09/2026-09-17-_-Las-Vegas-Aces-_-Scott-Eklund_-NBAE-_72-scaled.jpg",
+      "storyImageCaption": "The bracket is locked. Eight teams start the 2026 postseason Sunday. Official WNBA/NBAE game photography.",
+      "storyImageSourceUrl": "https://www.wnba.com/playoffs/2026",
+      "playoffWatch": {
+        "title": "THE PLAYOFF WATCH PARTY",
+        "subtitle": "Eight Teams. Four Doors. One Crown.",
+        "asOf": "FINAL REGULAR SEASON · SEPT. 24",
+        "matchups": [
+          {
+            "id": "min-nyl",
+            "highSeed": 1,
+            "highTeam": "Minnesota Lynx",
+            "highRecord": "33-11",
+            "lowSeed": 8,
+            "lowTeam": "New York Liberty",
+            "lowRecord": "26-18",
+            "regularSeries": "NYL 2-1",
+            "game1": "Sun · 2:00 PM ET · ABC",
+            "stars": [
+              "Napheesa Collier",
+              "Breanna Stewart"
+            ],
+            "starPhotos": [
+              "https://cdn.wnba.com/headshots/wnba/latest/260x190/1629483.png",
+              "https://cdn.wnba.com/headshots/wnba/latest/260x190/1627668.png"
+            ],
+            "hot": "New York won the final regular-season meeting 93-81 after the FIBA break. Minnesota still owns the No. 1 seed and home court.",
+            "bench": "Minnesota's bench scoring was lighter than the rest of the playoff field; New York can change pace with Marine Johannes.",
+            "availability": "Live availability refreshes from the site report before tip.",
+            "beat": "Minnesota wins by controlling the paint, defending without fouling and making New York work through multiple creators.",
+            "break": "New York can break the script if its spacing turns Minnesota's half-court defense into a chase.",
+            "must": "Collier sets Minnesota's two-way ceiling. Stewart has to make the 1-vs-8 label feel irrelevant.",
+            "wScore": "LIVE"
+          },
+          {
+            "id": "gsv-dal",
+            "highSeed": 2,
+            "highTeam": "Golden State Valkyries",
+            "highRecord": "32-12",
+            "lowSeed": 7,
+            "lowTeam": "Dallas Wings",
+            "lowRecord": "27-17",
+            "regularSeries": "GSV 3-0",
+            "game1": "Sun · 4:00 PM ET · ABC",
+            "stars": [
+              "Gabby Williams",
+              "Paige Bueckers"
+            ],
+            "starPhotos": [
+              "https://cdn.wnba.com/headshots/wnba/latest/260x190/1628931.png",
+              "https://cdn.wnba.com/headshots/wnba/latest/260x190/1642784.png"
+            ],
+            "hot": "Golden State stole the No. 2 seed with a 17-1 closing run against Los Angeles. Dallas enters after winning seven of its final eight.",
+            "bench": "Golden State's depth has been a season-long weapon. Dallas needs its reserve scoring to survive when the rotation tightens.",
+            "availability": "Live availability refreshes from the site report before tip.",
+            "beat": "Golden State wins by turning defense into bad possessions and forcing Dallas away from comfortable guard creation.",
+            "break": "Dallas can crack it if Bueckers and Ogunbowale create clean paint touches before Golden State's defense gets set.",
+            "must": "Williams is Golden State's pressure point on both ends. Bueckers has to solve a defense that swept Dallas 3-0.",
+            "wScore": "LIVE"
+          },
+          {
+            "id": "lva-ind",
+            "highSeed": 3,
+            "highTeam": "Las Vegas Aces",
+            "highRecord": "31-13",
+            "lowSeed": 6,
+            "lowTeam": "Indiana Fever",
+            "lowRecord": "28-16",
+            "regularSeries": "IND 2-1",
+            "game1": "Sun · Time TBD · Prime Video",
+            "stars": [
+              "A'ja Wilson",
+              "Kelsey Mitchell"
+            ],
+            "starPhotos": [
+              "https://cdn.wnba.com/headshots/wnba/latest/260x190/1628932.png",
+              "https://cdn.wnba.com/headshots/wnba/latest/260x190/1628909.png"
+            ],
+            "hot": "Las Vegas climbed into the No. 3 seed. Indiana already proved the matchup is playable by taking two of three in the regular season.",
+            "bench": "Vegas can shorten the game with veteran shot creation. Indiana needs its second unit to preserve pace and spacing.",
+            "availability": "Live availability refreshes from the site report before tip.",
+            "beat": "Las Vegas wins when Wilson bends the floor at both ends and the guards punish the extra attention.",
+            "break": "Indiana can break Vegas with the same pace and perimeter pressure that produced two regular-season wins.",
+            "must": "Wilson is the matchup. Mitchell has to keep Indiana's offense moving when the half court gets crowded.",
+            "wScore": "LIVE"
+          },
+          {
+            "id": "atl-was",
+            "highSeed": 4,
+            "highTeam": "Atlanta Dream",
+            "highRecord": "30-14",
+            "lowSeed": 5,
+            "lowTeam": "Washington Mystics",
+            "lowRecord": "28-16",
+            "regularSeries": "WAS 2-1",
+            "game1": "Sun · 9:00 PM ET · USA",
+            "stars": [
+              "Allisha Gray",
+              "Shakira Austin"
+            ],
+            "starPhotos": [
+              "https://cdn.wnba.com/headshots/wnba/latest/260x190/1628277.png",
+              "https://cdn.wnba.com/headshots/wnba/latest/260x190/1631022.png"
+            ],
+            "hot": "Atlanta secured the last home-court seed, but Washington won the regular-season series 2-1 and enters as a dangerous No. 5.",
+            "bench": "Atlanta leans on its starters. Washington can keep size and defense on the floor deeper into the rotation.",
+            "availability": "Live availability refreshes from the site report before tip.",
+            "beat": "Atlanta wins when Gray and Howard create enough offense to let its defense dictate the game.",
+            "break": "Washington can turn this into a frontcourt fight and make every Atlanta possession expensive.",
+            "must": "Gray has to drive Atlanta's scoring. Austin's rim protection can change the geometry of the entire series.",
+            "wScore": "LIVE"
+          }
+        ]
+      },
+      "debates": [
+        "Which lower seed has the most useful regular-season evidence?",
+        "Which Game 1 changes the feel of its series fastest?",
+        "Which bench do you trust when the rotation gets short?"
       ]
     },
     {
@@ -412,11 +530,12 @@
           "url": "https://www.weknowthew.com/fiba-return-playoff-show-2026.html"
         }
       ],
-      "image": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1628932.png",
-      "storyImage": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1628932.png",
-      "imageAlt": "Official WNBA portrait of Las Vegas Aces star A’ja Wilson",
+      "image": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1642784.png",
+      "storyImage": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1642784.png",
+      "imageAlt": "Official WNBA portrait of Dallas Wings guard Paige Bueckers",
       "imageFit": "contain",
-      "storyImageSourceUrl": "https://www.wnba.com/player/1628932/aja-wilson"
+      "storyImageSourceUrl": "https://www.wnba.com/player/1628932/aja-wilson",
+      "storyImageCaption": "Dallas made the bottom of the bracket move before locking the No. 7 seed. Official WNBA player media."
     },
     {
       "slug": "playoff-trio-test-2026",

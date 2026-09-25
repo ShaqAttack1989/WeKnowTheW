@@ -103,12 +103,14 @@
     const host=document.getElementById('wHomeScoreGames');
     if(!host)return;
     try{
-      const [statsResult,teamsResult]=await Promise.allSettled([
+      const [statsResult,teamsResult,competitionResult]=await Promise.allSettled([
         fetchJson('/api/stats?season=2026'),
-        fetchJson('/api/teams?homepage=official-badges')
+        fetchJson('/api/teams?homepage=official-badges'),
+        fetchJson('/api/competition?season=2026')
       ]);
       const stats=statsResult.status==='fulfilled'?statsResult.value:{};
       const teams=teamsResult.status==='fulfilled'?teamsResult.value:{};
+      const competition=competitionResult.status==='fulfilled'?competitionResult.value:{};
       const badges=new Map();
       (Array.isArray(teams.teams)?teams.teams:[]).forEach(team=>{
         const src=sitePhoto(team?.badge||team?.logo||'');
@@ -118,7 +120,8 @@
       const live=(stats.liveGames||[]).map(game=>({game,bucket:'live'}));
       const upcoming=(stats.upcomingGames||[]).map(game=>({game,bucket:'upcoming'})).sort((a,b)=>(gameInstant(a.game)?.getTime()||Infinity)-(gameInstant(b.game)?.getTime()||Infinity));
       const past=(stats.pastGames||stats.recentGames||[]).map(game=>({game,bucket:'past'})).sort((a,b)=>(gameInstant(b.game)?.getTime()||0)-(gameInstant(a.game)?.getTime()||0));
-      const chosen=[...live,...upcoming,...past].slice(0,5);
+      const playoffGames=(competition.playoffs?.games||[]).filter(game=>!game.completed&&String(game.state||'').toLowerCase()!=='post').map(game=>({game:{...game,status:game.competitionLabel||game.status||'Playoffs'},bucket:String(game.state||'').toLowerCase()==='in'?'live':'upcoming'}));
+      const chosen=(playoffGames.length?[...playoffGames,...live,...past]:[...live,...upcoming,...past]).slice(0,5);
       host.innerHTML=chosen.length?chosen.map(item=>gameCard(item,badges)).join(''):`<a class="w-score-game" href="/games.html"><div class="w-score-game-top"><span>WNBA</span><b>SCHEDULE</b></div><div class="w-score-game-team"><i class="w-score-team-fallback">W</i><span>Open the full games board</span><strong>→</strong></div></a>`;
     }catch{
       host.innerHTML=`<a class="w-score-game" href="/games.html"><div class="w-score-game-top"><span>WNBA</span><b>GAMES</b></div><div class="w-score-game-team"><i class="w-score-team-fallback">W</i><span>Scoreboard reconnecting</span><strong>→</strong></div></a>`;

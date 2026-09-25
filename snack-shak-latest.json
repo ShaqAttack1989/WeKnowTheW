@@ -951,10 +951,10 @@
       "published": "2026-09-18",
       "week": "September 17 return night · Updated after Sept. 18 playoff ripple",
       "dashboardUrl": "/fiba-return-playoff-show-2026.html",
-      "image": "https://cdn.wnba.com/sites/4/2025/11/Jackie917.png",
-      "storyImage": "https://cdn.wnba.com/sites/4/2025/11/Jackie917.png",
-      "imageAlt": "Jackie Young featured after scoring a career-high 35 points at Seattle on September 17, 2026",
-      "storyImageCaption": "Jackie Young scored a career-high 35 as Las Vegas beat Seattle on WNBA return night. Image via WNBA.com.",
+      "image": "https://cdn.wnba.com/sites/1611661319/2026/09/2026-09-17-_-Las-Vegas-Aces-_-Scott-Eklund_-NBAE-_72-scaled.jpg",
+      "storyImage": "https://cdn.wnba.com/sites/1611661319/2026/09/2026-09-17-_-Las-Vegas-Aces-_-Scott-Eklund_-NBAE-_72-scaled.jpg",
+      "imageAlt": "Las Vegas Aces and Seattle Storm in action on September 17, 2026",
+      "storyImageCaption": "Las Vegas faced Seattle on WNBA return night. Photo: Scott Eklund, NBAE, via the Las Vegas Aces.",
       "teams": [
         "Atlanta Dream",
         "Washington Mystics",
@@ -1034,6 +1034,7 @@
       "dashboardUrl": "/snack-shak-bytes.html?post=liberty-post-fiba-finals-sleeper#story",
       "image": "/assets/images/snack-shak/liberty-post-fiba-sleeper.jpg",
       "storyImage": "/assets/images/snack-shak/liberty-post-fiba-sleeper.jpg",
+      "imageFit": "contain",
       "imageAlt": "Liberty players Pauline Astier, Marine Johannes, Breanna Stewart, Leonie Fiebich and Raquel Carrera in a national team composite",
       "storyImageCaption": "Five Liberty players reached the World Cup semifinals: Pauline Astier and Marine Johannes with France, Breanna Stewart with USA, Leonie Fiebich with Germany and Raquel Carrera with Spain. Graphic supplied by Shak, via ClutchPoints.",
       "teams": [

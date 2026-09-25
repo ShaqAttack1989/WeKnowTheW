@@ -7,6 +7,7 @@ const root = path.resolve(__dirname, '..');
 const read = file => fs.readFileSync(path.join(root, file), 'utf8');
 const index = read('index.html');
 const specials = read('homepage-specials.js');
+const weekLive = read('homepage-week-live.js');
 const latest = JSON.parse(read('snack-shak-latest.json'));
 const finalFeed = JSON.parse(read('snack-shak-final.json'));
 
@@ -14,16 +15,17 @@ const championsPhoto = '/assets/images/fiba-group-play/fiba-world-champions-usa-
 const jackieTrophyPhoto = '/assets/images/fiba-group-play/jackie-young-championship-trophy-2026.jpg';
 const libertySleeperPhoto = '/assets/images/snack-shak/liberty-post-fiba-sleeper.jpg';
 
-test('the static Fold spotlight keeps each story attached to its own photo', () => {
-  assert.match(index, new RegExp(`<a class="season-story season-story-lead"[\\s\\S]*?<img src="${championsPhoto}"[\\s\\S]*?</a>`));
-  assert.match(index, new RegExp(`<a class="season-story" href="/snack-shak-bytes\\.html\\?post=jackie-young-championship-collection#story">[\\s\\S]*?<img src="${jackieTrophyPhoto}"[\\s\\S]*?</a>`));
+test('the static spotlight links to its featured stories', () => {
+  assert.match(index, /season-story season-story-lead" href="\/aja-wilson-mvp-race-2026\.html"/);
+  assert.match(index, /season-story" href="\/fiba-return-playoff-show-2026\.html"/);
 });
 
-test('the live spotlight promotes the WNBA return and Liberty sleeper Byte', () => {
+test('the weekly story renderer owns story links and respects image fit', () => {
   assert.match(specials, /spotlight\.dataset\.season='wnba-return'/);
-  assert.match(specials, /post=liberty-post-fiba-finals-sleeper#story/);
-  assert.match(specials, new RegExp(`<img src="${libertySleeperPhoto}"`));
-  assert.match(specials, /welcome-back-to-the-w-2026\.html/);
+  assert.doesNotMatch(specials, /\benforceUniqueEditorials\(\);/);
+  assert.match(weekLive, /host\.dataset\.href=destination/);
+  assert.match(weekLive, /--media-fit:\$\{image\.fit\}/);
+  assert.equal(latest.posts.find(post=>post.slug==='liberty-post-fiba-finals-sleeper').imageFit,'contain');
 });
 
 test('the championship and Jackie Young feeds use distinct, relevant photos', () => {

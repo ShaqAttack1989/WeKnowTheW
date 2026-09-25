@@ -11,6 +11,7 @@
   const fmtShortDate=value=>{const parsed=localDate(value);return Number.isNaN(parsed.getTime())?text(value):parsed.toLocaleDateString([],{month:'short',day:'numeric'});};
   const sitePhoto=value=>/^(?:\/|https?:\/\/)/i.test(String(value||'').trim())?String(value).trim():'';
   const validFocus=value=>/^\d{1,3}%\s+\d{1,3}%$/.test(String(value||'').trim())?String(value).trim():'50% 50%';
+  const imageFit=value=>String(value||'').toLowerCase()==='contain'?'contain':'cover';
 
   const MEDIA={
     stats:'/assets/images/snack-shak/power-rankings-vs-standings-aug30.webp',
@@ -49,8 +50,8 @@
     return response.text();
   };
 
-  function mediaSpec({src='',alt='',focus='50% 50%',mobileFocus='',className=''}={}){
-    return {src:sitePhoto(src),alt:text(alt),focus:validFocus(focus),mobileFocus:validFocus(mobileFocus||focus),className:text(className)};
+  function mediaSpec({src='',alt='',focus='50% 50%',mobileFocus='',fit='cover',className=''}={}){
+    return {src:sitePhoto(src),alt:text(alt),focus:validFocus(focus),mobileFocus:validFocus(mobileFocus||focus),fit:imageFit(fit),className:text(className)};
   }
 
   function mediaMarkup(media,kicker=''){
@@ -85,7 +86,8 @@
       src:direct,
       alt:story.imageAlt||story.alt||story.title||'Story image',
       focus:story.imageFocus||story.tileFocus||'50% 38%',
-      mobileFocus:story.mobileImageFocus||story.mobileTileFocus||story.imageFocus||story.tileFocus||'50% 32%'
+      mobileFocus:story.mobileImageFocus||story.mobileTileFocus||story.imageFocus||story.tileFocus||'50% 32%',
+      fit:story.imageFit
     });
   }
 
@@ -169,7 +171,7 @@
     const image=explicitStoryImage(story||{});
     const tag=kind==='food'?'FEATURED READ':'QUICK HIT';
     if(!image.src)return `<figure class="week-editorial-media week-media-fallback" role="img" aria-label="${safe(story?.title||tag)}"><b aria-hidden="true">W</b><span class="week-media-tag">${tag}</span></figure>`;
-    return `<figure class="week-editorial-media"><img src="${safe(image.src)}" alt="${safe(image.alt)}" loading="${kind==='food'?'eager':'lazy'}" decoding="async" style="--media-focus:${safe(image.focus)};--media-focus-mobile:${safe(image.mobileFocus)}"><span class="week-media-tag">${tag}</span></figure>`;
+    return `<figure class="week-editorial-media"><img src="${safe(image.src)}" alt="${safe(image.alt)}" loading="${kind==='food'?'eager':'lazy'}" decoding="async" style="--media-fit:${image.fit};--media-focus:${safe(image.focus)};--media-focus-mobile:${safe(image.mobileFocus)}"><span class="week-media-tag">${tag}</span></figure>`;
   }
 
   function renderEditorial(host,story,kind){
@@ -184,7 +186,7 @@
       wireMediaFallback(host);
       return;
     }
-    host.innerHTML=`${editorialMedia(story,kind)}<div class="week-editorial-body"><div class="week-editorial-top"><span class="week-card-kicker">${kind==='food'?'FOOD FOR THOUGHT':'SNACK SHAK BYTE'}</span><span class="week-card-date">${safe(fmtDate(dateValue(story)))}</span></div><span class="week-story-series">${safe(storyLabel(story))}</span><h3>${safe(story.title)}</h3><p>${safe(storyText(story))}</p><a href="${safe(storyHref(story,kind))}">${kind==='food'?'Read the full thought':'Grab the Byte'} →</a></div>`;
+    host.innerHTML=`${editorialMedia(story,kind)}<div class="week-editorial-body"><div class="week-editorial-top"><span class="week-card-kicker">${kind==='food'?'FOOD FOR THOUGHT':'SNACK SHAK BYTE'}</span><span class="week-card-date">${safe(fmtDate(dateValue(story)))}</span></div><span class="week-story-series">${safe(storyLabel(story))}</span><h3>${safe(story.title)}</h3><p>${safe(storyText(story))}</p><a href="${safe(destination)}">${kind==='food'?'Read the full thought':'Grab the Byte'} →</a></div>`;
     wireMediaFallback(host);
   }
 
@@ -278,7 +280,7 @@
     const liveHost=document.getElementById('weekHubLive'),gamesHost=document.getElementById('weekHubGames');
     try{
       const stats=await fetchJson('/api/stats?season=2026');
-      try{storeTeamBadges(await fetchJson('/api/teams?homepage=official-badges'));}catch{}
+      try{storeTeamBadges(await fetchJson('/api/teams?currentLogos=20260925'));}catch{}
       hydrateHeaderBadges();
       const rows=standingsRows(stats).sort((a,b)=>Number(a.overall_rank||a.playoff_seed||999)-Number(b.overall_rank||b.playoff_seed||999));
       const leader=rows[0];

@@ -182,9 +182,7 @@
   async function refresh(force=false){
     sunsetFibaSpotlight();
     await loadSpecials(force);
-    enforceUniqueEditorials();
-    watchEditorial();
-    wireEditorialTileNavigation();
+    // homepage-week-live.js owns the editorial cards and their navigation.
     renderLegacyWeeklySpecials();
     const input=document.getElementById('homeSiteSearch');
     if(input?.value)appendSearchMatches(input.value);
@@ -192,7 +190,6 @@
 
   sunsetFibaSpotlight();
   wireSearch();
-  wireEditorialTileNavigation();
   refresh();
   setInterval(()=>{if(!document.hidden)refresh(true);},60000);
   window.addEventListener('focus',()=>refresh(true));

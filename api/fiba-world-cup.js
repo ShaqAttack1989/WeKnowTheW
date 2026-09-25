@@ -31,7 +31,9 @@ function berlinTournamentDay() {
 
 function completedGameCenterDays() {
   const day = berlinTournamentDay();
-  if (!day) return [];
+  // After the tournament, the daily result pages remain useful when the JSON feed fails.
+  if (!day) return new Date() > new Date('2026-09-14T00:00:00+02:00')
+    ? Array.from({ length: 10 }, (_, index) => index + 4) : [];
   return Array.from({ length: day - 3 }, (_, index) => index + 4);
 }
 
@@ -758,12 +760,15 @@ function applyVerifiedDailyScores(text, games) {
 }
 
 function mergeFinalScores(base, next) {
-  const byId = new Map((base || []).map(game => [game.id, game]));
+  const key = game => Number(game.fibaGameId) || `${game.date}|${game.home?.code}|${game.away?.code}`;
+  const byId = new Map((base || []).map(game => [key(game), game]));
   for (const game of next || []) {
-    const existing = byId.get(game.id);
-    if (!existing || game.status === 'final') byId.set(game.id, game);
+    const id = key(game);
+    const existing = byId.get(id);
+    if (!existing || (game.status === 'final' && existing.status !== 'final') ||
+        (game.status === 'final' && existing.status === 'final' && !existing.sourceUrl)) byId.set(id, game);
   }
-  return [...byId.values()];
+  return [...byId.values()].sort((a,b)=>Date.parse(a.startTimeUtc||0)-Date.parse(b.startTimeUtc||0));
 }
 
 function applyVerifiedResultSnapshot(games) {
@@ -773,7 +778,8 @@ function applyVerifiedResultSnapshot(games) {
     const key = `${game.home.code}-${game.away.code}`;
     const result = VERIFIED_GROUP_RESULTS[key];
     if (!result) return game;
-    if (game.status !== 'final' || Number(game.homeScore) !== result[0] || Number(game.awayScore) !== result[1]) changed = true;
+    if (game.status === 'final') return game;
+    changed = true;
     const fibaGameId = Number(game.fibaGameId) || FIBA_GROUP_GAME_IDS[key];
     return {
       ...game,
@@ -843,15 +849,21 @@ function applyVerifiedResultSnapshot(games) {
     if (index >= 0) {
       const game = updated[index];
       if (game.status !== 'final' || Number(game.homeScore) !== snapshot.homeScore || Number(game.awayScore) !== snapshot.awayScore) changed = true;
-      updated[index] = { ...game, ...snapshot, id: game.id || snapshot.id };
+      if (game.status !== 'final') updated[index] = { ...game, ...snapshot, id: game.id || snapshot.id };
     } else {
       updated.push(snapshot);
       changed = true;
     }
   });
 
+  updated.push({
+    id: 'fiba-128155', fibaGameId: 128155, phase: 'Final', roundCode: 'F', group: null,
+    date: '2026-09-13', timeBerlin: '20:00', startTimeUtc: berlinUtc('2026-09-13', '20:00'),
+    venue: 'Berlin, Germany', home: team('USA'), away: team('FRA'), status: 'final',
+    homeScore: 97, awayScore: 79, sourceUrl: `${EVENT_BASE}/games/128155-USA-FRA`
+  });
   updated.sort((a, b) => Date.parse(a.startTimeUtc || 0) - Date.parse(b.startTimeUtc || 0));
-  return { games: updated, changed };
+  return { games: mergeFinalScores([], updated), changed: true };
 }
 
 function parseExtraFinalGames(text, knownGames) {
@@ -1344,8 +1356,8 @@ module.exports = async function handler(req, res) {
 
     if (competitionGamesResult.status === 'fulfilled') {
       const officialGames = parseCompetitionGames(competitionGamesResult.value);
-      if (officialGames.length >= GROUP_GAMES.length) {
-        games = officialGames;
+      if (officialGames.length) {
+        games = mergeFinalScores(fallbackGames, officialGames);
         liveResults = games.some(game => game.status === 'final');
         gamesSource = 'official-competition-games';
       }
@@ -1387,6 +1399,12 @@ module.exports = async function handler(req, res) {
         gamesSource = 'verified-official-snapshot';
         warnings.push('FIBA’s structured games feed is temporarily unavailable. Completed results are filled from the last verified official snapshot while live refresh retries.');
       }
+    }
+    // A partial official response may omit earlier finals. The verified snapshot only fills gaps.
+    if (gamesSource === 'official-competition-games' && games.filter(game=>game.status==='final').length < 36) {
+      const snapshot = applyVerifiedResultSnapshot(games);
+      games = mergeFinalScores(games, snapshot.games);
+      if (snapshot.changed) warnings.push('Some completed games were missing from FIBA’s structured response; verified results filled available gaps.');
     }
 
     const completedGroupGames = games.filter(game => game.group && game.status === 'final').length;
@@ -1473,6 +1491,8 @@ module.exports = async function handler(req, res) {
   const eliminatedTeams = tournamentTable.filter(team => team.eliminated);
   const completedGames = games.filter(game => game.status === 'final');
   const missingPlayersOfGame = completedGames.filter(game => !game.playerOfGame);
+  if (new Date() > new Date('2026-09-14T00:00:00+02:00') && completedGames.length < 36)
+    warnings.push(`Only ${completedGames.length} of 36 completed World Cup games could be verified. Remaining results are awaiting the official feed.`);
 
   res.setHeader('Cache-Control', 's-maxage=60, stale-while-revalidate=120');
   return res.status(200).json({

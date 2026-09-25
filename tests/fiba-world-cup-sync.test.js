@@ -227,19 +227,19 @@ test('structured FIBA feed drives every table through the completed group phase 
 
   assert.equal(data.games.length, 36);
   assert.equal(data.dataStatus.completedGroupGames, 24);
-  assert.equal(data.dataStatus.completedGames, 32);
+  assert.equal(data.dataStatus.completedGames, 33);
   assert.equal(data.dataStatus.gamesSource, 'official-competition-games');
   assert.equal(data.dataStatus.standingsSource, 'derived-from-official-games');
   assert.equal(data.dataStatus.leagueLeadersSource, 'official-competition-player-leaders');
   assert.equal(data.dataStatus.playerOfGameCount, 32);
-  assert.equal(data.dataStatus.playerOfGameComplete, true);
-  assert.deepEqual(data.dataStatus.missingPlayersOfGame, []);
+  assert.equal(data.dataStatus.playerOfGameComplete, false);
+  assert.equal(data.dataStatus.missingPlayersOfGame.length, 1);
   assert.deepEqual(groupD.map(team => team.code), ['USA','CHN','ITA','CZE']);
   assert.deepEqual([data.usa.wins,data.usa.losses,data.usa.groupRank], [3,0,1]);
-  assert.deepEqual([usa.gamesPlayed,usa.wins,usa.losses,usa.pointsFor,usa.pointsAgainst], [4,4,0,362,233]);
-  assert.equal(usa.ppg.toFixed(1), '90.5');
-  assert.equal(usa.oppPpg.toFixed(1), '58.3');
-  assert.equal(usa.diffPerGame.toFixed(1), '32.3');
+  assert.deepEqual([usa.gamesPlayed,usa.wins,usa.losses,usa.pointsFor,usa.pointsAgainst], [5,5,0,459,312]);
+  assert.equal(usa.ppg.toFixed(1), '91.8');
+  assert.equal(usa.oppPpg.toFixed(1), '62.4');
+  assert.equal(usa.diffPerGame.toFixed(1), '29.4');
   assert.deepEqual([missingGame.status,missingGame.homeScore,missingGame.awayScore], ['final',105,64]);
   assert.deepEqual([missingGame.playerOfGame.player,missingGame.playerOfGame.line], ['Breanna Stewart','19 PTS']);
   assert.deepEqual(
@@ -251,8 +251,8 @@ test('structured FIBA feed drives every table through the completed group phase 
   assert.deepEqual(data.tournamentTable.filter(team=>team.eliminated).map(team=>team.code).sort(), ['AUS','BEL','CHN','CZE','HUN','ITA','JPN','KOR','MLI','NGR','PUR','TUR']);
   assert.equal(data.tournamentTable.find(team=>team.code==='PUR').eliminationStage, 'Qualification to Quarter-Finals');
   assert.deepEqual(Object.fromEntries(data.tournamentTable.map(team=>[team.code,team.wScore])), {
-    FRA:93.3,USA:90.8,ESP:75,GER:74.7,BEL:65.4,AUS:53.2,CHN:47.3,HUN:43.2,
-    MLI:39.5,ITA:32.2,PUR:30.9,KOR:29.2,JPN:28.9,TUR:18.5,NGR:11.6,CZE:11.5
+    FRA:84.3,USA:92,ESP:75,GER:74.7,BEL:65.4,AUS:53.2,CHN:46.9,HUN:42.8,
+    MLI:39.5,ITA:32.2,PUR:30.9,KOR:28.7,JPN:28.9,TUR:18.5,NGR:10.9,CZE:11.5
   });
   assert.equal(data.dataStatus.eliminatedTeams, 12);
   assert.deepEqual(data.statLeaders.map(category => category.leaders.length), [3,3,3,3,3,3]);
@@ -267,17 +267,28 @@ test('verified official snapshot prevents a transient games API failure from dro
 
   assert.equal(data.dataStatus.gamesSource, 'verified-official-snapshot');
   assert.equal(data.dataStatus.completedGroupGames, 24);
-  assert.equal(data.dataStatus.completedGames, 32);
+  assert.equal(data.dataStatus.completedGames, 33);
   assert.deepEqual([data.usa.wins,data.usa.losses,data.usa.groupRank], [3,0,1]);
-  assert.deepEqual([usa.pointsFor,usa.pointsAgainst], [362,233]);
+  assert.deepEqual([usa.pointsFor,usa.pointsAgainst], [459,312]);
   assert.equal(usaChina.timeBerlin, '14:15');
   assert.deepEqual(data.games.find(game=>game.fibaGameId===128147).homeScore, 72);
   assert.deepEqual([data.games.find(game=>game.fibaGameId===128146).homeScore,data.games.find(game=>game.fibaGameId===128146).awayScore], [80,82]);
   assert.deepEqual([data.games.find(game=>game.fibaGameId===128149).homeScore,data.games.find(game=>game.fibaGameId===128149).awayScore], [61,90]);
   assert.equal(data.tournamentTable.find(team=>team.code==='PUR').eliminated, true);
   assert.equal(data.dataStatus.playerOfGameCount, 32);
-  assert.equal(data.dataStatus.playerOfGameComplete, true);
+  assert.equal(data.dataStatus.playerOfGameComplete, false);
   assert.match(data.dataStatus.warnings.join(' '), /last verified official snapshot/);
+});
+
+test('partial structured results retain official finals and fill missing verified games without duplicates', async () => {
+  const stats = '<html><head><script>self.__next_f.push([1,"{\\"NEXT_CLIENT_APIM_URL\\":\\"https://digital-api.example/hapi\\",\\"NEXT_CLIENT_APIM_SUBSCRIPTION_KEY\\":\\"public-test-key\\"}"])</script></head></html>';
+  const oneOfficialFinal = [gdapGame({id:128116,date:'2026-09-04',group:'A',home:'JPN',away:'MLI',homeScore:103,awayScore:97})];
+  const data = await runDashboard({ standings: standingsText({}), stats, competitionGames: oneOfficialFinal });
+  assert.equal(data.games.filter(game => game.fibaGameId === 128116).length, 1);
+  assert.equal(data.games.find(game => game.fibaGameId === 128116).homeScore, 103);
+  assert.equal(data.dataStatus.completedGames, 33);
+  assert.deepEqual([data.games.find(game => game.fibaGameId === 128155).homeScore,
+    data.games.find(game => game.fibaGameId === 128155).awayScore], [97,79]);
 });
 
 test('knockout calendar separates qualification games from September 10 quarterfinals', async () => {
@@ -500,16 +511,16 @@ test('tournament table marks eliminated teams without adding another crowded col
 });
 
 
-test('WNBA Passport Board covers all 16 FIBA countries and the official 70-player WNBA universe', () => {
+test('WNBA Passport Board covers all 16 FIBA countries and its current player universe', () => {
   const data = JSON.parse(require('node:fs').readFileSync(path.join(__dirname, '..', 'data', 'fiba-wnba-passport-2026.json'), 'utf8'));
-  assert.equal(data.players.length, 70);
-  assert.equal(data.summary.current, 51);
+  assert.equal(data.players.length, 71);
+  assert.equal(data.summary.current, 52);
   assert.equal(data.summary.former, 19);
-  assert.equal(data.summary.total, 70);
+  assert.equal(data.summary.total, 71);
   assert.equal(data.summary.countriesWithCurrent, 15);
   assert.equal(Object.values(data.groups).flat().length, 16);
   assert.equal(new Set(Object.values(data.groups).flat()).size, 16);
-  assert.equal(data.players.filter(player => /^Current/.test(player.status)).length, 51);
+  assert.equal(data.players.filter(player => /^Current/.test(player.status)).length, 52);
   assert.equal(data.players.filter(player => player.status === 'Former').length, 19);
   assert.equal(data.players.filter(player => player.allStar).length, 16);
 });
@@ -520,7 +531,7 @@ test('WNBA Passport Board preserves country flags, current teams, developmental 
   const france = data.players.filter(player => player.country === 'France');
   const puertoRico = data.players.filter(player => player.country === 'Puerto Rico');
   assert.equal(usa.filter(player => /^Current/.test(player.status)).length, 12);
-  assert.equal(france.filter(player => /^Current/.test(player.status)).length, 8);
+  assert.equal(france.filter(player => /^Current/.test(player.status)).length, 9);
   assert.equal(puertoRico.filter(player => /^Current/.test(player.status)).length, 0);
   assert.equal(puertoRico.filter(player => player.status === 'Former').length, 2);
   assert.equal(data.flags['United States'], '🇺🇸');

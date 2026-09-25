@@ -204,7 +204,7 @@ async function loadTeamPage(){
   const [statsResult,playersResult,teamsResult]=await Promise.allSettled([
     fetch('/api/stats?season=2026',{headers:{Accept:'application/json'}}).then(async response=>{const payload=await response.json().catch(()=>({}));if(!response.ok)throw new Error(payload.error||'Stats unavailable');return payload;}),
     rosterRequest,
-    fetch('/api/teams',{headers:{Accept:'application/json'}}).then(async response=>{const payload=await response.json().catch(()=>({}));if(!response.ok)throw new Error(payload.error||'Team artwork unavailable');return payload;})
+    fetch('/api/teams?currentLogos=20260925',{headers:{Accept:'application/json'}}).then(async response=>{const payload=await response.json().catch(()=>({}));if(!response.ok)throw new Error(payload.error||'Team artwork unavailable');return payload;})
   ]);
   if(teamsResult.status==='fulfilled'){
     const assets=Array.isArray(teamsResult.value.teams)?teamsResult.value.teams:[];

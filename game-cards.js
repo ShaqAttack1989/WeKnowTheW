@@ -93,7 +93,7 @@
 
   async function loadArtwork(){
     try{
-      const response=await fetch('/api/teams?gameCards=20260822-v1',{headers:{Accept:'application/json'}}),payload=await response.json().catch(()=>({}));
+      const response=await fetch('/api/teams?currentLogos=20260925',{headers:{Accept:'application/json'}}),payload=await response.json().catch(()=>({}));
       if(!response.ok||!Array.isArray(payload.teams))return;
       payload.teams.forEach(team=>{const src=team.badge||team.logo;if(team.name&&src)artworkByName.set(key(team.name),src);});
     }catch{/* Team abbreviations remain visible when artwork is unavailable. */}

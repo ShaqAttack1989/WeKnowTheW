@@ -15,6 +15,7 @@
 
   const MEDIA={
     stats:'/assets/images/snack-shak/power-rankings-vs-standings-aug30.webp',
+    games:'https://cdn.wnba.com/headshots/wnba/latest/1040x760/1628931.png',
     mockAwards:'/assets/images/snack-shak/we-know-the-w-mock-awards-2026.svg'
   };
   const PLAYER_FALLBACK_PHOTOS=new Map([
@@ -279,22 +280,34 @@
   async function loadLeagueData(){
     const liveHost=document.getElementById('weekHubLive'),gamesHost=document.getElementById('weekHubGames');
     try{
-      const stats=await fetchJson('/api/stats?season=2026');
-      try{storeTeamBadges(await fetchJson('/api/teams?currentLogos=20260925'));}catch{}
+      const [statsResult,teamsResult,competitionResult]=await Promise.allSettled([
+        fetchJson('/api/stats?season=2026'),
+        fetchJson('/api/teams?currentLogos=20260925'),
+        fetchJson('/api/competition?season=2026')
+      ]);
+      if(statsResult.status!=='fulfilled')throw statsResult.reason;
+      const stats=statsResult.value;
+      if(teamsResult.status==='fulfilled')storeTeamBadges(teamsResult.value);
       hydrateHeaderBadges();
+      const competition=competitionResult.status==='fulfilled'?competitionResult.value:{};
       const rows=standingsRows(stats).sort((a,b)=>Number(a.overall_rank||a.playoff_seed||999)-Number(b.overall_rank||b.playoff_seed||999));
       const leader=rows[0];
       const live=Array.isArray(stats.liveGames)?stats.liveGames:[];
       const upcoming=Array.isArray(stats.upcomingGames)?stats.upcomingGames:[];
+      const playoffGames=Array.isArray(competition.playoffs?.games)?competition.playoffs.games:[];
+      const playoffLive=playoffGames.filter(game=>String(game.state||'').toLowerCase()==='in');
+      const playoffUpcoming=playoffGames.filter(game=>!game.completed&&String(game.state||'').toLowerCase()!=='in').sort((a,b)=>Date.parse(a.startTimeUtc||a.date)-Date.parse(b.startTimeUtc||b.date));
       const team=leader?.team?.full_name||leader?.team||'Standings leader';
       const record=Number.isFinite(Number(leader?.wins))?`${leader.wins}-${leader.losses}`:'';
-      snapshot(liveHost,{kicker:'LIVE STATS',title:leader?`${team}${record?` · ${record}`:''}`:'Standings are refreshing',copy:live.length?`${live.length} WNBA game${live.length===1?' is':'s are'} live right now. The full standings and current game state are one click away.`:'No WNBA game is live at this moment. Current standings and season numbers are still refreshed on the live board.',meta:live.length?'LIVE NOW':'CURRENT SEASON',href:'/live-stats.html',label:'Open Live Stats',media:[{src:MEDIA.stats,alt:'WNBA live standings snapshot',focus:'50% 38%',className:'dashboard-preview'}]});
-      const game=live[0]||upcoming[0];
-      snapshot(gamesHost,{kicker:'GAMES',title:game?gameTitle(game):'Next tip is loading',copy:game?`${live.length?'Happening now':'Next on the schedule'} · ${gameTime(game)}${game.status?` · ${game.status}`:''}`:'The schedule is between loaded windows. Open Games for the full slate, results and broadcast information.',meta:live.length?'LIVE':'UP NEXT',href:'/games.html',label:'Open Games',media:game?gameMedia(game):[]});
-      return timeValue(stats.checkedAt||stats.updatedAt);
+      snapshot(liveHost,{kicker:'LIVE STATS',title:leader?`${team}${record?` · ${record}`:''}`:'Standings are refreshing',copy:(live.length||playoffLive.length)?`${live.length+playoffLive.length} WNBA game${live.length+playoffLive.length===1?' is':'s are'} live right now. The full standings and current game state are one click away.`:'No WNBA game is live at this moment. Final regular-season standings remain available while the playoff board is ready for Sunday.',meta:(live.length||playoffLive.length)?'LIVE NOW':'PLAYOFF READY',href:'/live-stats.html',label:'Open Live Stats',media:[{src:MEDIA.stats,alt:'WNBA standings snapshot',focus:'50% 38%',className:'dashboard-preview'}]});
+      const game=playoffLive[0]||live[0]||playoffUpcoming[0]||upcoming[0];
+      const isPlayoff=Boolean(game&&(playoffLive.includes(game)||playoffUpcoming.includes(game)||game.playoff));
+      const gameVisual=gameMedia(game);
+      snapshot(gamesHost,{kicker:isPlayoff?'PLAYOFF GAMES':'GAMES',title:game?gameTitle(game):'Next tip is loading',copy:game?`${playoffLive.includes(game)||live.includes(game)?'Happening now':isPlayoff?'First round next':'Next on the schedule'} · ${gameTime(game)}${game.status?` · ${game.status}`:''}`:'The playoff slate is loading. Open Games for the full bracket, results and broadcast information.',meta:(playoffLive.length||live.length)?'LIVE':isPlayoff?'PLAYOFFS · GAME 1':'UP NEXT',href:'/games.html',label:'Open Games',media:gameVisual.length?gameVisual:[{src:MEDIA.games,alt:'Official WNBA player media for the 2026 playoff field',focus:'50% 18%',mobileFocus:'50% 15%',fit:'contain',className:'player-headshot'}]});
+      return Math.max(timeValue(stats.checkedAt||stats.updatedAt),timeValue(competition.updatedAt));
     }catch{
       snapshotError(liveHost,'LIVE STATS','Current standings','/live-stats.html');
-      snapshotError(gamesHost,'GAMES','Current schedule','/games.html');
+      snapshot(gamesHost,{kicker:'PLAYOFF GAMES',title:'First round starts Sunday',copy:'Open the playoff game board for all four Game 1 matchups, seeds, tip times and broadcast information.',meta:'PLAYOFFS',href:'/games.html',label:'Open Games',media:[{src:MEDIA.games,alt:'Official WNBA player media for the 2026 playoff field',focus:'50% 18%',mobileFocus:'50% 15%',fit:'contain',className:'player-headshot'}]});
       return 0;
     }
   }

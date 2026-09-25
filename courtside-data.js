@@ -10,7 +10,7 @@ const COURTSIDE_COACHES = [
   ['Golden State Valkyries','Natalie Nakase','The 2025 Coach of the Year established Ballhalla’s identity.','https://valkyries.wnba.com/news/natalie-nakase-named-2025-wnba-coach-of-the-year'],
   ['Indiana Fever','Stephanie White','A former Fever player and championship assistant now leading the bench.','https://fever.wnba.com/news/indiana-fever-hire-stephanie-white-as-head-coach'],
   ['Las Vegas Aces','Becky Hammon','The Hall of Fame guard became a three-time championship head coach.','https://aces.wnba.com/head-coach-becky-hammon'],
-  ['Los Angeles Sparks','Lynne Roberts','Pairs pace, spacing and player development in Los Angeles.','https://sparks.wnba.com/news/los-angeles-sparks-name-lynne-roberts-head-coach'],
+  ['Los Angeles Sparks','Head coach vacancy','ESPN reported on Sept. 25, 2026 that Los Angeles dismissed Lynne Roberts after the Sparks missed the playoffs for a second straight season under her. The Sparks basketball-operations page was still showing Roberts at the time of this update, so this card is marked from the reported change while the team page catches up.','https://www.espn.com/wnba/'],
   ['Minnesota Lynx','Cheryl Reeve','The architect of Minnesota’s four-title dynasty.','https://lynx.wnba.com/news/minnesota-lynx-head-coach-cheryl-reeve-named-2026-wnba-all-star-coach'],
   ['New York Liberty','Chris DeMarco','A four-time NBA champion leading New York’s next chapter.','https://liberty.wnba.com/news/new-york-liberty-name-chris-demarco-head-coach'],
   ['Phoenix Mercury','Nate Tibbetts','Leads a fast, detail-heavy Mercury system.','https://mercury.wnba.com/news/phoenix-mercury-name-nate-tibbetts-head-coach'],

@@ -19,7 +19,7 @@
     const [factSets,draft,curated,affiliations,playersPayload]=await Promise.all([
       Promise.all(FACT_FILES.map(url=>json(url).catch(()=>({})))),
       json('/data/wnba-draft-history.json').catch(()=>({picks:[],undrafted:[],aliases:{}})),
-      json('/data/playerpedia-depth-curated.json?v=20260925-nneka-freedom-v1').catch(()=>({players:{}})),
+      json('/data/playerpedia-depth-curated.json?v=20260925-potw-v1').catch(()=>({players:{}})),
       json('/pro-offseason-affiliations.json').catch(()=>({})),
       json('/api/players').catch(()=>({players:[]}))
     ]);

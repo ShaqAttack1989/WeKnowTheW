@@ -43,7 +43,7 @@ if(futureMenu&&!futureMenu.querySelector('a[href="/wpba.html"]')){
   if(expansionLink)expansionLink.before(wpbaLink);else futureMenu.appendChild(wpbaLink);
 }
 
-const mobileNav=window.matchMedia('(max-width:1100px)');
+const mobileNav=window.matchMedia('(max-width:1280px)');
 const isMobileNav=()=>mobileNav.matches;
 function closeNavGroups(except=null){document.querySelectorAll('.nav-group.submenu-open').forEach(group=>{if(group===except)return;group.classList.remove('submenu-open');group.querySelector('.nav-parent')?.setAttribute('aria-expanded','false');});}
 function setMobileMenuState(open){navLinks?.classList.toggle('open',Boolean(open));menuButton?.setAttribute('aria-expanded',String(Boolean(open)));if(menuButton)menuButton.textContent=open?'Close':'Menu';document.body.classList.toggle('mobile-nav-open',Boolean(open));if(!open)closeNavGroups();}

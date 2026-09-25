@@ -18,7 +18,7 @@ async function fetchScoreboard(url){
     return {
       id:String(event.id||c.id||''),
       date:String(event.date||c.date||'').slice(0,10),
-      startTimeUtc:event.date||c.date||'',
+      startTimeUtc:/tbd/i.test(String(s.shortDetail||s.detail||s.description||''))?'':(event.date||c.date||''),
       homeTeam:h.team?.displayName||h.team?.shortDisplayName||'',
       awayTeam:a.team?.displayName||a.team?.shortDisplayName||'',
       homeScore:scoreValue(h.score),

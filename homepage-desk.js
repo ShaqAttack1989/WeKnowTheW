@@ -10,6 +10,7 @@
   const EASTERN='America/New_York';
 
   function fetchJson(url){
+    if(window.WHomeData?.get)return window.WHomeData.get(url,{ttl:15000});
     const joiner=url.includes('?')?'&':'?';
     return fetch(`${url}${joiner}cb=${Date.now()}`,{headers:{Accept:'application/json','Cache-Control':'no-cache'},cache:'no-store'}).then(response=>{
       if(!response.ok)throw new Error(`${url} returned ${response.status}`);
@@ -105,7 +106,7 @@
     try{
       const [statsResult,teamsResult,competitionResult]=await Promise.allSettled([
         fetchJson('/api/stats?season=2026'),
-        fetchJson('/api/teams?homepage=official-badges'),
+        fetchJson('/api/teams?currentLogos=20260925'),
         fetchJson('/api/competition?season=2026')
       ]);
       const stats=statsResult.status==='fulfilled'?statsResult.value:{};

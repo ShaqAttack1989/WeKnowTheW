@@ -216,3 +216,79 @@
 
 /* 2026 playoff watch dashboard */
 .playoff-watch-dashboard{margin:28px 0;padding:22px;border-radius:22px;background:#16062d;color:#fff}.playoff-watch-head>span{font-size:.75rem;font-weight:900;letter-spacing:.12em;color:#d8ff4f}.playoff-watch-head h3{margin:.35rem 0 0;font-size:clamp(1.8rem,4vw,3rem)}.playoff-watch-head p{font-weight:800;font-size:1.05rem}.playoff-watch-head small{color:#d9cbea}.playoff-watch-summary{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:18px 0}.playoff-watch-summary div{padding:14px;border-radius:14px;background:#2b1250;text-align:center}.playoff-watch-summary strong{display:block;font-size:1.45rem;color:#d8ff4f}.playoff-watch-summary span{font-size:.78rem}.playoff-watch-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.playoff-watch-card{background:#fff;color:#1d102d;border-radius:18px;overflow:hidden}.playoff-watch-card>header{display:grid;grid-template-columns:1fr auto 1fr;gap:10px;align-items:center;padding:16px;background:#f4eefb}.playoff-watch-card>header div:last-child{text-align:right}.playoff-watch-card>header span,.playoff-score-split span,.playoff-next span{display:block;font-size:.68rem;font-weight:900;letter-spacing:.08em;color:#6b2bd9}.playoff-watch-card>header strong{display:block;font-size:1rem}.playoff-watch-card>header small{color:#675b70}.playoff-score-split{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:#ddd}.playoff-score-split div{padding:12px;background:#fff}.playoff-score-split strong{display:block;font-size:1.25rem}.playoff-score-split small{font-size:.68rem;color:#756b7d}.playoff-next{padding:11px 14px;background:#d8ff4f}.playoff-next strong{font-size:.9rem}.playoff-stars{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:12px}.playoff-stars figure{margin:0;display:flex;align-items:center;gap:8px}.playoff-stars img{width:52px;height:52px;border-radius:50%;object-fit:cover;object-position:center top;background:#eee}.playoff-stars figcaption{font-size:.78rem;font-weight:800}.playoff-watch-tabs{display:flex;gap:6px;overflow-x:auto;padding:0 12px 10px}.playoff-watch-tabs button{border:0;border-radius:999px;padding:8px 10px;white-space:nowrap;font-weight:800;background:#eee7f5}.playoff-watch-tabs button[aria-pressed=true]{background:#24103e;color:#fff}.playoff-watch-panel{padding:2px 14px 16px;font-size:.86rem;line-height:1.5}.playoff-watch-panel p{margin:.55rem 0}.playoff-watch-panel a{font-weight:900;color:#5e23a7}.playoff-watch-note{font-size:.8rem;color:#d9cbea;margin-bottom:0}@media(max-width:760px){.playoff-watch-dashboard{padding:14px}.playoff-watch-grid{grid-template-columns:1fr}.playoff-watch-summary{grid-template-columns:repeat(3,1fr)}.playoff-watch-summary span{font-size:.65rem}}
+
+
+/* 2026 playoff watch dashboard refresh, FIBA-hub inspired */
+.playoff-watch-dashboard.fiba-inspired{padding:24px;background:linear-gradient(145deg,#120525 0%,#21103d 62%,#32135e 100%);border-radius:26px;overflow:hidden}
+.playoff-watch-dashboard.fiba-inspired .playoff-watch-head{display:flex;justify-content:space-between;align-items:end;gap:18px;padding-bottom:16px;border-bottom:1px solid rgba(255,255,255,.14)}
+.playoff-watch-dashboard.fiba-inspired .playoff-watch-head>div>span{display:block;color:#d8ff4f;font-size:.72rem;font-weight:950;letter-spacing:.13em}
+.playoff-watch-dashboard.fiba-inspired .playoff-watch-head h3{margin:.3rem 0 .25rem;font-size:clamp(2rem,4vw,3.4rem);line-height:.93}
+.playoff-watch-dashboard.fiba-inspired .playoff-watch-head p{margin:0;color:#e7def1;font-weight:850}
+.playoff-watch-dashboard.fiba-inspired .playoff-watch-head>small{color:#d2c3e3;font-weight:800;white-space:nowrap}
+.playoff-watch-dashboard.fiba-inspired .playoff-watch-summary{margin:16px 0 18px}
+.playoff-watch-dashboard.fiba-inspired .playoff-watch-summary div{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.08)}
+.playoff-matchup-stack{display:grid;gap:14px}
+.playoff-matchup-row{overflow:hidden;border-radius:20px;background:#fff;color:#1f1628;border:1px solid rgba(255,255,255,.1);box-shadow:0 14px 34px rgba(0,0,0,.16)}
+.playoff-matchup-band{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:stretch;background:linear-gradient(90deg,var(--match-a) 0 46%,#170c25 46% 54%,var(--match-b) 54% 100%);color:#fff}
+.playoff-team-side{padding:16px 18px;min-width:0}
+.playoff-team-side.is-b{text-align:right}
+.playoff-team-side span{display:block;color:var(--match-pop);font-size:.67rem;font-weight:950;letter-spacing:.1em}
+.playoff-team-side strong{display:block;margin:.15rem 0;font-size:clamp(1.08rem,2vw,1.45rem);line-height:1.05}
+.playoff-team-side small{color:rgba(255,255,255,.78);font-size:.78rem;font-weight:800}
+.playoff-vs-mark{display:grid;place-items:center;align-content:center;min-width:74px;padding:8px 10px;text-align:center;background:#170c25}
+.playoff-vs-mark b{font-size:1rem;color:#fff}
+.playoff-vs-mark small{margin-top:2px;color:#d8ff4f;font-size:.52rem;font-weight:950;letter-spacing:.08em}
+.playoff-matchup-scoreline{display:grid;grid-template-columns:.8fr .8fr 1.4fr;border-bottom:1px solid #e8e0ec;background:#fff}
+.playoff-matchup-scoreline>div{padding:11px 14px;border-right:1px solid #e8e0ec}
+.playoff-matchup-scoreline>div:last-child{border-right:0}
+.playoff-matchup-scoreline span{display:block;color:#6f25e8;font-size:.62rem;font-weight:950;letter-spacing:.08em}
+.playoff-matchup-scoreline strong{display:block;margin-top:3px;font-size:1.08rem}
+.playoff-matchup-scoreline small{display:block;margin-top:2px;color:#7e7483;font-size:.64rem}
+.playoff-matchup-scoreline .is-series{background:#f5effa}
+.playoff-matchup-scoreline .is-next{background:linear-gradient(90deg,#d8ff4f,#efffb2)}
+.playoff-matchup-scoreline .is-next span{color:#32135e}
+.playoff-matchup-main{display:grid;grid-template-columns:220px 1fr;gap:14px;padding:14px;background:#fff}
+.playoff-star-watch{display:grid;gap:8px;align-content:start}
+.playoff-star-watch figure{margin:0;display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:13px;background:#f6f1f9}
+.playoff-star-watch img{width:48px;height:48px;border-radius:50%;object-fit:cover;object-position:center top;background:#ece5f2}
+.playoff-star-watch figcaption span,.playoff-read-grid span,.playoff-context-strip span{display:block;color:#6f25e8;font-size:.58rem;font-weight:950;letter-spacing:.08em}
+.playoff-star-watch figcaption strong{display:block;margin-top:2px;font-size:.82rem}
+.playoff-read-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.playoff-read-grid>div{padding:11px 12px;border-radius:13px;background:#fbf9fc;border:1px solid #eee6f1}
+.playoff-read-grid>div:nth-child(1){border-top:4px solid var(--match-a)}
+.playoff-read-grid>div:nth-child(2){border-top:4px solid var(--match-pop)}
+.playoff-read-grid>div:nth-child(3){border-top:4px solid var(--match-b)}
+.playoff-read-grid p{margin:.35rem 0 0;font-size:.78rem;line-height:1.45}
+.playoff-context-strip{display:grid;grid-template-columns:1.1fr 1fr 1fr .65fr;gap:1px;background:#ddd4e4;border-top:1px solid #e6ddea}
+.playoff-context-strip>div,.playoff-context-strip>a{min-width:0;padding:11px 12px;background:#f8f4fb;color:#261a30;text-decoration:none}
+.playoff-context-strip>div:nth-child(2){background:#f1f6e5}
+.playoff-context-strip>a{background:#eef6ff}
+.playoff-context-strip>a b{display:inline-block;margin-top:5px;color:#28104a;font-size:.64rem}
+.playoff-context-strip p{margin:.3rem 0 0;font-size:.7rem;line-height:1.35}
+.playoff-context-strip .is-w-score{display:grid;align-content:center;text-align:center;background:#21103d;color:#fff}
+.playoff-context-strip .is-w-score span{color:#d8ff4f}
+.playoff-context-strip .is-w-score strong{font-size:1.2rem;color:#fff}
+.playoff-context-strip .is-w-score small{font-size:.58rem;color:#d7cbe2}
+.playoff-watch-dashboard.fiba-inspired .playoff-watch-note{margin:14px 0 0}
+.snack-collection-story:not([hidden]) + .snack-collection-section{padding-top:28px}
+.snack-collection-story:not([hidden]){padding-top:42px;padding-bottom:30px}
+.snack-collection-section [data-story-slug][hidden]{display:none!important}
+@media(max-width:900px){
+  .playoff-matchup-main{grid-template-columns:1fr}
+  .playoff-star-watch{grid-template-columns:1fr 1fr}
+  .playoff-read-grid{grid-template-columns:1fr}
+  .playoff-context-strip{grid-template-columns:1fr 1fr}
+}
+@media(max-width:620px){
+  .playoff-watch-dashboard.fiba-inspired{padding:12px;border-radius:18px}
+  .playoff-watch-dashboard.fiba-inspired .playoff-watch-head{display:block}
+  .playoff-watch-dashboard.fiba-inspired .playoff-watch-head>small{display:block;margin-top:8px}
+  .playoff-matchup-band{grid-template-columns:1fr 54px 1fr}
+  .playoff-team-side{padding:12px 10px}
+  .playoff-team-side strong{font-size:.94rem}
+  .playoff-vs-mark{min-width:54px;padding:6px}
+  .playoff-matchup-scoreline{grid-template-columns:1fr 1fr}
+  .playoff-matchup-scoreline .is-next{grid-column:1/-1}
+  .playoff-star-watch{grid-template-columns:1fr 1fr}
+  .playoff-context-strip{grid-template-columns:1fr}
+}

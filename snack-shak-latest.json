@@ -2,6 +2,144 @@
   "site": "Snack Shak",
   "posts": [
     {
+      "slug": "the-playoff-watch-party-2026",
+      "type": "feature",
+      "priority": 2000,
+      "homepageSeason": "wnba-playoffs",
+      "seriesLabel": "FOOD FOR THOUGHT · PLAYOFF WATCH GUIDE",
+      "title": "The Playoff Watch Party: Eight Teams, Four Doors, One Crown",
+      "published": "2026-09-25",
+      "updated": "2026-09-25",
+      "week": "First round · Sept. 27",
+      "image": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1628932.png",
+      "imageFit": "contain",
+      "imageAlt": "Official WNBA portrait of A’ja Wilson",
+      "dek": "Pull up a chair. The field is fixed, Game 1 tips Sunday and every series has a reason to keep a second screen open.",
+      "sections": [
+        {
+          "title": "The opening whistle: Minnesota (1) vs. New York (8)",
+          "paragraphs": [
+            "Sunday, Sept. 27 · 2 p.m. ET · ABC. The Lynx earned the top seed; the Liberty get the hardest possible road from the eighth spot. Can New York find enough creation to make the favorite uncomfortable?"
+          ]
+        },
+        {
+          "title": "The new guard: Golden State (2) vs. Dallas (7)",
+          "paragraphs": [
+            "Sunday, Sept. 27 · 4 p.m. ET · ABC. Golden State made an expansion season look like an instant contender. Dallas brings Paige Bueckers and a dangerous offense. Watch which bench survives a shorter postseason rotation."
+          ]
+        },
+        {
+          "title": "The star test: Las Vegas (3) vs. Indiana (6)",
+          "paragraphs": [
+            "Sunday, Sept. 27 · time to be confirmed · Prime Video. A’ja Wilson anchors the Aces; Indiana arrives with Caitlin Clark and Kelsey Mitchell. Check the live schedule for the tip time before making plans."
+          ]
+        },
+        {
+          "title": "The late window: Atlanta (4) vs. Washington (5)",
+          "paragraphs": [
+            "Sunday, Sept. 27 · 9 p.m. ET · USA. Atlanta has home court, and Washington has already proved it can disrupt higher seeds. Watch for the possession-by-possession swing."
+          ]
+        },
+        {
+          "title": "Keep the bracket in pencil",
+          "paragraphs": [
+            "The first round is best of three, with a 1–1–1 home format. The semifinals are best of five; the Finals are best of seven. Follow the live game board for scores and schedule updates."
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "label": "Live playoff games and results at We Know the W",
+          "url": "https://weknowthew.com/games.html"
+        },
+        {
+          "label": "WNBA 2026 playoff bracket",
+          "url": "https://www.wnba.com/playoffs/2026"
+        },
+        {
+          "label": "WNBA 2026 postseason schedule and format",
+          "url": "https://www.wnba.com/news/2026-wnba-postseason-faq"
+        }
+      ]
+    },
+    {
+      "slug": "farewell-connecticut-sun-2026",
+      "type": "feature",
+      "priority": 1990,
+      "homepageSeason": "wnba-playoffs",
+      "seriesLabel": "FOOD FOR THOUGHT · CONNECTICUT SUN FAREWELL",
+      "title": "One Last Sunrise: Farewell to the Connecticut Sun",
+      "published": "2026-09-25",
+      "updated": "2026-09-25",
+      "week": "The final season · 2003–2026",
+      "image": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1627673.png",
+      "imageFit": "contain",
+      "imageAlt": "Official WNBA portrait of Connecticut Sun great Jonquel Jones",
+      "dek": "The final record was 11–33. The final result was a win. Between those two facts sits 24 seasons of Connecticut basketball that deserve to be remembered.",
+      "sections": [
+        {
+          "title": "A final night worth keeping",
+          "paragraphs": [
+            "Connecticut beat Toronto 95–81 at Mohegan Sun Arena on Sept. 24, 2026. The Sun ended their last season 11–33, with a one-game winning streak. A hard year did not get the last word: the players and crowd got one more win together.",
+            "The team is moving to Houston and will be renamed the Comets in 2027. Connecticut fans have every right to hold on to what was built in Uncasville."
+          ]
+        },
+        {
+          "title": "2003: a home by the river",
+          "paragraphs": [
+            "After the Orlando Miracle relocated, the Mohegan Tribe brought the franchise to Connecticut in 2003. Playing at Mohegan Sun Arena made the Sun a place people traveled to, returned to and claimed as their own. The Tribe’s ownership was a defining part of the identity."
+          ]
+        },
+        {
+          "title": "2004 and 2005: the first close calls",
+          "paragraphs": [
+            "Mike Thibault’s early Sun reached back-to-back WNBA Finals. Seattle won in 2004; Sacramento won in 2005. Lindsay Whalen, Nykesha Sales and Asjha Jones helped set a standard: Connecticut could meet the league’s best on the biggest stage."
+          ]
+        },
+        {
+          "title": "2019 and 2022: the door stayed open",
+          "paragraphs": [
+            "The 2019 Sun took Washington to a deciding fifth game in the Finals. In 2022, behind a bruising frontcourt featuring Alyssa Thomas, DeWanna Bonner, Brionna Jones and Jonquel Jones, Connecticut made its fourth Finals appearance. Different faces, familiar promise: the Sun were never easy to put away."
+          ]
+        },
+        {
+          "title": "The people who gave the jersey its weight",
+          "paragraphs": [
+            "Jonquel Jones won the 2021 MVP award as a Sun and had her No. 35 honored at the arena in 2026. Alyssa Thomas turned versatility and toughness into a team language. Across eras, players, coaches, staff and supporters made Connecticut a fixture in the postseason conversation.",
+            "No championship banner arrived. Four Finals trips did, and so did the habit of believing the next one could be different. That is a legacy bigger than one difficult final standings line."
+          ]
+        },
+        {
+          "title": "One game, one streak, decades of light",
+          "paragraphs": [
+            "The final box score reads Sun 95, Tempo 81. It cannot show every seat filled across 24 seasons, or every player who grew into herself in this building. The name leaves the schedule. The memories, and the people who made them, stay in Connecticut."
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "label": "Connecticut Sun: final win and 11–33 record",
+          "url": "https://sun.wnba.com/news/sun-defeat-tempo-in-final-game-of-franchise-history"
+        },
+        {
+          "label": "WNBA/NBA approval of relocation",
+          "url": "https://www.wnba.com/news/wnba-nba-approve-connecticut-sun-sale"
+        },
+        {
+          "label": "Connecticut Sun franchise history",
+          "url": "https://sun.wnba.com/sun-history"
+        },
+        {
+          "label": "WNBA: 2022 Finals and prior Finals appearances",
+          "url": "https://www.wnba.com/news/wnba-finals-2022-preview-1-las-vegas-aces-vs-3-connecticut-sun"
+        },
+        {
+          "label": "Connecticut Sun honors Jonquel Jones",
+          "url": "https://sun.wnba.com/news/connecticut-sun-honor-jonquel-jones-as-sun-legend"
+        }
+      ]
+    },
+    {
       "slug": "lynx-fever-bench-test-2026",
       "type": "feature",
       "priority": 1800,
@@ -271,7 +409,12 @@
           "label": "We Know the W · Berlin to Buckets",
           "url": "https://www.weknowthew.com/fiba-return-playoff-show-2026.html"
         }
-      ]
+      ],
+      "image": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1628932.png",
+      "storyImage": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1628932.png",
+      "imageAlt": "Official WNBA portrait of Las Vegas Aces star A’ja Wilson",
+      "imageFit": "contain",
+      "storyImageSourceUrl": "https://www.wnba.com/player/1628932/aja-wilson"
     },
     {
       "slug": "playoff-trio-test-2026",

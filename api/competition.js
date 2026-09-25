@@ -44,10 +44,12 @@ function gameKey(g={}){return `${g.date}|${[g.homeTeam,g.awayTeam].sort().join('
 function mergeGames(primary=[],authoritative=[]){
   const map=new Map(primary.map(game=>[gameKey(game),game]));
   for(const game of authoritative){
-    const existing=map.get(gameKey(game));
-    if(!existing||!existing.completed||scoreValue(existing.homeScore)===null||scoreValue(existing.awayScore)===null)map.set(gameKey(game),game);
+    const existingKey=[...map.keys()].find(key=>{const current=map.get(key);return [current.homeTeam,current.awayTeam].sort().join('|')===[game.homeTeam,game.awayTeam].sort().join('|')&&Math.abs(Date.parse(current.date)-Date.parse(game.date))<=86400000;});
+    const existing=existingKey&&map.get(existingKey);
+    // The official fixture fills missing ESPN data; an in-progress or final feed wins.
+    if(!existing||(!existing.completed&&String(existing.state||'').toLowerCase()!=='in'&&scoreValue(existing.homeScore)===null)){if(existingKey)map.delete(existingKey);map.set(gameKey(game),game);}
   }
-  return [...map.values()].sort((a,b)=>String(a.startTimeUtc||a.date).localeCompare(String(b.startTimeUtc||b.date)));
+  return [...map.values()].sort((a,b)=>Date.parse(a.startTimeUtc||`${a.date}T23:59:59-04:00`)-Date.parse(b.startTimeUtc||`${b.date}T23:59:59-04:00`));
 }
 
 const CUP_2026_LATE_RESULTS=[
@@ -60,6 +62,14 @@ const CUP_2026_LATE_RESULTS=[
 ];
 
 const CUP_2026_FINAL={id:'2026-commissioners-cup-final',date:'2026-06-30',startTimeUtc:'2026-06-30T20:00:00-04:00',homeTeam:'New York Liberty',awayTeam:'Las Vegas Aces',homeScore:93,awayScore:85,status:'Final',state:'post',completed:true,officialFallback:true,competitionLabel:"Commissioner's Cup Championship"};
+
+// WNBA published Game 1 fixtures; live provider scores supersede these by matchup.
+const PLAYOFF_2026_OPENERS=[
+  {id:'1042600101',date:'2026-09-27',startTimeUtc:'2026-09-27T14:00:00-04:00',homeTeam:'Minnesota Lynx',awayTeam:'New York Liberty',broadcasts:['ABC']},
+  {id:'1042600111',date:'2026-09-27',startTimeUtc:'2026-09-27T16:00:00-04:00',homeTeam:'Golden State Valkyries',awayTeam:'Dallas Wings',broadcasts:['ABC']},
+  {id:'1042600121',date:'2026-09-27',homeTeam:'Las Vegas Aces',awayTeam:'Indiana Fever',broadcasts:['Prime Video']},
+  {id:'1042600131',date:'2026-09-27',startTimeUtc:'2026-09-27T21:00:00-04:00',homeTeam:'Atlanta Dream',awayTeam:'Washington Mystics',broadcasts:['USA']}
+].map(game=>({...game,status:'Scheduled',state:'pre',completed:false,competitionLabel:'Playoffs · First Round · Game 1',officialFallback:true}));
 
 function standings(games){
   const map=new Map(),ensure=n=>{if(!map.has(n))map.set(n,{team:n,wins:0,losses:0,conference:EAST.has(n)?'Eastern':'Western'});return map.get(n);};
@@ -88,7 +98,7 @@ module.exports=async function handler(req,res){
 
   const [regularResult,postseasonResult]=await Promise.allSettled([fetchType(season,2),fetchType(season,3)]);
   const regular=regularResult.status==='fulfilled'?regularResult.value:[];
-  const postseason=postseasonResult.status==='fulfilled'?postseasonResult.value:[];
+  const postseason=season===2026?mergeGames(postseasonResult.status==='fulfilled'?postseasonResult.value:[],PLAYOFF_2026_OPENERS):postseasonResult.status==='fulfilled'?postseasonResult.value:[];
   const providerErrors=[];
   if(regularResult.status==='rejected')providerErrors.push(`regular season: ${regularResult.reason?.message||'unavailable'}`);
   if(postseasonResult.status==='rejected')providerErrors.push(`postseason: ${postseasonResult.reason?.message||'unavailable'}`);
@@ -101,8 +111,8 @@ module.exports=async function handler(req,res){
   return res.status(200).json({
     updatedAt:new Date().toISOString(),season,
     cup:{poolGames:pool,championshipGames:finals,standings:standings(pool),champion:season===2026?'New York Liberty':null,complete:season===2026},
-    playoffs:{games:postseason,series:series(postseason),starts:'2026-09-27',started:postseason.length>0||Date.now()>=Date.parse('2026-09-27T00:00:00-04:00')},
-    sources:{cup:'https://www.wnba.com/commissioners-cup/2026/about-the-cup',cupResults:'https://www.wnba.com/news/category/2026-commissioners-cup',cupFinal:'https://www.wnba.com/commissioners-cup/2026/leaderboard',playoffs:'https://www.wnba.com/news/2026-schedule-release'},
+    playoffs:{games:postseason,series:series(postseason),starts:'2026-09-27',started:Date.now()>=Date.parse('2026-09-27T00:00:00-04:00')},
+    sources:{cup:'https://www.wnba.com/commissioners-cup/2026/about-the-cup',cupResults:'https://www.wnba.com/news/category/2026-commissioners-cup',cupFinal:'https://www.wnba.com/commissioners-cup/2026/leaderboard',playoffs:'https://www.wnba.com/playoffs/2026'},
     providerErrors,
     sourceVersion:'20260823-competition-v3'
   });

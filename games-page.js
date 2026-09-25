@@ -1,4 +1,4 @@
-let gamesPayload=null,competitionPayload=null,gamesMode='live',gamesTeam='all',gamesCompetition='season',gamesRefreshActive=false,liveRefreshActive=false;
+let gamesPayload=null,competitionPayload=null,gamesMode='live',gamesTeam='all',gamesCompetition=Date.now()>=Date.parse('2026-09-25T00:00:00-04:00')?'playoffs':'season',gamesRefreshActive=false,liveRefreshActive=false;
 
 const CUP_2026_CLIENT_FALLBACK=[
   {id:'2026-commissioners-cup-final',date:'2026-06-30',startTimeUtc:'2026-06-30T20:00:00-04:00',homeTeam:'New York Liberty',awayTeam:'Las Vegas Aces',homeScore:93,awayScore:85,status:'Final',state:'post',completed:true,officialFallback:true,broadcasts:['Prime Video']},
@@ -30,7 +30,7 @@ function compGames(){
   if(gamesCompetition==='playoffs')return competitionPayload?.playoffs?.games||[];
   return null;
 }
-function gameTime(g={}){const t=Date.parse(g.startTimeUtc||`${g.date}T12:00:00Z`);return Number.isFinite(t)?t:0;}
+function gameTime(g={}){const t=Date.parse(g.startTimeUtc||`${g.date}T23:59:59-04:00`);return Number.isFinite(t)?t:0;}
 function temporal(items=[]){
   const now=Date.now();
   const filtered=items.filter(g=>{
@@ -96,7 +96,7 @@ document.querySelectorAll('[data-games-competition]').forEach(button=>button.add
   document.querySelectorAll('[data-games-competition]').forEach(b=>{const on=b===button;b.classList.toggle('active',on);b.setAttribute('aria-pressed',String(on));});
   const note=document.getElementById('gamesCompetitionNote');
   if(gamesCompetition==='cup'){gamesMode='past';if(note)note.textContent='2026 Cup complete · New York Liberty champions · pool play June 1–17, championship June 30';}
-  else if(gamesCompetition==='playoffs'){gamesMode=competitionPayload?.playoffs?.started?'live':'upcoming';if(note)note.textContent='Playoffs begin Sept. 27';}
+  else if(gamesCompetition==='playoffs'){gamesMode='upcoming';if(note)note.textContent='First round begins Sept. 27 · follow scores here';}
   else if(note)note.textContent='Regular-season schedule · where to watch from WNBA.com';
   renderGames();
 }));
@@ -125,7 +125,7 @@ async function loadGames(initial=false){
     if(window.WGameBroadcasts?.enrichGames)stats.liveGames=WGameBroadcasts.enrichGames(stats.liveGames||[],officialGames);
     gamesPayload=stats;
     competitionPayload=compResult.status==='fulfilled'?compResult.value:{cup:{poolGames:[],championshipGames:[]},playoffs:{games:[],started:false}};
-    if(initial&&gamesMode==='live'&&!stats.liveGames.length)gamesMode='upcoming';
+    if(initial){if(gamesCompetition==='playoffs'){gamesMode='upcoming';document.querySelectorAll('[data-games-competition]').forEach(b=>{const on=b.dataset.gamesCompetition==='playoffs';b.classList.toggle('active',on);b.setAttribute('aria-pressed',String(on));});const note=document.getElementById('gamesCompetitionNote');if(note)note.textContent='First round begins Sept. 27 · opening matchups confirmed by WNBA';}else if(gamesMode==='live'&&!stats.liveGames.length)gamesMode='upcoming';}
     WGameCards.populateFilter(document.getElementById('gamesTeamFilter'),stats);
     renderGames();
     setStatus(officialGames.length?'where to watch synced to official WNBA schedule':'broadcast schedule reconnecting');

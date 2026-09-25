@@ -96,7 +96,7 @@ function renderGamePanel(){
   if(gameMode==='live'){
     title.textContent='Happening now';results.innerHTML=liveGamesMarkup(liveItems);liveButton?.classList.add('active');liveButton?.setAttribute('aria-pressed','true');
   }else if(gameMode==='upcoming'){
-    title.textContent="What's next?";results.innerHTML=upcomingGamesMarkup(upcomingItems);upcomingButton?.classList.add('active');upcomingButton?.setAttribute('aria-pressed','true');
+    title.textContent=livePayload.hasPlayoffs?'Playoff games · first round':"What's next?";results.innerHTML=upcomingGamesMarkup(upcomingItems);upcomingButton?.classList.add('active');upcomingButton?.setAttribute('aria-pressed','true');
   }else{
     title.textContent='What just happened?';results.innerHTML=pastGamesMarkup(pastItems);pastButton?.classList.add('active');pastButton?.setAttribute('aria-pressed','true');
   }
@@ -145,15 +145,21 @@ async function loadHomeLive(initial=false){
   const status=document.getElementById('homeLiveStatus');
   if(!table||!results)return;
   try{
-    const [statsResult,liveResult]=await Promise.allSettled([
+    const [statsResult,liveResult,playoffResult]=await Promise.allSettled([
       fetch(`/api/stats?season=2026&cb=${Date.now()}`,{headers:{Accept:'application/json','Cache-Control':'no-cache'},cache:'no-store'}).then(async r=>{const p=await r.json().catch(()=>({}));if(!r.ok)throw new Error(p.error||'Live data unavailable');return p;}),
-      fetchFreshHomeLive()
+      fetchFreshHomeLive(),
+      fetch(`/api/competition?season=2026&cb=${Date.now()}`,{cache:'no-store'}).then(r=>r.ok?r.json():Promise.reject(new Error('Playoff schedule unavailable')))
     ]);
     if(statsResult.status!=='fulfilled')throw statsResult.reason;
     const payload=statsResult.value;
     if(liveResult.status==='fulfilled'){payload.liveGames=mergeVerifiedHomeLive(payload.liveGames,liveResult.value);homeLiveUpdatedAt=liveResult.value.updatedAt||payload.updatedAt;}
     else {const browserLive=await window.WGameCards?.fetchLiveGames?.();if(Array.isArray(browserLive))payload.liveGames=browserLive;homeLiveUpdatedAt=payload.updatedAt;}
     if(window.WGameBroadcasts?.enrichGames)payload.liveGames=WGameBroadcasts.enrichGames(payload.liveGames||[]);
+    const today=new Date().toLocaleDateString('en-CA',{timeZone:EASTERN_TIME_ZONE});
+    const playoffGames=playoffResult.status==='fulfilled'?playoffResult.value.playoffs?.games||[]:[];
+    const upcomingPlayoffs=playoffGames.filter(game=>!game.completed&&game.state!=='in'&&String(game.date||'')>=today);
+    if(upcomingPlayoffs.length)payload.upcomingGames=[...upcomingPlayoffs,...(payload.upcomingGames||[])];
+    payload.hasPlayoffs=upcomingPlayoffs.length>0;
     livePayload=payload;
     if(initial&&gameMode==='live'&&!payload.liveGames.length)gameMode='upcoming';
     window.WGameCards?.populateFilter(document.getElementById('homeGamesTeamFilter'),payload);

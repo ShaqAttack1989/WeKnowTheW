@@ -8,7 +8,7 @@
     document.head.appendChild(script);
   });
 
-  loadScript('/home-live-core.js?v=20260917-home-preview-v1')
+  loadScript('/home-live-core.js?v=20260925-playoffs-v1')
     .then(()=>loadScript('/homepage-card-previews.js?v=20260917-home-preview-v1'))
     .catch(error=>console.warn('Homepage live modules could not load',error));
 })();

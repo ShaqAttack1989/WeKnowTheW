@@ -110,8 +110,8 @@
   function factLooksLikeAchievement(fact=''){return /(won|champion|championship|mvp|award|record|first player|first rookie|all-american|medal|title|rookie of the year|defensive player|most improved|sixth player|fastest)/i.test(fact);}
 
   function achievements(detail,curated={},fact='',draft=null){
-    if(Array.isArray(curated.achievements)&&curated.achievements.length)return unique(curated.achievements).slice(0,7);
-    let list=unique([...(detail?.honours||[]),...(detail?.milestones||[])].map(achievementText).filter(Boolean));
+    const curatedList=Array.isArray(curated.achievements)?curated.achievements:[];
+    let list=unique([...curatedList,...[...(detail?.honours||[]),...(detail?.milestones||[])].map(achievementText).filter(Boolean)]);
     if(!list.length)list=achievementSentences(detail?.player?.description||'');
     if(!list.length&&factLooksLikeAchievement(fact))list=[fact];
     if(!list.length&&draft?.status==='drafted'&&draft.pick)list=[`Selected No. ${draft.pick} overall in the ${draft.year} WNBA Draft.`];

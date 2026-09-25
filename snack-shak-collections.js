@@ -51,7 +51,12 @@
     root.querySelectorAll('.playoff-watch-card').forEach(card=>card.querySelectorAll('[data-watch-tab]').forEach(button=>button.addEventListener('click',()=>{const mode=button.dataset.watchTab;card.querySelectorAll('[data-watch-tab]').forEach(b=>b.setAttribute('aria-pressed',String(b===button)));card.querySelectorAll('[data-watch-panel]').forEach(p=>p.hidden=p.dataset.watchPanel!==mode);})));
     const refresh=async()=>{try{const response=await fetch('/api/competition?season=2026&cb='+Date.now(),{cache:'no-store'});if(!response.ok)return;const payload=await response.json();const series=payload.playoffs?.series||[];root.querySelectorAll('[data-playoff-matchup]').forEach(card=>{const id=card.dataset.playoffMatchup,config=(window.__playoffWatchMatchups||{})[id];if(!config)return;const row=series.find(s=>[s.teamA,s.teamB].includes(config.a)&&[s.teamA,s.teamB].includes(config.b));if(!row)return;const winsA=row.teamA===config.a?row.winsA:row.winsB,winsB=row.teamB===config.b?row.winsB:row.winsA;const score=card.querySelector('[data-playoff-series]'),game=card.querySelector('[data-playoff-game]');if(score)score.textContent=winsA+'-'+winsB;if(game){const played=(row.games||[]).length;game.textContent=played?('Game '+(played+1)+' next'): 'Game 1 next';}});}catch{}};
     window.__playoffWatchMatchups={};
-    ${JSON.stringify(w.playoffWatch.matchups.map(m=>({id:m.id,a:m.highTeam,b:m.lowTeam})))}.forEach(m=>window.__playoffWatchMatchups[m.id]=m);refresh();setInterval(()=>{if(!document.hidden)refresh();},60000);
+    [
+      {id:'min-nyl',a:'Minnesota Lynx',b:'New York Liberty'},
+      {id:'gsv-dal',a:'Golden State Valkyries',b:'Dallas Wings'},
+      {id:'lva-ind',a:'Las Vegas Aces',b:'Indiana Fever'},
+      {id:'atl-was',a:'Atlanta Dream',b:'Washington Mystics'}
+    ].forEach(m=>window.__playoffWatchMatchups[m.id]=m);refresh();setInterval(()=>{if(!document.hidden)refresh();},60000);
   }
   function rankingsMarkup(rankings=[]){if(!rankings.length)return'';return `<section class="snack-section"><h3>Power rankings</h3><div class="rankings-table"><div class="rank-row head"><span>#</span><span>Team</span><span>Move</span><span>What Shak is seeing</span></div>${rankings.map(item=>`<div class="rank-row"><span class="rank">${safe(item.rank)}</span><strong>${safe(item.team)}</strong><span class="move">${safe(item.movement||'')}</span><span>${safe(item.note||'')}</span></div>`).join('')}</div></section>`;}
   function storyCellMarkup(column,cell,index){

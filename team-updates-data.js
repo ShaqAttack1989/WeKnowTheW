@@ -42,6 +42,11 @@
     'seattle-storm':[
       {date:'2026-08-26',category:'story',kind:'MILESTONE',title:"Flau'jae Johnson",detail:'Passed 500 WNBA career points with 20 points against Toronto.',href:'https://www.statmuse.com/wnba/player/flau%27jae-johnson-1755',priority:5}
     ],
+    'los-angeles-sparks':[
+      {date:'2026-09-25',category:'story',kind:'COACHING CHANGE · REPORTED',title:'Lynne Roberts',detail:'ESPN reported that Los Angeles dismissed head coach Lynne Roberts on Sept. 25 after the Sparks missed the playoffs for a second consecutive season under her. The official Sparks basketball-operations page had not yet reflected the change when this update was published.',href:'https://www.espn.com/wnba/',priority:12},
+      {date:'2026-09-24',category:'story',kind:'FINAL GAME · LEGACY',title:'Nneka Ogwumike',detail:'Ogwumike closed her WNBA career with 17 points and 15 rebounds against Golden State. Her 19th double-double of 2026 set a Sparks single-season record, and Los Angeles announced its new El Segundo practice facility will be named for her.',href:'https://www.latimes.com/sports/sparks/story/2026-09-24/los-angeles-sparks-golden-state-valkyries-wnba-game-recap',priority:11},
+      {date:'2026-09-05',category:'story',kind:'FRONT OFFICE',title:'Ariana Andonian',detail:'Los Angeles hired longtime 76ers executive Ariana Andonian as general manager, putting the franchise under new basketball leadership heading into the 2027 offseason.',href:'https://www.espn.com/wnba/story/_/id/49829744/sparks-hiring-sixers-executive-andonian-new-general-manager',priority:8}
+    ],
     'minnesota-lynx':[
       {date:'2026-08-21',category:'story',kind:'MILESTONE',title:'Nia Coffey',detail:'Crossed 1,500 WNBA career points in Minnesota’s win at Washington.',href:'https://www.basketball-reference.com/wnba/players/c/coffeni01w.html',priority:5}
     ]

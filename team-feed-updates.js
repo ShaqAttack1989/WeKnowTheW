@@ -48,6 +48,15 @@
     ],
     'atlanta-dream':[
       {
+        date:'2026-09-25',
+        kind:'HONOR',
+        player:'Angel Reese',
+        detail:'Named Eastern Conference Player of the Week for the third consecutive week after averaging 19.3 points, 9.0 rebounds, 3.0 assists, 1.3 steals and 1.5 blocks while Atlanta went 4-0 to close the regular season.',
+        sourceLabel:'Atlanta Dream',
+        sourceUrl:'https://dream.wnba.com/news/angel-reese-named-wnba-eastern-conference-player-of-the-week-for-third-consecutive-week',
+        priority:5
+      },
+      {
         date:'2026-08-27',
         kind:'ROSTER',
         player:'DeWanna Bonner',
@@ -122,6 +131,15 @@
       }
     ],
     'las-vegas-aces':[
+      {
+        date:'2026-09-25',
+        kind:'HONOR',
+        player:"A'ja Wilson",
+        detail:'Named Western Conference Player of the Week after averaging 27.8 points, 8.8 rebounds and 3.8 assists during the final week of the regular season. The honor was her fifth of 2026 and tied the WNBA career record with 33 weekly awards.',
+        sourceLabel:'Las Vegas Aces',
+        sourceUrl:'https://aces.wnba.com/news/aja-wilson-earns-wnba-record-tying-33rd-wnba-player-of-the-week-honor-and-fifth-of-the-season',
+        priority:5
+      },
       {
         date:'2026-08-27',
         kind:'OUT FOR SEASON',

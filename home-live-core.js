@@ -137,6 +137,7 @@ document.getElementById('pastGamesToggle')?.addEventListener('click',()=>{gameMo
 document.getElementById('upcomingGamesToggle')?.addEventListener('click',()=>{gameMode='upcoming';renderGamePanel();});
 document.getElementById('homeGamesTeamFilter')?.addEventListener('change',event=>{gameTeam=event.target.value||'all';renderGamePanel();});
 
+const homeJson=async url=>window.WHomeData?.get?window.WHomeData.get(url,{ttl:15000}):fetch(url,{headers:{Accept:'application/json','Cache-Control':'no-cache'},cache:'no-store'}).then(async response=>{const payload=await response.json().catch(()=>({}));if(!response.ok)throw new Error(payload.error||'Homepage data unavailable');return payload;});
 async function loadHomeLive(initial=false){
   if(homeLiveRefreshActive)return;
   homeLiveRefreshActive=true;
@@ -146,9 +147,9 @@ async function loadHomeLive(initial=false){
   if(!table||!results)return;
   try{
     const [statsResult,liveResult,playoffResult]=await Promise.allSettled([
-      fetch(`/api/stats?season=2026&cb=${Date.now()}`,{headers:{Accept:'application/json','Cache-Control':'no-cache'},cache:'no-store'}).then(async r=>{const p=await r.json().catch(()=>({}));if(!r.ok)throw new Error(p.error||'Live data unavailable');return p;}),
+      homeJson('/api/stats?season=2026'),
       fetchFreshHomeLive(),
-      fetch(`/api/competition?season=2026&cb=${Date.now()}`,{cache:'no-store'}).then(r=>r.ok?r.json():Promise.reject(new Error('Playoff schedule unavailable')))
+      homeJson('/api/competition?season=2026')
     ]);
     if(statsResult.status!=='fulfilled')throw statsResult.reason;
     const payload=statsResult.value;

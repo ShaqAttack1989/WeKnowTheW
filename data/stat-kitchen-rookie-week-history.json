@@ -1,11 +1,92 @@
 {
   "version": 1,
   "season": 2026,
-  "updatedAt": "2026-09-12T18:43:08.518Z",
+  "updatedAt": "2026-09-26T21:25:52.990Z",
   "methodology": "We Know the W weekly rookie score = PPG + 1.2×RPG + 1.5×APG + 3×SPG + 3×BPG.",
   "source": "ESPN WNBA boxscores and verified 2026 WNBA draft class",
   "note": "Rookie of the Week archive. Completed weeks are preserved when a new weekly board becomes current.",
   "weeks": [
+    {
+      "version": 1,
+      "season": 2026,
+      "week": 15,
+      "start": "2026-09-17",
+      "end": "2026-09-24",
+      "officialAward": false,
+      "source": "ESPN WNBA boxscores and verified 2026 WNBA draft class",
+      "sourceUrl": "https://www.espn.com/wnba/",
+      "methodology": "We Know the W weekly rookie score = PPG + 1.2×RPG + 1.5×APG + 3×SPG + 3×BPG.",
+      "gamesReviewed": 30,
+      "leaders": [
+        {
+          "rank": 1,
+          "name": "Flau'jae Johnson",
+          "team": "Seattle Storm",
+          "games": 4,
+          "ppg": 23,
+          "rpg": 4.8,
+          "apg": 3.3,
+          "spg": 1.8,
+          "bpg": 0.3,
+          "score": 39.6,
+          "line": "23.0 PPG · 4.8 RPG · 3.3 APG"
+        },
+        {
+          "rank": 2,
+          "name": "Kiki Rice",
+          "team": "Toronto Tempo",
+          "games": 4,
+          "ppg": 18.5,
+          "rpg": 4.5,
+          "apg": 4.8,
+          "spg": 0.8,
+          "bpg": 0.3,
+          "score": 34,
+          "line": "18.5 PPG · 4.5 RPG · 4.8 APG"
+        },
+        {
+          "rank": 3,
+          "name": "Lauren Betts",
+          "team": "Washington Mystics",
+          "games": 4,
+          "ppg": 7.3,
+          "rpg": 6.5,
+          "apg": 2.3,
+          "spg": 1,
+          "bpg": 1.8,
+          "score": 26.7,
+          "line": "7.3 PPG · 6.5 RPG · 2.3 APG"
+        },
+        {
+          "rank": 4,
+          "name": "Awa Fam",
+          "team": "Seattle Storm",
+          "games": 4,
+          "ppg": 10.3,
+          "rpg": 7.8,
+          "apg": 1.8,
+          "spg": 0.3,
+          "bpg": 0.5,
+          "score": 24.4,
+          "line": "10.3 PPG · 7.8 RPG · 1.8 APG"
+        },
+        {
+          "rank": 5,
+          "name": "Olivia Miles",
+          "team": "Minnesota Lynx",
+          "games": 4,
+          "ppg": 10.3,
+          "rpg": 2.8,
+          "apg": 2.8,
+          "spg": 1,
+          "bpg": 0.3,
+          "score": 21.4,
+          "line": "10.3 PPG · 2.8 RPG · 2.8 APG"
+        }
+      ],
+      "dates": "Sept. 17 through 24",
+      "generatedAt": "2026-09-26T21:25:52.989Z"
+    },
     {
       "version": 1,
       "season": 2026,

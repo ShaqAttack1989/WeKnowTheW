@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-26T19:46:35.812Z",
+  "generatedAt": "2026-09-26T22:42:30.031Z",
   "movement": {
     "latestTransactionDate": "2026-09-22",
     "transactions": [
@@ -1420,9 +1420,48 @@
   },
   "availability": {
     "latestReportDate": "2026-09-26",
-    "reportLabel": "09/26/2026 03:45 PM ET",
-    "officialPdf": "https://ak-static.cms.nba.com/referee/wnba_injury/Injury-Report_2026-09-26_03_45PM.pdf",
+    "reportLabel": "09/26/2026 06:30 PM ET",
+    "officialPdf": "https://ak-static.cms.nba.com/referee/wnba_injury/Injury-Report_2026-09-26_06_30PM.pdf",
     "injuries": [
+      {
+        "player": "Anastasiia Olairi Kosu",
+        "team": "Minnesota Lynx",
+        "status": "OUT",
+        "reason": "Injury/Illness - Right Foot; Right foot",
+        "gameDate": "09/27/2026",
+        "gameTime": "02:00 (ET)",
+        "matchup": "NYL@MIN",
+        "updated": "2026-09-27",
+        "source": "Official WNBA Injury Report PDF",
+        "officialCurrentReport": true,
+        "crossCheckOnly": false
+      },
+      {
+        "player": "Brionna Jones",
+        "team": "Atlanta Dream",
+        "status": "OUT",
+        "reason": "Injury/Illness - Left Leg; N/A",
+        "gameDate": "09/27/2026",
+        "gameTime": "07:00 (ET)",
+        "matchup": "WAS@ATL",
+        "updated": "2026-09-27",
+        "source": "Official WNBA Injury Report PDF",
+        "officialCurrentReport": true,
+        "crossCheckOnly": false
+      },
+      {
+        "player": "Jonquel Jones",
+        "team": "New York Liberty",
+        "status": "QUESTIONABLE",
+        "reason": "Injury/Illness - Left Ankle; L. Ankle",
+        "gameDate": "09/27/2026",
+        "gameTime": "02:00 (ET)",
+        "matchup": "NYL@MIN",
+        "updated": "2026-09-27",
+        "source": "Official WNBA Injury Report PDF",
+        "officialCurrentReport": true,
+        "crossCheckOnly": false
+      },
       {
         "player": "Kara Dunn",
         "team": "Phoenix Mercury",
@@ -1999,14 +2038,6 @@
     ],
     "teamStatuses": [
       {
-        "team": "Atlanta Dream",
-        "status": "NOT YET SUBMITTED",
-        "gameDate": "09/27/2026",
-        "gameTime": "07:00 (ET)",
-        "matchup": "WAS@ATL",
-        "updated": "2026-09-27"
-      },
-      {
         "team": "Dallas Wings",
         "status": "NOT YET SUBMITTED",
         "gameDate": "09/27/2026",
@@ -2036,30 +2067,6 @@
         "gameDate": "09/27/2026",
         "gameTime": "04:00 (ET)",
         "matchup": "IND@LVA",
-        "updated": "2026-09-27"
-      },
-      {
-        "team": "Minnesota Lynx",
-        "status": "NOT YET SUBMITTED",
-        "gameDate": "09/27/2026",
-        "gameTime": "02:00 (ET)",
-        "matchup": "NYL@MIN",
-        "updated": "2026-09-27"
-      },
-      {
-        "team": "New York Liberty",
-        "status": "NOT YET SUBMITTED",
-        "gameDate": "09/27/2026",
-        "gameTime": "02:00 (ET)",
-        "matchup": "NYL@MIN",
-        "updated": "2026-09-27"
-      },
-      {
-        "team": "Washington Mystics",
-        "status": "NOT YET SUBMITTED",
-        "gameDate": "09/27/2026",
-        "gameTime": "07:00 (ET)",
-        "matchup": "WAS@ATL",
         "updated": "2026-09-27"
       }
     ]

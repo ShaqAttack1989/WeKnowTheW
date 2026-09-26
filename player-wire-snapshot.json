@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-26T17:05:55.740Z",
+  "generatedAt": "2026-09-26T19:46:35.812Z",
   "movement": {
     "latestTransactionDate": "2026-09-22",
     "transactions": [
@@ -1420,8 +1420,8 @@
   },
   "availability": {
     "latestReportDate": "2026-09-26",
-    "reportLabel": "09/26/2026 01:00 PM ET",
-    "officialPdf": "https://ak-static.cms.nba.com/referee/wnba_injury/Injury-Report_2026-09-26_01_00PM.pdf",
+    "reportLabel": "09/26/2026 03:45 PM ET",
+    "officialPdf": "https://ak-static.cms.nba.com/referee/wnba_injury/Injury-Report_2026-09-26_03_45PM.pdf",
     "injuries": [
       {
         "player": "Kara Dunn",

@@ -2337,9 +2337,9 @@
       "type": "feature",
       "priority": 210,
       "seriesLabel": "FOOD FOR THOUGHT",
-      "title": "JuJu to Houston? The Early 2027 WNBA Mock Draft",
+      "title": "Toronto or Houston? The Updated 2027 WNBA Mock Draft",
       "published": "2026-09-03",
-      "week": "Edition 01 · Current order through Sept. 3, 2026",
+      "week": "Edition 02 · Updated Sept. 26, 2026",
       "dashboardUrl": "/2027-wnba-mock-draft.html",
       "teams": [
         "Houston Comets",
@@ -2355,14 +2355,27 @@
         "Madison Booker",
         "S'Mya Nichols",
         "MiLaysia Fulwiley",
-        "Mikaylah Williams"
+        "Mikaylah Williams",
+        "Zhang Ziyu"
       ],
-      "dek": "JuJu Watkins is the early No. 1, Houston holds the current first slot, and the complete 15-pick dashboard maps every projected fit with player photos, team marks and college logos.",
+      "dek": "Toronto and Houston share the best estimated No. 1 odds, JuJu Watkins remains the top prospect, and World Cup riser Zhang Ziyu enters the 15-pick board at No. 12.",
       "sections": [
         {
-          "title": "The first call",
+          "title": "The top-pick tie",
           "paragraphs": [
-            "If the current order holds and Watkins enters healthy, Houston should make the USC star the face of the Comets’ return. The lottery, eligibility decisions and the full 2026-27 college season can still move every line on the board."
+            "Toronto and Houston finished with identical .250 winning percentages. Their lottery combinations will be pooled and split, with Houston receiving the extra combination if the total is odd. The current 29.5% estimates are not official WNBA odds."
+          ]
+        },
+        {
+          "title": "World Cup riser",
+          "paragraphs": [
+            "Zhang Ziyu recorded 13 points, six rebounds and two blocks against Team USA. Edition 02 moves the 7-foot-3 Chinese center into the first round at No. 12 while leaving the prospect order above her unchanged."
+          ]
+        },
+        {
+          "title": "Eligibility watch",
+          "paragraphs": [
+            "S’Mya Nichols has a fifth year available, but she says her preferred path is the WNBA after this season. Her No. 4 card now marks her as a likely 2027 entrant, not a declared one."
           ]
         }
       ],
@@ -2757,3 +2770,4 @@
     }
   ]
 }
+

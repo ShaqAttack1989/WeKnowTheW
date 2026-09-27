@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-27T18:18:21.689Z",
+  "generatedAt": "2026-09-27T22:03:11.210Z",
   "movement": {
     "latestTransactionDate": "2026-09-22",
     "transactions": [
@@ -1420,8 +1420,8 @@
   },
   "availability": {
     "latestReportDate": "2026-09-27",
-    "reportLabel": "09/27/2026 02:15 PM ET",
-    "officialPdf": "https://ak-static.cms.nba.com/referee/wnba_injury/Injury-Report_2026-09-27_02_15PM.pdf",
+    "reportLabel": "09/27/2026 06:00 PM ET",
+    "officialPdf": "https://ak-static.cms.nba.com/referee/wnba_injury/Injury-Report_2026-09-27_06_00PM.pdf",
     "injuries": [
       {
         "player": "Alanna Smith",
@@ -1431,19 +1431,6 @@
         "gameDate": "09/27/2026",
         "gameTime": "09:00 (ET)",
         "matchup": "DAL@GSV",
-        "updated": "2026-09-27",
-        "source": "Official WNBA Injury Report PDF",
-        "officialCurrentReport": true,
-        "crossCheckOnly": false
-      },
-      {
-        "player": "Aliyah Boston",
-        "team": "Indiana Fever",
-        "status": "QUESTIONABLE",
-        "reason": "Injury/Illness - Right Leg; Lower",
-        "gameDate": "09/27/2026",
-        "gameTime": "04:00 (ET)",
-        "matchup": "IND@LVA",
         "updated": "2026-09-27",
         "source": "Official WNBA Injury Report PDF",
         "officialCurrentReport": true,
@@ -1470,19 +1457,6 @@
         "gameDate": "09/27/2026",
         "gameTime": "07:00 (ET)",
         "matchup": "WAS@ATL",
-        "updated": "2026-09-27",
-        "source": "Official WNBA Injury Report PDF",
-        "officialCurrentReport": true,
-        "crossCheckOnly": false
-      },
-      {
-        "player": "Caitlin Clark",
-        "team": "Indiana Fever",
-        "status": "PROBABLE",
-        "reason": "Injury/Illness - Back; Back",
-        "gameDate": "09/27/2026",
-        "gameTime": "04:00 (ET)",
-        "matchup": "IND@LVA",
         "updated": "2026-09-27",
         "source": "Official WNBA Injury Report PDF",
         "officialCurrentReport": true,

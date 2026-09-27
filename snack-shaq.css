@@ -366,13 +366,13 @@
 .ap-winner-card[hidden]{display:none}
 .ap-winner-photo{min-height:100%;overflow:hidden;background:linear-gradient(180deg,#ebe3f4,#d2c1e5)}
 .ap-winner-photo img{display:block;width:100%;height:100%;min-height:238px;object-fit:cover;object-position:center 12%}
-.ap-winner-copy{padding:19px 18px 18px}
+.ap-winner-copy{min-width:0;padding:19px 18px 18px}
 .ap-winner-copy>span{display:block;color:#6c2ad9;font-size:.67rem;font-weight:950;letter-spacing:.1em;text-transform:uppercase}
 .ap-winner-copy h4{margin:4px 0 0;font-size:1.45rem;line-height:1.02}
 .ap-winner-copy .ap-winner-team{margin:4px 0 12px;color:#6f6575;font-size:.78rem!important;font-weight:850;line-height:1.3!important;text-transform:uppercase}
-.ap-winner-receipt{display:flex;align-items:baseline;gap:8px;margin-bottom:9px;padding:9px 11px;border-radius:13px;background:#f3ecfa}
-.ap-winner-receipt strong{color:#2a104a;font-size:1.28rem;line-height:1}
-.ap-winner-receipt small{color:#756b7b;font-size:.64rem;font-weight:900;letter-spacing:.06em;text-transform:uppercase}
+.ap-winner-receipt{display:flex;flex-wrap:wrap;align-items:center;column-gap:8px;row-gap:4px;max-width:100%;margin-bottom:9px;padding:9px 11px;border-radius:13px;background:#f3ecfa}
+.ap-winner-receipt strong{flex:0 1 auto;max-width:100%;color:#2a104a;font-size:1.28rem;line-height:1}
+.ap-winner-receipt small{flex:1 1 82px;min-width:0;max-width:100%;color:#756b7b;font-size:.64rem;font-weight:900;line-height:1.25;letter-spacing:.06em;overflow-wrap:break-word;text-transform:uppercase}
 .ap-winner-copy>p:not(.ap-winner-team){margin:0;color:#5f5665;font-size:.8rem!important;line-height:1.45!important}
 .ap-winner-copy>b{display:block;margin-top:10px;color:#5d20ba;font-size:.72rem;line-height:1.35}
 .ap-history-lab,.ap-ballot-lab{margin-top:28px;padding-top:25px;border-top:1px solid rgba(255,255,255,.17)}
@@ -401,4 +401,4 @@
 .ap-awards-method strong{color:#d8ff4f;font-size:.74rem;letter-spacing:.1em;text-transform:uppercase}
 .ap-awards-method p{margin:5px 0 0;color:rgba(255,255,255,.76);font-size:.88rem!important;line-height:1.58!important}
 @media(max-width:860px){.ap-awards-head{grid-template-columns:1fr}.ap-awards-head>aside{max-width:280px}.ap-winner-grid{grid-template-columns:1fr}.ap-history-leader{grid-template-columns:1fr;gap:6px}.ap-history-timeline{grid-template-columns:repeat(4,minmax(0,1fr))}.ap-ballot-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
-@media(max-width:620px){.ap-awards-dashboard{margin-right:-13px;margin-left:-13px;padding:21px 15px;border-radius:22px}.ap-awards-summary{grid-template-columns:1fr}.ap-awards-summary div{justify-content:center}.ap-dashboard-label{align-items:flex-start;flex-direction:column;gap:5px}.ap-award-controls,.ap-history-controls,.ap-ballot-controls{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}.ap-award-controls button,.ap-history-controls button,.ap-ballot-controls button{width:100%;padding-inline:10px}.ap-winner-card{grid-template-columns:108px minmax(0,1fr);min-height:250px}.ap-winner-photo img{min-height:250px}.ap-winner-copy{padding:16px 13px}.ap-winner-copy h4{font-size:1.25rem}.ap-history-timeline{grid-template-columns:repeat(2,minmax(0,1fr))}.ap-history-year{min-height:82px}.ap-ballot-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.ap-ballot-player>div{height:120px}}
+@media(max-width:620px){.ap-awards-dashboard{margin-right:-13px;margin-left:-13px;padding:21px 15px;border-radius:22px}.ap-awards-summary{grid-template-columns:1fr}.ap-awards-summary div{justify-content:center}.ap-dashboard-label{align-items:flex-start;flex-direction:column;gap:5px}.ap-award-controls,.ap-history-controls,.ap-ballot-controls{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}.ap-award-controls button,.ap-history-controls button,.ap-ballot-controls button{width:100%;padding-inline:10px}.ap-winner-card{grid-template-columns:108px minmax(0,1fr);min-height:250px}.ap-winner-photo img{min-height:250px}.ap-winner-copy{padding:16px 13px}.ap-winner-copy h4{font-size:1.25rem}.ap-winner-receipt{align-items:flex-start;flex-direction:column}.ap-winner-receipt small{flex-basis:auto}.ap-history-timeline{grid-template-columns:repeat(2,minmax(0,1fr))}.ap-history-year{min-height:82px}.ap-ballot-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.ap-ballot-player>div{height:120px}}

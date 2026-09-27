@@ -50,6 +50,8 @@ test('the AP dashboard computes leaders and uses only official WNBA imagery',()=
   assert.match(collections,/data-ap-ballot-tab/);
   assert.match(styles,/\.ap-awards-dashboard/);
   assert.match(styles,/\.ap-history-timeline/);
+  assert.match(styles,/\.ap-winner-receipt\{display:flex;flex-wrap:wrap/);
+  assert.match(styles,/@media\(max-width:620px\)[\s\S]*\.ap-winner-receipt\{align-items:flex-start;flex-direction:column\}/);
 
   const photos=[post.image,post.storyImage];
   for(const winner of post.apAwardsDashboard.winners){

@@ -18,6 +18,12 @@ test('Homepage Games snapshot includes playoff feed and visual fallback',()=>{
   assert.match(source,/playoffUpcoming/);
 });
 
+test('Homepage scoreboard trusts a published tip time over a stale TBD status',()=>{
+  const source=read('homepage-desk.js');
+  assert.match(source,/const published=String\(game\.startTimeUtc\|\|game\.timestamp\|\|game\.strTimestamp/);
+  assert.match(source,/!published&&\/tbd\/i\.test/);
+});
+
 test('Homepage does not preload the heavy legacy player catalog',()=>{
   const html=read('index.html');
   assert.doesNotMatch(html,/src="\/playerpedia-legacy\.js/);

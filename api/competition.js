@@ -75,9 +75,9 @@ const CUP_2026_FINAL={id:'2026-commissioners-cup-final',date:'2026-06-30',startT
 // WNBA published Game 1 fixtures; live provider scores supersede these by matchup.
 const PLAYOFF_2026_OPENERS=[
   {id:'1042600101',date:'2026-09-27',startTimeUtc:'2026-09-27T14:00:00-04:00',homeTeam:'Minnesota Lynx',awayTeam:'New York Liberty',broadcasts:['ABC']},
-  {id:'1042600111',date:'2026-09-27',startTimeUtc:'2026-09-27T16:00:00-04:00',homeTeam:'Golden State Valkyries',awayTeam:'Dallas Wings',broadcasts:['ABC']},
-  {id:'1042600121',date:'2026-09-27',homeTeam:'Las Vegas Aces',awayTeam:'Indiana Fever',broadcasts:['Prime Video']},
-  {id:'1042600131',date:'2026-09-27',startTimeUtc:'2026-09-27T21:00:00-04:00',homeTeam:'Atlanta Dream',awayTeam:'Washington Mystics',broadcasts:['USA']}
+  {id:'1042600121',date:'2026-09-27',startTimeUtc:'2026-09-27T16:00:00-04:00',homeTeam:'Las Vegas Aces',awayTeam:'Indiana Fever',broadcasts:['ABC']},
+  {id:'1042600131',date:'2026-09-27',startTimeUtc:'2026-09-27T19:00:00-04:00',homeTeam:'Atlanta Dream',awayTeam:'Washington Mystics',broadcasts:['Prime Video']},
+  {id:'1042600111',date:'2026-09-27',startTimeUtc:'2026-09-27T21:00:00-04:00',homeTeam:'Golden State Valkyries',awayTeam:'Dallas Wings',broadcasts:['USA']}
 ].map(game=>({...game,status:'Scheduled',state:'pre',completed:false,competitionLabel:'Playoffs · First Round · Game 1',officialFallback:true}));
 
 function standings(games){
@@ -129,6 +129,6 @@ module.exports=async function handler(req,res){
     playoffs:{games:postseason,series:series(postseason),starts:'2026-09-27',started:Date.now()>=Date.parse('2026-09-27T00:00:00-04:00')},
     sources:{cup:'https://www.wnba.com/commissioners-cup/2026/about-the-cup',cupResults:'https://www.wnba.com/news/category/2026-commissioners-cup',cupFinal:'https://www.wnba.com/commissioners-cup/2026/leaderboard',playoffs:'https://www.wnba.com/playoffs/2026'},
     providerErrors,
-    sourceVersion:'20260823-competition-v3'
+    sourceVersion:'20260927-playoff-times-v4'
   });
 };

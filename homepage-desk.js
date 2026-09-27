@@ -64,8 +64,10 @@
     return null;
   }
   function gameTime(game={}){
-    const explicit=String(game.startTimeUtc||game.timestamp||game.strTimestamp||game.time||'').trim();
-    if(!explicit||/tbd/i.test(String(game.status||game.statusText||'')))return 'TBD';
+    const published=String(game.startTimeUtc||game.timestamp||game.strTimestamp||'').trim();
+    const fallback=String(game.time||'').trim();
+    const explicit=published||fallback;
+    if(!explicit||(!published&&/tbd/i.test(String(game.status||game.statusText||''))))return 'TBD';
     const d=gameInstant({...game,date:''});
     if(!d)return 'TBD';
     return new Intl.DateTimeFormat('en-US',{timeZone:EASTERN,hour:'numeric',minute:'2-digit'}).format(d);

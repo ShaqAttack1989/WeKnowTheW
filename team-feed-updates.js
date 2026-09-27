@@ -5,7 +5,7 @@
   const slug=params.get('team')||'';
   if(!slug)return;
 
-  const VERSION='20260922-record-milestones-v2';
+  const VERSION='20260927-ap-awards-v1';
   const CURATED={
     'seattle-storm':[
       {
@@ -267,7 +267,120 @@
     ]
   };
 
-  const manual=CURATED[slug]||[];
+  const AP_AWARDS={
+    'las-vegas-aces':[
+      {
+        date:'2026-09-27',
+        kind:'AP AWARDS',
+        player:"A'ja Wilson + Jackie Young",
+        detail:"Wilson won a record fourth AP Player of the Year award and made the AP first team. Young earned AP second-team honors.",
+        sourceLabel:'Associated Press via ESPN',
+        sourceUrl:'https://www.espn.com/wnba/story/_/id/50042340/aja-wilson-angel-reese-lead-ap-wnba-award-winners',
+        priority:30
+      }
+    ],
+    'atlanta-dream':[
+      {
+        date:'2026-09-27',
+        kind:'AP AWARDS',
+        player:'Angel Reese + Rhyne Howard',
+        detail:'Reese won AP Defensive Player of the Year and made the AP second team. Howard joined her on the second team.',
+        sourceLabel:'Associated Press via ESPN',
+        sourceUrl:'https://www.espn.com/wnba/story/_/id/50042340/aja-wilson-angel-reese-lead-ap-wnba-award-winners',
+        priority:30
+      }
+    ],
+    'minnesota-lynx':[
+      {
+        date:'2026-09-27',
+        kind:'AP AWARDS',
+        player:'Olivia Miles + Cheryl Reeve',
+        detail:'Miles was the unanimous AP Rookie of the Year and made the first and All-Rookie teams. Reeve won her record third AP Coach of the Year award.',
+        sourceLabel:'Associated Press via ESPN',
+        sourceUrl:'https://www.espn.com/wnba/story/_/id/50042340/aja-wilson-angel-reese-lead-ap-wnba-award-winners',
+        priority:30
+      }
+    ],
+    'indiana-fever':[
+      {
+        date:'2026-09-27',
+        kind:'AP AWARDS',
+        player:'Caitlin Clark + Kelsey Mitchell',
+        detail:'Clark won AP Comeback Player of the Year. Clark and Mitchell both earned AP first-team honors.',
+        sourceLabel:'Associated Press via ESPN',
+        sourceUrl:'https://www.espn.com/wnba/story/_/id/50042340/aja-wilson-angel-reese-lead-ap-wnba-award-winners',
+        priority:30
+      }
+    ],
+    'dallas-wings':[
+      {
+        date:'2026-09-27',
+        kind:'AP AWARDS',
+        player:'Jessica Shepard + Paige Bueckers + Azzi Fudd',
+        detail:'Shepard won AP Most Improved Player, Bueckers made the AP second team and Fudd earned an All-Rookie place.',
+        sourceLabel:'Associated Press via ESPN',
+        sourceUrl:'https://www.espn.com/wnba/story/_/id/50042340/aja-wilson-angel-reese-lead-ap-wnba-award-winners',
+        priority:30
+      }
+    ],
+    'golden-state-valkyries':[
+      {
+        date:'2026-09-27',
+        kind:'AP AWARDS',
+        player:'Janelle Salaün + Gabby Williams',
+        detail:'Salaün won AP Sixth Woman of the Year and made the All-Rookie team. Williams earned AP second-team honors.',
+        sourceLabel:'Golden State Valkyries',
+        sourceUrl:'https://valkyries.wnba.com/news/salaun-williams-earn-ap-awards-20260927',
+        priority:30
+      }
+    ],
+    'new-york-liberty':[
+      {
+        date:'2026-09-27',
+        kind:'AP HONORS',
+        player:'Breanna Stewart + Pauline Astier',
+        detail:'Stewart made the AP first team and Astier earned a place on the six-player AP All-Rookie team.',
+        sourceLabel:'Associated Press via ESPN',
+        sourceUrl:'https://www.espn.com/wnba/story/_/id/50042340/aja-wilson-angel-reese-lead-ap-wnba-award-winners',
+        priority:30
+      }
+    ],
+    'seattle-storm':[
+      {
+        date:'2026-09-27',
+        kind:'AP HONOR',
+        player:"Flau'jae Johnson",
+        detail:'Johnson earned a place on the six-player 2026 AP All-Rookie team.',
+        sourceLabel:'Associated Press via ESPN',
+        sourceUrl:'https://www.espn.com/wnba/story/_/id/50042340/aja-wilson-angel-reese-lead-ap-wnba-award-winners',
+        priority:30
+      }
+    ],
+    'chicago-sky':[
+      {
+        date:'2026-09-27',
+        kind:'AP HONOR',
+        player:'Sydney Taylor',
+        detail:'Taylor earned a place on the six-player 2026 AP All-Rookie team.',
+        sourceLabel:'Associated Press via ESPN',
+        sourceUrl:'https://www.espn.com/wnba/story/_/id/50042340/aja-wilson-angel-reese-lead-ap-wnba-award-winners',
+        priority:30
+      }
+    ],
+    'toronto-tempo':[
+      {
+        date:'2026-09-27',
+        kind:'AP HONOR',
+        player:'Kiki Rice',
+        detail:'Rice earned a place on the six-player 2026 AP All-Rookie team.',
+        sourceLabel:'Associated Press via ESPN',
+        sourceUrl:'https://www.espn.com/wnba/story/_/id/50042340/aja-wilson-angel-reese-lead-ap-wnba-award-winners',
+        priority:30
+      }
+    ]
+  };
+
+  const manual=[...(AP_AWARDS[slug]||[]),...(CURATED[slug]||[])];
   if(!manual.length)return;
 
   const teamData=typeof teamBySlug==='function'?teamBySlug(slug):null;

@@ -172,11 +172,71 @@
     buttons.forEach(button=>button.addEventListener('click',()=>setMode(button.dataset.trioMode)));
     setMode(board.dataset.defaultMode||'offense');
   }
+  function apPhoto(person={}){
+    if(person.photo)return person.photo;
+    return person.id?`https://cdn.wnba.com/headshots/wnba/latest/260x190/${encodeURIComponent(person.id)}.png`:'';
+  }
+  function apPhotoMarkup(person={},className=''){
+    const photo=apPhoto(person);
+    if(!photo)return'';
+    const fallback=person.id?`https://cdn.wnba.com/headshots/wnba/latest/1040x760/${encodeURIComponent(person.id)}.png`:'';
+    const recovery=fallback?` data-fallback="${safe(fallback)}" onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback}else{this.hidden=true}"`:' onerror="this.hidden=true"';
+    return `<img class="${safe(className)}" src="${safe(photo)}" alt="${safe(person.photoAlt||`Official WNBA photo of ${person.name}`)}" loading="lazy" decoding="async"${recovery}>`;
+  }
+  function apWinnerCard(winner={}){
+    return `<article class="ap-winner-card" data-ap-winner-group="${safe(winner.group||'headline')}"><div class="ap-winner-photo">${apPhotoMarkup(winner,'')}</div><div class="ap-winner-copy"><span>${safe(winner.award)}</span><h4>${safe(winner.name)}</h4><p class="ap-winner-team">${safe(winner.team)}</p><div class="ap-winner-receipt"><strong>${safe(winner.stat)}</strong><small>${safe(winner.statLabel)}</small></div><p>${safe(winner.case)}</p>${winner.history?`<b>${safe(winner.history)}</b>`:''}</div></article>`;
+  }
+  function apHistoryPanel(category={},index=0){
+    const counts=new Map();
+    (category.seasons||[]).forEach(season=>(season.winners||[]).forEach(name=>counts.set(name,(counts.get(name)||0)+1)));
+    const high=Math.max(...counts.values(),0);
+    const leaders=[...counts.entries()].filter(([,count])=>count===high).map(([name])=>name);
+    const leaderCopy=high===1?`${counts.size} different winners`:`${leaders.join(' + ')} · ${high} wins`;
+    const timeline=(category.seasons||[]).map(season=>`<div class="ap-history-year${Number(season.year)===2026?' current':''}"><span>${safe(season.year)}</span><strong>${safe((season.winners||[]).join(' + '))}</strong></div>`).join('');
+    return `<section class="ap-history-panel" data-ap-history-panel="${safe(category.key)}"${index?' hidden':''}><div class="ap-history-leader"><span>MOST AP WINS</span><strong>${safe(leaderCopy)}</strong><p>${safe(category.note||'')}</p></div><div class="ap-history-timeline">${timeline}</div></section>`;
+  }
+  function apBallotPanel(group={},index=0){
+    const cards=(group.players||[]).map(player=>`<article class="ap-ballot-player"><div>${apPhotoMarkup(player,'')}</div><strong>${safe(player.name)}</strong><span>${safe(player.team)}</span></article>`).join('');
+    return `<section class="ap-ballot-panel" data-ap-ballot-panel="${safe(group.key)}"${index?' hidden':''}><p>${safe(group.note||'')}</p><div class="ap-ballot-grid">${cards}</div></section>`;
+  }
+  function apAwardsDashboardMarkup(board={}){
+    const winners=Array.isArray(board.winners)?board.winners:[];
+    const history=Array.isArray(board.history)?board.history:[];
+    const ballots=Array.isArray(board.ballots)?board.ballots:[];
+    if(!winners.length||!history.length)return'';
+    const winnerFilters=[['all','All seven'],['headline','Headliners'],['role','Role awards'],['coach','Coach']];
+    return `<section class="snack-section ap-awards-dashboard" data-ap-awards-dashboard><header class="ap-awards-head"><div><span>THE 2026 AP AWARD BOARD</span><h3>${safe(board.title||'The ballot and the history behind it')}</h3><p>${safe(board.intro||'')}</p></div><aside><strong>${safe(board.asOf||'SEPT. 27, 2026')}</strong><span>${safe(board.panel||'17-member AP media panel')}</span></aside></header><div class="ap-awards-summary"><div><strong>7</strong><span>individual awards</span></div><div><strong>11</strong><span>AP award seasons</span></div><div><strong>4×</strong><span>Wilson, most Player awards</span></div></div><div class="ap-dashboard-label"><strong>Meet the 2026 winners</strong><span data-ap-winner-status aria-live="polite">Showing all seven individual winners.</span></div><div class="ap-award-controls" role="group" aria-label="Filter 2026 AP award winners">${winnerFilters.map(([key,label],index)=>`<button type="button" data-ap-winner-filter="${key}" aria-pressed="${index===0?'true':'false'}">${label}</button>`).join('')}</div><div class="ap-winner-grid">${winners.map(apWinnerCard).join('')}</div><section class="ap-history-lab"><div class="ap-dashboard-label"><div><span>THE HISTORY LAB</span><strong>Who won before, and who owns the category?</strong></div><small>Tap an award to redraw the 2016–2026 timeline.</small></div><div class="ap-history-controls" role="tablist" aria-label="AP award history">${history.map((category,index)=>`<button type="button" role="tab" data-ap-history-tab="${safe(category.key)}" aria-selected="${index===0?'true':'false'}">${safe(category.shortLabel||category.label)}</button>`).join('')}</div>${history.map(apHistoryPanel).join('')}</section>${ballots.length?`<section class="ap-ballot-lab"><div class="ap-dashboard-label"><div><span>THE AP TEAMS</span><strong>First team, second team and the rookie class</strong></div><small>Official WNBA headshots only.</small></div><div class="ap-ballot-controls" role="tablist" aria-label="2026 AP team selections">${ballots.map((group,index)=>`<button type="button" role="tab" data-ap-ballot-tab="${safe(group.key)}" aria-selected="${index===0?'true':'false'}">${safe(group.label)}</button>`).join('')}</div>${ballots.map(apBallotPanel).join('')}</section>`:''}<aside class="ap-awards-method"><strong>Read the label</strong><p>${safe(board.methodology||'These are Associated Press media awards. They are separate from the WNBA postseason awards announced by the league.')}</p></aside></section>`;
+  }
+  function wireApAwardsDashboard(story){
+    const board=story?.querySelector('[data-ap-awards-dashboard]');
+    if(!board||board.dataset.ready==='1')return;
+    board.dataset.ready='1';
+    const winnerButtons=[...board.querySelectorAll('[data-ap-winner-filter]')],winnerCards=[...board.querySelectorAll('[data-ap-winner-group]')],winnerStatus=board.querySelector('[data-ap-winner-status]');
+    winnerButtons.forEach(button=>button.addEventListener('click',()=>{
+      const filter=button.dataset.apWinnerFilter;
+      winnerButtons.forEach(item=>item.setAttribute('aria-pressed',String(item===button)));
+      let visible=0;
+      winnerCards.forEach(card=>{const show=filter==='all'||card.dataset.apWinnerGroup===filter;card.hidden=!show;if(show)visible+=1;});
+      if(winnerStatus)winnerStatus.textContent=filter==='all'?'Showing all seven individual winners.':`Showing ${visible} ${button.textContent.toLowerCase()} winner${visible===1?'':'s'}.`;
+    }));
+    const historyTabs=[...board.querySelectorAll('[data-ap-history-tab]')],historyPanels=[...board.querySelectorAll('[data-ap-history-panel]')];
+    historyTabs.forEach(tab=>tab.addEventListener('click',()=>{
+      const key=tab.dataset.apHistoryTab;
+      historyTabs.forEach(item=>item.setAttribute('aria-selected',String(item===tab)));
+      historyPanels.forEach(panel=>{panel.hidden=panel.dataset.apHistoryPanel!==key;});
+    }));
+    const ballotTabs=[...board.querySelectorAll('[data-ap-ballot-tab]')],ballotPanels=[...board.querySelectorAll('[data-ap-ballot-panel]')];
+    ballotTabs.forEach(tab=>tab.addEventListener('click',()=>{
+      const key=tab.dataset.apBallotTab;
+      ballotTabs.forEach(item=>item.setAttribute('aria-selected',String(item===tab)));
+      ballotPanels.forEach(panel=>{panel.hidden=panel.dataset.apBallotPanel!==key;});
+    }));
+  }
   function sectionsMarkup(sections=[]){return sections.map(section=>`<section class="snack-section"><h3>${safe(section.title)}</h3>${(section.paragraphs||[]).map(paragraph=>`<p>${safe(paragraph)}</p>`).join('')}</section>`).join('');}
   function debatesMarkup(items=[]){return items.length?`<section class="snack-debate-board"><h3>Spicy debate board</h3><ul>${items.map(item=>`<li>${safe(item)}</li>`).join('')}</ul></section>`:'';}
   function foodMarkup(food={}){return food.title||food.script?`<section class="food-segment"><span class="segment-label">FROM THE KITCHEN</span><h3>${safe(food.title||'This week’s segment')}</h3>${food.script?`<blockquote>${safe(food.script)}</blockquote>`:''}</section>`:'';}
   function sourcesMarkup(sources=[]){return sources.length?`<section class="source-list"><strong>Receipts</strong><p>${sources.map(source=>`<a href="${safe(source.url)}" target="_blank" rel="noopener noreferrer">${safe(source.label||'Source')}</a>`).join(' · ')}</p></section>`:'';}
-  function storyMarkup(post){return `<a class="snack-story-back" href="${pagePath}">← Back to all ${mode==='feature'?'Food for Thought articles':'Snack Shak Bytes'}</a><article class="snack-post"><header class="snack-post-header ${mode==='feature'?'feature-header':''}"><span class="snack-series-label">${safe(label(post))}</span><div class="meta"><span>${safe(format(post.published))}</span>${post.week?`<span>•</span><span>${safe(post.week)}</span>`:''}</div><h2>${safe(post.title)}</h2><p class="dek">${safe(post.dek||'')}</p></header>${storyImageMarkup(post)}${playoffWatchMarkup(post.playoffWatch)}${playoffBoardMarkup(post)}${rankingsMarkup(post.rankings)}${tableMarkup(post.storyTable)}${trioDashboardMarkup(post.trioDashboard)}${sectionsMarkup(post.sections)}${debatesMarkup(post.debates)}${foodMarkup(post.foodSegment)}${sourcesMarkup(post.sources)}</article>`;}
+  function storyMarkup(post){return `<a class="snack-story-back" href="${pagePath}">← Back to all ${mode==='feature'?'Food for Thought articles':'Snack Shak Bytes'}</a><article class="snack-post"><header class="snack-post-header ${mode==='feature'?'feature-header':''}"><span class="snack-series-label">${safe(label(post))}</span><div class="meta"><span>${safe(format(post.published))}</span>${post.week?`<span>•</span><span>${safe(post.week)}</span>`:''}</div><h2>${safe(post.title)}</h2><p class="dek">${safe(post.dek||'')}</p></header>${storyImageMarkup(post)}${playoffWatchMarkup(post.playoffWatch)}${playoffBoardMarkup(post)}${rankingsMarkup(post.rankings)}${tableMarkup(post.storyTable)}${trioDashboardMarkup(post.trioDashboard)}${apAwardsDashboardMarkup(post.apAwardsDashboard)}${sectionsMarkup(post.sections)}${debatesMarkup(post.debates)}${foodMarkup(post.foodSegment)}${sourcesMarkup(post.sources)}</article>`;}
 
   function setCollectionArchiveMode(activeSlug=''){
     const list=document.getElementById('snackCollectionGrid');
@@ -193,7 +253,6 @@
       if(copy)copy.textContent=mode==='feature'?'Every long article is organized here, newest first.':'New stories appear here automatically, newest first.';
     }
   }
-
   function showStory(post,story,{scroll=true,updateUrl=false}={}){
     if(!post||!story)return false;
     story.hidden=false;
@@ -202,6 +261,7 @@
     if(post.slug==='the-playoff-watch-party-2026')updatePlayoffBoard();
     wirePlayoffWatch(story);
     wireTrioDashboard(story);
+    wireApAwardsDashboard(story);
     document.title=`${post.title} | ${mode==='feature'?'Food for Thought':'Snack Shak Bytes'}`;
     if(updateUrl){const destination=href(post);history.pushState({story:post.slug},'',destination);}
     if(scroll)requestAnimationFrame(()=>story.scrollIntoView({block:'start',behavior:'smooth'}));

@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-25T13:27:00-04:00",
+  "updatedAt": "2026-09-27T16:29:40Z",
   "rules": {
     "pronunciation": "Only use a written pronunciation when a team, league or other reliable media guide explicitly provides it. When a player-recorded audio pronunciation is available, link to that instead of inventing phonetics.",
     "offCourt": "Only include a personal, family, education, advocacy, business, media, music or nickname connection when it is documented in the Playerpedia bio tracker or a cited public source.",
@@ -9,6 +9,16 @@
     "ajawilson": {
       "pronunciation": "A-zhuh, like Asia",
       "pronunciationSource": "https://cdn.wnba.com/sites/1611661319/2025/06/2025-06-25-Aces-v-Conn-Wash-Notes-v2.pdf",
+      "latestAward": {
+        "date": "2026-09-27",
+        "dateLabel": "SEPT. 27, 2026",
+        "label": "AP AWARDS",
+        "ribbon": "4× PLAYER OF THE YEAR · AP FIRST TEAM",
+        "headline": "2026 AP Player of the Year",
+        "detail": "Wilson earned 15 of 17 first-place votes and became the first four-time AP Player of the Year. She was also named to the 2026 AP first team.",
+        "source": "https://www.espn.com/wnba/story/_/id/50042340/aja-wilson-angel-reese-lead-ap-wnba-award-winners",
+        "sourceLabel": "2026 AP award results"
+      },
       "latestMilestone": {
         "date": "2026-09-20",
         "dateLabel": "SEPT. 20, 2026",
@@ -54,6 +64,16 @@
       }
     },
     "angelreese": {
+      "latestAward": {
+        "date": "2026-09-27",
+        "dateLabel": "SEPT. 27, 2026",
+        "label": "AP AWARDS",
+        "ribbon": "DEFENSIVE PLAYER OF THE YEAR · SECOND TEAM",
+        "headline": "2026 AP Defensive Player of the Year",
+        "detail": "Reese won her first AP defensive award after leading the WNBA in rebounding for a third straight season. She also made the 2026 AP second team.",
+        "source": "https://www.espn.com/wnba/story/_/id/50042340/aja-wilson-angel-reese-lead-ap-wnba-award-winners",
+        "sourceLabel": "2026 AP award results"
+      },
       "latestMilestone": {
         "date": "2026-09-21",
         "dateLabel": "THROUGH SEPT. 21, 2026",
@@ -76,9 +96,32 @@
             "label": "Career rebound ledger"
           }
         ]
-      }
+      },
+      "achievements": [
+        "Named 2026 Week 15 Eastern Conference Player of the Week after averaging 19.3 points, 9.0 rebounds, 3.0 assists, 1.3 steals and 1.5 blocks while Atlanta went 4-0.",
+        "Won Eastern Conference Player of the Week three consecutive times to close the 2026 regular season, becoming the first player in Atlanta Dream history to earn the honor in three straight weeks.",
+        "The Sept. 25 honor was the fifth Player of the Week award of Reese's WNBA career.",
+        "Named a 2026 WNBA Peak Performer after leading the league at 12.3 rebounds per game, earning the second rebounding title of her career.",
+        "Became the first player in WNBA history to record 500 rebounds in a single season and set new single-season records for rebounds, offensive rebounds and double-doubles."
+      ],
+      "achievementsSources": [
+        "https://dream.wnba.com/news/angel-reese-named-wnba-eastern-conference-player-of-the-week-for-third-consecutive-week",
+        "https://dream.wnba.com/news/angel-reese-named-wnba-eastern-conference-player-of-the-week-for-second-consecutive-week"
+      ],
+      "memorable": "Reese ended the 2026 regular season with three straight Eastern Conference Player of the Week awards, a 4-0 closing week and the league's rebounding crown after becoming the first WNBA player to reach 500 rebounds in one season.",
+      "memorableSource": "https://dream.wnba.com/news/angel-reese-named-wnba-eastern-conference-player-of-the-week-for-third-consecutive-week"
     },
     "breannastewart": {
+      "latestAward": {
+        "date": "2026-09-27",
+        "dateLabel": "SEPT. 27, 2026",
+        "label": "AP HONOR",
+        "ribbon": "AP FIRST TEAM",
+        "headline": "Named to the 2026 AP first team",
+        "detail": "Stewart joined A'ja Wilson, Caitlin Clark, Olivia Miles and Kelsey Mitchell on the Associated Press first team.",
+        "source": "https://www.espn.com/wnba/story/_/id/50042340/aja-wilson-angel-reese-lead-ap-wnba-award-winners",
+        "sourceLabel": "2026 AP award results"
+      },
       "latestMilestone": {
         "date": "2026-09-21",
         "dateLabel": "THROUGH SEPT. 21, 2026",
@@ -100,6 +143,16 @@
       }
     },
     "kelseymitchell": {
+      "latestAward": {
+        "date": "2026-09-27",
+        "dateLabel": "SEPT. 27, 2026",
+        "label": "AP HONOR",
+        "ribbon": "AP FIRST TEAM",
+        "headline": "Named to the 2026 AP first team",
+        "detail": "Mitchell's record-setting scoring season earned a place beside A'ja Wilson, Caitlin Clark, Olivia Miles and Breanna Stewart on the AP first team.",
+        "source": "https://www.espn.com/wnba/story/_/id/50042340/aja-wilson-angel-reese-lead-ap-wnba-award-winners",
+        "sourceLabel": "2026 AP award results"
+      },
       "latestMilestone": {
         "date": "2026-09-20",
         "dateLabel": "THROUGH SEPT. 20, 2026",
@@ -147,6 +200,16 @@
       }
     },
     "rhynehoward": {
+      "latestAward": {
+        "date": "2026-09-27",
+        "dateLabel": "SEPT. 27, 2026",
+        "label": "AP HONOR",
+        "ribbon": "AP SECOND TEAM",
+        "headline": "Named to the 2026 AP second team",
+        "detail": "Howard joined Angel Reese, Paige Bueckers, Jackie Young and Gabby Williams on the Associated Press second team.",
+        "source": "https://www.espn.com/wnba/story/_/id/50042340/aja-wilson-angel-reese-lead-ap-wnba-award-winners",
+        "sourceLabel": "2026 AP award results"
+      },
       "latestMilestone": {
         "date": "2026-09-21",
         "dateLabel": "THROUGH SEPT. 21, 2026",
@@ -212,6 +275,16 @@
       "memorableSource": "https://www.latimes.com/sports/sparks/story/2026-09-24/los-angeles-sparks-golden-state-valkyries-wnba-game-recap"
     },
     "oliviamiles": {
+      "latestAward": {
+        "date": "2026-09-27",
+        "dateLabel": "SEPT. 27, 2026",
+        "label": "AP AWARDS",
+        "ribbon": "UNANIMOUS ROOKIE OF THE YEAR · FIRST TEAM · ALL-ROOKIE",
+        "headline": "2026 AP Rookie of the Year",
+        "detail": "Miles was the unanimous AP rookie choice after setting the WNBA rookie scoring record and guiding the top-seeded Lynx. She also made the AP first team and All-Rookie team.",
+        "source": "https://www.espn.com/wnba/story/_/id/50042340/aja-wilson-angel-reese-lead-ap-wnba-award-winners",
+        "sourceLabel": "2026 AP award results"
+      },
       "latestMilestone": {
         "date": "2026-09-20",
         "dateLabel": "THROUGH SEPT. 20, 2026",
@@ -389,6 +462,16 @@
       "offCourtLink": "/herstory-community.html"
     },
     "flaujaejohnson": {
+      "latestAward": {
+        "date": "2026-09-27",
+        "dateLabel": "SEPT. 27, 2026",
+        "label": "AP HONOR",
+        "ribbon": "AP ALL-ROOKIE TEAM",
+        "headline": "Named to the 2026 AP All-Rookie team",
+        "detail": "Johnson earned one of the six places on the Associated Press All-Rookie team after a record-setting first season with Seattle.",
+        "source": "https://www.espn.com/wnba/story/_/id/50042340/aja-wilson-angel-reese-lead-ap-wnba-award-winners",
+        "sourceLabel": "2026 AP award results"
+      },
       "latestMilestone": {
         "date": "2026-09-20",
         "dateLabel": "SEPT. 20, 2026",
@@ -422,6 +505,130 @@
     "maddywestbeld": {
       "offCourt": "Her sister Kathryn Westbeld also played at Notre Dame before reaching the WNBA.",
       "offCourtLink": "/playerpedia.html?search=Kathryn%20Westbeld#playerpedia-directory"
+    },
+    "caitlinclark": {
+      "latestAward": {
+        "date": "2026-09-27",
+        "dateLabel": "SEPT. 27, 2026",
+        "label": "AP AWARDS",
+        "ribbon": "COMEBACK PLAYER OF THE YEAR · AP FIRST TEAM",
+        "headline": "2026 AP Comeback Player of the Year",
+        "detail": "Clark returned from an injury-shortened 2025 season to play 40 games and average 22.3 points and 8.3 assists. She also made the 2026 AP first team.",
+        "source": "https://www.espn.com/wnba/story/_/id/50042340/aja-wilson-angel-reese-lead-ap-wnba-award-winners",
+        "sourceLabel": "2026 AP award results"
+      }
+    },
+    "jessicashepard": {
+      "latestAward": {
+        "date": "2026-09-27",
+        "dateLabel": "SEPT. 27, 2026",
+        "label": "AP AWARD",
+        "ribbon": "MOST IMPROVED PLAYER",
+        "headline": "2026 AP Most Improved Player",
+        "detail": "Shepard averaged 14.5 points, 11.1 rebounds and 5.3 assists and recorded six triple-doubles in her expanded role with Dallas.",
+        "source": "https://www.espn.com/wnba/story/_/id/50042340/aja-wilson-angel-reese-lead-ap-wnba-award-winners",
+        "sourceLabel": "2026 AP award results"
+      }
+    },
+    "janellesalaun": {
+      "latestAward": {
+        "date": "2026-09-27",
+        "dateLabel": "SEPT. 27, 2026",
+        "label": "AP AWARDS",
+        "ribbon": "SIXTH WOMAN OF THE YEAR · ALL-ROOKIE",
+        "headline": "2026 AP Sixth Woman of the Year",
+        "detail": "Salaün led all WNBA reserves with 509 points and made a reserve-record 93 threes while coming off the bench in all 40 games. She also made the AP All-Rookie team.",
+        "sources": [
+          {
+            "url": "https://valkyries.wnba.com/news/salaun-williams-earn-ap-awards-20260927",
+            "label": "Golden State award release"
+          },
+          {
+            "url": "https://www.espn.com/wnba/story/_/id/50042340/aja-wilson-angel-reese-lead-ap-wnba-award-winners",
+            "label": "Full AP award results"
+          }
+        ]
+      }
+    },
+    "paigebueckers": {
+      "latestAward": {
+        "date": "2026-09-27",
+        "dateLabel": "SEPT. 27, 2026",
+        "label": "AP HONOR",
+        "ribbon": "AP SECOND TEAM",
+        "headline": "Named to the 2026 AP second team",
+        "detail": "Bueckers followed her 2025 AP Rookie of the Year season with a place on the 2026 second team alongside Angel Reese, Rhyne Howard, Jackie Young and Gabby Williams.",
+        "source": "https://www.espn.com/wnba/story/_/id/50042340/aja-wilson-angel-reese-lead-ap-wnba-award-winners",
+        "sourceLabel": "2026 AP award results"
+      }
+    },
+    "jackieyoung": {
+      "latestAward": {
+        "date": "2026-09-27",
+        "dateLabel": "SEPT. 27, 2026",
+        "label": "AP HONOR",
+        "ribbon": "AP SECOND TEAM",
+        "headline": "Named to the 2026 AP second team",
+        "detail": "Young earned a second-team place with Angel Reese, Rhyne Howard, Paige Bueckers and Gabby Williams.",
+        "source": "https://www.espn.com/wnba/story/_/id/50042340/aja-wilson-angel-reese-lead-ap-wnba-award-winners",
+        "sourceLabel": "2026 AP award results"
+      }
+    },
+    "gabbywilliams": {
+      "latestAward": {
+        "date": "2026-09-27",
+        "dateLabel": "SEPT. 27, 2026",
+        "label": "AP HONOR",
+        "ribbon": "AP SECOND TEAM",
+        "headline": "Named to the 2026 AP second team",
+        "detail": "Williams earned AP second-team honors after anchoring the league's stingiest defense and helping Golden State secure the No. 2 seed.",
+        "sources": [
+          {
+            "url": "https://valkyries.wnba.com/news/salaun-williams-earn-ap-awards-20260927",
+            "label": "Golden State award release"
+          },
+          {
+            "url": "https://www.espn.com/wnba/story/_/id/50042340/aja-wilson-angel-reese-lead-ap-wnba-award-winners",
+            "label": "Full AP award results"
+          }
+        ]
+      }
+    },
+    "azzifudd": {
+      "latestAward": {
+        "date": "2026-09-27",
+        "dateLabel": "SEPT. 27, 2026",
+        "label": "AP HONOR",
+        "ribbon": "AP ALL-ROOKIE TEAM",
+        "headline": "Named to the 2026 AP All-Rookie team",
+        "detail": "Fudd earned one of six places on the Associated Press All-Rookie team after her first season with Dallas.",
+        "source": "https://www.espn.com/wnba/story/_/id/50042340/aja-wilson-angel-reese-lead-ap-wnba-award-winners",
+        "sourceLabel": "2026 AP award results"
+      }
+    },
+    "paulineastier": {
+      "latestAward": {
+        "date": "2026-09-27",
+        "dateLabel": "SEPT. 27, 2026",
+        "label": "AP HONOR",
+        "ribbon": "AP ALL-ROOKIE TEAM",
+        "headline": "Named to the 2026 AP All-Rookie team",
+        "detail": "Astier earned one of six places on the Associated Press All-Rookie team after her first season with New York.",
+        "source": "https://www.espn.com/wnba/story/_/id/50042340/aja-wilson-angel-reese-lead-ap-wnba-award-winners",
+        "sourceLabel": "2026 AP award results"
+      }
+    },
+    "kikirice": {
+      "latestAward": {
+        "date": "2026-09-27",
+        "dateLabel": "SEPT. 27, 2026",
+        "label": "AP HONOR",
+        "ribbon": "AP ALL-ROOKIE TEAM",
+        "headline": "Named to the 2026 AP All-Rookie team",
+        "detail": "Rice earned one of six places on the Associated Press All-Rookie team after her first season with Toronto.",
+        "source": "https://www.espn.com/wnba/story/_/id/50042340/aja-wilson-angel-reese-lead-ap-wnba-award-winners",
+        "sourceLabel": "2026 AP award results"
+      }
     },
     "mariagakdeng": {
       "collegeInternational": {
@@ -498,6 +705,16 @@
       "memorableSource": "https://valkyries.wnba.com/news/aminata-gueye-signs-20260921"
     },
     "sydneytaylor": {
+      "latestAward": {
+        "date": "2026-09-27",
+        "dateLabel": "SEPT. 27, 2026",
+        "label": "AP HONOR",
+        "ribbon": "AP ALL-ROOKIE TEAM",
+        "headline": "Named to the 2026 AP All-Rookie team",
+        "detail": "Taylor earned one of six places on the Associated Press All-Rookie team after her first season with Chicago.",
+        "source": "https://www.espn.com/wnba/story/_/id/50042340/aja-wilson-angel-reese-lead-ap-wnba-award-winners",
+        "sourceLabel": "2026 AP award results"
+      },
       "entry": {
         "status": "Undrafted free agent",
         "year": 2026,
@@ -546,21 +763,6 @@
       ],
       "memorable": "Kelly turned the inaugural UPSHOT season into a direct bridge back to the WNBA: league scoring and assists leader, Charlotte champion, Championship MVP, then a Dallas Wings developmental contract less than a month later.",
       "memorableSource": "https://www.oursportscentral.com/services/releases/dallas-wings-sign-deja-kelly-to-developmental-player-contract/n-6415741"
-    },
-    "angelreese": {
-      "achievements": [
-        "Named 2026 Week 15 Eastern Conference Player of the Week after averaging 19.3 points, 9.0 rebounds, 3.0 assists, 1.3 steals and 1.5 blocks while Atlanta went 4-0.",
-        "Won Eastern Conference Player of the Week three consecutive times to close the 2026 regular season, becoming the first player in Atlanta Dream history to earn the honor in three straight weeks.",
-        "The Sept. 25 honor was the fifth Player of the Week award of Reese's WNBA career.",
-        "Named a 2026 WNBA Peak Performer after leading the league at 12.3 rebounds per game, earning the second rebounding title of her career.",
-        "Became the first player in WNBA history to record 500 rebounds in a single season and set new single-season records for rebounds, offensive rebounds and double-doubles."
-      ],
-      "achievementsSources": [
-        "https://dream.wnba.com/news/angel-reese-named-wnba-eastern-conference-player-of-the-week-for-third-consecutive-week",
-        "https://dream.wnba.com/news/angel-reese-named-wnba-eastern-conference-player-of-the-week-for-second-consecutive-week"
-      ],
-      "memorable": "Reese ended the 2026 regular season with three straight Eastern Conference Player of the Week awards, a 4-0 closing week and the league's rebounding crown after becoming the first WNBA player to reach 500 rebounds in one season.",
-      "memorableSource": "https://dream.wnba.com/news/angel-reese-named-wnba-eastern-conference-player-of-the-week-for-third-consecutive-week"
     }
   }
 }

@@ -1,6 +1,404 @@
 {
   "site": "Snack Shak",
   "posts": [
+{
+      "slug": "four-for-aja-2026-ap-awards",
+      "type": "feature",
+      "priority": 2500,
+      "homepageSeason": "wnba-playoffs",
+      "seriesLabel": "FOOD FOR THOUGHT · 2026 AP AWARDS",
+      "title": "Four for A'ja, Firsts Everywhere Else: What the 2026 AP Awards Say About the W",
+      "published": "2026-09-27",
+      "week": "AP awards announced · Sept. 27, 2026",
+      "image": "https://cdn.wnba.com/sites/1611661319/2026/09/2026-AP-Award-Young-Wilson-GettyImages-2295842379.jpg",
+      "storyImage": "https://cdn.wnba.com/sites/1611661319/2026/09/2026-AP-Award-Young-Wilson-GettyImages-2295842379.jpg",
+      "storyImageSourceUrl": "https://cdn.wnba.com/sites/1611661319/2026/09/2026-AP-Award-Young-Wilson-GettyImages-2295842379.jpg",
+      "imageFit": "top-cover",
+      "imageAlt": "A'ja Wilson and Jackie Young on the court for the Las Vegas Aces in an official WNBA photograph",
+      "storyImageCaption": "A'ja Wilson and Jackie Young both landed on the 2026 AP ballot. Official WNBA photography via the Las Vegas Aces.",
+      "teams": [
+        "Atlanta Dream",
+        "Chicago Sky",
+        "Dallas Wings",
+        "Golden State Valkyries",
+        "Indiana Fever",
+        "Las Vegas Aces",
+        "Minnesota Lynx",
+        "New York Liberty",
+        "Seattle Storm",
+        "Toronto Tempo"
+      ],
+      "players": [
+        "A'ja Wilson",
+        "Angel Reese",
+        "Olivia Miles",
+        "Caitlin Clark",
+        "Jessica Shepard",
+        "Janelle Salaün",
+        "Kelsey Mitchell",
+        "Breanna Stewart",
+        "Rhyne Howard",
+        "Paige Bueckers",
+        "Jackie Young",
+        "Gabby Williams",
+        "Azzi Fudd",
+        "Sydney Taylor",
+        "Flau'jae Johnson",
+        "Pauline Astier",
+        "Kiki Rice"
+      ],
+      "dek": "A'ja Wilson now owns the AP record, Angel Reese interrupted a defensive dynasty, and a rookie, a comeback, a reserve and a coach all changed the history board. The ballot is new. The patterns behind it are not.",
+      "apAwardsDashboard": {
+        "title": "The ballot, the backstory and every repeat winner",
+        "intro": "Filter the seven individual winners, move through every AP award season since 2016, and open the three 2026 teams. The history panel counts its leaders directly from the season ledger, including the 2023 Comeback Player co-winners.",
+        "asOf": "SEPT. 27, 2026",
+        "panel": "17-member AP media panel",
+        "methodology": "This dashboard covers Associated Press WNBA awards from their 2016 launch through 2026. A co-winner counts as one award for each recipient. These are AP media honors, not the WNBA's separately announced official league awards.",
+        "winners": [
+          {
+            "award": "PLAYER OF THE YEAR",
+            "name": "A'ja Wilson",
+            "team": "Las Vegas Aces",
+            "id": "1628932",
+            "group": "headline",
+            "stat": "15 of 17",
+            "statLabel": "first-place votes",
+            "case": "Wilson led the league at 26.2 points per game while shooting nearly 53 percent, then added 9.4 rebounds, a career-best 3.2 assists and 1.9 blocks.",
+            "history": "4 wins · 2020, 2024, 2025, 2026 · most all-time"
+          },
+          {
+            "award": "DEFENSIVE PLAYER OF THE YEAR",
+            "name": "Angel Reese",
+            "team": "Atlanta Dream",
+            "id": "1642291",
+            "group": "headline",
+            "stat": "521",
+            "statLabel": "regular-season rebounds",
+            "case": "Reese led the WNBA in rebounding for a third straight season, finished third in steals and turned defensive possessions into Atlanta possessions.",
+            "history": "1st win · ended Wilson's two-year hold on the award"
+          },
+          {
+            "award": "ROOKIE OF THE YEAR",
+            "name": "Olivia Miles",
+            "team": "Minnesota Lynx",
+            "id": "1643426",
+            "group": "headline",
+            "stat": "UNANIMOUS",
+            "statLabel": "rookie selection",
+            "case": "Miles averaged 19.8 points, 6.0 assists and 4.7 rebounds while setting the WNBA rookie scoring record for the top-seeded Lynx.",
+            "history": "11 seasons · 11 different AP rookies"
+          },
+          {
+            "award": "COMEBACK PLAYER OF THE YEAR",
+            "name": "Caitlin Clark",
+            "team": "Indiana Fever",
+            "id": "1642286",
+            "group": "headline",
+            "stat": "40",
+            "statLabel": "games played after 2025 injuries",
+            "case": "Clark returned for a full season and averaged 22.3 points, 8.3 assists and 4.0 rebounds while helping Indiana back to the postseason.",
+            "history": "1st win · no repeat recipient in AP history"
+          },
+          {
+            "award": "MOST IMPROVED PLAYER",
+            "name": "Jessica Shepard",
+            "team": "Dallas Wings",
+            "id": "1629491",
+            "group": "role",
+            "stat": "6",
+            "statLabel": "triple-doubles",
+            "case": "Shepard expanded from connector to offensive hub, averaging 14.5 points, 11.1 rebounds and 5.3 assists in 31.7 minutes.",
+            "history": "1st win · 11 seasons, 11 different winners"
+          },
+          {
+            "award": "SIXTH WOMAN OF THE YEAR",
+            "name": "Janelle Salaün",
+            "team": "Golden State Valkyries",
+            "id": "1642767",
+            "group": "role",
+            "stat": "509",
+            "statLabel": "points off the bench",
+            "case": "Salaün came off the bench in all 40 games, averaged 12.7 points and made 93 threes while shooting 39.2 percent from deep.",
+            "history": "1st win · Dearica Hamby remains the only repeat winner"
+          },
+          {
+            "award": "COACH OF THE YEAR",
+            "name": "Cheryl Reeve",
+            "team": "Minnesota Lynx",
+            "photo": "https://cdn.wnba.com/sites/1611661324/2025/10/GettyImages-2237640683.jpg",
+            "photoAlt": "Cheryl Reeve coaching the Minnesota Lynx in an official WNBA photograph",
+            "group": "coach",
+            "stat": "NO. 1",
+            "statLabel": "seed despite Collier missing first half",
+            "case": "Reeve kept Minnesota at the top of the standings while Napheesa Collier missed the first half, then integrated its returning star without losing the team's shape.",
+            "history": "3 wins · 2020, 2024, 2026 · most all-time"
+          }
+        ],
+        "history": [
+          {
+            "key": "player",
+            "label": "Player of the Year",
+            "shortLabel": "Player",
+            "note": "Wilson broke the tie with Breanna Stewart and became the first four-time AP Player of the Year.",
+            "seasons": [
+              {"year": 2026, "winners": ["A'ja Wilson"]},
+              {"year": 2025, "winners": ["A'ja Wilson"]},
+              {"year": 2024, "winners": ["A'ja Wilson"]},
+              {"year": 2023, "winners": ["Breanna Stewart"]},
+              {"year": 2022, "winners": ["Breanna Stewart"]},
+              {"year": 2021, "winners": ["Jonquel Jones"]},
+              {"year": 2020, "winners": ["A'ja Wilson"]},
+              {"year": 2019, "winners": ["Elena Delle Donne"]},
+              {"year": 2018, "winners": ["Breanna Stewart"]},
+              {"year": 2017, "winners": ["Sylvia Fowles"]},
+              {"year": 2016, "winners": ["Nneka Ogwumike"]}
+            ]
+          },
+          {
+            "key": "defense",
+            "label": "Defensive Player of the Year",
+            "shortLabel": "Defense",
+            "note": "Reese is the category's sixth winner. Wilson and Sylvia Fowles share the lead with three awards each.",
+            "seasons": [
+              {"year": 2026, "winners": ["Angel Reese"]},
+              {"year": 2025, "winners": ["A'ja Wilson"]},
+              {"year": 2024, "winners": ["Napheesa Collier"]},
+              {"year": 2023, "winners": ["A'ja Wilson"]},
+              {"year": 2022, "winners": ["A'ja Wilson"]},
+              {"year": 2021, "winners": ["Sylvia Fowles"]},
+              {"year": 2020, "winners": ["Candace Parker"]},
+              {"year": 2019, "winners": ["Natasha Howard"]},
+              {"year": 2018, "winners": ["Sylvia Fowles"]},
+              {"year": 2017, "winners": ["Alana Beard"]},
+              {"year": 2016, "winners": ["Sylvia Fowles"]}
+            ]
+          },
+          {
+            "key": "rookie",
+            "label": "Rookie of the Year",
+            "shortLabel": "Rookie",
+            "note": "The AP rookie award still has no repeat winner by definition, and it has produced 11 distinct recipients in 11 seasons.",
+            "seasons": [
+              {"year": 2026, "winners": ["Olivia Miles"]},
+              {"year": 2025, "winners": ["Paige Bueckers"]},
+              {"year": 2024, "winners": ["Caitlin Clark"]},
+              {"year": 2023, "winners": ["Aliyah Boston"]},
+              {"year": 2022, "winners": ["Rhyne Howard"]},
+              {"year": 2021, "winners": ["Michaela Onyenwere"]},
+              {"year": 2020, "winners": ["Crystal Dangerfield"]},
+              {"year": 2019, "winners": ["Napheesa Collier"]},
+              {"year": 2018, "winners": ["A'ja Wilson"]},
+              {"year": 2017, "winners": ["Allisha Gray"]},
+              {"year": 2016, "winners": ["Breanna Stewart"]}
+            ]
+          },
+          {
+            "key": "comeback",
+            "label": "Comeback Player of the Year",
+            "shortLabel": "Comeback",
+            "note": "Even with the 2023 co-winners, nobody has won this category twice. Clark is its 12th recipient.",
+            "seasons": [
+              {"year": 2026, "winners": ["Caitlin Clark"]},
+              {"year": 2025, "winners": ["Shakira Austin"]},
+              {"year": 2024, "winners": ["Skylar Diggins-Smith"]},
+              {"year": 2023, "winners": ["Napheesa Collier", "Brittney Griner"]},
+              {"year": 2022, "winners": ["Alyssa Thomas"]},
+              {"year": 2021, "winners": ["Kelsey Plum"]},
+              {"year": 2020, "winners": ["Breanna Stewart"]},
+              {"year": 2019, "winners": ["Isabelle Harrison"]},
+              {"year": 2018, "winners": ["DeWanna Bonner"]},
+              {"year": 2017, "winners": ["Epiphanny Prince"]},
+              {"year": 2016, "winners": ["Chiney Ogwumike"]}
+            ]
+          },
+          {
+            "key": "improved",
+            "label": "Most Improved Player",
+            "shortLabel": "Improved",
+            "note": "Shepard extends the category's perfect run of new winners: 11 seasons, 11 names.",
+            "seasons": [
+              {"year": 2026, "winners": ["Jessica Shepard"]},
+              {"year": 2025, "winners": ["Veronica Burton"]},
+              {"year": 2024, "winners": ["Dearica Hamby"]},
+              {"year": 2023, "winners": ["Satou Sabally"]},
+              {"year": 2022, "winners": ["Jackie Young"]},
+              {"year": 2021, "winners": ["Brionna Jones"]},
+              {"year": 2020, "winners": ["Betnijah Laney"]},
+              {"year": 2019, "winners": ["Leilani Mitchell"]},
+              {"year": 2018, "winners": ["Natasha Howard"]},
+              {"year": 2017, "winners": ["Jonquel Jones"]},
+              {"year": 2016, "winners": ["Elizabeth Williams"]}
+            ]
+          },
+          {
+            "key": "sixth",
+            "label": "Sixth Woman of the Year",
+            "shortLabel": "Sixth",
+            "note": "Hamby's back-to-back wins in 2019 and 2020 make her the only repeat recipient. Salaün is the tenth winner.",
+            "seasons": [
+              {"year": 2026, "winners": ["Janelle Salaün"]},
+              {"year": 2025, "winners": ["Naz Hillmon"]},
+              {"year": 2024, "winners": ["Tiffany Hayes"]},
+              {"year": 2023, "winners": ["Alysha Clark"]},
+              {"year": 2022, "winners": ["Brionna Jones"]},
+              {"year": 2021, "winners": ["Kelsey Plum"]},
+              {"year": 2020, "winners": ["Dearica Hamby"]},
+              {"year": 2019, "winners": ["Dearica Hamby"]},
+              {"year": 2018, "winners": ["Jonquel Jones"]},
+              {"year": 2017, "winners": ["Sugar Rodgers"]},
+              {"year": 2016, "winners": ["Jantel Lavender"]}
+            ]
+          },
+          {
+            "key": "coach",
+            "label": "Coach of the Year",
+            "shortLabel": "Coach",
+            "note": "Reeve is the first three-time AP Coach of the Year. Curt Miller is the only other repeat winner.",
+            "seasons": [
+              {"year": 2026, "winners": ["Cheryl Reeve"]},
+              {"year": 2025, "winners": ["Natalie Nakase"]},
+              {"year": 2024, "winners": ["Cheryl Reeve"]},
+              {"year": 2023, "winners": ["Stephanie White"]},
+              {"year": 2022, "winners": ["Tanisha Wright"]},
+              {"year": 2021, "winners": ["Curt Miller"]},
+              {"year": 2020, "winners": ["Cheryl Reeve"]},
+              {"year": 2019, "winners": ["Mike Thibault"]},
+              {"year": 2018, "winners": ["Nicki Collen"]},
+              {"year": 2017, "winners": ["Curt Miller"]},
+              {"year": 2016, "winners": ["Brian Agler"]}
+            ]
+          }
+        ],
+        "ballots": [
+          {
+            "key": "first",
+            "label": "First Team",
+            "note": "The five-player AP first team puts three lead guards around two former MVPs. It is an honor roll, not a proposed starting lineup.",
+            "players": [
+              {"name": "A'ja Wilson", "team": "Las Vegas Aces", "id": "1628932"},
+              {"name": "Caitlin Clark", "team": "Indiana Fever", "id": "1642286"},
+              {"name": "Olivia Miles", "team": "Minnesota Lynx", "id": "1643426"},
+              {"name": "Kelsey Mitchell", "team": "Indiana Fever", "id": "1628909"},
+              {"name": "Breanna Stewart", "team": "New York Liberty", "id": "1627668"}
+            ]
+          },
+          {
+            "key": "second",
+            "label": "Second Team",
+            "note": "The second team is a position-bending group with two big playmakers, two long wings and one of the league's most disruptive guards.",
+            "players": [
+              {"name": "Angel Reese", "team": "Atlanta Dream", "id": "1642291"},
+              {"name": "Rhyne Howard", "team": "Atlanta Dream", "id": "1631009"},
+              {"name": "Paige Bueckers", "team": "Dallas Wings", "id": "1642784"},
+              {"name": "Jackie Young", "team": "Las Vegas Aces", "id": "1629498"},
+              {"name": "Gabby Williams", "team": "Golden State Valkyries", "id": "1628931"}
+            ]
+          },
+          {
+            "key": "rookie-team",
+            "label": "All-Rookie",
+            "note": "The six-player rookie team reflects a tie on the ballot. Miles adds the unanimous individual rookie award to her place here.",
+            "players": [
+              {"name": "Olivia Miles", "team": "Minnesota Lynx", "id": "1643426"},
+              {"name": "Azzi Fudd", "team": "Dallas Wings", "id": "1643425"},
+              {"name": "Sydney Taylor", "team": "Chicago Sky", "id": "1642321"},
+              {"name": "Flau'jae Johnson", "team": "Seattle Storm", "id": "1643428"},
+              {"name": "Pauline Astier", "team": "New York Liberty", "id": "1631136"},
+              {"name": "Kiki Rice", "team": "Toronto Tempo", "id": "1643445"}
+            ]
+          }
+        ]
+      },
+      "sections": [
+        {
+          "title": "First, label the trophy correctly",
+          "paragraphs": [
+            "These are the Associated Press awards, chosen by a 17-member media panel. They matter because the AP has kept the same core award slate since 2016 and its voters offer a clean, independent snapshot of the season. They are not the WNBA's official league awards, which are announced separately. That distinction belongs in the first paragraph, not in fine print after the confetti.",
+            "The 2026 ballot is unusually good at showing both kinds of greatness an award list can capture. Wilson added another layer to a career that already owns plenty of hardware. Reese, Miles, Clark, Shepard and Salaün each won their category for the first time. Reeve did both at once: another trophy, but a new kind of season to explain it."
+          ]
+        },
+        {
+          "title": "A'ja did not just win. She moved the record",
+          "paragraphs": [
+            "Wilson received 15 of the 17 first-place votes, and the number that matters most is four. Her AP Player of the Year wins now span 2020, 2024, 2025 and 2026. Breanna Stewart had been the only three-time winner. Wilson did not join her; she stepped past her.",
+            "The vote reads like a reward for total control. Wilson led the league in scoring at 26.2 points per game, made nearly 53 percent of her shots, pulled down 9.4 rebounds and blocked 1.9 shots. The 3.2 assists were a career best. That last number is the quiet one: the best scorer on the floor kept improving the decisions that happen after the second defender arrives."
+          ]
+        },
+        {
+          "title": "Reese won the argument at the end of possessions",
+          "paragraphs": [
+            "The defensive award had belonged to Wilson in three of the previous four AP seasons. Reese broke that grip with a case built on volume, activity and possession control. She led the league in rebounding for the third straight year, finished the regular season with 521 boards and placed third in steals.",
+            "Rebounding is not every part of defense, but ending the possession is not a decorative skill. Reese's best argument was how often Atlanta got to stop playing defense once she entered the play. Her hands created turnovers, her range let the Dream move her through coverages, and her work on the glass kept opponents from turning one good action into two shots."
+          ]
+        },
+        {
+          "title": "Miles and Clark tell two different return stories",
+          "paragraphs": [
+            "Miles was the unanimous rookie choice because she never looked like she was waiting for the game to slow down. She averaged 19.8 points and 6.0 assists, set the league's rookie scoring record and operated the offense for the No. 1 seed. The history tab makes the larger point: AP Rookie of the Year has produced a different winner in all 11 seasons, and Miles belongs to a line that runs from Breanna Stewart to Caitlin Clark to Paige Bueckers.",
+            "Clark's Comeback Player award is about availability as much as stardom. After injuries limited her in 2025, she played 40 games, averaged 22.3 points and 8.3 assists, and restored Indiana's ability to stretch a defense until it snapped. The comeback category has never repeated a winner. That is fitting: its value is in the specific road back, not a permanent tier of player."
+          ]
+        },
+        {
+          "title": "Shepard and Salaün stretched their job descriptions",
+          "paragraphs": [
+            "Most Improved is sometimes treated like a scoring-jump prize. Shepard made a more interesting case. She averaged 14.5 points, 11.1 rebounds and 5.3 assists and recorded six triple-doubles. Dallas gave her more minutes, but the real leap was the number of possessions she could organize from the frontcourt.",
+            "Salaün's sixth-woman case was cleaner and louder. She came off Golden State's bench in all 40 games and led every reserve with 509 points. Her 93 made threes were a reserve record, and she shot 39.2 percent from deep. A bench label usually describes when someone checks in. Salaün made it describe how quickly the geometry changed."
+          ]
+        },
+        {
+          "title": "Reeve's third trophy was a systems award",
+          "paragraphs": [
+            "Minnesota reached the top seed even though Napheesa Collier missed the first half of the season. Reeve had to build one version of the Lynx without the franchise star, then make room for Collier without asking everyone else to forget what had worked. That is not simply surviving an absence. It is designing a team that can absorb a superstar and remain itself.",
+            "The win gives Reeve three AP Coach of the Year awards, one more than Curt Miller. Her 2020, 2024 and 2026 trophies also describe three different coaching problems, which is the strongest part of the record."
+          ]
+        },
+        {
+          "title": "The history dashboard tells on the ballot",
+          "paragraphs": [
+            "Some awards build dynasties. Wilson and Stewart have won seven of the 11 Player of the Year votes. Wilson and Sylvia Fowles account for six of the 11 defensive trophies. Reeve and Miller own five Coach of the Year wins between them.",
+            "Other categories resist a repeat. Rookie and Most Improved are 11-for-11 on unique winners. Comeback has 12 recipients because Collier and Brittney Griner shared the 2023 honor, and none has repeated. Sixth Woman sits between those worlds: Dearica Hamby is the only two-time winner. The interactive history is useful because it makes those category personalities visible without pretending every award measures greatness the same way."
+          ]
+        },
+        {
+          "title": "The AP teams are an honor roll, not a lineup card",
+          "paragraphs": [
+            "Wilson, Clark, Miles, Kelsey Mitchell and Stewart made the first team. Reese, Rhyne Howard, Paige Bueckers, Jackie Young and Gabby Williams made the second. The selections reward the season's best work; they are not a promise that the five names fit neatly into traditional positions.",
+            "The six-player All-Rookie team came from a ballot tie: Miles, Azzi Fudd, Sydney Taylor, Flau'jae Johnson, Pauline Astier and Kiki Rice. It is a good problem for an awards list to have. The 2026 class did not need the ballot to shrink so its impact would look tidy."
+          ]
+        }
+      ],
+      "debates": [
+        "Did Wilson's fourth AP Player of the Year settle the best-player debate, or only the best-regular-season debate?",
+        "How much weight should a defensive ballot give to ending possessions on the glass?",
+        "Which is harder to repeat: Most Improved, Comeback Player or Rookie-level impact in year two?"
+      ],
+      "foodSegment": {
+        "title": "Read the list twice",
+        "script": "The first read is for the winners. The second is for the shape of the league: Wilson's sustained peak, Reese's possession-ending defense, Miles running a contender immediately, Clark getting a healthy season back, and role players whose roles stopped fitting in one sentence. That second read is where an award list becomes a season story."
+      },
+      "sources": [
+        {
+          "url": "https://www.espn.com/wnba/story/_/id/50042340/aja-wilson-angel-reese-lead-ap-wnba-award-winners",
+          "label": "ESPN · 2026 AP award winners"
+        },
+        {
+          "url": "https://www.news4jax.com/sports/2026/09/27/aja-wilson-wins-ap-wnba-player-of-the-year-for-3rd-straight-year-angel-reese-top-defensive-player/",
+          "label": "Associated Press · full 2026 award slate"
+        },
+        {
+          "url": "https://www.thescore.com/wnba/news/3081322",
+          "label": "Associated Press · award history through 2024"
+        },
+        {
+          "url": "https://www.thescore.com/wnba/news/3343574",
+          "label": "Associated Press · 2025 award winners"
+        },
+        {
+          "url": "https://valkyries.wnba.com/news/salaun-williams-earn-ap-awards-20260927",
+          "label": "Golden State Valkyries · Salaün and Williams"
+        }
+      ]
+    },
     {
       "slug": "week-15-player-of-the-week-reese-wilson-2026",
       "type": "byte",
@@ -2770,4 +3168,3 @@
     }
   ]
 }
-

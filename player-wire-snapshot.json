@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-26T22:42:30.031Z",
+  "generatedAt": "2026-09-27T01:21:24.255Z",
   "movement": {
     "latestTransactionDate": "2026-09-22",
     "transactions": [
@@ -1420,9 +1420,35 @@
   },
   "availability": {
     "latestReportDate": "2026-09-26",
-    "reportLabel": "09/26/2026 06:30 PM ET",
-    "officialPdf": "https://ak-static.cms.nba.com/referee/wnba_injury/Injury-Report_2026-09-26_06_30PM.pdf",
+    "reportLabel": "09/26/2026 09:15 PM ET",
+    "officialPdf": "https://ak-static.cms.nba.com/referee/wnba_injury/Injury-Report_2026-09-26_09_15PM.pdf",
     "injuries": [
+      {
+        "player": "Alanna Smith",
+        "team": "Dallas Wings",
+        "status": "OUT",
+        "reason": "Injury/Illness - Left Leg; lower left leg",
+        "gameDate": "09/27/2026",
+        "gameTime": "09:00 (ET)",
+        "matchup": "DAL@GSV",
+        "updated": "2026-09-27",
+        "source": "Official WNBA Injury Report PDF",
+        "officialCurrentReport": true,
+        "crossCheckOnly": false
+      },
+      {
+        "player": "Aliyah Boston",
+        "team": "Indiana Fever",
+        "status": "QUESTIONABLE",
+        "reason": "Injury/Illness - Right Leg; Lower",
+        "gameDate": "09/27/2026",
+        "gameTime": "04:00 (ET)",
+        "matchup": "IND@LVA",
+        "updated": "2026-09-27",
+        "source": "Official WNBA Injury Report PDF",
+        "officialCurrentReport": true,
+        "crossCheckOnly": false
+      },
       {
         "player": "Anastasiia Olairi Kosu",
         "team": "Minnesota Lynx",
@@ -1450,6 +1476,32 @@
         "crossCheckOnly": false
       },
       {
+        "player": "Caitlin Clark",
+        "team": "Indiana Fever",
+        "status": "PROBABLE",
+        "reason": "Injury/Illness - Back; Back",
+        "gameDate": "09/27/2026",
+        "gameTime": "04:00 (ET)",
+        "matchup": "IND@LVA",
+        "updated": "2026-09-27",
+        "source": "Official WNBA Injury Report PDF",
+        "officialCurrentReport": true,
+        "crossCheckOnly": false
+      },
+      {
+        "player": "Dana Evans",
+        "team": "Las Vegas Aces",
+        "status": "OUT",
+        "reason": "Injury/Illness - Right Knee; R. Knee",
+        "gameDate": "09/27/2026",
+        "gameTime": "04:00 (ET)",
+        "matchup": "IND@LVA",
+        "updated": "2026-09-27",
+        "source": "Official WNBA Injury Report PDF",
+        "officialCurrentReport": true,
+        "crossCheckOnly": false
+      },
+      {
         "player": "Jonquel Jones",
         "team": "New York Liberty",
         "status": "QUESTIONABLE",
@@ -1457,6 +1509,19 @@
         "gameDate": "09/27/2026",
         "gameTime": "02:00 (ET)",
         "matchup": "NYL@MIN",
+        "updated": "2026-09-27",
+        "source": "Official WNBA Injury Report PDF",
+        "officialCurrentReport": true,
+        "crossCheckOnly": false
+      },
+      {
+        "player": "Tyasha Harris",
+        "team": "Indiana Fever",
+        "status": "OUT",
+        "reason": "Injury/Illness - Left Leg; Lower",
+        "gameDate": "09/27/2026",
+        "gameTime": "04:00 (ET)",
+        "matchup": "IND@LVA",
         "updated": "2026-09-27",
         "source": "Official WNBA Injury Report PDF",
         "officialCurrentReport": true,
@@ -2036,40 +2101,7 @@
         "seasonLongCarryover": true
       }
     ],
-    "teamStatuses": [
-      {
-        "team": "Dallas Wings",
-        "status": "NOT YET SUBMITTED",
-        "gameDate": "09/27/2026",
-        "gameTime": "09:00 (ET)",
-        "matchup": "DAL@GSV",
-        "updated": "2026-09-27"
-      },
-      {
-        "team": "Golden State Valkyries",
-        "status": "NOT YET SUBMITTED",
-        "gameDate": "09/27/2026",
-        "gameTime": "09:00 (ET)",
-        "matchup": "DAL@GSV",
-        "updated": "2026-09-27"
-      },
-      {
-        "team": "Indiana Fever",
-        "status": "NOT YET SUBMITTED",
-        "gameDate": "09/27/2026",
-        "gameTime": "04:00 (ET)",
-        "matchup": "IND@LVA",
-        "updated": "2026-09-27"
-      },
-      {
-        "team": "Las Vegas Aces",
-        "status": "NOT YET SUBMITTED",
-        "gameDate": "09/27/2026",
-        "gameTime": "04:00 (ET)",
-        "matchup": "IND@LVA",
-        "updated": "2026-09-27"
-      }
-    ]
+    "teamStatuses": []
   },
   "errors": []
 }

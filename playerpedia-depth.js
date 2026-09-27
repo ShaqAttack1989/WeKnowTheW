@@ -111,7 +111,8 @@
 
   function achievements(detail,curated={},fact='',draft=null){
     const curatedList=Array.isArray(curated.achievements)?curated.achievements:[];
-    let list=unique([...curatedList,...[...(detail?.honours||[]),...(detail?.milestones||[])].map(achievementText).filter(Boolean)]);
+    const recent=curated.latestMilestone?.achievement||curated.latestMilestone?.headline||'';
+    let list=unique([recent,...curatedList,...[...(detail?.honours||[]),...(detail?.milestones||[])].map(achievementText).filter(Boolean)]);
     if(!list.length)list=achievementSentences(detail?.player?.description||'');
     if(!list.length&&factLooksLikeAchievement(fact))list=[fact];
     if(!list.length&&draft?.status==='drafted'&&draft.pick)list=[`Selected No. ${draft.pick} overall in the ${draft.year} WNBA Draft.`];
@@ -135,6 +136,16 @@
     return list.map((url,index)=>sourceLink(url,list.length>1?`${label} ${index+1}`:label)).join(' ');
   }
   function sectionCard(label,title,body,extra='',className=''){return `<article class="deep-bio-card ${className}"><span>${safe(label)}</span><h4>${safe(title)}</h4>${body}${extra}</article>`;}
+
+  function latestMilestoneCard(curated={}){
+    const latest=curated.latestMilestone;
+    if(!latest?.headline||!latest?.value)return '';
+    const receiptRows=Array.isArray(latest.sources)&&latest.sources.length?latest.sources:(latest.source?[{url:latest.source,label:latest.sourceLabel||'Milestone source'}]:[]);
+    const receipts=receiptRows.map((item,index)=>sourceLink(item?.url||item,item?.label||(receiptRows.length>1?`Milestone source ${index+1}`:'Milestone source'))).join(' ');
+    const label=[latest.label||'LATEST RECORD',latest.dateLabel].filter(Boolean).join(' · ');
+    const body=`<div class="deep-milestone-stat"><strong>${safe(latest.value)}</strong><small>${safe(latest.unit||'')}</small></div><p>${safe(latest.detail||'')}</p>`;
+    return sectionCard(label,latest.headline,body,receipts,'latest-milestone');
+  }
 
   function nicknameMarkup(curated={}){
     if(!curated.nickname)return '';
@@ -242,7 +253,7 @@
       const connections=affiliationLines(name,data.affiliations);
       const accomplishmentList=achievements(detail,curated,baseFact,draft);
       loading.className='playerpedia-deep-file';
-      loading.innerHTML=`<div class="deep-file-head"><div><span>THE DEEP FILE</span><p>Pronunciation, WNBA entry, franchise history, college and international basketball, accomplishments, memorable facts and connections beyond the box score.</p></div></div><div class="deep-bio-grid">${pronunciationCard(name,current,curated)}${draftCard(draft,college,curated,current,legacy)}${trailCard(trail,curated)}${collegeInternationalCard(college,nationality,connections,international,curated)}${accomplishmentCard(accomplishmentList,curated)}${memorableCard(fact,curated)}${offCourtCard(curated,detail)}</div>`;
+      loading.innerHTML=`<div class="deep-file-head"><div><span>THE DEEP FILE</span><p>Latest verified records, pronunciation, WNBA entry, franchise history, college and international basketball, accomplishments, memorable facts and connections beyond the box score.</p></div></div><div class="deep-bio-grid">${latestMilestoneCard(curated)}${pronunciationCard(name,current,curated)}${draftCard(draft,college,curated,current,legacy)}${trailCard(trail,curated)}${collegeInternationalCard(college,nationality,connections,international,curated)}${accomplishmentCard(accomplishmentList,curated)}${memorableCard(fact,curated)}${offCourtCard(curated,detail)}</div>`;
     }catch(error){
       loading.innerHTML='<div class="deep-file-head"><div><span>THE DEEP FILE</span><p>The standard Playerpedia profile remains available while the research layer reconnects.</p></div></div>';
     }

@@ -9,6 +9,17 @@
     "ajawilson": {
       "pronunciation": "A-zhuh, like Asia",
       "pronunciationSource": "https://cdn.wnba.com/sites/1611661319/2025/06/2025-06-25-Aces-v-Conn-Wash-Notes-v2.pdf",
+      "latestMilestone": {
+        "date": "2026-09-20",
+        "dateLabel": "SEPT. 20, 2026",
+        "label": "1,000-POINT CLUB",
+        "value": "1,021",
+        "unit": "2026 POINTS",
+        "headline": "The only player with multiple 1,000-point WNBA seasons",
+        "detail": "Wilson scored 30 against Seattle to finish the night at 1,021 points, matching her own 2024 total. Her two 1,000-point seasons are a league first, and both 1,021-point campaigns sit behind Kelsey Mitchell's 1,056 in 2026.",
+        "source": "https://aces.wnba.com/news/game-recap-aces-complete-season-sweep-against-seattle-with-98-77-win",
+        "sourceLabel": "Aces game recap"
+      },
       "offCourt": "Her South Carolina legacy and business/brand work are connected to Herstory and the site's A'ja Wilson feature.",
       "offCourtLink": "/aja-wilson-south-carolina-nike-deal.html",
       "achievements": [
@@ -20,6 +31,116 @@
       ],
       "memorable": "Wilson closed the 2026 regular season with another league weekly honor: 27.8 points, 8.8 rebounds and 3.8 assists per game across the final award window, bringing her career total to a WNBA record-tying 33.",
       "memorableSource": "https://aces.wnba.com/news/aja-wilson-earns-wnba-record-tying-33rd-wnba-player-of-the-week-honor-and-fifth-of-the-season"
+    },
+    "alyssathomas": {
+      "latestMilestone": {
+        "date": "2026-09-21",
+        "dateLabel": "SEPT. 21, 2026",
+        "label": "TRIPLE-DOUBLE TRACKER",
+        "value": "30",
+        "unit": "CAREER · INCLUDES PLAYOFFS",
+        "headline": "Five in 2026, 15 with Phoenix, 30 for her career",
+        "detail": "Thomas posted 15 points, 11 rebounds and 12 assists in Phoenix's 87-86 win over Dallas. It was her fifth triple-double of 2026, her 15th with the Mercury and her 30th across regular-season and playoff games.",
+        "sources": [
+          {
+            "url": "https://mercury.wnba.com/news/alyssa-thomas-leads-with-her-mind-as-much-as-her-game",
+            "label": "Mercury career tracker"
+          },
+          {
+            "url": "https://www.wnba.com/game/1022600318",
+            "label": "Latest official box score"
+          }
+        ]
+      }
+    },
+    "angelreese": {
+      "latestMilestone": {
+        "date": "2026-09-21",
+        "dateLabel": "THROUGH SEPT. 21, 2026",
+        "label": "WNBA FIRST",
+        "value": "515",
+        "unit": "2026 REBOUNDS",
+        "headline": "The first 500-rebound season in WNBA history",
+        "detail": "Reese reached 500 with 23 points and 10 rebounds against Chicago on Sept. 19, then collected 10 more boards at New York. Her running total is 515 with one regular-season game still on Atlanta's schedule.",
+        "sources": [
+          {
+            "url": "https://dream.wnba.com/news/dream-dominate-in-final-regular-season-home-game",
+            "label": "Dream 500-rebound recap"
+          },
+          {
+            "url": "https://www.wnba.com/game/1022600317",
+            "label": "Latest official box score"
+          }
+        ]
+      }
+    },
+    "breannastewart": {
+      "latestMilestone": {
+        "date": "2026-09-21",
+        "dateLabel": "THROUGH SEPT. 21, 2026",
+        "label": "ALL-TIME SCORING",
+        "value": "6,860",
+        "unit": "CAREER POINTS · NO. 8",
+        "headline": "Past Cappie Pondexter and up to eighth in WNBA history",
+        "detail": "Stewart passed Pondexter during a 27-point win at Toronto and closed that game at 6,833. She scored 27 more against Atlanta the next night, lifting the running total to 6,860, 35 behind Candice Dupree for seventh.",
+        "sources": [
+          {
+            "url": "https://liberty.wnba.com/news/liberty-powers-past-toronto-for-106-69-win",
+            "label": "Liberty record recap"
+          },
+          {
+            "url": "https://www.wnba.com/game/1022600317",
+            "label": "Latest official box score"
+          }
+        ]
+      }
+    },
+    "kelseymitchell": {
+      "latestMilestone": {
+        "date": "2026-09-20",
+        "dateLabel": "THROUGH SEPT. 20, 2026",
+        "label": "SINGLE-SEASON RECORD",
+        "value": "1,056",
+        "unit": "2026 POINTS · WNBA RECORD",
+        "headline": "The highest-scoring regular season in league history",
+        "detail": "Mitchell broke A'ja Wilson's 1,021-point mark and added 22 against Washington to move the record to 1,056. Indiana has two regular-season games remaining, so the final number can still climb.",
+        "sources": [
+          {
+            "url": "https://www.basketball-reference.com/wnba/leaders/pts_season.html",
+            "label": "Single-season leaderboard"
+          },
+          {
+            "url": "https://www.wnba.com/game/1022600314",
+            "label": "Latest official box score"
+          }
+        ]
+      }
+    },
+    "lisaleslie": {
+      "latestMilestone": {
+        "date": "2026-09-20",
+        "dateLabel": "SEPT. 20, 2026",
+        "label": "LEGACY IN BRONZE",
+        "value": "2ND",
+        "unit": "WNBA PLAYER STATUE",
+        "headline": "Lisa Leslie joined Sue Bird in the league's statue club",
+        "detail": "The Sparks unveiled Leslie's statue at Star Plaza outside Crypto.com Arena. She is the second WNBA player honored with a statue by her franchise, following Sue Bird in Seattle.",
+        "source": "https://sparks.wnba.com/watch/video/lisa-leslie-statue-celebration",
+        "sourceLabel": "Sparks statue celebration"
+      }
+    },
+    "suebird": {
+      "latestMilestone": {
+        "date": "2026-09-20",
+        "dateLabel": "UPDATED SEPT. 20, 2026",
+        "label": "STATUE CLUB",
+        "value": "1ST",
+        "unit": "WNBA PLAYER STATUE",
+        "headline": "Bird opened the door; Leslie made it a two-player club",
+        "detail": "Bird became the first WNBA player honored with a statue by her franchise. Lisa Leslie's 2026 unveiling in Los Angeles made them the first two members of that league-history pairing.",
+        "source": "https://sparks.wnba.com/news/sparks-to-honor-lisa-leslie-with-crypto-com-arena-statue",
+        "sourceLabel": "Sparks historical context"
+      }
     },
     "nnekaogwumike": {
       "pronunciation": "NEH-kuh oh-gwoo-MIH-kay",
@@ -199,6 +320,25 @@
       "offCourtLink": "/herstory-community.html"
     },
     "flaujaejohnson": {
+      "latestMilestone": {
+        "date": "2026-09-20",
+        "dateLabel": "SEPT. 20, 2026",
+        "label": "STORM ROOKIE RECORD",
+        "value": "6",
+        "unit": "GAMES WITH 25+ POINTS",
+        "headline": "The most 25-point games by a rookie in Storm history",
+        "detail": "Johnson closed her sixth 25-point game with 29 points, six rebounds, six assists, four steals and a block at Las Vegas. Her 605 season points are also the second-most ever by a Storm rookie.",
+        "sources": [
+          {
+            "url": "https://aces.wnba.com/news/game-recap-aces-complete-season-sweep-against-seattle-with-98-77-win",
+            "label": "Sept. 20 game recap"
+          },
+          {
+            "url": "https://www.espn.com/wnba/player/gamelog/_/id/4698736/flaujae-johnson",
+            "label": "2026 game log"
+          }
+        ]
+      },
       "offCourt": "She entered the WNBA with two public careers already in motion: elite basketball player and recording artist/rapper.",
       "offCourtLink": "/herstory-entrepreneurship.html"
     },

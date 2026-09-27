@@ -5,9 +5,27 @@
   const slug=params.get('team')||'';
   if(!slug)return;
 
-  const VERSION='20260915-tina-charles-liberty-v1';
+  const VERSION='20260922-record-milestones-v1';
   const CURATED={
     'seattle-storm':[
+      {
+        date:'2026-09-20',
+        kind:'ROOKIE RECORD',
+        player:"Flau'jae Johnson",
+        detail:'Scored 29 points at Las Vegas for her sixth 25-point game, the most such games by a rookie in Storm history. She added 6 rebounds, 6 assists, 4 steals and a block.',
+        sourceLabel:'Las Vegas Aces',
+        sourceUrl:'https://aces.wnba.com/news/game-recap-aces-complete-season-sweep-against-seattle-with-98-77-win',
+        priority:9
+      },
+      {
+        date:'2026-09-20',
+        kind:'LEGACY IN BRONZE',
+        player:'Sue Bird + Lisa Leslie',
+        detail:'Lisa Leslie became the second WNBA player honored with a statue by her franchise, joining first member Sue Bird in a two-player league-history club.',
+        sourceLabel:'Los Angeles Sparks',
+        sourceUrl:'https://sparks.wnba.com/news/sparks-to-honor-lisa-leslie-with-crypto-com-arena-statue',
+        priority:8
+      },
       {
         date:'2026-08-26',
         kind:'MILESTONE',
@@ -55,6 +73,15 @@
         sourceLabel:'Atlanta Dream',
         sourceUrl:'https://dream.wnba.com/news/angel-reese-named-wnba-eastern-conference-player-of-the-week-for-third-consecutive-week',
         priority:5
+      },
+      {
+        date:'2026-09-21',
+        kind:'WNBA FIRST',
+        player:'Angel Reese',
+        detail:'Became the first player in league history with 500 rebounds in one season, then collected 10 more at New York to move her running 2026 total to 515.',
+        sourceLabel:'Atlanta Dream',
+        sourceUrl:'https://dream.wnba.com/news/dream-dominate-in-final-regular-season-home-game',
+        priority:10
       },
       {
         date:'2026-08-27',
@@ -121,6 +148,15 @@
     ],
     'new-york-liberty':[
       {
+        date:'2026-09-21',
+        kind:'ALL-TIME SCORING',
+        player:'Breanna Stewart',
+        detail:'Passed Cappie Pondexter for eighth in WNBA career points, then scored 27 against Atlanta to lift her running total to 6,860, 35 behind Candice Dupree.',
+        sourceLabel:'New York Liberty',
+        sourceUrl:'https://liberty.wnba.com/news/liberty-powers-past-toronto-for-106-69-win',
+        priority:10
+      },
+      {
         date:'2026-09-15',
         kind:'FRONT OFFICE',
         player:'Tina Charles',
@@ -141,6 +177,15 @@
         priority:5
       },
       {
+        date:'2026-09-20',
+        kind:'1,000-POINT CLUB',
+        player:"A'ja Wilson",
+        detail:'Finished with 1,021 points after scoring 30 against Seattle, matching her 2024 total and becoming the only WNBA player with multiple 1,000-point seasons.',
+        sourceLabel:'Las Vegas Aces',
+        sourceUrl:'https://aces.wnba.com/news/game-recap-aces-complete-season-sweep-against-seattle-with-98-77-win',
+        priority:10
+      },
+      {
         date:'2026-08-27',
         kind:'OUT FOR SEASON',
         player:'NaLyssa Smith',
@@ -158,6 +203,39 @@
         sourceLabel:'Las Vegas Aces',
         sourceUrl:'https://aces.wnba.com/news/aja-wilson-earns-32nd-career-western-conference-player-of-the-week-award',
         priority:2
+      }
+    ],
+    'phoenix-mercury':[
+      {
+        date:'2026-09-21',
+        kind:'TRIPLE-DOUBLE TRACKER',
+        player:'Alyssa Thomas',
+        detail:'Posted 15 points, 11 rebounds and 12 assists against Dallas for her fifth triple-double of 2026, 15th with Phoenix and 30th across regular-season and playoff games.',
+        sourceLabel:'Official final box score',
+        sourceUrl:'https://www.wnba.com/game/1022600318',
+        priority:10
+      }
+    ],
+    'los-angeles-sparks':[
+      {
+        date:'2026-09-20',
+        kind:'LEGACY IN BRONZE',
+        player:'Lisa Leslie',
+        detail:'The Sparks unveiled Leslie\'s statue at Star Plaza outside Crypto.com Arena. She is the second WNBA player honored with a statue by her franchise, following Sue Bird.',
+        sourceLabel:'Los Angeles Sparks',
+        sourceUrl:'https://sparks.wnba.com/watch/video/lisa-leslie-statue-celebration',
+        priority:10
+      }
+    ],
+    'indiana-fever':[
+      {
+        date:'2026-09-20',
+        kind:'WNBA SCORING RECORD',
+        player:'Kelsey Mitchell',
+        detail:'Added 22 points against Washington to push the WNBA single-season scoring record to 1,056. Indiana still has two regular-season games remaining.',
+        sourceLabel:'Season points leaderboard',
+        sourceUrl:'https://www.basketball-reference.com/wnba/leaders/pts_season.html',
+        priority:10
       }
     ]
   };

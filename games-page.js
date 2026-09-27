@@ -11,6 +11,29 @@ const CUP_2026_CLIENT_FALLBACK=[
 ];
 
 function gameKey(g={}){return `${g.date||''}|${[g.homeTeam||'',g.awayTeam||''].sort().join('|')}`;}
+function gamePair(g={}){return [g.homeTeam||'',g.awayTeam||''].map(name=>String(name).toLowerCase().replace(/[^a-z0-9]/g,'')).sort().join('|');}
+function gamePairKey(g={}){return `${String(g.date||g.startTimeUtc||'').slice(0,10)}|${gamePair(g)}`;}
+function gameStateRank(g={}){const state=String(g.state||'').toLowerCase();return g.completed||state==='post'||String(g.status||'').toLowerCase().includes('final')?3:state==='in'?2:1;}
+function mergePlayoffGameStates(base=[],fresh=[]){
+  const byPair=new Map(fresh.filter(game=>game?.homeTeam&&game?.awayTeam).map(game=>[gamePairKey(game),game]));
+  return base.map(game=>{
+    const update=byPair.get(gamePairKey(game));
+    if(!update)return game;
+    const advances=gameStateRank(update)>=gameStateRank(game);
+    const merged=advances?{...game,...update}:{...update,...game};
+    return {
+      ...merged,
+      playoff:true,
+      round:game.round,
+      gameNumber:game.gameNumber,
+      homeSeed:game.homeSeed,
+      awaySeed:game.awaySeed,
+      regularSeasonSeries:game.regularSeasonSeries,
+      competitionLabel:game.competitionLabel,
+      broadcasts:Array.isArray(update.broadcasts)&&update.broadcasts.length?update.broadcasts:(game.broadcasts||[])
+    };
+  }).sort((a,b)=>gameTime(a)-gameTime(b));
+}
 function mergeUnique(primary=[],fallback=[]){
   const map=new Map();
   for(const game of [...fallback,...primary]){
@@ -41,6 +64,11 @@ function temporal(items=[]){
   });
   return filtered.sort((a,b)=>gamesMode==='past'?gameTime(b)-gameTime(a):gameTime(a)-gameTime(b));
 }
+function bestPlayoffMode(items=compGames()||[]){
+  if(items.some(game=>String(game.state||'').toLowerCase()==='in'))return 'live';
+  if(items.some(game=>!game.completed&&String(game.state||'').toLowerCase()!=='post'&&gameTime(game)>=Date.now()))return 'upcoming';
+  return 'past';
+}
 function renderGames(){
   const list=document.getElementById('gamesList'),title=document.getElementById('gamesTitle'),past=document.getElementById('gamesPastToggle'),upcoming=document.getElementById('gamesUpcomingToggle'),live=document.getElementById('gamesLiveToggle');
   if(!list||!gamesPayload||!window.WGameCards)return;
@@ -58,8 +86,9 @@ function renderGames(){
 }
 function setStatus(note=''){
   const status=document.getElementById('gamesStatus');if(!status||!gamesPayload)return;
-  const liveCount=(gamesPayload.liveGames||[]).length;
-  status.textContent=liveCount?`${liveCount} live now · fresh game states checked every 10 seconds · ${note||'where to watch synced to WNBA.com'} · Eastern Time`:`No regular-season games live right now · ${note||'schedule connected'} · Eastern Time`;
+  const liveCount=gamesCompetition==='playoffs'?(competitionPayload?.playoffs?.games||[]).filter(game=>String(game.state||'').toLowerCase()==='in').length:(gamesPayload.liveGames||[]).length;
+  const label=gamesCompetition==='playoffs'?'Playoff':gamesCompetition==='cup'?'Commissioner’s Cup':'Regular-season';
+  status.textContent=liveCount?`${liveCount} live now · scores refresh every 10 seconds · ${note||'where to watch synced to WNBA.com'} · Eastern Time`:`${label} slate current · ${note||'schedule connected'} · Eastern Time`;
 }
 async function fetchFreshLive(cacheBust=Date.now()){
   const response=await fetch(`/api/live-games?cb=${cacheBust}`,{headers:{Accept:'application/json','Cache-Control':'no-cache'},cache:'no-store'}),payload=await response.json().catch(()=>({}));
@@ -77,6 +106,14 @@ async function refreshLiveGames(){
     const payload=await fetchFreshLive();
     const liveGames=mergeVerifiedLive(gamesPayload.liveGames,payload);
     gamesPayload.liveGames=window.WGameBroadcasts?.enrichGames?WGameBroadcasts.enrichGames(liveGames):liveGames;
+    if(competitionPayload?.playoffs){
+      competitionPayload.playoffs.games=mergePlayoffGameStates(competitionPayload.playoffs.games||[],payload.todayGames||payload.games||[]);
+      if(gamesCompetition==='playoffs'){
+        const preferred=bestPlayoffMode();
+        if(preferred==='live'||gamesMode==='live')gamesMode=preferred;
+        renderGames();
+      }
+    }
     if(gamesCompetition==='season'&&gamesMode==='live')renderGames();
     setStatus('official WNBA live boxscores + ESPN backup');
   }catch{
@@ -96,7 +133,7 @@ document.querySelectorAll('[data-games-competition]').forEach(button=>button.add
   document.querySelectorAll('[data-games-competition]').forEach(b=>{const on=b===button;b.classList.toggle('active',on);b.setAttribute('aria-pressed',String(on));});
   const note=document.getElementById('gamesCompetitionNote');
   if(gamesCompetition==='cup'){gamesMode='past';if(note)note.textContent='2026 Cup complete · New York Liberty champions · pool play June 1–17, championship June 30';}
-  else if(gamesCompetition==='playoffs'){gamesMode='upcoming';if(note)note.textContent='First round begins Sept. 27 · follow scores here';}
+  else if(gamesCompetition==='playoffs'){gamesMode=bestPlayoffMode();if(note)note.textContent=gamesMode==='live'?'Playoffs live now · scores refresh automatically':gamesMode==='upcoming'?'2026 playoffs · next games and where to watch':'2026 playoffs · completed games';}
   else if(note)note.textContent='Regular-season schedule · where to watch from WNBA.com';
   renderGames();
 }));
@@ -125,11 +162,11 @@ async function loadGames(initial=false){
     if(window.WGameBroadcasts?.enrichGames)stats.liveGames=WGameBroadcasts.enrichGames(stats.liveGames||[],officialGames);
     gamesPayload=stats;
     competitionPayload=compResult.status==='fulfilled'?compResult.value:{cup:{poolGames:[],championshipGames:[]},playoffs:{games:[],started:false}};
+    if(liveResult.status==='fulfilled'&&competitionPayload?.playoffs)competitionPayload.playoffs.games=mergePlayoffGameStates(competitionPayload.playoffs.games||[],liveResult.value.todayGames||liveResult.value.games||[]);
     if(initial&&gamesCompetition==='playoffs'){
       const playoffGames=competitionPayload?.playoffs?.games||[];
-      const hasLive=playoffGames.some(game=>String(game.state||'').toLowerCase()==='in');
-      const hasUpcoming=playoffGames.some(game=>!game.completed&&String(game.state||'').toLowerCase()!=='in');
-      gamesMode=hasLive?'live':hasUpcoming?'upcoming':'past';
+      gamesMode=bestPlayoffMode(playoffGames);
+      const hasLive=gamesMode==='live',hasUpcoming=gamesMode==='upcoming';
       document.querySelectorAll('[data-games-competition]').forEach(button=>{const on=button.dataset.gamesCompetition==='playoffs';button.classList.toggle('active',on);button.setAttribute('aria-pressed',String(on));});
       const note=document.getElementById('gamesCompetitionNote');
       if(note)note.textContent=hasLive?'Playoffs live now · scores refresh automatically':hasUpcoming?'2026 regular season complete · first round begins Sept. 27':'2026 playoffs · completed games';

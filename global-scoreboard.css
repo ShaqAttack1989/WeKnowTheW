@@ -1,0 +1,29 @@
+:root{--w-home-scorebar-height:72px;--w-home-nav-height:76px}
+.w-home-scorebar{position:sticky;top:0;z-index:1200;border-bottom:1px solid rgba(255,255,255,.12);background:#100824;color:#fff;box-shadow:0 5px 18px rgba(20,10,47,.16)}
+.w-home-scorebar-inner{width:min(1480px,calc(100% - 28px));min-height:72px;margin:0 auto;display:grid;grid-template-columns:150px minmax(0,1fr) 116px;align-items:stretch}
+.w-scorebar-label{display:flex;flex-direction:column;justify-content:center;gap:2px;padding:10px 16px 10px 4px;border-right:1px solid rgba(255,255,255,.12);text-decoration:none}
+.w-scorebar-label span{color:#d8ff4f;font-size:.62rem;font-weight:950;letter-spacing:.12em}
+.w-scorebar-label strong{color:#fff;font-size:.92rem;line-height:1.1}
+.w-scorebar-games{min-width:0;display:flex;overflow-x:auto;overscroll-behavior-x:contain;scrollbar-width:none}
+.w-scorebar-games::-webkit-scrollbar{display:none}
+.w-score-game{flex:0 0 230px;min-width:0;display:grid;align-content:center;gap:4px;padding:8px 14px;border-right:1px solid rgba(255,255,255,.12);color:#fff;text-decoration:none}
+.w-score-game:hover,.w-score-game:focus-visible{background:rgba(255,255,255,.08);outline:0}
+.w-score-game.is-live{background:linear-gradient(90deg,rgba(216,255,79,.12),rgba(216,255,79,.03))}
+.w-score-game-top{display:flex;align-items:center;justify-content:space-between;gap:8px;color:#c9c2d1;font-size:.59rem;font-weight:900;letter-spacing:.06em;text-transform:uppercase}
+.w-score-game-top b{color:#d8ff4f;font-size:.6rem}
+.w-score-game.is-past .w-score-game-top b{color:#fff}
+.w-score-game-team{display:grid;grid-template-columns:22px minmax(0,1fr) auto;align-items:center;gap:7px;min-width:0;font-size:.74rem;font-weight:850;line-height:1.1}
+.w-score-game-team img,.w-score-team-fallback{width:20px;height:20px;border-radius:6px;object-fit:contain;background:#fff}
+.w-score-team-fallback{display:grid;place-items:center;background:#39235d;color:#d8ff4f;font-size:.5rem;font-style:normal;font-weight:1000}
+.w-score-game-team span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.w-score-game-team strong{font-size:.82rem}
+.w-scorebar-full{display:flex;align-items:center;justify-content:center;gap:5px;padding:10px;color:#d8ff4f;text-decoration:none;font-size:.68rem;font-weight:950;letter-spacing:.05em;text-align:center}
+.w-scorebar-full:hover,.w-scorebar-full:focus-visible{background:#d8ff4f;color:#140a2f;outline:0}
+.w-home-nav-sticky{position:sticky;top:var(--w-home-scorebar-height);z-index:1190;background:#fff;color:#140a2f;border-bottom:1px solid #e8e1ed;box-shadow:0 8px 22px rgba(20,10,47,.13)}
+.w-home-nav-sticky .site-navigation{min-height:var(--w-home-nav-height)!important}
+.w-home-nav-sticky+.subhero>.subhero-inner,.w-home-nav-sticky+.hub-hero>.hero-inner{position:relative}
+@media(max-width:1180px){.w-home-scorebar-inner{grid-template-columns:112px minmax(0,1fr) 94px}.w-score-game{flex-basis:210px}}
+@media(max-width:850px){:root{--w-home-scorebar-height:66px;--w-home-nav-height:66px}.w-home-scorebar-inner{width:100%;min-height:66px;grid-template-columns:52px minmax(0,1fr) 72px}.w-scorebar-label{padding:8px 6px}.w-scorebar-label span{font-size:.5rem;letter-spacing:.06em}.w-scorebar-label strong{font-size:.7rem}.w-score-game{flex-basis:185px;padding:7px 10px}.w-score-game-top{font-size:.52rem}.w-score-game-team{font-size:.68rem}.w-score-game-team strong{font-size:.75rem}.w-scorebar-full{padding:6px;font-size:.58rem;line-height:1.15}.w-home-nav-sticky .site-navigation{min-height:66px!important}}
+@media(max-width:620px){:root{--w-home-scorebar-height:62px;--w-home-nav-height:62px}.w-home-scorebar-inner{min-height:62px;grid-template-columns:42px minmax(0,1fr) 64px}.w-scorebar-label{align-items:center;text-align:center;padding:6px 3px}.w-scorebar-label strong{display:none}.w-scorebar-label span{font-size:.46rem}.w-score-game{flex-basis:172px}.w-score-game-team{grid-template-columns:18px minmax(0,1fr) auto;gap:5px}.w-score-game-team img,.w-score-team-fallback{width:17px;height:17px}.w-scorebar-full{font-size:.52rem}.w-home-nav-sticky .site-navigation{min-height:62px!important}}
+@media(max-width:1280px){body.mobile-nav-open .w-home-nav-sticky .site-navigation .nav-links.open{top:calc(var(--w-home-scorebar-height) + var(--w-home-nav-height))!important;max-height:calc(100vh - var(--w-home-scorebar-height) - var(--w-home-nav-height))!important;max-height:calc(100dvh - var(--w-home-scorebar-height) - var(--w-home-nav-height))!important}}
+@media(prefers-reduced-motion:reduce){.w-score-game{transition:none}}

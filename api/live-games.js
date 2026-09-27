@@ -43,12 +43,40 @@ function normalizeEspn(event={}){
   return {id:String(event.id||competition.id||''),startTimeUtc:start,date:easternDate(start),homeTeam:home.team?.displayName||'',awayTeam:away.team?.displayName||'',homeScore:num(home.score),awayScore:num(away.score),venue:competition.venue?.fullName||'',status:type.shortDetail||type.detail||type.description||'Live',state:type.state||'',period:num(status.period),clock:String(status.displayClock||''),broadcasts:[...new Set((competition.broadcasts||[]).flatMap(x=>x.names||[]).filter(Boolean))],completed:Boolean(type.completed),source:'ESPN live scoreboard'};
 }
 function gameKey(game={}){return `${game.date||''}|${norm(game.awayTeam)}|${norm(game.homeTeam)}`;}
-function freshness(game={}){const period=Number(game.period)||0,score=(Number(game.homeScore)||0)+(Number(game.awayScore)||0),official=String(game.source||'').startsWith('Official WNBA')?1000000:0;return official+period*10000+score;}
-function mergeGames(...lists){const map=new Map();lists.flat().forEach(game=>{if(!game||game.state!=='in'||!game.homeTeam||!game.awayTeam)return;const k=gameKey(game),current=map.get(k);if(!current||freshness(game)>=freshness(current))map.set(k,game);});return [...map.values()].sort((a,b)=>Date.parse(a.startTimeUtc||0)-Date.parse(b.startTimeUtc||0));}
+function stateRank(game={}){return game.completed||game.state==='post'?3:game.state==='in'?2:1;}
+function freshness(game={}){
+  const period=Number(game.period)||0;
+  const scoreKnown=game.homeScore!==null&&game.homeScore!==undefined&&game.awayScore!==null&&game.awayScore!==undefined&&Number.isFinite(Number(game.homeScore))&&Number.isFinite(Number(game.awayScore))?1:0;
+  const score=(Number(game.homeScore)||0)+(Number(game.awayScore)||0);
+  const official=String(game.source||'').startsWith('Official WNBA')?1:0;
+  return stateRank(game)*10000000+scoreKnown*1000000+official*100000+period*10000+score;
+}
+function mergeGame(current={},candidate={}){
+  const winner=freshness(candidate)>=freshness(current)?candidate:current;
+  const other=winner===candidate?current:candidate;
+  return {
+    ...other,
+    ...winner,
+    id:winner.id||winner.gameId||other.id||other.gameId||'',
+    gameId:winner.gameId||winner.id||other.gameId||other.id||'',
+    startTimeUtc:winner.startTimeUtc||other.startTimeUtc||'',
+    venue:winner.venue||other.venue||'',
+    broadcasts:Array.isArray(winner.broadcasts)&&winner.broadcasts.length?winner.broadcasts:(other.broadcasts||[])
+  };
+}
+function mergeGames(...lists){
+  const map=new Map();
+  lists.flat().forEach(game=>{
+    if(!game||!game.homeTeam||!game.awayTeam)return;
+    const key=gameKey(game),current=map.get(key);
+    map.set(key,current?mergeGame(current,game):game);
+  });
+  return [...map.values()].sort((a,b)=>Date.parse(a.startTimeUtc||0)-Date.parse(b.startTimeUtc||0));
+}
 
 module.exports=async function handler(req,res){
   if(req.method!=='GET'){res.setHeader('Allow','GET');return res.status(405).json({error:'Method not allowed'});}
-  const errors=[];let espnLive=[],espnCdnLive=[],scheduleLive=[],scoreboardLive=[],boxscoreLive=[];
+  const errors=[];let espnGames=[],espnCdnGames=[],scheduleGames=[],scoreboardGames=[],boxscoreGames=[];
   const stamp=Date.now();
   const [scoreboardResult,espnCdnResult,espnResult,scheduleResult]=await Promise.allSettled([
     fetchJson(WNBA_TODAY_SCOREBOARD),
@@ -56,20 +84,23 @@ module.exports=async function handler(req,res){
     fetchJson(`${ESPN_SCOREBOARD}?dates=${espnDateParam()}&limit=100&_=${stamp}`),
     fetchJson(WNBA_SCHEDULE)
   ]);
-  if(scoreboardResult.status==='fulfilled')scoreboardLive=(Array.isArray(scoreboardResult.value?.scoreboard?.games)?scoreboardResult.value.scoreboard.games:[]).map(normalizeOfficial).filter(g=>g.state==='in');else errors.push({source:'Official WNBA live scoreboard',message:scoreboardResult.reason.message});
-  if(espnCdnResult.status==='fulfilled')espnCdnLive=(Array.isArray(espnCdnResult.value?.content?.sbData?.events)?espnCdnResult.value.content.sbData.events:[]).map(normalizeEspn).filter(g=>g.state==='in');else errors.push({source:'ESPN CDN scoreboard',message:espnCdnResult.reason.message});
-  if(espnResult.status==='fulfilled')espnLive=(Array.isArray(espnResult.value.events)?espnResult.value.events:[]).map(normalizeEspn).filter(g=>g.state==='in');else errors.push({source:'ESPN',message:espnResult.reason.message});
+  if(scoreboardResult.status==='fulfilled')scoreboardGames=(Array.isArray(scoreboardResult.value?.scoreboard?.games)?scoreboardResult.value.scoreboard.games:[]).map(normalizeOfficial);else errors.push({source:'Official WNBA live scoreboard',message:scoreboardResult.reason.message});
+  if(espnCdnResult.status==='fulfilled')espnCdnGames=(Array.isArray(espnCdnResult.value?.content?.sbData?.events)?espnCdnResult.value.content.sbData.events:[]).map(normalizeEspn);else errors.push({source:'ESPN CDN scoreboard',message:espnCdnResult.reason.message});
+  if(espnResult.status==='fulfilled')espnGames=(Array.isArray(espnResult.value.events)?espnResult.value.events:[]).map(normalizeEspn);else errors.push({source:'ESPN',message:espnResult.reason.message});
   if(scheduleResult.status==='fulfilled'){
     const groups=Array.isArray(scheduleResult.value?.leagueSchedule?.gameDates)?scheduleResult.value.leagueSchedule.gameDates:[];
-    scheduleLive=groups.flatMap(group=>(Array.isArray(group.games)?group.games:[]).map(game=>normalizeSchedule(game,group.gameDate))).filter(g=>g.state==='in');
-    if(scheduleLive.length){
-      const boxResults=await Promise.allSettled(scheduleLive.map(game=>fetchJson(`${WNBA_BOXSCORE_ROOT}/boxscore_${encodeURIComponent(game.gameId)}.json`)));
-      boxscoreLive=boxResults.map((result,index)=>result.status==='fulfilled'&&result.value?.game?normalizeOfficial(result.value.game,scheduleLive[index]):null).filter(Boolean).filter(g=>g.state==='in');
-      boxResults.forEach((result,index)=>{if(result.status==='rejected')errors.push({source:`WNBA boxscore ${scheduleLive[index]?.gameId||''}`,message:result.reason.message});});
+    const today=easternDate();
+    scheduleGames=groups.flatMap(group=>(Array.isArray(group.games)?group.games:[]).map(game=>normalizeSchedule(game,group.gameDate))).filter(game=>game.date===today);
+    const now=Date.now(),boxscoreCandidates=scheduleGames.filter(game=>{const start=Date.parse(game.startTimeUtc||'');if(game.state==='in')return true;if(game.state==='post')return game.homeScore===null||game.awayScore===null;return Number.isFinite(start)&&now>=start-15*60*1000&&now<=start+4*60*60*1000;});
+    if(boxscoreCandidates.length){
+      const boxResults=await Promise.allSettled(boxscoreCandidates.map(game=>fetchJson(`${WNBA_BOXSCORE_ROOT}/boxscore_${encodeURIComponent(game.gameId)}.json`)));
+      boxscoreGames=boxResults.map((result,index)=>result.status==='fulfilled'&&result.value?.game?normalizeOfficial(result.value.game,boxscoreCandidates[index]):null).filter(Boolean);
+      boxResults.forEach((result,index)=>{if(result.status==='rejected')errors.push({source:`WNBA boxscore ${boxscoreCandidates[index]?.gameId||''}`,message:result.reason.message});});
     }
   }else errors.push({source:'Official WNBA schedule',message:scheduleResult.reason.message});
-  const games=mergeGames(espnLive,espnCdnLive,scheduleLive,scoreboardLive,boxscoreLive);
+  const todayGames=mergeGames(scheduleGames,espnGames,espnCdnGames,scoreboardGames,boxscoreGames);
+  const games=todayGames.filter(game=>game.state==='in');
   const liveStatusVerified=[scoreboardResult,espnCdnResult,espnResult,scheduleResult].some(result=>result.status==='fulfilled');
   res.setHeader('Cache-Control','no-store, max-age=0');
-  return res.status(200).json({source:'Official WNBA live scoreboard + boxscores + ESPN backup',updatedAt:new Date().toISOString(),liveStatusVerified,games,errors});
+  return res.status(200).json({source:'Official WNBA today slate + live boxscores + ESPN backup',updatedAt:new Date().toISOString(),liveStatusVerified,todayGames,games,errors,sourceVersion:'20260927-full-slate-v1'});
 };

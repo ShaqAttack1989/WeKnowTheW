@@ -233,8 +233,7 @@
   }
 
   function start(){
-    installStickyHeader();
-    loadScoreboard();
+    document.body.classList.add('home-page');
     const ready=upgradeDeskLayout();
     if(!ready){
       let tries=0;
@@ -243,8 +242,6 @@
         if(upgradeDeskLayout()||tries>20){clearInterval(timer);if(document.getElementById('wDeskHeadlines'))loadHeadlines();}
       },80);
     }else loadHeadlines();
-    setInterval(()=>{if(!document.hidden)loadScoreboard();},60000);
-    window.addEventListener('focus',loadScoreboard);
   }
 
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start,{once:true});

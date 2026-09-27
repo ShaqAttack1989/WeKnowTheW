@@ -53,6 +53,16 @@ test('uses one white desktop bar and a bounded mobile accordion', () => {
   assert.match(site, /menuButton\.textContent=open\?'Close':'Menu'/);
 });
 
+test('every full page uses the shared header and global scoreboard shell', () => {
+  const pages=fs.readdirSync(root).filter(file=>file.endsWith('.html')&&file!=='snack-shaq.html');
+  for(const page of pages){
+    const html=fs.readFileSync(path.join(root,page),'utf8');
+    assert.match(html,/src="\/site\.js(?:\?[^"']*)?"/,`${page} is missing site.js`);
+    assert.match(html,/id="navLinks"/,`${page} is missing the shared navigation mount`);
+  }
+  assert.match(site,/global-scoreboard\.js/);
+});
+
 test('keeps desktop menu labels readable and the homepage hero compact', () => {
   const landing = fs.readFileSync(path.join(root, 'landing.css'), 'utf8');
   const home = fs.readFileSync(path.join(root, 'index.html'), 'utf8');

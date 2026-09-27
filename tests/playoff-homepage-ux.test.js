@@ -24,6 +24,25 @@ test('Homepage scoreboard trusts a published tip time over a stale TBD status',(
   assert.match(source,/!published&&\/tbd\/i\.test/);
 });
 
+test('Global scoreboard is installed by the shared site shell and refreshes the full slate',()=>{
+  const site=read('site.js'),scoreboard=read('global-scoreboard.js');
+  assert.match(site,/global-scoreboard\.js\?v=20260927-live-v1/);
+  assert.match(site,/global-scoreboard\.css\?v=20260927-live-v1/);
+  assert.match(scoreboard,/livePayload\.todayGames\|\|livePayload\.games/);
+  assert.match(scoreboard,/setInterval\(\(\)=>\{if\(!document\.hidden\)refreshLive\(\);\},10000\)/);
+  assert.match(scoreboard,/w-home-nav-sticky/);
+});
+
+test('Playoff standings are automatic and use the full standings table system',()=>{
+  const source=read('live-stats-page.js'),css=read('ui-fixes.css');
+  assert.match(source,/lsCompMode='playoffs'/);
+  assert.match(source,/playoffs\.started\|\|Date\.now\(\)>=start\?'playoffs':'season'/);
+  assert.match(source,/live-standings-row playoff-standings-row head/);
+  assert.match(source,/setInterval\(\(\)=>\{if\(!document\.hidden\)refreshPlayoffScores\(\);\},10000\)/);
+  assert.doesNotMatch(source,/Race for the Eight/);
+  assert.match(css,/\.playoff-standings-row\{/);
+});
+
 test('Homepage does not preload the heavy legacy player catalog',()=>{
   const html=read('index.html');
   assert.doesNotMatch(html,/src="\/playerpedia-legacy\.js/);

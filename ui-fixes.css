@@ -231,6 +231,13 @@
 .live-standings-row.head{min-height:42px;background:#140a2f;color:#fff;border-top:0;font-size:.69rem;font-weight:950;letter-spacing:.04em;}
 .live-standings-row>span,.live-standings-row>strong{padding:10px 8px;text-align:center;}
 .live-standings-row>span:first-child{text-align:left;}
+.playoff-standings-row{grid-template-columns:minmax(230px,1.8fr) 58px 72px 54px 54px 70px minmax(145px,1fr) 62px 88px 108px;}
+.playoff-standings-row>span:nth-child(7){text-align:left;}
+.playoff-board-intro{margin:0;border-radius:0;border-width:0 0 1px 4px;}
+.playoff-status-cell{font-weight:950;letter-spacing:.03em;}
+.playoff-status-cell.is-live{background:#d8ff4f;color:#140a2f;}
+.playoff-status-cell.is-final{background:#f0ecf4;color:#51485b;}
+.playoff-status-cell.is-next{background:#f3ecff;color:#5c1fc1;}
 .live-team-cell{display:flex;align-items:center;gap:9px;min-width:0;}
 .live-team-cell strong{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 .live-rank{display:inline-grid;place-items:center;width:24px;height:24px;flex:0 0 24px;border-radius:8px;background:#f0e8fb;color:#5c1fc1;font-size:.73rem;}
@@ -273,6 +280,7 @@
   .directory-expansion-label{align-items:flex-start;flex-direction:column;gap:3px;margin-top:12px;}
   .standings-card-head{align-items:flex-start;flex-direction:column;gap:3px;}
   .live-standings-table{min-width:850px;}
+  .playoff-standings-table{min-width:980px;}
 }
 
 /* Consistent spacing system: mobile navigation + stat/data rows */

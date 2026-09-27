@@ -36,11 +36,32 @@ test('official WNBA today scoreboard survives ESPN and schedule failures',async(
     assert.equal(result.statusCode,200);
     assert.equal(result.payload.liveStatusVerified,true);
     assert.equal(result.payload.games.length,1);
+    assert.equal(result.payload.todayGames.length,1);
     assert.equal(result.payload.games[0].awayTeam,'Minnesota Lynx');
     assert.equal(result.payload.games[0].homeTeam,'Atlanta Dream');
     assert.equal(result.payload.games[0].state,'in');
     assert.equal(urls.find(url=>url.includes('todaysScoreboard_10.json')).includes('?'),false);
     assert.equal(urls.find(url=>url.includes('scheduleLeagueV2_10.json')).includes('?'),false);
+  }finally{global.fetch=originalFetch;}
+});
+
+test('today slate keeps scheduled, live and final games while games remains live-only',async()=>{
+  const originalFetch=global.fetch;
+  global.fetch=async url=>{
+    if(String(url).includes('todaysScoreboard_10.json'))return jsonResponse({scoreboard:{games:[
+      {gameId:'final',gameTimeUTC:'2026-09-27T18:00:00Z',gameStatus:3,gameStatusText:'Final',awayTeam:{teamCity:'New York',teamName:'Liberty',score:82},homeTeam:{teamCity:'Minnesota',teamName:'Lynx',score:88}},
+      {gameId:'live',gameTimeUTC:'2026-09-27T23:00:00Z',gameStatus:2,gameStatusText:'Q2 4:11',period:2,awayTeam:{teamCity:'Washington',teamName:'Mystics',score:31},homeTeam:{teamCity:'Atlanta',teamName:'Dream',score:37}},
+      {gameId:'next',gameTimeUTC:'2026-09-28T01:00:00Z',gameStatus:1,gameStatusText:'9:00 PM ET',awayTeam:{teamCity:'Dallas',teamName:'Wings'},homeTeam:{teamCity:'Golden State',teamName:'Valkyries'}}
+    ]}});
+    return {ok:false,status:503,json:async()=>({})};
+  };
+  try{
+    const result=await runHandler();
+    assert.equal(result.statusCode,200);
+    assert.equal(result.payload.todayGames.length,3);
+    assert.deepEqual(result.payload.todayGames.map(game=>game.state).sort(),['in','post','pre']);
+    assert.equal(result.payload.games.length,1);
+    assert.equal(result.payload.games[0].id,'live');
   }finally{global.fetch=originalFetch;}
 });
 
@@ -68,5 +89,6 @@ test('games page preserves a valid fallback when the dedicated feed is unverifie
   assert.match(source,/return fresh\.length\|\|payload\.liveStatusVerified===true\?fresh:/);
   assert.match(source,/mergeVerifiedLive\(stats\.liveGames,liveResult\.value\)/);
   assert.match(source,/mergeVerifiedLive\(gamesPayload\.liveGames,payload\)/);
+  assert.match(source,/mergePlayoffGameStates\(competitionPayload\.playoffs\.games\|\|\[\],payload\.todayGames/);
   assert.match(fs.readFileSync(path.join(__dirname,'..','game-cards.js'),'utf8'),/cdn\.espn\.com\/core\/wnba\/scoreboard/);
 });

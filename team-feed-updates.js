@@ -5,7 +5,7 @@
   const slug=params.get('team')||'';
   if(!slug)return;
 
-  const VERSION='20260922-record-milestones-v1';
+  const VERSION='20260922-record-milestones-v2';
   const CURATED={
     'seattle-storm':[
       {
@@ -36,6 +36,15 @@
       }
     ],
     'minnesota-lynx':[
+      {
+        date:'2026-09-20',
+        kind:'ROOKIE SCORING RECORD',
+        player:'Olivia Miles',
+        detail:'Broke Caitlin Clark\'s WNBA rookie scoring record and finished the Connecticut win with 21 points, moving the record to 790 with two regular-season games remaining.',
+        sourceLabel:'Official final box score',
+        sourceUrl:'https://www.wnba.com/game/1022600312',
+        priority:10
+      },
       {
         date:'2026-08-21',
         kind:'MILESTONE',
@@ -78,10 +87,19 @@
         date:'2026-09-21',
         kind:'WNBA FIRST',
         player:'Angel Reese',
-        detail:'Became the first player in league history with 500 rebounds in one season, then collected 10 more at New York to move her running 2026 total to 515.',
+        detail:'Became the first player in league history with 500 rebounds in one season, then collected 10 more at New York to move her 2026 total to 515 and her career total to 1,338—already above roughly 93% of WNBA careers.',
         sourceLabel:'Atlanta Dream',
         sourceUrl:'https://dream.wnba.com/news/dream-dominate-in-final-regular-season-home-game',
         priority:10
+      },
+      {
+        date:'2026-09-21',
+        kind:'DEFENSIVE RECORD',
+        player:'Rhyne Howard',
+        detail:'Set the WNBA single-season mark for the most combined steals and blocks by a guard, pairing league-leading theft with uncommon shot blocking from the perimeter.',
+        sourceLabel:'Atlanta Dream',
+        sourceUrl:'https://dream.wnba.com/atlanta-dream-end-of-season-player-awards',
+        priority:9
       },
       {
         date:'2026-08-27',
@@ -217,6 +235,15 @@
       }
     ],
     'los-angeles-sparks':[
+      {
+        date:'2026-09-20',
+        kind:'8,000-POINT CLUB',
+        player:'Nneka Ogwumike',
+        detail:'Became the fourth player in WNBA history to reach 8,000 career points, finishing the 20-point win over Portland at 8,013 career points.',
+        sourceLabel:'Official final box score',
+        sourceUrl:'https://www.wnba.com/game/1022600313',
+        priority:11
+      },
       {
         date:'2026-09-20',
         kind:'LEGACY IN BRONZE',

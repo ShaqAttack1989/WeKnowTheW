@@ -60,8 +60,8 @@
         "label": "WNBA FIRST",
         "value": "515",
         "unit": "2026 REBOUNDS",
-        "headline": "The first 500-rebound season in WNBA history",
-        "detail": "Reese reached 500 with 23 points and 10 rebounds against Chicago on Sept. 19, then collected 10 more boards at New York. Her running total is 515 with one regular-season game still on Atlanta's schedule.",
+        "headline": "The first 500-rebound season—and already past roughly 93% of WNBA careers",
+        "detail": "Reese reached 500 with 23 points and 10 rebounds against Chicago on Sept. 19, then collected 10 more boards at New York. Her running 2026 total is 515 and her three-season career total is 1,338, already more than roughly 93% of players in league history.",
         "sources": [
           {
             "url": "https://dream.wnba.com/news/dream-dominate-in-final-regular-season-home-game",
@@ -70,6 +70,10 @@
           {
             "url": "https://www.wnba.com/game/1022600317",
             "label": "Latest official box score"
+          },
+          {
+            "url": "https://www.statmuse.com/wnba/ask/angel-reese-career-rebs",
+            "label": "Career rebound ledger"
           }
         ]
       }
@@ -142,9 +146,53 @@
         "sourceLabel": "Sparks historical context"
       }
     },
+    "rhynehoward": {
+      "latestMilestone": {
+        "date": "2026-09-21",
+        "dateLabel": "THROUGH SEPT. 21, 2026",
+        "label": "DEFENSIVE RECORD",
+        "value": "NO. 1",
+        "unit": "GUARD STOCKS · WNBA HISTORY",
+        "headline": "The most steals plus blocks by a guard in one WNBA season",
+        "detail": "Howard paired the league's best steals season with rare rim protection from the perimeter. Atlanta's record campaign had her at 92 steals and 35 blocks before the FIBA break; three official return-week box scores pushed that combined guard record even higher.",
+        "sources": [
+          {
+            "url": "https://dream.wnba.com/atlanta-dream-end-of-season-player-awards",
+            "label": "Dream record campaign"
+          },
+          {
+            "url": "https://www.wnba.com/game/1022600317",
+            "label": "Latest official box score"
+          },
+          {
+            "url": "https://www.statmuse.com/wnba/ask/rhyne-howard-steals-and-blocks",
+            "label": "Season steal/block ledger"
+          }
+        ]
+      }
+    },
     "nnekaogwumike": {
       "pronunciation": "NEH-kuh oh-gwoo-MIH-kay",
       "pronunciationSource": "https://sparks.wnba.com/2026-media-central",
+      "latestMilestone": {
+        "date": "2026-09-20",
+        "dateLabel": "SEPT. 20, 2026",
+        "label": "8,000-POINT CLUB",
+        "value": "8,013",
+        "unit": "CAREER POINTS · NO. 4",
+        "headline": "The fourth player in WNBA history to reach 8,000 points",
+        "detail": "Ogwumike crossed 8,000 during a 20-point, 12-rebound, five-assist win over Portland and finished the night at 8,013. She joined Diana Taurasi, Tina Charles and DeWanna Bonner in the league's 8,000-point club.",
+        "sources": [
+          {
+            "url": "https://www.wnba.com/game/1022600313",
+            "label": "Official milestone box score"
+          },
+          {
+            "url": "https://abcnews.com/Sports/wireStory/ogwumike-4th-player-wnba-history-8000-points-sparks-136608898",
+            "label": "Final career-total report"
+          }
+        ]
+      },
       "offCourt": "Longtime WNBPA president, central player leader in the bargaining that produced the 2026 collective bargaining agreement, and a 2026 Freedom Award honoree of the National Civil Rights Museum.",
       "offCourtLink": "/herstory-community.html",
       "offCourtSource": "https://civilrightsmuseum.org/freedom-award/honorees-entertainment/",
@@ -162,6 +210,27 @@
       ],
       "memorable": "Ogwumike's final WNBA night became a full-circle Los Angeles legacy moment: 17 points, 15 rebounds, a Sparks single-season double-double record, a postgame retirement ceremony, and the announcement that the franchise's new practice facility will carry her name.",
       "memorableSource": "https://www.latimes.com/sports/sparks/story/2026-09-24/los-angeles-sparks-golden-state-valkyries-wnba-game-recap"
+    },
+    "oliviamiles": {
+      "latestMilestone": {
+        "date": "2026-09-20",
+        "dateLabel": "THROUGH SEPT. 20, 2026",
+        "label": "ROOKIE SCORING RECORD",
+        "value": "790",
+        "unit": "2026 POINTS · WNBA ROOKIE RECORD",
+        "headline": "The highest-scoring rookie season in WNBA history",
+        "detail": "Miles entered the Connecticut game tied with Caitlin Clark's 769-point rookie record, broke it at the free-throw line and finished with 21 points. That moved the record to 790 with Minnesota's final two regular-season games still to play.",
+        "sources": [
+          {
+            "url": "https://www.wnba.com/game/1022600312",
+            "label": "Official record-breaking box score"
+          },
+          {
+            "url": "https://abcnews.com/Sports/wireStory/olivia-miles-breaks-caitlin-clarks-wnba-rookie-points-136602963",
+            "label": "Record context"
+          }
+        ]
+      }
     },
     "dearicahamby": {
       "pronunciation": "Dee-ERIC-uh Ham-bee",

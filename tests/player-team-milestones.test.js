@@ -9,7 +9,7 @@ const depth=fs.readFileSync(path.join(root,'playerpedia-depth.js'),'utf8');
 const teamFeed=fs.readFileSync(path.join(root,'team-feed-updates.js'),'utf8');
 const teamGuides=fs.readFileSync(path.join(root,'team-guides.js'),'utf8');
 
-test('eight milestone subjects have sourced Playerpedia Latest Record cards',()=>{
+test('eleven milestone subjects have sourced Playerpedia Latest Record cards',()=>{
   const expected={
     ajawilson:'1,021',
     alyssathomas:'30',
@@ -18,6 +18,9 @@ test('eight milestone subjects have sourced Playerpedia Latest Record cards',()=
     flaujaejohnson:'6',
     kelseymitchell:'1,056',
     lisaleslie:'2ND',
+    nnekaogwumike:'8,013',
+    oliviamiles:'790',
+    rhynehoward:'NO. 1',
     suebird:'1ST'
   };
   for(const [player,value] of Object.entries(expected)){
@@ -33,11 +36,11 @@ test('eight milestone subjects have sourced Playerpedia Latest Record cards',()=
   assert.match(depth,/deep-milestone-stat/);
 });
 
-test('all seven affected franchise pages receive the reconciled milestone feed',()=>{
-  for(const slug of ['atlanta-dream','indiana-fever','las-vegas-aces','los-angeles-sparks','new-york-liberty','phoenix-mercury','seattle-storm']){
+test('all eight affected franchise pages receive the reconciled milestone feed',()=>{
+  for(const slug of ['atlanta-dream','indiana-fever','las-vegas-aces','los-angeles-sparks','minnesota-lynx','new-york-liberty','phoenix-mercury','seattle-storm']){
     assert.match(teamFeed,new RegExp(`'${slug}'\\s*:\\s*\\[`),`${slug} missing curated feed`);
   }
-  for(const value of ['1,021','1,056','515','6,860','30th','sixth 25-point game']){
+  for(const value of ['1,021','1,056','515','6,860','8,013','790','combined steals and blocks','30th','sixth 25-point game']){
     assert.match(teamFeed,new RegExp(value.replace(',','[,]')));
   }
 });

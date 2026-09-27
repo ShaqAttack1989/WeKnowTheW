@@ -19,7 +19,7 @@
   }
   if(!document.querySelector('script[data-team-feed-updates]')){
     const feed=document.createElement('script');
-    feed.src='/team-feed-updates.js?v=20260922-record-milestones-v1';
+    feed.src='/team-feed-updates.js?v=20260922-record-milestones-v2';
     feed.defer=true;
     feed.dataset.teamFeedUpdates='true';
     document.body.appendChild(feed);

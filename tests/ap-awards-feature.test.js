@@ -17,7 +17,10 @@ test('the 2026 AP article carries the complete interactive award record',()=>{
   assert.ok(post,'AP awards feature missing from Food for Thought');
   assert.equal(post.type,'feature');
   assert.equal(post.published,'2026-09-27');
-  assert.match(post.image,/^https:\/\/cdn\.wnba\.com\//);
+  assert.match(post.image,/^\/assets\/images\/aja-wilson-2026-ap-player-of-year-las-vegas-aces\.jpg/);
+  assert.equal(post.storyImage,post.image);
+  assert.match(post.storyImageCaption,/Courtesy of the Las Vegas Aces/i);
+  assert.ok(fs.statSync(path.join(root,'assets','images','aja-wilson-2026-ap-player-of-year-las-vegas-aces.jpg')).size>100000);
   assert.equal(post.apAwardsDashboard.winners.length,7);
   assert.equal(post.apAwardsDashboard.history.length,7);
   for(const category of post.apAwardsDashboard.history){
@@ -42,7 +45,7 @@ test('the 2026 AP article carries the complete interactive award record',()=>{
   assert.match(post.apAwardsDashboard.methodology,/not the WNBA's separately announced official league awards/i);
 });
 
-test('the AP dashboard computes leaders and uses only official WNBA imagery',()=>{
+test('the AP dashboard computes leaders and uses official WNBA and team-supplied imagery',()=>{
   assert.match(collections,/function apHistoryPanel/);
   assert.match(collections,/const counts=new Map/);
   assert.match(collections,/data-ap-winner-filter/);
@@ -53,14 +56,15 @@ test('the AP dashboard computes leaders and uses only official WNBA imagery',()=
   assert.match(styles,/\.ap-winner-receipt\{display:flex;flex-wrap:wrap/);
   assert.match(styles,/@media\(max-width:620px\)[\s\S]*\.ap-winner-receipt\{align-items:flex-start;flex-direction:column\}/);
 
-  const photos=[post.image,post.storyImage];
+  const photos=[];
   for(const winner of post.apAwardsDashboard.winners){
     photos.push(winner.photo||`https://cdn.wnba.com/headshots/wnba/latest/260x190/${winner.id}.png`);
   }
   for(const ballot of post.apAwardsDashboard.ballots){
     for(const player of ballot.players)photos.push(player.photo||`https://cdn.wnba.com/headshots/wnba/latest/260x190/${player.id}.png`);
   }
-  assert.ok(photos.every(url=>/^https:\/\/cdn\.wnba\.com\//.test(url)),'every displayed award photo must come from the official WNBA CDN');
+  assert.ok(photos.every(url=>/^https:\/\/cdn\.wnba\.com\//.test(url)),'every displayed player photo must come from the official WNBA CDN');
+  assert.match(post.storyImage,/^\/assets\/images\/aja-wilson-2026-ap-player-of-year-las-vegas-aces\.jpg/);
   assert.doesNotMatch(JSON.stringify(post),/(ai generated|midjourney|dall-e|unsplash|gettyimages\.com)/i);
 });
 

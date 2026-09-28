@@ -1,4 +1,4 @@
-.home-playoff-bracket-section{padding:clamp(38px,6vw,76px) 0;background:radial-gradient(circle at 90% 8%,rgba(111,37,232,.09),transparent 28%),#f7f2fb}
+.home-playoff-bracket-section{scroll-margin-top:170px;padding:clamp(38px,6vw,76px) 0;background:radial-gradient(circle at 90% 8%,rgba(111,37,232,.09),transparent 28%),#f7f2fb}
 .wktw-bracket{overflow:hidden;border-radius:30px;background:#130625;color:#fff;box-shadow:0 24px 56px rgba(20,6,45,.2)}
 .wktw-bracket-head{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;align-items:end;padding:clamp(22px,4vw,36px);background:radial-gradient(circle at 88% 0,rgba(216,255,79,.2),transparent 30%),linear-gradient(135deg,#14062a,#351064)}
 .wktw-bracket-head>div>span{display:block;color:#d8ff4f;font-size:.75rem;font-weight:950;letter-spacing:.13em;text-transform:uppercase}

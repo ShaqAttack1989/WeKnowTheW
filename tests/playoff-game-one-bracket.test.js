@@ -34,6 +34,7 @@ test('one shared live bracket renders on the homepage and in the article',()=>{
   assert.match(bracket,/Finals/);
   assert.match(bracket,/isPlaceholder=name=>\/winner\/i/);
   assert.match(styles,/\.wktw-bracket-grid/);
+  assert.match(styles,/scroll-margin-top:170px/);
 });
 
 test('playoff game cards clearly separate regular-season context from playoff advancement',()=>{

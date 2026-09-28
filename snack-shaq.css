@@ -340,6 +340,32 @@
 @media(max-width:620px){
   .playoff-context-strip .is-w-score .playoff-w-score-pair{grid-template-columns:1fr 1fr}
 }
+
+/* Sept. 28, 2026: Game 1 records and real-player highlight desk. */
+.playoff-game-one{margin:36px -14px 30px;padding:clamp(22px,4vw,36px);overflow:hidden;border-radius:28px;background:radial-gradient(circle at 92% 2%,rgba(216,255,79,.2),transparent 27%),linear-gradient(145deg,#120525,#31105a);color:#fff;box-shadow:0 24px 52px rgba(20,7,42,.2)}
+.playoff-game-one>header{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:22px;align-items:end;padding-bottom:18px;border-bottom:1px solid rgba(255,255,255,.14)}
+.playoff-game-one>header span{display:block;color:#d8ff4f;font-size:.73rem;font-weight:950;letter-spacing:.12em}
+.playoff-game-one>header h3{margin:7px 0 10px;color:#fff;font-size:clamp(2rem,4.4vw,3.5rem);line-height:.96}
+.playoff-game-one>header p{max-width:770px;margin:0;color:rgba(255,255,255,.75);font-size:1rem!important;line-height:1.58!important}
+.playoff-game-one>header small{padding:10px 12px;border:1px solid rgba(255,255,255,.16);border-radius:13px;background:rgba(255,255,255,.07);color:#fff;font-size:.72rem;font-weight:900;white-space:nowrap}
+.playoff-record-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:9px;margin:18px 0}
+.playoff-record-grid article{min-width:0;padding:15px 13px;border:1px solid rgba(255,255,255,.12);border-radius:16px;background:rgba(255,255,255,.08)}
+.playoff-record-grid strong,.playoff-record-grid span{display:block}
+.playoff-record-grid strong{color:#d8ff4f;font-size:1.45rem;line-height:1}
+.playoff-record-grid span{margin-top:7px;font-size:.76rem;font-weight:950;line-height:1.25}
+.playoff-record-grid p{margin:7px 0 0;color:rgba(255,255,255,.68);font-size:.72rem!important;line-height:1.42!important}
+.playoff-highlight-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.playoff-highlight-grid article{display:grid;grid-template-columns:138px minmax(0,1fr);min-height:210px;overflow:hidden;border-radius:19px;background:#fff;color:#1f1725}
+.playoff-highlight-grid figure{position:relative;min-width:0;margin:0;overflow:hidden;background:linear-gradient(145deg,#efe8f4,#d9c9e7)}
+.playoff-highlight-grid figure img{display:block;width:100%;height:100%;min-height:210px;object-fit:cover;object-position:center 12%}
+.playoff-highlight-grid figure figcaption{position:absolute;inset:auto 7px 7px;padding:5px 7px;border-radius:8px;background:rgba(13,3,28,.82);color:#fff;font-size:.54rem;font-weight:800;line-height:1.25}
+.playoff-highlight-grid article>div{min-width:0;padding:17px 16px}
+.playoff-highlight-grid article>div>span{display:block;color:#6828cb;font-size:.68rem;font-weight:950;letter-spacing:.08em}
+.playoff-highlight-grid h4{margin:6px 0 9px;font-size:1.15rem;line-height:1.08}
+.playoff-highlight-grid article>div>strong{display:block;padding:8px 10px;border-radius:11px;background:#f1eafa;color:#2e124f;font-size:.96rem}
+.playoff-highlight-grid article>div>p{margin:10px 0 0;color:#625968;font-size:.78rem!important;line-height:1.48!important}
+@media(max-width:900px){.playoff-record-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:680px){.playoff-game-one{margin-right:-13px;margin-left:-13px;padding:20px 14px;border-radius:22px}.playoff-game-one>header{grid-template-columns:1fr}.playoff-game-one>header small{width:max-content}.playoff-record-grid{grid-template-columns:1fr 1fr}.playoff-record-grid article:last-child{grid-column:1/-1}.playoff-highlight-grid{grid-template-columns:1fr}.playoff-highlight-grid article{grid-template-columns:112px minmax(0,1fr)}.playoff-highlight-grid figure img{min-height:230px}.playoff-record-grid span,.playoff-record-grid p,.playoff-highlight-grid article>div>span,.playoff-highlight-grid article>div>p{font-size:16px!important;line-height:1.4!important}.playoff-highlight-grid h4{font-size:20px}.playoff-highlight-grid article>div{padding:15px 12px}}
 /* Sept. 27, 2026: AP awards ballot and historical winner dashboards. */
 .ap-awards-dashboard{margin:40px -14px 0;padding:clamp(22px,4vw,38px);overflow:hidden;border-radius:30px;background:radial-gradient(circle at 94% 3%,rgba(216,255,79,.2),transparent 25%),linear-gradient(145deg,#120824,#271047 58%,#43177e);color:#fff;box-shadow:0 26px 58px rgba(20,10,47,.24)}
 .ap-awards-head{display:grid;grid-template-columns:minmax(0,1fr) 210px;gap:28px;align-items:end}

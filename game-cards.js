@@ -56,13 +56,16 @@
     const seedLabel=(seed,name)=>playoff&&seed?`#${seed} ${name}`:name;
     const venue=game.venue||(isFinal?'Completed game':'Venue to be announced');
     const details=[...(Array.isArray(game.broadcasts)?game.broadcasts.slice(0,2):[]),venue].filter(Boolean).join(' · ');
+    const round=String(game.round||'First Round').toUpperCase(),seriesTarget=Number(game.seriesTargetWins)||(round.includes('FINAL')&&!round.includes('SEMI')?4:round.includes('SEMI')?3:2);
+    const seriesContext=playoff?`<div class="schedule-series-context"><div><span>REGULAR-SEASON HEAD-TO-HEAD</span><strong>${safe(game.regularSeasonSeries||'No games')}</strong><small>context only · does not carry over</small></div><div class="is-playoff-series"><span>PLAYOFF SERIES</span><strong>${safe(game.playoffSeriesLabel||'Tied 0-0')}</strong><small>first to ${seriesTarget} wins advances</small></div></div>`:'';
     return `<article class="schedule-game-card ${isFinal?'is-final':isLive?'is-live':'is-upcoming'}" style="--away-color:${safe(away.primary)};--away-accent:${safe(away.secondary)};--home-color:${safe(home.primary)};--home-accent:${safe(home.secondary)}">
-      <div class="schedule-game-top"><span>${playoff?`PLAYOFFS · G${gameNo}`:(isFinal?'FINAL':isLive?'LIVE':'UPCOMING')}</span><time datetime="${safe(dateKey(game))}">${safe(shortDate(game))}</time><strong>${isFinal?'Final':isLive?status:safe(timeLabel(game))}</strong></div>
+      <div class="schedule-game-top"><span>${playoff?`PLAYOFFS · ${safe(round)} · G${gameNo}`:(isFinal?'FINAL':isLive?'LIVE':'UPCOMING')}</span><time datetime="${safe(dateKey(game))}">${safe(shortDate(game))}</time><strong>${isFinal?'Final':isLive?status:safe(timeLabel(game))}</strong></div>
       <div class="schedule-matchup">
-        <div class="schedule-team away">${teamMark(game.awayTeam)}<div><strong>${safe(away.tag)}</strong><span>${safe(seedLabel(game.awaySeed,game.awayTeam||'TBD'))}</span><small>${safe(record(game.awayTeam,standings))}${playoff&&game.regularSeasonSeries?` · REG: ${safe(game.regularSeasonSeries)}`:''}</small></div>${showScore?`<b class="schedule-score ${awayWon?'winner':''}">${safe(game.awayScore)}</b>`:''}</div>
+        <div class="schedule-team away">${teamMark(game.awayTeam)}<div><strong>${safe(away.tag)}</strong><span>${safe(seedLabel(game.awaySeed,game.awayTeam||'TBD'))}</span><small>${safe(record(game.awayTeam,standings))}</small></div>${showScore?`<b class="schedule-score ${awayWon?'winner':''}">${safe(game.awayScore)}</b>`:''}</div>
         <div class="schedule-versus" aria-label="at">@</div>
-        <div class="schedule-team home">${teamMark(game.homeTeam)}<div><strong>${safe(home.tag)}</strong><span>${safe(seedLabel(game.homeSeed,game.homeTeam||'TBD'))}</span><small>${safe(record(game.homeTeam,standings))}${playoff?` · SERIES: ${safe(game.seriesScore||'0-0')}`:''}</small></div>${showScore?`<b class="schedule-score ${homeWon?'winner':''}">${safe(game.homeScore)}</b>`:''}</div>
+        <div class="schedule-team home">${teamMark(game.homeTeam)}<div><strong>${safe(home.tag)}</strong><span>${safe(seedLabel(game.homeSeed,game.homeTeam||'TBD'))}</span><small>${safe(record(game.homeTeam,standings))}</small></div>${showScore?`<b class="schedule-score ${homeWon?'winner':''}">${safe(game.homeScore)}</b>`:''}</div>
       </div>
+      ${seriesContext}
       <div class="schedule-game-bottom"><span class="schedule-status-dot" aria-hidden="true"></span><strong>${isLive?'Live':status}</strong><span>${safe(details||venue)}</span></div>
     </article>`;
   }

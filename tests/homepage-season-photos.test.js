@@ -16,12 +16,13 @@ const jackieTrophyPhoto = '/assets/images/fiba-group-play/jackie-young-champions
 const libertySleeperPhoto = '/assets/images/snack-shak/liberty-post-fiba-sleeper.jpg';
 
 test('the static spotlight links to its featured stories', () => {
-  assert.match(index, /season-story season-story-lead" href="\/aja-wilson-mvp-race-2026\.html"/);
+  assert.match(index, /season-story season-story-lead" href="\/food-for-thought\.html\?post=the-playoff-watch-party-2026#story"/);
   assert.match(index, /season-story" href="\/fiba-return-playoff-show-2026\.html"/);
+  assert.match(index, /data-wktw-playoff-bracket data-variant="home"/);
 });
 
 test('the weekly story renderer owns story links and respects image fit', () => {
-  assert.match(specials, /spotlight\.dataset\.season='wnba-return'/);
+  assert.match(specials, /spotlight\.dataset\.season='wnba-playoffs'/);
   assert.doesNotMatch(specials, /\benforceUniqueEditorials\(\);/);
   assert.match(weekLive, /host\.dataset\.href=destination/);
   assert.match(weekLive, /--media-fit:\$\{image\.fit\}/);

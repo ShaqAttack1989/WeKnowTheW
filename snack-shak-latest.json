@@ -461,44 +461,140 @@
     {
       "slug": "the-playoff-watch-party-2026",
       "type": "feature",
-      "priority": 2200,
+      "priority": 2450,
       "homepageSeason": "wnba-playoffs",
       "seriesLabel": "FOOD FOR THOUGHT · PLAYOFF WATCH GUIDE",
-      "title": "The Playoff Watch Party: Eight Teams, Four Doors, One Crown",
-      "published": "2026-09-25",
-      "updated": "2026-09-25",
-      "week": "First round · Sept. 27",
-      "image": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1629483.png",
+      "title": "Game 1 Changed the Bracket: History, Records and the Next Test",
+      "published": "2026-09-28",
+      "updated": "2026-09-28",
+      "week": "Game 1 complete · Sept. 27",
+      "image": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1627668.png",
       "imageFit": "contain",
-      "imageAlt": "Official WNBA portrait of Minnesota Lynx forward Napheesa Collier",
-      "dek": "The bracket is locked. Now the useful questions start: who is hot, who has the stars, who owns the season series, who has enough bench, and what can actually break each matchup?",
+      "imageAlt": "Official WNBA portrait of New York Liberty forward Breanna Stewart",
+      "dek": "New York made 1-vs-8 history, A’ja Wilson authored the most efficient 30-point playoff game ever, Atlanta stole a franchise record and Golden State opened Ballhalla with a first. Here is what Game 1 changed — and what the live bracket is tracking next.",
+      "playoffGameOne": {
+        "eyebrow": "OPENING NIGHT · THE RECEIPTS",
+        "title": "Four decisive games. Five entries in the record book.",
+        "dek": "Every Game 1 margin reached 15 points, but the night was not repetitive. Each winner found a different pressure point — star creation, turnover pressure, spacing or collective shotmaking.",
+        "asOf": "FINAL · SEPT. 27, 2026",
+        "receipts": [
+          {
+            "value": "1ST",
+            "label": "No. 8 over No. 1",
+            "note": "New York became the first No. 8 seed to beat a No. 1 seed in a WNBA playoff game."
+          },
+          {
+            "value": "4TH",
+            "label": "30-10-5 playoff line",
+            "note": "Breanna Stewart’s 34-12-6 was only the fourth such performance in league postseason history."
+          },
+          {
+            "value": "78.9%",
+            "label": "30-point efficiency record",
+            "note": "A’ja Wilson went 15-for-19 in the most efficient 30-point playoff game on record."
+          },
+          {
+            "value": "16",
+            "label": "Atlanta playoff steals",
+            "note": "The Dream set a franchise postseason record and converted 22 Washington turnovers into 27 points."
+          },
+          {
+            "value": "104",
+            "label": "Golden State franchise high",
+            "note": "The Valkyries set their scoring record while collecting the first playoff win in franchise history."
+          }
+        ],
+        "highlights": [
+          {
+            "score": "NYL 91 · MIN 75",
+            "title": "Stewart broke the 1-vs-8 script",
+            "player": "Breanna Stewart",
+            "stat": "34 PTS · 12 REB · 6 AST",
+            "note": "New York held Minnesota to 31 second-half points and now gets the closeout chance at home.",
+            "photo": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1627668.png",
+            "photoAlt": "Official WNBA headshot of New York Liberty forward Breanna Stewart",
+            "photoCredit": "Official WNBA player media"
+          },
+          {
+            "score": "IND 85 · LVA 102",
+            "title": "Wilson turned Game 1 into a clinic",
+            "player": "A'ja Wilson",
+            "stat": "38 PTS · 16 REB · 4 BLK",
+            "note": "Wilson matched her playoff scoring and rebounding highs while Las Vegas scored 28 points off turnovers.",
+            "photo": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1628932.png",
+            "photoAlt": "Official WNBA headshot of Las Vegas Aces center A'ja Wilson",
+            "photoCredit": "Official WNBA player media"
+          },
+          {
+            "score": "WAS 77 · ATL 92",
+            "title": "Howard supplied the pressure",
+            "player": "Rhyne Howard",
+            "stat": "26 PTS · 5 STL",
+            "note": "Atlanta erased an 11-point deficit, and DeWanna Bonner’s 11-point third quarter helped flip the game.",
+            "photo": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1631009.png",
+            "photoAlt": "Official WNBA headshot of Atlanta Dream guard Rhyne Howard",
+            "photoCredit": "Official WNBA player media"
+          },
+          {
+            "score": "DAL 80 · GSV 104",
+            "title": "Ballhalla got its first playoff win",
+            "player": "Cecilia Zandalasini",
+            "stat": "22 PTS · 4 3PM",
+            "note": "Golden State won the second quarter 37-11, hit 18 threes and placed three scorers at 20 points or more.",
+            "photo": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1628508.png",
+            "photoAlt": "Official WNBA headshot of Golden State Valkyries forward Cecilia Zandalasini",
+            "photoCredit": "Official WNBA player media"
+          }
+        ]
+      },
       "sections": [
         {
-          "title": "Four series, four different kinds of pressure",
+          "title": "Game 1 delivered four blowouts and one bracket breaker",
           "paragraphs": [
-            "Minnesota has the seed. New York has the recent win. Golden State has a 3-0 regular-season sweep over Dallas, but the Wings arrive scorching hot. Indiana took two of three from Las Vegas. Washington took two of three from Atlanta. The bracket is clean; the matchups are not.",
-            "Use the dashboard above instead of reading the seeds like a prediction. Regular-season series wins are shown separately from the playoff series score, because 2-1 in July is context, not a head start on Sunday."
+            "No game reached clutch time. The smallest margin was Atlanta’s 15-point win; New York won by 16, Las Vegas by 17 and Golden State by 24. Yet the opening day still redrew the postseason because the only road winner was the No. 8 seed.",
+            "New York did not steal a coin-flip finish. It controlled the second half, outscoring Minnesota 51-31 after halftime and turning a four-point deficit into a 91-75 statement. That is what makes Game 2 an elimination game for the team that entered as the title favorite."
           ]
         },
         {
-          "title": "The bracket is now a living page",
+          "title": "Stewart made the seed line disappear",
           "paragraphs": [
-            "Once Game 1 tips, the playoff record updates independently from the regular-season series line. Completed playoff games move into the series state, the next game becomes the one to watch, and an eliminated team can fade without rewriting the whole guide.",
-            "The first round is best of three in a 1-1-1 format. The semifinals are best of five. The Finals are best of seven."
+            "Breanna Stewart’s 34 points, 12 rebounds and six assists joined a tiny piece of postseason history: only four WNBA playoff performances have reached 30 points, 10 rebounds and five assists. She also defended, protected the rim and repeatedly forced Minnesota to choose between single coverage and open shooters.",
+            "Leonie Fiebich punished those choices with 16 points and four second-half threes. Minnesota’s answer has to start before the shot: cleaner matchups, fewer late-clock fouls and a way to keep Olivia Miles from seeing the same length at every turn."
           ]
         },
         {
-          "title": "What I am watching first",
+          "title": "Wilson turned efficiency into inevitability",
           "paragraphs": [
-            "The 2-vs-7 game has the sharpest collision of form and history: Golden State swept Dallas in the regular season, while Dallas won seven of its last eight. The 3-vs-6 series has the opposite problem for the higher seed: Indiana already owns a 2-1 regular-season edge over Las Vegas.",
-            "And then there is Minnesota-New York. An eighth seed walking into a No. 1 seed's building after beating that same team 93-81 nine days earlier is exactly why this is a watch party and not a coronation."
+            "A’ja Wilson made 15 of 19 shots for 38 points, the most efficient 30-point playoff game in league history. The raw total was enormous; the absence of wasted possessions was worse for Indiana. Every coverage became a clean decision for the player Las Vegas wanted making it.",
+            "The Aces backed her with 21 points and 10 assists from Jackie Young, plus eight assists from Chelsea Gray. Gray moved to second on the WNBA career playoff assists list with 397. Indiana now has two linked problems: reduce the 17 turnovers that became 28 Vegas points, and create a defensive possession that does not end with Wilson dictating the last choice."
           ]
         },
         {
-          "title": "Keep two scoreboards in your head",
+          "title": "Atlanta stole the game, then Bonner changed its temperature",
           "paragraphs": [
-            "The regular-season series tells us what already worked. The playoff series tells us what matters now. They should never be displayed as the same number. A team can enter Sunday with a 3-0 season sweep and still be 0-0 when the ball goes up.",
-            "That separation now carries through the We Know the W game cards and the playoff dashboard."
+            "Washington led by 11 and still finished with 22 turnovers. Atlanta’s 16 steals set a franchise playoff record, two short of the WNBA postseason mark, while Rhyne Howard produced 26 points and five steals of her own.",
+            "The pivot was DeWanna Bonner. Scoreless in the first half, she poured in 11 points during the third quarter as Atlanta turned a five-point halftime deficit into a 12-point lead. Angel Reese’s 13 points and 12 rebounds made her playoff debut a double-double, but the team story was pressure: one mistake kept becoming the next one."
+          ]
+        },
+        {
+          "title": "Golden State won the math before Dallas could change the game",
+          "paragraphs": [
+            "The Valkyries’ first true home playoff game became their first playoff win and the highest-scoring game in franchise history. A 37-11 second quarter ended the competitive portion early. Golden State finished 18-for-36 from three and turned the ball over only four times.",
+            "Cecilia Zandalasini scored 22, Tiffany Hayes added 21 and Gabby Williams scored 20. Paige Bueckers was brilliant for Dallas — 21 points on 9-for-10 shooting — but one perfect creator could not keep pace with five Valkyries in double figures. Game 2 has to be less about matching shots and more about stopping Golden State from creating the same shots again."
+          ]
+        },
+        {
+          "title": "How to read the two series numbers",
+          "paragraphs": [
+            "Regular-season head-to-head is matchup evidence. Playoff series is advancement math. New York entered with a 2-1 regular-season edge over Minnesota, Golden State with a 3-0 sweep of Dallas, Indiana with a 2-1 edge over Las Vegas and Washington with a 2-1 edge over Atlanta. None of those wins counted when the postseason started.",
+            "The live cards now place those facts in separate labeled boxes. Every playoff series is currently 1-0; the regular-season line remains visible only as context. The first round is best of three in a 1-1-1 format, followed by best-of-five semifinals and a best-of-seven Finals."
+          ]
+        },
+        {
+          "title": "The Game 2 pressure map",
+          "paragraphs": [
+            "Minnesota is the only higher seed facing elimination on the road. Indiana must decide how much extra help Wilson deserves without freeing the Aces’ guards. Washington has to protect the ball without becoming tentative. Dallas has to disrupt the pass before Golden State’s threes become rhythm shots.",
+            "That is what the bracket above will track next. Results update the series score, the next scheduled game replaces the last final, and clinched winners move forward into the semifinal slots without changing the meaning of the regular-season record."
           ]
         }
       ],
@@ -508,22 +604,42 @@
           "url": "https://weknowthew.com/games.html"
         },
         {
-          "label": "WNBA 2026 playoff bracket",
-          "url": "https://www.wnba.com/playoffs/2026"
+          "label": "WNBA recap: Liberty 91, Lynx 75",
+          "url": "https://www.wnba.com/news/2026-playoffs-liberty-lynx-game-1-recap"
         },
         {
-          "label": "WNBA 2026 postseason schedule and format",
-          "url": "https://www.wnba.com/news/2026-wnba-postseason-faq"
+          "label": "New York Liberty: first No. 8 seed to beat a No. 1",
+          "url": "https://liberty.wnba.com/news/liberty-take-game-1-behind-stewarts-34-points"
+        },
+        {
+          "label": "WNBA recap: Aces 102, Fever 85",
+          "url": "https://www.wnba.com/news/2026-playoffs-fever-aces-game-1-recap"
+        },
+        {
+          "label": "WNBA recap: Dream 92, Mystics 77",
+          "url": "https://www.wnba.com/news/2026-playoffs-mystics-dream-game-1-recap"
+        },
+        {
+          "label": "WNBA recap: Valkyries 104, Wings 80",
+          "url": "https://www.wnba.com/news/2026-playoffs-wings-valkyries-game-1-recap"
+        },
+        {
+          "label": "CBS Sports: Stewart and Wilson’s historic Game 1 numbers",
+          "url": "https://www.cbssports.com/wnba/news/wnba-playoffs-winners-losers-game-1-sept-27/"
+        },
+        {
+          "label": "WNBA 2026 playoff bracket and format",
+          "url": "https://www.wnba.com/playoffs/2026"
         }
       ],
       "dashboardUrl": "/food-for-thought.html?post=the-playoff-watch-party-2026#story",
-      "storyImage": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1629483.png",
-      "storyImageCaption": "No. 1 Minnesota opens the 2026 playoffs against No. 8 New York. Official WNBA player media.",
-      "storyImageSourceUrl": "https://www.wnba.com/playoffs/2026",
+      "storyImage": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1627668.png",
+      "storyImageCaption": "Breanna Stewart led the first No. 8-over-No. 1 playoff win in WNBA history. Official WNBA player media.",
+      "storyImageSourceUrl": "https://www.wnba.com/news/2026-playoffs-liberty-lynx-game-1-recap",
       "playoffWatch": {
         "title": "THE PLAYOFF WATCH PARTY",
-        "subtitle": "Eight Teams. Four Doors. One Crown.",
-        "asOf": "FINAL REGULAR SEASON · SEPT. 24",
+        "subtitle": "Game 1 is final. Every series is 1-0.",
+        "asOf": "GAME 1 FINAL · SEPT. 27",
         "matchups": [
           {
             "id": "min-nyl",
@@ -534,21 +650,22 @@
             "lowTeam": "New York Liberty",
             "lowRecord": "26-18",
             "regularSeries": "NYL 2-1",
-            "game1": "Sun · 2:00 PM ET · ABC",
+            "game1": "Game 1 final · NYL 91-75",
+            "nextGame": "Game 2 schedule loading",
             "stars": [
-              "Napheesa Collier",
-              "Breanna Stewart"
+              "Breanna Stewart",
+              "Olivia Miles"
             ],
             "starPhotos": [
-              "https://cdn.wnba.com/headshots/wnba/latest/260x190/1629483.png",
-              "https://cdn.wnba.com/headshots/wnba/latest/260x190/1627668.png"
+              "https://cdn.wnba.com/headshots/wnba/latest/260x190/1627668.png",
+              "https://cdn.wnba.com/headshots/wnba/latest/260x190/1643426.png"
             ],
-            "hot": "New York won the final regular-season meeting 93-81 after the FIBA break. Minnesota still owns the No. 1 seed and home court.",
-            "bench": "Minnesota's bench scoring was lighter than the rest of the playoff field; New York can change pace with Marine Johannes.",
-            "availability": "Live availability refreshes from the site report before tip.",
-            "beat": "Minnesota wins by controlling the paint, defending without fouling and making New York work through multiple creators.",
-            "break": "New York can break the script if its spacing turns Minnesota's half-court defense into a chase.",
-            "must": "Collier sets Minnesota's two-way ceiling. Stewart has to make the 1-vs-8 label feel irrelevant.",
+            "hot": "New York has beaten Minnesota twice in nine days and held the Lynx to 31 second-half points in Game 1.",
+            "bench": "Leonie Fiebich scored 16 for New York; Nia Brodie led Minnesota with 16 in 19 reserve minutes.",
+            "availability": "Live status and return context refresh on the site report before Game 2.",
+            "beat": "New York drags Minnesota into long, physical possessions, then lets Stewart punish the final coverage decision.",
+            "break": "Minnesota must create earlier advantages so Miles is attacking space instead of New York's set length.",
+            "must": "Stewart has already set the standard. Miles has to turn a 3-for-12 debut into faster, cleaner decisions.",
             "wScore": "LIVE",
             "highCode": "MIN",
             "lowCode": "NYL",
@@ -564,21 +681,22 @@
             "lowTeam": "Dallas Wings",
             "lowRecord": "27-17",
             "regularSeries": "GSV 3-0",
-            "game1": "Sun · 9:00 PM ET · USA",
+            "game1": "Game 1 final · GSV 104-80",
+            "nextGame": "Game 2 schedule loading",
             "stars": [
-              "Gabby Williams",
+              "Cecilia Zandalasini",
               "Paige Bueckers"
             ],
             "starPhotos": [
-              "https://cdn.wnba.com/headshots/wnba/latest/260x190/1628931.png",
+              "https://cdn.wnba.com/headshots/wnba/latest/260x190/1628508.png",
               "https://cdn.wnba.com/headshots/wnba/latest/260x190/1642784.png"
             ],
-            "hot": "Golden State stole the No. 2 seed with a 17-1 closing run against Los Angeles. Dallas enters after winning seven of its final eight.",
-            "bench": "Golden State's depth has been a season-long weapon. Dallas needs its reserve scoring to survive when the rotation tightens.",
-            "availability": "Live availability refreshes from the site report before tip.",
-            "beat": "Golden State wins by turning defense into bad possessions and forcing Dallas away from comfortable guard creation.",
-            "break": "Dallas can crack it if Bueckers and Ogunbowale create clean paint touches before Golden State's defense gets set.",
-            "must": "Williams is Golden State's pressure point on both ends. Bueckers has to solve a defense that swept Dallas 3-0.",
+            "hot": "Golden State has won eight of nine and just produced the highest-scoring game in franchise history.",
+            "bench": "Tiffany Hayes scored 21 off the bench; Dallas received 21 brilliant points from Bueckers but little matching volume.",
+            "availability": "Live status and return context refresh on the site report before Game 2.",
+            "beat": "Golden State spaces the floor, keeps the ball moving and makes one clean possession multiply into the next.",
+            "break": "Dallas must disrupt the first pass and keep the second quarter from becoming another avalanche of rhythm threes.",
+            "must": "Zandalasini set the tone. Bueckers needs help so a near-perfect scoring night can matter late.",
             "wScore": "LIVE",
             "highCode": "GSV",
             "lowCode": "DAL",
@@ -594,21 +712,22 @@
             "lowTeam": "Indiana Fever",
             "lowRecord": "28-16",
             "regularSeries": "IND 2-1",
-            "game1": "Sun · 4:00 PM ET · ABC",
+            "game1": "Game 1 final · LVA 102-85",
+            "nextGame": "Game 2 schedule loading",
             "stars": [
               "A'ja Wilson",
-              "Kelsey Mitchell"
+              "Caitlin Clark"
             ],
             "starPhotos": [
               "https://cdn.wnba.com/headshots/wnba/latest/260x190/1628932.png",
-              "https://cdn.wnba.com/headshots/wnba/latest/260x190/1628909.png"
+              "https://cdn.wnba.com/headshots/wnba/latest/260x190/1642286.png"
             ],
-            "hot": "Las Vegas climbed into the No. 3 seed. Indiana already proved the matchup is playable by taking two of three in the regular season.",
-            "bench": "Vegas can shorten the game with veteran shot creation. Indiana needs its second unit to preserve pace and spacing.",
-            "availability": "Live availability refreshes from the site report before tip.",
-            "beat": "Las Vegas wins when Wilson bends the floor at both ends and the guards punish the extra attention.",
-            "break": "Indiana can break Vegas with the same pace and perimeter pressure that produced two regular-season wins.",
-            "must": "Wilson is the matchup. Mitchell has to keep Indiana's offense moving when the half court gets crowded.",
+            "hot": "Las Vegas has won eight straight including Game 1, with Wilson coming off a 38-16-4-block masterpiece.",
+            "bench": "The Aces' veteran creation kept every lineup organized; Indiana needs a steadier scoring bridge around its stars.",
+            "availability": "Live status and return context refresh on the site report before Game 2.",
+            "beat": "Wilson owns the middle while Young and Gray punish every extra defender Indiana sends toward her.",
+            "break": "Indiana has to cut the 17 turnovers and create pace before Las Vegas can build the wall around Wilson.",
+            "must": "Wilson is the matchup. Clark's 15 points and 10 assists need a cleaner team possession profile around them.",
             "wScore": "LIVE",
             "highCode": "LVA",
             "lowCode": "IND",
@@ -624,21 +743,22 @@
             "lowTeam": "Washington Mystics",
             "lowRecord": "28-16",
             "regularSeries": "WAS 2-1",
-            "game1": "Sun · 7:00 PM ET · Prime Video",
+            "game1": "Game 1 final · ATL 92-77",
+            "nextGame": "Game 2 schedule loading",
             "stars": [
-              "Allisha Gray",
-              "Shakira Austin"
+              "Rhyne Howard",
+              "Sonia Citron"
             ],
             "starPhotos": [
-              "https://cdn.wnba.com/headshots/wnba/latest/260x190/1628277.png",
-              "https://cdn.wnba.com/headshots/wnba/latest/260x190/1631022.png"
+              "https://cdn.wnba.com/headshots/wnba/latest/260x190/1631009.png",
+              "https://cdn.wnba.com/headshots/wnba/latest/260x190/1642785.png"
             ],
-            "hot": "Atlanta secured the last home-court seed, but Washington won the regular-season series 2-1 and enters as a dangerous No. 5.",
-            "bench": "Atlanta leans on its starters. Washington can keep size and defense on the floor deeper into the rotation.",
-            "availability": "Live availability refreshes from the site report before tip.",
-            "beat": "Atlanta wins when Gray and Howard create enough offense to let its defense dictate the game.",
-            "break": "Washington can turn this into a frontcourt fight and make every Atlanta possession expensive.",
-            "must": "Gray has to drive Atlanta's scoring. Austin's rim protection can change the geometry of the entire series.",
+            "hot": "Atlanta has won six straight, and its 16 Game 1 steals established a franchise playoff record.",
+            "bench": "Bonner scored 11 of her 13 points in the third; Washington's young frontcourt still produced two double-doubles.",
+            "availability": "Live status and return context refresh on the site report before Game 2.",
+            "beat": "Atlanta turns ball pressure into transition offense and lets Howard attack a defense that never gets reset.",
+            "break": "Washington must value the ball without losing the aggression that built an 11-point first-half lead.",
+            "must": "Howard's two-way pressure changed Game 1. Citron's 25 points must come with fewer empty team possessions.",
             "wScore": "LIVE",
             "highCode": "ATL",
             "lowCode": "WAS",
@@ -649,9 +769,9 @@
         "scoreMethod": "Final regular-season W Score: 40% trio production, 35% team defense, 25% post-FIBA form. Availability is shown separately and does not silently change the score."
       },
       "debates": [
-        "Which lower seed has the most useful regular-season evidence?",
-        "Which Game 1 changes the feel of its series fastest?",
-        "Which bench do you trust when the rotation gets short?"
+        "Can Minnesota become the first team to solve New York after falling behind 1-0?",
+        "Which Game 1 winner showed the most repeatable formula?",
+        "What changes first for the trailing teams: pace, pressure or rotation?"
       ]
     },
     {

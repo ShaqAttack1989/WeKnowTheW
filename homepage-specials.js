@@ -51,14 +51,14 @@
     return hay.includes('fiba')||hay.includes('world cup')||hay.includes('berlin 2026')||hay.includes('usa france');
   }
 
-  function sunsetFibaSpotlight(){
+  function keepPlayoffSpotlight(){
     const spotlight=document.querySelector('.home-season-spotlight');
     if(spotlight){
-      spotlight.dataset.season='wnba-return';
-      spotlight.setAttribute('aria-label','WNBA return night and final week spotlight');
+      spotlight.dataset.season='wnba-playoffs';
+      spotlight.setAttribute('aria-label','2026 WNBA playoffs spotlight');
     }
-    const heroButton=document.querySelector('.hub-hero .hero-actions .button.ghost[href="#now-playing"]');
-    if(heroButton)heroButton.textContent='Return Night +131';
+    const heroButton=document.querySelector('.hub-hero .hero-actions .button.ghost');
+    if(heroButton){heroButton.textContent='Live Playoff Bracket';heroButton.href='#playoff-bracket';}
   }
 
   function spotlightUsed(){
@@ -180,7 +180,7 @@
   }
 
   async function refresh(force=false){
-    sunsetFibaSpotlight();
+    keepPlayoffSpotlight();
     await loadSpecials(force);
     // homepage-week-live.js owns the editorial cards and their navigation.
     renderLegacyWeeklySpecials();
@@ -188,7 +188,7 @@
     if(input?.value)appendSearchMatches(input.value);
   }
 
-  sunsetFibaSpotlight();
+  keepPlayoffSpotlight();
   wireSearch();
   refresh();
   setInterval(()=>{if(!document.hidden)refresh(true);},60000);

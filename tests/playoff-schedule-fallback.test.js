@@ -36,6 +36,12 @@ test('published 2026 playoff openers supply the correct Eastern tip times and ne
     assert.deepEqual(games['Indiana Fever at Las Vegas Aces'].broadcasts,['ABC']);
     assert.deepEqual(games['Washington Mystics at Atlanta Dream'].broadcasts,['Prime Video']);
     assert.deepEqual(games['Dallas Wings at Golden State Valkyries'].broadcasts,['USA']);
+    assert.equal(games['New York Liberty at Minnesota Lynx'].awayScore,91);
+    assert.equal(games['New York Liberty at Minnesota Lynx'].homeScore,75);
+    assert.equal(games['Indiana Fever at Las Vegas Aces'].homeScore,102);
+    assert.ok(Object.values(games).every(game=>game.completed&&game.status==='Final'));
+    assert.equal(payload.playoffs.series.length,4);
+    assert.ok(payload.playoffs.series.every(row=>row.round==='First Round'&&row.targetWins===2));
   }finally{
     global.fetch=originalFetch;
   }

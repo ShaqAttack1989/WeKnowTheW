@@ -33,6 +33,7 @@
 
   const safe=value=>String(value??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[ch]));
   const norm=value=>String(value||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]/g,'');
+  const isPlaceholder=name=>/winner/i.test(String(name||''));
   const pairKey=(a,b)=>[norm(a),norm(b)].sort().join('|');
   const gameKey=game=>`${String(game.date||'').slice(0,10)}|${pairKey(game.homeTeam,game.awayTeam)}`;
   const hasScore=value=>value!==null&&value!==undefined&&String(value).trim()!==''&&Number.isFinite(Number(value));
@@ -68,7 +69,7 @@
     });
   }
   function teamMeta(name=''){
-    if(!name||/^Winner /.test(name))return{code:'TBD',color:'#6e6677'};
+    if(!name||isPlaceholder(name))return{code:'TBD',color:'#6e6677'};
     return TEAM_META[name]||{code:String(name).split(/\s+/).map(word=>word[0]).join('').slice(0,3).toUpperCase(),color:'#32135e'};
   }
   function teamLogo(name=''){
@@ -85,7 +86,7 @@
     return Number(game.homeScore)>Number(game.awayScore)?game.homeTeam:game.awayTeam;
   }
   function seriesState(a,b,round='First Round',target=2){
-    if(!a||!b||/^Winner /.test(a)||/^Winner /.test(b))return{aWins:0,bWins:0,winner:'',games:[],latest:null,next:null,target};
+    if(!a||!b||isPlaceholder(a)||isPlaceholder(b))return{aWins:0,bWins:0,winner:'',games:[],latest:null,next:null,target};
     const list=games.filter(game=>roundForGame(game)===round&&pairKey(game.homeTeam,game.awayTeam)===pairKey(a,b)).sort((x,y)=>(instant(x)?.getTime()||0)-(instant(y)?.getTime()||0));
     let aWins=0,bWins=0;
     list.forEach(game=>{const winner=winnerName(game);if(winner===a)aWins++;if(winner===b)bWins++;});
@@ -109,11 +110,11 @@
     return`${teamMeta(leader).code} leads ${Math.max(state.aWins,state.bWins)}-${Math.min(state.aWins,state.bWins)}`;
   }
   function teamRow(team,wins,isWinner=false){
-    const placeholder=/^Winner /.test(team.name),seed=team.seed??teamSeed(team.name);
+    const placeholder=isPlaceholder(team.name),seed=team.seed??teamSeed(team.name);
     return `<div class="wktw-bracket-team ${placeholder?'is-placeholder':''} ${isWinner?'is-series-winner':''}">${teamLogo(team.name)}<span><small>${seed?`NO. ${safe(seed)}`:'ADVANCING TEAM'}</small><strong>${safe(team.name)}</strong></span><b aria-label="${safe(wins)} series wins">${safe(wins)}</b></div>`;
   }
   function matchupCard(match,round,target){
-    const state=seriesState(match.a.name,match.b.name,round,target),placeholder=/^Winner /.test(match.a.name)||/^Winner /.test(match.b.name);
+    const state=seriesState(match.a.name,match.b.name,round,target),placeholder=isPlaceholder(match.a.name)||isPlaceholder(match.b.name);
     const active=state.next,latest=state.latest;
     let detail='Series matchup pending';
     if(active){detail=isLive(active)?`LIVE · ${latestScore(active)} · ${active.status||'In progress'}`:`Next · Game ${active.gameNumber||state.games.filter(isFinal).length+1} · ${timeLabel(active)}`;}

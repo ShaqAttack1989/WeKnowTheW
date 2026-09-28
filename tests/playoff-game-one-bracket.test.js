@@ -32,6 +32,7 @@ test('one shared live bracket renders on the homepage and in the article',()=>{
   assert.match(bracket,/First Round/);
   assert.match(bracket,/Semifinals/);
   assert.match(bracket,/Finals/);
+  assert.match(bracket,/isPlaceholder=name=>\/winner\/i/);
   assert.match(styles,/\.wktw-bracket-grid/);
 });
 

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-28T15:20:42.240Z",
+  "generatedAt": "2026-09-28T21:53:25.220Z",
   "movement": {
     "latestTransactionDate": "2026-09-22",
     "transactions": [
@@ -1420,9 +1420,74 @@
   },
   "availability": {
     "latestReportDate": "2026-09-28",
-    "reportLabel": "09/28/2026 11:15 AM ET",
-    "officialPdf": "https://ak-static.cms.nba.com/referee/wnba_injury/Injury-Report_2026-09-28_11_15AM.pdf",
+    "reportLabel": "09/28/2026 05:45 PM ET",
+    "officialPdf": "https://ak-static.cms.nba.com/referee/wnba_injury/Injury-Report_2026-09-28_05_45PM.pdf",
     "injuries": [
+      {
+        "player": "Aliyah Boston",
+        "team": "Indiana Fever",
+        "status": "PROBABLE",
+        "reason": "Injury/Illness - Right Leg; Lower",
+        "gameDate": "09/29/2026",
+        "gameTime": "06:30 (ET)",
+        "matchup": "LVA@IND",
+        "updated": "2026-09-29",
+        "source": "Official WNBA Injury Report PDF",
+        "officialCurrentReport": true,
+        "crossCheckOnly": false
+      },
+      {
+        "player": "Anastasiia Olairi Kosu",
+        "team": "Minnesota Lynx",
+        "status": "OUT",
+        "reason": "Injury/Illness - Right Foot; Right foot",
+        "gameDate": "09/29/2026",
+        "gameTime": "08:30 (ET)",
+        "matchup": "MIN@NYL",
+        "updated": "2026-09-29",
+        "source": "Official WNBA Injury Report PDF",
+        "officialCurrentReport": true,
+        "crossCheckOnly": false
+      },
+      {
+        "player": "Caitlin Clark",
+        "team": "Indiana Fever",
+        "status": "PROBABLE",
+        "reason": "Injury/Illness - Back; Back",
+        "gameDate": "09/29/2026",
+        "gameTime": "06:30 (ET)",
+        "matchup": "LVA@IND",
+        "updated": "2026-09-29",
+        "source": "Official WNBA Injury Report PDF",
+        "officialCurrentReport": true,
+        "crossCheckOnly": false
+      },
+      {
+        "player": "Dana Evans",
+        "team": "Las Vegas Aces",
+        "status": "OUT",
+        "reason": "Injury/Illness - Right Knee; R. Knee",
+        "gameDate": "09/29/2026",
+        "gameTime": "06:30 (ET)",
+        "matchup": "LVA@IND",
+        "updated": "2026-09-29",
+        "source": "Official WNBA Injury Report PDF",
+        "officialCurrentReport": true,
+        "crossCheckOnly": false
+      },
+      {
+        "player": "Tyasha Harris",
+        "team": "Indiana Fever",
+        "status": "OUT",
+        "reason": "Injury/Illness - Left Leg; Lower",
+        "gameDate": "09/29/2026",
+        "gameTime": "06:30 (ET)",
+        "matchup": "LVA@IND",
+        "updated": "2026-09-29",
+        "source": "Official WNBA Injury Report PDF",
+        "officialCurrentReport": true,
+        "crossCheckOnly": false
+      },
       {
         "player": "Alanna Smith",
         "team": "Dallas Wings",
@@ -2059,40 +2124,7 @@
         "crossCheckOnly": true
       }
     ],
-    "teamStatuses": [
-      {
-        "team": "Indiana Fever",
-        "status": "NOT YET SUBMITTED",
-        "gameDate": "09/29/2026",
-        "gameTime": "06:30 (ET)",
-        "matchup": "LVA@IND",
-        "updated": "2026-09-29"
-      },
-      {
-        "team": "Las Vegas Aces",
-        "status": "NOT YET SUBMITTED",
-        "gameDate": "09/29/2026",
-        "gameTime": "06:30 (ET)",
-        "matchup": "LVA@IND",
-        "updated": "2026-09-29"
-      },
-      {
-        "team": "Minnesota Lynx",
-        "status": "NOT YET SUBMITTED",
-        "gameDate": "09/29/2026",
-        "gameTime": "08:30 (ET)",
-        "matchup": "MIN@NYL",
-        "updated": "2026-09-29"
-      },
-      {
-        "team": "New York Liberty",
-        "status": "NOT YET SUBMITTED",
-        "gameDate": "09/29/2026",
-        "gameTime": "08:30 (ET)",
-        "matchup": "MIN@NYL",
-        "updated": "2026-09-29"
-      }
-    ]
+    "teamStatuses": []
   },
   "errors": []
 }

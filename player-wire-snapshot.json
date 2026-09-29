@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-29T15:43:01.203Z",
+  "generatedAt": "2026-09-29T20:42:09.130Z",
   "movement": {
     "latestTransactionDate": "2026-09-22",
     "transactions": [
@@ -1420,8 +1420,8 @@
   },
   "availability": {
     "latestReportDate": "2026-09-29",
-    "reportLabel": "09/29/2026 11:15 AM ET",
-    "officialPdf": "https://ak-static.cms.nba.com/referee/wnba_injury/Injury-Report_2026-09-29_11_15AM.pdf",
+    "reportLabel": "09/29/2026 04:30 PM ET",
+    "officialPdf": "https://ak-static.cms.nba.com/referee/wnba_injury/Injury-Report_2026-09-29_04_30PM.pdf",
     "injuries": [
       {
         "player": "Aliyah Boston",
@@ -2085,14 +2085,6 @@
         "gameDate": "09/30/2026",
         "gameTime": "09:00 (ET)",
         "matchup": "GSV@DAL",
-        "updated": "2026-09-30"
-      },
-      {
-        "team": "Washington Mystics",
-        "status": "NOT YET SUBMITTED",
-        "gameDate": "09/30/2026",
-        "gameTime": "07:00 (ET)",
-        "matchup": "ATL@WAS",
         "updated": "2026-09-30"
       }
     ]

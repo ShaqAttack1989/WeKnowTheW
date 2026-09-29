@@ -1,8 +1,17 @@
 {
-  "generatedAt": "2026-09-29T20:42:09.130Z",
+  "generatedAt": "2026-09-29T21:07:31.467Z",
   "movement": {
-    "latestTransactionDate": "2026-09-22",
+    "latestTransactionDate": "2026-09-28",
     "transactions": [
+      {
+        "date": "2026-09-28",
+        "type": "RETIRED",
+        "player": "Jordan Harrison",
+        "team": "Portland Fire",
+        "detail": "Announced she is stepping away from playing basketball after her rookie WNBA season. Harrison appeared in 16 games with two starts for Portland, averaging 5.1 points, 1.8 rebounds and 4.2 assists; in her final game she posted 6 points and 10 assists in the Fire's comeback win over Golden State.",
+        "source": "Jordan Harrison announcement · KPTV report",
+        "sourceUrl": "https://www.kptv.com/2026/09/29/portland-fires-jordan-harrison-stepping-away-basketball/"
+      },
       {
         "date": "2026-09-22",
         "type": "SIGNED",
@@ -1420,9 +1429,22 @@
   },
   "availability": {
     "latestReportDate": "2026-09-29",
-    "reportLabel": "09/29/2026 04:30 PM ET",
-    "officialPdf": "https://ak-static.cms.nba.com/referee/wnba_injury/Injury-Report_2026-09-29_04_30PM.pdf",
+    "reportLabel": "09/29/2026 05:00 PM ET",
+    "officialPdf": "https://ak-static.cms.nba.com/referee/wnba_injury/Injury-Report_2026-09-29_05_00PM.pdf",
     "injuries": [
+      {
+        "player": "Brionna Jones",
+        "team": "Atlanta Dream",
+        "status": "OUT",
+        "reason": "Injury/Illness - Left Leg; N/A",
+        "gameDate": "09/30/2026",
+        "gameTime": "07:00 (ET)",
+        "matchup": "ATL@WAS",
+        "updated": "2026-09-30",
+        "source": "Official WNBA Injury Report PDF",
+        "officialCurrentReport": true,
+        "crossCheckOnly": false
+      },
       {
         "player": "Aliyah Boston",
         "team": "Indiana Fever",
@@ -2063,14 +2085,6 @@
       }
     ],
     "teamStatuses": [
-      {
-        "team": "Atlanta Dream",
-        "status": "NOT YET SUBMITTED",
-        "gameDate": "09/30/2026",
-        "gameTime": "07:00 (ET)",
-        "matchup": "ATL@WAS",
-        "updated": "2026-09-30"
-      },
       {
         "team": "Dallas Wings",
         "status": "NOT YET SUBMITTED",

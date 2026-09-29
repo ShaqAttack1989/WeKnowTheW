@@ -7,6 +7,51 @@
   'use strict';
   const players=[
   {
+    "name": "Jordan Harrison",
+    "retired": "2026",
+    "fact": "Undrafted guard who turned a Portland training-camp opportunity into a rookie WNBA season, then stepped away from playing basketball after 16 games. She finished her final game with 6 points and 10 assists in Portland’s comeback win over Golden State.",
+    "teams": [
+      [
+        "Portland Fire",
+        "2026"
+      ]
+    ],
+    "source": "https://www.kptv.com/2026/09/29/portland-fires-jordan-harrison-stepping-away-basketball/",
+    "sourceLabel": "KPTV · retirement report",
+    "mediaId": "1643527",
+    "years": "2026",
+    "careerState": "retired",
+    "photo": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1643527.png",
+    "lastWnbaSeason": 2026,
+    "position": "Guard",
+    "college": "Stephen F. Austin · West Virginia",
+    "careerStats": {
+      "games": 16,
+      "minutes": 14.1,
+      "ppg": 5.1,
+      "rpg": 1.8,
+      "apg": 4.2,
+      "spg": 0.7,
+      "bpg": 0.1,
+      "topg": 2.0,
+      "fgPct": 0.422,
+      "fg3Pct": 0.261,
+      "ftPct": 0.75,
+      "per": 13.6,
+      "tsPct": 0.531,
+      "ws40": 0.034
+    },
+    "statsSource": "https://www.basketball-reference.com/wnba/teams/POR/2026.html",
+    "lastSeasonSnapshot": {
+      "games": 16,
+      "ppg": 5.1,
+      "rpg": 1.8,
+      "apg": 4.2,
+      "spg": 0.7,
+      "bpg": 0.1
+    }
+  },
+  {
     "name": "Sue Bird",
     "retired": "2022",
     "fact": "Four-time WNBA champion, record-setting floor general and one-franchise Seattle icon.",

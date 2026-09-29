@@ -19,5 +19,15 @@
     "summary": "Announced her intent to retire from the WNBA after the conclusion of the 2026 season. She remains an active Los Angeles Sparks player until the season ends.",
     "source": "https://sparks.wnba.com/news/nneka-ogwumike-announces-retirement-from-the-wnba-following-the-2026-season",
     "sourceLabel": "Los Angeles Sparks announcement"
+  },
+  "Jordan Harrison": {
+    "status": "retired",
+    "label": "RETIRED",
+    "icon": "✓",
+    "announcedDate": "2026-09-28",
+    "retiredYear": 2026,
+    "summary": "Announced she is stepping away from playing basketball after her rookie 2026 WNBA season with the Portland Fire.",
+    "source": "https://www.kptv.com/2026/09/29/portland-fires-jordan-harrison-stepping-away-basketball/",
+    "sourceLabel": "KPTV · retirement report"
   }
 }

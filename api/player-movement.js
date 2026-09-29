@@ -77,8 +77,10 @@ function addRosterCrossCheck(items, rosterData) {
     const type = String(item.type || '').toUpperCase();
     const destinationMove = /SIGNED|CLAIMED|TRADE|ACQUIRED|CONVERTED|SET ACTIVE/.test(type);
     const exitMove = /WAIVED|RELEASED|BUYOUT/.test(type);
+    const retirementMove = /RETIRED|STEPPED AWAY/.test(type);
     let rosterCheck = 'Not independently confirmed in live roster feed';
-    if (destinationMove && currentTeam && key(currentTeam) === key(item.team)) rosterCheck = `Current roster confirms ${currentTeam}`;
+    if (retirementMove) rosterCheck = currentTeam ? `Retirement announced; live roster feed still lists ${currentTeam} pending offseason sync` : 'Retirement reflected in live roster feed';
+    else if (destinationMove && currentTeam && key(currentTeam) === key(item.team)) rosterCheck = `Current roster confirms ${currentTeam}`;
     else if (exitMove && (!currentTeam || key(currentTeam) !== key(item.team))) rosterCheck = currentTeam ? `Live roster now lists ${currentTeam}` : 'Live roster no longer lists player';
     else if (currentTeam) rosterCheck = `Live roster lists ${currentTeam}`;
     const headshot = officialHeadshot(item.player);

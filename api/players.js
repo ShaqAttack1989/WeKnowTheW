@@ -139,6 +139,9 @@ function cleanUrl(value = '') {
 function freeAgentLike(status = '') {
   return ['waived', 'released', 'inactive', 'free-agent', 'free agent', 'ufa'].includes(String(status).trim().toLowerCase());
 }
+function retiredLike(status = '') {
+  return ['retired', 'stepped-away', 'stepped away'].includes(String(status).trim().toLowerCase());
+}
 function teamMapFromRosters(rosterData = {}) {
   return new Map((rosterData.teams || []).map(team => [key(team.name), String(team.id || '')]));
 }
@@ -306,7 +309,15 @@ function applyOverride(player, override, teamIds) {
   }
   if (override.lastTeam) next.lastTeam = override.lastTeam;
   if (override.team !== undefined) {
-    if (override.team && !freeAgentLike(status)) {
+    if (retiredLike(status)) {
+      const lastTeam = override.lastTeam || next.lastTeam || next.team || '';
+      next.lastTeam = String(lastTeam).replace(/^(?:Free Agent|Retired)\s*·\s*last:\s*/i, '');
+      next.team = next.lastTeam ? `Retired · last: ${next.lastTeam}` : 'Retired';
+      next.teamId = '';
+      next.currentRoster = false;
+      next.retiredPlayerpedia = true;
+      next.historicalPlayerpedia = true;
+    } else if (override.team && !freeAgentLike(status)) {
       next.team = override.team;
       next.lastTeam = override.team;
       next.teamId = teamIds.get(key(override.team)) || next.teamId;
@@ -339,7 +350,7 @@ function applyOverride(player, override, teamIds) {
   next.liveEffectiveDate = override.effectiveDate || '';
   next.liveNote = override.reason || '';
   if (['active','development'].includes(status)) next.currentRoster = true;
-  if (freeAgentLike(status)) next.currentRoster = false;
+  if (freeAgentLike(status) || retiredLike(status)) next.currentRoster = false;
   next.dataSources = [...new Set([...(next.dataSources || []), 'Curated transaction/roster correction'])];
   return next;
 }

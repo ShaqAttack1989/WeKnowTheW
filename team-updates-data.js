@@ -41,6 +41,9 @@
     'new-york-liberty':[
       {date:'2026-09-15',category:'story',kind:'FRONT OFFICE',title:'Tina Charles',detail:'Liberty legend Tina Charles returned to the organization as a front-office intern while pursuing her master’s degree.',href:'https://www.ctpost.com/sports/uconn-womens-basketball/article/tina-charles-new-york-liberty-intern-masters-22433522.php',priority:7}
     ],
+    'portland-fire':[
+      {date:'2026-09-28',category:'movement',kind:'RETIREMENT',title:'Jordan Harrison',detail:'Harrison announced she is stepping away from playing basketball after her rookie WNBA season. The undrafted guard appeared in 16 games with two starts for Portland, averaged 5.1 points, 1.8 rebounds and 4.2 assists, and closed the season with 6 points and 10 assists in the comeback win over Golden State.',href:'https://www.kptv.com/2026/09/29/portland-fires-jordan-harrison-stepping-away-basketball/',priority:14}
+    ],
     'seattle-storm':[
       {date:'2026-08-26',category:'story',kind:'MILESTONE',title:"Flau'jae Johnson",detail:'Passed 500 WNBA career points with 20 points against Toronto.',href:'https://www.statmuse.com/wnba/player/flau%27jae-johnson-1755',priority:5}
     ],

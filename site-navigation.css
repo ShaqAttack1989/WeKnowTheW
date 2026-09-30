@@ -375,3 +375,63 @@ body>.w-utility-bar a{min-height:36px!important;font-size:13px;}
   .site-navigation .nav-search-button{font-size:.86rem!important}
   .site-navigation .brand{font-size:.88rem!important}
 }
+
+
+/* 2026-09-30 wide desktop collision guard */
+.site-navigation .brand{
+  min-width:max-content;
+  max-width:none;
+  overflow:visible;
+}
+.site-navigation .brand>span:last-child{
+  display:block;
+  flex:0 0 auto;
+  white-space:nowrap;
+}
+.site-navigation .nav-links{
+  min-width:0;
+  max-width:100%;
+  overflow:visible;
+}
+.site-navigation .nav-parent,
+.site-navigation .nav-search-button{
+  text-wrap:nowrap;
+}
+@media(min-width:1281px) and (max-width:1760px){
+  .site-navigation{
+    padding-inline:12px!important;
+    gap:8px!important;
+  }
+  .site-navigation .brand{
+    margin-right:2px;
+    gap:7px;
+    font-size:.8rem!important;
+    letter-spacing:.035em;
+  }
+  .site-navigation .brand-mark{
+    width:32px;
+    height:32px;
+    flex:0 0 32px;
+  }
+  .site-navigation .nav-links{
+    column-gap:1px!important;
+  }
+  .site-navigation .nav-parent{
+    min-height:42px;
+    padding:8px 6px!important;
+    gap:4px;
+    font-size:.79rem!important;
+  }
+  .site-navigation .nav-caret{font-size:.68rem}
+  .site-navigation .nav-search-button{
+    min-height:38px;
+    margin-left:2px;
+    padding:7px 9px!important;
+    font-size:.79rem!important;
+  }
+}
+@media(min-width:1281px) and (max-width:1460px){
+  .site-navigation .brand{font-size:.76rem!important}
+  .site-navigation .nav-parent{padding-inline:5px!important;font-size:.75rem!important}
+  .site-navigation .nav-search-button{font-size:.75rem!important}
+}

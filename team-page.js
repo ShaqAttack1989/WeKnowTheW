@@ -136,7 +136,63 @@ function activateFranchiseHub(){
   buildTeamSwitcher();
 }
 
-function renderTeamSeason(payload={}){
+function teamPlayoffGameRank(game={}){
+  const state=String(game.state||'').toLowerCase();
+  return game.completed||state==='post'||/final/i.test(String(game.status||''))?3:state==='in'?2:1;
+}
+function teamPlayoffInstant(game={}){
+  const time=Date.parse(game.startTimeUtc||`${game.date||''}T23:59:59-04:00`);
+  return Number.isFinite(time)?time:0;
+}
+function teamPlayoffRoundRank(round=''){
+  const value=String(round).toLowerCase();
+  return value.includes('final')&&!value.includes('semi')?3:value.includes('semi')?2:1;
+}
+function teamPlayoffState(competition={}){
+  const games=(competition.playoffs?.games||[]).filter(game=>tNorm(game.homeTeam)===tNorm(team.name)||tNorm(game.awayTeam)===tNorm(team.name));
+  if(!games.length)return null;
+  const grouped=new Map();
+  games.forEach(game=>{
+    const round=game.round||'First Round',opponent=tNorm(game.homeTeam)===tNorm(team.name)?game.awayTeam:game.homeTeam,key=`${round}|${opponent}`;
+    if(!grouped.has(key))grouped.set(key,{round,opponent,games:[]});
+    grouped.get(key).games.push(game);
+  });
+  const series=[...grouped.values()].sort((a,b)=>teamPlayoffRoundRank(b.round)-teamPlayoffRoundRank(a.round)||Math.max(...b.games.map(teamPlayoffInstant))-Math.max(...a.games.map(teamPlayoffInstant)));
+  const current=series[0],target=teamPlayoffRoundRank(current.round)===3?4:teamPlayoffRoundRank(current.round)===2?3:2;
+  let wins=0,losses=0;
+  current.games.forEach(game=>{
+    if(teamPlayoffGameRank(game)!==3||!Number.isFinite(Number(game.homeScore))||!Number.isFinite(Number(game.awayScore))||Number(game.homeScore)===Number(game.awayScore))return;
+    const winner=Number(game.homeScore)>Number(game.awayScore)?game.homeTeam:game.awayTeam;
+    if(tNorm(winner)===tNorm(team.name))wins+=1;else losses+=1;
+  });
+  const complete=wins>=target||losses>=target,advanced=wins>=target,eliminated=losses>=target;
+  const next=current.games.filter(game=>teamPlayoffGameRank(game)<3).sort((a,b)=>teamPlayoffInstant(a)-teamPlayoffInstant(b))[0]||null;
+  const latest=current.games.filter(game=>teamPlayoffGameRank(game)===3).sort((a,b)=>teamPlayoffInstant(b)-teamPlayoffInstant(a))[0]||null;
+  return {...current,target,wins,losses,complete,advanced,eliminated,next,latest};
+}
+function renderTeamPlayoffPulse(competition={}){
+  const host=document.getElementById('teamPlayoffPulse');if(!host)return;
+  const state=teamPlayoffState(competition);
+  if(!state){host.hidden=true;host.innerHTML='';return;}
+  host.hidden=false;
+  const slugByName=typeof teamBySlug==='function'&&Array.isArray(TEAM_DATA)?new Map(TEAM_DATA.map(item=>[tNorm(item.name),item.slug])):new Map();
+  const opponentSlug=slugByName.get(tNorm(state.opponent))||'';
+  const next=state.next,latest=state.latest;
+  const status=state.eliminated?'ELIMINATED':state.advanced?'ADVANCED':state.wins===state.losses?'SERIES TIED':state.wins>state.losses?'SERIES LEAD':'SERIES TRAIL';
+  const tone=state.eliminated?'eliminated':state.advanced?'advanced':'active';
+  let detail='';
+  if(next){
+    const date=new Date(next.startTimeUtc||`${next.date}T12:00:00-04:00`);
+    const when=Number.isNaN(date.getTime())?'Time TBD':new Intl.DateTimeFormat('en-US',{timeZone:'America/New_York',month:'short',day:'numeric',hour:'numeric',minute:'2-digit'}).format(date)+' ET';
+    detail=`Next: Game ${next.gameNumber||state.games.filter(game=>teamPlayoffGameRank(game)===3).length+1} · ${when}`;
+  }else if(latest&&state.complete){
+    detail=state.advanced?`${team.name} won the series ${state.wins}-${state.losses}.`:`${team.name} was eliminated ${state.losses}-${state.wins}.`;
+  }else detail='The next playoff game is waiting on the official schedule.';
+  host.className=`team-playoff-pulse is-${tone}`;
+  host.innerHTML=`<div><span>2026 PLAYOFFS · ${tSafe(state.round.toUpperCase())}</span><strong>${tSafe(status)}</strong><p>${tSafe(detail)}</p></div><div class="team-playoff-pulse-score"><span>SERIES</span><strong>${state.wins}–${state.losses}</strong><small>vs. ${opponentSlug?`<a href="/team.html?team=${encodeURIComponent(opponentSlug)}">${tSafe(state.opponent)}</a>`:tSafe(state.opponent)}</small></div><nav><a href="/#playoff-bracket">Live bracket →</a><a href="/games.html">Playoff games →</a></nav>`;
+}
+
+function renderTeamSeason(payload={},competition={}){
   if(!hasFranchiseHub||guide.expansion)return;
   const standings=Array.isArray(payload.standings)?payload.standings:[];
   const record=standings.find(item=>tNorm(item.team?.full_name)===tNorm(team.name));
@@ -147,8 +203,13 @@ function renderTeamSeason(payload={}){
     {label:'Last 10',value:record?.last_ten||'—',note:'Recent form',tone:(()=>{const [wins,losses]=String(record?.last_ten||'').split('-').map(Number);return wins>losses?'positive':losses>wins?'negative':'';})()}
   ];
   document.getElementById('dreamStatGrid').innerHTML=stats.map(item=>`<article${item.tone?` class="${item.tone}"`:''}><span>${tSafe(item.label)}</span><strong>${tSafe(item.value)}</strong><small>${tSafe(item.note)}</small></article>`).join('');
-  const upcoming=gamesForTeam(Array.isArray(payload.upcomingGames)?payload.upcomingGames:[]).slice(0,3);
-  const past=gamesForTeam(Array.isArray(payload.pastGames)?payload.pastGames:Array.isArray(payload.recentResults)?payload.recentResults:[]).slice(0,3);
+  const playoffGames=(competition.playoffs?.games||[]).filter(game=>tNorm(game.homeTeam)===tNorm(team.name)||tNorm(game.awayTeam)===tNorm(team.name));
+  const playoffStarted=Boolean(competition.playoffs?.started)||Date.now()>=Date.parse('2026-09-27T00:00:00-04:00');
+  const playoffUpcoming=playoffGames.filter(game=>teamPlayoffGameRank(game)<3).sort((a,b)=>teamPlayoffInstant(a)-teamPlayoffInstant(b));
+  const playoffPast=playoffGames.filter(game=>teamPlayoffGameRank(game)===3).sort((a,b)=>teamPlayoffInstant(b)-teamPlayoffInstant(a));
+  const upcoming=(playoffStarted?playoffUpcoming:gamesForTeam(Array.isArray(payload.upcomingGames)?payload.upcomingGames:[])).slice(0,3);
+  const past=(playoffStarted?playoffPast:gamesForTeam(Array.isArray(payload.pastGames)?payload.pastGames:Array.isArray(payload.recentResults)?payload.recentResults:[])).slice(0,3);
+  renderTeamPlayoffPulse(competition);
   const renderGames=()=>{
     if(!window.WGameCards)return;
     document.getElementById('dreamUpcomingGames').innerHTML=WGameCards.render(upcoming,'upcoming',{limit:3,standings});
@@ -201,10 +262,11 @@ async function loadTeamPage(){
   }
   const rosterRequest=fetch('/api/players?artwork=transparent-v1&roster=20260827-team-leaders',{headers:{Accept:'application/json'}}).then(async response=>{const payload=await response.json().catch(()=>({}));if(!response.ok)throw new Error(payload.error||'Roster unavailable');return payload;});
   window.WTeamRosterRequest=rosterRequest;
-  const [statsResult,playersResult,teamsResult]=await Promise.allSettled([
+  const [statsResult,playersResult,teamsResult,competitionResult]=await Promise.allSettled([
     fetch('/api/stats?season=2026',{headers:{Accept:'application/json'}}).then(async response=>{const payload=await response.json().catch(()=>({}));if(!response.ok)throw new Error(payload.error||'Stats unavailable');return payload;}),
     rosterRequest,
-    fetch('/api/teams?currentLogos=20260925',{headers:{Accept:'application/json'}}).then(async response=>{const payload=await response.json().catch(()=>({}));if(!response.ok)throw new Error(payload.error||'Team artwork unavailable');return payload;})
+    fetch('/api/teams?currentLogos=20260925',{headers:{Accept:'application/json'}}).then(async response=>{const payload=await response.json().catch(()=>({}));if(!response.ok)throw new Error(payload.error||'Team artwork unavailable');return payload;}),
+    fetch(`/api/competition?season=2026&cb=${Date.now()}`,{headers:{Accept:'application/json','Cache-Control':'no-cache'},cache:'no-store'}).then(async response=>{const payload=await response.json().catch(()=>({}));if(!response.ok)throw new Error(payload.error||'Playoff feed unavailable');return payload;})
   ]);
   if(teamsResult.status==='fulfilled'){
     const assets=Array.isArray(teamsResult.value.teams)?teamsResult.value.teams:[];
@@ -215,8 +277,8 @@ async function loadTeamPage(){
     const record=standings.find(item=>tNorm(item.team?.full_name)===tNorm(team.name));
     if(record){recordEl.textContent=`${record.wins}-${record.losses}`;pctEl.textContent=`${Number(record.win_percentage).toFixed(3)} win percentage`;}
     else{recordEl.textContent='2026';pctEl.textContent='Live record not returned yet';}
-    renderTeamSeason(statsResult.value);
-  }else{recordEl.textContent='2026';pctEl.textContent='Live record temporarily unavailable';renderTeamSeasonError();}
+    renderTeamSeason(statsResult.value,competitionResult.status==='fulfilled'?competitionResult.value:{});
+  }else{recordEl.textContent='2026';pctEl.textContent='Live record temporarily unavailable';renderTeamSeasonError();if(competitionResult.status==='fulfilled')renderTeamPlayoffPulse(competitionResult.value);}
   if(playersResult.status==='fulfilled'){
     const allPlayers=Array.isArray(playersResult.value.players)?playersResult.value.players:[];
     const teamPlayers=allPlayers.filter(player=>tNorm(player.team)===tNorm(team.name));

@@ -8,6 +8,10 @@
     {id:'gsv-dal',a:{name:'Golden State Valkyries',seed:2},b:{name:'Dallas Wings',seed:7},route:'semi-b'},
     {id:'lva-ind',a:{name:'Las Vegas Aces',seed:3},b:{name:'Indiana Fever',seed:6},route:'semi-b'}
   ];
+  const TEAM_SLUGS={
+    'Atlanta Dream':'atlanta-dream','Dallas Wings':'dallas-wings','Golden State Valkyries':'golden-state-valkyries','Indiana Fever':'indiana-fever',
+    'Las Vegas Aces':'las-vegas-aces','Minnesota Lynx':'minnesota-lynx','New York Liberty':'new-york-liberty','Washington Mystics':'washington-mystics'
+  };
   const TEAM_META={
     'Atlanta Dream':{code:'ATL',color:'#c8102e'},
     'Dallas Wings':{code:'DAL',color:'#0c2340'},
@@ -22,7 +26,14 @@
     {id:'1042600101',date:'2026-09-27',startTimeUtc:'2026-09-27T14:00:00-04:00',homeTeam:'Minnesota Lynx',awayTeam:'New York Liberty',homeScore:75,awayScore:91,status:'Final',state:'post',completed:true,round:'First Round',gameNumber:1},
     {id:'1042600121',date:'2026-09-27',startTimeUtc:'2026-09-27T16:00:00-04:00',homeTeam:'Las Vegas Aces',awayTeam:'Indiana Fever',homeScore:102,awayScore:85,status:'Final',state:'post',completed:true,round:'First Round',gameNumber:1},
     {id:'1042600131',date:'2026-09-27',startTimeUtc:'2026-09-27T19:00:00-04:00',homeTeam:'Atlanta Dream',awayTeam:'Washington Mystics',homeScore:92,awayScore:77,status:'Final',state:'post',completed:true,round:'First Round',gameNumber:1},
-    {id:'1042600111',date:'2026-09-27',startTimeUtc:'2026-09-27T21:00:00-04:00',homeTeam:'Golden State Valkyries',awayTeam:'Dallas Wings',homeScore:104,awayScore:80,status:'Final',state:'post',completed:true,round:'First Round',gameNumber:1}
+    {id:'1042600111',date:'2026-09-27',startTimeUtc:'2026-09-27T21:00:00-04:00',homeTeam:'Golden State Valkyries',awayTeam:'Dallas Wings',homeScore:104,awayScore:80,status:'Final',state:'post',completed:true,round:'First Round',gameNumber:1},
+    {id:'2026-ind-lva-g2',date:'2026-09-29',startTimeUtc:'2026-09-29T18:30:00-04:00',homeTeam:'Indiana Fever',awayTeam:'Las Vegas Aces',homeScore:99,awayScore:89,status:'Final',state:'post',completed:true,round:'First Round',gameNumber:2},
+    {id:'2026-nyl-min-g2',date:'2026-09-29',startTimeUtc:'2026-09-29T20:30:00-04:00',homeTeam:'New York Liberty',awayTeam:'Minnesota Lynx',homeScore:87,awayScore:71,status:'Final',state:'post',completed:true,round:'First Round',gameNumber:2},
+    {id:'2026-was-atl-g2',date:'2026-09-30',startTimeUtc:'2026-09-30T19:00:00-04:00',homeTeam:'Washington Mystics',awayTeam:'Atlanta Dream',homeScore:null,awayScore:null,status:'Scheduled',state:'pre',completed:false,round:'First Round',gameNumber:2},
+    {id:'2026-dal-gsv-g2',date:'2026-09-30',startTimeUtc:'2026-09-30T21:00:00-04:00',homeTeam:'Dallas Wings',awayTeam:'Golden State Valkyries',homeScore:null,awayScore:null,status:'Scheduled',state:'pre',completed:false,round:'First Round',gameNumber:2},
+    {id:'2026-lva-ind-g3',date:'2026-10-01',startTimeUtc:'2026-10-01T21:00:00-04:00',homeTeam:'Las Vegas Aces',awayTeam:'Indiana Fever',homeScore:null,awayScore:null,status:'Scheduled',state:'pre',completed:false,round:'First Round',gameNumber:3},
+    {id:'2026-atl-was-g3',date:'2026-10-02',startTimeUtc:'',homeTeam:'Atlanta Dream',awayTeam:'Washington Mystics',homeScore:null,awayScore:null,status:'If necessary · Time TBD',state:'pre',completed:false,round:'First Round',gameNumber:3},
+    {id:'2026-gsv-dal-g3',date:'2026-10-02',startTimeUtc:'',homeTeam:'Golden State Valkyries',awayTeam:'Dallas Wings',homeScore:null,awayScore:null,status:'If necessary · Time TBD',state:'pre',completed:false,round:'First Round',gameNumber:3}
   ];
   const mounts=new Set();
   const logos=new Map();
@@ -109,19 +120,24 @@
     const leader=state.aWins>state.bWins?a:b;
     return`${teamMeta(leader).code} leads ${Math.max(state.aWins,state.bWins)}-${Math.min(state.aWins,state.bWins)}`;
   }
-  function teamRow(team,wins,isWinner=false){
-    const placeholder=isPlaceholder(team.name),seed=team.seed??teamSeed(team.name);
-    return `<div class="wktw-bracket-team ${placeholder?'is-placeholder':''} ${isWinner?'is-series-winner':''}">${teamLogo(team.name)}<span><small>${seed?`NO. ${safe(seed)}`:'ADVANCING TEAM'}</small><strong>${safe(team.name)}</strong></span><b aria-label="${safe(wins)} series wins">${safe(wins)}</b></div>`;
+  function teamRow(team,wins,isWinner=false,isEliminated=false){
+    const placeholder=isPlaceholder(team.name),seed=team.seed??teamSeed(team.name),slug=TEAM_SLUGS[team.name]||'';
+    const classes=`wktw-bracket-team ${placeholder?'is-placeholder':''} ${isWinner?'is-series-winner':''} ${isEliminated?'is-eliminated':''}`;
+    const inner=`${teamLogo(team.name)}<span><small>${isEliminated?'ELIMINATED':isWinner?'ADVANCED':seed?`NO. ${safe(seed)}`:'ADVANCING TEAM'}</small><strong>${safe(team.name)}</strong></span><b aria-label="${safe(wins)} series wins">${safe(wins)}</b>`;
+    return placeholder||!slug?`<div class="${classes}">${inner}</div>`:`<a class="${classes}" href="/team.html?team=${safe(slug)}" aria-label="Open ${safe(team.name)} team dashboard">${inner}</a>`;
   }
   function matchupCard(match,round,target){
     const state=seriesState(match.a.name,match.b.name,round,target),placeholder=isPlaceholder(match.a.name)||isPlaceholder(match.b.name);
-    const active=state.next,latest=state.latest;
+    const active=state.next,latest=state.latest,complete=Boolean(state.winner);
     let detail='Series matchup pending';
-    if(active){detail=isLive(active)?`LIVE · ${latestScore(active)} · ${active.status||'In progress'}`:`Next · Game ${active.gameNumber||state.games.filter(isFinal).length+1} · ${timeLabel(active)}`;}
+    if(complete){
+      const loser=state.winner===match.a.name?match.b.name:match.a.name;
+      detail=`${teamMeta(state.winner).code} advances · ${teamMeta(loser).code} eliminated`;
+    }else if(active){detail=isLive(active)?`LIVE · ${latestScore(active)} · ${active.status||'In progress'}`:`Next · Game ${active.gameNumber||state.games.filter(isFinal).length+1} · ${timeLabel(active)}`;}
     else if(latest){detail=`Game ${latest.gameNumber||state.games.filter(isFinal).length} final · ${latestScore(latest)}`;}
     else if(!placeholder){detail='Schedule loading from the WNBA feed';}
     const label=placeholder?'Matchup pending':seriesLabel(match.a.name,match.b.name,state);
-    return `<article class="wktw-bracket-card" data-bracket-matchup="${safe(match.id||pairKey(match.a.name,match.b.name))}"><div class="wktw-bracket-card-top"><span>${safe(label)}</span><b>${safe(round==='First Round'?'BEST OF 3':round==='Semifinals'?'BEST OF 5':'BEST OF 7')}</b></div>${teamRow(match.a,state.aWins,state.winner===match.a.name)}${teamRow(match.b,state.bWins,state.winner===match.b.name)}<p class="wktw-bracket-game ${active&&isLive(active)?'is-live':''}">${safe(detail)}</p></article>`;
+    return `<article class="wktw-bracket-card ${complete?'is-complete':''}" data-bracket-matchup="${safe(match.id||pairKey(match.a.name,match.b.name))}"><div class="wktw-bracket-card-top"><span>${safe(label)}</span><b>${safe(round==='First Round'?'BEST OF 3':round==='Semifinals'?'BEST OF 5':'BEST OF 7')}</b></div>${teamRow(match.a,state.aWins,state.winner===match.a.name,complete&&state.winner!==match.a.name)}${teamRow(match.b,state.bWins,state.winner===match.b.name,complete&&state.winner!==match.b.name)}<p class="wktw-bracket-game ${active&&isLive(active)?'is-live':''} ${complete?'is-complete':''}">${safe(detail)}</p></article>`;
   }
   function firstRoundState(match){return seriesState(match.a.name,match.b.name,'First Round',2);}
   function semifinalSlots(){
@@ -140,7 +156,7 @@
     if(!mount?.isConnected){mounts.delete(mount);return;}
     const variant=mount.dataset.variant||'home';
     mount.classList.add('wktw-bracket',`is-${variant}`);
-    mount.innerHTML=`<header class="wktw-bracket-head"><div><span>WE KNOW THE W · LIVE PLAYOFF TRACKER</span><h2>Four doors. One path to the crown.</h2><p>Series scores, live game state and the next matchup refresh automatically from the postseason feed.</p></div><aside><i aria-hidden="true"></i><strong>LIVE BRACKET</strong><small data-bracket-updated>Game 1 final</small></aside></header><div class="wktw-bracket-grid">${roundMarkup('First Round','Best of 3 · 1-1-1',FIRST_ROUND,2)}${roundMarkup('Semifinals','Best of 5 · begins Oct. 4',semifinalSlots(),3)}${roundMarkup('Finals','Best of 7 · begins Oct. 17',[finalsSlot()],4)}</div><footer><span><b>Bracket path:</b> 1/8 meets 4/5 · 2/7 meets 3/6.</span><a href="/games.html">Full scores + schedule →</a></footer>`;
+    mount.innerHTML=`<header class="wktw-bracket-head"><div><span>WE KNOW THE W · LIVE PLAYOFF TRACKER</span><h2>Four doors. One path to the crown.</h2><p>Series scores, elimination status, live game state and the next matchup refresh automatically from the postseason feed. Tap a team to open its dashboard.</p></div><aside><i aria-hidden="true"></i><strong>LIVE BRACKET</strong><small data-bracket-updated>Series tracker</small></aside></header><div class="wktw-bracket-grid">${roundMarkup('First Round','Best of 3 · 1-1-1',FIRST_ROUND,2)}${roundMarkup('Semifinals','Best of 5 · begins Oct. 4',semifinalSlots(),3)}${roundMarkup('Finals','Best of 7 · begins Oct. 17',[finalsSlot()],4)}</div><footer><span><b>Bracket path:</b> 1/8 meets 4/5 · 2/7 meets 3/6.</span><a href="/games.html">Full scores + schedule →</a></footer>`;
     const stamp=mount.querySelector('[data-bracket-updated]');
     if(stamp){const now=new Date();stamp.textContent=`Updated ${new Intl.DateTimeFormat('en-US',{timeZone:EASTERN,hour:'numeric',minute:'2-digit'}).format(now)} ET`;}
   }

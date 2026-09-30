@@ -76,6 +76,7 @@ hierarchyMap['/unrivaled-on-tour-2027.html']=['Unrivaled','/unrivaled.html','202
 const h=hierarchyMap[location.pathname];const crumbs=document.querySelector('.page-crumbs');if(crumbs&&h&&!crumbs.hasAttribute('data-preserve-crumbs')&&!['/around-the-w.html','/playerpedia.html','/who-got-next.html','/no-offseason.html'].includes(location.pathname))crumbs.innerHTML=`<a href="/">Home</a><span>›</span><a href="${h[1]}">${h[0]}</a><span>›</span><b>${h[2]}</b>`;document.querySelectorAll('[data-current-year]').forEach(el=>el.textContent=new Date().getFullYear());
 hierarchyMap['/2027-wnba-mock-draft.html']=['Food for Thought','/food-for-thought.html','Early 2027 Mock Draft'];
 hierarchyMap['/next-wnba-commissioner.html']=['Food for Thought','/food-for-thought.html','Next WNBA Commissioner'];
+hierarchyMap['/top-seed-first-out-lynx-2026.html']=['Food for Thought','/food-for-thought.html','Top Seed. First Out.'];
 
 const navSections={
   around:['/around-the-w.html','/live-stats.html','/stat-kitchen.html','/games.html','/on-the-wire.html','/on-the-wire-archive.html','/no-love-lost.html','/player-movement.html','/availability-report.html','/franchise-footprints.html','/playoff-player-rankings.html','/team.html'],
@@ -91,6 +92,7 @@ navSections.offseason.push('/unrivaled-on-tour-2027.html');
 navSections.snack.push('/2027-wnba-mock-draft.html');
 navSections.snack.push('/next-wnba-commissioner.html');
 navSections.snack.push('/fiba-final-four-2026.html');
+navSections.snack.push('/top-seed-first-out-lynx-2026.html');
 Object.entries(navSections).forEach(([section,paths])=>{if(paths.includes(location.pathname)){const group=navLinks?.querySelector(`[data-nav-section="${section}"]`);group?.classList.add('is-current');group?.setAttribute('data-current-section','true');}});
 navLinks?.querySelectorAll('a[href]').forEach(link=>{try{const url=new URL(link.href,location.origin);if(url.pathname===location.pathname&&!url.search&&link.closest('.nav-submenu'))link.setAttribute('aria-current','page');}catch{}});
 
@@ -126,6 +128,7 @@ coreSearch.push(
   ['Jet Lag & Jump Shots','FIBA World Cup','/fiba-watchers-guide.html','2026 fiba world cup watchers guide players teams storylines international basketball']
 );
 coreSearch.push(['The W Is Changing Hands','Food for Thought','/next-wnba-commissioner.html','Cathy Engelbert retirement next WNBA commissioner Swin Cash Sarah Mensah Bethany Donaphin Jess Smith Nneka Ogwumike Condoleezza Rice Renie Anderson league leadership scouting report']);
+coreSearch.push(['Top Seed. First Out.','Food for Thought','/top-seed-first-out-lynx-2026.html','Minnesota Lynx New York Liberty 2026 playoffs first 8 seed beat eliminate 1 seed historic upset Napheesa Collier free agency Olivia Miles Jonquel Jones Breanna Stewart Sabrina Ionescu']);
 coreSearch.push(['Three Cities, Two Games, One Bigger Bet','Food for Thought · Unrivaled','/unrivaled-on-tour-2027.html','unrivaled tour 2027 boston new york philadelphia td garden barclays center xfinity mobile arena roster reveal 46 players season 3']);
 coreSearch.push(['Four Teams, Two Tickets, No Hiding','Food for Thought · FIBA Final Four','/fiba-final-four-2026.html','fiba womens world cup 2026 final four semifinals france germany spain usa gabby williams marine johannes leonie fiebich frieda buhner iyana martin awa fam breanna stewart caitlin clark w score dashboard']);
 coreSearch.push(['The Grades Made Their Case','Food for Thought · 2026 Mock Awards','/food-for-thought.html?post=we-know-the-w-2026-mock-awards#story','wnba mock awards composite grades mvp dpoy rookie most improved sixth player coach of the year Aja Wilson Olivia Miles Megan DiLeo Janelle Salaun Natalie Nakase Jackie Young Natasha Howard']);

@@ -1,6 +1,58 @@
 {
   "site": "Snack Shak",
   "posts": [
+    {
+      "slug": "top-seed-first-out-lynx-2026",
+      "type": "feature",
+      "priority": 3200,
+      "homepageSeason": "wnba-playoffs",
+      "seriesLabel": "FOOD FOR THOUGHT · 2026 PLAYOFFS",
+      "title": "Top Seed. First Out. The Fall of the Lynx",
+      "published": "2026-09-30",
+      "week": "Historic upset · Sept. 29, 2026",
+      "dashboardUrl": "/top-seed-first-out-lynx-2026.html",
+      "image": "https://cdn.wnba.com/sites/4/2026/09/Game2NYL.png",
+      "storyImage": "https://cdn.wnba.com/sites/4/2026/09/Game2NYL.png",
+      "storyImageSourceUrl": "https://www.wnba.com/news/2026-playoffs-lynx-liberty-game-2-recap",
+      "imageFit": "cover",
+      "imageAlt": "Jonquel Jones handles the ball against Minnesota defenders during Game 2 of the 2026 first round",
+      "storyImageCaption": "Jonquel Jones and the New York Liberty close out the top-seeded Minnesota Lynx. Official game image via WNBA.com.",
+      "teams": [
+        "Minnesota Lynx",
+        "New York Liberty",
+        "Atlanta Dream",
+        "Washington Mystics",
+        "Golden State Valkyries",
+        "Dallas Wings",
+        "Las Vegas Aces",
+        "Indiana Fever"
+      ],
+      "players": [
+        "Napheesa Collier",
+        "Olivia Miles",
+        "Courtney Williams",
+        "Kayla McBride",
+        "Natasha Howard",
+        "Jonquel Jones",
+        "Breanna Stewart",
+        "Sabrina Ionescu"
+      ],
+      "dek": "Minnesota won 33 games, then New York beat the Lynx by 16 twice. The first 8-over-1 series upset in WNBA history leaves a bracket without its favorite and Napheesa Collier holding every bit of her 2027 leverage.",
+      "sources": [
+        {
+          "label": "WNBA Game 2 recap",
+          "url": "https://www.wnba.com/news/2026-playoffs-lynx-liberty-game-2-recap"
+        },
+        {
+          "label": "New York Liberty Game 1 recap",
+          "url": "https://liberty.wnba.com/news/liberty-take-game-1-behind-stewarts-34-points"
+        },
+        {
+          "label": "Official 2026 playoff bracket",
+          "url": "https://www.wnba.com/playoffs/2026"
+        }
+      ]
+    },
 {
       "slug": "four-for-aja-2026-ap-awards",
       "type": "feature",

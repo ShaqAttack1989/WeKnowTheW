@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-29T21:07:31.467Z",
+  "generatedAt": "2026-09-30T00:21:18.959Z",
   "movement": {
     "latestTransactionDate": "2026-09-28",
     "transactions": [
@@ -1429,9 +1429,22 @@
   },
   "availability": {
     "latestReportDate": "2026-09-29",
-    "reportLabel": "09/29/2026 05:00 PM ET",
-    "officialPdf": "https://ak-static.cms.nba.com/referee/wnba_injury/Injury-Report_2026-09-29_05_00PM.pdf",
+    "reportLabel": "09/29/2026 08:15 PM ET",
+    "officialPdf": "https://ak-static.cms.nba.com/referee/wnba_injury/Injury-Report_2026-09-29_08_15PM.pdf",
     "injuries": [
+      {
+        "player": "Alanna Smith",
+        "team": "Dallas Wings",
+        "status": "OUT",
+        "reason": "Injury/Illness - Left Leg; lower left leg",
+        "gameDate": "09/30/2026",
+        "gameTime": "09:00 (ET)",
+        "matchup": "GSV@DAL",
+        "updated": "2026-09-30",
+        "source": "Official WNBA Injury Report PDF",
+        "officialCurrentReport": true,
+        "crossCheckOnly": false
+      },
       {
         "player": "Brionna Jones",
         "team": "Atlanta Dream",
@@ -1446,19 +1459,6 @@
         "crossCheckOnly": false
       },
       {
-        "player": "Aliyah Boston",
-        "team": "Indiana Fever",
-        "status": "PROBABLE",
-        "reason": "Injury/Illness - Right Leg; Lower",
-        "gameDate": "09/29/2026",
-        "gameTime": "06:30 (ET)",
-        "matchup": "LVA@IND",
-        "updated": "2026-09-29",
-        "source": "Official WNBA Injury Report PDF",
-        "officialCurrentReport": true,
-        "crossCheckOnly": false
-      },
-      {
         "player": "Anastasiia Olairi Kosu",
         "team": "Minnesota Lynx",
         "status": "OUT",
@@ -1466,19 +1466,6 @@
         "gameDate": "09/29/2026",
         "gameTime": "08:30 (ET)",
         "matchup": "MIN@NYL",
-        "updated": "2026-09-29",
-        "source": "Official WNBA Injury Report PDF",
-        "officialCurrentReport": true,
-        "crossCheckOnly": false
-      },
-      {
-        "player": "Caitlin Clark",
-        "team": "Indiana Fever",
-        "status": "PROBABLE",
-        "reason": "Injury/Illness - Back; Back",
-        "gameDate": "09/29/2026",
-        "gameTime": "06:30 (ET)",
-        "matchup": "LVA@IND",
         "updated": "2026-09-29",
         "source": "Official WNBA Injury Report PDF",
         "officialCurrentReport": true,
@@ -2084,24 +2071,7 @@
         "seasonLongCarryover": true
       }
     ],
-    "teamStatuses": [
-      {
-        "team": "Dallas Wings",
-        "status": "NOT YET SUBMITTED",
-        "gameDate": "09/30/2026",
-        "gameTime": "09:00 (ET)",
-        "matchup": "GSV@DAL",
-        "updated": "2026-09-30"
-      },
-      {
-        "team": "Golden State Valkyries",
-        "status": "NOT YET SUBMITTED",
-        "gameDate": "09/30/2026",
-        "gameTime": "09:00 (ET)",
-        "matchup": "GSV@DAL",
-        "updated": "2026-09-30"
-      }
-    ]
+    "teamStatuses": []
   },
   "errors": []
 }

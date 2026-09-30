@@ -72,14 +72,25 @@ const CUP_2026_LATE_RESULTS=[
 
 const CUP_2026_FINAL={id:'2026-commissioners-cup-final',date:'2026-06-30',startTimeUtc:'2026-06-30T20:00:00-04:00',homeTeam:'New York Liberty',awayTeam:'Las Vegas Aces',homeScore:93,awayScore:85,status:'Final',state:'post',completed:true,officialFallback:true,competitionLabel:"Commissioner's Cup Championship"};
 
-// WNBA published Game 1 results. The provider can add later games and richer live state,
-// while these receipts keep the opening bracket accurate during an upstream outage.
-const PLAYOFF_2026_OPENERS=[
-  {id:'1042600101',date:'2026-09-27',startTimeUtc:'2026-09-27T14:00:00-04:00',homeTeam:'Minnesota Lynx',awayTeam:'New York Liberty',homeScore:75,awayScore:91,broadcasts:['ABC']},
-  {id:'1042600121',date:'2026-09-27',startTimeUtc:'2026-09-27T16:00:00-04:00',homeTeam:'Las Vegas Aces',awayTeam:'Indiana Fever',homeScore:102,awayScore:85,broadcasts:['ABC']},
-  {id:'1042600131',date:'2026-09-27',startTimeUtc:'2026-09-27T19:00:00-04:00',homeTeam:'Atlanta Dream',awayTeam:'Washington Mystics',homeScore:92,awayScore:77,broadcasts:['Prime Video']},
-  {id:'1042600111',date:'2026-09-27',startTimeUtc:'2026-09-27T21:00:00-04:00',homeTeam:'Golden State Valkyries',awayTeam:'Dallas Wings',homeScore:104,awayScore:80,broadcasts:['USA']}
-].map(game=>({...game,status:'Final',state:'post',completed:true,competitionLabel:'Playoffs · First Round · Game 1',officialFallback:true}));
+// Published first-round results and schedule. ESPN remains the preferred live provider;
+// this fallback keeps the current playoff slate usable when an upstream schedule endpoint
+// returns a stale day or an HTML error page.
+const PLAYOFF_2026_SCHEDULE=[
+  {id:'1042600101',date:'2026-09-27',startTimeUtc:'2026-09-27T14:00:00-04:00',homeTeam:'Minnesota Lynx',awayTeam:'New York Liberty',homeScore:75,awayScore:91,broadcasts:['ABC'],status:'Final',state:'post',completed:true},
+  {id:'1042600121',date:'2026-09-27',startTimeUtc:'2026-09-27T16:00:00-04:00',homeTeam:'Las Vegas Aces',awayTeam:'Indiana Fever',homeScore:102,awayScore:85,broadcasts:['ABC'],status:'Final',state:'post',completed:true},
+  {id:'1042600131',date:'2026-09-27',startTimeUtc:'2026-09-27T19:00:00-04:00',homeTeam:'Atlanta Dream',awayTeam:'Washington Mystics',homeScore:92,awayScore:77,broadcasts:['Prime Video'],status:'Final',state:'post',completed:true},
+  {id:'1042600111',date:'2026-09-27',startTimeUtc:'2026-09-27T21:00:00-04:00',homeTeam:'Golden State Valkyries',awayTeam:'Dallas Wings',homeScore:104,awayScore:80,broadcasts:['USA'],status:'Final',state:'post',completed:true},
+
+  {id:'2026-nyl-min-g2',date:'2026-09-29',startTimeUtc:'2026-09-29T20:30:00-04:00',homeTeam:'New York Liberty',awayTeam:'Minnesota Lynx',homeScore:87,awayScore:71,broadcasts:['USA','CNBC'],status:'Final',state:'post',completed:true},
+  {id:'2026-ind-lva-g2',date:'2026-09-29',startTimeUtc:'2026-09-29T18:30:00-04:00',homeTeam:'Indiana Fever',awayTeam:'Las Vegas Aces',homeScore:99,awayScore:89,broadcasts:['ESPN'],status:'Final',state:'post',completed:true},
+
+  {id:'2026-was-atl-g2',date:'2026-09-30',startTimeUtc:'2026-09-30T19:00:00-04:00',homeTeam:'Washington Mystics',awayTeam:'Atlanta Dream',homeScore:null,awayScore:null,broadcasts:['ESPN'],status:'Scheduled',state:'pre',completed:false},
+  {id:'2026-dal-gsv-g2',date:'2026-09-30',startTimeUtc:'2026-09-30T21:00:00-04:00',homeTeam:'Dallas Wings',awayTeam:'Golden State Valkyries',homeScore:null,awayScore:null,broadcasts:['ESPN'],status:'Scheduled',state:'pre',completed:false},
+
+  {id:'2026-lva-ind-g3',date:'2026-10-01',startTimeUtc:'2026-10-01T21:00:00-04:00',homeTeam:'Las Vegas Aces',awayTeam:'Indiana Fever',homeScore:null,awayScore:null,broadcasts:['USA','CNBC'],status:'Scheduled',state:'pre',completed:false},
+  {id:'2026-atl-was-g3',date:'2026-10-02',startTimeUtc:'',homeTeam:'Atlanta Dream',awayTeam:'Washington Mystics',homeScore:null,awayScore:null,broadcasts:[],status:'If necessary · Time TBD',state:'pre',completed:false},
+  {id:'2026-gsv-dal-g3',date:'2026-10-02',startTimeUtc:'',homeTeam:'Golden State Valkyries',awayTeam:'Dallas Wings',homeScore:null,awayScore:null,broadcasts:[],status:'If necessary · Time TBD',state:'pre',completed:false}
+].map(game=>({...game,competitionLabel:'Playoffs · First Round',officialFallback:true}));
 
 function playoffRound(game={}){
   const date=String(game.date||'').slice(0,10);
@@ -115,12 +126,14 @@ module.exports=async function handler(req,res){
 
   const [regularResult,postseasonResult]=await Promise.allSettled([fetchType(season,2),fetchType(season,3)]);
   const regular=regularResult.status==='fulfilled'?regularResult.value:[];
-  let postseason=season===2026?mergeGames(postseasonResult.status==='fulfilled'?postseasonResult.value:[],PLAYOFF_2026_OPENERS):postseasonResult.status==='fulfilled'?postseasonResult.value:[];
+  let postseason=season===2026?mergeGames(postseasonResult.status==='fulfilled'?postseasonResult.value:[],PLAYOFF_2026_SCHEDULE):postseasonResult.status==='fulfilled'?postseasonResult.value:[];
   if(season===2026){
     const seed={'Minnesota Lynx':1,'Golden State Valkyries':2,'Las Vegas Aces':3,'Atlanta Dream':4,'Washington Mystics':5,'Indiana Fever':6,'Dallas Wings':7,'New York Liberty':8};
     const regularSeries={'Minnesota Lynx|New York Liberty':'NYL 2-1','Dallas Wings|Golden State Valkyries':'GSV 3-0','Indiana Fever|Las Vegas Aces':'IND 2-1','Atlanta Dream|Washington Mystics':'WAS 2-1'};
     const counts=new Map();
-    postseason=postseason.sort((a,b)=>Date.parse(a.startTimeUtc||a.date)-Date.parse(b.startTimeUtc||b.date)).map(game=>{const pair=[game.homeTeam,game.awayTeam].sort().join('|'),round=playoffRound(game),countKey=`${round}|${pair}`,number=(counts.get(countKey)||0)+1;counts.set(countKey,number);return {...game,playoff:true,round,gameNumber:number,homeSeed:seed[game.homeTeam]||null,awaySeed:seed[game.awayTeam]||null,regularSeasonSeries:round==='First Round'?(regularSeries[pair]||''):'',competitionLabel:`Playoffs · ${round} · Game ${number}`};});
+    postseason=postseason.sort((a,b)=>Date.parse(a.startTimeUtc||`${a.date}T23:59:59-04:00`)-Date.parse(b.startTimeUtc||`${b.date}T23:59:59-04:00`)).map(game=>{const pair=[game.homeTeam,game.awayTeam].sort().join('|'),round=playoffRound(game),countKey=`${round}|${pair}`,number=(counts.get(countKey)||0)+1;counts.set(countKey,number);return {...game,playoff:true,round,gameNumber:number,homeSeed:seed[game.homeTeam]||null,awaySeed:seed[game.awayTeam]||null,regularSeasonSeries:round==='First Round'?(regularSeries[pair]||''):'',competitionLabel:`Playoffs · ${round} · Game ${number}`};});
+    const completedSeries=new Set(series(postseason).filter(row=>row.complete).map(row=>`${row.round}|${[row.teamA,row.teamB].sort().join('|')}`));
+    postseason=postseason.filter(game=>game.completed||!completedSeries.has(`${game.round}|${[game.homeTeam,game.awayTeam].sort().join('|')}`));
   }
   const providerErrors=[];
   if(regularResult.status==='rejected')providerErrors.push(`regular season: ${regularResult.reason?.message||'unavailable'}`);
@@ -137,6 +150,6 @@ module.exports=async function handler(req,res){
     playoffs:{games:postseason,series:series(postseason),starts:'2026-09-27',started:Date.now()>=Date.parse('2026-09-27T00:00:00-04:00')},
     sources:{cup:'https://www.wnba.com/commissioners-cup/2026/about-the-cup',cupResults:'https://www.wnba.com/news/category/2026-commissioners-cup',cupFinal:'https://www.wnba.com/commissioners-cup/2026/leaderboard',playoffs:'https://www.wnba.com/playoffs/2026'},
     providerErrors,
-    sourceVersion:'20260928-game-one-bracket-v1'
+    sourceVersion:'20260930-playoff-schedule-v2'
   });
 };

@@ -11,6 +11,7 @@
   const teamStyle=name=>`--team-color:${esc(teamColor(name))}`;
   const slug=value=>String(value||'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
   const teamLogo=name=>teamMap.get(name)?.logo||`/api/league-team-image?league=wpba&key=${encodeURIComponent(slug(name))}`;
+  const initials=name=>String(name||'').trim().split(/\s+/).filter(Boolean).slice(0,2).map(part=>part[0]||'').join('').toUpperCase()||'W';
 
   function renderPulse(data){
     const leader=data.standings?.[0];
@@ -27,7 +28,7 @@
   function renderStandings(rows){
     const body=rows.map(row=>{
       const diff=Number(row.pf)-Number(row.pa),perGame=row.gp?diff/row.gp:0;
-      return `<tr><td><span class="wpba-rank">${esc(row.rank)}</span></td><td><span class="wpba-team-name" style="${teamStyle(row.team)}"><i></i><strong>${esc(row.team)}</strong></span></td><td>${esc(row.gp)}</td><td>${esc(row.w)}</td><td>${esc(row.l)}</td><td>${esc(row.pct)}</td><td>${esc(row.pf)}</td><td>${esc(row.pa)}</td><td class="${diff>=0?'wpba-positive':'wpba-negative'}">${diff>0?'+':''}${diff}</td><td class="${perGame>=0?'wpba-positive':'wpba-negative'}">${perGame>0?'+':''}${perGame.toFixed(1)}</td><td>${esc(row.gb)}</td><td>${esc(row.l10)}</td><td class="${String(row.streak).startsWith('W')?'wpba-positive':'wpba-negative'}">${esc(row.streak)}</td></tr>`;
+      return `<tr><td><span class="wpba-rank">${esc(row.rank)}</span></td><td><span class="wpba-team-name" style="${teamStyle(row.team)}"><span class="league-team-logo"><img src="${teamLogo(row.team)}" alt="" loading="lazy" decoding="async"></span><strong>${esc(row.team)}</strong></span></td><td>${esc(row.gp)}</td><td>${esc(row.w)}</td><td>${esc(row.l)}</td><td>${esc(row.pct)}</td><td>${esc(row.pf)}</td><td>${esc(row.pa)}</td><td class="${diff>=0?'wpba-positive':'wpba-negative'}">${diff>0?'+':''}${diff}</td><td class="${perGame>=0?'wpba-positive':'wpba-negative'}">${perGame>0?'+':''}${perGame.toFixed(1)}</td><td>${esc(row.gb)}</td><td>${esc(row.l10)}</td><td class="${String(row.streak).startsWith('W')?'wpba-positive':'wpba-negative'}">${esc(row.streak)}</td></tr>`;
     }).join('');
     $('#wpbaStandings').innerHTML=`<table class="wpba-table"><thead><tr><th>RK</th><th>Team</th><th>GP</th><th>W</th><th>L</th><th>W%</th><th>PF</th><th>PA</th><th>DIFF</th><th>DIFF/G</th><th>GB</th><th>L10</th><th>Streak</th></tr></thead><tbody>${body}</tbody></table>`;
   }
@@ -38,7 +39,7 @@
     tabs.innerHTML=groups.map((group,index)=>`<button class="wpba-leader-tab" type="button" role="tab" aria-selected="${index===0}" data-group="${esc(group)}">${esc(group)}</button>`).join('');
     const draw=group=>{
       const shown=group==='All'?leaders:leaders.filter(item=>item.group===group);
-      $('#wpbaLeaders').innerHTML=shown.map(item=>`<article class="wpba-leader-card" style="${teamStyle(item.team)}"><span>${esc(item.metric)}</span><strong>${esc(item.player)}</strong><b>${esc(item.value)}</b><small>${esc(item.team)}</small></article>`).join('');
+      $('#wpbaLeaders').innerHTML=shown.map(item=>`<article class="wpba-leader-card" style="${teamStyle(item.team)}"><div class="wpba-leader-media"><span class="wpba-leader-headshot"><i>${esc(initials(item.player))}</i>${item.photo?`<img src="${esc(item.photo)}" alt="${esc(item.player)}" loading="lazy" decoding="async" onerror="this.remove()">`:''}</span><span class="league-team-logo wpba-leader-team-logo"><img src="${teamLogo(item.team)}" alt="${esc(item.team)} logo" loading="lazy" decoding="async"></span></div><span>${esc(item.metric)}</span><strong>${esc(item.player)}</strong><b>${esc(item.value)}</b><small>${esc(item.team)}</small>${item.profileUrl?`<a class="wpba-player-profile-link" href="${esc(item.profileUrl)}" target="_blank" rel="noopener">Official player profile ↗</a>`:''}</article>`).join('');
     };
     tabs.addEventListener('click',event=>{
       const button=event.target.closest('button[data-group]');
@@ -53,7 +54,7 @@
     const scheduled=game.awayScore==null||game.homeScore==null;
     const awayWinner=!scheduled&&Number(game.awayScore)>Number(game.homeScore),homeWinner=!scheduled&&Number(game.homeScore)>Number(game.awayScore);
     const displayStatus=scheduled&&new Date(`${game.date}T23:59:59Z`)<new Date()?'Awaiting result':game.status;
-    return `<article class="wpba-game"><time datetime="${esc(game.date)}">${esc(formatDate(game.date))}${game.time?` · ${esc(game.time)}`:''}</time><div class="wpba-game-team ${awayWinner?'winner':''}"><strong>${esc(game.away)}</strong><b>${scheduled?'':esc(game.awayScore)}</b></div><div class="wpba-game-team ${homeWinner?'winner':''}"><strong>${esc(game.home)}</strong><b>${scheduled?'':esc(game.homeScore)}</b></div><footer><span class="wpba-game-status">${esc(displayStatus)}</span><span>${esc(game.venue||'Venue pending')}</span></footer></article>`;
+    return `<article class="wpba-game"><time datetime="${esc(game.date)}">${esc(formatDate(game.date))}${game.time?` · ${esc(game.time)}`:''}</time><div class="wpba-game-team ${awayWinner?'winner':''}"><span class="league-team-logo"><img src="${teamLogo(game.away)}" alt="" loading="lazy" decoding="async"></span><strong>${esc(game.away)}</strong><b>${scheduled?'':esc(game.awayScore)}</b></div><div class="wpba-game-team ${homeWinner?'winner':''}"><span class="league-team-logo"><img src="${teamLogo(game.home)}" alt="" loading="lazy" decoding="async"></span><strong>${esc(game.home)}</strong><b>${scheduled?'':esc(game.homeScore)}</b></div><footer><span class="wpba-game-status">${esc(displayStatus)}</span><span>${esc(game.venue||'Venue pending')}</span></footer></article>`;
   }
 
   function renderGames(games){

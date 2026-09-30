@@ -54,3 +54,36 @@ test('Playoff watch keeps a 16px minimum for compact labels and copy',()=>{
   assert.match(css,/Playoff Watch readability standard/);
   assert.match(css,/font-size:16px/);
 });
+
+
+test('Homepage prioritizes the live bracket, Draft Watch and fresh story discovery',()=>{
+  const html=read('index.html'),specials=read('homepage-specials.js'),desk=read('homepage-desk.js');
+  const bracket=html.indexOf('id="playoff-bracket"');
+  const draft=html.indexOf('home-draft-watch-card');
+  const seasonal=html.indexOf('data-season=');
+  assert.ok(bracket>0&&seasonal>0&&bracket<seasonal);
+  assert.ok(draft>bracket&&draft<seasonal);
+  assert.match(html,/id="homeFreshStories"/);
+  assert.match(specials,/renderTopDiscovery/);
+  assert.doesNotMatch(desk,/insertBefore\(section,spotlight\)/);
+});
+
+test('Homepage live game board prioritizes and deduplicates playoff games',()=>{
+  const source=read('home-live-core.js');
+  assert.match(source,/dedupeHomeSchedule/);
+  assert.match(source,/competition\.playoffs\?\.games/);
+  assert.match(source,/payload\.upcomingGames=dedupeHomeSchedule/);
+  assert.match(source,/payload\.pastGames=dedupeHomeSchedule/);
+});
+
+test('Playoff dashboards expose advancement and elimination state',()=>{
+  const stats=read('live-stats-page.js'),team=read('team-page.js'),bracket=read('playoff-bracket.js');
+  assert.match(stats,/ELIMINATED/);
+  assert.match(stats,/ADVANCED/);
+  assert.match(stats,/seriesComplete/);
+  assert.match(team,/teamPlayoffPulse/);
+  assert.match(team,/renderTeamPlayoffPulse/);
+  assert.match(team,/api\/competition\?season=2026/);
+  assert.match(bracket,/is-eliminated/);
+  assert.match(bracket,/\/team\.html\?team=/);
+});

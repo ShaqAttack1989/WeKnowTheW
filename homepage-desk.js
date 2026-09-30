@@ -183,9 +183,6 @@
     main.append(editorial,divider,snapshots);
     shell.insertBefore(layout,foot);
 
-    const spotlight=document.getElementById('now-playing');
-    const pageMain=document.querySelector('main');
-    if(spotlight&&pageMain&&section.nextElementSibling!==spotlight)pageMain.insertBefore(section,spotlight);
     return true;
   }
 

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-30T00:21:18.959Z",
+  "generatedAt": "2026-09-30T06:38:10.773Z",
   "movement": {
     "latestTransactionDate": "2026-09-28",
     "transactions": [
@@ -1428,9 +1428,9 @@
     ]
   },
   "availability": {
-    "latestReportDate": "2026-09-29",
-    "reportLabel": "09/29/2026 08:15 PM ET",
-    "officialPdf": "https://ak-static.cms.nba.com/referee/wnba_injury/Injury-Report_2026-09-29_08_15PM.pdf",
+    "latestReportDate": "2026-09-30",
+    "reportLabel": "09/30/2026 02:30 AM ET",
+    "officialPdf": "https://ak-static.cms.nba.com/referee/wnba_injury/Injury-Report_2026-09-30_02_30AM.pdf",
     "injuries": [
       {
         "player": "Alanna Smith",
@@ -1462,40 +1462,15 @@
         "player": "Anastasiia Olairi Kosu",
         "team": "Minnesota Lynx",
         "status": "OUT",
-        "reason": "Injury/Illness - Right Foot; Right foot",
-        "gameDate": "09/29/2026",
-        "gameTime": "08:30 (ET)",
-        "matchup": "MIN@NYL",
-        "updated": "2026-09-29",
-        "source": "Official WNBA Injury Report PDF",
-        "officialCurrentReport": true,
-        "crossCheckOnly": false
-      },
-      {
-        "player": "Dana Evans",
-        "team": "Las Vegas Aces",
-        "status": "OUT",
-        "reason": "Injury/Illness - Right Knee; R. Knee",
-        "gameDate": "09/29/2026",
-        "gameTime": "06:30 (ET)",
-        "matchup": "LVA@IND",
-        "updated": "2026-09-29",
-        "source": "Official WNBA Injury Report PDF",
-        "officialCurrentReport": true,
-        "crossCheckOnly": false
-      },
-      {
-        "player": "Tyasha Harris",
-        "team": "Indiana Fever",
-        "status": "OUT",
-        "reason": "Injury/Illness - Left Leg; Lower",
-        "gameDate": "09/29/2026",
-        "gameTime": "06:30 (ET)",
-        "matchup": "LVA@IND",
-        "updated": "2026-09-29",
-        "source": "Official WNBA Injury Report PDF",
-        "officialCurrentReport": true,
-        "crossCheckOnly": false
+        "reason": "Foot · Kosu (foot) has been ruled out for Tuesday's Game 2 of the first round of the playoffs against the Liberty.",
+        "updated": "2026-09-28",
+        "returnDate": "2026-10-01",
+        "matchup": "",
+        "gameTime": "",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null,
+        "officialCurrentReport": false,
+        "crossCheckOnly": true
       },
       {
         "player": "Kara Dunn",
@@ -1572,6 +1547,20 @@
         "team": "Los Angeles Sparks",
         "status": "OUT",
         "reason": "Ankle · Brink (ankle) is listed as out for Thursday's game against Golden State.",
+        "updated": "2026-09-24",
+        "returnDate": "2027-05-01",
+        "matchup": "",
+        "gameTime": "",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null,
+        "officialCurrentReport": false,
+        "crossCheckOnly": true
+      },
+      {
+        "player": "Elena Buenavida",
+        "team": "Minnesota Lynx",
+        "status": "OUT",
+        "reason": "Coach's Decision · Buenavida (coach's decision) is out for Thursday's game against the Fever.",
         "updated": "2026-09-24",
         "returnDate": "2027-05-01",
         "matchup": "",
@@ -1783,6 +1772,20 @@
         "status": "OUT",
         "reason": "Knee · Cooke (knee) has been ruled out for Wednesday's game against Dallas.",
         "updated": "2026-09-23",
+        "returnDate": "2027-05-01",
+        "matchup": "",
+        "gameTime": "",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null,
+        "officialCurrentReport": false,
+        "crossCheckOnly": true
+      },
+      {
+        "player": "Elizabeth Balogun",
+        "team": "New York Liberty",
+        "status": "OUT",
+        "reason": "Not Injury Related · Balogun (not with team) is out for Wednesday's game against the Dream.",
+        "updated": "2026-09-22",
         "returnDate": "2027-05-01",
         "matchup": "",
         "gameTime": "",
@@ -2071,7 +2074,24 @@
         "seasonLongCarryover": true
       }
     ],
-    "teamStatuses": []
+    "teamStatuses": [
+      {
+        "team": "Indiana Fever",
+        "status": "NOT YET SUBMITTED",
+        "gameDate": "10/01/2026",
+        "gameTime": "09:00 (ET)",
+        "matchup": "IND@LVA",
+        "updated": "2026-10-01"
+      },
+      {
+        "team": "Las Vegas Aces",
+        "status": "NOT YET SUBMITTED",
+        "gameDate": "10/01/2026",
+        "gameTime": "09:00 (ET)",
+        "matchup": "IND@LVA",
+        "updated": "2026-10-01"
+      }
+    ]
   },
   "errors": []
 }

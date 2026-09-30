@@ -174,10 +174,13 @@ try{
 }finally{
   await browser.close();
 }
-if(stable(next)===stable(previous)){
-  console.log('WPBA dashboard already matches the official feed.');
+const changed=stable(next)!==stable(previous);
+const checkedAt=new Date().toISOString();
+next.checkedAt=checkedAt;
+next.updatedAt=changed?checkedAt:(previous.updatedAt||checkedAt);
+if(!changed&&previous.checkedAt&&Date.now()-Date.parse(previous.checkedAt)<20*60*60*1000){
+  console.log('WPBA dashboard already matches the official feed; freshness check is current.');
   process.exit(0);
 }
-next.updatedAt=new Date().toISOString();
 await fs.writeFile(DATA_PATH,`${JSON.stringify(next,null,2)}\n`);
-console.log(`Updated WPBA dashboard at ${next.updatedAt}.`);
+console.log(changed?`Updated WPBA dashboard at ${next.updatedAt}.`:`Verified unchanged WPBA dashboard at ${next.checkedAt}.`);

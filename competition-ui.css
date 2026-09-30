@@ -1,1 +1,22 @@
 .competition-switcher{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 16px}.competition-switcher button{border:1px solid #d8cfe0;background:#fff;color:#34263d;border-radius:999px;padding:9px 14px;font:inherit;font-size:.78rem;font-weight:900;cursor:pointer}.competition-switcher button.active{background:#21162a;color:#fff;border-color:#21162a}.competition-note{margin:10px 0 0;color:#756878;font-size:.82rem}.cup-standings{display:grid;gap:22px}.cup-block h3{margin:0 0 10px}.cup-table,.playoff-race{border:1px solid #e5dce9;border-radius:18px;overflow:hidden;background:#fff}.cup-row,.playoff-race-row{display:grid;grid-template-columns:minmax(210px,1fr) 80px 80px 90px;align-items:center;border-bottom:1px solid #eee7f1}.cup-row:last-child,.playoff-race-row:last-child{border-bottom:0}.cup-row>* ,.playoff-race-row>*{padding:11px 13px}.cup-row.head,.playoff-race-row.head{background:#20152a;color:#fff;font-size:.72rem;font-weight:950;text-transform:uppercase;letter-spacing:.05em}.playoff-series-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}.playoff-series-card{border:1px solid #e5dce9;border-radius:18px;padding:18px;background:#fff}.playoff-series-card span{font-size:.72rem;font-weight:900;color:#765c81;text-transform:uppercase}.playoff-series-card strong{display:block;font-size:1.2rem;margin:8px 0}.games-competition-row{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px}.games-competition-row .competition-switcher{margin:0}.live-team-link{color:inherit;text-decoration:none;font-weight:inherit}.live-team-link:hover,.live-team-link:focus-visible{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:3px}.live-team-link:focus-visible{outline:2px solid currentColor;outline-offset:3px;border-radius:3px}@media(max-width:650px){.cup-row,.playoff-race-row{grid-template-columns:minmax(170px,1fr) 60px 60px 70px;min-width:430px}.cup-table,.playoff-race{overflow:auto}}
+
+
+/* Dynamic playoff standings */
+.playoff-board-intro{margin:0 0 12px}
+.playoff-standings-table{border:1px solid #e5dce9;border-radius:18px;overflow:hidden;background:#fff}
+.playoff-standings-row{grid-template-columns:minmax(250px,1.45fr) 58px 72px 50px 50px 70px minmax(180px,1fr) 64px 74px 110px;min-width:1080px}
+.playoff-standings-row.head{background:#140a2f;color:#fff}
+.playoff-standings-row.is-advanced{background:#f8ffef}
+.playoff-standings-row.is-advanced .live-rank{background:#dff5bb;color:#315c12}
+.playoff-standings-row.is-eliminated{background:#f5f2f6;color:#7c737f;opacity:.7}
+.playoff-standings-row.is-eliminated .live-rank{background:#e1dce3;color:#706974}
+.playoff-standings-row.is-eliminated .live-team-link{text-decoration:line-through;text-decoration-thickness:1px;text-decoration-color:#aaa0ac}
+.playoff-standings-row.is-eliminated:hover{opacity:.9}
+.playoff-status-cell{display:inline-flex;align-items:center;justify-content:center;min-height:30px;border-radius:999px;padding:5px 8px!important;font-size:.68rem;font-weight:950;letter-spacing:.04em;white-space:nowrap}
+.playoff-status-cell.is-live{background:#ffebef;color:#a80f32}
+.playoff-status-cell.is-final{background:#ece8ef;color:#4e4455}
+.playoff-status-cell.is-next{background:#f3ecff;color:#5c1fc1}
+.playoff-status-cell.is-advanced{background:#e5f8cf;color:#315c12}
+.playoff-status-cell.is-eliminated{background:#f5e9ec;color:#9b2030}
+.playoff-marker.eliminated{background:#ece4e7;color:#9b2030}
+@media(max-width:700px){.playoff-standings-row{min-width:1010px}}

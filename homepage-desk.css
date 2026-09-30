@@ -460,3 +460,33 @@
     max-height:calc(100dvh - var(--w-home-scorebar-height) - var(--w-home-nav-height))!important;
   }
 }
+
+
+/* Homepage priority discovery */
+.home-priority-section{padding:24px 0 34px;background:#fffdf9}
+.home-priority-grid{display:grid;grid-template-columns:minmax(280px,.72fr) minmax(0,1.7fr);gap:16px;align-items:stretch}
+.home-draft-watch-card{position:relative;display:flex;min-width:0;flex-direction:column;overflow:hidden;padding:24px;border-radius:24px;background:radial-gradient(circle at 92% 10%,rgba(216,255,79,.2),transparent 30%),linear-gradient(145deg,#130625,#351064);color:#fff;text-decoration:none;box-shadow:0 14px 36px rgba(20,6,45,.16)}
+.home-draft-watch-card:after{content:"";position:absolute;right:-48px;bottom:-80px;width:190px;height:190px;border:2px solid rgba(255,255,255,.09);border-radius:50%;box-shadow:inset 0 0 0 38px rgba(255,255,255,.025)}
+.home-priority-eyebrow{position:relative;z-index:1;color:#d8ff4f;font-size:.72rem;font-weight:950;letter-spacing:.1em}
+.home-draft-watch-card strong{position:relative;z-index:1;display:block;margin:24px 0 9px;font-size:clamp(1.8rem,3vw,2.8rem);line-height:.96;letter-spacing:-.035em}
+.home-draft-watch-card p{position:relative;z-index:1;margin:0;color:rgba(255,255,255,.74);font-size:.9rem;line-height:1.55}
+.home-draft-watch-card b{position:relative;z-index:1;margin-top:auto;padding-top:24px;color:#d8ff4f;font-size:.82rem}
+.home-draft-watch-card:hover,.home-draft-watch-card:focus-visible{outline:3px solid #d8ff4f;outline-offset:3px}
+.home-fresh-desk{min-width:0;padding:20px;border:1px solid #e2d8e8;border-radius:24px;background:#fff;box-shadow:0 12px 30px rgba(31,14,51,.06)}
+.home-fresh-desk>header{display:flex;align-items:flex-end;justify-content:space-between;gap:18px;margin-bottom:14px}
+.home-fresh-desk>header span{display:block;color:#6d2bd8;font-size:.68rem;font-weight:950;letter-spacing:.1em}
+.home-fresh-desk>header h2{margin:4px 0 0;font-size:1.55rem;line-height:1}
+.home-fresh-desk>header>a{color:#5c1fc1;font-size:.78rem;font-weight:950;text-decoration:none;white-space:nowrap}
+.home-fresh-story-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.home-fresh-story{display:flex;min-width:0;flex-direction:column;overflow:hidden;border:1px solid #e8e0ed;border-radius:17px;background:#faf7fc;color:#1c1523;text-decoration:none;transition:transform .17s ease,box-shadow .17s ease}
+.home-fresh-story:hover,.home-fresh-story:focus-visible{transform:translateY(-2px);box-shadow:0 9px 20px rgba(35,14,61,.09);outline:2px solid #6d2bd8;outline-offset:2px}
+.home-fresh-story figure{position:relative;height:92px;margin:0;overflow:hidden;background:#1b0b34}
+.home-fresh-story figure img{width:100%;height:100%;object-fit:cover;object-position:var(--fresh-focus,50% 38%)}
+.home-fresh-story figure span{position:absolute;left:8px;top:8px;padding:4px 6px;border-radius:999px;background:#d8ff4f;color:#160a31;font-size:.56rem;font-weight:950;letter-spacing:.06em}
+.home-fresh-story>div{display:flex;min-height:116px;flex-direction:column;padding:12px}
+.home-fresh-story small{color:#766b7c;font-size:.62rem;font-weight:850;letter-spacing:.04em;text-transform:uppercase}
+.home-fresh-story strong{display:-webkit-box;overflow:hidden;margin-top:6px;font-size:.9rem;line-height:1.2;-webkit-box-orient:vertical;-webkit-line-clamp:3}
+.home-fresh-story b{margin-top:auto;padding-top:10px;color:#5c1fc1;font-size:.68rem}
+.home-fresh-loading{grid-column:1/-1;padding:24px;border:1px dashed #ddd3e4;border-radius:16px;color:#746a7c}
+@media(max-width:900px){.home-priority-grid{grid-template-columns:1fr}.home-fresh-story-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:680px){.home-priority-section{padding:18px 0 26px}.home-draft-watch-card{padding:20px}.home-fresh-desk{padding:16px}.home-fresh-desk>header{align-items:flex-start}.home-fresh-story-grid{display:flex;overflow-x:auto;padding-bottom:5px;scroll-snap-type:x proximity;scrollbar-width:none}.home-fresh-story-grid::-webkit-scrollbar{display:none}.home-fresh-story{flex:0 0 min(78vw,260px);scroll-snap-align:start}.home-fresh-desk>header h2{font-size:1.35rem}}

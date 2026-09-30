@@ -86,6 +86,21 @@ async function scrapeLeaders(page,previous){
   await openDashboard(page,'leaders/grid?game_type=Regular%20Season','Leaders');
   const found=await page.evaluate(metrics=>{
     const normalize=value=>String(value??'').replace(/\s+/g,' ').trim();
+    const absolute=value=>{try{return new URL(value,location.href).toString();}catch{return '';}};
+    const bestPlayerImage=(row,player)=>{
+      const playerKey=normalize(player).toLowerCase();
+      return [...row.querySelectorAll('img')].map(img=>{
+        const src=img.currentSrc||img.src||img.getAttribute('data-src')||'',alt=normalize(img.alt),text=`${alt} ${src}`.toLowerCase();
+        let score=0;
+        if(alt.toLowerCase().includes(playerKey))score+=10;
+        if(/headshot|player|athlete|profile|portrait/.test(text))score+=6;
+        if(/logo|team|icon|mark/.test(text))score-=6;
+        const box=img.getBoundingClientRect();
+        if(box.width>=48&&box.height>=48)score+=3;
+        if(box.height>box.width*.9)score+=2;
+        return {src:absolute(src),score};
+      }).filter(item=>/^https?:\/\//.test(item.src)).sort((a,b)=>b.score-a.score)[0]?.src||'';
+    };
     const output=[];
     for(const metric of metrics){
       const heading=[...document.querySelectorAll('h2,h3,h4')].find(node=>normalize(node.textContent).toUpperCase()===metric.toUpperCase());
@@ -96,12 +111,12 @@ async function scrapeLeaders(page,previous){
         if(links.length){
           const playerLink=links[0],player=normalize(playerLink.textContent);
           let row=playerLink.parentElement;
-          for(let j=0;j<4&&row;j+=1){
+          for(let j=0;j<5&&row;j+=1){
             const text=normalize(row.textContent);
             const values=text.match(/\b\d+(?:\.\d+)?%?\b/g)||[];
             if(text.includes(player)&&values.length){
               const nearbyLinks=[...row.querySelectorAll('a')].map(link=>normalize(link.textContent)).filter(Boolean);
-              output.push({metric,player,team:nearbyLinks.find(value=>value!==player)||'',value:values[values.length-1]});
+              output.push({metric,player,team:nearbyLinks.find(value=>value!==player)||'',value:values[values.length-1],profileUrl:absolute(playerLink.href),photo:bestPlayerImage(row,player)});
               break;
             }
             row=row.parentElement;
@@ -118,7 +133,7 @@ async function scrapeLeaders(page,previous){
   found.forEach(item=>{
     if(item.player&&item.value){
       const old=previousByMetric.get(item.metric)||{};
-      previousByMetric.set(item.metric,{group:METRIC_GROUP[item.metric],metric:item.metric,player:item.player,team:item.team||old.team||'',value:item.value});
+      previousByMetric.set(item.metric,{group:METRIC_GROUP[item.metric],metric:item.metric,player:item.player,team:item.team||old.team||'',value:item.value,profileUrl:item.profileUrl||old.profileUrl||'',photo:item.photo||old.photo||''});
     }
   });
   return [...previousByMetric.values()];

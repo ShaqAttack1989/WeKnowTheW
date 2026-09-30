@@ -54,7 +54,7 @@
   function gameCard(game){
     const scheduled=game.awayScore==null||game.homeScore==null;
     const awayWinner=!scheduled&&Number(game.awayScore)>Number(game.homeScore),homeWinner=!scheduled&&Number(game.homeScore)>Number(game.awayScore);
-    const displayStatus=scheduled&&new Date(`${game.date}T23:59:59Z`)<new Date()?'Awaiting result':game.status;
+    const displayStatus=scheduled&&new Date(`${game.date}T23:59:59Z`)<new Date()?'Official result pending':game.status;
     return `<article class="wpba-game"><time datetime="${esc(game.date)}">${esc(formatDate(game.date))}${game.time?` · ${esc(game.time)}`:''}</time><div class="wpba-game-team ${awayWinner?'winner':''}"><span class="league-team-logo"><img src="${teamLogo(game.away)}" alt="" loading="lazy" decoding="async"></span><strong>${esc(game.away)}</strong><b>${scheduled?'':esc(game.awayScore)}</b></div><div class="wpba-game-team ${homeWinner?'winner':''}"><span class="league-team-logo"><img src="${teamLogo(game.home)}" alt="" loading="lazy" decoding="async"></span><strong>${esc(game.home)}</strong><b>${scheduled?'':esc(game.homeScore)}</b></div><footer><span class="wpba-game-status">${esc(displayStatus)}</span><span>${esc(game.venue||'Venue pending')}</span></footer></article>`;
   }
 
@@ -121,8 +121,8 @@
       if(!Array.isArray(data.standings)||data.standings.length!==8)throw new Error('WPBA standings snapshot is incomplete');
       (data.teams||[]).forEach(team=>teamMap.set(team.name,team));
       renderPulse(data);renderChampionship(data.championship||{});renderStandings(data.standings);renderLeaders(data.leaders||[]);renderGames(data.games||[]);renderTeams(data.teams||[],data.standings);setupKitchen(data.standings);renderHonors(data.honors||[]);renderPhotos(data.photos||[]);renderHow(data.howItWorks||[]);renderHistory(data.history||[]);
-      const status=$('#wpbaStatus'),synced=formatDate(data.updatedAt);
-      status.textContent=`Official feed synced ${synced}`;status.classList.add('is-current');
+      const status=$('#wpbaStatus'),checked=formatDate(data.checkedAt||data.updatedAt),synced=formatDate(data.updatedAt);
+      status.textContent=data.checkedAt&&data.checkedAt!==data.updatedAt?`Official feed checked ${checked} · last data change ${synced}`:`Official feed synced ${synced}`;status.classList.add('is-current');
     }catch(error){
       console.error(error);
       const status=$('#wpbaStatus');status.textContent='Official feed temporarily unavailable';status.classList.add('is-stale');

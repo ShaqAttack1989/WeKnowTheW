@@ -182,8 +182,13 @@ function renderTeamPlayoffPulse(competition={}){
   const tone=state.eliminated?'eliminated':state.advanced?'advanced':'active';
   let detail='';
   if(next){
-    const date=new Date(next.startTimeUtc||`${next.date}T12:00:00-04:00`);
-    const when=Number.isNaN(date.getTime())?'Time TBD':new Intl.DateTimeFormat('en-US',{timeZone:'America/New_York',month:'short',day:'numeric',hour:'numeric',minute:'2-digit'}).format(date)+' ET';
+    const dateOnly=String(next.date||'').slice(0,10);
+    const dateLabel=dateOnly?new Intl.DateTimeFormat('en-US',{timeZone:'America/New_York',month:'short',day:'numeric'}).format(new Date(`${dateOnly}T12:00:00-04:00`)):'';
+    let when='Time TBD';
+    if(next.startTimeUtc){
+      const date=new Date(next.startTimeUtc);
+      if(!Number.isNaN(date.getTime()))when=new Intl.DateTimeFormat('en-US',{timeZone:'America/New_York',month:'short',day:'numeric',hour:'numeric',minute:'2-digit'}).format(date)+' ET';
+    }else if(dateLabel)when=`${dateLabel} · Time TBD`;
     detail=`Next: Game ${next.gameNumber||state.games.filter(game=>teamPlayoffGameRank(game)===3).length+1} · ${when}`;
   }else if(latest&&state.complete){
     detail=state.advanced?`${team.name} won the series ${state.wins}-${state.losses}.`:`${team.name} was eliminated ${state.losses}-${state.wins}.`;

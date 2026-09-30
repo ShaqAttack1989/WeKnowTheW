@@ -53,3 +53,18 @@ test('daily sync reads the official feed and only commits its data file',()=>{
   assert.match(sync,/scrapeLeaders/);
   assert.match(sync,/scrapeGames/);
 });
+
+
+test('WPBA hub renders real team marks and verified player portrait fallbacks',()=>{
+  const css=read('wpba.css');
+  const imageApi=read('api/league-team-image.js');
+  assert.match(page,/league-team-logo/);
+  assert.match(page,/playerPhoto/);
+  assert.match(page,/kind=player/);
+  assert.match(css,/wpba-leader-headshot/);
+  assert.match(imageApi,/PLAYER_DIRECT/);
+  assert.match(imageApi,/koi-love/);
+  assert.match(imageApi,/cordasia-harris/);
+  assert.match(imageApi,/chandler-prater/);
+  assert.match(imageApi,/erica-mccall/);
+});

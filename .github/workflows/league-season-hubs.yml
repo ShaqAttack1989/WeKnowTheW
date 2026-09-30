@@ -38,4 +38,4 @@ jobs:
           node --check unrivaled-page.js
           node --check api/league-team-image.js
       - name: Validate league season hubs
-        run: node --test tests/league-season-hubs.test.js
+        run: node --test tests/league-season-hubs.test.js tests/dashboard-data-completeness.test.js

@@ -3,8 +3,10 @@
   const norm=(value='')=>String(value).normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]/g,'');
   const initials=(value='')=>String(value).trim().split(/\s+/).filter(Boolean).map(part=>part[0]).join('').slice(0,2).toUpperCase();
   const num=value=>value===null||value===undefined||value===''?null:Number(value);
+  const gradeLetter=score=>score>=97?'A+':score>=93?'A':score>=90?'A-':score>=87?'B+':score>=83?'B':score>=80?'B-':score>=77?'C+':score>=73?'C':'C-';
   const format=(value,metric={})=>{
     const n=num(value); if(n===null||Number.isNaN(n)) return '—';
+    if(metric.format==='grade') return `${Math.round(n)} · ${gradeLetter(n)}`;
     if(metric.format==='pct1') return `${n.toFixed(metric.decimals??1)}%`;
     if(metric.format==='pct3') return n.toFixed(metric.decimals??3).replace(/^0/,'.');
     if(metric.format==='int') return Math.round(n).toLocaleString();

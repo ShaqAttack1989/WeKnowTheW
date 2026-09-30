@@ -45,6 +45,22 @@ const PHOTOS={
     pipeline:'https://crownupshot.com/michelle-onyiah-turns-upshot-opportunity-into-wnba-chance/'
   }
 };
+const PLAYER_DIRECT={
+  wpba:{
+    'koi-love':'https://images.sidearmdev.com/crop?height=270&type=webp&url=https%3A%2F%2Fdxbhsrqyrr690.cloudfront.net%2Fsidearm.nextgen.sites%2Fusctrojans.com%2Fimages%2F2022%2F10%2F16%2FKoi_Love_2223mug.jpg&width=180',
+    'cordasia-harris':'https://images.sidearmdev.com/resize?url=https%3A%2F%2Fdxbhsrqyrr690.cloudfront.net%2Fsidearm.nextgen.sites%2Fusajaguars.com%2Fimages%2F2025%2F7%2F21%2FHarris__Cordasia_22_0007.jpg&width=300&type=webp',
+    'delia-moore':'https://images.sidearmdev.com/convert?type=webp&url=https%3A%2F%2Fdxbhsrqyrr690.cloudfront.net%2Fsidearm.nextgen.sites%2Feastbaypioneers.com%2Fimages%2F2023%2F2%2F7%2FDelia_Moore__3__CSUEB_WBB_vs_CSU_San_Bernardino_20230204_13573875_RWE.jpg',
+    'chandler-prater':'https://images.sidearmdev.com/crop?height=270&type=webp&url=https%3A%2F%2Fdxbhsrqyrr690.cloudfront.net%2Fsidearm.nextgen.sites%2Fmsstate.sidearmsports.com%2Fimages%2F2025%2F10%2F7%2FPrater_Chandler_WEB_20251006_WB_Headshots_MM_0012.jpg&width=180',
+    'erica-mccall':'https://cdn.wnba.com/headshots/wnba/latest/1040x760/1628286.png'
+  }
+};
+const PLAYER_SOURCES={
+  wpba:{
+    'deja-jackson':'https://ucmercedbobcats.com/sports/womens-basketball/roster/deja-jackson/753',
+    'miyu-mizukawa':'https://www.sofascore.com/basketball/player/mixu-mizukawa/2297533',
+    'connie-clarke':'https://gogriffons.com/sports/womens-basketball/roster/connie-clarke/6944'
+  }
+};
 function esc(value=''){return String(value).replace(/[&<>"]/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[ch]));}
 function decode(value=''){return String(value).replace(/&amp;/g,'&').replace(/&#x27;|&#39;/g,"'").replace(/&quot;/g,'"');}
 function norm(value=''){return String(value).toLowerCase().replace(/[^a-z0-9]/g,'');}
@@ -85,7 +101,13 @@ function fallbackSvg(label,league){
 }
 module.exports=async function handler(req,res){
   const league=String(req.query.league||'').toLowerCase(),key=String(req.query.key||'').toLowerCase(),kind=String(req.query.kind||'logo').toLowerCase();
-  const source=kind==='photo'?PHOTOS[league]?.[key]:SOURCES[league]?.[key];
+  const direct=kind==='player'?PLAYER_DIRECT[league]?.[key]:'';
+  if(direct){
+    res.setHeader('Cache-Control','s-maxage=604800, stale-while-revalidate=2592000');
+    res.setHeader('Location',direct);
+    return res.status(302).end();
+  }
+  const source=kind==='player'?PLAYER_SOURCES[league]?.[key]:kind==='photo'?PHOTOS[league]?.[key]:SOURCES[league]?.[key];
   res.setHeader('Cache-Control','s-maxage=86400, stale-while-revalidate=604800');
   if(!source){
     res.setHeader('Content-Type','image/svg+xml; charset=utf-8');
@@ -98,6 +120,9 @@ module.exports=async function handler(req,res){
     let image='';
     if(kind==='logo'){
       image=imageCandidates(html,source,key)[0]?.src||'';
+    }else if(kind==='player'){
+      const candidates=imageCandidates(html,source,key).filter(item=>!/logo|icon|mark|site-logo|placeholder|no_image/i.test(item.src));
+      image=candidates[0]?.src||meta(html,'og:image')||meta(html,'twitter:image');
     }
     if(!image)image=meta(html,'og:image')||meta(html,'twitter:image');
     if(!/^https?:\/\//i.test(image))throw new Error('no image');

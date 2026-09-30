@@ -138,6 +138,21 @@ document.getElementById('upcomingGamesToggle')?.addEventListener('click',()=>{ga
 document.getElementById('homeGamesTeamFilter')?.addEventListener('change',event=>{gameTeam=event.target.value||'all';renderGamePanel();});
 
 const homeJson=async url=>window.WHomeData?.get?window.WHomeData.get(url,{ttl:15000}):fetch(url,{headers:{Accept:'application/json','Cache-Control':'no-cache'},cache:'no-store'}).then(async response=>{const payload=await response.json().catch(()=>({}));if(!response.ok)throw new Error(payload.error||'Homepage data unavailable');return payload;});
+function homeScheduleKey(game={}){
+  const date=String(game.date||game.startTimeUtc||game.timestamp||'').slice(0,10);
+  const away=String(game.awayTeam||game.away?.name||'').toLowerCase().replace(/[^a-z0-9]/g,'');
+  const home=String(game.homeTeam||game.home?.name||'').toLowerCase().replace(/[^a-z0-9]/g,'');
+  return `${date}|${away}|${home}`;
+}
+function dedupeHomeSchedule(items=[]){
+  const seen=new Set();
+  return items.filter(game=>{
+    const key=homeScheduleKey(game);
+    if(!key||key==='||')return true;
+    if(seen.has(key))return false;
+    seen.add(key);return true;
+  });
+}
 async function loadHomeLive(initial=false){
   if(homeLiveRefreshActive)return;
   homeLiveRefreshActive=true;
@@ -157,10 +172,12 @@ async function loadHomeLive(initial=false){
     else {const browserLive=await window.WGameCards?.fetchLiveGames?.();if(Array.isArray(browserLive))payload.liveGames=browserLive;homeLiveUpdatedAt=payload.updatedAt;}
     if(window.WGameBroadcasts?.enrichGames)payload.liveGames=WGameBroadcasts.enrichGames(payload.liveGames||[]);
     const today=new Date().toLocaleDateString('en-CA',{timeZone:EASTERN_TIME_ZONE});
-    const playoffGames=playoffResult.status==='fulfilled'?playoffResult.value.playoffs?.games||[]:[];
-    const upcomingPlayoffs=playoffGames.filter(game=>!game.completed&&game.state!=='in'&&String(game.date||'')>=today);
-    if(upcomingPlayoffs.length)payload.upcomingGames=[...upcomingPlayoffs,...(payload.upcomingGames||[])];
-    payload.hasPlayoffs=upcomingPlayoffs.length>0;
+    const competition=playoffResult.status==='fulfilled'?playoffResult.value:{};
+    const playoffGames=competition.playoffs?.games||[];
+    const upcomingPlayoffs=playoffGames.filter(game=>!game.completed&&String(game.state||'').toLowerCase()!=='in'&&String(game.date||'')>=today).sort((a,b)=>Date.parse(a.startTimeUtc||`${a.date}T23:59:59-04:00`)-Date.parse(b.startTimeUtc||`${b.date}T23:59:59-04:00`));
+    payload.upcomingGames=dedupeHomeSchedule([...(upcomingPlayoffs||[]),...(payload.upcomingGames||[])]);
+    payload.pastGames=dedupeHomeSchedule([...(playoffGames.filter(game=>game.completed||String(game.state||'').toLowerCase()==='post').sort((a,b)=>Date.parse(b.startTimeUtc||b.date)-Date.parse(a.startTimeUtc||a.date))),...(payload.pastGames||payload.recentResults||[])]);
+    payload.hasPlayoffs=Boolean(competition.playoffs?.started||playoffGames.length);
     livePayload=payload;
     if(initial&&gameMode==='live'&&!payload.liveGames.length)gameMode='upcoming';
     window.WGameCards?.populateFilter(document.getElementById('homeGamesTeamFilter'),payload);

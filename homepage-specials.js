@@ -137,6 +137,25 @@
     return `<div class="week-story-list">${items.map((post,index)=>`<div class="week-story-item ${index===0?'lead':''}"><span class="week-feature-meta">${safe(post.seriesLabel||'SNACK SHAK')} · ${safe(dateLabel(post))}</span><strong class="week-story-title">${safe(post.title)}</strong>${index===0&&post.dek?`<p>${safe(short(post.dek,155))}</p>`:''}<a href="${safe(featureHref(post))}">${index===0?'Read the newest story':'Read story'} →</a></div>`).join('')}</div><a class="week-story-all" href="/snack-shak.html">See all Snack Shak stories →</a>`;
   }
 
+  function renderTopDiscovery(){
+    const host=document.getElementById('homeFreshStories');
+    if(!host||!posts.length)return;
+    const used=spotlightUsed();
+    const seen=new Set();
+    const fresh=posts.filter(post=>{
+      if(!post?.title||post.slug==='2027-wnba-mock-draft')return false;
+      const href=featureHref(post),key=norm(post.title);
+      if(used.has(href)||seen.has(key))return false;
+      seen.add(key);return true;
+    }).slice(0,3);
+    if(!fresh.length)return;
+    host.innerHTML=fresh.map((post,index)=>{
+      const image=imageFor(post,isFood(post)?'food':'byte');
+      const focus=post.imageFocus||post.storyImageFocus||'50% 38%';
+      return `<a class="home-fresh-story" href="${safe(featureHref(post))}"><figure style="--fresh-focus:${safe(focus)}"><img src="${safe(image)}" alt="${safe(post.imageAlt||post.title)}" loading="${index===0?'eager':'lazy'}" decoding="async">${index===0?'<span>NEW</span>':''}</figure><div><small>${safe(post.seriesLabel||(isByte(post)?'SNACK SHAK BYTE':'FOOD FOR THOUGHT'))} · ${safe(dateLabel(post))}</small><strong>${safe(post.title)}</strong><b>Read story →</b></div></a>`;
+    }).join('');
+  }
+
   function renderLegacyWeeklySpecials(){
     const snackHost=document.getElementById('homeWeekSnackLive');
     const milestoneHost=document.getElementById('homeWeekMilestoneLive');
@@ -183,6 +202,7 @@
     keepPlayoffSpotlight();
     await loadSpecials(force);
     // homepage-week-live.js owns the editorial cards and their navigation.
+    renderTopDiscovery();
     renderLegacyWeeklySpecials();
     const input=document.getElementById('homeSiteSearch');
     if(input?.value)appendSearchMatches(input.value);

@@ -40,9 +40,10 @@ function mergePlayoffGames(base=[],fresh=[]){
 function playoffSeries(games=[]){
   const map=new Map();
   games.forEach(game=>{
-    const teams=[game.homeTeam,game.awayTeam].filter(Boolean).sort(),key=teams.map(lsTeamNorm).join('|');
+    const teams=[game.homeTeam,game.awayTeam].filter(Boolean).sort(),round=String(game.round||'First Round'),key=`${round}|${teams.map(lsTeamNorm).join('|')}`;
     if(teams.length!==2)return;
-    const row=map.get(key)||{teamA:teams[0],teamB:teams[1],winsA:0,winsB:0,games:[]};
+    const target=/finals/i.test(round)&&!/semi/i.test(round)?4:/semi/i.test(round)?3:2;
+    const row=map.get(key)||{teamA:teams[0],teamB:teams[1],round,target,winsA:0,winsB:0,games:[]};
     row.games.push(game);
     if(lsGameStateRank(game)===3&&game.homeScore!==null&&game.homeScore!==undefined&&game.awayScore!==null&&game.awayScore!==undefined&&Number.isFinite(Number(game.homeScore))&&Number.isFinite(Number(game.awayScore))&&Number(game.homeScore)!==Number(game.awayScore)){
       const winner=Number(game.homeScore)>Number(game.awayScore)?game.homeTeam:game.awayTeam;
@@ -50,7 +51,7 @@ function playoffSeries(games=[]){
     }
     map.set(key,row);
   });
-  return [...map.values()];
+  return [...map.values()].map(row=>({...row,winner:row.winsA>=row.target?row.teamA:row.winsB>=row.target?row.teamB:'',complete:row.winsA>=row.target||row.winsB>=row.target}));
 }
 function playoffGameForSeries(series={}){
   const games=series.games||[],live=games.find(game=>lsGameStateRank(game)===2);
@@ -68,15 +69,17 @@ function playoffStatus(game={}){
 function playoffRows(){
   const standings=(lsPayload?.standings||[]).slice().sort((a,b)=>(a.overall_rank||99)-(b.overall_rank||99)).slice(0,8),games=lsCompetition?.playoffs?.games||[],series=playoffSeries(games);
   return standings.map((standing,index)=>{
-    const name=lsTeamName(standing),matchup=series.find(item=>item.teamA===name||item.teamB===name),opponent=matchup?(matchup.teamA===name?matchup.teamB:matchup.teamA):'',wins=matchup?(matchup.teamA===name?matchup.winsA:matchup.winsB):0,losses=matchup?(matchup.teamA===name?matchup.winsB:matchup.winsA):0,game=playoffGameForSeries(matchup||{}),status=playoffStatus(game||{});
+    const name=lsTeamName(standing),matchup=series.find(item=>item.round==='First Round'&&(item.teamA===name||item.teamB===name)),opponent=matchup?(matchup.teamA===name?matchup.teamB:matchup.teamA):'',wins=matchup?(matchup.teamA===name?matchup.winsA:matchup.winsB):0,losses=matchup?(matchup.teamA===name?matchup.winsB:matchup.winsA):0,game=playoffGameForSeries(matchup||{}),baseStatus=playoffStatus(game||{});
+    const advanced=Boolean(matchup?.complete&&matchup.winner===name),eliminated=Boolean(matchup?.complete&&matchup.winner&&matchup.winner!==name);
+    const status=advanced?{label:'ADVANCED',className:'is-advanced'}:eliminated?{label:'ELIMINATED',className:'is-eliminated'}:baseStatus;
     let score='—';
     if(game&&lsGameStateRank(game)>1&&game.homeScore!==null&&game.homeScore!==undefined&&game.awayScore!==null&&game.awayScore!==undefined&&Number.isFinite(Number(game.homeScore))&&Number.isFinite(Number(game.awayScore))){const teamScore=game.homeTeam===name?game.homeScore:game.awayScore,opponentScore=game.homeTeam===name?game.awayScore:game.homeScore;score=`${teamScore}–${opponentScore}`;}
-    return {name,seed:standing.overall_rank||index+1,wins,losses,pct:wins+losses?wins/(wins+losses):0,opponent,game,status,score};
+    return {name,seed:standing.overall_rank||index+1,wins,losses,pct:wins+losses?wins/(wins+losses):0,opponent,game,status,score,advanced,eliminated,seriesComplete:Boolean(matchup?.complete)};
   });
 }
 function playoffView(){
-  const rows=playoffRows(),liveCount=(lsCompetition?.playoffs?.games||[]).filter(game=>lsGameStateRank(game)===2).length;
-  return `<div class="page-note playoff-board-intro"><strong>${liveCount?`${liveCount} playoff ${liveCount===1?'game':'games'} live now`:'First-round series board'}</strong><p>Seeds, series records, scores and game states update from the same live feed as the Games dashboard.</p></div><div class="live-standings-table playoff-standings-table"><div class="live-standings-row playoff-standings-row head"><span>TEAM</span><span>SEED</span><span>SERIES</span><span>W</span><span>L</span><span>PCT</span><span>OPPONENT</span><span>GAME</span><span>SCORE</span><span>STATUS</span></div>${rows.map(row=>`<div class="live-standings-row playoff-standings-row"><span class="live-team-cell"><b class="live-rank">${row.seed}</b><strong>${lsTeamLink(row.name)}</strong></span><strong>${row.seed}</strong><strong>${row.wins}–${row.losses}</strong><strong>${row.wins}</strong><strong>${row.losses}</strong><span>${lsPct(row.pct)}</span><span>${row.opponent?lsTeamLink(row.opponent,'live-team-link'):'—'}</span><span>${row.game?`G${row.game.gameNumber||1}`:'—'}</span><strong>${row.score}</strong><span class="playoff-status-cell ${row.status.className}">${lsSafe(row.status.label)}</span></div>`).join('')}</div>`;
+  const rows=playoffRows(),liveCount=(lsCompetition?.playoffs?.games||[]).filter(game=>lsGameStateRank(game)===2).length,eliminated=rows.filter(row=>row.eliminated).length;
+  return `<div class="page-note playoff-board-intro"><strong>${liveCount?`${liveCount} playoff ${liveCount===1?'game':'games'} live now`:'First-round series board'}</strong><p>Seeds, series records, scores and advancement status update from the same playoff feed as Games. ${eliminated?`${eliminated} team${eliminated===1?' has':'s have'} been eliminated.`:''}</p></div><div class="live-standings-table playoff-standings-table"><div class="live-standings-row playoff-standings-row head"><span>TEAM</span><span>SEED</span><span>SERIES</span><span>W</span><span>L</span><span>PCT</span><span>OPPONENT</span><span>GAME</span><span>SCORE</span><span>STATUS</span></div>${rows.map(row=>`<div class="live-standings-row playoff-standings-row ${row.eliminated?'is-eliminated':row.advanced?'is-advanced':''}"><span class="live-team-cell"><b class="live-rank">${row.seed}</b><strong>${lsTeamLink(row.name)}</strong>${row.eliminated?'<span class="playoff-marker eliminated" title="Eliminated">×</span>':row.advanced?'<span class="playoff-marker clinched" title="Advanced">✓</span>':''}</span><strong>${row.seed}</strong><strong>${row.wins}–${row.losses}</strong><strong>${row.wins}</strong><strong>${row.losses}</strong><span>${lsPct(row.pct)}</span><span>${row.opponent?lsTeamLink(row.opponent,'live-team-link'):'—'}</span><span>${row.seriesComplete?'DONE':row.game?`G${row.game.gameNumber||1}`:'—'}</span><strong>${row.score}</strong><span class="playoff-status-cell ${row.status.className}">${lsSafe(row.status.label)}</span></div>`).join('')}</div>`;
 }
 
 function preferredCompetition(){

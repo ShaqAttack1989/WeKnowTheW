@@ -284,3 +284,23 @@ body.team-page{background:#fffaf0;color:#17131f;}
 @media(max-width:700px){
   .dream-update-grid{grid-template-columns:1fr}
 }
+
+
+/* Team playoff pulse */
+.team-playoff-pulse{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(150px,.42fr) auto;gap:18px;align-items:center;margin:16px 0 22px;padding:18px 20px;border:1px solid #ded5e4;border-left:6px solid var(--team-primary);border-radius:20px;background:linear-gradient(135deg,#fff,#f8f4fb);box-shadow:0 8px 22px rgba(30,14,47,.05)}
+.team-playoff-pulse[hidden]{display:none!important}
+.team-playoff-pulse>div:first-child>span,.team-playoff-pulse-score>span{display:block;color:var(--team-primary-text);font-size:.68rem;font-weight:950;letter-spacing:.09em}
+.team-playoff-pulse>div:first-child>strong{display:block;margin:4px 0 5px;font-size:1.3rem;line-height:1.05}
+.team-playoff-pulse>div:first-child>p{margin:0;color:#6c6373;font-size:.84rem;line-height:1.45}
+.team-playoff-pulse-score{padding:10px 14px;border-left:1px solid #e5dce9}
+.team-playoff-pulse-score>strong{display:block;margin:2px 0;font-size:1.7rem;line-height:1}
+.team-playoff-pulse-score small{color:#6e6575}
+.team-playoff-pulse-score a{color:var(--team-primary-text);font-weight:900;text-decoration:none}
+.team-playoff-pulse nav{display:grid;gap:7px}
+.team-playoff-pulse nav a{display:block;padding:8px 10px;border-radius:999px;background:#160a31;color:#fff;font-size:.72rem;font-weight:900;text-align:center;text-decoration:none;white-space:nowrap}
+.team-playoff-pulse nav a:hover,.team-playoff-pulse nav a:focus-visible{background:var(--team-primary);color:var(--team-on-primary,#fff);outline:2px solid var(--team-primary);outline-offset:2px}
+.team-playoff-pulse.is-advanced{border-left-color:#4b8f18;background:linear-gradient(135deg,#fbfff6,#eff9df)}
+.team-playoff-pulse.is-advanced>div:first-child>strong{color:#315d12}
+.team-playoff-pulse.is-eliminated{border-left-color:#b62a3a;background:linear-gradient(135deg,#fbf7f8,#f2ecee)}
+.team-playoff-pulse.is-eliminated>div:first-child>strong{color:#9b2030}
+@media(max-width:760px){.team-playoff-pulse{grid-template-columns:1fr}.team-playoff-pulse-score{border-left:0;border-top:1px solid #e5dce9;padding:12px 0}.team-playoff-pulse nav{grid-template-columns:repeat(2,minmax(0,1fr))}}

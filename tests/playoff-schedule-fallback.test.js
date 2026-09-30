@@ -13,34 +13,36 @@ function runHandler(){
   return Promise.resolve(handler(req,res)).then(()=>payload);
 }
 
-test('published 2026 playoff openers supply the correct Eastern tip times and networks',async()=>{
+test('published 2026 playoff fallback keeps completed series and the current slate available',async()=>{
   const originalFetch=global.fetch;
   global.fetch=async()=>({ok:true,json:async()=>({events:[]})});
   try{
     const payload=await runHandler();
-    const games=Object.fromEntries(payload.playoffs.games.map(game=>[`${game.awayTeam} at ${game.homeTeam}`,game]));
-    assert.deepEqual(
-      [
-        games['New York Liberty at Minnesota Lynx'].startTimeUtc,
-        games['Indiana Fever at Las Vegas Aces'].startTimeUtc,
-        games['Washington Mystics at Atlanta Dream'].startTimeUtc,
-        games['Dallas Wings at Golden State Valkyries'].startTimeUtc
-      ],
-      [
-        '2026-09-27T14:00:00-04:00',
-        '2026-09-27T16:00:00-04:00',
-        '2026-09-27T19:00:00-04:00',
-        '2026-09-27T21:00:00-04:00'
-      ]
-    );
-    assert.deepEqual(games['Indiana Fever at Las Vegas Aces'].broadcasts,['ABC']);
-    assert.deepEqual(games['Washington Mystics at Atlanta Dream'].broadcasts,['Prime Video']);
-    assert.deepEqual(games['Dallas Wings at Golden State Valkyries'].broadcasts,['USA']);
-    assert.equal(games['New York Liberty at Minnesota Lynx'].awayScore,91);
-    assert.equal(games['New York Liberty at Minnesota Lynx'].homeScore,75);
-    assert.equal(games['Indiana Fever at Las Vegas Aces'].homeScore,102);
-    assert.ok(Object.values(games).every(game=>game.completed&&game.status==='Final'));
-    assert.equal(payload.playoffs.series.length,4);
+    const games=payload.playoffs.games;
+    const byId=id=>games.find(game=>game.id===id);
+
+    assert.equal(byId('1042600101').awayScore,91);
+    assert.equal(byId('1042600101').homeScore,75);
+    assert.equal(byId('2026-nyl-min-g2').awayTeam,'Minnesota Lynx');
+    assert.equal(byId('2026-nyl-min-g2').homeTeam,'New York Liberty');
+    assert.equal(byId('2026-nyl-min-g2').homeScore,87);
+
+    const libertySeries=payload.playoffs.series.find(row=>new Set([row.teamA,row.teamB]).has('New York Liberty')&&new Set([row.teamA,row.teamB]).has('Minnesota Lynx'));
+    assert.ok(libertySeries);
+    assert.equal(libertySeries.winner,'New York Liberty');
+    assert.equal(libertySeries.complete,true);
+    assert.equal(libertySeries.targetWins,2);
+
+    assert.equal(byId('2026-was-atl-g2').date,'2026-09-30');
+    assert.equal(byId('2026-was-atl-g2').startTimeUtc,'2026-09-30T19:00:00-04:00');
+    assert.deepEqual(byId('2026-was-atl-g2').broadcasts,['ESPN']);
+
+    assert.equal(byId('2026-dal-gsv-g2').date,'2026-09-30');
+    assert.equal(byId('2026-dal-gsv-g2').startTimeUtc,'2026-09-30T21:00:00-04:00');
+    assert.deepEqual(byId('2026-dal-gsv-g2').broadcasts,['ESPN']);
+
+    assert.equal(byId('2026-lva-ind-g3').date,'2026-10-01');
+    assert.equal(byId('2026-lva-ind-g3').startTimeUtc,'2026-10-01T21:00:00-04:00');
     assert.ok(payload.playoffs.series.every(row=>row.round==='First Round'&&row.targetWins===2));
   }finally{
     global.fetch=originalFetch;

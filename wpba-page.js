@@ -12,6 +12,7 @@
   const slug=value=>String(value||'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
   const teamLogo=name=>teamMap.get(name)?.logo||`/api/league-team-image?league=wpba&key=${encodeURIComponent(slug(name))}`;
   const initials=name=>String(name||'').trim().split(/\s+/).filter(Boolean).slice(0,2).map(part=>part[0]||'').join('').toUpperCase()||'W';
+  const playerPhoto=item=>item?.photo||`/api/league-team-image?league=wpba&kind=player&key=${encodeURIComponent(slug(item?.player||''))}`;
 
   function renderPulse(data){
     const leader=data.standings?.[0];
@@ -39,7 +40,7 @@
     tabs.innerHTML=groups.map((group,index)=>`<button class="wpba-leader-tab" type="button" role="tab" aria-selected="${index===0}" data-group="${esc(group)}">${esc(group)}</button>`).join('');
     const draw=group=>{
       const shown=group==='All'?leaders:leaders.filter(item=>item.group===group);
-      $('#wpbaLeaders').innerHTML=shown.map(item=>`<article class="wpba-leader-card" style="${teamStyle(item.team)}"><div class="wpba-leader-media"><span class="wpba-leader-headshot"><i>${esc(initials(item.player))}</i>${item.photo?`<img src="${esc(item.photo)}" alt="${esc(item.player)}" loading="lazy" decoding="async" onerror="this.remove()">`:''}</span><span class="league-team-logo wpba-leader-team-logo"><img src="${teamLogo(item.team)}" alt="${esc(item.team)} logo" loading="lazy" decoding="async"></span></div><span>${esc(item.metric)}</span><strong>${esc(item.player)}</strong><b>${esc(item.value)}</b><small>${esc(item.team)}</small>${item.profileUrl?`<a class="wpba-player-profile-link" href="${esc(item.profileUrl)}" target="_blank" rel="noopener">Official player profile ↗</a>`:''}</article>`).join('');
+      $('#wpbaLeaders').innerHTML=shown.map(item=>`<article class="wpba-leader-card" style="${teamStyle(item.team)}"><div class="wpba-leader-media"><span class="wpba-leader-headshot"><i>${esc(initials(item.player))}</i><img src="${esc(playerPhoto(item))}" alt="${esc(item.player)}" loading="lazy" decoding="async" onerror="this.remove()"></span><span class="league-team-logo wpba-leader-team-logo"><img src="${teamLogo(item.team)}" alt="${esc(item.team)} logo" loading="lazy" decoding="async"></span></div><span>${esc(item.metric)}</span><strong>${esc(item.player)}</strong><b>${esc(item.value)}</b><small>${esc(item.team)}</small>${item.profileUrl?`<a class="wpba-player-profile-link" href="${esc(item.profileUrl)}" target="_blank" rel="noopener">Official player profile ↗</a>`:''}</article>`).join('');
     };
     tabs.addEventListener('click',event=>{
       const button=event.target.closest('button[data-group]');

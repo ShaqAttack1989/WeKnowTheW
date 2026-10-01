@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-01T16:21:03.360Z",
+  "generatedAt": "2026-10-01T21:46:47.603Z",
   "movement": {
     "latestTransactionDate": "2026-09-28",
     "transactions": [
@@ -1429,8 +1429,8 @@
   },
   "availability": {
     "latestReportDate": "2026-10-01",
-    "reportLabel": "10/01/2026 12:15 PM ET",
-    "officialPdf": "https://ak-static.cms.nba.com/referee/wnba_injury/Injury-Report_2026-10-01_12_15PM.pdf",
+    "reportLabel": "10/01/2026 05:45 PM ET",
+    "officialPdf": "https://ak-static.cms.nba.com/referee/wnba_injury/Injury-Report_2026-10-01_05_45PM.pdf",
     "injuries": [
       {
         "player": "Aliyah Boston",
@@ -1463,6 +1463,19 @@
         "team": "Las Vegas Aces",
         "status": "OUT",
         "reason": "Injury/Illness - Right Knee; R. Knee",
+        "gameDate": "10/01/2026",
+        "gameTime": "09:00 (ET)",
+        "matchup": "IND@LVA",
+        "updated": "2026-10-01",
+        "source": "Official WNBA Injury Report PDF",
+        "officialCurrentReport": true,
+        "crossCheckOnly": false
+      },
+      {
+        "player": "Stephanie Talbot",
+        "team": "Las Vegas Aces",
+        "status": "QUESTIONABLE",
+        "reason": "Injury/Illness - Left Leg; L. Leg",
         "gameDate": "10/01/2026",
         "gameTime": "09:00 (ET)",
         "matchup": "IND@LVA",

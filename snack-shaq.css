@@ -428,3 +428,54 @@
 .ap-awards-method p{margin:5px 0 0;color:rgba(255,255,255,.76);font-size:.88rem!important;line-height:1.58!important}
 @media(max-width:860px){.ap-awards-head{grid-template-columns:1fr}.ap-awards-head>aside{max-width:280px}.ap-winner-grid{grid-template-columns:1fr}.ap-history-leader{grid-template-columns:1fr;gap:6px}.ap-history-timeline{grid-template-columns:repeat(4,minmax(0,1fr))}.ap-ballot-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:620px){.ap-awards-dashboard{margin-right:-13px;margin-left:-13px;padding:21px 15px;border-radius:22px}.ap-awards-summary{grid-template-columns:1fr}.ap-awards-summary div{justify-content:center}.ap-dashboard-label{align-items:flex-start;flex-direction:column;gap:5px}.ap-award-controls,.ap-history-controls,.ap-ballot-controls{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}.ap-award-controls button,.ap-history-controls button,.ap-ballot-controls button{width:100%;padding-inline:10px}.ap-winner-card{grid-template-columns:108px minmax(0,1fr);min-height:250px}.ap-winner-photo img{min-height:250px}.ap-winner-copy{padding:16px 13px}.ap-winner-copy h4{font-size:1.25rem}.ap-winner-receipt{align-items:flex-start;flex-direction:column}.ap-winner-receipt small{flex-basis:auto}.ap-history-timeline{grid-template-columns:repeat(2,minmax(0,1fr))}.ap-history-year{min-height:82px}.ap-ballot-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.ap-ballot-player>div{height:120px}}
+
+/* Oct. 1, 2026 playoff watch update: four-stat summary, team marks and six receipts. */
+.playoff-watch-summary{grid-template-columns:repeat(auto-fit,minmax(135px,1fr))}
+.playoff-record-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.playoff-team-logo{display:block;width:44px;height:44px;margin:0 0 6px;object-fit:contain;filter:drop-shadow(0 4px 10px rgba(0,0,0,.24))}
+.playoff-team-side.is-b .playoff-team-logo{margin-left:auto}
+
+/* Official game-image gallery. */
+.playoff-game-gallery{margin:34px -14px;padding:clamp(20px,4vw,34px);border-radius:28px;background:linear-gradient(135deg,#f36f3d 0%,#d93478 46%,#5c2ce0 100%);color:#fff;box-shadow:0 24px 52px rgba(69,20,102,.2)}
+.playoff-game-gallery>header span{display:block;color:#d8ff4f;font-size:.76rem;font-weight:950;letter-spacing:.12em}
+.playoff-game-gallery>header h3{max-width:780px;margin:7px 0 8px;color:#fff;font-size:clamp(1.85rem,4vw,3rem);line-height:1}
+.playoff-game-gallery>header p{margin:0;color:rgba(255,255,255,.82);font-size:1rem;line-height:1.5}
+.playoff-game-gallery>div{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:18px}
+.playoff-game-gallery a{overflow:hidden;border:1px solid rgba(255,255,255,.2);border-radius:18px;background:#16062d;color:#fff;text-decoration:none;box-shadow:0 12px 28px rgba(20,6,45,.24)}
+.playoff-game-gallery figure{height:100%;margin:0}
+.playoff-game-gallery img{display:block;width:100%;aspect-ratio:16/10;object-fit:cover;background:#24103e}
+.playoff-game-gallery figcaption{padding:15px}
+.playoff-game-gallery figcaption span{display:block;color:#d8ff4f;font-size:.72rem;font-weight:950;letter-spacing:.08em}
+.playoff-game-gallery figcaption strong{display:block;margin:6px 0;font-size:1.05rem;line-height:1.15}
+.playoff-game-gallery figcaption p{margin:0;color:rgba(255,255,255,.74);font-size:.92rem;line-height:1.45}
+.playoff-game-gallery figcaption small{display:block;margin-top:10px;color:#fff;font-size:.8rem;font-weight:850}
+
+/* Award-winner playoff fallout dashboard. */
+.playoff-award-fallout{margin:38px -14px;padding:clamp(22px,4vw,38px);border-radius:30px;background:radial-gradient(circle at 90% 5%,rgba(110,206,178,.24),transparent 27%),linear-gradient(145deg,#071f31,#113f57 52%,#23114a);color:#fff;box-shadow:0 26px 58px rgba(10,31,48,.25)}
+.playoff-award-fallout>header{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:20px;align-items:end;border-bottom:1px solid rgba(255,255,255,.16);padding-bottom:18px}
+.playoff-award-fallout>header span{display:block;color:#d8ff4f;font-size:.76rem;font-weight:950;letter-spacing:.12em}
+.playoff-award-fallout>header h3{max-width:820px;margin:7px 0 10px;color:#fff;font-size:clamp(2rem,4.5vw,3.35rem);line-height:.98}
+.playoff-award-fallout>header p{max-width:800px;margin:0;color:rgba(255,255,255,.76);font-size:1rem;line-height:1.55}
+.playoff-award-fallout>header>strong{padding:10px 12px;border-radius:12px;background:#d8ff4f;color:#12212b;font-size:.78rem;letter-spacing:.08em}
+.playoff-award-people{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:18px 0}
+.playoff-award-people article{display:grid;grid-template-columns:155px minmax(0,1fr);overflow:hidden;border-top:5px solid var(--award-accent);border-radius:19px;background:#fff;color:#17222a}
+.playoff-award-people figure{min-height:245px;margin:0;background:linear-gradient(145deg,#edf5f7,#dbe8ee)}
+.playoff-award-people figure img{width:100%;height:100%;object-fit:cover;object-position:center top}
+.playoff-award-people figure.is-contain{display:grid;place-items:center;padding:24px;background:linear-gradient(145deg,#e7f7e8,#bfe7d5)}
+.playoff-award-people figure.is-contain img{height:auto;object-fit:contain}
+.playoff-award-people article>div{padding:18px}
+.playoff-award-people article>div>span{color:#5b2bc5;font-size:.72rem;font-weight:950;letter-spacing:.08em}
+.playoff-award-people h4{margin:5px 0 3px;font-size:1.45rem;line-height:1}
+.playoff-award-team{margin:0 0 12px!important;color:#68757d!important;font-weight:850}
+.playoff-award-people article>div>strong{display:block;padding:9px 10px;border-radius:10px;background:#eef7e4;color:#1c3c2b;font-size:.9rem}
+.playoff-award-people article>div>p:last-child{margin:12px 0 0;color:#4e5a61;font-size:.94rem;line-height:1.5}
+.playoff-implication-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.playoff-implication-grid article{position:relative;padding:42px 15px 16px;border:1px solid rgba(255,255,255,.14);border-radius:16px;background:rgba(255,255,255,.08)}
+.playoff-implication-grid article>span{position:absolute;top:12px;right:13px;color:#6eceb2;font-size:1.25rem;font-weight:950}
+.playoff-implication-grid h4{margin:0 0 8px;color:#fff;font-size:1rem;line-height:1.15}
+.playoff-implication-grid p{margin:0;color:rgba(255,255,255,.72);font-size:.9rem;line-height:1.45}
+.playoff-award-fallout blockquote{margin:18px 0 0;padding:18px 20px;border:0;border-left:6px solid #d8ff4f;border-radius:0 15px 15px 0;background:rgba(216,255,79,.11);color:#fff;font-size:clamp(1.1rem,2.2vw,1.45rem);font-weight:900;line-height:1.35}
+.playoff-award-note{margin:12px 0 0!important;color:rgba(255,255,255,.66)!important;font-size:.86rem!important;line-height:1.45!important}
+@media(max-width:900px){.playoff-game-gallery>div{grid-template-columns:1fr}.playoff-award-people{grid-template-columns:1fr}.playoff-implication-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:680px){.playoff-record-grid article:last-child{grid-column:auto}}
+@media(max-width:620px){.playoff-watch-summary{grid-template-columns:repeat(2,1fr)}.playoff-game-gallery,.playoff-award-fallout{margin-right:-13px;margin-left:-13px;padding:20px 14px;border-radius:22px}.playoff-award-fallout>header{grid-template-columns:1fr}.playoff-award-fallout>header>strong{width:max-content}.playoff-award-people article{grid-template-columns:112px minmax(0,1fr)}.playoff-award-people figure{min-height:280px}.playoff-award-people article>div{padding:15px 12px}.playoff-implication-grid{grid-template-columns:1fr}.playoff-team-logo{width:36px;height:36px}}

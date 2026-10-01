@@ -11,6 +11,16 @@
   };
   const WNBA_PLAYER_IDS={'Pauline Astier':'1631136','Raquel Carrera':'1630384','Han Xu':'1629566','Elizabeth Balogun':'1641663'};
   const COUNTRY_CODES={'USA':'us','United States':'us','France':'fr','Germany':'de','Belgium':'be','Puerto Rico':'pr','Türkiye':'tr','Turkiye':'tr','China':'cn','Nigeria':'ng','Mali':'ml','Japan':'jp','Spain':'es','Australia':'au','Hungary':'hu'};
+  const PLAYOFF_TEAM_LOGOS={
+    'Atlanta Dream':'https://cdn.wnba.com/logos/wnba/1611661330/primary/L/logo.svg',
+    'Dallas Wings':'https://cdn.wnba.com/logos/wnba/1611661321/primary/L/logo.svg',
+    'Golden State Valkyries':'https://cdn.wnba.com/logos/wnba/1611661331/primary/L/logo.svg',
+    'Indiana Fever':'https://cdn.wnba.com/logos/wnba/1611661325/primary/L/logo.svg',
+    'Las Vegas Aces':'https://cdn.wnba.com/logos/wnba/1611661319/primary/L/logo.svg',
+    'Minnesota Lynx':'https://cdn.wnba.com/logos/wnba/1611661324/primary/L/logo.svg',
+    'New York Liberty':'https://cdn.wnba.com/logos/wnba/1611661313/primary/L/logo.svg',
+    'Washington Mystics':'https://cdn.wnba.com/logos/wnba/1611661322/primary/L/logo.svg'
+  };
   const fibaPhoto=player=>FIBA_PLAYER_IDS[player]?`https://assets.fiba.basketball/image/upload/w_160,h_160,c_fill,g_face/f_png/q_auto/.headshot--person_${FIBA_PLAYER_IDS[player]}--competition_${FIBA_COMPETITION_ID}`:'';
   const wnbaPhoto=player=>WNBA_PLAYER_IDS[player]?`https://cdn.wnba.com/headshots/wnba/latest/1040x760/${WNBA_PLAYER_IDS[player]}.png`:'';
   const playerPhoto=player=>fibaPhoto(player)||wnbaPhoto(player);
@@ -42,7 +52,16 @@
   function playoffGameOneMarkup(report={}){
     const receipts=Array.isArray(report.receipts)?report.receipts:[],highlights=Array.isArray(report.highlights)?report.highlights:[];
     if(!receipts.length&&!highlights.length)return'';
-    return `<section class="snack-section playoff-game-one" aria-label="Game 1 records and highlights"><header><div><span>${safe(report.eyebrow||'GAME 1 RECEIPTS')}</span><h3>${safe(report.title||'What moved on opening night')}</h3><p>${safe(report.dek||'')}</p></div><small>${safe(report.asOf||'')}</small></header>${receipts.length?`<div class="playoff-record-grid">${receipts.map(item=>`<article><strong>${safe(item.value)}</strong><span>${safe(item.label)}</span><p>${safe(item.note||'')}</p></article>`).join('')}</div>`:''}${highlights.length?`<div class="playoff-highlight-grid">${highlights.map(item=>`<article><figure><img src="${safe(item.photo||'')}" alt="${safe(item.photoAlt||`Official WNBA headshot of ${item.player||''}`)}" loading="lazy" decoding="async" onerror="this.hidden=true"><figcaption>${safe(item.photoCredit||'Official WNBA player media')}</figcaption></figure><div><span>${safe(item.score||'GAME 1')}</span><h4>${safe(item.title||item.player||'Game highlight')}</h4><strong>${safe(item.stat||'')}</strong><p>${safe(item.note||'')}</p></div></article>`).join('')}</div>`:''}</section>`;
+    return `<section class="snack-section playoff-game-one" aria-label="${safe(report.ariaLabel||'Playoff records and highlights')}"><header><div><span>${safe(report.eyebrow||'PLAYOFF RECEIPTS')}</span><h3>${safe(report.title||'What moved the bracket')}</h3><p>${safe(report.dek||'')}</p></div><small>${safe(report.asOf||'')}</small></header>${receipts.length?`<div class="playoff-record-grid">${receipts.map(item=>`<article><strong>${safe(item.value)}</strong><span>${safe(item.label)}</span><p>${safe(item.note||'')}</p></article>`).join('')}</div>`:''}${highlights.length?`<div class="playoff-highlight-grid">${highlights.map(item=>`<article><figure><img src="${safe(item.photo||'')}" alt="${safe(item.photoAlt||`Official WNBA photo of ${item.player||''}`)}" loading="lazy" decoding="async" onerror="this.hidden=true"><figcaption>${safe(item.photoCredit||'Official WNBA media')}</figcaption></figure><div><span>${safe(item.score||'PLAYOFFS')}</span><h4>${safe(item.title||item.player||'Game highlight')}</h4><strong>${safe(item.stat||'')}</strong><p>${safe(item.note||'')}</p></div></article>`).join('')}</div>`:''}</section>`;
+  }
+  function playoffGalleryMarkup(gallery={}){
+    const items=Array.isArray(gallery.items)?gallery.items:[];if(!items.length)return'';
+    return `<section class="snack-section playoff-game-gallery"><header><span>${safe(gallery.eyebrow||'FROM THE GAME TAPE')}</span><h3>${safe(gallery.title||'The moments that moved the bracket')}</h3><p>${safe(gallery.dek||'')}</p></header><div>${items.map(item=>`<a href="${safe(item.sourceUrl||'#')}" target="_blank" rel="noopener noreferrer"><figure><img src="${safe(item.image||'')}" alt="${safe(item.alt||item.title||'WNBA playoff game action')}" loading="lazy" decoding="async" onerror="this.closest('a').hidden=true"><figcaption><span>${safe(item.kicker||'PLAYOFF MOMENT')}</span><strong>${safe(item.title||'')}</strong><p>${safe(item.caption||'')}</p><small>${safe(item.credit||'Official WNBA game media')} ↗</small></figcaption></figure></a>`).join('')}</div></section>`;
+  }
+  function playoffAwardFalloutMarkup(board={}){
+    const people=Array.isArray(board.people)?board.people:[],implications=Array.isArray(board.implications)?board.implications:[];
+    if(!people.length&&!implications.length)return'';
+    return `<section class="snack-section playoff-award-fallout"><header><div><span>${safe(board.eyebrow||'AWARDS VS. THE BRACKET')}</span><h3>${safe(board.title||'Regular-season truth met playoff truth')}</h3><p>${safe(board.dek||'')}</p></div><strong>${safe(board.stamp||'ANALYSIS')}</strong></header>${people.length?`<div class="playoff-award-people">${people.map(person=>`<article style="--award-accent:${safe(person.accent||'#d8ff4f')}"><figure class="${person.photoFit==='contain'?'is-contain':''}"><img src="${safe(person.photo||'')}" alt="${safe(person.photoAlt||person.name||'')}" loading="lazy" decoding="async" onerror="this.hidden=true"></figure><div><span>${safe(person.award||'')}</span><h4>${safe(person.name||'')}</h4><p class="playoff-award-team">${safe(person.team||'')}</p><strong>${safe(person.receipt||'')}</strong><p>${safe(person.playoff||'')}</p></div></article>`).join('')}</div>`:''}${implications.length?`<div class="playoff-implication-grid">${implications.map((item,index)=>`<article><span>0${index+1}</span><h4>${safe(item.title||'')}</h4><p>${safe(item.text||'')}</p></article>`).join('')}</div>`:''}${board.verdict?`<blockquote>${safe(board.verdict)}</blockquote>`:''}${board.note?`<p class="playoff-award-note">${safe(board.note)}</p>`:''}</section>`;
   }
   function playoffBoardMarkup(post){return post.slug==='the-playoff-watch-party-2026'?'<div data-wktw-playoff-bracket data-variant="story" aria-label="Live 2026 WNBA playoff bracket"></div>':'';}
   async function updatePlayoffBoard(){const board=document.getElementById('snackPlayoffBoard');if(!board)return;try{const response=await fetch(`/api/competition?season=2026&cb=${Date.now()}`,{cache:'no-store'});if(!response.ok)throw Error('unavailable');const data=await response.json();const games=(data.playoffs?.games||[]).filter(game=>game.date>='2026-09-27'&&game.date<='2026-09-28'&&[['Minnesota Lynx','New York Liberty'],['Golden State Valkyries','Dallas Wings'],['Las Vegas Aces','Indiana Fever'],['Atlanta Dream','Washington Mystics']].some(pair=>pair.includes(game.homeTeam)&&pair.includes(game.awayTeam)));board.innerHTML=games.map(game=>{const date=game.startTimeUtc?new Date(game.startTimeUtc):null;const time=date&&!Number.isNaN(date.getTime())?new Intl.DateTimeFormat('en-US',{timeZone:'America/New_York',hour:'numeric',minute:'2-digit'}).format(date)+' ET':'Time TBD';const score=game.completed||game.state==='in'?` · ${safe(game.awayScore??'–')}–${safe(game.homeScore??'–')} · ${safe(game.status||'')}`:'';return `<a href="${game.officialFallback?`https://www.wnba.com/game/${encodeURIComponent(game.id)}`:`/games.html`}" target="_blank" rel="noopener noreferrer" style="display:block;padding:14px;margin:8px 0;border-radius:12px;background:#f4eefb;color:#29134a;text-decoration:none"><strong>${safe(game.awayTeam)} at ${safe(game.homeTeam)}</strong><br><small>${safe(time)}${score} · Official game ↗</small></a>`;}).join('')||'<p>Fixtures are temporarily unavailable. See the official WNBA bracket.</p>';}catch{board.innerHTML='<p>Live scores are temporarily unavailable. <a href="https://www.wnba.com/playoffs/2026">See the official bracket ↗</a></p>';}}
@@ -52,20 +71,22 @@
       'min-nyl':['#0c2340','#6eceb2','#78be20'],
       'gsv-dal':['#5f259f','#0c2340','#c4d600'],
       'lva-ind':['#c8102e','#002d62','#fdbb30'],
-      'atl-was':['#c8102e','#002b5c','#69b3e7']
+      'atl-was':['#c8102e','#002b5c','#69b3e7'],
+      'atl-nyl':['#c8102e','#111','#6eceb2']
     };
     const cards=matchups.map(m=>{
       const colors=palette[m.id]||['#2a1248','#6f25e8','#d8ff4f'];
       const stars=(m.stars||[]).map((name,i)=>`<figure><img src="${safe((m.starPhotos||[])[i]||'')}" alt="Official WNBA headshot of ${safe(name)}" loading="lazy" decoding="async" onerror="this.hidden=true"><figcaption><span>STAR WATCH</span><strong>${safe(name)}</strong></figcaption></figure>`).join('');
-      return `<article class="playoff-matchup-row" data-playoff-matchup="${safe(m.id)}" style="--match-a:${safe(colors[0])};--match-b:${safe(colors[1])};--match-pop:${safe(colors[2])}">
+      const highLogo=PLAYOFF_TEAM_LOGOS[m.highTeam]||'',lowLogo=PLAYOFF_TEAM_LOGOS[m.lowTeam]||'';
+      return `<article class="playoff-matchup-row" data-playoff-matchup="${safe(m.id)}" data-team-a="${safe(m.highTeam)}" data-team-b="${safe(m.lowTeam)}" data-playoff-round="${safe(m.roundKey||'First Round')}" style="--match-a:${safe(colors[0])};--match-b:${safe(colors[1])};--match-pop:${safe(colors[2])}">
         <header class="playoff-matchup-band">
-          <div class="playoff-team-side is-a"><span>SEED ${safe(m.highSeed)}</span><strong>${safe(m.highTeam)}</strong><small>${safe(m.highRecord)}</small></div>
-          <div class="playoff-vs-mark"><b>VS</b><small>FIRST ROUND</small></div>
-          <div class="playoff-team-side is-b"><span>SEED ${safe(m.lowSeed)}</span><strong>${safe(m.lowTeam)}</strong><small>${safe(m.lowRecord)}</small></div>
+          <div class="playoff-team-side is-a">${highLogo?`<img class="playoff-team-logo" src="${safe(highLogo)}" alt="${safe(m.highTeam)} logo" loading="lazy" decoding="async" onerror="this.hidden=true">`:''}<span>SEED ${safe(m.highSeed)}</span><strong>${safe(m.highTeam)}</strong><small>${safe(m.highRecord)}</small></div>
+          <div class="playoff-vs-mark"><b>VS</b><small>${safe(m.roundLabel||m.roundKey||'FIRST ROUND')}</small></div>
+          <div class="playoff-team-side is-b">${lowLogo?`<img class="playoff-team-logo" src="${safe(lowLogo)}" alt="${safe(m.lowTeam)} logo" loading="lazy" decoding="async" onerror="this.hidden=true">`:''}<span>SEED ${safe(m.lowSeed)}</span><strong>${safe(m.lowTeam)}</strong><small>${safe(m.lowRecord)}</small></div>
         </header>
         <div class="playoff-matchup-scoreline">
           <div><span>REGULAR SEASON</span><strong>${safe(m.regularSeries)}</strong><small>head-to-head only</small></div>
-          <div class="is-series"><span>PLAYOFF SERIES</span><strong data-playoff-series>0-0</strong><small data-playoff-game>Game 1 next</small></div>
+          <div class="is-series"><span>PLAYOFF SERIES</span><strong data-playoff-series>${safe(m.series||'0-0')}</strong><small data-playoff-game>${safe(m.seriesNote||'Schedule loading')}</small></div>
           <div class="is-next"><span data-playoff-next-label>NEXT GAME</span><strong data-playoff-tip>${safe(m.nextGame||m.game1||'Schedule loading')}</strong><small>all times Eastern</small></div>
         </div>
         <div class="playoff-matchup-main">
@@ -84,7 +105,8 @@
         </div>
       </article>`;
     }).join('');
-    return `<section class="snack-section playoff-watch-dashboard fiba-inspired" data-playoff-watch><div class="playoff-watch-head"><div><span>PLAYOFF WATCH GUIDE · LIVE BOARD</span><h3>${safe(board.title||'The Playoff Watch Party')}</h3><p>${safe(board.subtitle||'')}</p></div><small>${safe(board.asOf||'')}</small></div><div class="playoff-watch-summary"><div><strong>8</strong><span>teams</span></div><div><strong>4</strong><span>first-round series</span></div><div><strong>1-0</strong><span>every series after Game 1</span></div></div><div class="playoff-matchup-stack">${cards}</div><p class="playoff-watch-note">Regular-season head-to-head is context. Playoff series wins are tracked separately and refresh from the postseason feed. ${safe(board.scoreMethod||'')}</p></section>`;
+    const summary=Array.isArray(board.summary)&&board.summary.length?board.summary:[{value:'6',label:'teams left'},{value:'2',label:'Game 3s left'},{value:'BO5',label:'semifinals'}];
+    return `<section class="snack-section playoff-watch-dashboard fiba-inspired" data-playoff-watch><div class="playoff-watch-head"><div><span>PLAYOFF WATCH GUIDE · LIVE BOARD</span><h3>${safe(board.title||'The Playoff Watch Party')}</h3><p>${safe(board.subtitle||'')}</p></div><small>${safe(board.asOf||'')}</small></div><div class="playoff-watch-summary">${summary.map(item=>`<div${item.key?` data-playoff-summary-key="${safe(item.key)}"`:''}><strong>${safe(item.value)}</strong><span>${safe(item.label)}</span></div>`).join('')}</div><div class="playoff-matchup-stack">${cards}</div><p class="playoff-watch-note">Regular-season head-to-head is context. Playoff series wins are tracked separately and refresh from the postseason feed. ${safe(board.scoreMethod||'')}</p></section>`;
   }
   function wirePlayoffWatch(story){
     const root=story?.querySelector('[data-playoff-watch]');if(!root||root.dataset.ready==='1')return;root.dataset.ready='1';
@@ -93,16 +115,20 @@
       const payload=await response.json(),series=payload.playoffs?.series||[],games=payload.playoffs?.games||[];
       const day=value=>{if(!value)return'';const d=new Date(value+'T12:00:00-04:00');return Number.isNaN(d.getTime())?'':new Intl.DateTimeFormat('en-US',{timeZone:'America/New_York',weekday:'short',month:'short',day:'numeric'}).format(d);};
       const tip=value=>{if(!value)return'';const d=new Date(value);return Number.isNaN(d.getTime())?'':new Intl.DateTimeFormat('en-US',{timeZone:'America/New_York',hour:'numeric',minute:'2-digit'}).format(d)+' ET';};
+      const firstRound=series.filter(item=>(item.round||'First Round')==='First Round'),closed=firstRound.filter(item=>item.complete).length;
+      const summaryValue=(key,value)=>{const host=root.querySelector(`[data-playoff-summary-key="${key}"] strong`);if(host)host.textContent=String(value);};
+      summaryValue('teams',Math.max(4,8-closed));
+      summaryValue('game3s',games.filter(game=>(game.round||'First Round')==='First Round'&&Number(game.gameNumber)===3&&!game.completed&&String(game.state||'').toLowerCase()!=='post').length);
       root.querySelectorAll('[data-playoff-matchup]').forEach(card=>{
-        const id=card.dataset.playoffMatchup,config=(window.__playoffWatchMatchups||{})[id];if(!config)return;
-        const row=series.find(item=>(!item.round||item.round==='First Round')&&[item.teamA,item.teamB].includes(config.a)&&[item.teamA,item.teamB].includes(config.b));
+        const config={a:card.dataset.teamA,b:card.dataset.teamB,round:card.dataset.playoffRound||'First Round'};if(!config.a||!config.b)return;
+        const row=series.find(item=>(item.round||'First Round')===config.round&&[item.teamA,item.teamB].includes(config.a)&&[item.teamA,item.teamB].includes(config.b));
         const score=card.querySelector('[data-playoff-series]'),gameState=card.querySelector('[data-playoff-game]');
         if(row){
           const aWins=row.teamA===config.a?row.winsA:row.winsB,bWins=row.teamB===config.b?row.winsB:row.winsA;
           if(score)score.textContent=aWins+'-'+bWins;
           if(gameState){const played=(row.games||[]).length;gameState.textContent=row.complete?`${row.winner||'Winner'} advances`:played?('Game '+(played+1)+' next'):'Game 1 next';}
         }
-        const pairGames=games.filter(game=>[game.homeTeam,game.awayTeam].includes(config.a)&&[game.homeTeam,game.awayTeam].includes(config.b)).sort((a,b)=>Date.parse(a.startTimeUtc||a.date)-Date.parse(b.startTimeUtc||b.date));
+        const pairGames=games.filter(game=>(game.round||config.round)===config.round&&[game.homeTeam,game.awayTeam].includes(config.a)&&[game.homeTeam,game.awayTeam].includes(config.b)).sort((a,b)=>Date.parse(a.startTimeUtc||a.date)-Date.parse(b.startTimeUtc||b.date));
         const next=pairGames.find(game=>!game.completed&&String(game.state||'').toLowerCase()!=='post'),latest=[...pairGames].reverse().find(game=>game.completed||String(game.state||'').toLowerCase()==='post');
         const display=next||latest,tipHost=card.querySelector('[data-playoff-tip]'),nextLabel=card.querySelector('[data-playoff-next-label]');
         if(display&&tipHost){
@@ -118,13 +144,6 @@
         }
       });
     }catch{}};
-    window.__playoffWatchMatchups={};
-    [
-      {id:'min-nyl',a:'Minnesota Lynx',b:'New York Liberty'},
-      {id:'gsv-dal',a:'Golden State Valkyries',b:'Dallas Wings'},
-      {id:'lva-ind',a:'Las Vegas Aces',b:'Indiana Fever'},
-      {id:'atl-was',a:'Atlanta Dream',b:'Washington Mystics'}
-    ].forEach(m=>window.__playoffWatchMatchups[m.id]=m);
     refresh();setInterval(()=>{if(!document.hidden)refresh();},60000);
   }
   function rankingsMarkup(rankings=[]){if(!rankings.length)return'';return `<section class="snack-section"><h3>Power rankings</h3><div class="rankings-table"><div class="rank-row head"><span>#</span><span>Team</span><span>Move</span><span>What Shak is seeing</span></div>${rankings.map(item=>`<div class="rank-row"><span class="rank">${safe(item.rank)}</span><strong>${safe(item.team)}</strong><span class="move">${safe(item.movement||'')}</span><span>${safe(item.note||'')}</span></div>`).join('')}</div></section>`;}
@@ -249,7 +268,7 @@
   function debatesMarkup(items=[]){return items.length?`<section class="snack-debate-board"><h3>Spicy debate board</h3><ul>${items.map(item=>`<li>${safe(item)}</li>`).join('')}</ul></section>`:'';}
   function foodMarkup(food={}){return food.title||food.script?`<section class="food-segment"><span class="segment-label">FROM THE KITCHEN</span><h3>${safe(food.title||'This week’s segment')}</h3>${food.script?`<blockquote>${safe(food.script)}</blockquote>`:''}</section>`:'';}
   function sourcesMarkup(sources=[]){return sources.length?`<section class="source-list"><strong>Receipts</strong><p>${sources.map(source=>`<a href="${safe(source.url)}" target="_blank" rel="noopener noreferrer">${safe(source.label||'Source')}</a>`).join(' · ')}</p></section>`:'';}
-  function storyMarkup(post){return `<a class="snack-story-back" href="${pagePath}">← Back to all ${mode==='feature'?'Food for Thought articles':'Snack Shak Bytes'}</a><article class="snack-post"><header class="snack-post-header ${mode==='feature'?'feature-header':''}"><span class="snack-series-label">${safe(label(post))}</span><div class="meta"><span>${safe(format(post.published))}</span>${post.week?`<span>•</span><span>${safe(post.week)}</span>`:''}</div><h2>${safe(post.title)}</h2><p class="dek">${safe(post.dek||'')}</p></header>${storyImageMarkup(post)}${playoffGameOneMarkup(post.playoffGameOne)}${playoffBoardMarkup(post)}${playoffWatchMarkup(post.playoffWatch)}${rankingsMarkup(post.rankings)}${tableMarkup(post.storyTable)}${trioDashboardMarkup(post.trioDashboard)}${apAwardsDashboardMarkup(post.apAwardsDashboard)}${sectionsMarkup(post.sections)}${debatesMarkup(post.debates)}${foodMarkup(post.foodSegment)}${sourcesMarkup(post.sources)}</article>`;}
+  function storyMarkup(post){return `<a class="snack-story-back" href="${pagePath}">← Back to all ${mode==='feature'?'Food for Thought articles':'Snack Shak Bytes'}</a><article class="snack-post"><header class="snack-post-header ${mode==='feature'?'feature-header':''}"><span class="snack-series-label">${safe(label(post))}</span><div class="meta"><span>${safe(format(post.published))}</span>${post.week?`<span>•</span><span>${safe(post.week)}</span>`:''}</div><h2>${safe(post.title)}</h2><p class="dek">${safe(post.dek||'')}</p></header>${storyImageMarkup(post)}${playoffGameOneMarkup(post.playoffGameOne)}${playoffGalleryMarkup(post.gameGallery)}${playoffBoardMarkup(post)}${playoffWatchMarkup(post.playoffWatch)}${playoffAwardFalloutMarkup(post.awardFallout)}${rankingsMarkup(post.rankings)}${tableMarkup(post.storyTable)}${trioDashboardMarkup(post.trioDashboard)}${apAwardsDashboardMarkup(post.apAwardsDashboard)}${sectionsMarkup(post.sections)}${debatesMarkup(post.debates)}${foodMarkup(post.foodSegment)}${sourcesMarkup(post.sources)}</article>`;}
 
   function setCollectionArchiveMode(activeSlug=''){
     const list=document.getElementById('snackCollectionGrid');

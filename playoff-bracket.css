@@ -20,15 +20,9 @@
 .wktw-bracket-card-top{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px 11px;background:#f2eafa;border-bottom:1px solid #e4d9ec}
 .wktw-bracket-card-top span{color:#4f1c8d;font-size:.72rem;font-weight:950}
 .wktw-bracket-card-top b{color:#746a79;font-size:.57rem;letter-spacing:.06em}
-.wktw-bracket-team{display:grid;grid-template-columns:34px minmax(0,1fr) auto;gap:9px;align-items:center;padding:9px 11px;border-bottom:1px solid #eee7f2;color:inherit;text-decoration:none;transition:background .16s ease,opacity .16s ease}
-a.wktw-bracket-team:hover,a.wktw-bracket-team:focus-visible{background:#f6f0fb;outline:2px solid #6d35a8;outline-offset:-2px}
-.wktw-bracket-card.is-complete{border-color:rgba(216,255,79,.5)}
-.wktw-bracket-team.is-eliminated{background:#f3f0f4;color:#746c79;opacity:.68}
-.wktw-bracket-team.is-eliminated .wktw-bracket-mark{filter:grayscale(.75)}
-.wktw-bracket-team.is-eliminated>span strong{text-decoration:line-through;text-decoration-thickness:1px;text-decoration-color:#9d929f}
-.wktw-bracket-team.is-eliminated>b{background:#d9d1dc;color:#675f6d}
-.wktw-bracket-game.is-complete{background:#eef9d1;color:#29470b}
+.wktw-bracket-team{display:grid;grid-template-columns:34px minmax(0,1fr) auto auto;gap:9px;align-items:center;padding:9px 11px;border-bottom:1px solid #eee7f2;color:inherit;text-decoration:none}
 .wktw-bracket-team.is-series-winner{background:#f3ffd1}
+.wktw-bracket-team.is-eliminated{background:#fff0f2;color:#756a70;opacity:.78}
 .wktw-bracket-team.is-placeholder{color:#786f7d;background:#fbf9fc}
 .wktw-bracket-mark{position:relative;display:grid;place-items:center;width:32px;height:32px;overflow:hidden;border-radius:10px;background:var(--team-color,#32135e);color:#fff}
 .wktw-bracket-mark b{font-size:.56rem;letter-spacing:.03em}
@@ -36,6 +30,9 @@ a.wktw-bracket-team:hover,a.wktw-bracket-team:focus-visible{background:#f6f0fb;o
 .wktw-bracket-team>span{min-width:0}
 .wktw-bracket-team small{display:block;color:#7c7083;font-size:.56rem;font-weight:950;letter-spacing:.07em}
 .wktw-bracket-team strong{display:block;overflow:hidden;margin-top:1px;font-size:.8rem;line-height:1.15;text-overflow:ellipsis;white-space:nowrap}
+.wktw-bracket-team>em{padding:4px 6px;border-radius:999px;background:#eee8f2;color:#675c6f;font-size:.5rem;font-style:normal;font-weight:950;letter-spacing:.04em}
+.wktw-bracket-team.is-series-winner>em{background:#245c35;color:#fff}
+.wktw-bracket-team.is-eliminated>em{background:#a71930;color:#fff}
 .wktw-bracket-team>b{display:grid;place-items:center;width:27px;height:27px;border-radius:9px;background:#21103d;color:#fff;font-size:.9rem}
 .wktw-bracket-game{min-height:31px;margin:0;padding:8px 11px;background:#faf7fc;color:#726779;font-size:.62rem;font-weight:800;line-height:1.35}
 .wktw-bracket-game.is-live{background:#d8ff4f;color:#24103e}

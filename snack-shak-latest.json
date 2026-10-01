@@ -513,250 +513,253 @@
     {
       "slug": "the-playoff-watch-party-2026",
       "type": "feature",
-      "priority": 2450,
+      "priority": 6200,
       "homepageSeason": "wnba-playoffs",
       "seriesLabel": "FOOD FOR THOUGHT · PLAYOFF WATCH GUIDE",
-      "title": "Game 1 Changed the Bracket: History, Records and the Next Test",
-      "published": "2026-09-28",
-      "updated": "2026-09-28",
-      "week": "Game 1 complete · Sept. 27",
-      "image": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1627668.png",
-      "imageFit": "contain",
-      "imageAlt": "Official WNBA portrait of New York Liberty forward Breanna Stewart",
-      "dek": "New York made 1-vs-8 history, A’ja Wilson authored the most efficient 30-point playoff game ever, Atlanta stole a franchise record and Golden State opened Ballhalla with a first. Here is what Game 1 changed — and what the live bracket is tracking next.",
+      "title": "Two Game 3s, One 45-Point Record and a Semifinal Built for Five",
+      "published": "2026-10-01",
+      "updated": "2026-10-01",
+      "week": "Round 1 · Oct. 1",
+      "image": "https://cdn.wnba.com/sites/4/2026/10/GSVWAS.png",
+      "imageFit": "top-cover",
+      "imageAlt": "Arike Ogunbowale celebrates during Dallas' overtime playoff win over Golden State",
+      "dek": "Atlanta sent Washington’s young core home, Arike Ogunbowale rewrote the playoff scoring record to keep Dallas alive, Indiana dragged the champs back to Vegas, and Liberty–Dream is locked into a best-of-five. Two first-round spots are still up for grabs.",
       "playoffGameOne": {
-        "eyebrow": "OPENING NIGHT · THE RECEIPTS",
-        "title": "Four decisive games. Five entries in the record book.",
-        "dek": "Every Game 1 margin reached 15 points, but the night was not repetitive. Each winner found a different pressure point — star creation, turnover pressure, spacing or collective shotmaking.",
-        "asOf": "FINAL · SEPT. 27, 2026",
+        "ariaLabel": "Round 1 records and elimination-game highlights",
+        "eyebrow": "ROUND 1 · THE RECEIPTS",
+        "title": "The record book moved. So did the bracket.",
+        "dek": "Two sweeps are complete, two series reached winner-take-all Game 3s, and three late-game bursts changed the postseason in less than 48 hours.",
+        "asOf": "UPDATED · OCT. 1, 2026",
         "receipts": [
           {
+            "value": "45",
+            "label": "New playoff scoring record",
+            "note": "Arike Ogunbowale cleared the previous WNBA playoff high of 42 while forcing overtime and a deciding Game 3."
+          },
+          {
+            "value": "4.1",
+            "label": "Seconds left on the tying three",
+            "note": "Ogunbowale’s off-balance corner shot tied Golden State at 93 before Dallas won 108-100 in overtime."
+          },
+          {
+            "value": "15 AST",
+            "label": "Fever playoff record",
+            "note": "Caitlin Clark paired 15 assists with 27 points; her 11 first-half assists also set a WNBA playoff record for a half."
+          },
+          {
+            "value": "13–0",
+            "label": "Atlanta’s knockout run",
+            "note": "Washington cut the lead to three. The Dream answered with 13 straight and closed the series."
+          },
+          {
             "value": "1ST",
-            "label": "No. 8 over No. 1",
-            "note": "New York became the first No. 8 seed to beat a No. 1 seed in a WNBA playoff game."
+            "label": "No. 8 eliminates No. 1",
+            "note": "New York became the first No. 8 seed to knock out a No. 1 seed in WNBA playoff history."
           },
           {
-            "value": "4TH",
-            "label": "30-10-5 playoff line",
-            "note": "Breanna Stewart’s 34-12-6 was only the fourth such performance in league postseason history."
-          },
-          {
-            "value": "78.9%",
-            "label": "30-point efficiency record",
-            "note": "A’ja Wilson went 15-for-19 in the most efficient 30-point playoff game on record."
-          },
-          {
-            "value": "16",
-            "label": "Atlanta playoff steals",
-            "note": "The Dream set a franchise postseason record and converted 22 Washington turnovers into 27 points."
-          },
-          {
-            "value": "104",
-            "label": "Golden State franchise high",
-            "note": "The Valkyries set their scoring record while collecting the first playoff win in franchise history."
+            "value": "2",
+            "label": "Winner-take-all games left",
+            "note": "Indiana visits Las Vegas tonight; Dallas visits Golden State Friday. The winners meet in the semifinals."
           }
         ],
         "highlights": [
           {
-            "score": "NYL 91 · MIN 75",
-            "title": "Stewart broke the 1-vs-8 script",
-            "player": "Breanna Stewart",
-            "stat": "34 PTS · 12 REB · 6 AST",
-            "note": "New York held Minnesota to 31 second-half points and now gets the closeout chance at home.",
-            "photo": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1627668.png",
-            "photoAlt": "Official WNBA headshot of New York Liberty forward Breanna Stewart",
-            "photoCredit": "Official WNBA player media"
+            "score": "GSV 100 · DAL 108 (OT)",
+            "title": "Arike refused to let the season end",
+            "player": "Arike Ogunbowale",
+            "stat": "45 PTS · 22 IN 4Q + OT",
+            "note": "She hit the tying three with 4.1 seconds left, opened overtime with a banked three and buried the go-ahead shot at 103-100.",
+            "photo": "https://cdn.wnba.com/sites/4/2026/10/GSVWAS.png",
+            "photoAlt": "Arike Ogunbowale celebrates during Dallas' Game 2 playoff win",
+            "photoCredit": "WNBA game media · Game 2 recap"
           },
           {
-            "score": "IND 85 · LVA 102",
-            "title": "Wilson turned Game 1 into a clinic",
-            "player": "A'ja Wilson",
-            "stat": "38 PTS · 16 REB · 4 BLK",
-            "note": "Wilson matched her playoff scoring and rebounding highs while Las Vegas scored 28 points off turnovers.",
-            "photo": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1628932.png",
-            "photoAlt": "Official WNBA headshot of Las Vegas Aces center A'ja Wilson",
-            "photoCredit": "Official WNBA player media"
+            "score": "ATL 93 · WAS 75",
+            "title": "Canada supplied the closing argument",
+            "player": "Jordin Canada",
+            "stat": "19 PTS · 11 AST · 7 REB",
+            "note": "Canada scored 13 in the fourth as Atlanta reached the semifinals for the first time since 2018.",
+            "photo": "https://cdn.wnba.com/sites/1611661330/2026/09/Rhyne-Howard-1.png",
+            "photoAlt": "Atlanta Dream players celebrate during the playoff series against Washington",
+            "photoCredit": "Atlanta Dream game media"
           },
           {
-            "score": "WAS 77 · ATL 92",
-            "title": "Howard supplied the pressure",
-            "player": "Rhyne Howard",
-            "stat": "26 PTS · 5 STL",
-            "note": "Atlanta erased an 11-point deficit, and DeWanna Bonner’s 11-point third quarter helped flip the game.",
-            "photo": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1631009.png",
-            "photoAlt": "Official WNBA headshot of Atlanta Dream guard Rhyne Howard",
-            "photoCredit": "Official WNBA player media"
+            "score": "LVA 89 · IND 99",
+            "title": "Clark created one more game",
+            "player": "Caitlin Clark",
+            "stat": "27 PTS · 15 AST",
+            "note": "Her first-half points-assists double-double was the first in WNBA playoff history, and Indiana never trailed after its second-quarter turn.",
+            "photo": "https://cdn.wnba.com/sites/1611661319/2026/09/2026-09-29_AJ-Mast_NBAE_15.jpg",
+            "photoAlt": "Caitlin Clark attacks during Indiana's Game 2 win over Las Vegas",
+            "photoCredit": "A.J. Mast / NBAE · Aces Game 2 gallery"
           },
           {
-            "score": "DAL 80 · GSV 104",
-            "title": "Ballhalla got its first playoff win",
-            "player": "Cecilia Zandalasini",
-            "stat": "22 PTS · 4 3PM",
-            "note": "Golden State won the second quarter 37-11, hit 18 threes and placed three scorers at 20 points or more.",
-            "photo": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1628508.png",
-            "photoAlt": "Official WNBA headshot of Golden State Valkyries forward Cecilia Zandalasini",
+            "score": "MIN 71 · NYL 87",
+            "title": "The champs made the seed line disappear",
+            "player": "Jonquel Jones",
+            "stat": "21 PTS · 13 REB",
+            "note": "New York won both games by 16, holding the league’s top seed to 75 and 71 points to complete the historic sweep.",
+            "photo": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1627673.png",
+            "photoAlt": "Official WNBA portrait of New York Liberty center Jonquel Jones",
             "photoCredit": "Official WNBA player media"
+          }
+        ]
+      },
+      "gameGallery": {
+        "eyebrow": "FROM THE GAME TAPE",
+        "title": "Three nights, three season-saving or season-ending swings",
+        "dek": "Open any frame for the official recap and full game context.",
+        "items": [
+          {
+            "kicker": "RECORD NIGHT · DALLAS",
+            "title": "Arike’s corner three bought five more minutes",
+            "caption": "The Wings’ season was 4.1 seconds from ending. Ogunbowale turned that possession into a playoff-record 45 and an overtime win.",
+            "image": "https://cdn.wnba.com/sites/4/2026/10/GSVWAS.png",
+            "alt": "Arike Ogunbowale during Dallas' playoff victory over Golden State",
+            "credit": "WNBA · Game 2 recap",
+            "sourceUrl": "https://www.wnba.com/news/2026-playoffs-valkyries-wings-game-2-recap"
+          },
+          {
+            "kicker": "SERIES CLINCHER · ATLANTA",
+            "title": "The Dream answered Washington’s last push",
+            "caption": "A three-point game became a 16-point Atlanta lead after the 13-0 run that settled the series.",
+            "image": "https://cdn.wnba.com/sites/1611661330/2026/09/Rhyne-Howard-1.png",
+            "alt": "Atlanta Dream guard Rhyne Howard in playoff action against Washington",
+            "credit": "Atlanta Dream · Semifinal-clinching recap",
+            "sourceUrl": "https://dream.wnba.com/news/atlanta-dream-advances-to-wnba-playoff-semifinals-with-win-in-washington"
+          },
+          {
+            "kicker": "MUST-WIN RESPONSE · INDIANA",
+            "title": "Clark turned elimination pressure into pace",
+            "caption": "Indiana’s 20-6 second-quarter run flipped Game 2 and sent the series back to Las Vegas.",
+            "image": "https://cdn.wnba.com/sites/1611661319/2026/09/2026-09-29_AJ-Mast_NBAE_15.jpg",
+            "alt": "Caitlin Clark during Indiana's Game 2 playoff victory",
+            "credit": "A.J. Mast / NBAE · Aces Game 2 gallery",
+            "sourceUrl": "https://aces.wnba.com/news/gallery-quarterfinals-game-2-aces-fever-9-29-2026"
           }
         ]
       },
       "sections": [
         {
-          "title": "Game 1 delivered four blowouts and one bracket breaker",
+          "title": "Arike’s 45 was more than a record — it was an escape act",
           "paragraphs": [
-            "No game reached clutch time. The smallest margin was Atlanta’s 15-point win; New York won by 16, Las Vegas by 17 and Golden State by 24. Yet the opening day still redrew the postseason because the only road winner was the No. 8 seed.",
-            "New York did not steal a coin-flip finish. It controlled the second half, outscoring Minnesota 51-31 after halftime and turning a four-point deficit into a 91-75 statement. That is what makes Game 2 an elimination game for the team that entered as the title favorite."
+            "Dallas was one possession from elimination when Arike Ogunbowale drifted to the corner, caught the ball off balance and tied the game with 4.1 seconds left. She then opened overtime with a banked three and hit the shot that put the Wings ahead for good. Her 45 points moved the WNBA playoff record three points beyond the old mark of 42.",
+            "The degree of difficulty matters as much as the number. Ogunbowale scored 22 in the fourth quarter and overtime — 11 in each period — while Golden State’s defense knew every late possession was pointing at her. Dallas needed all of it because Gabby Williams produced a career-high 36 and the Valkyries still had the game on their terms until the final seconds.",
+            "The warning for Game 3 is that a miracle is not a repeatable offensive system. Paige Bueckers scored 10 on 3-of-13 shooting, while Golden State went 2-of-12 in overtime. The winner in San Francisco will probably be the team that gets its second and third creators back into the story."
           ]
         },
         {
-          "title": "Stewart made the seed line disappear",
+          "title": "Atlanta ended Washington’s run, not its reason for optimism",
           "paragraphs": [
-            "Breanna Stewart’s 34 points, 12 rebounds and six assists joined a tiny piece of postseason history: only four WNBA playoff performances have reached 30 points, 10 rebounds and five assists. She also defended, protected the rim and repeatedly forced Minnesota to choose between single coverage and open shooters.",
-            "Leonie Fiebich punished those choices with 16 points and four second-half threes. Minnesota’s answer has to start before the shot: cleaner matchups, fewer late-clock fouls and a way to keep Olivia Miles from seeing the same length at every turn."
+            "Washington’s young core made this series more competitive than the 2-0 result looks. Sonia Citron scored 25 in Game 2, and Kiki Iriafen finished with 15 points and 16 rebounds while becoming the first Mystics player with a first-half playoff double-double. Those are foundation pieces, not consolation prizes.",
+            "Atlanta still showed the difference between promise and a team ready to close. When Washington cut a 15-point deficit to 65-62, the Dream did not blink. They scored the next 13, got 13 fourth-quarter points from Jordin Canada and turned 19 Mystics turnovers into 23 points.",
+            "That sends Atlanta to its first semifinal since 2018 and its first series win since 2016. It also gives the Dream home court against New York — Games 1, 2 and, if necessary, 5 at State Farm Arena."
           ]
         },
         {
-          "title": "Wilson turned efficiency into inevitability",
+          "title": "Game 3 tonight: Indiana at Las Vegas",
           "paragraphs": [
-            "A’ja Wilson made 15 of 19 shots for 38 points, the most efficient 30-point playoff game in league history. The raw total was enormous; the absence of wasted possessions was worse for Indiana. Every coverage became a clean decision for the player Las Vegas wanted making it.",
-            "The Aces backed her with 21 points and 10 assists from Jackie Young, plus eight assists from Chelsea Gray. Gray moved to second on the WNBA career playoff assists list with 397. Indiana now has two linked problems: reduce the 17 turnovers that became 28 Vegas points, and create a defensive possession that does not end with Wilson dictating the last choice."
+            "Tip is 9:00 p.m. ET on USA Network and CNBC. Las Vegas owns the building and the deeper recent championship résumé; Indiana owns the latest adjustment. The Fever’s Game 2 offense put Caitlin Clark in motion earlier, let her manipulate the second defender and produced 27 points and 15 assists before she fouled out.",
+            "Las Vegas still has the most punishing interior answer in the series. A’ja Wilson followed her 38-point Game 1 with 22 points and nine rebounds, while Jackie Young scored 31 in the loss. The deciding question is whether the Aces can slow Clark’s first read without freeing Kelsey Mitchell and Aliyah Boston — and whether Indiana can survive the half-court minutes when Wilson touches the paint.",
+            "Pressure index: Las Vegas cannot assume Game 1’s blowout is the true matchup; Indiana cannot assume Game 2’s pace will travel. This is exactly what a 1-1-1 first round is designed to create: one night, one building, no safety net."
           ]
         },
         {
-          "title": "Atlanta stole the game, then Bonner changed its temperature",
+          "title": "Game 3 Friday: Dallas at Golden State",
           "paragraphs": [
-            "Washington led by 11 and still finished with 22 turnovers. Atlanta’s 16 steals set a franchise playoff record, two short of the WNBA postseason mark, while Rhyne Howard produced 26 points and five steals of her own.",
-            "The pivot was DeWanna Bonner. Scoreless in the first half, she poured in 11 points during the third quarter as Atlanta turned a five-point halftime deficit into a 12-point lead. Angel Reese’s 13 points and 12 rebounds made her playoff debut a double-double, but the team story was pressure: one mistake kept becoming the next one."
+            "The official WNBA schedule lists Friday’s deciding game in San Francisco on ESPN2, with tip time still to be confirmed. Golden State won Game 1 by 24; Dallas won Game 2 by eight in overtime. The series has delivered two entirely different games and no middle ground.",
+            "Golden State’s best path is to return to its identity: league-leading defense, deep lineups and decisions made before Dallas can load up. Dallas’ path begins with Ogunbowale’s shot creation, but it cannot end there. Bueckers, Alysha Clark and Aziaha James have to keep the Wings from asking for another record just to stay alive.",
+            "Watch the final six minutes. Williams carried Golden State to 36 points but missed her last six shots, and the Valkyries did not score after the game was tied at 100. Dallas now has proof it can win the late possessions; Golden State has home court and the larger two-game sample of control."
           ]
         },
         {
-          "title": "Golden State won the math before Dallas could change the game",
+          "title": "Liberty–Dream: the first best-of-five is already a chess match",
           "paragraphs": [
-            "The Valkyries’ first true home playoff game became their first playoff win and the highest-scoring game in franchise history. A 37-11 second quarter ended the competitive portion early. Golden State finished 18-for-36 from three and turned the ball over only four times.",
-            "Cecilia Zandalasini scored 22, Tiffany Hayes added 21 and Gabby Williams scored 20. Paige Bueckers was brilliant for Dallas — 21 points on 9-for-10 shooting — but one perfect creator could not keep pace with five Valkyries in double figures. Game 2 has to be less about matching shots and more about stopping Golden State from creating the same shots again."
+            "Atlanta won the regular-season series 2-1 and took the final two meetings by double digits, 95-84 and 83-65. New York won the June opener 104-90. That makes the matchup evidence real, but not predictive enough to erase what the Liberty just did to Minnesota.",
+            "New York’s first-round formula traveled: Stewart broke the coverage in Game 1, Jones controlled the glass in Game 2, and the Liberty held the No. 1 seed to 75 and 71 points. Atlanta arrives with a different kind of pressure. Canada, Rhyne Howard, Allisha Gray and Angel Reese can turn live-ball mistakes into runs before New York’s size gets organized.",
+            "The pivot is possession quality. Atlanta wants the Liberty making hurried first passes; New York wants Jones and Stewart forcing the Dream to defend the paint and finish every stop with a rebound. Sabrina Ionescu’s ability to beat the first trap — and Atlanta’s ability to keep Reese and Naz Hillmon out of foul trouble — will shape the series.",
+            "The move from best-of-three to best-of-five changes the math. Atlanta hosts Games 1 and 2, New York gets Games 3 and 4, and Atlanta would host Game 5. There is more time for lineup counters, health swings and shooting variance to normalize. The upset label matters less; the ability to solve the same opponent repeatedly matters more."
           ]
         },
         {
-          "title": "How to read the two series numbers",
+          "title": "Best of three created urgency. Best of five should reveal depth.",
           "paragraphs": [
-            "Regular-season head-to-head is matchup evidence. Playoff series is advancement math. New York entered with a 2-1 regular-season edge over Minnesota, Golden State with a 3-0 sweep of Dallas, Indiana with a 2-1 edge over Las Vegas and Washington with a 2-1 edge over Atlanta. None of those wins counted when the postseason started.",
-            "The live cards now place those facts in separate labeled boxes. Every playoff series is currently 1-0; the regular-season line remains visible only as context. The first round is best of three in a 1-1-1 format, followed by best-of-five semifinals and a best-of-seven Finals."
-          ]
-        },
-        {
-          "title": "The Game 2 pressure map",
-          "paragraphs": [
-            "Minnesota is the only higher seed facing elimination on the road. Indiana must decide how much extra help Wilson deserves without freeing the Aces’ guards. Washington has to protect the ball without becoming tentative. Dallas has to disrupt the pass before Golden State’s threes become rhythm shots.",
-            "That is what the bracket above will track next. Results update the series score, the next scheduled game replaces the last final, and clinched winners move forward into the semifinal slots without changing the meaning of the regular-season record."
+            "A best-of-three first round can turn a 44-game résumé into an 80-minute problem. New York did not merely benefit from that volatility — it won both games by 16 — but the format magnified the cost of Minnesota’s slow adjustments and made every poor matchup feel permanent.",
+            "The semifinals require three wins in a 2-2-1 format. That rewards the roster that can survive a counterpunch, change a coverage and still create good shots after the opponent has seen every pet action. Liberty–Dream is an ideal test: New York has championship-level half-court creators; Atlanta has waves of speed, pressure and athleticism."
           ]
         }
       ],
       "sources": [
         {
-          "label": "Live playoff games and results at We Know the W",
-          "url": "https://weknowthew.com/games.html"
+          "label": "WNBA recap: Wings 108, Valkyries 100 (OT)",
+          "url": "https://www.wnba.com/news/2026-playoffs-valkyries-wings-game-2-recap"
         },
         {
-          "label": "WNBA recap: Liberty 91, Lynx 75",
-          "url": "https://www.wnba.com/news/2026-playoffs-liberty-lynx-game-1-recap"
+          "label": "WNBA recap: Dream 93, Mystics 75",
+          "url": "https://www.wnba.com/news/2026-playoffs-mystics-dream-game-2-recap"
         },
         {
-          "label": "New York Liberty: first No. 8 seed to beat a No. 1",
-          "url": "https://liberty.wnba.com/news/liberty-take-game-1-behind-stewarts-34-points"
+          "label": "Atlanta Dream: semifinal-clinching Game 2 recap",
+          "url": "https://dream.wnba.com/news/atlanta-dream-advances-to-wnba-playoff-semifinals-with-win-in-washington"
         },
         {
-          "label": "WNBA recap: Aces 102, Fever 85",
-          "url": "https://www.wnba.com/news/2026-playoffs-fever-aces-game-1-recap"
+          "label": "WNBA recap: Fever 99, Aces 89",
+          "url": "https://www.wnba.com/news/2026-playoffs-aces-fever-game-2-recap"
         },
         {
-          "label": "WNBA recap: Dream 92, Mystics 77",
-          "url": "https://www.wnba.com/news/2026-playoffs-mystics-dream-game-1-recap"
+          "label": "WNBA recap: Liberty 87, Lynx 71",
+          "url": "https://www.wnba.com/news/2026-playoffs-lynx-liberty-game-2-recap"
         },
         {
-          "label": "WNBA recap: Valkyries 104, Wings 80",
-          "url": "https://www.wnba.com/news/2026-playoffs-wings-valkyries-game-1-recap"
-        },
-        {
-          "label": "CBS Sports: Stewart and Wilson’s historic Game 1 numbers",
-          "url": "https://www.cbssports.com/wnba/news/wnba-playoffs-winners-losers-game-1-sept-27/"
-        },
-        {
-          "label": "WNBA 2026 playoff bracket and format",
+          "label": "WNBA: 2026 postseason format and bracket",
           "url": "https://www.wnba.com/playoffs/2026"
+        },
+        {
+          "label": "WNBA: Olivia Miles named unanimous Rookie of the Year",
+          "url": "https://www.wnba.com/news/miles-named-2026-rookie-of-the-year"
+        },
+        {
+          "label": "WNBA: Cheryl Reeve named Coach of the Year",
+          "url": "https://www.wnba.com/news/reeve-named-2026-coach-of-the-year"
+        },
+        {
+          "label": "Live playoff scores and schedule at We Know the W",
+          "url": "https://weknowthew.com/games.html"
         }
       ],
       "dashboardUrl": "/food-for-thought.html?post=the-playoff-watch-party-2026#story",
-      "storyImage": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1627668.png",
-      "storyImageCaption": "Breanna Stewart led the first No. 8-over-No. 1 playoff win in WNBA history. Official WNBA player media.",
-      "storyImageSourceUrl": "https://www.wnba.com/news/2026-playoffs-liberty-lynx-game-1-recap",
+      "storyImage": "https://cdn.wnba.com/sites/4/2026/10/GSVWAS.png",
+      "storyImageCaption": "Arike Ogunbowale scored a WNBA playoff-record 45 points and forced overtime with 4.1 seconds left. WNBA game media.",
+      "storyImageSourceUrl": "https://www.wnba.com/news/2026-playoffs-valkyries-wings-game-2-recap",
       "playoffWatch": {
-        "title": "THE PLAYOFF WATCH PARTY",
-        "subtitle": "Game 1 is final. Every series is 1-0.",
-        "asOf": "GAME 1 FINAL · SEPT. 27",
+        "title": "TWO GAME 3s. ONE SEMIFINAL SET.",
+        "subtitle": "Track tonight’s elimination game, Friday’s decider and the Atlanta–New York best-of-five in one live board.",
+        "asOf": "LIVE BOARD · OCT. 1",
+        "summary": [
+        {
+          "key": "teams",
+          "value": "6",
+          "label": "teams still alive"
+        },
+        {
+          "key": "game3s",
+          "value": "2",
+          "label": "Game 3s left"
+          },
+          {
+            "value": "45",
+            "label": "new playoff points record"
+          },
+          {
+            "value": "BO5",
+            "label": "semifinal format"
+          }
+        ],
         "matchups": [
           {
-            "id": "min-nyl",
-            "highSeed": 1,
-            "highTeam": "Minnesota Lynx",
-            "highRecord": "33-11",
-            "lowSeed": 8,
-            "lowTeam": "New York Liberty",
-            "lowRecord": "26-18",
-            "regularSeries": "NYL 2-1",
-            "game1": "Game 1 final · NYL 91-75",
-            "nextGame": "Game 2 schedule loading",
-            "stars": [
-              "Breanna Stewart",
-              "Olivia Miles"
-            ],
-            "starPhotos": [
-              "https://cdn.wnba.com/headshots/wnba/latest/260x190/1627668.png",
-              "https://cdn.wnba.com/headshots/wnba/latest/260x190/1643426.png"
-            ],
-            "hot": "New York has beaten Minnesota twice in nine days and held the Lynx to 31 second-half points in Game 1.",
-            "bench": "Leonie Fiebich scored 16 for New York; Nia Brodie led Minnesota with 16 in 19 reserve minutes.",
-            "availability": "Live status and return context refresh on the site report before Game 2.",
-            "beat": "New York drags Minnesota into long, physical possessions, then lets Stewart punish the final coverage decision.",
-            "break": "Minnesota must create earlier advantages so Miles is attacking space instead of New York's set length.",
-            "must": "Stewart has already set the standard. Miles has to turn a 3-for-12 debut into faster, cleaner decisions.",
-            "wScore": "LIVE",
-            "highCode": "MIN",
-            "lowCode": "NYL",
-            "highWScore": 80,
-            "lowWScore": 68
-          },
-          {
-            "id": "gsv-dal",
-            "highSeed": 2,
-            "highTeam": "Golden State Valkyries",
-            "highRecord": "32-12",
-            "lowSeed": 7,
-            "lowTeam": "Dallas Wings",
-            "lowRecord": "27-17",
-            "regularSeries": "GSV 3-0",
-            "game1": "Game 1 final · GSV 104-80",
-            "nextGame": "Game 2 schedule loading",
-            "stars": [
-              "Cecilia Zandalasini",
-              "Paige Bueckers"
-            ],
-            "starPhotos": [
-              "https://cdn.wnba.com/headshots/wnba/latest/260x190/1628508.png",
-              "https://cdn.wnba.com/headshots/wnba/latest/260x190/1642784.png"
-            ],
-            "hot": "Golden State has won eight of nine and just produced the highest-scoring game in franchise history.",
-            "bench": "Tiffany Hayes scored 21 off the bench; Dallas received 21 brilliant points from Bueckers but little matching volume.",
-            "availability": "Live status and return context refresh on the site report before Game 2.",
-            "beat": "Golden State spaces the floor, keeps the ball moving and makes one clean possession multiply into the next.",
-            "break": "Dallas must disrupt the first pass and keep the second quarter from becoming another avalanche of rhythm threes.",
-            "must": "Zandalasini set the tone. Bueckers needs help so a near-perfect scoring night can matter late.",
-            "wScore": "LIVE",
-            "highCode": "GSV",
-            "lowCode": "DAL",
-            "highWScore": 77,
-            "lowWScore": 75
-          },
-          {
             "id": "lva-ind",
+            "roundKey": "First Round",
+            "roundLabel": "FIRST ROUND · GAME 3",
             "highSeed": 3,
             "highTeam": "Las Vegas Aces",
             "highRecord": "31-13",
@@ -764,8 +767,9 @@
             "lowTeam": "Indiana Fever",
             "lowRecord": "28-16",
             "regularSeries": "IND 2-1",
-            "game1": "Game 1 final · LVA 102-85",
-            "nextGame": "Game 2 schedule loading",
+            "series": "1-1",
+            "seriesNote": "Winner advances",
+            "nextGame": "Thu, Oct. 1 · 9:00 PM · USA/CNBC",
             "stars": [
               "A'ja Wilson",
               "Caitlin Clark"
@@ -774,56 +778,140 @@
               "https://cdn.wnba.com/headshots/wnba/latest/260x190/1628932.png",
               "https://cdn.wnba.com/headshots/wnba/latest/260x190/1642286.png"
             ],
-            "hot": "Las Vegas has won eight straight including Game 1, with Wilson coming off a 38-16-4-block masterpiece.",
-            "bench": "The Aces' veteran creation kept every lineup organized; Indiana needs a steadier scoring bridge around its stars.",
-            "availability": "Live status and return context refresh on the site report before Game 2.",
-            "beat": "Wilson owns the middle while Young and Gray punish every extra defender Indiana sends toward her.",
-            "break": "Indiana has to cut the 17 turnovers and create pace before Las Vegas can build the wall around Wilson.",
-            "must": "Wilson is the matchup. Clark's 15 points and 10 assists need a cleaner team possession profile around them.",
-            "wScore": "LIVE",
+            "hot": "Clark is coming off 27 points and 15 assists; Young answered with 31 while Wilson added 22 and nine.",
+            "bench": "Indiana won the Game 2 middle quarters with pace and connected decisions. Vegas needs a steadier bridge when Wilson sits.",
+            "availability": "Refresh the live report before tip for final statuses and restrictions.",
+            "beat": "Vegas collapses the court around Wilson and lets Young punish tilted coverage. Indiana spreads the floor and makes Clark’s first read arrive early.",
+            "break": "The Aces can become static when the first post touch stalls. The Fever are vulnerable when turnovers let Vegas attack before the defense is set.",
+            "must": "Wilson is the matchup anchor. Clark has to carry Game 2’s processing speed into a hostile closeout game.",
             "highCode": "LVA",
             "lowCode": "IND",
             "highWScore": 88,
             "lowWScore": 75
           },
           {
-            "id": "atl-was",
+            "id": "gsv-dal",
+            "roundKey": "First Round",
+            "roundLabel": "FIRST ROUND · GAME 3",
+            "highSeed": 2,
+            "highTeam": "Golden State Valkyries",
+            "highRecord": "32-12",
+            "lowSeed": 7,
+            "lowTeam": "Dallas Wings",
+            "lowRecord": "27-17",
+            "regularSeries": "GSV 3-0",
+            "series": "1-1",
+            "seriesNote": "Winner advances",
+            "nextGame": "Fri, Oct. 2 · Time TBD · ESPN2",
+            "stars": [
+              "Gabby Williams",
+              "Arike Ogunbowale"
+            ],
+            "starPhotos": [
+              "https://cdn.wnba.com/headshots/wnba/latest/260x190/1628931.png",
+              "https://cdn.wnba.com/headshots/wnba/latest/260x190/1629481.png"
+            ],
+            "hot": "Ogunbowale owns the record book after 45. Williams’ 36 was a career high in either the regular season or playoffs.",
+            "bench": "Alysha Clark tied her playoff high with 21 for Dallas. Golden State needs its deep rotation to reassert the Game 1 pace.",
+            "availability": "Refresh the live report before the deciding game in San Francisco.",
+            "beat": "Golden State stacks defensive possessions and shares the creation. Dallas stretches every possession around Ogunbowale’s shotmaking gravity.",
+            "break": "The Valkyries went 2-of-12 in overtime. The Wings cannot keep surviving if the non-Arike offense disappears.",
+            "must": "Williams has to turn 36 into a win; Bueckers has to rebound from 10 points on 3-of-13 shooting.",
+            "highCode": "GSV",
+            "lowCode": "DAL",
+            "highWScore": 77,
+            "lowWScore": 75
+          },
+          {
+            "id": "atl-nyl",
+            "roundKey": "Semifinals",
+            "roundLabel": "SEMIFINALS · BEST OF 5",
             "highSeed": 4,
             "highTeam": "Atlanta Dream",
             "highRecord": "30-14",
-            "lowSeed": 5,
-            "lowTeam": "Washington Mystics",
-            "lowRecord": "28-16",
-            "regularSeries": "WAS 2-1",
-            "game1": "Game 1 final · ATL 92-77",
-            "nextGame": "Game 2 schedule loading",
+            "lowSeed": 8,
+            "lowTeam": "New York Liberty",
+            "lowRecord": "26-18",
+            "regularSeries": "ATL 2-1",
+            "series": "0-0",
+            "seriesNote": "First to three wins",
+            "nextGame": "Game 1 · Sun, Oct. 4 · Atlanta · Time TBD",
             "stars": [
-              "Rhyne Howard",
-              "Sonia Citron"
+              "Angel Reese",
+              "Breanna Stewart"
             ],
             "starPhotos": [
-              "https://cdn.wnba.com/headshots/wnba/latest/260x190/1631009.png",
-              "https://cdn.wnba.com/headshots/wnba/latest/260x190/1642785.png"
+              "https://cdn.wnba.com/headshots/wnba/latest/260x190/1642291.png",
+              "https://cdn.wnba.com/headshots/wnba/latest/260x190/1627668.png"
             ],
-            "hot": "Atlanta has won six straight, and its 16 Game 1 steals established a franchise playoff record.",
-            "bench": "Bonner scored 11 of her 13 points in the third; Washington's young frontcourt still produced two double-doubles.",
-            "availability": "Live status and return context refresh on the site report before Game 2.",
-            "beat": "Atlanta turns ball pressure into transition offense and lets Howard attack a defense that never gets reset.",
-            "break": "Washington must value the ball without losing the aggression that built an 11-point first-half lead.",
-            "must": "Howard's two-way pressure changed Game 1. Citron's 25 points must come with fewer empty team possessions.",
-            "wScore": "LIVE",
+            "hot": "Atlanta has won seven straight including the sweep. New York just held Minnesota to 146 total points over two games.",
+            "bench": "Naz Hillmon and DeWanna Bonner give Atlanta different frontcourt shapes; Leonie Fiebich changes New York’s spacing and defensive length.",
+            "availability": "The extra days before Game 1 make status, workload and lineup news especially important.",
+            "beat": "Atlanta turns ball pressure into open-floor scoring. New York uses Stewart and Jones to make every half-court possession a size problem.",
+            "break": "The Dream must finish stops against New York’s frontcourt. The Liberty cannot let Atlanta’s first trap become a chain of hurried passes.",
+            "must": "Reese has to own the rebound margin without foul trouble. Stewart has to make Atlanta pay when it switches smaller defenders.",
             "highCode": "ATL",
-            "lowCode": "WAS",
+            "lowCode": "NYL",
             "highWScore": 89,
-            "lowWScore": 81
+            "lowWScore": 68
           }
         ],
-        "scoreMethod": "Final regular-season W Score: 40% trio production, 35% team defense, 25% post-FIBA form. Availability is shown separately and does not silently change the score."
+        "scoreMethod": "The W Score is a regular-season composite. Live series records, final scores and next games refresh from the postseason feed."
+      },
+      "awardFallout": {
+        "eyebrow": "COACH OF THE YEAR + ROOKIE OF THE YEAR",
+        "title": "The awards are still true. The bracket is telling a different truth.",
+        "dek": "Minnesota entered with the league’s top seed, the Coach of the Year and the unanimous Rookie of the Year. Two 16-point losses ended that season before October.",
+        "stamp": "WHAT IT MEANS",
+        "people": [
+          {
+            "name": "Cheryl Reeve",
+            "award": "2026 WNBA COACH OF THE YEAR",
+            "team": "Minnesota Lynx · eliminated 0-2",
+            "receipt": "33-11 · No. 1 seed · record 5th award",
+            "playoff": "New York’s size, switching and half-court execution won both games. Because Reeve also leads basketball operations, the exit puts the adjustment plan and roster construction under the same spotlight.",
+            "photo": "https://cdn.wnba.com/logos/wnba/1611661324/primary/L/logo.svg",
+            "photoAlt": "Minnesota Lynx logo",
+            "photoFit": "contain",
+            "accent": "#78be20"
+          },
+          {
+            "name": "Olivia Miles",
+            "award": "2026 WNBA ROOKIE OF THE YEAR",
+            "team": "Minnesota Lynx · eliminated 0-2",
+            "receipt": "Unanimous · 790 points · 22 games with 20+",
+            "playoff": "New York compressed her driving and passing windows. Miles averaged 8.0 points and 5.0 assists in the series, shot 20 percent and was replaced late in Game 2 — a harsh first lesson, not a rewrite of her rookie season.",
+            "photo": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1643426.png",
+            "photoAlt": "Official WNBA portrait of Minnesota Lynx guard Olivia Miles",
+            "accent": "#6eceb2"
+          }
+        ],
+        "implications": [
+          {
+            "title": "Awards measure months, not two nights",
+            "text": "Reeve’s 33-win season and Miles’ record-setting rookie résumé remain the right evidence for regular-season awards. A playoff loss does not retroactively change those ballots."
+          },
+          {
+            "title": "The format debate gets louder",
+            "text": "A best-of-three makes matchup variance and one bad adjustment enormous. The result strengthens the case for a best-of-five first round, even though New York’s two 16-point wins were emphatic rather than fluky."
+          },
+          {
+            "title": "Postseason scouting found the pressure point",
+            "text": "The Liberty made Miles play through length and reduced Minnesota’s easy creation. Her response next season will matter more than the fact that an elite defense solved a rookie once."
+          },
+          {
+            "title": "Minnesota’s standard changes the review",
+            "text": "Coach of the Year confirms Reeve built the league’s best regular-season team. The sweep means the offseason review has to ask why that team could not produce a workable counter before the series ended."
+          }
+        ],
+        "verdict": "The trophy case says who sustained excellence over 44 games. The bracket asks who can solve this opponent right now. Minnesota won the first argument; New York won the one that keeps the season alive.",
+        "note": "Analysis note: WNBA Coach of the Year and Rookie of the Year are regular-season awards. Their postseason elimination does not alter the official voting result."
       },
       "debates": [
-        "Can Minnesota become the first team to solve New York after falling behind 1-0?",
-        "Which Game 1 winner showed the most repeatable formula?",
-        "What changes first for the trailing teams: pace, pressure or rotation?"
+        "Does Arike need another 40-point game, or can Dallas win Game 3 with balance?",
+        "Which Game 3 pressure is heavier: the defending champions at home or the expansion power protecting Ballhalla?",
+        "Does Atlanta’s 2-1 season edge carry into a five-game series against New York’s championship core?",
+        "Should the first round become best-of-five after the No. 1 seed’s season ended in two games?"
       ]
     },
     {

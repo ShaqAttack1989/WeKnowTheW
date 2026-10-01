@@ -53,7 +53,7 @@
         }
       ]
     },
-{
+    {
       "slug": "four-for-aja-2026-ap-awards",
       "type": "feature",
       "priority": 2500,
@@ -193,17 +193,72 @@
             "shortLabel": "Player",
             "note": "Wilson broke the tie with Breanna Stewart and became the first four-time AP Player of the Year.",
             "seasons": [
-              {"year": 2026, "winners": ["A'ja Wilson"]},
-              {"year": 2025, "winners": ["A'ja Wilson"]},
-              {"year": 2024, "winners": ["A'ja Wilson"]},
-              {"year": 2023, "winners": ["Breanna Stewart"]},
-              {"year": 2022, "winners": ["Breanna Stewart"]},
-              {"year": 2021, "winners": ["Jonquel Jones"]},
-              {"year": 2020, "winners": ["A'ja Wilson"]},
-              {"year": 2019, "winners": ["Elena Delle Donne"]},
-              {"year": 2018, "winners": ["Breanna Stewart"]},
-              {"year": 2017, "winners": ["Sylvia Fowles"]},
-              {"year": 2016, "winners": ["Nneka Ogwumike"]}
+              {
+                "year": 2026,
+                "winners": [
+                  "A'ja Wilson"
+                ]
+              },
+              {
+                "year": 2025,
+                "winners": [
+                  "A'ja Wilson"
+                ]
+              },
+              {
+                "year": 2024,
+                "winners": [
+                  "A'ja Wilson"
+                ]
+              },
+              {
+                "year": 2023,
+                "winners": [
+                  "Breanna Stewart"
+                ]
+              },
+              {
+                "year": 2022,
+                "winners": [
+                  "Breanna Stewart"
+                ]
+              },
+              {
+                "year": 2021,
+                "winners": [
+                  "Jonquel Jones"
+                ]
+              },
+              {
+                "year": 2020,
+                "winners": [
+                  "A'ja Wilson"
+                ]
+              },
+              {
+                "year": 2019,
+                "winners": [
+                  "Elena Delle Donne"
+                ]
+              },
+              {
+                "year": 2018,
+                "winners": [
+                  "Breanna Stewart"
+                ]
+              },
+              {
+                "year": 2017,
+                "winners": [
+                  "Sylvia Fowles"
+                ]
+              },
+              {
+                "year": 2016,
+                "winners": [
+                  "Nneka Ogwumike"
+                ]
+              }
             ]
           },
           {
@@ -212,17 +267,72 @@
             "shortLabel": "Defense",
             "note": "Reese is the category's sixth winner. Wilson and Sylvia Fowles share the lead with three awards each.",
             "seasons": [
-              {"year": 2026, "winners": ["Angel Reese"]},
-              {"year": 2025, "winners": ["A'ja Wilson"]},
-              {"year": 2024, "winners": ["Napheesa Collier"]},
-              {"year": 2023, "winners": ["A'ja Wilson"]},
-              {"year": 2022, "winners": ["A'ja Wilson"]},
-              {"year": 2021, "winners": ["Sylvia Fowles"]},
-              {"year": 2020, "winners": ["Candace Parker"]},
-              {"year": 2019, "winners": ["Natasha Howard"]},
-              {"year": 2018, "winners": ["Sylvia Fowles"]},
-              {"year": 2017, "winners": ["Alana Beard"]},
-              {"year": 2016, "winners": ["Sylvia Fowles"]}
+              {
+                "year": 2026,
+                "winners": [
+                  "Angel Reese"
+                ]
+              },
+              {
+                "year": 2025,
+                "winners": [
+                  "A'ja Wilson"
+                ]
+              },
+              {
+                "year": 2024,
+                "winners": [
+                  "Napheesa Collier"
+                ]
+              },
+              {
+                "year": 2023,
+                "winners": [
+                  "A'ja Wilson"
+                ]
+              },
+              {
+                "year": 2022,
+                "winners": [
+                  "A'ja Wilson"
+                ]
+              },
+              {
+                "year": 2021,
+                "winners": [
+                  "Sylvia Fowles"
+                ]
+              },
+              {
+                "year": 2020,
+                "winners": [
+                  "Candace Parker"
+                ]
+              },
+              {
+                "year": 2019,
+                "winners": [
+                  "Natasha Howard"
+                ]
+              },
+              {
+                "year": 2018,
+                "winners": [
+                  "Sylvia Fowles"
+                ]
+              },
+              {
+                "year": 2017,
+                "winners": [
+                  "Alana Beard"
+                ]
+              },
+              {
+                "year": 2016,
+                "winners": [
+                  "Sylvia Fowles"
+                ]
+              }
             ]
           },
           {
@@ -231,17 +341,72 @@
             "shortLabel": "Rookie",
             "note": "The AP rookie award still has no repeat winner by definition, and it has produced 11 distinct recipients in 11 seasons.",
             "seasons": [
-              {"year": 2026, "winners": ["Olivia Miles"]},
-              {"year": 2025, "winners": ["Paige Bueckers"]},
-              {"year": 2024, "winners": ["Caitlin Clark"]},
-              {"year": 2023, "winners": ["Aliyah Boston"]},
-              {"year": 2022, "winners": ["Rhyne Howard"]},
-              {"year": 2021, "winners": ["Michaela Onyenwere"]},
-              {"year": 2020, "winners": ["Crystal Dangerfield"]},
-              {"year": 2019, "winners": ["Napheesa Collier"]},
-              {"year": 2018, "winners": ["A'ja Wilson"]},
-              {"year": 2017, "winners": ["Allisha Gray"]},
-              {"year": 2016, "winners": ["Breanna Stewart"]}
+              {
+                "year": 2026,
+                "winners": [
+                  "Olivia Miles"
+                ]
+              },
+              {
+                "year": 2025,
+                "winners": [
+                  "Paige Bueckers"
+                ]
+              },
+              {
+                "year": 2024,
+                "winners": [
+                  "Caitlin Clark"
+                ]
+              },
+              {
+                "year": 2023,
+                "winners": [
+                  "Aliyah Boston"
+                ]
+              },
+              {
+                "year": 2022,
+                "winners": [
+                  "Rhyne Howard"
+                ]
+              },
+              {
+                "year": 2021,
+                "winners": [
+                  "Michaela Onyenwere"
+                ]
+              },
+              {
+                "year": 2020,
+                "winners": [
+                  "Crystal Dangerfield"
+                ]
+              },
+              {
+                "year": 2019,
+                "winners": [
+                  "Napheesa Collier"
+                ]
+              },
+              {
+                "year": 2018,
+                "winners": [
+                  "A'ja Wilson"
+                ]
+              },
+              {
+                "year": 2017,
+                "winners": [
+                  "Allisha Gray"
+                ]
+              },
+              {
+                "year": 2016,
+                "winners": [
+                  "Breanna Stewart"
+                ]
+              }
             ]
           },
           {
@@ -250,17 +415,73 @@
             "shortLabel": "Comeback",
             "note": "Even with the 2023 co-winners, nobody has won this category twice. Clark is its 12th recipient.",
             "seasons": [
-              {"year": 2026, "winners": ["Caitlin Clark"]},
-              {"year": 2025, "winners": ["Shakira Austin"]},
-              {"year": 2024, "winners": ["Skylar Diggins-Smith"]},
-              {"year": 2023, "winners": ["Napheesa Collier", "Brittney Griner"]},
-              {"year": 2022, "winners": ["Alyssa Thomas"]},
-              {"year": 2021, "winners": ["Kelsey Plum"]},
-              {"year": 2020, "winners": ["Breanna Stewart"]},
-              {"year": 2019, "winners": ["Isabelle Harrison"]},
-              {"year": 2018, "winners": ["DeWanna Bonner"]},
-              {"year": 2017, "winners": ["Epiphanny Prince"]},
-              {"year": 2016, "winners": ["Chiney Ogwumike"]}
+              {
+                "year": 2026,
+                "winners": [
+                  "Caitlin Clark"
+                ]
+              },
+              {
+                "year": 2025,
+                "winners": [
+                  "Shakira Austin"
+                ]
+              },
+              {
+                "year": 2024,
+                "winners": [
+                  "Skylar Diggins-Smith"
+                ]
+              },
+              {
+                "year": 2023,
+                "winners": [
+                  "Napheesa Collier",
+                  "Brittney Griner"
+                ]
+              },
+              {
+                "year": 2022,
+                "winners": [
+                  "Alyssa Thomas"
+                ]
+              },
+              {
+                "year": 2021,
+                "winners": [
+                  "Kelsey Plum"
+                ]
+              },
+              {
+                "year": 2020,
+                "winners": [
+                  "Breanna Stewart"
+                ]
+              },
+              {
+                "year": 2019,
+                "winners": [
+                  "Isabelle Harrison"
+                ]
+              },
+              {
+                "year": 2018,
+                "winners": [
+                  "DeWanna Bonner"
+                ]
+              },
+              {
+                "year": 2017,
+                "winners": [
+                  "Epiphanny Prince"
+                ]
+              },
+              {
+                "year": 2016,
+                "winners": [
+                  "Chiney Ogwumike"
+                ]
+              }
             ]
           },
           {
@@ -269,17 +490,72 @@
             "shortLabel": "Improved",
             "note": "Shepard extends the category's perfect run of new winners: 11 seasons, 11 names.",
             "seasons": [
-              {"year": 2026, "winners": ["Jessica Shepard"]},
-              {"year": 2025, "winners": ["Veronica Burton"]},
-              {"year": 2024, "winners": ["Dearica Hamby"]},
-              {"year": 2023, "winners": ["Satou Sabally"]},
-              {"year": 2022, "winners": ["Jackie Young"]},
-              {"year": 2021, "winners": ["Brionna Jones"]},
-              {"year": 2020, "winners": ["Betnijah Laney"]},
-              {"year": 2019, "winners": ["Leilani Mitchell"]},
-              {"year": 2018, "winners": ["Natasha Howard"]},
-              {"year": 2017, "winners": ["Jonquel Jones"]},
-              {"year": 2016, "winners": ["Elizabeth Williams"]}
+              {
+                "year": 2026,
+                "winners": [
+                  "Jessica Shepard"
+                ]
+              },
+              {
+                "year": 2025,
+                "winners": [
+                  "Veronica Burton"
+                ]
+              },
+              {
+                "year": 2024,
+                "winners": [
+                  "Dearica Hamby"
+                ]
+              },
+              {
+                "year": 2023,
+                "winners": [
+                  "Satou Sabally"
+                ]
+              },
+              {
+                "year": 2022,
+                "winners": [
+                  "Jackie Young"
+                ]
+              },
+              {
+                "year": 2021,
+                "winners": [
+                  "Brionna Jones"
+                ]
+              },
+              {
+                "year": 2020,
+                "winners": [
+                  "Betnijah Laney"
+                ]
+              },
+              {
+                "year": 2019,
+                "winners": [
+                  "Leilani Mitchell"
+                ]
+              },
+              {
+                "year": 2018,
+                "winners": [
+                  "Natasha Howard"
+                ]
+              },
+              {
+                "year": 2017,
+                "winners": [
+                  "Jonquel Jones"
+                ]
+              },
+              {
+                "year": 2016,
+                "winners": [
+                  "Elizabeth Williams"
+                ]
+              }
             ]
           },
           {
@@ -288,17 +564,72 @@
             "shortLabel": "Sixth",
             "note": "Hamby's back-to-back wins in 2019 and 2020 make her the only repeat recipient. Salaün is the tenth winner.",
             "seasons": [
-              {"year": 2026, "winners": ["Janelle Salaün"]},
-              {"year": 2025, "winners": ["Naz Hillmon"]},
-              {"year": 2024, "winners": ["Tiffany Hayes"]},
-              {"year": 2023, "winners": ["Alysha Clark"]},
-              {"year": 2022, "winners": ["Brionna Jones"]},
-              {"year": 2021, "winners": ["Kelsey Plum"]},
-              {"year": 2020, "winners": ["Dearica Hamby"]},
-              {"year": 2019, "winners": ["Dearica Hamby"]},
-              {"year": 2018, "winners": ["Jonquel Jones"]},
-              {"year": 2017, "winners": ["Sugar Rodgers"]},
-              {"year": 2016, "winners": ["Jantel Lavender"]}
+              {
+                "year": 2026,
+                "winners": [
+                  "Janelle Salaün"
+                ]
+              },
+              {
+                "year": 2025,
+                "winners": [
+                  "Naz Hillmon"
+                ]
+              },
+              {
+                "year": 2024,
+                "winners": [
+                  "Tiffany Hayes"
+                ]
+              },
+              {
+                "year": 2023,
+                "winners": [
+                  "Alysha Clark"
+                ]
+              },
+              {
+                "year": 2022,
+                "winners": [
+                  "Brionna Jones"
+                ]
+              },
+              {
+                "year": 2021,
+                "winners": [
+                  "Kelsey Plum"
+                ]
+              },
+              {
+                "year": 2020,
+                "winners": [
+                  "Dearica Hamby"
+                ]
+              },
+              {
+                "year": 2019,
+                "winners": [
+                  "Dearica Hamby"
+                ]
+              },
+              {
+                "year": 2018,
+                "winners": [
+                  "Jonquel Jones"
+                ]
+              },
+              {
+                "year": 2017,
+                "winners": [
+                  "Sugar Rodgers"
+                ]
+              },
+              {
+                "year": 2016,
+                "winners": [
+                  "Jantel Lavender"
+                ]
+              }
             ]
           },
           {
@@ -307,17 +638,72 @@
             "shortLabel": "Coach",
             "note": "Reeve is the first three-time AP Coach of the Year. Curt Miller is the only other repeat winner.",
             "seasons": [
-              {"year": 2026, "winners": ["Cheryl Reeve"]},
-              {"year": 2025, "winners": ["Natalie Nakase"]},
-              {"year": 2024, "winners": ["Cheryl Reeve"]},
-              {"year": 2023, "winners": ["Stephanie White"]},
-              {"year": 2022, "winners": ["Tanisha Wright"]},
-              {"year": 2021, "winners": ["Curt Miller"]},
-              {"year": 2020, "winners": ["Cheryl Reeve"]},
-              {"year": 2019, "winners": ["Mike Thibault"]},
-              {"year": 2018, "winners": ["Nicki Collen"]},
-              {"year": 2017, "winners": ["Curt Miller"]},
-              {"year": 2016, "winners": ["Brian Agler"]}
+              {
+                "year": 2026,
+                "winners": [
+                  "Cheryl Reeve"
+                ]
+              },
+              {
+                "year": 2025,
+                "winners": [
+                  "Natalie Nakase"
+                ]
+              },
+              {
+                "year": 2024,
+                "winners": [
+                  "Cheryl Reeve"
+                ]
+              },
+              {
+                "year": 2023,
+                "winners": [
+                  "Stephanie White"
+                ]
+              },
+              {
+                "year": 2022,
+                "winners": [
+                  "Tanisha Wright"
+                ]
+              },
+              {
+                "year": 2021,
+                "winners": [
+                  "Curt Miller"
+                ]
+              },
+              {
+                "year": 2020,
+                "winners": [
+                  "Cheryl Reeve"
+                ]
+              },
+              {
+                "year": 2019,
+                "winners": [
+                  "Mike Thibault"
+                ]
+              },
+              {
+                "year": 2018,
+                "winners": [
+                  "Nicki Collen"
+                ]
+              },
+              {
+                "year": 2017,
+                "winners": [
+                  "Curt Miller"
+                ]
+              },
+              {
+                "year": 2016,
+                "winners": [
+                  "Brian Agler"
+                ]
+              }
             ]
           }
         ],
@@ -327,11 +713,31 @@
             "label": "First Team",
             "note": "The five-player AP first team puts three lead guards around two former MVPs. It is an honor roll, not a proposed starting lineup.",
             "players": [
-              {"name": "A'ja Wilson", "team": "Las Vegas Aces", "id": "1628932"},
-              {"name": "Caitlin Clark", "team": "Indiana Fever", "id": "1642286"},
-              {"name": "Olivia Miles", "team": "Minnesota Lynx", "id": "1643426"},
-              {"name": "Kelsey Mitchell", "team": "Indiana Fever", "id": "1628909"},
-              {"name": "Breanna Stewart", "team": "New York Liberty", "id": "1627668"}
+              {
+                "name": "A'ja Wilson",
+                "team": "Las Vegas Aces",
+                "id": "1628932"
+              },
+              {
+                "name": "Caitlin Clark",
+                "team": "Indiana Fever",
+                "id": "1642286"
+              },
+              {
+                "name": "Olivia Miles",
+                "team": "Minnesota Lynx",
+                "id": "1643426"
+              },
+              {
+                "name": "Kelsey Mitchell",
+                "team": "Indiana Fever",
+                "id": "1628909"
+              },
+              {
+                "name": "Breanna Stewart",
+                "team": "New York Liberty",
+                "id": "1627668"
+              }
             ]
           },
           {
@@ -339,11 +745,31 @@
             "label": "Second Team",
             "note": "The second team is a position-bending group with two big playmakers, two long wings and one of the league's most disruptive guards.",
             "players": [
-              {"name": "Angel Reese", "team": "Atlanta Dream", "id": "1642291"},
-              {"name": "Rhyne Howard", "team": "Atlanta Dream", "id": "1631009"},
-              {"name": "Paige Bueckers", "team": "Dallas Wings", "id": "1642784"},
-              {"name": "Jackie Young", "team": "Las Vegas Aces", "id": "1629498"},
-              {"name": "Gabby Williams", "team": "Golden State Valkyries", "id": "1628931"}
+              {
+                "name": "Angel Reese",
+                "team": "Atlanta Dream",
+                "id": "1642291"
+              },
+              {
+                "name": "Rhyne Howard",
+                "team": "Atlanta Dream",
+                "id": "1631009"
+              },
+              {
+                "name": "Paige Bueckers",
+                "team": "Dallas Wings",
+                "id": "1642784"
+              },
+              {
+                "name": "Jackie Young",
+                "team": "Las Vegas Aces",
+                "id": "1629498"
+              },
+              {
+                "name": "Gabby Williams",
+                "team": "Golden State Valkyries",
+                "id": "1628931"
+              }
             ]
           },
           {
@@ -351,12 +777,36 @@
             "label": "All-Rookie",
             "note": "The six-player rookie team reflects a tie on the ballot. Miles adds the unanimous individual rookie award to her place here.",
             "players": [
-              {"name": "Olivia Miles", "team": "Minnesota Lynx", "id": "1643426"},
-              {"name": "Azzi Fudd", "team": "Dallas Wings", "id": "1643425"},
-              {"name": "Sydney Taylor", "team": "Chicago Sky", "id": "1642321"},
-              {"name": "Flau'jae Johnson", "team": "Seattle Storm", "id": "1643428"},
-              {"name": "Pauline Astier", "team": "New York Liberty", "id": "1631136"},
-              {"name": "Kiki Rice", "team": "Toronto Tempo", "id": "1643445"}
+              {
+                "name": "Olivia Miles",
+                "team": "Minnesota Lynx",
+                "id": "1643426"
+              },
+              {
+                "name": "Azzi Fudd",
+                "team": "Dallas Wings",
+                "id": "1643425"
+              },
+              {
+                "name": "Sydney Taylor",
+                "team": "Chicago Sky",
+                "id": "1642321"
+              },
+              {
+                "name": "Flau'jae Johnson",
+                "team": "Seattle Storm",
+                "id": "1643428"
+              },
+              {
+                "name": "Pauline Astier",
+                "team": "New York Liberty",
+                "id": "1631136"
+              },
+              {
+                "name": "Kiki Rice",
+                "team": "Toronto Tempo",
+                "id": "1643445"
+              }
             ]
           }
         ]
@@ -667,7 +1117,7 @@
         {
           "title": "Game 3 Friday: Dallas at Golden State",
           "paragraphs": [
-            "The official WNBA schedule lists Friday’s deciding game in San Francisco on ESPN2, with tip time still to be confirmed. Golden State won Game 1 by 24; Dallas won Game 2 by eight in overtime. The series has delivered two entirely different games and no middle ground.",
+            "Game 3 tips Friday at 9:00 p.m. ET on ESPN2 in San Francisco. Golden State won Game 1 by 24; Dallas won Game 2 by eight in overtime. The series has delivered two entirely different games and no middle ground.",
             "Golden State’s best path is to return to its identity: league-leading defense, deep lineups and decisions made before Dallas can load up. Dallas’ path begins with Ogunbowale’s shot creation, but it cannot end there. Bueckers, Alysha Clark and Aziaha James have to keep the Wings from asking for another record just to stay alive.",
             "Watch the final six minutes. Williams carried Golden State to 36 points but missed her last six shots, and the Valkyries did not score after the game was tied at 100. Dallas now has proof it can win the late possessions; Golden State has home court and the larger two-game sample of control."
           ]
@@ -736,15 +1186,15 @@
         "subtitle": "Track tonight’s elimination game, Friday’s decider and the Atlanta–New York best-of-five in one live board.",
         "asOf": "LIVE BOARD · OCT. 1",
         "summary": [
-        {
-          "key": "teams",
-          "value": "6",
-          "label": "teams still alive"
-        },
-        {
-          "key": "game3s",
-          "value": "2",
-          "label": "Game 3s left"
+          {
+            "key": "teams",
+            "value": "6",
+            "label": "teams still alive"
+          },
+          {
+            "key": "game3s",
+            "value": "2",
+            "label": "Game 3s left"
           },
           {
             "value": "45",
@@ -802,7 +1252,7 @@
             "regularSeries": "GSV 3-0",
             "series": "1-1",
             "seriesNote": "Winner advances",
-            "nextGame": "Fri, Oct. 2 · Time TBD · ESPN2",
+            "nextGame": "Fri, Oct. 2 · 9:00 PM ET · ESPN2",
             "stars": [
               "Gabby Williams",
               "Arike Ogunbowale"

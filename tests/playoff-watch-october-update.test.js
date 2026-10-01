@@ -54,4 +54,6 @@ test('fallback feeds carry every completed Game 2 and both deciding games',()=>{
     assert.match(source,/2026-atl-nyl-sf-g1/);
   }
   assert.match(bracket,/snapshot\?\.winner\|\|\(aWins>=target/);
+  assert.match(competition,/2026-10-02T21:00:00-04:00/);
+  assert.match(guide.playoffWatch.matchups.find(item=>item.id==='gsv-dal').nextGame,/9:00 PM ET/);
 });

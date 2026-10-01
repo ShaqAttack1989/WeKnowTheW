@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-30T22:59:25.566Z",
+  "generatedAt": "2026-10-01T02:03:22.568Z",
   "movement": {
     "latestTransactionDate": "2026-09-28",
     "transactions": [
@@ -1429,9 +1429,61 @@
   },
   "availability": {
     "latestReportDate": "2026-09-30",
-    "reportLabel": "09/30/2026 06:45 PM ET",
-    "officialPdf": "https://ak-static.cms.nba.com/referee/wnba_injury/Injury-Report_2026-09-30_06_45PM.pdf",
+    "reportLabel": "09/30/2026 10:00 PM ET",
+    "officialPdf": "https://ak-static.cms.nba.com/referee/wnba_injury/Injury-Report_2026-09-30_10_00PM.pdf",
     "injuries": [
+      {
+        "player": "Aliyah Boston",
+        "team": "Indiana Fever",
+        "status": "PROBABLE",
+        "reason": "Injury/Illness - Right Leg; Lower",
+        "gameDate": "10/01/2026",
+        "gameTime": "09:00 (ET)",
+        "matchup": "IND@LVA",
+        "updated": "2026-10-01",
+        "source": "Official WNBA Injury Report PDF",
+        "officialCurrentReport": true,
+        "crossCheckOnly": false
+      },
+      {
+        "player": "Caitlin Clark",
+        "team": "Indiana Fever",
+        "status": "PROBABLE",
+        "reason": "Injury/Illness - Back; Back",
+        "gameDate": "10/01/2026",
+        "gameTime": "09:00 (ET)",
+        "matchup": "IND@LVA",
+        "updated": "2026-10-01",
+        "source": "Official WNBA Injury Report PDF",
+        "officialCurrentReport": true,
+        "crossCheckOnly": false
+      },
+      {
+        "player": "Dana Evans",
+        "team": "Las Vegas Aces",
+        "status": "OUT",
+        "reason": "Injury/Illness - Right Knee; R. Knee",
+        "gameDate": "10/01/2026",
+        "gameTime": "09:00 (ET)",
+        "matchup": "IND@LVA",
+        "updated": "2026-10-01",
+        "source": "Official WNBA Injury Report PDF",
+        "officialCurrentReport": true,
+        "crossCheckOnly": false
+      },
+      {
+        "player": "Tyasha Harris",
+        "team": "Indiana Fever",
+        "status": "OUT",
+        "reason": "Injury/Illness - Left Leg; Lower",
+        "gameDate": "10/01/2026",
+        "gameTime": "09:00 (ET)",
+        "matchup": "IND@LVA",
+        "updated": "2026-10-01",
+        "source": "Official WNBA Injury Report PDF",
+        "officialCurrentReport": true,
+        "crossCheckOnly": false
+      },
       {
         "player": "Alanna Smith",
         "team": "Dallas Wings",
@@ -1464,7 +1516,7 @@
         "status": "OUT",
         "reason": "Foot · Kosu (foot) has been ruled out for Tuesday's Game 2 of the first round of the playoffs against the Liberty.",
         "updated": "2026-09-28",
-        "returnDate": "2026-10-01",
+        "returnDate": "2027-05-01",
         "matchup": "",
         "gameTime": "",
         "source": "ESPN via WeHoop-compatible endpoint",
@@ -2074,24 +2126,7 @@
         "seasonLongCarryover": true
       }
     ],
-    "teamStatuses": [
-      {
-        "team": "Indiana Fever",
-        "status": "NOT YET SUBMITTED",
-        "gameDate": "10/01/2026",
-        "gameTime": "09:00 (ET)",
-        "matchup": "IND@LVA",
-        "updated": "2026-10-01"
-      },
-      {
-        "team": "Las Vegas Aces",
-        "status": "NOT YET SUBMITTED",
-        "gameDate": "10/01/2026",
-        "gameTime": "09:00 (ET)",
-        "matchup": "IND@LVA",
-        "updated": "2026-10-01"
-      }
-    ]
+    "teamStatuses": []
   },
   "errors": []
 }

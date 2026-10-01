@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-01T02:03:22.568Z",
+  "generatedAt": "2026-10-01T08:47:43.184Z",
   "movement": {
     "latestTransactionDate": "2026-09-28",
     "transactions": [
@@ -1428,9 +1428,9 @@
     ]
   },
   "availability": {
-    "latestReportDate": "2026-09-30",
-    "reportLabel": "09/30/2026 10:00 PM ET",
-    "officialPdf": "https://ak-static.cms.nba.com/referee/wnba_injury/Injury-Report_2026-09-30_10_00PM.pdf",
+    "latestReportDate": "2026-10-01",
+    "reportLabel": "10/01/2026 04:45 AM ET",
+    "officialPdf": "https://ak-static.cms.nba.com/referee/wnba_injury/Injury-Report_2026-10-01_04_45AM.pdf",
     "injuries": [
       {
         "player": "Aliyah Boston",
@@ -1480,32 +1480,6 @@
         "gameTime": "09:00 (ET)",
         "matchup": "IND@LVA",
         "updated": "2026-10-01",
-        "source": "Official WNBA Injury Report PDF",
-        "officialCurrentReport": true,
-        "crossCheckOnly": false
-      },
-      {
-        "player": "Alanna Smith",
-        "team": "Dallas Wings",
-        "status": "OUT",
-        "reason": "Injury/Illness - Left Leg; lower left leg",
-        "gameDate": "09/30/2026",
-        "gameTime": "09:00 (ET)",
-        "matchup": "GSV@DAL",
-        "updated": "2026-09-30",
-        "source": "Official WNBA Injury Report PDF",
-        "officialCurrentReport": true,
-        "crossCheckOnly": false
-      },
-      {
-        "player": "Brionna Jones",
-        "team": "Atlanta Dream",
-        "status": "OUT",
-        "reason": "Injury/Illness - Left Leg; N/A",
-        "gameDate": "09/30/2026",
-        "gameTime": "07:00 (ET)",
-        "matchup": "ATL@WAS",
-        "updated": "2026-09-30",
         "source": "Official WNBA Injury Report PDF",
         "officialCurrentReport": true,
         "crossCheckOnly": false
@@ -1749,6 +1723,20 @@
         "crossCheckOnly": true
       },
       {
+        "player": "Matilde Villa",
+        "team": "Atlanta Dream",
+        "status": "OUT",
+        "reason": "Coach's Decision · Villa (coach's decision) has been ruled out for Wednesday's game against New York.",
+        "updated": "2026-09-23",
+        "returnDate": "2027-05-01",
+        "matchup": "",
+        "gameTime": "",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null,
+        "officialCurrentReport": false,
+        "crossCheckOnly": true
+      },
+      {
         "player": "Natasha Cloud",
         "team": "Chicago Sky",
         "status": "OUT",
@@ -1852,6 +1840,20 @@
         "status": "OUT",
         "reason": "Knee · Oblak (knee) has been ruled out for Tuesday's game against the Valkyries.",
         "updated": "2026-09-21",
+        "returnDate": "2027-05-01",
+        "matchup": "",
+        "gameTime": "",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null,
+        "officialCurrentReport": false,
+        "crossCheckOnly": true
+      },
+      {
+        "player": "Brionna Jones",
+        "team": "Atlanta Dream",
+        "status": "OUT",
+        "reason": "Leg · Jones will miss the remainder of the season after sustaining a left leg injury against the Sun on Aug. 13, Annie Costabile of The Athletic reports.",
+        "updated": "2026-09-17",
         "returnDate": "2027-05-01",
         "matchup": "",
         "gameTime": "",
@@ -2126,7 +2128,24 @@
         "seasonLongCarryover": true
       }
     ],
-    "teamStatuses": []
+    "teamStatuses": [
+      {
+        "team": "Dallas Wings",
+        "status": "NOT YET SUBMITTED",
+        "gameDate": "10/02/2026",
+        "gameTime": "09:00 (ET)",
+        "matchup": "DAL@GSV",
+        "updated": "2026-10-02"
+      },
+      {
+        "team": "Golden State Valkyries",
+        "status": "NOT YET SUBMITTED",
+        "gameDate": "10/02/2026",
+        "gameTime": "09:00 (ET)",
+        "matchup": "DAL@GSV",
+        "updated": "2026-10-02"
+      }
+    ]
   },
   "errors": []
 }

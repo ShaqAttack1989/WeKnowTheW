@@ -1,0 +1,321 @@
+// Vercel Web Analytics: sitewide page-view tracking.
+(()=>{
+  window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments);};
+  if(!document.querySelector('script[data-vercel-analytics],script[src="/_vercel/insights/script.js"]')){
+    const script=document.createElement('script');
+    script.defer=true;
+    script.src='/_vercel/insights/script.js';
+    script.dataset.vercelAnalytics='true';
+    document.head.appendChild(script);
+  }
+})();
+
+const UI_FIXES_HREF='/ui-fixes.css?v=20260930-dashboard-spacing-v4';
+if(!document.querySelector('link[data-ui-fixes]')){const link=document.createElement('link');link.rel='stylesheet';link.href=UI_FIXES_HREF;link.dataset.uiFixes='true';document.head.appendChild(link);}
+const NAVIGATION_HREF='/site-navigation.css?v=20260930-wide-collision-v4';
+if(!document.querySelector('link[data-site-navigation]')){const link=document.createElement('link');link.rel='stylesheet';link.href=NAVIGATION_HREF;link.dataset.siteNavigation='true';document.head.appendChild(link);}
+const GLOBAL_SCOREBOARD_HREF='/global-scoreboard.css?v=20260927-live-v1';
+if(!document.querySelector('link[data-global-scoreboard]')){const link=document.createElement('link');link.rel='stylesheet';link.href=GLOBAL_SCOREBOARD_HREF;link.dataset.globalScoreboard='true';document.head.appendChild(link);}
+if(!document.querySelector('script[data-global-scoreboard]')){const script=document.createElement('script');script.src='/global-scoreboard.js?v=20260927-live-v1';script.dataset.globalScoreboard='true';script.defer=true;document.head.appendChild(script);}
+if(!document.querySelector('script[data-dashboard-keys]')){const script=document.createElement('script');script.src='/dashboard-keys.js?v=20260828-v1';script.dataset.dashboardKeys='true';script.async=true;document.head.appendChild(script);}
+
+const navLinks=document.getElementById('navLinks');
+const menuButton=document.getElementById('menuButton');
+const siteNavigation=navLinks?.closest('.nav');
+siteNavigation?.classList.add('site-navigation');
+const menuSection=(label,links)=>`<section class="nav-menu-section"><span class="nav-menu-label">${label}</span>${links.map(([text,url])=>`<a href="${url}">${text}</a>`).join('')}</section>`;
+const overview=(href,label)=>`<a class="nav-overview-link" href="${href}"><span>${label} home</span><b aria-hidden="true">→</b></a>`;
+const navGroup=(section,label,href,content,extra='')=>`<div class="nav-group ${extra}" data-nav-section="${section}"><a class="nav-parent" href="${href}" aria-haspopup="true" aria-expanded="false"><span class="nav-parent-label">${label}</span><span class="nav-caret" aria-hidden="true">⌄</span></a><div class="nav-submenu" aria-label="${label}">${overview(href,label)}${content}</div></div>`;
+const structuredNav=`
+${navGroup('around','Around the W','/around-the-w.html',`<div class="nav-menu-grid">${menuSection('Season',[['Live Stats','/live-stats.html'],['Games','/games.html'],['The Stat Kitchen','/stat-kitchen.html'],['On the Wire','/on-the-wire.html']])}${menuSection('Teams + rosters',[['Team Hubs','/around-the-w.html#team-pages'],['Player Movement','/player-movement.html'],['Availability Report','/availability-report.html'],['No Love Lost','/no-love-lost.html']])}</div>`,'nav-group-wide')}
+${navGroup('players','Playerpedia','/playerpedia.html',`<div class="nav-menu-grid">${menuSection('Player directory',[['On the Floor · Current Players','/playerpedia.html?view=current#playerpedia-directory'],['Benched · Free Agents','/playerpedia.html?view=recent#playerpedia-directory'],['Legends Lounge · Retired Players','/playerpedia.html?view=retired#playerpedia-directory']])}${menuSection('Features',[['Herstory','/herstory.html'],['Shak’s Starting Five','/starting-five.html'],['Shak’s Bench Mob','/bench-mob.html']])}</div>`,'nav-group-wide')}
+${navGroup('vault','The W Vault','/w-vault.html',`<div class="nav-menu-grid">${menuSection('Learn the league',[['League Origins','/league-origins.html'],['Milestone Moments','/milestone-moments.html'],['The Film Room','/film-room.html'],['Front Office 101','/front-office-101.html']])}${menuSection('Archive + honors',[['The W Rewind','/season-yearbooks.html'],['The Trophy Room','/trophy-case.html'],['The Locker Room','/locker-room.html']])}</div>`,'nav-group-wide')}
+${navGroup('culture','Courtside Culture','/courtside-culture.html',`<div class="nav-menu-grid">${menuSection('People',[['Coaches','/coaches.html'],['Owners','/owners.html'],['Celebrity Fans','/celebrity-fans.html']])}${menuSection('Game day',[['Mascots','/mascots.html'],['Gameday Vibes','/gameday-vibes.html'],['The Fits','/wnba-fits.html']])}</div>`,'nav-group-wide')}
+${navGroup('future','Who Got Next?','/who-got-next.html',menuSection('The next wave',[['Class Is in Session','/class-is-in-session.html'],['2027 WNBA Mock Draft','/2027-wnba-mock-draft.html'],['The Call Up','/the-call-up.html'],['Expansion Watch','/expansion-watch.html']]))}
+${navGroup('offseason','No Offseason','/no-offseason.html',`<div class="nav-menu-grid">${menuSection('Team USA',[['Team USA HQ','/team-usa.html'],['FIBA World Cup','/fiba-world-cup.html'],['3x3 Basketball','/team-usa-3x3.html'],['Olympics','/team-usa-olympics.html'],['Women’s AmeriCup','/team-usa-americup.html'],['Qualifiers','/team-usa-qualifying.html'],['Junior Teams','/team-usa-development.html']])}${menuSection('Pro winter basketball',[['Unrivaled','/unrivaled.html'],['2027 Unrivaled Tour','/unrivaled-on-tour-2027.html'],['Athletes Unlimited','/athletes-unlimited.html']])}</div>`,'nav-group-wide')}
+${navGroup('snack','Snack Shak','/snack-shak.html',menuSection('Commentary + analysis',[['Snack Shak Bytes','/snack-shak-bytes.html'],['Food for Thought','/food-for-thought.html']]),'nav-group-snack')}
+<button class="nav-search-button" id="globalSearchButton" type="button" aria-haspopup="dialog"><span aria-hidden="true">⌕</span><span>Search</span></button>
+<div class="nav-mobile-utility"><a href="/about.html">About We Know the W</a><a href="/report-a-problem.html">Report a problem</a></div>`;
+if(navLinks)navLinks.innerHTML=structuredNav;
+const futureMenu=navLinks?.querySelector('[data-nav-section="future"] .nav-menu-section');
+if(futureMenu&&!futureMenu.querySelector('a[href="/wpba.html"]')){
+  const wpbaLink=document.createElement('a');
+  wpbaLink.href='/wpba.html';
+  wpbaLink.textContent='WPBA';
+  const expansionLink=futureMenu.querySelector('a[href="/expansion-watch.html"]');
+  if(expansionLink)expansionLink.before(wpbaLink);else futureMenu.appendChild(wpbaLink);
+}
+
+const mobileNav=window.matchMedia('(max-width:1280px)');
+const isMobileNav=()=>mobileNav.matches;
+function closeNavGroups(except=null){document.querySelectorAll('.nav-group.submenu-open').forEach(group=>{if(group===except)return;group.classList.remove('submenu-open');group.querySelector('.nav-parent')?.setAttribute('aria-expanded','false');});}
+function setMobileMenuState(open){navLinks?.classList.toggle('open',Boolean(open));menuButton?.setAttribute('aria-expanded',String(Boolean(open)));if(menuButton)menuButton.textContent=open?'Close':'Menu';document.body.classList.toggle('mobile-nav-open',Boolean(open));if(!open)closeNavGroups();}
+menuButton?.addEventListener('click',event=>{event.stopPropagation();setMobileMenuState(!navLinks?.classList.contains('open'));});
+document.querySelectorAll('.nav-group').forEach(group=>group.querySelector('.nav-parent')?.addEventListener('click',event=>{if(!isMobileNav())return;event.preventDefault();event.stopPropagation();const open=group.classList.contains('submenu-open');closeNavGroups(group);group.classList.toggle('submenu-open',!open);group.querySelector('.nav-parent')?.setAttribute('aria-expanded',String(!open));}));
+document.addEventListener('click',event=>{if(isMobileNav()&&navLinks?.classList.contains('open')&&!event.target.closest('#navLinks')&&!event.target.closest('#menuButton'))setMobileMenuState(false);});
+navLinks?.addEventListener('click',event=>{if(isMobileNav()&&!event.target.closest('.nav-parent')&&(event.target.closest('a')||event.target.closest('button')))setMobileMenuState(false);});
+document.addEventListener('keydown',event=>{if(event.key==='Escape'&&navLinks?.classList.contains('open')){setMobileMenuState(false);menuButton?.focus();}});mobileNav.addEventListener?.('change',event=>{if(!event.matches)setMobileMenuState(false);});
+
+const hierarchyMap={
+'/playoff-player-rankings.html':['Live Stats','/live-stats.html','Playoff Player Board'],
+'/on-the-wire.html':['Around the W','/around-the-w.html','On the Wire'],
+'/front-office-101.html':['The W Vault','/w-vault.html','Front Office 101'],
+'/season-yearbooks.html':['The W Vault','/w-vault.html','The W Rewind'],
+'/team-usa.html':['No Offseason','/no-offseason.html','Team USA'],
+'/fiba-world-cup.html':['Team USA','/team-usa.html','FIBA World Cup'],
+'/team-usa-3x3.html':['Team USA','/team-usa.html','3x3 Basketball'],
+'/team-usa-olympics.html':['Team USA','/team-usa.html','Olympics'],
+'/team-usa-americup.html':['Team USA','/team-usa.html','Women’s AmeriCup'],
+'/team-usa-qualifying.html':['Team USA','/team-usa.html','Qualifiers'],
+'/team-usa-development.html':['Team USA','/team-usa.html','Junior Teams'],
+'/fiba-watchers-guide.html':['FIBA World Cup','/fiba-world-cup.html','Jet Lag & Jump Shots'],
+'/fiba-final-four-2026.html':['Food for Thought','/food-for-thought.html','FIBA Final Four'],
+'/live-stats.html':['Around the W','/around-the-w.html','Live Stats'],'/stat-kitchen.html':['Live Stats','/live-stats.html','The Stat Kitchen'],'/games.html':['Live Stats','/live-stats.html','Games'],'/no-love-lost.html':['Live Stats','/live-stats.html','No Love Lost'],'/player-movement.html':['Live Stats','/live-stats.html','Player Movement'],'/availability-report.html':['Live Stats','/live-stats.html','Availability Report'],'/around-the-w.html':['Around the W','/around-the-w.html','Team Pages'],'/tina-charles-sun-legend.html':['Food for Thought','/food-for-thought.html','Tina Charles Honored'],'/legendary-wnba-duos.html':['Food for Thought','/food-for-thought.html','Legendary Duos'],'/dewanna-bonner-buyout.html':['Food for Thought','/food-for-thought.html','One More Run'],'/franchise-footprints.html':['Around the W','/around-the-w.html','Franchise Footprints'],'/snack-shak.html':['Snack Shak','/snack-shak.html','Home'],'/snack-shak-bytes.html':['Snack Shak','/snack-shak.html','Snack Shak Bytes'],'/food-for-thought.html':['Snack Shak','/snack-shak.html','Food for Thought'],'/playerpedia.html':['Playerpedia','/playerpedia.html','Player Research Desk'],'/retired-players.html':['Playerpedia','/playerpedia.html?view=retired#playerpedia-directory','Legends Lounge · Deep Archive'],'/herstory.html':['Playerpedia','/playerpedia.html','Herstory'],'/herstory-education.html':['Herstory','/herstory.html','Education'],'/herstory-entrepreneurship.html':['Herstory','/herstory.html','Entrepreneurship'],'/herstory-community.html':['Herstory','/herstory.html','Community'],'/herstory-life-chapters.html':['Herstory','/herstory.html','Life Chapters'],'/starting-five.html':['Playerpedia','/playerpedia.html','Shak’s Starting Five'],'/bench-mob.html':['Playerpedia','/playerpedia.html','Shak’s Bench Mob'],'/league-origins.html':['The W Vault','/w-vault.html','League Origins'],'/milestone-moments.html':['The W Vault','/w-vault.html','Milestone Moments'],'/film-room.html':['The W Vault','/w-vault.html','The Film Room'],'/basketball-dictionary.html':['The Film Room','/film-room.html','Basketball Dictionary'],'/trophy-case.html':['The W Vault','/w-vault.html','The Trophy Room'],'/award-mvp.html':['The Trophy Room','/trophy-case.html','MVP'],'/award-dpoy.html':['The Trophy Room','/trophy-case.html','DPOY'],'/award-mip.html':['The Trophy Room','/trophy-case.html','MIP'],'/award-sixth-player.html':['The Trophy Room','/trophy-case.html','Sixth Player'],'/award-roy.html':['The Trophy Room','/trophy-case.html','ROY'],'/award-coy.html':['The Trophy Room','/trophy-case.html','COY'],'/commissioners-cup.html':['The Trophy Room','/trophy-case.html','Commissioner’s Cup'],'/all-wnba.html':['The Trophy Room','/trophy-case.html','All WNBA'],'/all-defensive.html':['The Trophy Room','/trophy-case.html','All Defensive'],'/all-rookie.html':['The Trophy Room','/trophy-case.html','All Rookie'],'/locker-room.html':['The W Vault','/w-vault.html','The Locker Room'],'/old-uniforms.html':['The Locker Room','/locker-room.html','Old Uniforms'],'/all-star-uniforms.html':['The Locker Room','/locker-room.html','All Star Uniforms'],'/final-buzzer.html':['The Locker Room','/locker-room.html','The Final Buzzer'],'/colors-symbols.html':['The Locker Room','/locker-room.html','Colors & Symbols'],'/franchise-changes.html':['The Locker Room','/locker-room.html','Franchise Changes'],'/franchise-family-tree.html':['The Locker Room','/locker-room.html','Franchise Family Tree'],'/mascots.html':['Courtside Culture','/courtside-culture.html','Mascots'],'/coaches.html':['Courtside Culture','/courtside-culture.html','Coaches'],'/owners.html':['Courtside Culture','/courtside-culture.html','Owners'],'/celebrity-fans.html':['Courtside Culture','/courtside-culture.html','Celebrity Fans'],'/gameday-vibes.html':['Courtside Culture','/courtside-culture.html','Gameday Vibes'],'/wnba-fits.html':['Courtside Culture','/courtside-culture.html','The Fits'],'/class-is-in-session.html':['Who Got Next?','/who-got-next.html','Class Is in Session'],'/the-call-up.html':['Who Got Next?','/who-got-next.html','The Call Up'],'/expansion-watch.html':['Who Got Next?','/who-got-next.html','Expansion Watch'],'/expansion-w.html':['Expansion Watch','/expansion-watch.html','The W'],'/expansion-upshot.html':['Expansion Watch','/expansion-watch.html','UPSHOT League'],'/expansion-unrivaled.html':['Expansion Watch','/expansion-watch.html','Unrivaled'],'/expansion-athletes-unlimited.html':['Expansion Watch','/expansion-watch.html','Athletes Unlimited'],'/cleveland-sirens.html':['Expansion Watch','/expansion-w.html','Cleveland Sirens'],'/detroit-expansion.html':['Expansion Watch','/expansion-w.html','Detroit 2029'],'/philadelphia-expansion.html':['Expansion Watch','/expansion-w.html','Philadelphia 2030'],'/expansion-draft-101.html':['Expansion Watch','/expansion-w.html','Expansion Draft 101'],'/past-expansion-waves.html':['Expansion Watch','/expansion-w.html','Past Expansion Waves'],'/no-offseason.html':['No Offseason','/no-offseason.html','Pro Winter Basketball'],'/unrivaled.html':['No Offseason','/no-offseason.html','Unrivaled'],'/athletes-unlimited.html':['No Offseason','/no-offseason.html','Athletes Unlimited']};
+hierarchyMap['/wpba.html']=['Who Got Next?','/who-got-next.html','WPBA'];
+hierarchyMap['/unrivaled-on-tour-2027.html']=['Unrivaled','/unrivaled.html','2027 Tour'];
+hierarchyMap['/2027-wnba-mock-draft.html']=['Who Got Next?','/who-got-next.html','2027 WNBA Mock Draft'];
+hierarchyMap['/wnba-draft-class-rankings.html']=['Food for Thought','/food-for-thought.html','Best Draft Classes'];
+const h=hierarchyMap[location.pathname];const crumbs=document.querySelector('.page-crumbs');if(crumbs&&h&&!crumbs.hasAttribute('data-preserve-crumbs')&&!['/around-the-w.html','/playerpedia.html','/who-got-next.html','/no-offseason.html'].includes(location.pathname))crumbs.innerHTML=`<a href="/">Home</a><span>›</span><a href="${h[1]}">${h[0]}</a><span>›</span><b>${h[2]}</b>`;document.querySelectorAll('[data-current-year]').forEach(el=>el.textContent=new Date().getFullYear());
+hierarchyMap['/next-wnba-commissioner.html']=['Food for Thought','/food-for-thought.html','Next WNBA Commissioner'];
+hierarchyMap['/top-seed-first-out-lynx-2026.html']=['Food for Thought','/food-for-thought.html','Top Seed. First Out.'];
+
+const navSections={
+  around:['/around-the-w.html','/live-stats.html','/stat-kitchen.html','/games.html','/on-the-wire.html','/on-the-wire-archive.html','/no-love-lost.html','/player-movement.html','/availability-report.html','/franchise-footprints.html','/playoff-player-rankings.html','/team.html'],
+  players:['/playerpedia.html','/retired-players.html','/herstory.html','/herstory-education.html','/herstory-entrepreneurship.html','/herstory-community.html','/herstory-life-chapters.html','/starting-five.html','/bench-mob.html'],
+  vault:['/w-vault.html','/league-origins.html','/milestone-moments.html','/film-room.html','/front-office-101.html','/season-yearbooks.html','/basketball-dictionary.html','/trophy-case.html','/award-mvp.html','/award-dpoy.html','/award-mip.html','/award-sixth-player.html','/award-roy.html','/award-coy.html','/commissioners-cup.html','/all-wnba.html','/all-defensive.html','/all-rookie.html','/locker-room.html','/old-uniforms.html','/all-star-uniforms.html','/final-buzzer.html','/colors-symbols.html','/franchise-changes.html','/franchise-family-tree.html'],
+  culture:['/courtside-culture.html','/mascots.html','/coaches.html','/owners.html','/celebrity-fans.html','/gameday-vibes.html','/wnba-fits.html'],
+  future:['/who-got-next.html','/class-is-in-session.html','/2027-wnba-mock-draft.html','/the-call-up.html','/expansion-watch.html','/expansion-w.html','/expansion-upshot.html','/expansion-unrivaled.html','/expansion-athletes-unlimited.html','/cleveland-sirens.html','/detroit-expansion.html','/philadelphia-expansion.html','/expansion-draft-101.html','/past-expansion-waves.html'],
+  offseason:['/no-offseason.html','/team-usa.html','/fiba-world-cup.html','/fiba-watchers-guide.html','/team-usa-3x3.html','/team-usa-olympics.html','/team-usa-americup.html','/team-usa-qualifying.html','/team-usa-development.html','/unrivaled.html','/athletes-unlimited.html'],
+  snack:['/snack-shak.html','/snack-shak-bytes.html','/food-for-thought.html','/tina-charles-sun-legend.html','/legendary-wnba-duos.html','/dewanna-bonner-buyout.html','/aja-wilson-south-carolina-nike-deal.html','/rickea-jackson-unrivaled-status.html','/lynx-playoff-blueprint-update.html']
+};
+navSections.future.push('/wpba.html');
+navSections.offseason.push('/unrivaled-on-tour-2027.html');
+navSections.snack.push('/wnba-draft-class-rankings.html');
+navSections.snack.push('/next-wnba-commissioner.html');
+navSections.snack.push('/fiba-final-four-2026.html');
+navSections.snack.push('/top-seed-first-out-lynx-2026.html');
+Object.entries(navSections).forEach(([section,paths])=>{if(paths.includes(location.pathname)){const group=navLinks?.querySelector(`[data-nav-section="${section}"]`);group?.classList.add('is-current');group?.setAttribute('data-current-section','true');}});
+navLinks?.querySelectorAll('a[href]').forEach(link=>{try{const url=new URL(link.href,location.origin);if(url.pathname===location.pathname&&!url.search&&link.closest('.nav-submenu'))link.setAttribute('aria-current','page');}catch{}});
+
+// One archive catalog supplies homepage and global player search.
+let legacyCatalogPromise=null;
+window.loadWPlayerpediaLegacy=function(){
+  if(window.WPlayerpediaLegacy)return Promise.resolve(window.WPlayerpediaLegacy);
+  if(legacyCatalogPromise)return legacyCatalogPromise;
+  legacyCatalogPromise=new Promise((resolve,reject)=>{
+    const script=document.createElement('script');script.src='/playerpedia-legacy.js?v=20260828-v1';
+    script.onload=()=>{document.dispatchEvent(new CustomEvent('w:legacy-ready'));resolve(window.WPlayerpediaLegacy);};
+    script.onerror=()=>{legacyCatalogPromise=null;script.remove();reject(new Error('Career archive unavailable'));};
+    document.head.appendChild(script);
+  });
+  return legacyCatalogPromise;
+};
+
+const coreSearch=[['Playoff Player Board','W Composite Rankings','/playoff-player-rankings.html','2026 playoffs all eight clinched teams Shak composite grades rankings league leaders tiebreakers Aja Wilson Olivia Miles Aliyah Boston Bonner'],['About We Know the W','About','/about.html','Shakeema Funchess Shak creator mission editorial independence contact'],['Report a problem','Contact','/report-a-problem.html','error correction feedback accessibility contact'],
+['Around the W','Section','/around-the-w.html','teams season standings'],['Franchise Footprints','Franchise Hubs','/franchise-footprints.html','original eight charter teams defunct folded relocated lineage'],['Live Stats','Around the W','/live-stats.html','overall conference commissioner cup playoffs standings'],['The Stat Kitchen','Live Stats','/stat-kitchen.html','players of the week points assists rebounds steals blocks turnovers leaders'],['Games','Live Stats','/games.html','scores schedule playoffs commissioners cup'],['No Love Lost','Live Stats','/no-love-lost.html','rivalry head to head wins losses struggle meter'],['Player Movement','Live Stats','/player-movement.html','trades signings waives transactions'],['Availability Report','Live Stats','/availability-report.html','injury availability out questionable'],['Snack Shak','Editorial','/snack-shak.html','articles commentary analysis'],['Snack Shak Bytes','Snack Shak · Short Reads','/snack-shak-bytes.html','milestones roster news business moves quick stories'],['Food for Thought','Snack Shak · Long Reads','/food-for-thought.html','film history rankings business long articles'],['Tina Charles: No. 31 Rises','Food for Thought','/tina-charles-sun-legend.html','connecticut sun legend honoring ceremony retirement jersey rafters number 31'],['Legendary WNBA Duos','Food for Thought','/legendary-wnba-duos.html','best pairs partners 30 seasons rankings dynasties'],['DeWanna Bonner: One More Run','Food for Thought','/dewanna-bonner-buyout.html','phoenix mercury buyout veteran postseason landing spots'],['On the Floor · Current Players','Playerpedia','/playerpedia.html?view=current#playerpedia-directory','players roster bios stats current'],['Benched · Free Agents','Playerpedia','/playerpedia.html?view=recent#playerpedia-directory','recent free agents last active season'],['Legends Lounge · Retired Players','Playerpedia','/playerpedia.html?view=retired#playerpedia-directory','retired legends pioneers years career final season grade'],['Herstory','Playerpedia','/herstory.html','education business advocacy family'],['Shak’s Starting Five','Playerpedia','/starting-five.html','featured players rotation'],['Shak’s Bench Mob','Playerpedia','/bench-mob.html','role players sixth woman'],['League Origins','W Vault','/league-origins.html','1996 1997 original eight inaugural season'],['Milestone Moments','W Vault','/milestone-moments.html','firsts breakthroughs history'],['The Film Room','W Vault','/film-room.html','positions offense defense strategy'],['Basketball Dictionary','W Vault','/basketball-dictionary.html','glossary terms'],['The Trophy Room','W Vault','/trophy-case.html','championships awards mvp dpoy'],['The Locker Room','W Vault','/locker-room.html','uniforms retired players colors franchise'],['Mascots','Courtside Culture','/mascots.html','mascots team culture'],['Coaches','Courtside Culture','/coaches.html','coaches court clipboard'],['Court to Clipboard','Courtside Culture','/coaches.html#court-to-clipboard','former players coaches playing careers'],['Owners','Courtside Culture','/owners.html','owners investors'],['The Fits','Courtside Culture','/wnba-fits.html','fashion tunnel style'],['Who Got Next?','Pipeline','/who-got-next.html','wnba pipeline college upshot expansion'],['Class Is in Session','Who Got Next?','/class-is-in-session.html','ncaaw college draft radar prospects'],['The Call Up','Who Got Next?','/the-call-up.html','upshot development callups standings'],['Expansion Watch','Who Got Next?','/expansion-watch.html','wnba upshot unrivaled athletes unlimited expansion'],['No Offseason','Section','/no-offseason.html','winter basketball unrivaled athletes unlimited'],['Unrivaled','No Offseason','/unrivaled.html','3 on 3 clubs standings playoffs'],['Athletes Unlimited','No Offseason','/athletes-unlimited.html','au pro basketball leaderboard']];
+const teamSearch=[['Atlanta Dream','atlanta-dream'],['Chicago Sky','chicago-sky'],['Connecticut Sun','connecticut-sun'],['Dallas Wings','dallas-wings'],['Golden State Valkyries','golden-state-valkyries'],['Indiana Fever','indiana-fever'],['Las Vegas Aces','las-vegas-aces'],['Los Angeles Sparks','los-angeles-sparks'],['Minnesota Lynx','minnesota-lynx'],['New York Liberty','new-york-liberty'],['Phoenix Mercury','phoenix-mercury'],['Portland Fire','portland-fire'],['Seattle Storm','seattle-storm'],['Toronto Tempo','toronto-tempo'],['Washington Mystics','washington-mystics'],['Cleveland Sirens','cleveland-sirens']];
+coreSearch.push(['2027 WNBA Mock Draft','Who Got Next?','/2027-wnba-mock-draft.html','draft watch juju watkins toronto tempo houston comets draft prospects big board mock college hannah hidalgo madison booker smya nichols zhang ziyu china world cup lottery odds']);
+coreSearch.push(['The Best WNBA Draft Classes Ever','Food for Thought · Data Lab','/wnba-draft-class-rankings.html','wnba draft history best class 2001 2004 2016 Lauren Jackson Tamika Catchings Diana Taurasi Breanna Stewart top 10 picks playoffs Aces Fever Dream Liberty Wings Valkyries']);
+coreSearch.push(
+  ['On the Wire','Around the W','/on-the-wire.html','daily wnba news headlines stories source links current desk archive'],
+  ['Front Office 101','The W Vault','/front-office-101.html','salary cap contracts roster rules collective bargaining agreement cba expansion draft'],
+  ['The W Rewind','The W Vault','/season-yearbooks.html','season yearbooks champions standings awards transactions rosters history archive'],
+  ['Team USA','No Offseason','/team-usa.html','women national team usa basketball olympics world cup 3x3 americup qualifiers junior teams'],
+  ['FIBA World Cup','Team USA','/fiba-world-cup.html','2026 berlin team usa international basketball schedule standings results'],
+  ['Team USA 3x3','Team USA','/team-usa-3x3.html','halfcourt world cup womens series champions cup olympics americup 12 second clock'],
+  ['Team USA Olympics','Team USA','/team-usa-olympics.html','los angeles 2028 olympic gold medals kara lawson paris atlanta'],
+  ['Women’s AmeriCup','Team USA','/team-usa-americup.html','2025 brazil mikayla blakes olivia miles continental championship qualification'],
+  ['Team USA Qualifiers','Team USA','/team-usa-qualifying.html','world cup olympic qualifying windows camps roster selection'],
+  ['Team USA Junior Teams','Team USA','/team-usa-development.html','u16 u17 u18 u19 junior national team pipeline youth 3x3'],
+  ['Jet Lag & Jump Shots','FIBA World Cup','/fiba-watchers-guide.html','2026 fiba world cup watchers guide players teams storylines international basketball']
+);
+coreSearch.push(['The W Is Changing Hands','Food for Thought','/next-wnba-commissioner.html','Cathy Engelbert retirement next WNBA commissioner Swin Cash Sarah Mensah Bethany Donaphin Jess Smith Nneka Ogwumike Condoleezza Rice Renie Anderson league leadership scouting report']);
+coreSearch.push(['Top Seed. First Out.','Food for Thought','/top-seed-first-out-lynx-2026.html','Minnesota Lynx New York Liberty 2026 playoffs first 8 seed beat eliminate 1 seed historic upset Napheesa Collier free agency Olivia Miles Jonquel Jones Breanna Stewart Sabrina Ionescu']);
+coreSearch.push(['Three Cities, Two Games, One Bigger Bet','Food for Thought · Unrivaled','/unrivaled-on-tour-2027.html','unrivaled tour 2027 boston new york philadelphia td garden barclays center xfinity mobile arena roster reveal 46 players season 3']);
+coreSearch.push(['Four Teams, Two Tickets, No Hiding','Food for Thought · FIBA Final Four','/fiba-final-four-2026.html','fiba womens world cup 2026 final four semifinals france germany spain usa gabby williams marine johannes leonie fiebich frieda buhner iyana martin awa fam breanna stewart caitlin clark w score dashboard']);
+coreSearch.push(['The Grades Made Their Case','Food for Thought · 2026 Mock Awards','/food-for-thought.html?post=we-know-the-w-2026-mock-awards#story','wnba mock awards composite grades mvp dpoy rookie most improved sixth player coach of the year Aja Wilson Olivia Miles Megan DiLeo Janelle Salaun Natalie Nakase Jackie Young Natasha Howard']);
+coreSearch.push(["Four for A'ja, Firsts Everywhere Else",'Food for Thought · 2026 AP Awards','/food-for-thought.html?post=four-for-aja-2026-ap-awards#story','AP Associated Press awards Aja Wilson Angel Reese Olivia Miles Caitlin Clark Jessica Shepard Janelle Salaun Cheryl Reeve history winners first team second team all rookie']);
+coreSearch.push(['WPBA','Who Got Next?','/wpba.html','womens premier basketball association professional development league bay area standings player leaders scores schedule teams pathway']);
+const clipboardSet=new Set(['Becky Hammon','Stephanie White','Sandy Brondello','Natalie Achonwa','Courtney Paris','Ebony Hoffman','Sylvia Fowles','Sugar Rodgers']);
+const coachSearch=[['Karl Smesko','Atlanta Dream'],['Tyler Marsh','Chicago Sky'],['Rachid Meziane','Connecticut Sun'],['José Fernández','Dallas Wings'],['Natalie Nakase','Golden State Valkyries'],['Stephanie White','Indiana Fever'],['Becky Hammon','Las Vegas Aces'],['Lynne Roberts','Los Angeles Sparks'],['Cheryl Reeve','Minnesota Lynx'],['Chris DeMarco','New York Liberty'],['Nate Tibbetts','Phoenix Mercury'],['Alex Sarama','Portland Fire'],['Sonia Raman','Seattle Storm'],['Sandy Brondello','Toronto Tempo'],['Sydney Johnson','Washington Mystics']];
+
+const searchStaticIndex=[...coreSearch.map(([title,type,href,keywords])=>({title,type,href,keywords})),...teamSearch.map(([title,slug])=>({title,type:'Team',href:`/team.html?team=${slug}`,keywords:`${title} roster history rivalry mascot fanbase`})),...teamSearch.filter(([,slug])=>slug!=='cleveland-sirens').map(([title,slug])=>({title:`${title} · Stat leaders`,type:'Team Dashboard',href:`/team.html?team=${slug}#team-stat-leaders`,keywords:`${title} team leaders ppg rpg apg spg bpg shooting threes assists rebounds points blocks steals`})),...coachSearch.map(([title,team])=>({title,type:`Coach · ${team}`,href:clipboardSet.has(title)?'/coaches.html#court-to-clipboard':'/coaches.html',keywords:`${title} ${team} head coach court clipboard`}))];
+let globalSearchPlayers=null,globalSearchLoading=false;
+const normalizeSearch=v=>String(v||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,' ').trim();
+function buildSearchDialog(){if(document.getElementById('globalSearchDialog'))return;const dialog=document.createElement('dialog');dialog.id='globalSearchDialog';dialog.className='global-search-dialog';dialog.innerHTML='<div class="global-search-shell"><div class="global-search-head"><div><span>WE KNOW THE W</span><strong>Search the encyclopedia</strong></div><button type="button" id="globalSearchClose" aria-label="Close search">×</button></div><label class="global-search-field"><span>Search</span><input id="globalSearchInput" type="search" autocomplete="off" placeholder="Players, teams, leagues, awards, coaches…"></label><div id="globalSearchResults" class="global-search-results"><div class="global-search-empty">Type at least 2 letters to search the W.</div></div></div>';document.body.appendChild(dialog);dialog.addEventListener('click',event=>{if(event.target===dialog)dialog.close();});dialog.querySelector('#globalSearchClose')?.addEventListener('click',()=>dialog.close());dialog.querySelector('#globalSearchInput')?.addEventListener('input',renderGlobalSearch);}
+async function loadSearchPlayers(){
+  if(globalSearchPlayers||globalSearchLoading)return;
+  globalSearchLoading=true;
+  const [rosterResult,upshotResult]=await Promise.allSettled([
+    fetch('/api/players',{headers:{Accept:'application/json'}}).then(async response=>{const payload=await response.json().catch(()=>({}));if(!response.ok)throw new Error('Playerpedia search unavailable');return Array.isArray(payload.players)?payload.players:[];}),
+    fetch('/data/upshot-player-stats-2026.json',{headers:{Accept:'application/json'}}).then(async response=>{const payload=await response.json().catch(()=>({}));if(!response.ok)throw new Error('UPSHOT search unavailable');return Array.isArray(payload.players)?payload.players:[];})
+  ]);
+  const byName=new Map();
+  const upshotPlayers=upshotResult.status==='fulfilled'?upshotResult.value:[];
+  upshotPlayers.forEach(player=>{
+    const playerName=String(player.name||'').trim();
+    if(!playerName)return;
+    byName.set(normalizeSearch(playerName),{title:playerName,type:`UPSHOT · ${player.team||'Player'}`,href:'/the-call-up.html#player-dashboard',keywords:`${playerName} ${player.team||''} UPSHOT ${player.detail||''}`});
+  });
+  const rosterPlayers=rosterResult.status==='fulfilled'?rosterResult.value:[];
+  rosterPlayers.forEach(player=>{
+    const playerName=String(player.name||'').trim();
+    if(!playerName)return;
+    const searchKey=normalizeSearch(playerName),upshot=byName.get(searchKey);
+    byName.set(searchKey,{title:playerName,type:`Player · ${player.team||'WNBA'}`,href:`/playerpedia.html?view=${player.currentRoster===false?'recent':'current'}&search=${encodeURIComponent(playerName)}#playerpedia-directory`,keywords:`${playerName} ${player.team||''} ${player.position||''} ${upshot?.keywords||''}`});
+  });
+  globalSearchPlayers=[...byName.values()];
+  globalSearchLoading=false;
+  renderGlobalSearch();
+}
+function renderGlobalSearch(){const input=document.getElementById('globalSearchInput'),results=document.getElementById('globalSearchResults');if(!input||!results)return;const q=normalizeSearch(input.value);if(q.length<2){results.innerHTML='<div class="global-search-empty">Type at least 2 letters to search the W.</div>';return;}const terms=q.split(/\s+/).filter(Boolean);const all=[...searchStaticIndex,...(window.WPlayerpediaLegacy?.searchRecords()||[]),...(globalSearchPlayers||[]).filter(player=>!window.WPlayerpediaLegacy?.find(player.title))];const matches=all.filter(item=>{const hay=normalizeSearch(`${item.title} ${item.type} ${item.keywords||''}`);return terms.every(term=>hay.includes(term));}).sort((a,b)=>normalizeSearch(a.title)===q?-1:normalizeSearch(b.title)===q?1:a.title.localeCompare(b.title)).slice(0,16);const shown=input.value.replaceAll('<','&lt;').replaceAll('>','&gt;');results.innerHTML=matches.length?matches.map(item=>`<a class="global-search-result" href="${item.href}"><span>${item.type}</span><strong>${item.title}</strong><b>→</b></a>`).join(''):`<div class="global-search-empty">No match yet for “${shown}”.</div>`;}
+function openGlobalSearch(){buildSearchDialog();const dialog=document.getElementById('globalSearchDialog');if(typeof dialog.showModal==='function')dialog.showModal();else dialog.setAttribute('open','');setTimeout(()=>document.getElementById('globalSearchInput')?.focus(),30);loadSearchPlayers();window.loadWPlayerpediaLegacy().then(renderGlobalSearch).catch(()=>{});}
+document.getElementById('globalSearchButton')?.addEventListener('click',openGlobalSearch);document.addEventListener('keydown',event=>{if(event.key==='/'&&!event.metaKey&&!event.ctrlKey&&!event.altKey&&!['INPUT','TEXTAREA','SELECT'].includes(document.activeElement?.tagName||'')){event.preventDefault();openGlobalSearch();}});
+
+function addTransferLinks(){if(!['/','/index.html'].includes(location.pathname))return;const cards=[...document.querySelectorAll('.family-card')];const around=cards.find(card=>card.querySelector('h3')?.textContent.trim()==='Around the W'),players=cards.find(card=>card.querySelector('h3')?.textContent.trim()==='Playerpedia'),courtside=cards.find(card=>card.querySelector('h3')?.textContent.trim()==='Courtside Culture');const add=(card,href,label,icon='→')=>{const box=card?.querySelector('.family-links');if(box&&!box.querySelector(`a[href="${href}"]`)){const a=document.createElement('a');a.href=href;a.innerHTML=`<span>${label}</span><span>${icon}</span>`;box.appendChild(a);}};add(around,'/no-love-lost.html','No Love Lost');add(players,'/playerpedia.html?view=current#playerpedia-directory','On the Floor · Current Players');add(players,'/playerpedia.html?view=recent#playerpedia-directory','Benched · Free Agents');add(players,'/playerpedia.html?view=retired#playerpedia-directory','Legends Lounge · Retired Players');add(courtside,'/mascots.html','Mascots');add(courtside,'/coaches.html','Coaches');add(courtside,'/owners.html','Owners');add(courtside,'/wnba-fits.html','The Fits');}
+function addMockDraftRoute(){if(location.pathname!=='/who-got-next.html'||document.querySelector('.mock-draft-route'))return;const grid=document.querySelector('.next-desk-grid');if(!grid)return;const link=document.createElement('a');link.className='mock-draft-route';link.href='/2027-wnba-mock-draft.html';link.innerHTML='<div class="mock-draft-route-number">MD</div><div><span>2027 DRAFT WATCH · UPDATED</span><h3>Toronto or Houston?</h3><p>Open the updated 2027 WNBA mock draft: Toronto and Houston share the best estimated odds, JuJu Watkins stays No. 1 and Zhang Ziyu enters at No. 12.</p></div><div class="mock-draft-route-cta">OPEN THE MOCK DRAFT →</div>';grid.insertAdjacentElement('afterend',link);}
+function addWpbaRoutes(){
+  if(['/','/index.html'].includes(location.pathname)){
+    const family=[...document.querySelectorAll('.family-card')].find(card=>card.querySelector('h3')?.textContent.trim()==='Who Got Next?');
+    const links=family?.querySelector('.family-links');
+    if(links&&!links.querySelector('a[href="/2027-wnba-mock-draft.html"]')){
+      const draft=document.createElement('a');draft.href='/2027-wnba-mock-draft.html';draft.innerHTML='<span>2027 WNBA Mock Draft</span><span>→</span>';
+      links.querySelector('a[href="/wpba.html"],a[href="/expansion-watch.html"]')?.before(draft) || links.appendChild(draft);
+    }
+    if(links&&!links.querySelector('a[href="/wpba.html"]')){
+      const link=document.createElement('a');link.href='/wpba.html';link.innerHTML='<span>WPBA League Hub</span><span>→</span>';
+      links.querySelector('a[href="/expansion-watch.html"]')?.before(link);
+    }
+  }
+  if(location.pathname==='/who-got-next.html'){
+    const grid=document.querySelector('.next-desk-grid');
+    if(grid&&!grid.querySelector('a[href="/wpba.html"]')){
+      grid.removeAttribute('style');
+      const link=document.createElement('a');link.className='next-desk wpba';link.href='/wpba.html';link.innerHTML='<div class="next-desk-top"><span class="next-desk-label">WPBA · SUMMER PRO PIPELINE</span><span class="next-desk-number">03</span></div><h3>West Coast Workshop</h3><p>Track the eight-team Bay Area development league with live standings, player leaders, results, schedules, team rooms and the professional pathway.</p><div class="next-desk-list"><span>WPBA → WNBA</span><span>Standings</span><span>Stat Kitchen</span><span>Scores</span><span>Eight Teams</span></div><div class="next-desk-cta">OPEN THE WPBA HUB →</div>';
+      grid.appendChild(link);
+    }
+  }
+}
+function addContextLinks(){addTransferLinks();addWpbaRoutes();addMockDraftRoute();}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',addContextLinks,{once:true});else addContextLinks();
+
+const INTERNAL_PUBLIC_COPY_PATTERNS=[/\bthis (?:section|page|card|area) should\b/i,/\b(?:section|page|card|area) should (?:include|have|show|list|be|use)\b/i,/\bplaceholder (?:copy|text|content)\b/i,/\b(?:todo|internal note|implementation note|developer note)\b/i,/\buse this (?:section|page|card|area) (?:to|for)\b/i,/\bcreate (?:a|the|this) (?:section|page|card|area)\b/i,/\bbuild (?:a|the|this) (?:section|page|card|area)\b/i,/\bmake sure (?:the|this) (?:section|page|card|area)\b/i,/\bhow to read the (?:board|page|section|table)\b/i];
+function polishPublicCopyTree(root=document.body){if(!root)return;const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,{acceptNode(node){return node.parentElement?.closest('script,style,code,pre,textarea,select,option,svg,noscript,.w-dashboard-key')?NodeFilter.FILTER_REJECT:NodeFilter.FILTER_ACCEPT;}});const nodes=[];let node;while((node=walker.nextNode()))nodes.push(node);nodes.forEach(textNode=>{const value=textNode.nodeValue||'',compact=value.replace(/\s+/g,' ').trim();if(compact&&INTERNAL_PUBLIC_COPY_PATTERNS.some(pattern=>pattern.test(compact))){const parent=textNode.parentElement;if(parent&&(['P','SMALL','LI'].includes(parent.tagName)||parent.matches('.page-note,.small-note,.scout-disclaimer,.notice-box,.info-strip,.story-callout')))parent.remove();else textNode.nodeValue='';return;}textNode.nodeValue=value.replace(/\s*—\s*/g,', ').replace(/\s+–\s+/g,', ').replace(/,\s*,+/g,', ').replace(/\s+,/g,',');});}
+function runCopyPolish(){const run=()=>polishPublicCopyTree(document.body);if(window.requestIdleCallback)requestIdleCallback(run,{timeout:1200});else setTimeout(run,350);}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',runCopyPolish,{once:true});else runCopyPolish();
+
+// Shared creator/contact pathways on every page, outside the mobile menu.
+(()=>{const style=document.createElement('style');style.textContent='.w-utility-bar{display:flex;justify-content:flex-end;align-items:center;gap:18px;min-height:48px;padding:4px max(16px,calc((100vw - 1280px)/2));background:#211139;color:#fff;font:700 13px Inter,system-ui,sans-serif}.w-utility-bar a{color:#fff;text-decoration:none;display:inline-flex;align-items:center;min-height:40px}.w-utility-bar a:last-child{color:#d8ff4f}.w-utility-bar a:focus-visible{outline:3px solid #d8ff4f;outline-offset:2px}.w-about-footer{padding:28px 20px;text-align:center;background:#211139;color:#fff;font:14px Inter,system-ui,sans-serif;line-height:1.7}.w-about-footer a{color:#d8ff4f}.w-about-footer p{margin:8px 0}';document.head.appendChild(style);const bar=document.createElement('nav');bar.className='w-utility-bar';bar.setAttribute('aria-label','About and contact');const tagline=document.createElement('span');tagline.textContent='Women’s basketball, from A to Z';const about=document.createElement('a');about.href='/about.html';about.textContent='About We Know the W';const report=document.createElement('a');const pageUrl=new URL(location.origin+location.pathname+location.hash);for(const key of ['team','search','view','player','id']){const value=new URLSearchParams(location.search).get(key);if(value)pageUrl.searchParams.set(key,value);}report.href='/report-a-problem.html?page='+encodeURIComponent(pageUrl.href);report.textContent='Report a problem';bar.append(tagline,about,report);document.body.prepend(bar);const footer=document.createElement('footer');footer.className='w-about-footer';footer.innerHTML='<p><a href="/about.html">About We Know the W</a> · <a href="/about.html#editorial-philosophy">Editorial philosophy</a> · <a href="/report-a-problem.html">Report a problem</a></p><p>Created by Shakeema Funchess · <a href="mailto:books@adventuresinzen.com">books@adventuresinzen.com</a></p><p>Independent publication. Not affiliated with or endorsed by the WNBA or its teams.</p>';document.body.appendChild(footer);})();
+
+
+// We Know the W custom behavior analytics.
+(()=>{
+  const EVENT_DATA_LIMIT=80;
+  const cleanValue=value=>{
+    if(value===undefined||value===null)return undefined;
+    if(typeof value==='number'||typeof value==='boolean')return value;
+    return String(value).replace(/\s+/g,' ').trim().slice(0,EVENT_DATA_LIMIT);
+  };
+  const track=(name,data={})=>{
+    if(typeof window.va!=='function')return;
+    const cleaned={};
+    Object.entries(data).forEach(([key,value])=>{
+      const safe=cleanValue(value);
+      if(safe!==undefined&&safe!=='')cleaned[key]=safe;
+    });
+    window.va('event',{name,data:cleaned});
+  };
+  window.trackWEvent=track;
+
+  const pathFor=href=>{
+    try{return new URL(href,location.origin);}catch{return null;}
+  };
+  const pagePath=location.pathname;
+  const snackHubs=new Set(['/snack-shak.html','/snack-shak-bytes.html','/food-for-thought.html']);
+  const leagueHubs=new Map([
+    ['/unrivaled.html','Unrivaled'],
+    ['/wpba.html','WPBA'],
+    ['/athletes-unlimited.html','Athletes Unlimited'],
+    ['/the-call-up.html','The Call Up'],
+    ['/class-is-in-session.html','Class Is in Session'],
+    ['/team-usa.html','Team USA'],
+    ['/fiba-world-cup.html','FIBA World Cup'],
+    ['/team-usa-3x3.html','Team USA 3x3'],
+    ['/team-usa-olympics.html','Team USA Olympics'],
+    ['/team-usa-americup.html','Women’s AmeriCup'],
+    ['/team-usa-qualifying.html','Team USA Qualifiers'],
+    ['/team-usa-development.html','Team USA Junior Teams'],
+    ['/no-offseason.html','No Offseason']
+  ]);
+
+  const searchLast=new WeakMap();
+  const searchSource=input=>{
+    if(input.id==='homeSiteSearch')return 'Homepage';
+    if(input.id==='globalSearchInput')return 'Global';
+    if(pagePath==='/playerpedia.html')return 'Playerpedia';
+    return 'Site';
+  };
+  const recordSearch=input=>{
+    if(!(input instanceof HTMLInputElement)||input.type!=='search')return;
+    const value=input.value.trim();
+    if(value.length<2||searchLast.get(input)===value)return;
+    searchLast.set(input,value);
+    track('Site Search Used',{source:searchSource(input),queryLength:value.length});
+  };
+  document.addEventListener('change',event=>{
+    const input=event.target;
+    if(input instanceof HTMLInputElement&&input.type==='search')recordSearch(input);
+    if(pagePath==='/stat-kitchen.html'&&input instanceof HTMLSelectElement){
+      track('Stat Kitchen Interaction',{control:input.id||input.name||'select',action:'change'});
+    }
+  });
+  document.addEventListener('keydown',event=>{
+    if(event.key==='Enter'&&event.target instanceof HTMLInputElement&&event.target.type==='search')recordSearch(event.target);
+  });
+
+  document.addEventListener('click',event=>{
+    const clicked=event.target instanceof Element?event.target:null;
+    if(!clicked)return;
+
+    if(pagePath==='/stat-kitchen.html'){
+      const control=clicked.closest('button,[role="button"]');
+      if(control){
+        const label=(control.getAttribute('aria-label')||control.id||control.textContent||'button').trim();
+        track('Stat Kitchen Interaction',{control:label,action:'click'});
+      }
+    }
+
+    const link=clicked.closest('a[href]');
+    if(!link)return;
+    const url=pathFor(link.getAttribute('href'));
+    if(!url||url.origin!==location.origin)return;
+    const targetPath=url.pathname;
+
+    if(link.closest('.global-search-result,.home-search-results,#homeSearchResults')){
+      track('Search Result Opened',{
+        source:link.closest('.global-search-result')?'Global':'Homepage',
+        destination:targetPath
+      });
+    }
+
+    if(targetPath==='/playerpedia.html'){
+      track('Playerpedia Opened',{view:url.searchParams.get('view')||'directory'});
+    }
+
+    if(targetPath==='/team.html'){
+      track('Team Page Opened',{team:url.searchParams.get('team')||'unknown'});
+    }
+
+    if(targetPath==='/stat-kitchen.html'){
+      track('Stat Kitchen Opened',{from:pagePath});
+    }
+
+    if(leagueHubs.has(targetPath)){
+      track('League Hub Opened',{league:leagueHubs.get(targetPath),from:pagePath});
+    }
+
+    if(snackHubs.has(pagePath)&&targetPath.endsWith('.html')&&!snackHubs.has(targetPath)){
+      track('Snack Shak Story Opened',{story:targetPath,from:pagePath});
+    }
+  },{capture:true});
+})();

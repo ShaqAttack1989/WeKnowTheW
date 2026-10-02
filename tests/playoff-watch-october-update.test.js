@@ -8,13 +8,17 @@ const text=file=>fs.readFileSync(path.join(root,file),'utf8');
 const latest=JSON.parse(text('snack-shak-latest.json'));
 const guide=latest.posts.find(post=>post.slug==='the-playoff-watch-party-2026');
 
-test('playoff watch guide is refreshed for the two remaining Game 3s',()=>{
+test('playoff watch guide is refreshed for the last remaining Game 3',()=>{
   assert.ok(guide);
-  assert.equal(guide.updated,'2026-10-01');
-  assert.match(guide.title,/Two Game 3s/);
+  assert.equal(guide.updated,'2026-10-02');
+  assert.match(guide.title,/One Game 3/);
   assert.equal(guide.playoffWatch.matchups.length,3);
   assert.deepEqual(guide.playoffWatch.matchups.map(item=>item.id),['lva-ind','gsv-dal','atl-nyl']);
-  assert.equal(guide.playoffWatch.matchups.filter(item=>item.series==='1-1').length,2);
+  assert.equal(guide.playoffWatch.matchups.filter(item=>item.series==='1-1').length,1);
+  const aces=guide.playoffWatch.matchups.find(item=>item.id==='lva-ind');
+  assert.equal(aces.series,'2-1');
+  assert.match(aces.roundLabel,/FINAL/);
+  assert.match(aces.nextGame,/LVA 94, IND 83/);
   assert.equal(guide.playoffWatch.matchups.find(item=>item.id==='atl-nyl').roundKey,'Semifinals');
   assert.match(guide.playoffWatch.matchups.find(item=>item.id==='atl-nyl').roundLabel,/BEST OF 5/);
 });
@@ -22,9 +26,9 @@ test('playoff watch guide is refreshed for the two remaining Game 3s',()=>{
 test('record, game imagery and award fallout are explicit',()=>{
   const values=guide.playoffGameOne.receipts.map(item=>item.value);
   assert.ok(values.includes('45'));
-  assert.ok(values.includes('4.1'));
-  assert.ok(values.includes('15 AST'));
-  assert.equal(guide.gameGallery.items.length,3);
+  assert.ok(values.includes('42 MIN'));
+  assert.ok(values.includes('36 + 10'));
+  assert.equal(guide.gameGallery.items.length,4);
   assert.ok(guide.gameGallery.items.every(item=>item.image.startsWith('https://cdn.wnba.com/')));
   assert.deepEqual(guide.awardFallout.people.map(item=>item.name),['Cheryl Reeve','Olivia Miles']);
   assert.equal(guide.awardFallout.implications.length,4);
@@ -43,13 +47,14 @@ test('live renderer supports logos, semifinal rounds and dynamic summaries',()=>
   assert.match(renderer,/atl-nyl/);
 });
 
-test('fallback feeds carry every completed Game 2 and both deciding games',()=>{
+test('fallback feeds carry every completed Game 2, the Aces closeout and the final deciding game',()=>{
   const competition=text('api/competition.js');
   const bracket=text('playoff-bracket.js');
   for(const source of [competition,bracket]){
     assert.match(source,/homeTeam:'Washington Mystics',awayTeam:'Atlanta Dream',homeScore:75,awayScore:93/);
     assert.match(source,/homeTeam:'Dallas Wings',awayTeam:'Golden State Valkyries',homeScore:108,awayScore:100/);
     assert.match(source,/2026-lva-ind-g3/);
+    assert.match(source,/homeTeam:'Las Vegas Aces',awayTeam:'Indiana Fever',homeScore:94,awayScore:83/);
     assert.match(source,/2026-gsv-dal-g3/);
     assert.match(source,/2026-atl-nyl-sf-g1/);
   }

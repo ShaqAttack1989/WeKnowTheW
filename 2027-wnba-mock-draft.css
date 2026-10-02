@@ -24,3 +24,9 @@
 @media(max-width:620px){.mock-shell{width:min(100% - 28px,1180px)}.mock-hero{min-height:0}.mock-hero-photo{height:330px}.mock-hero-selection{grid-template-columns:48px 1fr 42px}.mock-hero-selection strong{font-size:1.2rem}.mock-lottery{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:.5rem}.mock-lottery-card{min-width:145px;scroll-snap-align:start}.mock-grid{grid-template-columns:1fr}.mock-board-head{align-items:start;flex-direction:column}.mock-position-filters{display:grid;grid-template-columns:repeat(2,1fr)}.mock-position-filters button{width:100%}.mock-card-top{height:250px}}
 @media(max-width:900px){.mock-update-grid{grid-template-columns:1fr}.mock-riser-card>img{min-height:310px}}
 @media(max-width:620px){.mock-duel{grid-template-columns:1fr}.mock-duel>b{justify-self:center}.mock-riser-card{grid-template-columns:1fr}.mock-riser-card>img{height:300px;min-height:0}.mock-first-out{grid-template-columns:84px 1fr}.mock-first-out-photo{min-height:100px}}
+
+.mock-context-nav{display:flex;align-items:center;gap:8px;padding-top:10px;padding-bottom:10px;color:#6e6375;font-size:14px;font-weight:800}
+.mock-context-nav a{color:#5d22bb;text-decoration:none}
+.mock-context-nav a:hover{text-decoration:underline}
+.mock-context-nav strong{color:#26143c}
+@media(max-width:620px){.mock-context-nav{overflow-x:auto;white-space:nowrap;scrollbar-width:none}.mock-context-nav::-webkit-scrollbar{display:none}}

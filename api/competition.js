@@ -87,7 +87,7 @@ const PLAYOFF_2026_SCHEDULE=[
   {id:'2026-was-atl-g2',date:'2026-09-30',startTimeUtc:'2026-09-30T19:00:00-04:00',homeTeam:'Washington Mystics',awayTeam:'Atlanta Dream',homeScore:75,awayScore:93,broadcasts:['ESPN'],status:'Final',state:'post',completed:true},
   {id:'2026-dal-gsv-g2',date:'2026-09-30',startTimeUtc:'2026-09-30T21:00:00-04:00',homeTeam:'Dallas Wings',awayTeam:'Golden State Valkyries',homeScore:108,awayScore:100,broadcasts:['ESPN'],status:'Final/OT',state:'post',completed:true},
 
-  {id:'2026-lva-ind-g3',date:'2026-10-01',startTimeUtc:'2026-10-01T21:00:00-04:00',homeTeam:'Las Vegas Aces',awayTeam:'Indiana Fever',homeScore:null,awayScore:null,broadcasts:['USA','CNBC'],status:'Scheduled',state:'pre',completed:false},
+  {id:'2026-lva-ind-g3',date:'2026-10-01',startTimeUtc:'2026-10-01T21:00:00-04:00',homeTeam:'Las Vegas Aces',awayTeam:'Indiana Fever',homeScore:94,awayScore:83,broadcasts:['USA','CNBC'],status:'Final',state:'post',completed:true},
   {id:'2026-gsv-dal-g3',date:'2026-10-02',startTimeUtc:'2026-10-02T21:00:00-04:00',homeTeam:'Golden State Valkyries',awayTeam:'Dallas Wings',homeScore:null,awayScore:null,broadcasts:['ESPN2'],status:'Scheduled',state:'pre',completed:false},
 
   {id:'2026-atl-nyl-sf-g1',date:'2026-10-04',startTimeUtc:'',homeTeam:'Atlanta Dream',awayTeam:'New York Liberty',homeScore:null,awayScore:null,broadcasts:[],status:'Semifinals Game 1 · Time TBD',state:'pre',completed:false}
@@ -151,6 +151,6 @@ module.exports=async function handler(req,res){
     playoffs:{games:postseason,series:series(postseason),starts:'2026-09-27',started:Date.now()>=Date.parse('2026-09-27T00:00:00-04:00')},
     sources:{cup:'https://www.wnba.com/commissioners-cup/2026/about-the-cup',cupResults:'https://www.wnba.com/news/category/2026-commissioners-cup',cupFinal:'https://www.wnba.com/commissioners-cup/2026/leaderboard',playoffs:'https://www.wnba.com/playoffs/2026'},
     providerErrors,
-    sourceVersion:'20261001-playoff-watch-v3'
+    sourceVersion:'20261002-playoff-watch-v4'
   });
 };

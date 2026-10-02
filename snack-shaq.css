@@ -440,7 +440,7 @@
 .playoff-game-gallery>header span{display:block;color:#d8ff4f;font-size:.76rem;font-weight:950;letter-spacing:.12em}
 .playoff-game-gallery>header h3{max-width:780px;margin:7px 0 8px;color:#fff;font-size:clamp(1.85rem,4vw,3rem);line-height:1}
 .playoff-game-gallery>header p{margin:0;color:rgba(255,255,255,.82);font-size:1rem;line-height:1.5}
-.playoff-game-gallery>div{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:18px}
+.playoff-game-gallery>div{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin-top:18px}
 .playoff-game-gallery a{overflow:hidden;border:1px solid rgba(255,255,255,.2);border-radius:18px;background:#16062d;color:#fff;text-decoration:none;box-shadow:0 12px 28px rgba(20,6,45,.24)}
 .playoff-game-gallery figure{height:100%;margin:0}
 .playoff-game-gallery img{display:block;width:100%;aspect-ratio:16/10;object-fit:cover;background:#24103e}
@@ -479,3 +479,17 @@
 @media(max-width:900px){.playoff-game-gallery>div{grid-template-columns:1fr}.playoff-award-people{grid-template-columns:1fr}.playoff-implication-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:680px){.playoff-record-grid article:last-child{grid-column:auto}}
 @media(max-width:620px){.playoff-watch-summary{grid-template-columns:repeat(2,1fr)}.playoff-game-gallery,.playoff-award-fallout{margin-right:-13px;margin-left:-13px;padding:20px 14px;border-radius:22px}.playoff-award-fallout>header{grid-template-columns:1fr}.playoff-award-fallout>header>strong{width:max-content}.playoff-award-people article{grid-template-columns:112px minmax(0,1fr)}.playoff-award-people figure{min-height:280px}.playoff-award-people article>div{padding:15px 12px}.playoff-implication-grid{grid-template-columns:1fr}.playoff-team-logo{width:36px;height:36px}}
+
+/* Oct. 2, 2026 playoff officiating readability */
+.playoff-game-gallery figcaption p,
+.playoff-game-one .playoff-record-grid p,
+.playoff-game-one .playoff-highlight-grid article>div>p{font-size:16px!important;line-height:1.5!important}
+.playoff-game-gallery figcaption span,
+.playoff-game-gallery figcaption small,
+.playoff-game-one .playoff-record-grid span,
+.playoff-game-one .playoff-highlight-grid article>div>span{font-size:16px!important;line-height:1.35!important}
+.playoff-game-gallery figcaption strong,
+.playoff-game-one .playoff-highlight-grid h4{font-size:20px!important}
+@media(max-width:680px){
+  .playoff-game-gallery>div{grid-template-columns:1fr}
+}

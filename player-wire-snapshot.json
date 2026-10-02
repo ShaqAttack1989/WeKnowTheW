@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-01T21:46:47.603Z",
+  "generatedAt": "2026-10-02T01:37:47.149Z",
   "movement": {
     "latestTransactionDate": "2026-09-28",
     "transactions": [
@@ -1429,31 +1429,31 @@
   },
   "availability": {
     "latestReportDate": "2026-10-01",
-    "reportLabel": "10/01/2026 05:45 PM ET",
-    "officialPdf": "https://ak-static.cms.nba.com/referee/wnba_injury/Injury-Report_2026-10-01_05_45PM.pdf",
+    "reportLabel": "10/01/2026 09:30 PM ET",
+    "officialPdf": "https://ak-static.cms.nba.com/referee/wnba_injury/Injury-Report_2026-10-01_09_30PM.pdf",
     "injuries": [
       {
-        "player": "Aliyah Boston",
-        "team": "Indiana Fever",
-        "status": "PROBABLE",
-        "reason": "Injury/Illness - Right Leg; Lower",
-        "gameDate": "10/01/2026",
+        "player": "Alanna Smith",
+        "team": "Dallas Wings",
+        "status": "OUT",
+        "reason": "Injury/Illness - Left Leg; lower left leg",
+        "gameDate": "10/02/2026",
         "gameTime": "09:00 (ET)",
-        "matchup": "IND@LVA",
-        "updated": "2026-10-01",
+        "matchup": "DAL@GSV",
+        "updated": "2026-10-02",
         "source": "Official WNBA Injury Report PDF",
         "officialCurrentReport": true,
         "crossCheckOnly": false
       },
       {
-        "player": "Caitlin Clark",
-        "team": "Indiana Fever",
+        "player": "Awak Kuier",
+        "team": "Dallas Wings",
         "status": "PROBABLE",
-        "reason": "Injury/Illness - Back; Back",
-        "gameDate": "10/01/2026",
+        "reason": "Injury/Illness - Right Wrist; right wrist",
+        "gameDate": "10/02/2026",
         "gameTime": "09:00 (ET)",
-        "matchup": "IND@LVA",
-        "updated": "2026-10-01",
+        "matchup": "DAL@GSV",
+        "updated": "2026-10-02",
         "source": "Official WNBA Injury Report PDF",
         "officialCurrentReport": true,
         "crossCheckOnly": false
@@ -1474,7 +1474,7 @@
       {
         "player": "Stephanie Talbot",
         "team": "Las Vegas Aces",
-        "status": "QUESTIONABLE",
+        "status": "OUT",
         "reason": "Injury/Illness - Left Leg; L. Leg",
         "gameDate": "10/01/2026",
         "gameTime": "09:00 (ET)",
@@ -2141,24 +2141,7 @@
         "seasonLongCarryover": true
       }
     ],
-    "teamStatuses": [
-      {
-        "team": "Dallas Wings",
-        "status": "NOT YET SUBMITTED",
-        "gameDate": "10/02/2026",
-        "gameTime": "09:00 (ET)",
-        "matchup": "DAL@GSV",
-        "updated": "2026-10-02"
-      },
-      {
-        "team": "Golden State Valkyries",
-        "status": "NOT YET SUBMITTED",
-        "gameDate": "10/02/2026",
-        "gameTime": "09:00 (ET)",
-        "matchup": "DAL@GSV",
-        "updated": "2026-10-02"
-      }
-    ]
+    "teamStatuses": []
   },
   "errors": []
 }

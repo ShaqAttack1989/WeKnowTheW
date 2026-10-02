@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-02T01:37:47.149Z",
+  "generatedAt": "2026-10-02T08:24:42.073Z",
   "movement": {
     "latestTransactionDate": "2026-09-28",
     "transactions": [
@@ -1428,9 +1428,9 @@
     ]
   },
   "availability": {
-    "latestReportDate": "2026-10-01",
-    "reportLabel": "10/01/2026 09:30 PM ET",
-    "officialPdf": "https://ak-static.cms.nba.com/referee/wnba_injury/Injury-Report_2026-10-01_09_30PM.pdf",
+    "latestReportDate": "2026-10-02",
+    "reportLabel": "10/02/2026 03:15 AM ET",
+    "officialPdf": "https://ak-static.cms.nba.com/referee/wnba_injury/Injury-Report_2026-10-02_03_15AM.pdf",
     "injuries": [
       {
         "player": "Alanna Smith",
@@ -1459,43 +1459,32 @@
         "crossCheckOnly": false
       },
       {
-        "player": "Dana Evans",
-        "team": "Las Vegas Aces",
-        "status": "OUT",
-        "reason": "Injury/Illness - Right Knee; R. Knee",
-        "gameDate": "10/01/2026",
-        "gameTime": "09:00 (ET)",
-        "matchup": "IND@LVA",
-        "updated": "2026-10-01",
-        "source": "Official WNBA Injury Report PDF",
-        "officialCurrentReport": true,
-        "crossCheckOnly": false
-      },
-      {
         "player": "Stephanie Talbot",
         "team": "Las Vegas Aces",
         "status": "OUT",
-        "reason": "Injury/Illness - Left Leg; L. Leg",
-        "gameDate": "10/01/2026",
-        "gameTime": "09:00 (ET)",
-        "matchup": "IND@LVA",
-        "updated": "2026-10-01",
-        "source": "Official WNBA Injury Report PDF",
-        "officialCurrentReport": true,
-        "crossCheckOnly": false
+        "reason": "Leg · Talbot (leg) has been ruled out for Thursday's Game 3 of the first round of the playoffs against Indiana.",
+        "updated": "2026-10-02",
+        "returnDate": "2026-10-04",
+        "matchup": "",
+        "gameTime": "",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null,
+        "officialCurrentReport": false,
+        "crossCheckOnly": true
       },
       {
-        "player": "Tyasha Harris",
-        "team": "Indiana Fever",
+        "player": "Dana Evans",
+        "team": "Las Vegas Aces",
         "status": "OUT",
-        "reason": "Injury/Illness - Left Leg; Lower",
-        "gameDate": "10/01/2026",
-        "gameTime": "09:00 (ET)",
-        "matchup": "IND@LVA",
+        "reason": "Knee · Evans (knee) is listed as out for Game 3 of the first round playoff series versus Indiana.",
         "updated": "2026-10-01",
-        "source": "Official WNBA Injury Report PDF",
-        "officialCurrentReport": true,
-        "crossCheckOnly": false
+        "returnDate": "2026-10-04",
+        "matchup": "",
+        "gameTime": "",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null,
+        "officialCurrentReport": false,
+        "crossCheckOnly": true
       },
       {
         "player": "Anastasiia Olairi Kosu",
@@ -1503,6 +1492,20 @@
         "status": "OUT",
         "reason": "Foot · Kosu (foot) has been ruled out for Tuesday's Game 2 of the first round of the playoffs against the Liberty.",
         "updated": "2026-09-28",
+        "returnDate": "2027-05-01",
+        "matchup": "",
+        "gameTime": "",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null,
+        "officialCurrentReport": false,
+        "crossCheckOnly": true
+      },
+      {
+        "player": "Tyasha Harris",
+        "team": "Indiana Fever",
+        "status": "OUT",
+        "reason": "Leg · Harris (leg) will miss the rest of the season, WNBA reporter Kareem Copeland reports.",
+        "updated": "2026-09-26",
         "returnDate": "2027-05-01",
         "matchup": "",
         "gameTime": "",

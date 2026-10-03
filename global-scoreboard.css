@@ -32,3 +32,45 @@
 @media(max-width:620px){:root{--w-home-scorebar-height:84px;--w-home-nav-height:62px}.w-home-scorebar-inner{min-height:84px;grid-template-columns:42px minmax(0,1fr) 64px}.w-scorebar-label{align-items:center;text-align:center;padding:6px 3px}.w-scorebar-label strong{display:none}.w-scorebar-label span{font-size:.46rem}.w-score-game{flex-basis:178px}.w-score-game-team{grid-template-columns:18px minmax(0,1fr) auto;gap:5px}.w-score-game-team img,.w-score-team-fallback{width:17px;height:17px}.w-scorebar-full{font-size:.52rem}.w-home-nav-sticky .site-navigation{min-height:62px!important}}
 @media(max-width:1280px){body.mobile-nav-open .w-home-nav-sticky .site-navigation .nav-links.open{top:calc(var(--w-home-scorebar-height) + var(--w-home-nav-height))!important;max-height:calc(100vh - var(--w-home-scorebar-height) - var(--w-home-nav-height))!important;max-height:calc(100dvh - var(--w-home-scorebar-height) - var(--w-home-nav-height))!important}}
 @media(prefers-reduced-motion:reduce){.w-score-game{transition:none}}
+
+
+/* 2026-10-03 readable playoff ribbon */
+@media(min-width:901px){
+  :root{--w-home-scorebar-height:112px}
+  .w-home-scorebar-inner{
+    width:min(1700px,calc(100% - 32px));
+    min-height:112px;
+    grid-template-columns:142px minmax(0,1fr) 104px;
+  }
+  .w-scorebar-label{padding:12px 14px 12px 4px}
+  .w-scorebar-label span{font-size:.69rem;letter-spacing:.1em}
+  .w-scorebar-label strong{font-size:1.03rem}
+  .w-score-game{
+    flex:0 0 250px;
+    gap:4px;
+    padding:9px 14px;
+  }
+  .w-score-game-stage{font-size:.62rem}
+  .w-score-game-stage b{font-size:.59rem;padding:4px 7px}
+  .w-score-game-top{font-size:.65rem}
+  .w-score-game-top b{font-size:.67rem}
+  .w-score-game-team{
+    grid-template-columns:26px minmax(0,1fr) auto;
+    gap:8px;
+    font-size:.82rem;
+    line-height:1.15;
+  }
+  .w-score-game-team img,.w-score-team-fallback{
+    width:24px;
+    height:24px;
+    border-radius:7px;
+  }
+  .w-score-game-team strong{font-size:.9rem}
+  .w-score-game-network{
+    min-height:15px;
+    margin-top:3px;
+    font-size:.59rem;
+    line-height:1.25;
+  }
+  .w-scorebar-full{font-size:.72rem}
+}

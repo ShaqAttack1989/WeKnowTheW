@@ -14,9 +14,9 @@ const UI_FIXES_HREF='/ui-fixes.css?v=20260930-dashboard-spacing-v4';
 if(!document.querySelector('link[data-ui-fixes]')){const link=document.createElement('link');link.rel='stylesheet';link.href=UI_FIXES_HREF;link.dataset.uiFixes='true';document.head.appendChild(link);}
 const NAVIGATION_HREF='/site-navigation.css?v=20260930-wide-collision-v4';
 if(!document.querySelector('link[data-site-navigation]')){const link=document.createElement('link');link.rel='stylesheet';link.href=NAVIGATION_HREF;link.dataset.siteNavigation='true';document.head.appendChild(link);}
-const GLOBAL_SCOREBOARD_HREF='/global-scoreboard.css?v=20261003-semifinal-state-v2';
+const GLOBAL_SCOREBOARD_HREF='/global-scoreboard.css?v=20261003-playoff-ribbon-v4';
 if(!document.querySelector('link[data-global-scoreboard]')){const link=document.createElement('link');link.rel='stylesheet';link.href=GLOBAL_SCOREBOARD_HREF;link.dataset.globalScoreboard='true';document.head.appendChild(link);}
-if(!document.querySelector('script[data-global-scoreboard]')){const script=document.createElement('script');script.src='/global-scoreboard.js?v=20261003-semifinal-state-v2';script.dataset.globalScoreboard='true';script.defer=true;document.head.appendChild(script);}
+if(!document.querySelector('script[data-global-scoreboard]')){const script=document.createElement('script');script.src='/global-scoreboard.js?v=20261003-playoff-ribbon-v4';script.dataset.globalScoreboard='true';script.defer=true;document.head.appendChild(script);}
 if(!document.querySelector('script[data-dashboard-keys]')){const script=document.createElement('script');script.src='/dashboard-keys.js?v=20260828-v1';script.dataset.dashboardKeys='true';script.async=true;document.head.appendChild(script);}
 
 const navLinks=document.getElementById('navLinks');

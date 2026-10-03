@@ -970,9 +970,9 @@
       "published": "2026-10-02",
       "updated": "2026-10-03",
       "week": "Semifinals · Oct. 4",
-      "image": "https://cdn.wnba.com/sites/1611661331/2026/10/GettyImages-2244598750.jpg",
+      "image": "https://cdn.wnba.com/sites/4/2026/10/DALGSV102.png?im=AspectCrop%3D%2816%2C9%29%2CxPosition%3D.5%2CyPosition%3D.5",
       "imageFit": "top-cover",
-      "imageAlt": "Golden State Valkyries celebrate their 77-73 Game 3 comeback win over the Dallas Wings",
+      "imageAlt": "Gabby Williams during Golden State's Game 3 comeback win over the Dallas Wings",
       "dek": "The first round is done. New York’s historic No. 8 run meets Atlanta’s pressure defense at 2 p.m. ET, then Golden State hosts defending champion Las Vegas at 4 p.m. ET after the Valkyries erased a 16-point Game 3 deficit to reach their first semifinal.",
       "playoffGameOne": {
         "ariaLabel": "First-round records, comeback numbers and semifinal schedule",
@@ -1019,9 +1019,10 @@
             "player": "Gabby Williams + Veronica Burton",
             "stat": "40–20 CLOSING RUN · GSV WINS 2–1",
             "note": "Golden State rallied from 16 down, won a replay challenge in the final seconds and advanced to face Las Vegas.",
-            "photo": "https://cdn.wnba.com/sites/1611661331/2026/10/GettyImages-2244598750.jpg",
-            "photoAlt": "Golden State Valkyries celebrate their Game 3 comeback win over Dallas",
-            "photoCredit": "NBAE / Golden State Valkyries · Game 3"
+            "photo": "https://cdn.wnba.com/sites/4/2026/10/DALGSV102.png?im=AspectCrop%3D%2816%2C9%29%2CxPosition%3D.5%2CyPosition%3D.5",
+            "photoAlt": "Gabby Williams during Golden State's Game 3 comeback win over Dallas",
+            "photoCredit": "WNBA game media · Game 3 recap",
+            "photoFallback": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1628931.png"
           },
           {
             "score": "GSV 100 · DAL 108 (OT)",
@@ -1064,10 +1065,11 @@
             "kicker": "COMEBACK · GOLDEN STATE",
             "title": "Sixteen down became four teams left",
             "caption": "Williams scored 17 of her 19 after halftime as Golden State closed on a 40-20 run and beat Dallas 77-73.",
-            "image": "https://cdn.wnba.com/sites/1611661331/2026/10/GettyImages-2244598750.jpg",
-            "alt": "Golden State Valkyries celebrate after eliminating Dallas in Game 3",
-            "credit": "NBAE / Golden State Valkyries",
-            "sourceUrl": "https://www.wnba.com/news/2026-playoffs-wings-valkyries-game-3-recap"
+            "image": "https://cdn.wnba.com/sites/4/2026/10/DALGSV102.png?im=AspectCrop%3D%2816%2C9%29%2CxPosition%3D.5%2CyPosition%3D.5",
+            "alt": "Gabby Williams during Golden State's Game 3 comeback win over Dallas",
+            "credit": "WNBA · Game 3 recap",
+            "sourceUrl": "https://www.wnba.com/news/2026-playoffs-wings-valkyries-game-3-recap",
+            "imageFallback": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1628931.png"
           },
           {
             "kicker": "RECORD NIGHT · DALLAS",
@@ -1159,8 +1161,8 @@
         }
       ],
       "dashboardUrl": "/food-for-thought.html?post=the-playoff-watch-party-2026#story",
-      "storyImage": "https://cdn.wnba.com/sites/1611661331/2026/10/GettyImages-2244598750.jpg",
-      "storyImageCaption": "Golden State erased a 16-point deficit, closed on a 40-20 run and beat Dallas 77-73 to claim the final semifinal berth. Official WNBA/NBAE game photography.",
+      "storyImage": "https://cdn.wnba.com/sites/4/2026/10/DALGSV102.png?im=AspectCrop%3D%2816%2C9%29%2CxPosition%3D.5%2CyPosition%3D.5",
+      "storyImageCaption": "Gabby Williams helped Golden State erase a 16-point deficit and beat Dallas 77-73 to claim the final semifinal berth. Official WNBA Game 3 media.",
       "storyImageSourceUrl": "https://www.wnba.com/news/2026-playoffs-wings-valkyries-game-3-recap",
       "playoffWatch": {
         "title": "SUNDAY IS SET. FOUR TEAMS. TWO GAME 1s.",
@@ -1309,7 +1311,9 @@
         "Does Atlanta’s 2-1 regular-season edge survive a longer best-of-five chess match?",
         "Can Golden State layer enough help at A’ja Wilson without giving Chelsea Gray and Jackie Young clean reads?",
         "How much does home court matter after both semifinal road teams just survived winner-take-all games?"
-      ]
+      ],
+      "imageFallback": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1628931.png",
+      "storyImageFallback": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1628931.png"
     },
     {
       "slug": "farewell-connecticut-sun-2026",

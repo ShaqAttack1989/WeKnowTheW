@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-03T12:28:09.266Z",
+  "generatedAt": "2026-10-03T17:12:38.193Z",
   "movement": {
     "latestTransactionDate": "2026-09-28",
     "transactions": [
@@ -1429,8 +1429,8 @@
   },
   "availability": {
     "latestReportDate": "2026-10-03",
-    "reportLabel": "10/03/2026 08:15 AM ET",
-    "officialPdf": "https://ak-static.cms.nba.com/referee/wnba_injury/Injury-Report_2026-10-03_08_15AM.pdf",
+    "reportLabel": "10/03/2026 01:00 PM ET",
+    "officialPdf": "https://ak-static.cms.nba.com/referee/wnba_injury/Injury-Report_2026-10-03_01_00PM.pdf",
     "injuries": [
       {
         "player": "Alanna Smith",

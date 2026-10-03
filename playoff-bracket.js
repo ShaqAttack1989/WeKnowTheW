@@ -34,7 +34,11 @@
     {id:'2026-atl-nyl-sf-g2',date:'2026-10-07',startTimeUtc:'2026-10-07T19:30:00-04:00',homeTeam:'Atlanta Dream',awayTeam:'New York Liberty',homeScore:null,awayScore:null,broadcasts:['ESPN'],status:'Semifinals Game 2',state:'pre',completed:false,round:'Semifinals',gameNumber:2},
     {id:'2026-gsv-lva-sf-g2',date:'2026-10-07',startTimeUtc:'2026-10-07T21:30:00-04:00',homeTeam:'Golden State Valkyries',awayTeam:'Las Vegas Aces',homeScore:null,awayScore:null,broadcasts:['Peacock','NBC Sports Network'],status:'Semifinals Game 2',state:'pre',completed:false,round:'Semifinals',gameNumber:2},
     {id:'2026-nyl-atl-sf-g3',date:'2026-10-09',startTimeUtc:'2026-10-09T19:30:00-04:00',homeTeam:'New York Liberty',awayTeam:'Atlanta Dream',homeScore:null,awayScore:null,broadcasts:['ESPN2'],status:'Semifinals Game 3',state:'pre',completed:false,round:'Semifinals',gameNumber:3},
-    {id:'2026-lva-gsv-sf-g3',date:'2026-10-09',startTimeUtc:'2026-10-09T21:30:00-04:00',homeTeam:'Las Vegas Aces',awayTeam:'Golden State Valkyries',homeScore:null,awayScore:null,broadcasts:['Peacock','NBC Sports Network'],status:'Semifinals Game 3',state:'pre',completed:false,round:'Semifinals',gameNumber:3}
+    {id:'2026-lva-gsv-sf-g3',date:'2026-10-09',startTimeUtc:'2026-10-09T21:30:00-04:00',homeTeam:'Las Vegas Aces',awayTeam:'Golden State Valkyries',homeScore:null,awayScore:null,broadcasts:['Peacock','NBC Sports Network'],status:'Semifinals Game 3',state:'pre',completed:false,round:'Semifinals',gameNumber:3},
+    {id:'2026-nyl-atl-sf-g4',date:'2026-10-11',startTimeUtc:'',homeTeam:'New York Liberty',awayTeam:'Atlanta Dream',homeScore:null,awayScore:null,broadcasts:['ABC'],status:'If necessary',state:'pre',completed:false,round:'Semifinals',gameNumber:4,conditional:true},
+    {id:'2026-lva-gsv-sf-g4',date:'2026-10-11',startTimeUtc:'',homeTeam:'Las Vegas Aces',awayTeam:'Golden State Valkyries',homeScore:null,awayScore:null,broadcasts:['NBC','Peacock'],status:'If necessary',state:'pre',completed:false,round:'Semifinals',gameNumber:4,conditional:true},
+    {id:'2026-atl-nyl-sf-g5',date:'2026-10-14',startTimeUtc:'',homeTeam:'Atlanta Dream',awayTeam:'New York Liberty',homeScore:null,awayScore:null,broadcasts:['ESPN'],status:'If necessary',state:'pre',completed:false,round:'Semifinals',gameNumber:5,conditional:true},
+    {id:'2026-gsv-lva-sf-g5',date:'2026-10-14',startTimeUtc:'',homeTeam:'Golden State Valkyries',awayTeam:'Las Vegas Aces',homeScore:null,awayScore:null,broadcasts:['Peacock'],status:'If necessary',state:'pre',completed:false,round:'Semifinals',gameNumber:5,conditional:true}
   ];
   const mounts=new Set();
   const logos=new Map();
@@ -114,8 +118,11 @@
     return{aWins,bWins,winner,games:list,latest:live||completed.at(-1)||null,next:live||next||null,target,complete:Boolean(snapshot?.complete||winner)};
   }
   function timeLabel(game){
-    const date=instant(game);if(!date)return'Time TBD';
+    const raw=String(game?.startTimeUtc||game?.timestamp||'').trim();
+    const date=raw?new Date(raw):game?.date?new Date(`${game.date}T12:00:00-04:00`):null;
+    if(!date||Number.isNaN(date.getTime()))return'Time TBD';
     const day=new Intl.DateTimeFormat('en-US',{timeZone:EASTERN,weekday:'short',month:'short',day:'numeric'}).format(date);
+    if(!raw)return`${day} · Time TBD`;
     const time=new Intl.DateTimeFormat('en-US',{timeZone:EASTERN,hour:'numeric',minute:'2-digit'}).format(date);
     return `${day} · ${time} ET`;
   }

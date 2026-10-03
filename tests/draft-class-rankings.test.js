@@ -19,8 +19,9 @@ test('draft history data lab names a winner and exposes movable ranking controls
   assert.doesNotThrow(()=>new Function(js));
 });
 
-test('playoff roster audit includes all five alive teams and correct Fever receipt',()=>{
-  for(const team of ['Dallas Wings','Atlanta Dream','Las Vegas Aces','New York Liberty','Golden State Valkyries']) assert.match(js,new RegExp(team));
+test('playoff roster audit includes all four semifinal teams and correct Fever receipt',()=>{
+  for(const team of ['Atlanta Dream','Las Vegas Aces','New York Liberty','Golden State Valkyries']) assert.match(js,new RegExp(team));
+  assert.doesNotMatch(js,/Dallas Wings/);
   assert.match(html,/Fever did not have three No\. 1 picks/);
   assert.match(html,/Mitchell was <b>No\. 2 in 2018<\/b>/);
   assert.match(html,/Indiana’s playoff roster had six top-10 picks and two No\. 1s/);
@@ -47,7 +48,7 @@ test('dashboard renders the all-time leader and computes live-roster totals',()=
   vm.runInNewContext(js,{document,console});
   assert.match(nodes.classLeader.innerHTML,/Class of 2001/);
   assert.equal((nodes.classGrid.innerHTML.match(/class="class-card"/g)||[]).length,13);
-  assert.equal((nodes.playoffTeamGrid.innerHTML.match(/class="playoff-team-card"/g)||[]).length,5);
-  assert.equal(nodes.topTenTotal.textContent,29);
-  assert.equal(nodes.numberOneTotal.textContent,8);
+  assert.equal((nodes.playoffTeamGrid.innerHTML.match(/class="playoff-team-card"/g)||[]).length,4);
+  assert.equal(nodes.topTenTotal.textContent,21);
+  assert.equal(nodes.numberOneTotal.textContent,6);
 });

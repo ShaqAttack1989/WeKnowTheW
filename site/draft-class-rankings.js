@@ -157,25 +157,10 @@
 
   const playoffTeams = [
     {
-      abbr: 'DAL',
-      name: 'Dallas Wings',
-      status: 'GAME 3 · TONIGHT',
-      bracketRank: 1,
-      color: '#0b6fbd',
-      logo: 'https://cdn.wnba.com/logos/wnba/1611661321/primary/L/logo.svg',
-      photo: 'https://cdn.wnba.com/headshots/wnba/latest/1040x760/1629481.png',
-      featured: 'Arike Ogunbowale · No. 5',
-      impact: 'Dallas owns the largest top-10 pool on the live board. Arike’s playoff-record 45 forced Game 3; Paige and Azzi give the Wings two straight No. 1 picks around her.',
-      picks: [
-        ['Paige Bueckers', 1, 2025], ['Azzi Fudd', 1, 2026], ['Odyssey Sims', 2, 2014], ['Awak Kuier', 2, 2021],
-        ['Maddy Siegrist', 3, 2023], ['Arike Ogunbowale', 5, 2019], ['Haley Jones', 6, 2023], ['Alanna Smith', 8, 2019]
-      ]
-    },
-    {
       abbr: 'ATL',
       name: 'Atlanta Dream',
       status: 'SEMIFINALS',
-      bracketRank: 3,
+      bracketRank: 4,
       color: '#c8102e',
       logo: 'https://cdn.wnba.com/logos/wnba/1611661330/primary/L/logo.svg',
       photo: 'https://cdn.wnba.com/headshots/wnba/latest/1040x760/1631009.png',
@@ -190,7 +175,7 @@
       abbr: 'LVA',
       name: 'Las Vegas Aces',
       status: 'SEMIFINALS',
-      bracketRank: 4,
+      bracketRank: 3,
       color: '#9c8d7c',
       logo: 'https://cdn.wnba.com/logos/wnba/1611661319/primary/L/logo.svg',
       photo: 'https://cdn.wnba.com/headshots/wnba/latest/1040x760/1628932.png',
@@ -205,7 +190,7 @@
       abbr: 'NYL',
       name: 'New York Liberty',
       status: 'SEMIFINALS',
-      bracketRank: 5,
+      bracketRank: 8,
       color: '#50bfa6',
       logo: 'https://cdn.wnba.com/logos/wnba/1611661313/primary/L/logo.svg',
       photo: 'https://cdn.wnba.com/headshots/wnba/latest/1040x760/1627668.png',
@@ -218,13 +203,13 @@
     {
       abbr: 'GSV',
       name: 'Golden State Valkyries',
-      status: 'GAME 3 · TONIGHT',
+      status: 'SEMIFINALS',
       bracketRank: 2,
       color: '#7a3fc4',
       logo: 'https://cdn.wnba.com/logos/wnba/1611661331/primary/L/logo.svg',
       photo: 'https://cdn.wnba.com/headshots/wnba/latest/1040x760/1628931.png',
       featured: 'Gabby Williams · No. 4',
-      impact: 'Golden State is the counterexample: zero No. 1 picks and only four top-10 selections. Gabby’s 36 in Game 2 showed how role clarity, international experience and cohesion can close the talent gap.',
+      impact: 'Golden State is the counterexample: zero No. 1 picks and only four top-10 selections. Williams scored 17 of her 19 after halftime and No. 7 pick Veronica Burton posted 16-10-6 as the Valkyries erased 16 to reach the semifinals.',
       picks: [
         ['Gabby Williams', 4, 2018], ['Justė Jocytė', 5, 2025], ['Veronica Burton', 7, 2022], ['Laeticia Amihere', 8, 2023]
       ]

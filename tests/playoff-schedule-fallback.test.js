@@ -44,7 +44,7 @@ test('published 2026 fallback closes Round 1 and carries semifinal Games 1 throu
     assert.ok(firstRound.every(row=>row.complete&&row.targetWins===2));
     assert.equal(semifinals.length,2);
     assert.ok(semifinals.every(row=>!row.complete&&row.targetWins===3));
-    assert.equal(payload.sourceVersion,'20261003-semifinals-v1');
+    assert.equal(payload.sourceVersion,'20261003-semifinals-v2');
   }finally{
     global.fetch=originalFetch;
   }

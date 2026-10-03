@@ -8,7 +8,25 @@
   const pair=game=>[game?.homeTeam||'',game?.awayTeam||''].map(norm).sort().join('|');
   const stateRank=game=>game?.completed||String(game?.state||'').toLowerCase()==='post'||/\bfinal\b/i.test(String(game?.status||''))?3:String(game?.state||'').toLowerCase()==='in'?2:1;
   const teamCode=name=>text(name).split(/\s+/).filter(Boolean).map(part=>part[0]).join('').slice(0,3).toUpperCase()||'W';
-  let stats={},competition={},livePayload={},badges=new Map(),baseLoading=false,liveLoading=false;
+  const BOOTSTRAP_PLAYOFF_GAMES=[
+    {id:'2026-atl-nyl-sf-g1',date:'2026-10-04',startTimeUtc:'2026-10-04T14:00:00-04:00',homeTeam:'Atlanta Dream',awayTeam:'New York Liberty',broadcasts:['ABC'],status:'Semifinals Game 1',state:'pre',completed:false,round:'Semifinals',gameNumber:1},
+    {id:'2026-gsv-lva-sf-g1',date:'2026-10-04',startTimeUtc:'2026-10-04T16:00:00-04:00',homeTeam:'Golden State Valkyries',awayTeam:'Las Vegas Aces',broadcasts:['NBC','Peacock'],status:'Semifinals Game 1',state:'pre',completed:false,round:'Semifinals',gameNumber:1},
+    {id:'2026-atl-nyl-sf-g2',date:'2026-10-07',startTimeUtc:'2026-10-07T19:30:00-04:00',homeTeam:'Atlanta Dream',awayTeam:'New York Liberty',broadcasts:['ESPN'],status:'Semifinals Game 2',state:'pre',completed:false,round:'Semifinals',gameNumber:2},
+    {id:'2026-gsv-lva-sf-g2',date:'2026-10-07',startTimeUtc:'2026-10-07T21:30:00-04:00',homeTeam:'Golden State Valkyries',awayTeam:'Las Vegas Aces',broadcasts:['Peacock','NBC Sports Network'],status:'Semifinals Game 2',state:'pre',completed:false,round:'Semifinals',gameNumber:2},
+    {id:'2026-nyl-atl-sf-g3',date:'2026-10-09',startTimeUtc:'2026-10-09T19:30:00-04:00',homeTeam:'New York Liberty',awayTeam:'Atlanta Dream',broadcasts:['ESPN2'],status:'Semifinals Game 3',state:'pre',completed:false,round:'Semifinals',gameNumber:3},
+    {id:'2026-lva-gsv-sf-g3',date:'2026-10-09',startTimeUtc:'2026-10-09T21:30:00-04:00',homeTeam:'Las Vegas Aces',awayTeam:'Golden State Valkyries',broadcasts:['Peacock','NBC Sports Network'],status:'Semifinals Game 3',state:'pre',completed:false,round:'Semifinals',gameNumber:3},
+    {id:'2026-nyl-atl-sf-g4',date:'2026-10-11',startTimeUtc:'',homeTeam:'New York Liberty',awayTeam:'Atlanta Dream',broadcasts:['ABC'],status:'If necessary',state:'pre',completed:false,round:'Semifinals',gameNumber:4,conditional:true},
+    {id:'2026-lva-gsv-sf-g4',date:'2026-10-11',startTimeUtc:'',homeTeam:'Las Vegas Aces',awayTeam:'Golden State Valkyries',broadcasts:['NBC','Peacock'],status:'If necessary',state:'pre',completed:false,round:'Semifinals',gameNumber:4,conditional:true},
+    {id:'2026-atl-nyl-sf-g5',date:'2026-10-14',startTimeUtc:'',homeTeam:'Atlanta Dream',awayTeam:'New York Liberty',broadcasts:['ESPN'],status:'If necessary',state:'pre',completed:false,round:'Semifinals',gameNumber:5,conditional:true},
+    {id:'2026-gsv-lva-sf-g5',date:'2026-10-14',startTimeUtc:'',homeTeam:'Golden State Valkyries',awayTeam:'Las Vegas Aces',broadcasts:['Peacock'],status:'If necessary',state:'pre',completed:false,round:'Semifinals',gameNumber:5,conditional:true}
+  ];
+  const BOOTSTRAP_BADGES=new Map([
+    [norm('Atlanta Dream'),'https://a.espncdn.com/i/teamlogos/wnba/500/atl.png'],
+    [norm('Golden State Valkyries'),'https://a.espncdn.com/i/teamlogos/wnba/500/gs.png'],
+    [norm('Las Vegas Aces'),'https://a.espncdn.com/i/teamlogos/wnba/500/lv.png'],
+    [norm('New York Liberty'),'https://a.espncdn.com/i/teamlogos/wnba/500/ny.png']
+  ]);
+  let stats={},competition={playoffs:{started:true,games:BOOTSTRAP_PLAYOFF_GAMES}},livePayload={},badges=BOOTSTRAP_BADGES,baseLoading=false,liveLoading=false;
 
   function fetchJson(url){
     const joiner=url.includes('?')?'&':'?';
@@ -33,8 +51,10 @@
   }
   function gameDate(game={}){return String(game.date||easternDate(gameInstant(game))).slice(0,10);}
   function gameTime(game={}){
-    const instant=gameInstant(game);
-    return instant?new Intl.DateTimeFormat('en-US',{timeZone:EASTERN,hour:'numeric',minute:'2-digit'}).format(instant):'TBD';
+    const direct=String(game.startTimeUtc||game.timestamp||game.strTimestamp||'').trim();
+    if(!direct)return 'TBD';
+    const instant=new Date(direct);
+    return Number.isNaN(instant.getTime())?'TBD':new Intl.DateTimeFormat('en-US',{timeZone:EASTERN,hour:'numeric',minute:'2-digit'}).format(instant);
   }
   function gameDay(game={}){
     const instant=gameInstant(game)||new Date(`${gameDate(game)}T12:00:00-04:00`);
@@ -70,22 +90,43 @@
     const value=game[`${side}Score`]??game?.[side]?.score;
     return value!==null&&value!==undefined&&Number.isFinite(Number(value))?String(value):'';
   }
+  function stageLabel(game={}){
+    const round=text(game.round||game.competitionLabel||'').replace(/^Playoffs\s*·\s*/i,'').split('·')[0].trim();
+    return round||'PLAYOFFS';
+  }
+  function broadcastLabel(game={}){
+    return (Array.isArray(game.broadcasts)?game.broadcasts:[]).map(text).filter(Boolean).join(' · ');
+  }
   function card(game={}){
-    const away=text(game.awayTeam||game.away?.name||'TBD'),home=text(game.homeTeam||game.home?.name||'TBD'),mode=bucket(game);
-    return `<a class="w-score-game is-${mode}" href="/games.html" aria-label="${safe(away)} at ${safe(home)}, ${safe(status(game))}">
+    const away=text(game.awayTeam||game.away?.name||'TBD'),home=text(game.homeTeam||game.home?.name||'TBD'),mode=bucket(game),gameNo=Number(game.gameNumber)||'';
+    return `<a class="w-score-game is-${mode} ${game.conditional?'is-conditional':''}" href="/games.html" aria-label="${safe(away)} at ${safe(home)}, ${safe(status(game))}">
+      <div class="w-score-game-stage"><span>PLAYOFFS · ${safe(stageLabel(game).toUpperCase())}</span><b>${gameNo?`GAME ${gameNo}`:safe(mode==='live'?'LIVE':'WNBA')}</b></div>
       <div class="w-score-game-top"><span>${safe(gameDay(game))}</span><b>${safe(status(game))}</b></div>
       <div class="w-score-game-team">${badgeMarkup(away)}<span>${safe(away)}</span><strong>${safe(score(game,'away'))}</strong></div>
       <div class="w-score-game-team">${badgeMarkup(home)}<span>${safe(home)}</span><strong>${safe(score(game,'home'))}</strong></div>
+      <div class="w-score-game-network">${safe(broadcastLabel(game)||'WNBA')}</div>
     </a>`;
   }
   function selectedSlate(){
-    const playoff=competition?.playoffs?.games||[];
-    const current=livePayload.todayGames||livePayload.games||[];
-    const regular=[...(stats.liveGames||[]),...(stats.upcomingGames||[]),...(stats.pastGames||stats.recentGames||[])];
-    const merged=mergeSlate(playoff,regular,current),today=easternDate();
+    const playoff=competition?.playoffs?.games||[],current=livePayload.todayGames||livePayload.games||[];
+    const playoffMode=Boolean(competition?.playoffs?.started||playoff.length);
+    if(playoffMode){
+      const playoffPairs=new Set(playoff.map(game=>`${gameDate(game)}|${pair(game)}`));
+      const liveMatches=current.filter(game=>playoffPairs.has(`${gameDate(game)}|${pair(game)}`));
+      const merged=mergeSlate(playoff,liveMatches),now=Date.now();
+      const active=merged.filter(game=>stateRank(game)===2);
+      const future=merged.filter(game=>stateRank(game)<3&&((gameInstant(game)?.getTime()||0)>=now||game.conditional)).sort((a,b)=>{
+        const ad=gameInstant(a)?.getTime()||Date.parse(`${gameDate(a)}T23:59:59-04:00`)||0;
+        const bd=gameInstant(b)?.getTime()||Date.parse(`${gameDate(b)}T23:59:59-04:00`)||0;
+        return ad-bd;
+      });
+      if(active.length||future.length)return mergeSlate(active,future).slice(0,10);
+      return merged.filter(game=>stateRank(game)===3).sort((a,b)=>(gameInstant(b)?.getTime()||0)-(gameInstant(a)?.getTime()||0)).slice(0,6);
+    }
+    const regular=[...(stats.liveGames||[]),...(stats.upcomingGames||[]),...(stats.pastGames||stats.recentGames||[])],merged=mergeSlate(regular,current),today=easternDate();
     const todayGames=merged.filter(game=>gameDate(game)===today);
     if(todayGames.length)return todayGames.sort((a,b)=>(gameInstant(a)?.getTime()||0)-(gameInstant(b)?.getTime()||0));
-    const now=Date.now(),future=merged.filter(game=>(gameInstant(game)?.getTime()||0)>=now&&stateRank(game)<3).sort((a,b)=>gameInstant(a)-gameInstant(b));
+    const now=Date.now(),future=merged.filter(game=>(gameInstant(game)?.getTime()||0)>=now&&stateRank(game)<3).sort((a,b)=>(gameInstant(a)?.getTime()||0)-(gameInstant(b)?.getTime()||0));
     if(future.length){const nextDate=gameDate(future[0]);return future.filter(game=>gameDate(game)===nextDate).slice(0,6);}
     return merged.filter(game=>stateRank(game)===3).sort((a,b)=>(gameInstant(b)?.getTime()||0)-(gameInstant(a)?.getTime()||0)).slice(0,5);
   }
@@ -103,7 +144,7 @@
     if(!scorebar){scorebar=document.createElement('section');scorebar.className='w-home-scorebar';header.before(scorebar);}
     scorebar.dataset.globalScoreboard='true';
     scorebar.setAttribute('aria-label','WNBA game scoreboard');
-    scorebar.innerHTML=`<div class="w-home-scorebar-inner"><a class="w-scorebar-label" href="/games.html"><span>AROUND THE W</span><strong>SCOREBOARD</strong></a><div class="w-scorebar-games" id="wGlobalScoreGames" aria-live="polite"><a class="w-score-game" href="/games.html"><div class="w-score-game-top"><span>WNBA</span><b>LOADING</b></div><div class="w-score-game-team"><i class="w-score-team-fallback">W</i><span>Checking today’s slate…</span><strong></strong></div></a></div><a class="w-scorebar-full" href="/games.html">FULL<br>GAMES →</a></div>`;
+    scorebar.innerHTML=`<div class="w-home-scorebar-inner"><a class="w-scorebar-label" href="/games.html"><span>AROUND THE W</span><strong>PLAYOFFS</strong></a><div class="w-scorebar-games" id="wGlobalScoreGames" aria-live="polite"></div><a class="w-scorebar-full" href="/games.html">FULL<br>GAMES →</a></div>`;
     let navWrap=document.querySelector('.w-home-nav-sticky');
     if(!navWrap){navWrap=document.createElement('div');navWrap.className='w-home-nav-sticky';scorebar.after(navWrap);}
     navWrap.setAttribute('aria-label','Sticky site navigation');
@@ -134,6 +175,7 @@
   }
   function start(){
     if(!install()){setTimeout(start,80);return;}
+    render();
     refreshBase();refreshLive();
     setInterval(()=>{if(!document.hidden)refreshLive();},10000);
     setInterval(()=>{if(!document.hidden)refreshBase();},60000);

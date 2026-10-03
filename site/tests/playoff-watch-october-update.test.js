@@ -62,3 +62,18 @@ test('fallback feeds carry the completed Game 3 and the first three semifinal da
   assert.match(competition,/2026-10-09T19:30:00-04:00/);
   assert.match(bracket,/snapshot\?\.winner\|\|\(aWins>=target/);
 });
+
+test('scheduled Semifinals status is never mistaken for a final result',()=>{
+  const bracket=text('playoff-bracket.js');
+  const games=text('games-page.js');
+  const scoreboard=text('global-scoreboard.js');
+  const stats=text('live-stats-page.js');
+  const cards=text('game-cards.js');
+  const competition=text('api/competition.js');
+  for(const source of [bracket,scoreboard,stats,competition]) assert.match(source,/\/\\bfinal\\b\/i/);
+  assert.doesNotMatch(bracket,/\/final\/i\.test/);
+  assert.doesNotMatch(scoreboard,/\/final\/i\.test/);
+  assert.doesNotMatch(stats,/\/final\/i\.test/);
+  assert.doesNotMatch(games,/toLowerCase\(\)\.includes\('final'\)/);
+  assert.match(cards,/\/\\bFINAL\\b\|/);
+});

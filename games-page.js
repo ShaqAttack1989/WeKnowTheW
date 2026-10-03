@@ -13,7 +13,7 @@ const CUP_2026_CLIENT_FALLBACK=[
 function gameKey(g={}){return `${g.date||''}|${[g.homeTeam||'',g.awayTeam||''].sort().join('|')}`;}
 function gamePair(g={}){return [g.homeTeam||'',g.awayTeam||''].map(name=>String(name).toLowerCase().replace(/[^a-z0-9]/g,'')).sort().join('|');}
 function gamePairKey(g={}){return `${String(g.date||g.startTimeUtc||'').slice(0,10)}|${gamePair(g)}`;}
-function gameStateRank(g={}){const state=String(g.state||'').toLowerCase();return g.completed||state==='post'||String(g.status||'').toLowerCase().includes('final')?3:state==='in'?2:1;}
+function gameStateRank(g={}){const state=String(g.state||'').toLowerCase();return g.completed||state==='post'||/\bfinal\b/i.test(String(g.status||''))?3:state==='in'?2:1;}
 function mergePlayoffGameStates(base=[],fresh=[]){
   const byPair=new Map(fresh.filter(game=>game?.homeTeam&&game?.awayTeam).map(game=>[gamePairKey(game),game]));
   return base.map(game=>{
@@ -48,7 +48,7 @@ function mergeUnique(primary=[],fallback=[]){
 function gameTeamCode(name=''){const known={'Minnesota Lynx':'MIN','New York Liberty':'NYL','Golden State Valkyries':'GSV','Dallas Wings':'DAL','Las Vegas Aces':'LVA','Indiana Fever':'IND','Atlanta Dream':'ATL','Washington Mystics':'WAS'};return known[name]||String(name).split(/\s+/).map(word=>word[0]).join('').slice(0,3).toUpperCase();}
 function withPlayoffSeries(items=[]){
   const all=competitionPayload?.playoffs?.games||[],series=new Map();
-  all.filter(game=>game.completed||String(game.state||'').toLowerCase()==='post'||String(game.status||'').toLowerCase().includes('final')).forEach(game=>{
+  all.filter(game=>game.completed||String(game.state||'').toLowerCase()==='post'||/\bfinal\b/i.test(String(game.status||''))).forEach(game=>{
     if(!Number.isFinite(Number(game.homeScore))||!Number.isFinite(Number(game.awayScore)))return;
     const round=game.round||'First Round',key=`${round}|${gamePair(game)}`,row=series.get(key)||{wins:new Map()};
     const winner=Number(game.homeScore)>Number(game.awayScore)?game.homeTeam:game.awayTeam;
@@ -76,7 +76,7 @@ function temporal(items=[]){
   const now=Date.now();
   const filtered=items.filter(g=>{
     const t=gameTime(g);
-    if(gamesMode==='past')return g.completed===true||String(g.state||'').toLowerCase()==='post'||String(g.status||'').toLowerCase().includes('final');
+    if(gamesMode==='past')return g.completed===true||String(g.state||'').toLowerCase()==='post'||/\bfinal\b/i.test(String(g.status||''));
     if(gamesMode==='live')return String(g.state||'').toLowerCase()==='in';
     return !g.completed&&String(g.state||'').toLowerCase()!=='in'&&t>=now;
   });

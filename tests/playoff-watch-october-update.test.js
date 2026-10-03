@@ -79,3 +79,22 @@ test('scheduled Semifinals status is never mistaken for a final result',()=>{
   assert.match(games,/Semifinals begin Oct\. 4 · Games 1–3 confirmed/);
   assert.doesNotMatch(games,/Game 1 complete/);
 });
+
+
+test('Golden State feature uses a working WNBA image with a fallback everywhere',()=>{
+  const home=text('index.html');
+  const renderer=text('snack-shak-collections.js');
+  const broken='GettyImages-2244598750.jpg';
+  const working='DALGSV102.png';
+  assert.doesNotMatch(JSON.stringify(guide),new RegExp(broken));
+  assert.match(guide.image,new RegExp(working));
+  assert.match(guide.storyImage,new RegExp(working));
+  assert.ok(guide.imageFallback);
+  assert.ok(guide.storyImageFallback);
+  assert.match(guide.playoffGameOne.highlights[0].photo,new RegExp(working));
+  assert.match(guide.gameGallery.items[0].image,new RegExp(working));
+  assert.doesNotMatch(home,new RegExp(broken));
+  assert.match(home,new RegExp(working));
+  assert.match(renderer,/imageRecovery/);
+  assert.match(renderer,/storyImageFallback/);
+});

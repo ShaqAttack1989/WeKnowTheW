@@ -2301,9 +2301,9 @@
       "published": "2026-09-19",
       "week": "Final week · MVP case board",
       "dashboardUrl": "/aja-wilson-mvp-race-2026.html",
-      "image": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1628932.png",
-      "storyImage": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1628932.png",
-      "imageFit": "contain",
+      "image": "/assets/images/aja-wilson-madeline-carter-lvrj-2026.svg",
+      "storyImage": "/assets/images/aja-wilson-madeline-carter-lvrj-2026.svg",
+      "imageFit": "cover",
       "imageAlt": "Official WNBA headshot of Las Vegas Aces center A’ja Wilson",
       "storyImageCaption": "A’ja Wilson enters the final week at the top of the official WNBA MVP analysis and the current MVP betting market.",
       "teams": [

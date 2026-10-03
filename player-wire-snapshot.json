@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-02T20:39:50.411Z",
+  "generatedAt": "2026-10-03T00:25:13.108Z",
   "movement": {
     "latestTransactionDate": "2026-09-28",
     "transactions": [
@@ -1429,27 +1429,14 @@
   },
   "availability": {
     "latestReportDate": "2026-10-02",
-    "reportLabel": "10/02/2026 04:30 PM ET",
-    "officialPdf": "https://ak-static.cms.nba.com/referee/wnba_injury/Injury-Report_2026-10-02_04_30PM.pdf",
+    "reportLabel": "10/02/2026 08:15 PM ET",
+    "officialPdf": "https://ak-static.cms.nba.com/referee/wnba_injury/Injury-Report_2026-10-02_08_15PM.pdf",
     "injuries": [
       {
         "player": "Alanna Smith",
         "team": "Dallas Wings",
         "status": "OUT",
         "reason": "Injury/Illness - Left Leg; lower left leg",
-        "gameDate": "10/02/2026",
-        "gameTime": "09:00 (ET)",
-        "matchup": "DAL@GSV",
-        "updated": "2026-10-02",
-        "source": "Official WNBA Injury Report PDF",
-        "officialCurrentReport": true,
-        "crossCheckOnly": false
-      },
-      {
-        "player": "Awak Kuier",
-        "team": "Dallas Wings",
-        "status": "PROBABLE",
-        "reason": "Injury/Illness - Right Wrist; right wrist",
         "gameDate": "10/02/2026",
         "gameTime": "09:00 (ET)",
         "matchup": "DAL@GSV",

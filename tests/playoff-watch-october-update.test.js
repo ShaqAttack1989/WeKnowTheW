@@ -76,4 +76,6 @@ test('scheduled Semifinals status is never mistaken for a final result',()=>{
   assert.doesNotMatch(stats,/\/final\/i\.test/);
   assert.doesNotMatch(games,/toLowerCase\(\)\.includes\('final'\)/);
   assert.match(cards,/\/\\bFINAL\\b\|/);
+  assert.match(games,/Semifinals begin Oct\\. 4 · Games 1–3 confirmed/);
+  assert.doesNotMatch(games,/Game 1 complete/);
 });

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-03T00:25:13.108Z",
+  "generatedAt": "2026-10-03T06:24:21.554Z",
   "movement": {
     "latestTransactionDate": "2026-09-28",
     "transactions": [
@@ -1428,44 +1428,17 @@
     ]
   },
   "availability": {
-    "latestReportDate": "2026-10-02",
-    "reportLabel": "10/02/2026 08:15 PM ET",
-    "officialPdf": "https://ak-static.cms.nba.com/referee/wnba_injury/Injury-Report_2026-10-02_08_15PM.pdf",
+    "latestReportDate": "2026-10-03",
+    "reportLabel": "10/03/2026 02:15 AM ET",
+    "officialPdf": "https://ak-static.cms.nba.com/referee/wnba_injury/Injury-Report_2026-10-03_02_15AM.pdf",
     "injuries": [
       {
         "player": "Alanna Smith",
         "team": "Dallas Wings",
         "status": "OUT",
-        "reason": "Injury/Illness - Left Leg; lower left leg",
-        "gameDate": "10/02/2026",
-        "gameTime": "09:00 (ET)",
-        "matchup": "DAL@GSV",
-        "updated": "2026-10-02",
-        "source": "Official WNBA Injury Report PDF",
-        "officialCurrentReport": true,
-        "crossCheckOnly": false
-      },
-      {
-        "player": "Stephanie Talbot",
-        "team": "Las Vegas Aces",
-        "status": "OUT",
-        "reason": "Leg · Talbot (leg) has been ruled out for Thursday's Game 3 of the first round of the playoffs against Indiana.",
-        "updated": "2026-10-02",
-        "returnDate": "2026-10-04",
-        "matchup": "",
-        "gameTime": "",
-        "source": "ESPN via WeHoop-compatible endpoint",
-        "sourceUrl": null,
-        "officialCurrentReport": false,
-        "crossCheckOnly": true
-      },
-      {
-        "player": "Dana Evans",
-        "team": "Las Vegas Aces",
-        "status": "OUT",
-        "reason": "Knee · Evans (knee) is listed as out for Game 3 of the first round playoff series versus Indiana.",
+        "reason": "Lower Leg · Smith (lower leg) is out for Game 3 of the first round of the playoffs against Golden State on Friday.",
         "updated": "2026-10-01",
-        "returnDate": "2026-10-04",
+        "returnDate": "2027-05-01",
         "matchup": "",
         "gameTime": "",
         "source": "ESPN via WeHoop-compatible endpoint",
@@ -1726,20 +1699,6 @@
         "crossCheckOnly": true
       },
       {
-        "player": "Matilde Villa",
-        "team": "Atlanta Dream",
-        "status": "OUT",
-        "reason": "Coach's Decision · Villa (coach's decision) has been ruled out for Wednesday's game against New York.",
-        "updated": "2026-09-23",
-        "returnDate": "2027-05-01",
-        "matchup": "",
-        "gameTime": "",
-        "source": "ESPN via WeHoop-compatible endpoint",
-        "sourceUrl": null,
-        "officialCurrentReport": false,
-        "crossCheckOnly": true
-      },
-      {
         "player": "Natasha Cloud",
         "team": "Chicago Sky",
         "status": "OUT",
@@ -1824,39 +1783,11 @@
         "crossCheckOnly": true
       },
       {
-        "player": "Elizabeth Balogun",
-        "team": "New York Liberty",
-        "status": "OUT",
-        "reason": "Not Injury Related · Balogun (not with team) is out for Wednesday's game against the Dream.",
-        "updated": "2026-09-22",
-        "returnDate": "2027-05-01",
-        "matchup": "",
-        "gameTime": "",
-        "source": "ESPN via WeHoop-compatible endpoint",
-        "sourceUrl": null,
-        "officialCurrentReport": false,
-        "crossCheckOnly": true
-      },
-      {
         "player": "Teja Oblak",
         "team": "Portland Fire",
         "status": "OUT",
         "reason": "Knee · Oblak (knee) has been ruled out for Tuesday's game against the Valkyries.",
         "updated": "2026-09-21",
-        "returnDate": "2027-05-01",
-        "matchup": "",
-        "gameTime": "",
-        "source": "ESPN via WeHoop-compatible endpoint",
-        "sourceUrl": null,
-        "officialCurrentReport": false,
-        "crossCheckOnly": true
-      },
-      {
-        "player": "Brionna Jones",
-        "team": "Atlanta Dream",
-        "status": "OUT",
-        "reason": "Leg · Jones will miss the remainder of the season after sustaining a left leg injury against the Sun on Aug. 13, Annie Costabile of The Athletic reports.",
-        "updated": "2026-09-17",
         "returnDate": "2027-05-01",
         "matchup": "",
         "gameTime": "",
@@ -2008,13 +1939,30 @@
       {
         "player": "Azzi Fudd",
         "team": "Dallas Wings",
-        "status": "OUT FOR SEASON",
-        "reason": "Right knee · arthroscopic procedure; will miss the remainder of the 2026 season",
+        "status": "OUT",
+        "reason": "Knee · Fudd will undergo an arthroscopic procedure to address her right knee soreness and will be sidelined for the remainder of the 2026 season.",
         "updated": "2026-08-19",
-        "source": "WNBA Injury Report / Dallas Wings",
+        "returnDate": "2027-05-01",
+        "matchup": "",
+        "gameTime": "",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null,
         "officialCurrentReport": false,
-        "trackedCarryover": true,
-        "seasonLongCarryover": true
+        "crossCheckOnly": true
+      },
+      {
+        "player": "Costanza Verona",
+        "team": "Dallas Wings",
+        "status": "OUT",
+        "reason": "Personal · Verona's contract was temporarily suspended by the Wings Saturday.",
+        "updated": "2026-08-08",
+        "returnDate": "2027-05-01",
+        "matchup": "",
+        "gameTime": "",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null,
+        "officialCurrentReport": false,
+        "crossCheckOnly": true
       },
       {
         "player": "Luisa Geiselsoder",
@@ -2131,7 +2079,40 @@
         "seasonLongCarryover": true
       }
     ],
-    "teamStatuses": []
+    "teamStatuses": [
+      {
+        "team": "Atlanta Dream",
+        "status": "NOT YET SUBMITTED",
+        "gameDate": "10/04/2026",
+        "gameTime": "02:00 (ET)",
+        "matchup": "NYL@ATL",
+        "updated": "2026-10-04"
+      },
+      {
+        "team": "Golden State Valkyries",
+        "status": "NOT YET SUBMITTED",
+        "gameDate": "10/04/2026",
+        "gameTime": "04:00 (ET)",
+        "matchup": "LVA@GSV",
+        "updated": "2026-10-04"
+      },
+      {
+        "team": "Las Vegas Aces",
+        "status": "NOT YET SUBMITTED",
+        "gameDate": "10/04/2026",
+        "gameTime": "04:00 (ET)",
+        "matchup": "LVA@GSV",
+        "updated": "2026-10-04"
+      },
+      {
+        "team": "New York Liberty",
+        "status": "NOT YET SUBMITTED",
+        "gameDate": "10/04/2026",
+        "gameTime": "02:00 (ET)",
+        "matchup": "NYL@ATL",
+        "updated": "2026-10-04"
+      }
+    ]
   },
   "errors": []
 }

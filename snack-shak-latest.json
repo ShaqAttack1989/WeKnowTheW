@@ -970,57 +970,67 @@
       "published": "2026-10-02",
       "updated": "2026-10-03",
       "week": "Semifinals · Oct. 4",
-      "image": "https://cdn.wnba.com/sites/4/2026/10/GSVWAS.png",
+      "image": "https://cdn.wnba.com/sites/1611661331/2026/10/GettyImages-2244598750.jpg",
       "imageFit": "top-cover",
-      "imageAlt": "Arike Ogunbowale celebrates during Dallas' overtime playoff win over Golden State",
+      "imageAlt": "Golden State Valkyries celebrate their 77-73 Game 3 comeback win over the Dallas Wings",
       "dek": "The first round is done. New York’s historic No. 8 run meets Atlanta’s pressure defense at 2 p.m. ET, then Golden State hosts defending champion Las Vegas at 4 p.m. ET after the Valkyries erased a 16-point Game 3 deficit to reach their first semifinal.",
       "playoffGameOne": {
-        "ariaLabel": "Round 1 records, closeout stats and elimination-game receipts",
-        "eyebrow": "ROUND 1 · THE RECEIPTS",
-        "title": "One record night. One MVP closeout. One Game 3 left.",
-        "dek": "Dallas needed overtime and a record to stay alive. Las Vegas needed A’ja Wilson to look like A’ja Wilson. Friday night decides the last semifinal seat.",
-        "asOf": "UPDATED · OCT. 2, 2026",
+        "ariaLabel": "First-round records, comeback numbers and semifinal schedule",
+        "eyebrow": "ROUND 1 · FINAL RECEIPTS",
+        "title": "History, survival and a four-team field.",
+        "dek": "Arike Ogunbowale broke the playoff scoring record, A’ja Wilson closed Indiana out, and Golden State erased 16 points to claim the final semifinal seat.",
+        "asOf": "UPDATED · OCT. 3, 2026",
         "receipts": [
           {
             "value": "45",
             "label": "Arike’s playoff-record points",
-            "note": "Ogunbowale played 42 minutes, shot 12-of-23, hit 5-of-8 from three and went 16-of-18 at the line."
+            "note": "Ogunbowale set the WNBA single-game playoff scoring record in Dallas’ 108-100 overtime Game 2 win."
           },
           {
-            "value": "42 MIN",
-            "label": "The workload behind the record",
-            "note": "Dallas asked Ogunbowale to carry a 41.2% usage load while its season was on the line."
+            "value": "16",
+            "label": "Golden State’s erased deficit",
+            "note": "The Valkyries trailed 53-37, then finished the game on a 40-20 run to win 77-73."
+          },
+          {
+            "value": "17 OF 19",
+            "label": "Gabby’s second-half points",
+            "note": "Williams scored all but two of her points after halftime and hit the go-ahead jumper with 1:17 left."
+          },
+          {
+            "value": "16 · 10 · 6",
+            "label": "Veronica Burton’s closeout line",
+            "note": "The No. 7 pick paired 16 points with 10 rebounds and six assists in the deciding win."
           },
           {
             "value": "36 + 10",
             "label": "A’ja’s closeout line",
-            "note": "Wilson finished Game 3 with 36 points, 10 rebounds and two blocks as Las Vegas beat Indiana 94-83."
+            "note": "Wilson posted 36 points and 10 rebounds as Las Vegas eliminated Indiana 94-83."
           },
           {
-            "value": "32/37",
-            "label": "Dallas at the free-throw line",
-            "note": "The Wings made 32 of 37 free throws in Game 2 while Golden State was whistled for 28 fouls."
-          },
-          {
-            "value": "2–1",
-            "label": "Las Vegas advances",
-            "note": "The Aces eliminated Indiana and will face the winner of Golden State-Dallas in the semifinals."
-          },
-          {
-            "value": "1",
-            "label": "Game 3 still standing",
-            "note": "Golden State hosts Dallas Friday at 9:00 p.m. ET on ESPN2. Winner gets Las Vegas."
+            "value": "BEST OF 5",
+            "label": "The format changes now",
+            "note": "Atlanta and Golden State host Games 1 and 2; New York and Las Vegas host Games 3 and any necessary Game 4."
           }
         ],
         "highlights": [
           {
+            "score": "DAL 73 · GSV 77",
+            "title": "Ballhalla got its comeback",
+            "player": "Gabby Williams + Veronica Burton",
+            "stat": "40–20 CLOSING RUN · GSV WINS 2–1",
+            "note": "Golden State rallied from 16 down, won a replay challenge in the final seconds and advanced to face Las Vegas.",
+            "photo": "https://cdn.wnba.com/sites/1611661331/2026/10/GettyImages-2244598750.jpg",
+            "photoAlt": "Golden State Valkyries celebrate their Game 3 comeback win over Dallas",
+            "photoCredit": "NBAE / Golden State Valkyries · Game 3"
+          },
+          {
             "score": "GSV 100 · DAL 108 (OT)",
-            "title": "Arike turned 42 minutes into history",
+            "title": "Arike’s record still owns Round 1",
             "player": "Arike Ogunbowale",
             "stat": "45 PTS · 42 MIN · 5 3PM · 16 FT",
-            "note": "She scored 22 in the fourth quarter and overtime, hit the tying three with 4.1 seconds left and finished with seven rebounds, four assists and three steals.",
+            "note": "She scored 22 in the fourth quarter and overtime and forced the deciding game with the highest-scoring playoff performance in league history.",
             "photo": "https://cdn.wnba.com/sites/4/2026/10/GSVWAS.png",
-            "photoAlt": "Arike Ogunbowale celebrates during Dallas' Game 2 playoff win over Golden State",
+            "photoAlt": "Dallas Wings celebrate during the overtime Game 2 win over Golden State",
             "photoCredit": "WNBA game media · Game 2 recap"
           },
           {
@@ -1028,27 +1038,17 @@
             "title": "A’ja shut the door",
             "player": "A’ja Wilson",
             "stat": "36 PTS · 10 REB · 2 BLK",
-            "note": "Wilson carried the scoring load, while Chelsea Gray added 23 and Jackie Young supplied 18 points, eight rebounds and seven assists in all 40 minutes.",
+            "note": "Chelsea Gray added 23 and Jackie Young supplied 18 points, eight rebounds and seven assists as the defending champions advanced.",
             "photo": "https://cdn.wnba.com/sites/1611661319/2026/10/2026-10-01-_-Las-Vegas-Aces-_-Barry-Gossage_-NBAE-Photos30-scaled.jpg",
-            "photoAlt": "A'ja Wilson dribbles against Kelsey Mitchell during Game 3 against Indiana",
-            "photoCredit": "Barry Gossage / NBAE · Las Vegas Aces Game 3 gallery"
+            "photoAlt": "A'ja Wilson dribbles against Indiana during the Aces' Game 3 win",
+            "photoCredit": "Barry Gossage / NBAE · Las Vegas Aces"
           },
           {
-            "score": "IND 83 · LVA 94",
-            "title": "The support line mattered",
-            "player": "Las Vegas core",
-            "stat": "GRAY 23 · YOUNG 18 · LOYD 11",
-            "note": "Indiana twice cut the lead to two in the fourth, but Las Vegas still had enough creation around Wilson to keep the closeout from becoming a one-player finish.",
-            "photo": "https://cdn.wnba.com/sites/1611661319/2026/10/2026-10-01-_-Las-Vegas-Aces-_-Barry-Gossage_-NBAE-Photos14-scaled.jpg",
-            "photoAlt": "Jewell Loyd shoots over Indiana defenders during Game 3",
-            "photoCredit": "Barry Gossage / NBAE · Las Vegas Aces Game 3 gallery"
-          },
-          {
-            "score": "GAME 3 · FRI 9 ET",
-            "title": "Ballhalla gets the last first-round word",
-            "player": "Golden State vs. Dallas",
-            "stat": "SERIES 1–1 · ESPN2",
-            "note": "Golden State won Game 1 by 24. Dallas answered with 108 points in overtime. The winner advances to face Las Vegas on Sunday.",
+            "score": "SUN · 2 ET + 4 ET",
+            "title": "The semifinals open back-to-back",
+            "player": "NYL at ATL · LVA at GSV",
+            "stat": "ABC · PEACOCK / NBC",
+            "note": "Game 2s are Wednesday, Oct. 7. Both series shift venues for Game 3 on Friday, Oct. 9.",
             "photo": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1628931.png",
             "photoAlt": "Official WNBA portrait of Golden State Valkyries guard-forward Gabby Williams",
             "photoCredit": "Official WNBA player media"
@@ -1057,15 +1057,24 @@
       },
       "gameGallery": {
         "eyebrow": "REAL GAME FRAMES · OFFICIAL MEDIA",
-        "title": "The first round got physical, loud and very real",
-        "dek": "Official WNBA and team game photography from the two series still driving the bracket.",
+        "title": "Round 1 delivered history, pressure and survival",
+        "dek": "Official WNBA and team photography from the record night and both winner-take-all closeouts.",
         "items": [
+          {
+            "kicker": "COMEBACK · GOLDEN STATE",
+            "title": "Sixteen down became four teams left",
+            "caption": "Williams scored 17 of her 19 after halftime as Golden State closed on a 40-20 run and beat Dallas 77-73.",
+            "image": "https://cdn.wnba.com/sites/1611661331/2026/10/GettyImages-2244598750.jpg",
+            "alt": "Golden State Valkyries celebrate after eliminating Dallas in Game 3",
+            "credit": "NBAE / Golden State Valkyries",
+            "sourceUrl": "https://www.wnba.com/news/2026-playoffs-wings-valkyries-game-3-recap"
+          },
           {
             "kicker": "RECORD NIGHT · DALLAS",
             "title": "Forty-five in 42 minutes",
-            "caption": "Ogunbowale went 12-of-23, 5-of-8 from three and 16-of-18 at the line, then scored 11 in overtime.",
+            "caption": "Ogunbowale went 12-of-23, hit five threes and scored 11 in overtime to force Game 3.",
             "image": "https://cdn.wnba.com/sites/4/2026/10/GSVWAS.png",
-            "alt": "Arike Ogunbowale during Dallas' playoff victory over Golden State",
+            "alt": "Dallas Wings celebrate during their overtime playoff victory over Golden State",
             "credit": "WNBA · Game 2 recap",
             "sourceUrl": "https://www.wnba.com/news/2026-playoffs-valkyries-wings-game-2-recap"
           },
@@ -1074,27 +1083,18 @@
             "title": "A’ja took the matchup back",
             "caption": "Wilson finished with 36 points and 10 rebounds as the Aces won Game 3, 94-83, and moved into the semifinals.",
             "image": "https://cdn.wnba.com/sites/1611661319/2026/10/2026-10-01-_-Las-Vegas-Aces-_-Barry-Gossage_-NBAE-Photos30-scaled.jpg",
-            "alt": "A'ja Wilson handles the ball against Kelsey Mitchell during Aces-Fever Game 3",
+            "alt": "A'ja Wilson handles the ball against Indiana during Aces-Fever Game 3",
             "credit": "Barry Gossage / NBAE · Las Vegas Aces",
             "sourceUrl": "https://aces.wnba.com/news/gallery-aces-94-fever-83-round-1-game-3-10-1-2026"
           },
           {
-            "kicker": "GAME 3 · SUPPORT CAST",
+            "kicker": "CLOSEOUT · SUPPORT CAST",
             "title": "Vegas had more than the MVP",
-            "caption": "Jewell Loyd started with Stephanie Talbot unavailable and scored 11, giving Las Vegas another scoring lane around Wilson, Gray and Young.",
+            "caption": "Gray scored 23, Young filled every column and Loyd added 11 to give Wilson four credible closing lanes.",
             "image": "https://cdn.wnba.com/sites/1611661319/2026/10/2026-10-01-_-Las-Vegas-Aces-_-Barry-Gossage_-NBAE-Photos14-scaled.jpg",
             "alt": "Jewell Loyd rises for a shot against Indiana during Game 3",
             "credit": "Barry Gossage / NBAE · Las Vegas Aces",
             "sourceUrl": "https://aces.wnba.com/news/gallery-aces-94-fever-83-round-1-game-3-10-1-2026"
-          },
-          {
-            "kicker": "WIN OR GO HOME · SAN FRANCISCO",
-            "title": "Gabby gets another shot at Arike",
-            "caption": "Williams scored a career-high 36 in Game 2. Friday asks whether Golden State can keep that aggression while restoring the defense that owned Game 1.",
-            "image": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1628931.png",
-            "alt": "Official WNBA portrait of Golden State Valkyries guard-forward Gabby Williams",
-            "credit": "Official WNBA player media",
-            "sourceUrl": "https://valkyries.wnba.com/news/gameday-preview-20261002"
           }
         ]
       },
@@ -1120,7 +1120,7 @@
           "paragraphs": [
             "At 2 ET: watch Atlanta’s first trap, New York’s three-point volume, the Reese-Jones rebounding battle and whether Stewart can punish switches before help arrives.",
             "At 4 ET: watch Wilson’s touches at the nail and elbow, Golden State’s foul discipline, Williams as a secondary creator and whether the Valkyries can keep Vegas out of the controlled half-court finish it prefers.",
-            "The format changes now. The semifinals are best-of-five with a 2-2-1 home pattern. Atlanta and Golden State host Games 1 and 2; New York and Las Vegas host Games 3 and any necessary Game 4."
+            "The first three dates are locked: Game 1 Sunday, Oct. 4; Game 2 Wednesday, Oct. 7; Game 3 Friday, Oct. 9. Atlanta and Golden State host the first two, then the series shift to New York and Las Vegas. The best-of-five uses a 2-2-1 home pattern."
           ]
         }
       ],
@@ -1130,50 +1130,38 @@
           "url": "https://www.wnba.com/news/2026-playoffs-valkyries-wings-game-2-recap"
         },
         {
-          "label": "WNBA player game log: Arike Ogunbowale",
-          "url": "https://www.wnba.com/player/1629481"
-        },
-        {
-          "label": "Dallas Wings: Game 3 preview",
-          "url": "https://wings.wnba.com/news/wings-meet-valkyries-in-game-3-friday-night"
-        },
-        {
-          "label": "Golden State Valkyries: Game 3 preview",
-          "url": "https://valkyries.wnba.com/news/gameday-preview-20261002"
+          "label": "WNBA recap: Valkyries 77, Wings 73",
+          "url": "https://www.wnba.com/news/2026-playoffs-wings-valkyries-game-3-recap"
         },
         {
           "label": "WNBA recap: Aces 94, Fever 83",
           "url": "https://www.wnba.com/webview/news/2026-playoffs-fever-aces-game-3-recap"
         },
         {
-          "label": "Las Vegas Aces: Game 3 photo gallery",
-          "url": "https://aces.wnba.com/news/gallery-aces-94-fever-83-round-1-game-3-10-1-2026"
-        },
-        {
-          "label": "WNBA: 2026 postseason bracket",
+          "label": "WNBA: official 2026 postseason bracket and format",
           "url": "https://www.wnba.com/playoffs/2026"
         },
         {
-          "label": "IndyStar/Yahoo: Fever challenge-window explanation",
-          "url": "https://sports.yahoo.com/articles/why-indiana-fever-couldnt-challenge-020457041.html"
+          "label": "WNBA Game 1: Liberty at Dream",
+          "url": "https://www.wnba.com/game/1042600201"
         },
         {
-          "label": "Live playoff scores and schedule at We Know the W",
-          "url": "https://weknowthew.com/games.html"
+          "label": "WNBA Game 1: Aces at Valkyries",
+          "url": "https://www.wnba.com/game/1042600211"
         },
         {
           "label": "Golden State Valkyries: semifinal schedule vs. Las Vegas",
           "url": "https://valkyries.wnba.com/news/valkyries-aces-semifinals-wnba-playoffs-20261002"
         },
         {
-          "label": "WNBA: 2026 playoff bracket",
-          "url": "https://www.wnba.com/playoffs/2026"
+          "label": "Las Vegas Aces: Game 3 photo gallery",
+          "url": "https://aces.wnba.com/news/gallery-aces-94-fever-83-round-1-game-3-10-1-2026"
         }
       ],
       "dashboardUrl": "/food-for-thought.html?post=the-playoff-watch-party-2026#story",
-      "storyImage": "https://cdn.wnba.com/sites/4/2026/10/GSVWAS.png",
-      "storyImageCaption": "Arike Ogunbowale scored a WNBA playoff-record 45 points in 42 minutes to force a winner-take-all Game 3 against Golden State. Official WNBA game media.",
-      "storyImageSourceUrl": "https://www.wnba.com/news/2026-playoffs-valkyries-wings-game-2-recap",
+      "storyImage": "https://cdn.wnba.com/sites/1611661331/2026/10/GettyImages-2244598750.jpg",
+      "storyImageCaption": "Golden State erased a 16-point deficit, closed on a 40-20 run and beat Dallas 77-73 to claim the final semifinal berth. Official WNBA/NBAE game photography.",
+      "storyImageSourceUrl": "https://www.wnba.com/news/2026-playoffs-wings-valkyries-game-3-recap",
       "playoffWatch": {
         "title": "SUNDAY IS SET. FOUR TEAMS. TWO GAME 1s.",
         "subtitle": "Liberty-Dream at 2 ET on ABC. Aces-Valkyries at 4 ET on NBC/Peacock. Both semifinals are best-of-five.",
@@ -1222,7 +1210,7 @@
             ],
             "hot": "New York became the first No. 8 seed to eliminate a No. 1 seed, beating Minnesota by 16 twice. Atlanta swept Washington and enters on a seven-game winning streak.",
             "bench": "Atlanta can change frontcourt looks with Naz Hillmon and DeWanna Bonner; New York’s Leonie Fiebich adds length and spacing.",
-            "availability": "Game 1 Sunday at State Farm Arena. Atlanta hosts Games 1 and 2 and a potential Game 5.",
+            "availability": "Game 1: Sun. Oct. 4, 2 ET on ABC. Game 2: Wed. Oct. 7, 7:30 ET on ESPN. Game 3 shifts to New York on Fri. Oct. 9, 7:30 ET on ESPN2.",
             "beat": "Atlanta wants pressure, turnovers and open-floor offense. New York wants Stewart and Jonquel Jones turning the half court into a size-and-spacing problem.",
             "break": "Atlanta must finish defensive possessions against New York’s frontcourt. New York cannot let Atlanta’s first trap trigger rushed second and third passes.",
             "must": "Watch the glass, Atlanta’s ball pressure and whether New York’s 40.4% postseason three-point shooting travels.",
@@ -1255,7 +1243,7 @@
             ],
             "hot": "Golden State closed Game 3 against Dallas on a 40-20 run after trailing by 16. Williams scored 17 of her 19 after halftime. Wilson enters off a 36-point, 10-rebound closeout against Indiana.",
             "bench": "Golden State’s depth and defensive versatility meet a Vegas core that got 23 from Chelsea Gray and 18-8-7 from Jackie Young in its Game 3 closeout.",
-            "availability": "Golden State hosts Games 1 and 2 and a potential Game 5. Las Vegas hosts Games 3 and, if necessary, 4.",
+            "availability": "Game 1: Sun. Oct. 4, 4 ET on Peacock/NBC. Game 2: Wed. Oct. 7, 9:30 ET on Peacock/NBC Sports Network. Game 3 shifts to Las Vegas on Fri. Oct. 9, 9:30 ET.",
             "beat": "Golden State needs to make Wilson work through multiple bodies without opening clean Gray/Young reads. Vegas can test whether the Valkyries’ comeback defense survives against a more experienced closing group.",
             "break": "Las Vegas swept all three regular-season meetings, but the most recent was June 21. Golden State is not the same playoff team it was before surviving Dallas.",
             "must": "The central matchup is Wilson against Golden State’s layered frontcourt defense, with Williams’ two-way creation the pressure release at the other end.",
@@ -1317,10 +1305,10 @@
         "note": "Analysis note: WNBA Coach of the Year and Rookie of the Year are regular-season awards. Their postseason elimination does not alter the official voting result."
       },
       "debates": [
-        "Can Golden State lower the foul count without giving Arike clean air?",
-        "Does Paige Bueckers bounce back from 10 points on 3-of-13 shooting when Golden State loads up on Ogunbowale?",
-        "How much should replay timing and challenge rules change after the Hull-Turner sequence?",
-        "Which is more sustainable for a semifinal: Golden State’s defense or Dallas’ shot creation?"
+        "Can New York’s frontcourt punish Atlanta’s pressure before the Dream turn the game into a track meet?",
+        "Does Atlanta’s 2-1 regular-season edge survive a longer best-of-five chess match?",
+        "Can Golden State layer enough help at A’ja Wilson without giving Chelsea Gray and Jackie Young clean reads?",
+        "How much does home court matter after both semifinal road teams just survived winner-take-all games?"
       ]
     },
     {

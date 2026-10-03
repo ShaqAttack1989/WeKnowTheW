@@ -6,7 +6,7 @@
   const text=value=>String(value??'').replace(/\s+/g,' ').trim();
   const norm=value=>text(value).normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]/g,'');
   const pair=game=>[game?.homeTeam||'',game?.awayTeam||''].map(norm).sort().join('|');
-  const stateRank=game=>game?.completed||String(game?.state||'').toLowerCase()==='post'||/final/i.test(String(game?.status||''))?3:String(game?.state||'').toLowerCase()==='in'?2:1;
+  const stateRank=game=>game?.completed||String(game?.state||'').toLowerCase()==='post'||/\bfinal\b/i.test(String(game?.status||''))?3:String(game?.state||'').toLowerCase()==='in'?2:1;
   const teamCode=name=>text(name).split(/\s+/).filter(Boolean).map(part=>part[0]).join('').slice(0,3).toUpperCase()||'W';
   let stats={},competition={},livePayload={},badges=new Map(),baseLoading=false,liveLoading=false;
 

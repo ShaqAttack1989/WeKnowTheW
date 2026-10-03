@@ -16,7 +16,7 @@ function lsTeamNorm(value=''){return String(value).toLowerCase().replace(/[^a-z0
 function lsGamePair(game={}){return [game.homeTeam||'',game.awayTeam||''].map(lsTeamNorm).sort().join('|');}
 function lsGameDate(game={}){return String(game.date||game.startTimeUtc||'').slice(0,10);}
 function lsGameKey(game={}){return `${lsGameDate(game)}|${lsGamePair(game)}`;}
-function lsGameStateRank(game={}){const state=String(game.state||'').toLowerCase();return game.completed||state==='post'||/final/i.test(String(game.status||''))?3:state==='in'?2:1;}
+function lsGameStateRank(game={}){const state=String(game.state||'').toLowerCase();return game.completed||state==='post'||/\bfinal\b/i.test(String(game.status||''))?3:state==='in'?2:1;}
 function lsGameTime(game={}){const date=new Date(game.startTimeUtc||'');return Number.isNaN(date.getTime())?'TBD':new Intl.DateTimeFormat('en-US',{timeZone:LS_EASTERN,hour:'numeric',minute:'2-digit'}).format(date);}
 function lsGameInstant(game={}){const time=Date.parse(game.startTimeUtc||`${game.date||''}T23:59:59-04:00`);return Number.isFinite(time)?time:0;}
 function lsFetchJson(url){const joiner=url.includes('?')?'&':'?';return fetch(`${url}${joiner}cb=${Date.now()}`,{headers:{Accept:'application/json','Cache-Control':'no-cache'},cache:'no-store'}).then(async response=>{const payload=await response.json().catch(()=>({}));if(!response.ok||payload.error)throw new Error(payload.error||`${url} unavailable`);return payload;});}

@@ -39,7 +39,7 @@
   function timeLabel(game={}){const date=instant(game);if(!date||(!game.time&&!game.startTimeUtc&&!game.timestamp))return 'Time TBD';return `${new Intl.DateTimeFormat('en-US',{timeZone:TIME_ZONE,hour:'numeric',minute:'2-digit'}).format(date)} ET`;}
   function hasScore(value){return value!==null&&value!==undefined&&String(value).trim()!==''&&Number.isFinite(Number(value));}
   function liveGame(game={}){const state=String(game.state||'').toLowerCase(),status=String(game.status||'').toUpperCase();return game.completed!==true&&(state==='in'||/(^|\s)(Q[1-4]|[1-4](ST|ND|RD|TH)|OT|HALF(TIME)?)(\s|$)|END\s+(Q[1-4]|[1-4](ST|ND|RD|TH))|IN\s*PROGRESS/.test(status));}
-  function finalGame(game={}){if(liveGame(game))return false;if(game.completed===true)return true;const status=String(game.status||'').toUpperCase();return hasScore(game.homeScore)&&hasScore(game.awayScore)&&(/FINAL|\bFT\b|AET|AOT|MATCH FINISHED/.test(status)||!status);}
+  function finalGame(game={}){if(liveGame(game))return false;if(game.completed===true)return true;const status=String(game.status||'').toUpperCase();return hasScore(game.homeScore)&&hasScore(game.awayScore)&&(/\bFINAL\b|\bFT\b|AET|AOT|MATCH FINISHED/.test(status)||!status);}
   function record(name='',standings=[]){const item=(standings||[]).find(row=>key(row.team?.full_name)===key(name));return item?`(${item.wins}-${item.losses})`:'';}
   function logo(name=''){return artworkByName.get(key(name))||'';}
 

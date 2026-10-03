@@ -52,7 +52,7 @@
   const seriesKey=(round,a,b)=>`${round}|${pairKey(a,b)}`;
   const hasScore=value=>value!==null&&value!==undefined&&String(value).trim()!==''&&Number.isFinite(Number(value));
   const isLive=game=>!game?.completed&&String(game?.state||'').toLowerCase()==='in';
-  const isFinal=game=>Boolean(game?.completed)||String(game?.state||'').toLowerCase()==='post'||/final/i.test(String(game?.status||''));
+  const isFinal=game=>Boolean(game?.completed)||String(game?.state||'').toLowerCase()==='post'||/\bfinal\b/i.test(String(game?.status||''));
   const stateRank=game=>isFinal(game)?3:isLive(game)?2:1;
   const instant=game=>{const raw=game?.startTimeUtc||game?.timestamp||'';const date=raw?new Date(raw):game?.date?new Date(`${game.date}T12:00:00-04:00`):null;return date&&!Number.isNaN(date.getTime())?date:null;};
   const roundForGame=game=>{

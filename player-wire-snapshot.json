@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-04T12:15:10.214Z",
+  "generatedAt": "2026-10-04T17:32:17.085Z",
   "movement": {
     "latestTransactionDate": "2026-09-28",
     "transactions": [
@@ -1429,8 +1429,8 @@
   },
   "availability": {
     "latestReportDate": "2026-10-04",
-    "reportLabel": "10/04/2026 08:15 AM ET",
-    "officialPdf": "https://ak-static.cms.nba.com/referee/wnba_injury/Injury-Report_2026-10-04_08_15AM.pdf",
+    "reportLabel": "10/04/2026 01:30 PM ET",
+    "officialPdf": "https://ak-static.cms.nba.com/referee/wnba_injury/Injury-Report_2026-10-04_01_30PM.pdf",
     "injuries": [
       {
         "player": "Brionna Jones",
@@ -1466,19 +1466,6 @@
         "gameDate": "10/04/2026",
         "gameTime": "04:00 (ET)",
         "matchup": "LVA@GSV",
-        "updated": "2026-10-04",
-        "source": "Official WNBA Injury Report PDF",
-        "officialCurrentReport": true,
-        "crossCheckOnly": false
-      },
-      {
-        "player": "Xu Han",
-        "team": "New York Liberty",
-        "status": "QUESTIONABLE",
-        "reason": "Injury/Illness - N/A; Illness",
-        "gameDate": "10/04/2026",
-        "gameTime": "02:00 (ET)",
-        "matchup": "NYL@ATL",
         "updated": "2026-10-04",
         "source": "Official WNBA Injury Report PDF",
         "officialCurrentReport": true,

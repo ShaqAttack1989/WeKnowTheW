@@ -103,3 +103,9 @@ test('Atlanta Game 1 feature uses official WNBA media with a fallback everywhere
   assert.match(renderer,/imageRecovery/);
   assert.match(renderer,/storyImageFallback/);
 });
+
+test('next game label counts completed series wins rather than scheduled games',()=>{
+  const source=text('snack-shak-collections.js');
+  assert.match(source,/const played=Number\(row.winsA\|\|0\)\+Number\(row.winsB\|\|0\)/);
+  assert.doesNotMatch(source,/const played=\(row.games\|\|\[\]\).length/);
+});

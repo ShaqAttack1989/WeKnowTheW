@@ -10,24 +10,29 @@ const guide=latest.posts.find(post=>post.slug==='the-playoff-watch-party-2026');
 
 test('playoff watch guide is refreshed for both best-of-five semifinals',()=>{
   assert.ok(guide);
-  assert.equal(guide.updated,'2026-10-03');
-  assert.match(guide.title,/Sunday Semifinal Doubleheader/);
+  assert.equal(guide.updated,'2026-10-04');
+  assert.match(guide.title,/Atlanta Lands the First Semifinal Punch/);
   assert.equal(guide.playoffWatch.matchups.length,2);
   assert.deepEqual(guide.playoffWatch.matchups.map(item=>item.id),['atl-nyl','gsv-lva']);
-  assert.ok(guide.playoffWatch.matchups.every(item=>item.series==='0-0'&&item.roundKey==='Semifinals'));
-  assert.ok(guide.playoffWatch.matchups.every(item=>/BEST OF 5/.test(item.seriesNote)));
+  assert.ok(guide.playoffWatch.matchups.every(item=>item.roundKey==='Semifinals'));
+  assert.equal(guide.playoffWatch.matchups.find(item=>item.id==='atl-nyl').series,'1-0');
+  assert.equal(guide.playoffWatch.matchups.find(item=>item.id==='gsv-lva').series,'0-0');
+  assert.match(guide.playoffWatch.matchups.find(item=>item.id==='atl-nyl').seriesNote,/ATLANTA LEADS/);
+  assert.match(guide.playoffWatch.matchups.find(item=>item.id==='gsv-lva').seriesNote,/BEST OF 5/);
   assert.match(guide.playoffWatch.matchups.find(item=>item.id==='atl-nyl').availability,/Oct\. 7, 7:30 ET on ESPN/);
   assert.match(guide.playoffWatch.matchups.find(item=>item.id==='atl-nyl').availability,/Oct\. 9, 7:30 ET on ESPN2/);
   assert.match(guide.playoffWatch.matchups.find(item=>item.id==='gsv-lva').availability,/Oct\. 7, 9:30 ET/);
   assert.match(guide.playoffWatch.matchups.find(item=>item.id==='gsv-lva').availability,/Oct\. 9, 9:30 ET/);
 });
 
-test('record, comeback, game imagery and award fallout are explicit',()=>{
+test('Game 1 records, analysis, official imagery and award fallout are explicit',()=>{
   const values=guide.playoffGameOne.receipts.map(item=>item.value);
-  assert.ok(values.includes('45'));
-  assert.ok(values.includes('16'));
-  assert.ok(values.includes('36 + 10'));
-  assert.ok(values.includes('BEST OF 5'));
+  assert.ok(values.includes('92–82'));
+  assert.ok(values.includes('25 + 5'));
+  assert.ok(values.includes('23 + 9'));
+  assert.ok(values.includes('32'));
+  assert.ok(values.includes('21'));
+  assert.ok(values.includes('1–0'));
   assert.equal(guide.gameGallery.items.length,4);
   assert.ok(guide.gameGallery.items.every(item=>item.image.startsWith('https://cdn.wnba.com/')));
   assert.deepEqual(guide.awardFallout.people.map(item=>item.name),['Cheryl Reeve','Olivia Miles']);
@@ -46,12 +51,12 @@ test('live renderer supports logos, semifinal rounds and dynamic summaries',()=>
   assert.match(renderer,/atl-nyl/);
 });
 
-test('fallback feeds carry the completed Game 3 and the first three semifinal dates',()=>{
+test('fallback feeds carry Atlanta-New York Game 1 final and the remaining semifinal dates',()=>{
   const competition=text('api/competition.js');
   const bracket=text('playoff-bracket.js');
   for(const source of [competition,bracket]){
     assert.match(source,/homeTeam:'Golden State Valkyries',awayTeam:'Dallas Wings',homeScore:77,awayScore:73/);
-    assert.match(source,/2026-atl-nyl-sf-g1/);
+    assert.match(source,/id:'1042600201'.*homeScore:92,awayScore:82.*status:'Final'.*completed:true/);
     assert.match(source,/2026-atl-nyl-sf-g2/);
     assert.match(source,/2026-nyl-atl-sf-g3/);
     assert.match(source,/2026-gsv-lva-sf-g1/);
@@ -76,16 +81,16 @@ test('scheduled Semifinals status is never mistaken for a final result',()=>{
   assert.doesNotMatch(stats,/\/final\/i\.test/);
   assert.doesNotMatch(games,/toLowerCase\(\)\.includes\('final'\)/);
   assert.match(cards,/\/\\bFINAL\\b\|/);
-  assert.match(games,/Semifinals begin Oct\. 4 · Games 1–3 confirmed/);
-  assert.doesNotMatch(games,/Game 1 complete/);
+  assert.match(games,/Semifinals underway · Game 2 doubleheader Oct\. 7/);
+  assert.match(games,/Atlanta leads New York 1-0 · semifinal Game 1 final/);
 });
 
 
-test('Golden State feature uses a working WNBA image with a fallback everywhere',()=>{
+test('Atlanta Game 1 feature uses official WNBA media with a fallback everywhere',()=>{
   const home=text('index.html');
   const renderer=text('snack-shak-collections.js');
   const broken='GettyImages-2244598750.jpg';
-  const working='DALGSV102.png';
+  const working='c3ba69a5-3273-4a3d-b9ea-ebef203d24f5_0.jpg';
   assert.doesNotMatch(JSON.stringify(guide),new RegExp(broken));
   assert.match(guide.image,new RegExp(working));
   assert.match(guide.storyImage,new RegExp(working));

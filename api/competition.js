@@ -47,12 +47,14 @@ function mergeGames(primary=[],authoritative=[]){
     const existingKey=[...map.keys()].find(key=>{const current=map.get(key);return [current.homeTeam,current.awayTeam].sort().join('|')===[game.homeTeam,game.awayTeam].sort().join('|')&&Math.abs(Date.parse(current.date)-Date.parse(game.date))<=86400000;});
     const existing=existingKey&&map.get(existingKey);
     if(!existing){map.set(gameKey(game),game);continue;}
+    const existingFinal=Boolean(existing.completed)||String(existing.state||'').toLowerCase()==='post'||/\bfinal\b/i.test(String(existing.status||''));
+    const fallbackFinal=Boolean(game.completed)||String(game.state||'').toLowerCase()==='post'||/\bfinal\b/i.test(String(game.status||''));
     const existingLive=existing.completed||String(existing.state||'').toLowerCase()==='in'||scoreValue(existing.homeScore)!==null;
     const fallbackLive=game.completed||String(game.state||'').toLowerCase()==='in'||scoreValue(game.homeScore)!==null;
     // Provider schedule owns real tip times and state. Fallback only fills fields the provider does not have.
     // If the fallback later carries a live/final score while the provider does not, use that state without discarding provider timing.
     const merged={...game,...existing};
-    if(fallbackLive&&!existingLive)Object.assign(merged,{homeScore:game.homeScore,awayScore:game.awayScore,status:game.status,state:game.state,completed:game.completed});
+    if((fallbackFinal&&!existingFinal)||(fallbackLive&&!existingLive))Object.assign(merged,{homeScore:game.homeScore,awayScore:game.awayScore,status:game.status,state:game.state,completed:game.completed});
     if(!existing.startTimeUtc&&game.startTimeUtc)merged.startTimeUtc=game.startTimeUtc;
     if((!Array.isArray(existing.broadcasts)||!existing.broadcasts.length)&&Array.isArray(game.broadcasts))merged.broadcasts=game.broadcasts;
     if(existingKey)map.delete(existingKey);
@@ -90,7 +92,7 @@ const PLAYOFF_2026_SCHEDULE=[
   {id:'2026-lva-ind-g3',date:'2026-10-01',startTimeUtc:'2026-10-01T21:00:00-04:00',homeTeam:'Las Vegas Aces',awayTeam:'Indiana Fever',homeScore:94,awayScore:83,broadcasts:['USA','CNBC'],status:'Final',state:'post',completed:true},
   {id:'2026-gsv-dal-g3',date:'2026-10-02',startTimeUtc:'2026-10-02T21:00:00-04:00',homeTeam:'Golden State Valkyries',awayTeam:'Dallas Wings',homeScore:77,awayScore:73,broadcasts:['ESPN2'],status:'Final',state:'post',completed:true},
 
-  {id:'2026-atl-nyl-sf-g1',date:'2026-10-04',startTimeUtc:'2026-10-04T14:00:00-04:00',homeTeam:'Atlanta Dream',awayTeam:'New York Liberty',homeScore:null,awayScore:null,broadcasts:['ABC'],status:'Semifinals Game 1',state:'pre',completed:false},
+  {id:'1042600201',date:'2026-10-04',startTimeUtc:'2026-10-04T14:00:00-04:00',homeTeam:'Atlanta Dream',awayTeam:'New York Liberty',homeScore:92,awayScore:82,broadcasts:['ABC'],status:'Final',state:'post',completed:true},
   {id:'2026-gsv-lva-sf-g1',date:'2026-10-04',startTimeUtc:'2026-10-04T16:00:00-04:00',homeTeam:'Golden State Valkyries',awayTeam:'Las Vegas Aces',homeScore:null,awayScore:null,broadcasts:['Peacock','NBC'],status:'Semifinals Game 1',state:'pre',completed:false},
   {id:'2026-atl-nyl-sf-g2',date:'2026-10-07',startTimeUtc:'2026-10-07T19:30:00-04:00',homeTeam:'Atlanta Dream',awayTeam:'New York Liberty',homeScore:null,awayScore:null,broadcasts:['ESPN'],status:'Semifinals Game 2',state:'pre',completed:false},
   {id:'2026-gsv-lva-sf-g2',date:'2026-10-07',startTimeUtc:'2026-10-07T21:30:00-04:00',homeTeam:'Golden State Valkyries',awayTeam:'Las Vegas Aces',homeScore:null,awayScore:null,broadcasts:['Peacock','NBC Sports Network'],status:'Semifinals Game 2',state:'pre',completed:false},
@@ -163,6 +165,6 @@ module.exports=async function handler(req,res){
     playoffs:{games:postseason,series:series(postseason),starts:'2026-09-27',started:Date.now()>=Date.parse('2026-09-27T00:00:00-04:00')},
     sources:{cup:'https://www.wnba.com/commissioners-cup/2026/about-the-cup',cupResults:'https://www.wnba.com/news/category/2026-commissioners-cup',cupFinal:'https://www.wnba.com/commissioners-cup/2026/leaderboard',playoffs:'https://www.wnba.com/playoffs/2026'},
     providerErrors,
-    sourceVersion:'20261003-semifinals-header-v3'
+    sourceVersion:'20261004-atlanta-game-one-final-v1'
   });
 };

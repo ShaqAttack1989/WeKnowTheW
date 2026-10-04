@@ -129,7 +129,7 @@
         if(row){
           const aWins=row.teamA===config.a?row.winsA:row.winsB,bWins=row.teamB===config.b?row.winsB:row.winsA;
           if(score)score.textContent=aWins+'-'+bWins;
-          if(gameState){const played=(row.games||[]).length;gameState.textContent=row.complete?`${row.winner||'Winner'} advances`:played?('Game '+(played+1)+' next'):'Game 1 next';}
+          if(gameState){const played=Number(row.winsA||0)+Number(row.winsB||0);gameState.textContent=row.complete?`${row.winner||'Winner'} advances`:played?('Game '+(played+1)+' next'):'Game 1 next';}
         }
         const pairGames=games.filter(game=>(game.round||config.round)===config.round&&[game.homeTeam,game.awayTeam].includes(config.a)&&[game.homeTeam,game.awayTeam].includes(config.b)).sort((a,b)=>Date.parse(a.startTimeUtc||a.date)-Date.parse(b.startTimeUtc||b.date));
         const next=pairGames.find(game=>!game.completed&&String(game.state||'').toLowerCase()!=='post'),latest=[...pairGames].reverse().find(game=>game.completed||String(game.state||'').toLowerCase()==='post');

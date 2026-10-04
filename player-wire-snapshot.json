@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-04T17:32:17.085Z",
+  "generatedAt": "2026-10-04T21:16:49.697Z",
   "movement": {
     "latestTransactionDate": "2026-09-28",
     "transactions": [
@@ -1429,8 +1429,8 @@
   },
   "availability": {
     "latestReportDate": "2026-10-04",
-    "reportLabel": "10/04/2026 01:30 PM ET",
-    "officialPdf": "https://ak-static.cms.nba.com/referee/wnba_injury/Injury-Report_2026-10-04_01_30PM.pdf",
+    "reportLabel": "10/04/2026 05:15 PM ET",
+    "officialPdf": "https://ak-static.cms.nba.com/referee/wnba_injury/Injury-Report_2026-10-04_05_15PM.pdf",
     "injuries": [
       {
         "player": "Brionna Jones",
@@ -1461,7 +1461,7 @@
       {
         "player": "Stephanie Talbot",
         "team": "Las Vegas Aces",
-        "status": "QUESTIONABLE",
+        "status": "OUT",
         "reason": "Injury/Illness - Left Leg; Leg",
         "gameDate": "10/04/2026",
         "gameTime": "04:00 (ET)",

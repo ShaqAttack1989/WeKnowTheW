@@ -2,6 +2,13 @@
   "site": "Snack Shak",
   "posts": [
     {
+      "imageFocus": "50% 38%",
+      "imageFit": "cover",
+      "storyImageSourceUrl": "https://dream.wnba.com/news/atlanta-dream-signs-two-time-wnba-champion-dewanna-bonner",
+      "storyImageCaption": "DeWanna Bonner signing announcement. Courtesy of the Atlanta Dream.",
+      "imageAlt": "Atlanta Dream signing announcement featuring DeWanna Bonner",
+      "storyImage": "https://cdn.wnba.com/sites/1611661330/2026/08/26DS-AltDream-DeWannaSigning-1080x1350-16x9-1.png",
+      "image": "https://cdn.wnba.com/sites/1611661330/2026/08/26DS-AltDream-DeWannaSigning-1080x1350-16x9-1.png",
       "slug": "dewanna-bonner-chooses-atlanta-dream-playoff-push",
       "type": "feature",
       "priority": 40,

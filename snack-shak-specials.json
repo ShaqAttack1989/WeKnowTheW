@@ -158,6 +158,13 @@
       ]
     },
     {
+      "imageFocus": "50% 38%",
+      "imageFit": "cover",
+      "storyImageSourceUrl": "https://aces.wnba.com/news/gallery-aces-tempo-8-23-2026",
+      "storyImageCaption": "Photo: Jordan Jones / NBAE, via the Las Vegas Aces August 23 game gallery.",
+      "imageAlt": "A’ja Wilson attacks the basket against Toronto on August 23, 2026",
+      "storyImage": "https://cdn.wnba.com/sites/1611661319/2026/08/2026-08-23-_-Las-Vegas-Aces-_-Jordan-Jones_-NBAE-_70-scaled.jpg",
+      "image": "https://cdn.wnba.com/sites/1611661319/2026/08/2026-08-23-_-Las-Vegas-Aces-_-Jordan-Jones_-NBAE-_70-scaled.jpg",
       "slug": "aja-wilson-100-career-25-point-games",
       "type": "feature",
       "priority": 10,

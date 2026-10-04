@@ -902,6 +902,10 @@
       ]
     },
     {
+      "imageFocus": "50% 38%",
+      "storyImageSourceUrl": "https://dream.wnba.com/news/angel-reese-named-eastern-conference-player-of-the-week-for-third-consecutive-week",
+      "storyImageCaption": "Official Player of the Week announcement, courtesy of the Atlanta Dream.",
+      "storyImage": "https://cdn.wnba.com/sites/1611661330/2026/09/image-54.png",
       "slug": "week-15-player-of-the-week-reese-wilson-2026",
       "type": "byte",
       "priority": 2400,
@@ -910,9 +914,9 @@
       "published": "2026-09-25",
       "updated": "2026-09-25",
       "week": "Week 15 · final regular-season week",
-      "image": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1642291.png",
-      "imageFit": "contain",
-      "imageAlt": "Official WNBA portrait of Atlanta Dream forward Angel Reese",
+      "image": "https://cdn.wnba.com/sites/1611661330/2026/09/image-54.png",
+      "imageFit": "cover",
+      "imageAlt": "Angel Reese in Atlanta’s official Player of the Week announcement",
       "dek": "Angel Reese made it three straight Eastern Conference weekly awards, while A'ja Wilson tied the WNBA career record with her 33rd Player of the Week honor.",
       "players": [
         "Angel Reese",
@@ -1395,6 +1399,8 @@
       "storyImageSourceUrl": "https://sun.wnba.com/news/sun-defeat-tempo-in-final-game-of-franchise-history"
     },
     {
+      "imageFocus": "50% 38%",
+      "imageFit": "cover",
       "slug": "lynx-fever-bench-test-2026",
       "type": "feature",
       "priority": 1800,
@@ -1405,11 +1411,11 @@
       "updated": "2026-09-23",
       "week": "Final week · bench check",
       "dashboardUrl": "/food-for-thought.html?post=lynx-fever-bench-test-2026#story",
-      "image": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1642286.png",
-      "storyImage": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1642286.png",
-      "storyImageSourceUrl": "https://www.wnba.com/game/1022600320",
-      "imageAlt": "Official WNBA headshot of Indiana Fever guard Caitlin Clark",
-      "storyImageCaption": "Indiana beat Minnesota 96-77 on Sept. 22. Image: official WNBA player media.",
+      "image": "https://cdn.wnba.com/sites/1611661324/2026/09/0922gamepreview-scaled.png",
+      "storyImage": "https://cdn.wnba.com/sites/1611661324/2026/09/0922gamepreview-scaled.png",
+      "storyImageSourceUrl": "https://lynx.wnba.com/news/how-to-watch-minnesota-lynx-at-indiana-fever-on-september-22-streaming-game-time-injury-report-jerseys",
+      "imageAlt": "Minnesota Lynx players gather during a game",
+      "storyImageCaption": "Minnesota Lynx game photography, via the official September 22 game preview.",
       "teams": [
         "Minnesota Lynx",
         "Indiana Fever",
@@ -2212,6 +2218,13 @@
       ]
     },
     {
+      "imageFocus": "50% 38%",
+      "imageFit": "cover",
+      "storyImageSourceUrl": "https://www.nbcsports.com/paralympics/news/wheelchair-basketball-world-championships-2026",
+      "storyImageCaption": "U.S. women’s wheelchair basketball. Photo via NBC Sports championship coverage.",
+      "imageAlt": "U.S. women’s wheelchair basketball game action",
+      "storyImage": "https://nbcsports.brightspotcdn.com/dims4/default/2af8263/2147483647/strip/true/crop/3882x2184+0+0/resize/1440x810!/quality/90/?url=https%3A%2F%2Fnbc-sports-production-nbc-sports.s3.us-east-1.amazonaws.com%2Fbrightspot%2F54%2F8d%2F709a01b24579b46963e4afe8eb61%2F2170211825.jpg",
+      "image": "https://nbcsports.brightspotcdn.com/dims4/default/2af8263/2147483647/strip/true/crop/3882x2184+0+0/resize/1440x810!/quality/90/?url=https%3A%2F%2Fnbc-sports-production-nbc-sports.s3.us-east-1.amazonaws.com%2Fbrightspot%2F54%2F8d%2F709a01b24579b46963e4afe8eb61%2F2170211825.jpg",
       "slug": "usa-wheelchair-world-champions-2026",
       "type": "byte",
       "priority": 1600,
@@ -2604,6 +2617,10 @@
       "updated": "2026-09-19"
     },
     {
+      "imageFocus": "50% 38%",
+      "imageFit": "cover",
+      "storyImageSourceUrl": "https://www.wnba.com/news/five-things-i-like-2026-fiba-world-cup",
+      "storyImageCaption": "World Cup celebration. Photo via WNBA.com’s 2026 World Cup coverage.",
       "slug": "fiba-final-recap-2026",
       "type": "feature",
       "priority": 1000,
@@ -2612,10 +2629,9 @@
       "published": "2026-09-13",
       "week": "USA 97, France 79 · World Cup Final",
       "dashboardUrl": "/fiba-final-recap-2026.html",
-      "image": "/assets/images/fiba-group-play/fiba-world-champions-usa-2026.jpg",
-      "storyImage": "/assets/images/fiba-group-play/fiba-world-champions-usa-2026.jpg",
-      "imageAlt": "Team USA celebrating the 2026 FIBA Women's Basketball World Cup championship in Berlin",
-      "imageSourceUrl": "https://about.fiba.basketball/en/news/usa-continue-dominance-with-12th-fiba-womens-basketball-world-cup-title",
+      "image": "https://cdn.wnba.com/sites/4/2026/09/5-Things-FIBA.png",
+      "storyImage": "https://cdn.wnba.com/sites/4/2026/09/5-Things-FIBA.png",
+      "imageAlt": "Jackie Young and Kahleah Copper celebrate Team USA’s World Cup victory",
       "teams": [
         "United States",
         "France"
@@ -3117,6 +3133,11 @@
       ]
     },
     {
+      "imageFocus": "50% 38%",
+      "imageFit": "cover",
+      "storyImageSourceUrl": "https://www.wnba.com/news/wnba-draft-2024-results",
+      "storyImageCaption": "2024 WNBA Draft night. Photo via WNBA.com.",
+      "storyImage": "https://cdn.wnba.com/sites/4/2024/04/WNBADraft24Results.png",
       "slug": "2024-wnba-redraft",
       "type": "byte",
       "priority": 400,
@@ -3125,8 +3146,8 @@
       "published": "2026-09-09",
       "week": "2024 Draft class recheck · September 9, 2026",
       "dashboardUrl": "/snack-shak-bytes.html?post=2024-wnba-redraft#story",
-      "image": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1642286.png",
-      "imageAlt": "Caitlin Clark official WNBA headshot",
+      "image": "https://cdn.wnba.com/sites/4/2024/04/WNBADraft24Results.png",
+      "imageAlt": "Caitlin Clark holds her Indiana Fever jersey on 2024 WNBA Draft night",
       "teams": [
         "Indiana Fever",
         "Los Angeles Sparks",
@@ -3446,6 +3467,13 @@
       ]
     },
     {
+      "imageFocus": "50% 38%",
+      "imageFit": "cover",
+      "storyImageSourceUrl": "https://lynx.wnba.com/news/minnesota-lynx-guard-olivia-miles-named-kia-wnba-rookie-of-the-year",
+      "storyImageCaption": "Olivia Miles. Official game photography via the Minnesota Lynx.",
+      "imageAlt": "Olivia Miles in a Minnesota Lynx uniform during a game",
+      "storyImage": "https://cdn.wnba.com/sites/1611661324/2026/09/GettyImages-2291059932-scaled.jpg",
+      "image": "https://cdn.wnba.com/sites/1611661324/2026/09/GettyImages-2291059932-scaled.jpg",
       "slug": "four-months-four-receipts-rookie-year-race",
       "type": "feature",
       "priority": 200,
@@ -3752,6 +3780,13 @@
       ]
     },
     {
+      "imageFocus": "50% 38%",
+      "imageFit": "cover",
+      "storyImageSourceUrl": "https://gamecocksonline.com/news/2025/08/22/south-carolina-announces-10-year-partnership-with-nike/",
+      "storyImageCaption": "Partnership artwork courtesy of South Carolina Athletics.",
+      "imageAlt": "South Carolina and Nike partnership announcement",
+      "storyImage": "https://storage.googleapis.com/gamecocksonline-com/2025/08/amt-5dbf041de16e0624b738350ae72482de82c7c098-d47b9436-scxnike-16x9-1-e1755869109557.jpg",
+      "image": "https://storage.googleapis.com/gamecocksonline-com/2025/08/amt-5dbf041de16e0624b738350ae72482de82c7c098-d47b9436-scxnike-16x9-1-e1755869109557.jpg",
       "slug": "aja-wilson-south-carolina-nike-deal",
       "type": "byte",
       "priority": 125,

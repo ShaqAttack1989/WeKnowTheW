@@ -3,6 +3,13 @@
   "tagline": "Where the food gets seasoned, the rankings get debated, and everybody gets served.",
   "posts": [
     {
+      "imageFocus": "50% 38%",
+      "imageFit": "cover",
+      "storyImageSourceUrl": "https://valkyries.wnba.com/news/gameday-recap-20260824",
+      "storyImageCaption": "Golden State game action from August 24. Photo via the Golden State Valkyries.",
+      "imageAlt": "Cecilia Zandalasini shoots against Minnesota",
+      "storyImage": "https://cdn.wnba.com/sites/1611661331/2026/08/feat-image-ceci-20260824-scaled.png",
+      "image": "https://cdn.wnba.com/sites/1611661331/2026/08/feat-image-ceci-20260824-scaled.png",
       "slug": "snack-shak-byte-2026-08-31",
       "type": "byte",
       "title": "Golden State Takes the Apron, Minnesota Gets Served",
@@ -191,6 +198,13 @@
       ]
     },
     {
+      "imageFocus": "50% 38%",
+      "imageFit": "cover",
+      "storyImageSourceUrl": "https://wings.wnba.com/news/wings-quiet-storm-92-70-at-home-sunday",
+      "storyImageCaption": "Dallas–Seattle game action. Photo via the Dallas Wings.",
+      "imageAlt": "Dallas Wings guard Paige Bueckers dribbles against Seattle",
+      "storyImage": "https://cdn.wnba.com/sites/1611661321/2026/08/GettyImages-2291736417-scaled.jpg",
+      "image": "https://cdn.wnba.com/sites/1611661321/2026/08/GettyImages-2291736417-scaled.jpg",
       "slug": "snack-shak-byte-2026-08-24",
       "type": "byte",
       "title": "Atlanta Sets the Table, Minnesota Owns the Kitchen",
@@ -370,6 +384,13 @@
       ]
     },
     {
+      "imageFocus": "50% 38%",
+      "imageFit": "cover",
+      "storyImageSourceUrl": "https://fever.wnba.com/news/game-recap-fever-dream-260816",
+      "storyImageCaption": "Indiana–Atlanta game action from August 16. Photo via the Indiana Fever.",
+      "imageAlt": "Indiana Fever guard Kelsey Mitchell drives against Atlanta",
+      "storyImage": "https://cdn.wnba.com/sites/1611661325/2026/08/GettyImages-2290260721.jpg",
+      "image": "https://cdn.wnba.com/sites/1611661325/2026/08/GettyImages-2290260721.jpg",
       "slug": "snack-shak-byte-2026-08-17",
       "type": "byte",
       "title": "Indiana Turns Up the Heat",

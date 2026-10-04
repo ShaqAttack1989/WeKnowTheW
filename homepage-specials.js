@@ -13,8 +13,6 @@
   const fmtDate=value=>{const date=new Date(`${String(value||'').slice(0,10)}T12:00:00`);return Number.isNaN(date.getTime())?String(value||''):date.toLocaleDateString([],{month:'short',day:'numeric'});};
   const dateKey=post=>String(post?.updated||post?.published||'');
   const dateLabel=post=>`${post?.updated&&String(post.updated)>String(post.published||'')?'UPDATED ':' '}${fmtDate(dateKey(post))}`.trim();
-  const BYTE_FALLBACK='/assets/images/snack-shak/power-rankings-vs-standings-aug30.webp';
-  const FOOD_FALLBACK='/assets/images/17995.png';
 
   let posts=[];
   let loadedAt=0;
@@ -76,13 +74,13 @@
   }
 
   function imageFor(post,kind){
-    return post?.image||post?.storyImage||post?.imageUrl||post?.photo||post?.thumbnail||(kind==='food'?FOOD_FALLBACK:BYTE_FALLBACK);
+    return post?.image||post?.storyImage||post?.imageUrl||post?.photo||post?.thumbnail||'';
   }
 
   function editorialMarkup(post,kind){
     const food=kind==='food';
     const image=imageFor(post,kind);
-    return `<figure class="week-editorial-media"><img src="${safe(image)}" alt="${safe(post?.imageAlt||post?.title||'Story image')}" loading="${food?'eager':'lazy'}" fetchpriority="${food?'high':'auto'}" decoding="async"><span class="week-media-tag">${food?'FEATURED READ':'QUICK HIT'}</span></figure><div class="week-editorial-body"><div class="week-editorial-top"><span class="week-card-kicker">${food?'FOOD FOR THOUGHT':'SNACK SHAK BYTE'}</span><span class="week-card-date">${safe(dateLabel(post))}</span></div><span class="week-story-series">${safe(post?.seriesLabel||(food?'FOOD FOR THOUGHT':'SNACK SHAK BYTE'))}</span><h3>${safe(post?.title||'Latest story')}</h3><p>${safe(short(post?.dek||'',205))}</p><a href="${safe(featureHref(post))}">${food?'Read the full thought':'Grab the Byte'} →</a></div>`;
+    return `<figure class="week-editorial-media">${image?`<img src="${safe(image)}" alt="${safe(post?.imageAlt||post?.title||'Story image')}" loading="${food?'eager':'lazy'}" fetchpriority="${food?'high':'auto'}" decoding="async">`: ''}<span class="week-media-tag">${food?'FEATURED READ':'QUICK HIT'}</span></figure><div class="week-editorial-body"><div class="week-editorial-top"><span class="week-card-kicker">${food?'FOOD FOR THOUGHT':'SNACK SHAK BYTE'}</span><span class="week-card-date">${safe(dateLabel(post))}</span></div><span class="week-story-series">${safe(post?.seriesLabel||(food?'FOOD FOR THOUGHT':'SNACK SHAK BYTE'))}</span><h3>${safe(post?.title||'Latest story')}</h3><p>${safe(short(post?.dek||'',205))}</p><a href="${safe(featureHref(post))}">${food?'Read the full thought':'Grab the Byte'} →</a></div>`;
   }
 
   function enforceUniqueEditorials(){
@@ -152,7 +150,7 @@
     host.innerHTML=fresh.map((post,index)=>{
       const image=imageFor(post,isFood(post)?'food':'byte');
       const focus=post.imageFocus||post.storyImageFocus||'50% 38%';
-      return `<a class="home-fresh-story" href="${safe(featureHref(post))}"><figure style="--fresh-focus:${safe(focus)}"><img src="${safe(image)}" alt="${safe(post.imageAlt||post.title)}" loading="${index===0?'eager':'lazy'}" decoding="async">${index===0?'<span>NEW</span>':''}</figure><div><small>${safe(post.seriesLabel||(isByte(post)?'SNACK SHAK BYTE':'FOOD FOR THOUGHT'))} · ${safe(dateLabel(post))}</small><strong>${safe(post.title)}</strong><b>Read story →</b></div></a>`;
+      return `<a class="home-fresh-story" href="${safe(featureHref(post))}"><figure style="--fresh-focus:${safe(focus)}">${image?`<img src="${safe(image)}" alt="${safe(post.imageAlt||post.title)}" loading="${index===0?'eager':'lazy'}" decoding="async">`: ''}${index===0?'<span>NEW</span>':''}</figure><div><small>${safe(post.seriesLabel||(isByte(post)?'SNACK SHAK BYTE':'FOOD FOR THOUGHT'))} · ${safe(dateLabel(post))}</small><strong>${safe(post.title)}</strong><b>Read story →</b></div></a>`;
     }).join('');
   }
 

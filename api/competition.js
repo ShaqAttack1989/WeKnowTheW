@@ -93,7 +93,7 @@ const PLAYOFF_2026_SCHEDULE=[
   {id:'2026-gsv-dal-g3',date:'2026-10-02',startTimeUtc:'2026-10-02T21:00:00-04:00',homeTeam:'Golden State Valkyries',awayTeam:'Dallas Wings',homeScore:77,awayScore:73,broadcasts:['ESPN2'],status:'Final',state:'post',completed:true},
 
   {id:'1042600201',date:'2026-10-04',startTimeUtc:'2026-10-04T14:00:00-04:00',homeTeam:'Atlanta Dream',awayTeam:'New York Liberty',homeScore:92,awayScore:82,broadcasts:['ABC'],status:'Final',state:'post',completed:true},
-  {id:'2026-gsv-lva-sf-g1',date:'2026-10-04',startTimeUtc:'2026-10-04T16:00:00-04:00',homeTeam:'Golden State Valkyries',awayTeam:'Las Vegas Aces',homeScore:null,awayScore:null,broadcasts:['Peacock','NBC'],status:'Semifinals Game 1',state:'pre',completed:false},
+  {id:'1042600211',date:'2026-10-04',startTimeUtc:'2026-10-04T16:00:00-04:00',homeTeam:'Golden State Valkyries',awayTeam:'Las Vegas Aces',homeScore:71,awayScore:60,broadcasts:['Peacock','NBC'],status:'Final',state:'post',completed:true},
   {id:'2026-atl-nyl-sf-g2',date:'2026-10-07',startTimeUtc:'2026-10-07T19:30:00-04:00',homeTeam:'Atlanta Dream',awayTeam:'New York Liberty',homeScore:null,awayScore:null,broadcasts:['ESPN'],status:'Semifinals Game 2',state:'pre',completed:false},
   {id:'2026-gsv-lva-sf-g2',date:'2026-10-07',startTimeUtc:'2026-10-07T21:30:00-04:00',homeTeam:'Golden State Valkyries',awayTeam:'Las Vegas Aces',homeScore:null,awayScore:null,broadcasts:['Peacock','NBC Sports Network'],status:'Semifinals Game 2',state:'pre',completed:false},
   {id:'2026-nyl-atl-sf-g3',date:'2026-10-09',startTimeUtc:'2026-10-09T19:30:00-04:00',homeTeam:'New York Liberty',awayTeam:'Atlanta Dream',homeScore:null,awayScore:null,broadcasts:['ESPN2'],status:'Semifinals Game 3',state:'pre',completed:false},
@@ -165,6 +165,6 @@ module.exports=async function handler(req,res){
     playoffs:{games:postseason,series:series(postseason),starts:'2026-09-27',started:Date.now()>=Date.parse('2026-09-27T00:00:00-04:00')},
     sources:{cup:'https://www.wnba.com/commissioners-cup/2026/about-the-cup',cupResults:'https://www.wnba.com/news/category/2026-commissioners-cup',cupFinal:'https://www.wnba.com/commissioners-cup/2026/leaderboard',playoffs:'https://www.wnba.com/playoffs/2026'},
     providerErrors,
-    sourceVersion:'20261004-atlanta-game-one-final-v1'
+    sourceVersion:'20261004-both-semifinal-openers-final-v1'
   });
 };

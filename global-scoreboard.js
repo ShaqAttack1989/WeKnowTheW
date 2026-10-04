@@ -10,7 +10,7 @@
   const teamCode=name=>text(name).split(/\s+/).filter(Boolean).map(part=>part[0]).join('').slice(0,3).toUpperCase()||'W';
   const BOOTSTRAP_PLAYOFF_GAMES=[
     {id:'1042600201',date:'2026-10-04',startTimeUtc:'2026-10-04T14:00:00-04:00',homeTeam:'Atlanta Dream',awayTeam:'New York Liberty',homeScore:92,awayScore:82,broadcasts:['ABC'],status:'Final',state:'post',completed:true,round:'Semifinals',gameNumber:1},
-    {id:'2026-gsv-lva-sf-g1',date:'2026-10-04',startTimeUtc:'2026-10-04T16:00:00-04:00',homeTeam:'Golden State Valkyries',awayTeam:'Las Vegas Aces',broadcasts:['NBC','Peacock'],status:'Semifinals Game 1',state:'pre',completed:false,round:'Semifinals',gameNumber:1},
+    {id:'1042600211',date:'2026-10-04',startTimeUtc:'2026-10-04T16:00:00-04:00',homeTeam:'Golden State Valkyries',awayTeam:'Las Vegas Aces',homeScore:71,awayScore:60,broadcasts:['NBC','Peacock'],status:'Final',state:'post',completed:true,round:'Semifinals',gameNumber:1},
     {id:'2026-atl-nyl-sf-g2',date:'2026-10-07',startTimeUtc:'2026-10-07T19:30:00-04:00',homeTeam:'Atlanta Dream',awayTeam:'New York Liberty',broadcasts:['ESPN'],status:'Semifinals Game 2',state:'pre',completed:false,round:'Semifinals',gameNumber:2},
     {id:'2026-gsv-lva-sf-g2',date:'2026-10-07',startTimeUtc:'2026-10-07T21:30:00-04:00',homeTeam:'Golden State Valkyries',awayTeam:'Las Vegas Aces',broadcasts:['Peacock','NBC Sports Network'],status:'Semifinals Game 2',state:'pre',completed:false,round:'Semifinals',gameNumber:2},
     {id:'2026-nyl-atl-sf-g3',date:'2026-10-09',startTimeUtc:'2026-10-09T19:30:00-04:00',homeTeam:'New York Liberty',awayTeam:'Atlanta Dream',broadcasts:['ESPN2'],status:'Semifinals Game 3',state:'pre',completed:false,round:'Semifinals',gameNumber:3},

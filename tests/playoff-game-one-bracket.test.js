@@ -8,18 +8,18 @@ const read=file=>fs.readFileSync(path.join(root,file),'utf8');
 const latest=JSON.parse(read('snack-shak-latest.json'));
 const post=latest.posts.find(item=>item.slug==='the-playoff-watch-party-2026');
 
-test('the playoff watch guide carries final Round 1 receipts and official WNBA photos',()=>{
+test('the playoff watch guide carries Atlanta-New York Game 1 receipts and official WNBA photos',()=>{
   assert.ok(post);
   assert.equal(post.published,'2026-10-02');
-  assert.equal(post.updated,'2026-10-03');
-  assert.match(post.title,/Sunday Semifinal Doubleheader/);
+  assert.equal(post.updated,'2026-10-04');
+  assert.match(post.title,/Atlanta Lands the First Semifinal Punch/);
   assert.equal(post.playoffGameOne.receipts.length,6);
   assert.equal(post.playoffGameOne.highlights.length,4);
   assert.ok(post.playoffGameOne.highlights.every(item=>/^https:\/\/cdn\.wnba\.com\//.test(item.photo)));
   assert.ok(post.playoffGameOne.highlights.every(item=>/(WNBA|NBAE|Official)/.test(item.photoCredit)));
-  assert.match(JSON.stringify(post.playoffGameOne.receipts),/Arike’s playoff-record points/);
-  assert.match(JSON.stringify(post.playoffGameOne.receipts),/Golden State’s erased deficit/);
-  assert.match(JSON.stringify(post.playoffGameOne.receipts),/A’ja’s closeout line/);
+  assert.match(JSON.stringify(post.playoffGameOne.receipts),/Canada’s two-way line/);
+  assert.match(JSON.stringify(post.playoffGameOne.receipts),/Bonner’s bench swing/);
+  assert.match(JSON.stringify(post.playoffGameOne.receipts),/Liberty turnovers/);
   assert.equal(post.gameGallery.items.length,4);
   assert.doesNotMatch(JSON.stringify(post),/(unsplash|midjourney|dall-e|ai generated)/i);
 });

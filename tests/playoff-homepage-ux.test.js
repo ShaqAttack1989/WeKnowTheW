@@ -26,8 +26,8 @@ test('Homepage scoreboard trusts a published tip time over a stale TBD status',(
 
 test('Global scoreboard is installed by the shared site shell and refreshes the full slate',()=>{
   const site=read('site.js'),scoreboard=read('global-scoreboard.js');
-  assert.match(site,/global-scoreboard\.js\?v=20260927-live-v1/);
-  assert.match(site,/global-scoreboard\.css\?v=20260927-live-v1/);
+  assert.match(site,/global-scoreboard\.js\?v=20261004-atl-g1-v1/);
+  assert.match(site,/global-scoreboard\.css\?v=20261003-readable-ribbon-v5/);
   assert.match(scoreboard,/livePayload\.todayGames\|\|livePayload\.games/);
   assert.match(scoreboard,/setInterval\(\(\)=>\{if\(!document\.hidden\)refreshLive\(\);\},10000\)/);
   assert.match(scoreboard,/w-home-nav-sticky/);
@@ -56,16 +56,15 @@ test('Playoff watch keeps a 16px minimum for compact labels and copy',()=>{
 });
 
 
-test('Homepage prioritizes the live bracket, Draft Watch and fresh story discovery',()=>{
-  const html=read('index.html'),specials=read('homepage-specials.js'),desk=read('homepage-desk.js');
+test('Homepage orders the live semifinal update, Draft Watch and bracket with the Game 1 result visible',()=>{
+  const html=read('index.html');
   const bracket=html.indexOf('id="playoff-bracket"');
-  const draft=html.indexOf('home-draft-watch-card');
+  const draft=html.indexOf('href="/wnba-draft-class-rankings.html"');
   const seasonal=html.indexOf('data-season=');
-  assert.ok(bracket>0&&seasonal>0&&bracket<seasonal);
-  assert.ok(draft>bracket&&draft<seasonal);
-  assert.match(html,/id="homeFreshStories"/);
-  assert.match(specials,/renderTopDiscovery/);
-  assert.doesNotMatch(desk,/insertBefore\(section,spotlight\)/);
+  assert.ok(seasonal>0&&draft>seasonal&&bracket>draft);
+  assert.match(html,/Atlanta strikes first/);
+  assert.match(html,/NYL 82 · ATL 92 · DREAM LEAD 1–0/);
+  assert.match(html,/c3ba69a5-3273-4a3d-b9ea-ebef203d24f5_0\.jpg/);
 });
 
 test('Homepage live game board prioritizes and deduplicates playoff games',()=>{

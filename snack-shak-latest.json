@@ -970,232 +970,228 @@
       "priority": 7600,
       "homepageSeason": "wnba-playoffs",
       "seriesLabel": "FOOD FOR THOUGHT · PLAYOFF WATCH GUIDE",
-      "title": "Sunday Semifinal Doubleheader: New York-Atlanta, Then A’ja Meets Ballhalla",
+      "title": "Atlanta Lands the First Semifinal Punch: Canada and Bonner Put New York Down 1–0",
       "published": "2026-10-02",
-      "updated": "2026-10-03",
-      "week": "Semifinals · Oct. 4",
-      "image": "https://cdn.wnba.com/sites/4/2026/10/DALGSV102.png?im=AspectCrop%3D%2816%2C9%29%2CxPosition%3D.5%2CyPosition%3D.5",
+      "updated": "2026-10-04",
+      "week": "Semifinals · Atlanta leads 1–0",
+      "image": "https://cdn.wnba.com/sites/4/2026/10/c3ba69a5-3273-4a3d-b9ea-ebef203d24f5_0.jpg",
       "imageFit": "top-cover",
-      "imageAlt": "Gabby Williams during Golden State's Game 3 comeback win over the Dallas Wings",
-      "dek": "The first round is done. New York’s historic No. 8 run meets Atlanta’s pressure defense at 2 p.m. ET, then Golden State hosts defending champion Las Vegas at 4 p.m. ET after the Valkyries erased a 16-point Game 3 deficit to reach their first semifinal.",
+      "imageAlt": "Jordin Canada pressures the New York Liberty during Atlanta's semifinal Game 1 win",
+      "dek": "Atlanta turned 21 New York turnovers into 32 points and won semifinal Game 1, 92-82. Jordin Canada scored 25 with five steals, DeWanna Bonner added 23 points and nine rebounds off the bench, and the Dream carry a 1-0 lead into Wednesday’s Game 2.",
       "playoffGameOne": {
-        "ariaLabel": "First-round records, comeback numbers and semifinal schedule",
-        "eyebrow": "ROUND 1 · FINAL RECEIPTS",
-        "title": "History, survival and a four-team field.",
-        "dek": "Arike Ogunbowale broke the playoff scoring record, A’ja Wilson closed Indiana out, and Golden State erased 16 points to claim the final semifinal seat.",
-        "asOf": "UPDATED · OCT. 3, 2026",
+        "ariaLabel": "Atlanta-New York Game 1 final, player lines and semifinal schedule",
+        "eyebrow": "SEMIFINALS · GAME 1 FINAL",
+        "title": "Atlanta’s pressure broke the opener.",
+        "dek": "The Dream created a 32-14 edge in points off turnovers, got 48 points from Canada and Bonner, and protected home court against the No. 8 seed that had just swept Minnesota.",
+        "asOf": "UPDATED · OCT. 4, 2026",
         "receipts": [
           {
-            "value": "45",
-            "label": "Arike’s playoff-record points",
-            "note": "Ogunbowale set the WNBA single-game playoff scoring record in Dallas’ 108-100 overtime Game 2 win."
+            "value": "92–82",
+            "label": "Atlanta owns Game 1",
+            "note": "The Dream won the semifinal opener by 10 and lead the best-of-five series 1-0."
           },
           {
-            "value": "16",
-            "label": "Golden State’s erased deficit",
-            "note": "The Valkyries trailed 53-37, then finished the game on a 40-20 run to win 77-73."
+            "value": "25 + 5",
+            "label": "Canada’s two-way line",
+            "note": "Jordin Canada scored 25 on 9-of-14 shooting, made four threes and collected five steals."
           },
           {
-            "value": "17 OF 19",
-            "label": "Gabby’s second-half points",
-            "note": "Williams scored all but two of her points after halftime and hit the go-ahead jumper with 1:17 left."
+            "value": "23 + 9",
+            "label": "Bonner’s bench swing",
+            "note": "DeWanna Bonner supplied 23 points and nine rebounds in 30 minutes without starting."
           },
           {
-            "value": "16 · 10 · 6",
-            "label": "Veronica Burton’s closeout line",
-            "note": "The No. 7 pick paired 16 points with 10 rebounds and six assists in the deciding win."
+            "value": "32",
+            "label": "Points off turnovers",
+            "note": "Atlanta converted New York’s mistakes into a 32-14 advantage in points off turnovers."
           },
           {
-            "value": "36 + 10",
-            "label": "A’ja’s closeout line",
-            "note": "Wilson posted 36 points and 10 rebounds as Las Vegas eliminated Indiana 94-83."
+            "value": "21",
+            "label": "Liberty turnovers",
+            "note": "New York gave the ball away 21 times against Atlanta’s traps, digs and active hands."
           },
           {
-            "value": "BEST OF 5",
-            "label": "The format changes now",
-            "note": "Atlanta and Golden State host Games 1 and 2; New York and Las Vegas host Games 3 and any necessary Game 4."
+            "value": "1–0",
+            "label": "First to three",
+            "note": "Atlanta can take a two-game cushion Wednesday, Oct. 7 at 7:30 p.m. ET on ESPN."
           }
         ],
         "highlights": [
           {
-            "score": "DAL 73 · GSV 77",
-            "title": "Ballhalla got its comeback",
-            "player": "Gabby Williams + Veronica Burton",
-            "stat": "40–20 CLOSING RUN · GSV WINS 2–1",
-            "note": "Golden State rallied from 16 down, won a replay challenge in the final seconds and advanced to face Las Vegas.",
-            "photo": "https://cdn.wnba.com/sites/4/2026/10/DALGSV102.png?im=AspectCrop%3D%2816%2C9%29%2CxPosition%3D.5%2CyPosition%3D.5",
-            "photoAlt": "Gabby Williams during Golden State's Game 3 comeback win over Dallas",
-            "photoCredit": "WNBA game media · Game 3 recap",
-            "photoFallback": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1628931.png"
+            "score": "NYL 82 · ATL 92",
+            "title": "Canada set the pressure tone",
+            "player": "Jordin Canada",
+            "stat": "25 PTS · 5 STL · 4 3PM",
+            "note": "Canada shot 9-of-14, scored 25 and led a Dream defense that produced 14 steals.",
+            "photo": "https://cdn.wnba.com/sites/4/2026/10/c3ba69a5-3273-4a3d-b9ea-ebef203d24f5_0.jpg",
+            "photoAlt": "Jordin Canada pressures New York during semifinal Game 1",
+            "photoCredit": "WNBA game media · Jordin Canada highlights",
+            "photoFallback": "https://cdn.wnba.com/logos/wnba/1611661330/primary/L/logo.svg"
           },
           {
-            "score": "GSV 100 · DAL 108 (OT)",
-            "title": "Arike’s record still owns Round 1",
-            "player": "Arike Ogunbowale",
-            "stat": "45 PTS · 42 MIN · 5 3PM · 16 FT",
-            "note": "She scored 22 in the fourth quarter and overtime and forced the deciding game with the highest-scoring playoff performance in league history.",
-            "photo": "https://cdn.wnba.com/sites/4/2026/10/GSVWAS.png",
-            "photoAlt": "Dallas Wings celebrate during the overtime Game 2 win over Golden State",
-            "photoCredit": "WNBA game media · Game 2 recap"
+            "score": "ATL BENCH · 27 PTS",
+            "title": "Bonner changed the possession math",
+            "player": "DeWanna Bonner",
+            "stat": "23 PTS · 9 REB · 0 TO",
+            "note": "Bonner scored 23 without a turnover and nearly matched New York’s entire six-point bench by herself.",
+            "photo": "https://cdn.wnba.com/sites/4/2026/10/3f35b50e-f0e5-4c36-8213-c09ae36d7624_0.jpg",
+            "photoAlt": "Atlanta Dream players in action during their semifinal Game 1 win",
+            "photoCredit": "WNBA game media · Atlanta top plays"
           },
           {
-            "score": "IND 83 · LVA 94",
-            "title": "A’ja shut the door",
-            "player": "A’ja Wilson",
-            "stat": "36 PTS · 10 REB · 2 BLK",
-            "note": "Chelsea Gray added 23 and Jackie Young supplied 18 points, eight rebounds and seven assists as the defending champions advanced.",
-            "photo": "https://cdn.wnba.com/sites/1611661319/2026/10/2026-10-01-_-Las-Vegas-Aces-_-Barry-Gossage_-NBAE-Photos30-scaled.jpg",
-            "photoAlt": "A'ja Wilson dribbles against Indiana during the Aces' Game 3 win",
-            "photoCredit": "Barry Gossage / NBAE · Las Vegas Aces"
+            "score": "NYL · 21 TURNOVERS",
+            "title": "Ionescu’s 27 could not cover the giveaways",
+            "player": "Sabrina Ionescu",
+            "stat": "27 PTS · 3 3PM · 5 TO",
+            "note": "Ionescu led New York, but Atlanta kept the Liberty from matching its volume of clean possessions.",
+            "photo": "https://cdn.wnba.com/sites/4/2026/10/52625a6a-698e-48f2-9907-24607c47e977_0.jpg",
+            "photoAlt": "Sabrina Ionescu scores against Atlanta during semifinal Game 1",
+            "photoCredit": "WNBA game media · Sabrina Ionescu highlights"
           },
           {
-            "score": "SUN · 2 ET + 4 ET",
-            "title": "The semifinals open back-to-back",
-            "player": "NYL at ATL · LVA at GSV",
-            "stat": "ABC · PEACOCK / NBC",
-            "note": "Game 2s are Wednesday, Oct. 7. Both series shift venues for Game 3 on Friday, Oct. 9.",
-            "photo": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1628931.png",
-            "photoAlt": "Official WNBA portrait of Golden State Valkyries guard-forward Gabby Williams",
-            "photoCredit": "Official WNBA player media"
+            "score": "WED · 7:30 ET",
+            "title": "Game 2 stays in Atlanta",
+            "player": "New York at Atlanta",
+            "stat": "ATL LEADS 1–0 · ESPN",
+            "note": "The Liberty get one full adjustment window before Atlanta can move within one win of the Finals.",
+            "photo": "https://cdn.wnba.com/sites/4/2026/10/3ba60f67-3a3e-434f-893d-616a96b17fd0_0.jpg",
+            "photoAlt": "Rhyne Howard creates for Atlanta during semifinal Game 1",
+            "photoCredit": "WNBA game media · Rhyne Howard highlights"
           }
         ]
       },
       "gameGallery": {
         "eyebrow": "REAL GAME FRAMES · OFFICIAL MEDIA",
-        "title": "Round 1 delivered history, pressure and survival",
-        "dek": "Official WNBA and team photography from the record night and both winner-take-all closeouts.",
+        "title": "Game 1 belonged to Atlanta’s pressure",
+        "dek": "Official WNBA game media from the Dream’s 92-82 semifinal opener against New York.",
         "items": [
           {
-            "kicker": "COMEBACK · GOLDEN STATE",
-            "title": "Sixteen down became four teams left",
-            "caption": "Williams scored 17 of her 19 after halftime as Golden State closed on a 40-20 run and beat Dallas 77-73.",
-            "image": "https://cdn.wnba.com/sites/4/2026/10/DALGSV102.png?im=AspectCrop%3D%2816%2C9%29%2CxPosition%3D.5%2CyPosition%3D.5",
-            "alt": "Gabby Williams during Golden State's Game 3 comeback win over Dallas",
-            "credit": "WNBA · Game 3 recap",
-            "sourceUrl": "https://www.wnba.com/news/2026-playoffs-wings-valkyries-game-3-recap",
-            "imageFallback": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1628931.png"
+            "kicker": "POINT OF ATTACK · ATLANTA",
+            "title": "Canada took away the comfortable pass",
+            "caption": "Canada paired 25 points with five steals as Atlanta turned 21 Liberty turnovers into 32 points.",
+            "image": "https://cdn.wnba.com/sites/4/2026/10/c3ba69a5-3273-4a3d-b9ea-ebef203d24f5_0.jpg",
+            "alt": "Jordin Canada defends New York during semifinal Game 1",
+            "credit": "WNBA · Jordin Canada Game 1 highlights",
+            "sourceUrl": "https://www.wnba.com/watch/video/jordin-canada-with-5-steals-vs-new-york-liberty",
+            "imageFallback": "https://cdn.wnba.com/logos/wnba/1611661330/primary/L/logo.svg"
           },
           {
-            "kicker": "RECORD NIGHT · DALLAS",
-            "title": "Forty-five in 42 minutes",
-            "caption": "Ogunbowale went 12-of-23, hit five threes and scored 11 in overtime to force Game 3.",
-            "image": "https://cdn.wnba.com/sites/4/2026/10/GSVWAS.png",
-            "alt": "Dallas Wings celebrate during their overtime playoff victory over Golden State",
-            "credit": "WNBA · Game 2 recap",
-            "sourceUrl": "https://www.wnba.com/news/2026-playoffs-valkyries-wings-game-2-recap"
+            "kicker": "TEAM PRESSURE · ATLANTA",
+            "title": "Fourteen steals changed the floor",
+            "caption": "Atlanta created transition chances and extra possessions before New York could consistently establish its frontcourt offense.",
+            "image": "https://cdn.wnba.com/sites/4/2026/10/3f35b50e-f0e5-4c36-8213-c09ae36d7624_0.jpg",
+            "alt": "Atlanta Dream players in action against New York in semifinal Game 1",
+            "credit": "WNBA · Atlanta Dream top plays",
+            "sourceUrl": "https://www.wnba.com/watch/video/atlanta-dream-top-plays-vs-new-york-liberty-3"
           },
           {
-            "kicker": "CLOSEOUT · LAS VEGAS",
-            "title": "A’ja took the matchup back",
-            "caption": "Wilson finished with 36 points and 10 rebounds as the Aces won Game 3, 94-83, and moved into the semifinals.",
-            "image": "https://cdn.wnba.com/sites/1611661319/2026/10/2026-10-01-_-Las-Vegas-Aces-_-Barry-Gossage_-NBAE-Photos30-scaled.jpg",
-            "alt": "A'ja Wilson handles the ball against Indiana during Aces-Fever Game 3",
-            "credit": "Barry Gossage / NBAE · Las Vegas Aces",
-            "sourceUrl": "https://aces.wnba.com/news/gallery-aces-94-fever-83-round-1-game-3-10-1-2026"
+            "kicker": "CREATION · ATLANTA",
+            "title": "Howard filled the gaps",
+            "caption": "Rhyne Howard added 16 points, eight rebounds and eight assists while Canada and Bonner carried the scoring load.",
+            "image": "https://cdn.wnba.com/sites/4/2026/10/3ba60f67-3a3e-434f-893d-616a96b17fd0_0.jpg",
+            "alt": "Rhyne Howard creates offense for Atlanta against New York",
+            "credit": "WNBA · Rhyne Howard Game 1 highlights",
+            "sourceUrl": "https://www.wnba.com/watch/video/highlights-from-rhyne-howard-8-assist-game-4"
           },
           {
-            "kicker": "CLOSEOUT · SUPPORT CAST",
-            "title": "Vegas had more than the MVP",
-            "caption": "Gray scored 23, Young filled every column and Loyd added 11 to give Wilson four credible closing lanes.",
-            "image": "https://cdn.wnba.com/sites/1611661319/2026/10/2026-10-01-_-Las-Vegas-Aces-_-Barry-Gossage_-NBAE-Photos14-scaled.jpg",
-            "alt": "Jewell Loyd rises for a shot against Indiana during Game 3",
-            "credit": "Barry Gossage / NBAE · Las Vegas Aces",
-            "sourceUrl": "https://aces.wnba.com/news/gallery-aces-94-fever-83-round-1-game-3-10-1-2026"
+            "kicker": "COUNTERPUNCH · NEW YORK",
+            "title": "Ionescu kept scoring through the noise",
+            "caption": "Ionescu scored a game-high 27, but the Liberty’s 21 turnovers kept that shotmaking from controlling the opener.",
+            "image": "https://cdn.wnba.com/sites/4/2026/10/52625a6a-698e-48f2-9907-24607c47e977_0.jpg",
+            "alt": "Sabrina Ionescu scores for New York against Atlanta",
+            "credit": "WNBA · Sabrina Ionescu Game 1 highlights",
+            "sourceUrl": "https://www.wnba.com/watch/video/sabrina-ionescu-points-leader-in-atlanta-dream-vs-new-york-liberty-top-points"
           }
         ]
       },
       "sections": [
         {
-          "title": "Sunday opens with the bracket-breakers: New York at Atlanta",
+          "title": "Canada set the pressure tone; Bonner made it hurt",
           "paragraphs": [
-            "New York did not sneak past Minnesota. The No. 8 seed beat the No. 1 seed by 16 points in both games, becoming the first eighth seed in WNBA history to eliminate a top seed. Atlanta answered its own first-round assignment with a sweep of Washington and now owns home court in a best-of-five.",
-            "The regular-season edge belongs to Atlanta, 2-1, including two late-season wins in Brooklyn. The Dream’s pressure defense and transition game meet a Liberty group that has been comfortable playing through Breanna Stewart and Jonquel Jones while shooting 40.4 percent from three in the postseason.",
-            "Game 1 tips at 2:00 p.m. ET on ABC at State Farm Arena. The first swing stat is possession quality: can Atlanta’s pressure turn New York over before the Liberty can establish its frontcourt size?"
+            "Atlanta’s opening argument was exactly what the matchup preview promised: make New York solve pressure before it can settle into size and spacing. Canada was the loudest part of it, finishing with five of Atlanta’s 14 steals and scoring 25 on 9-of-14 shooting.",
+            "Bonner turned the bench minutes into a mismatch. She scored 23, grabbed nine rebounds and did not commit a turnover in 30 minutes. Atlanta’s reserves won their scoring minutes 27-6, a margin that let the Dream keep attacking even when the starters rotated.",
+            "Howard’s 16 points, eight rebounds and eight assists completed the shape of the win. Atlanta did not need one scorer to own every possession; it needed Canada to disrupt, Bonner to punish the second unit and Howard to connect the actions."
           ]
         },
         {
-          "title": "Then Ballhalla gets A’ja: Las Vegas at Golden State",
+          "title": "New York’s shooting was playable. Its possession count was not.",
           "paragraphs": [
-            "Golden State’s first playoff series win required a comeback worthy of the building. The Valkyries trailed Dallas by 16 in Game 3 before closing on a 40-20 run for a 77-73 win. Gabby Williams scored 17 of her 19 points after halftime, and Golden State survived Arike Ogunbowale’s 30-point follow-up to her record 45 in Game 2.",
-            "Las Vegas arrives with the matchup history: the Aces won all three regular-season meetings. They also arrive with A’ja Wilson coming off 36 points and 10 rebounds in the closeout against Indiana. Golden State has home court, but Vegas has the most proven postseason closer in the series.",
-            "Game 1 is 4:00 p.m. ET on NBC and Peacock at Chase Center. Golden State’s question is not simply how to guard Wilson. It is how to send enough help without letting Chelsea Gray and Jackie Young turn every rotation into an advantage."
+            "The Liberty made 11 threes, hit all 15 free throws and received 27 points from Ionescu. Jonquel Jones added 12 points, 11 rebounds and five blocks. Those are workable ingredients for a road playoff win.",
+            "The failure was getting enough clean possessions to let those ingredients matter. New York committed 21 turnovers, and Atlanta scored 32 points from them. The Dream took six more field-goal attempts and generated 18 fast-break points while holding New York scoreless in transition.",
+            "Stewart’s 19 points and Ionescu’s shotmaking kept New York attached, but Atlanta repeatedly made the Liberty start offense late, sideways or after recovering from a trap. Game 2 begins with ball security, not shot selection."
           ]
         },
         {
-          "title": "The Sunday watch list",
+          "title": "The Wednesday adjustment window",
           "paragraphs": [
-            "At 2 ET: watch Atlanta’s first trap, New York’s three-point volume, the Reese-Jones rebounding battle and whether Stewart can punish switches before help arrives.",
-            "At 4 ET: watch Wilson’s touches at the nail and elbow, Golden State’s foul discipline, Williams as a secondary creator and whether the Valkyries can keep Vegas out of the controlled half-court finish it prefers.",
-            "The first three dates are locked: Game 1 Sunday, Oct. 4; Game 2 Wednesday, Oct. 7; Game 3 Friday, Oct. 9. Atlanta and Golden State host the first two, then the series shift to New York and Las Vegas. The best-of-five uses a 2-2-1 home pattern."
+            "New York has three days to build cleaner outlets against the first trap, reduce the live-ball giveaways and make Atlanta defend deeper into the possession. The Liberty do not need to abandon their frontcourt advantage; they need to reach it without donating transition offense.",
+            "Atlanta’s counter is to keep the pressure connected even if New York protects the ball better. The Dream can also ask whether the 23-point Bonner burst can become a repeatable matchup edge rather than a one-game surprise.",
+            "Game 2 is Wednesday, Oct. 7 at 7:30 p.m. ET on ESPN in Atlanta. Game 3 shifts to New York on Friday, Oct. 9 at 7:30 p.m. ET on ESPN2. The best-of-five uses a 2-2-1 home pattern, and the Dream are two wins from the Finals."
           ]
         }
       ],
       "sources": [
         {
-          "label": "WNBA recap: Wings 108, Valkyries 100 (OT)",
-          "url": "https://www.wnba.com/news/2026-playoffs-valkyries-wings-game-2-recap"
+          "label": "WNBA official box score: Dream 92, Liberty 82",
+          "url": "https://www.wnba.com/game/1042600201"
         },
         {
-          "label": "WNBA recap: Valkyries 77, Wings 73",
-          "url": "https://www.wnba.com/news/2026-playoffs-wings-valkyries-game-3-recap"
+          "label": "WNBA video: Jordin Canada records five steals vs. New York",
+          "url": "https://www.wnba.com/watch/video/jordin-canada-with-5-steals-vs-new-york-liberty"
         },
         {
-          "label": "WNBA recap: Aces 94, Fever 83",
-          "url": "https://www.wnba.com/webview/news/2026-playoffs-fever-aces-game-3-recap"
+          "label": "WNBA video: Atlanta Dream top plays vs. New York",
+          "url": "https://www.wnba.com/watch/video/atlanta-dream-top-plays-vs-new-york-liberty-3"
         },
         {
           "label": "WNBA: official 2026 postseason bracket and format",
           "url": "https://www.wnba.com/playoffs/2026"
         },
         {
-          "label": "WNBA Game 1: Liberty at Dream",
-          "url": "https://www.wnba.com/game/1042600201"
+          "label": "WNBA video: Rhyne Howard’s eight-assist Game 1",
+          "url": "https://www.wnba.com/watch/video/highlights-from-rhyne-howard-8-assist-game-4"
+        },
+        {
+          "label": "WNBA video: Sabrina Ionescu’s 27-point Game 1",
+          "url": "https://www.wnba.com/watch/video/sabrina-ionescu-points-leader-in-atlanta-dream-vs-new-york-liberty-top-points"
         },
         {
           "label": "WNBA Game 1: Aces at Valkyries",
           "url": "https://www.wnba.com/game/1042600211"
-        },
-        {
-          "label": "Golden State Valkyries: semifinal schedule vs. Las Vegas",
-          "url": "https://valkyries.wnba.com/news/valkyries-aces-semifinals-wnba-playoffs-20261002"
-        },
-        {
-          "label": "Las Vegas Aces: Game 3 photo gallery",
-          "url": "https://aces.wnba.com/news/gallery-aces-94-fever-83-round-1-game-3-10-1-2026"
         }
       ],
       "dashboardUrl": "/food-for-thought.html?post=the-playoff-watch-party-2026#story",
-      "storyImage": "https://cdn.wnba.com/sites/4/2026/10/DALGSV102.png?im=AspectCrop%3D%2816%2C9%29%2CxPosition%3D.5%2CyPosition%3D.5",
-      "storyImageCaption": "Gabby Williams helped Golden State erase a 16-point deficit and beat Dallas 77-73 to claim the final semifinal berth. Official WNBA Game 3 media.",
-      "storyImageSourceUrl": "https://www.wnba.com/news/2026-playoffs-wings-valkyries-game-3-recap",
+      "storyImage": "https://cdn.wnba.com/sites/4/2026/10/c3ba69a5-3273-4a3d-b9ea-ebef203d24f5_0.jpg",
+      "storyImageCaption": "Jordin Canada scored 25 points and made five steals as Atlanta beat New York 92-82 in semifinal Game 1. Official WNBA game media.",
+      "storyImageSourceUrl": "https://www.wnba.com/watch/video/jordin-canada-with-5-steals-vs-new-york-liberty",
       "playoffWatch": {
-        "title": "SUNDAY IS SET. FOUR TEAMS. TWO GAME 1s.",
-        "subtitle": "Liberty-Dream at 2 ET on ABC. Aces-Valkyries at 4 ET on NBC/Peacock. Both semifinals are best-of-five.",
-        "asOf": "SUNDAY WATCH · OCT. 4",
+        "title": "ATLANTA 1–0. THE FIRST SEMIFINAL PUNCH LANDED.",
+        "subtitle": "Dream 92, Liberty 82. Game 2 is Wednesday at 7:30 ET on ESPN; Las Vegas-Golden State occupies the other best-of-five lane.",
+        "asOf": "GAME 1 FINAL · OCT. 4",
         "summary": [
           {
             "key": "teams",
-            "value": "4",
-            "label": "teams still alive"
+            "value": "1–0",
+            "label": "Atlanta series lead"
           },
           {
-            "value": "2",
-            "label": "semifinal Game 1s"
+            "value": "92–82",
+            "label": "Dream Game 1 win"
           },
           {
-            "value": "2 PM ET",
-            "label": "NYL at ATL · ABC"
+            "value": "32–14",
+            "label": "points off turnovers"
           },
           {
-            "value": "4 PM ET",
-            "label": "LVA at GSV · NBC/Peacock"
+            "value": "WED · 7:30",
+            "label": "Game 2 · ESPN"
           }
         ],
         "matchups": [
           {
             "id": "atl-nyl",
             "roundKey": "Semifinals",
-            "roundLabel": "SEMIFINALS · GAME 1",
+            "roundLabel": "SEMIFINALS · GAME 1 FINAL",
             "highSeed": 4,
             "highTeam": "Atlanta Dream",
             "highRecord": "30-14",
@@ -1203,9 +1199,9 @@
             "lowTeam": "New York Liberty",
             "lowRecord": "26-18",
             "regularSeries": "ATL 2-1",
-            "series": "0-0",
-            "seriesNote": "BEST OF 5 · ATLANTA HOME COURT",
-            "nextGame": "Sun, Oct. 4 · 2:00 PM ET · ABC · State Farm Arena",
+            "series": "1-0",
+            "seriesNote": "ATLANTA LEADS · FIRST TO 3",
+            "nextGame": "Wed, Oct. 7 · 7:30 PM ET · ESPN · State Farm Arena",
             "stars": [
               "Angel Reese",
               "Breanna Stewart"
@@ -1214,12 +1210,12 @@
               "https://cdn.wnba.com/headshots/wnba/latest/260x190/1642291.png",
               "https://cdn.wnba.com/headshots/wnba/latest/260x190/1627668.png"
             ],
-            "hot": "New York became the first No. 8 seed to eliminate a No. 1 seed, beating Minnesota by 16 twice. Atlanta swept Washington and enters on a seven-game winning streak.",
-            "bench": "Atlanta can change frontcourt looks with Naz Hillmon and DeWanna Bonner; New York’s Leonie Fiebich adds length and spacing.",
-            "availability": "Game 1: Sun. Oct. 4, 2 ET on ABC. Game 2: Wed. Oct. 7, 7:30 ET on ESPN. Game 3 shifts to New York on Fri. Oct. 9, 7:30 ET on ESPN2.",
-            "beat": "Atlanta wants pressure, turnovers and open-floor offense. New York wants Stewart and Jonquel Jones turning the half court into a size-and-spacing problem.",
-            "break": "Atlanta must finish defensive possessions against New York’s frontcourt. New York cannot let Atlanta’s first trap trigger rushed second and third passes.",
-            "must": "Watch the glass, Atlanta’s ball pressure and whether New York’s 40.4% postseason three-point shooting travels.",
+            "hot": "Atlanta won Game 1, 92-82, behind Canada’s 25 points and five steals, Bonner’s 23 points and nine rebounds, and a 32-14 edge in points off turnovers.",
+            "bench": "Bonner outscored New York’s entire bench 23-6 by herself. The Liberty need a second-unit scoring answer without weakening their ball security.",
+            "availability": "Game 1: ATL 92, NYL 82. Game 2: Wed. Oct. 7, 7:30 ET on ESPN. Game 3 shifts to New York on Fri. Oct. 9, 7:30 ET on ESPN2.",
+            "beat": "Atlanta turned pressure into 14 steals, 18 fast-break points and 32 points off turnovers. New York still made 11 threes and all 15 free throws, but it could not overcome 21 giveaways.",
+            "break": "New York must create safer first outlets against the trap and reach Stewart and Jones earlier. Atlanta must keep forcing decisions even if the live-ball turnover count regresses.",
+            "must": "Game 2 starts with possession quality: can the Liberty cut 21 turnovers without losing the spacing that produced 11 threes?",
             "highCode": "ATL",
             "lowCode": "NYL",
             "highWScore": 89,
@@ -1259,7 +1255,7 @@
             "lowWScore": 88
           }
         ],
-        "scoreMethod": "The W Score is a regular-season composite. Live series records, final scores and next games refresh from the postseason feed."
+        "scoreMethod": "The W Score is a regular-season composite. Game 1 final, series record and Game 2 details are synced to the official WNBA postseason feed."
       },
       "awardFallout": {
         "eyebrow": "COACH OF THE YEAR + ROOKIE OF THE YEAR",
@@ -1311,13 +1307,13 @@
         "note": "Analysis note: WNBA Coach of the Year and Rookie of the Year are regular-season awards. Their postseason elimination does not alter the official voting result."
       },
       "debates": [
-        "Can New York’s frontcourt punish Atlanta’s pressure before the Dream turn the game into a track meet?",
-        "Does Atlanta’s 2-1 regular-season edge survive a longer best-of-five chess match?",
+        "Can New York cut 21 turnovers without losing the spacing that produced 11 threes?",
+        "Can Bonner repeat a 23-point bench swing, or does New York force Atlanta’s starters to carry more of Game 2?",
         "Can Golden State layer enough help at A’ja Wilson without giving Chelsea Gray and Jackie Young clean reads?",
-        "How much does home court matter after both semifinal road teams just survived winner-take-all games?"
+        "How aggressively should Atlanta keep trapping once New York changes its first outlet?"
       ],
-      "imageFallback": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1628931.png",
-      "storyImageFallback": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1628931.png"
+      "imageFallback": "https://cdn.wnba.com/logos/wnba/1611661330/primary/L/logo.svg",
+      "storyImageFallback": "https://cdn.wnba.com/logos/wnba/1611661330/primary/L/logo.svg"
     },
     {
       "slug": "farewell-connecticut-sun-2026",

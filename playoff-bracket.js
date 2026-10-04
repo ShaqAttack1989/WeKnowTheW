@@ -131,7 +131,11 @@
     return `${teamMeta(game.awayTeam).code} ${game.awayScore}–${game.homeScore} ${teamMeta(game.homeTeam).code}`;
   }
   function seriesLabel(a,b,state){
-    if(state.winner)return`${teamMeta(state.winner).code} advances ${state.aWins}-${state.bWins}`;
+    if(state.winner){
+      const winnerWins=state.winner===a?state.aWins:state.bWins;
+      const loserWins=state.winner===a?state.bWins:state.aWins;
+      return`${teamMeta(state.winner).code} advances ${winnerWins}-${loserWins}`;
+    }
     if(state.aWins===state.bWins)return`Tied ${state.aWins}-${state.bWins}`;
     const leader=state.aWins>state.bWins?a:b;
     return`${teamMeta(leader).code} leads ${Math.max(state.aWins,state.bWins)}-${Math.min(state.aWins,state.bWins)}`;

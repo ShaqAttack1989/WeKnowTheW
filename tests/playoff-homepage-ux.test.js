@@ -26,7 +26,7 @@ test('Homepage scoreboard trusts a published tip time over a stale TBD status',(
 
 test('Global scoreboard is installed by the shared site shell and refreshes the full slate',()=>{
   const site=read('site.js'),scoreboard=read('global-scoreboard.js');
-  assert.match(site,/global-scoreboard\.js\?v=20261004-atl-g1-v1/);
+  assert.match(site,/global-scoreboard\.js\?v=20261004-both-g1-v2/);
   assert.match(site,/global-scoreboard\.css\?v=20261003-readable-ribbon-v5/);
   assert.match(scoreboard,/livePayload\.todayGames\|\|livePayload\.games/);
   assert.match(scoreboard,/setInterval\(\(\)=>\{if\(!document\.hidden\)refreshLive\(\);\},10000\)/);
@@ -62,8 +62,8 @@ test('Homepage orders the live semifinal update, Draft Watch and bracket with th
   const draft=html.indexOf('href="/wnba-draft-class-rankings.html"');
   const seasonal=html.indexOf('data-season=');
   assert.ok(seasonal>0&&draft>seasonal&&bracket>draft);
-  assert.match(html,/Atlanta strikes first/);
-  assert.match(html,/NYL 82 · ATL 92 · DREAM LEAD 1–0/);
+  assert.match(html,/Home court held/);
+  assert.match(html,/ATL 92–82 NYL · GSV 71–60 LVA/);
   assert.match(html,/c3ba69a5-3273-4a3d-b9ea-ebef203d24f5_0\.jpg/);
 });
 

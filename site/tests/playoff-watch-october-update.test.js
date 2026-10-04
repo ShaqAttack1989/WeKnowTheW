@@ -11,14 +11,14 @@ const guide=latest.posts.find(post=>post.slug==='the-playoff-watch-party-2026');
 test('playoff watch guide is refreshed for both best-of-five semifinals',()=>{
   assert.ok(guide);
   assert.equal(guide.updated,'2026-10-04');
-  assert.match(guide.title,/Atlanta Lands the First Semifinal Punch/);
+  assert.match(guide.title,/Home Court Held/);
   assert.equal(guide.playoffWatch.matchups.length,2);
   assert.deepEqual(guide.playoffWatch.matchups.map(item=>item.id),['atl-nyl','gsv-lva']);
   assert.ok(guide.playoffWatch.matchups.every(item=>item.roundKey==='Semifinals'));
   assert.equal(guide.playoffWatch.matchups.find(item=>item.id==='atl-nyl').series,'1-0');
-  assert.equal(guide.playoffWatch.matchups.find(item=>item.id==='gsv-lva').series,'0-0');
+  assert.equal(guide.playoffWatch.matchups.find(item=>item.id==='gsv-lva').series,'1-0');
   assert.match(guide.playoffWatch.matchups.find(item=>item.id==='atl-nyl').seriesNote,/ATLANTA LEADS/);
-  assert.match(guide.playoffWatch.matchups.find(item=>item.id==='gsv-lva').seriesNote,/BEST OF 5/);
+  assert.match(guide.playoffWatch.matchups.find(item=>item.id==='gsv-lva').seriesNote,/GOLDEN STATE LEADS/);
   assert.match(guide.playoffWatch.matchups.find(item=>item.id==='atl-nyl').availability,/Oct\. 7, 7:30 ET on ESPN/);
   assert.match(guide.playoffWatch.matchups.find(item=>item.id==='atl-nyl').availability,/Oct\. 9, 7:30 ET on ESPN2/);
   assert.match(guide.playoffWatch.matchups.find(item=>item.id==='gsv-lva').availability,/Oct\. 7, 9:30 ET/);
@@ -59,7 +59,7 @@ test('fallback feeds carry Atlanta-New York Game 1 final and the remaining semif
     assert.match(source,/id:'1042600201'.*homeScore:92,awayScore:82.*status:'Final'.*completed:true/);
     assert.match(source,/2026-atl-nyl-sf-g2/);
     assert.match(source,/2026-nyl-atl-sf-g3/);
-    assert.match(source,/2026-gsv-lva-sf-g1/);
+    assert.match(source,/1042600211/);
     assert.match(source,/2026-gsv-lva-sf-g2/);
     assert.match(source,/2026-lva-gsv-sf-g3/);
   }

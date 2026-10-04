@@ -10,7 +10,7 @@ test('global scoreboard bootstraps the current semifinal slate before network fe
   const source=read('global-scoreboard.js');
   assert.match(source,/BOOTSTRAP_PLAYOFF_GAMES/);
   assert.match(source,/id:'1042600201'.*homeScore:92,awayScore:82.*status:'Final'.*completed:true/);
-  assert.match(source,/2026-gsv-lva-sf-g1/);
+  assert.match(source,/1042600211/);
   assert.match(source,/2026-nyl-atl-sf-g4/);
   assert.match(source,/2026-gsv-lva-sf-g5/);
   assert.match(source,/render\(\);\s*refreshBase\(\);refreshLive\(\);/);

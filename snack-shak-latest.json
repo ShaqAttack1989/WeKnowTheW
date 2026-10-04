@@ -970,14 +970,14 @@
       "priority": 7600,
       "homepageSeason": "wnba-playoffs",
       "seriesLabel": "FOOD FOR THOUGHT · PLAYOFF WATCH GUIDE",
-      "title": "Atlanta Lands the First Semifinal Punch: Canada and Bonner Put New York Down 1–0",
+      "title": "Home Court Held: Dream and Valkyries Take 1–0 Semifinal Leads",
       "published": "2026-10-02",
       "updated": "2026-10-04",
-      "week": "Semifinals · Atlanta leads 1–0",
+      "week": "Semifinals · Atlanta and Golden State lead 1–0",
       "image": "https://cdn.wnba.com/sites/4/2026/10/c3ba69a5-3273-4a3d-b9ea-ebef203d24f5_0.jpg",
       "imageFit": "top-cover",
       "imageAlt": "Jordin Canada pressures the New York Liberty during Atlanta's semifinal Game 1 win",
-      "dek": "Atlanta turned 21 New York turnovers into 32 points and won semifinal Game 1, 92-82. Jordin Canada scored 25 with five steals, DeWanna Bonner added 23 points and nine rebounds off the bench, and the Dream carry a 1-0 lead into Wednesday’s Game 2.",
+      "dek": "Atlanta beat New York 92-82, then Golden State held Las Vegas to 60 in a 71-60 win. Gabby Williams delivered 25 points, 11 rebounds and five assists; both home teams carry 1-0 leads into Wednesday’s Game 2 doubleheader.",
       "playoffGameOne": {
         "ariaLabel": "Atlanta-New York Game 1 final, player lines and semifinal schedule",
         "eyebrow": "SEMIFINALS · GAME 1 FINAL",
@@ -1122,6 +1122,15 @@
           ]
         },
         {
+          "title": "Golden State made the Aces play its game",
+          "paragraphs": [
+            "The regular-season sweep belonged to Las Vegas. The semifinal opener belonged to Golden State, 71-60. Williams finished with 25 points, 11 rebounds and five assists on 9-of-18 shooting, including four threes.",
+            "The possession margin came from the glass. Golden State had 17 individual offensive rebounds to Las Vegas’s two and won second-chance points 20-5. Kayla Thornton pulled down 11 rebounds, five offensive, while the Valkyries won paint scoring 34-18.",
+            "The bench supplied another 20-point gap, 27-7. Chen scored 11 and Gueye nine. Wilson’s 24, Gray’s 16 and Young’s 11 accounted for 51 of the Aces’ 60; Las Vegas shot 33.9 percent overall. Game 2 needs better shot quality and more support around that core.",
+            "Golden State leads 1-0 and stays home for Wednesday, Oct. 7 at 9:30 p.m. ET on Peacock/NBC Sports Network. This is one win toward three, not an elimination: all four semifinal teams remain alive. No new historical record is claimed without an official record citation."
+          ]
+        },
+        {
           "title": "The Wednesday adjustment window",
           "paragraphs": [
             "New York has three days to build cleaner outlets against the first trap, reduce the live-ball giveaways and make Atlanta defend deeper into the possession. The Liberty do not need to abandon their frontcourt advantage; they need to reach it without donating transition offense.",
@@ -1158,6 +1167,10 @@
         {
           "label": "WNBA Game 1: Aces at Valkyries",
           "url": "https://www.wnba.com/game/1042600211"
+        },
+        {
+          "label": "WNBA official Game 1 box score: Valkyries 71, Aces 60",
+          "url": "https://www.wnba.com/game/1042600211"
         }
       ],
       "dashboardUrl": "/food-for-thought.html?post=the-playoff-watch-party-2026#story",
@@ -1165,26 +1178,25 @@
       "storyImageCaption": "Jordin Canada scored 25 points and made five steals as Atlanta beat New York 92-82 in semifinal Game 1. Official WNBA game media.",
       "storyImageSourceUrl": "https://www.wnba.com/watch/video/jordin-canada-with-5-steals-vs-new-york-liberty",
       "playoffWatch": {
-        "title": "ATLANTA 1–0. THE FIRST SEMIFINAL PUNCH LANDED.",
-        "subtitle": "Dream 92, Liberty 82. Game 2 is Wednesday at 7:30 ET on ESPN; Las Vegas-Golden State occupies the other best-of-five lane.",
-        "asOf": "GAME 1 FINAL · OCT. 4",
+        "title": "DREAM 1–0. VALKYRIES 1–0. HOME COURT HELD.",
+        "subtitle": "Atlanta 92, New York 82. Golden State 71, Las Vegas 60. Both semifinal Game 2s are Wednesday, Oct. 7: 7:30 ET in Atlanta and 9:30 ET at Chase Center.",
+        "asOf": "BOTH GAME 1 FINALS · OCT. 4",
         "summary": [
           {
-            "key": "teams",
             "value": "1–0",
             "label": "Atlanta series lead"
           },
           {
-            "value": "92–82",
-            "label": "Dream Game 1 win"
+            "value": "1–0",
+            "label": "Golden State series lead"
           },
           {
-            "value": "32–14",
-            "label": "points off turnovers"
+            "value": "71–60",
+            "label": "Valkyries Game 1 win"
           },
           {
-            "value": "WED · 7:30",
-            "label": "Game 2 · ESPN"
+            "value": "WED · OCT 7",
+            "label": "Game 2 doubleheader"
           }
         ],
         "matchups": [
@@ -1224,7 +1236,7 @@
           {
             "id": "gsv-lva",
             "roundKey": "Semifinals",
-            "roundLabel": "SEMIFINALS · GAME 1",
+            "roundLabel": "SEMIFINALS · GAME 1 FINAL",
             "highSeed": 2,
             "highTeam": "Golden State Valkyries",
             "highRecord": "32-12",
@@ -1232,9 +1244,9 @@
             "lowTeam": "Las Vegas Aces",
             "lowRecord": "31-13",
             "regularSeries": "LVA 3-0",
-            "series": "0-0",
-            "seriesNote": "BEST OF 5 · GOLDEN STATE HOME COURT",
-            "nextGame": "Sun, Oct. 4 · 4:00 PM ET · NBC/Peacock · Chase Center",
+            "series": "1-0",
+            "seriesNote": "GOLDEN STATE LEADS · FIRST TO 3",
+            "nextGame": "Wed, Oct. 7 · 9:30 PM ET · Peacock/NBC Sports Network · Chase Center",
             "stars": [
               "Gabby Williams",
               "A'ja Wilson"
@@ -1243,12 +1255,12 @@
               "https://cdn.wnba.com/headshots/wnba/latest/260x190/1628931.png",
               "https://cdn.wnba.com/headshots/wnba/latest/260x190/1628932.png"
             ],
-            "hot": "Golden State closed Game 3 against Dallas on a 40-20 run after trailing by 16. Williams scored 17 of her 19 after halftime. Wilson enters off a 36-point, 10-rebound closeout against Indiana.",
-            "bench": "Golden State’s depth and defensive versatility meet a Vegas core that got 23 from Chelsea Gray and 18-8-7 from Jackie Young in its Game 3 closeout.",
-            "availability": "Game 1: Sun. Oct. 4, 4 ET on Peacock/NBC. Game 2: Wed. Oct. 7, 9:30 ET on Peacock/NBC Sports Network. Game 3 shifts to Las Vegas on Fri. Oct. 9, 9:30 ET.",
-            "beat": "Golden State needs to make Wilson work through multiple bodies without opening clean Gray/Young reads. Vegas can test whether the Valkyries’ comeback defense survives against a more experienced closing group.",
-            "break": "Las Vegas swept all three regular-season meetings, but the most recent was June 21. Golden State is not the same playoff team it was before surviving Dallas.",
-            "must": "The central matchup is Wilson against Golden State’s layered frontcourt defense, with Williams’ two-way creation the pressure release at the other end.",
+            "hot": "Gabby Williams led Golden State with 25 points, 11 rebounds and five assists, making four of seven threes. The Valkyries held Las Vegas to 60 points and 33.9 percent shooting.",
+            "bench": "Golden State won bench scoring 27-7. Kaitlyn Chen scored 11 and Aminata Gueye added nine in 12:32; Vegas received seven points from its reserves.",
+            "availability": "Game 1 final: GSV 71, LVA 60. Game 2: Wed. Oct. 7, 9:30 ET at Chase Center. Game 3 shifts to Las Vegas on Fri. Oct. 9, 9:30 ET.",
+            "beat": "Golden State won second-chance points 20-5 and points in the paint 34-18. Williams supplied the creation while the frontcourt kept possessions alive.",
+            "break": "Las Vegas committed only six turnovers, but shot 21-of-62 and collected just two individual offensive rebounds. Protecting the ball did not solve the missed-shot and rebounding problem.",
+            "must": "Wilson scored 24, Gray 16 and Young 11. Vegas needs more efficient two-point offense and a bench answer; Golden State must keep Williams supported when the Aces adjust.",
             "highCode": "GSV",
             "lowCode": "LVA",
             "highWScore": 77,
@@ -1309,7 +1321,7 @@
       "debates": [
         "Can New York cut 21 turnovers without losing the spacing that produced 11 threes?",
         "Can Bonner repeat a 23-point bench swing, or does New York force Atlanta’s starters to carry more of Game 2?",
-        "Can Golden State layer enough help at A’ja Wilson without giving Chelsea Gray and Jackie Young clean reads?",
+        "Can Las Vegas close a 20-5 second-chance gap and a 27-7 bench gap in Game 2?",
         "How aggressively should Atlanta keep trapping once New York changes its first outlet?"
       ],
       "imageFallback": "https://cdn.wnba.com/logos/wnba/1611661330/primary/L/logo.svg",

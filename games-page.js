@@ -152,7 +152,7 @@ document.querySelectorAll('[data-games-competition]').forEach(button=>button.add
   document.querySelectorAll('[data-games-competition]').forEach(b=>{const on=b===button;b.classList.toggle('active',on);b.setAttribute('aria-pressed',String(on));});
   const note=document.getElementById('gamesCompetitionNote');
   if(gamesCompetition==='cup'){gamesMode='past';if(note)note.textContent='2026 Cup complete · New York Liberty champions · pool play June 1–17, championship June 30';}
-  else if(gamesCompetition==='playoffs'){gamesMode=bestPlayoffMode();if(note)note.textContent=gamesMode==='live'?'Playoffs live now · scores refresh automatically':gamesMode==='upcoming'?'Semifinals underway · Game 2 doubleheader Oct. 7':'Atlanta leads New York 1-0 · semifinal Game 1 final';}
+  else if(gamesCompetition==='playoffs'){gamesMode=bestPlayoffMode();if(note)note.textContent=gamesMode==='live'?'Playoffs live now · scores refresh automatically':gamesMode==='upcoming'?'Semifinals underway · Game 2 doubleheader Oct. 7':'Atlanta and Golden State lead 1-0 · both semifinal Game 1 finals';}
   else if(note)note.textContent='Regular-season schedule · where to watch from WNBA.com';
   renderGames();
 }));
@@ -188,7 +188,7 @@ async function loadGames(initial=false){
       const hasLive=gamesMode==='live',hasUpcoming=gamesMode==='upcoming';
       document.querySelectorAll('[data-games-competition]').forEach(button=>{const on=button.dataset.gamesCompetition==='playoffs';button.classList.toggle('active',on);button.setAttribute('aria-pressed',String(on));});
       const note=document.getElementById('gamesCompetitionNote');
-      if(note)note.textContent=hasLive?'Playoffs live now · scores refresh automatically':hasUpcoming?'Semifinals underway · Game 2 doubleheader Oct. 7':'Atlanta leads New York 1-0 · semifinal Game 1 final';
+      if(note)note.textContent=hasLive?'Playoffs live now · scores refresh automatically':hasUpcoming?'Semifinals underway · Game 2 doubleheader Oct. 7':'Atlanta and Golden State lead 1-0 · both semifinal Game 1 finals';
     }
     WGameCards.populateFilter(document.getElementById('gamesTeamFilter'),stats);
     renderGames();

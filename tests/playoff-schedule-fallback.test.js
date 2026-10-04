@@ -53,7 +53,15 @@ test('published 2026 fallback closes Round 1 and carries Atlanta-New York Game 1
     const atlantaSeries=semifinals.find(row=>row.teamA==='Atlanta Dream'&&row.teamB==='New York Liberty');
     assert.equal(atlantaSeries.winsA,1);
     assert.equal(atlantaSeries.winsB,0);
-    assert.equal(payload.sourceVersion,'20261004-atlanta-game-one-final-v1');
+    const gsv=game('2026-10-04','Las Vegas Aces','Golden State Valkyries');
+    assert.equal(gsv.id,'1042600211');
+    assert.equal(gsv.homeScore,71);
+    assert.equal(gsv.awayScore,60);
+    assert.equal(gsv.completed,true);
+    const gsvSeries=semifinals.find(row=>row.teamA==='Golden State Valkyries');
+    assert.equal(gsvSeries.winsA,1);
+    assert.equal(gsvSeries.winsB,0);
+    assert.equal(payload.sourceVersion,'20261004-both-semifinal-openers-final-v1');
   }finally{
     global.fetch=originalFetch;
   }

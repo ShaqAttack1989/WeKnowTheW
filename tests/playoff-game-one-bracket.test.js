@@ -12,7 +12,7 @@ test('the playoff watch guide carries Atlanta-New York Game 1 receipts and offic
   assert.ok(post);
   assert.equal(post.published,'2026-10-02');
   assert.equal(post.updated,'2026-10-04');
-  assert.match(post.title,/Atlanta Lands the First Semifinal Punch/);
+  assert.match(post.title,/Home Court Held/);
   assert.equal(post.playoffGameOne.receipts.length,6);
   assert.equal(post.playoffGameOne.highlights.length,4);
   assert.ok(post.playoffGameOne.highlights.every(item=>/^https:\/\/cdn\.wnba\.com\//.test(item.photo)));

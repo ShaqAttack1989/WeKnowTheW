@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-05T08:30:00-04:00",
+  "updatedAt": "2026-10-05T10:05:00-04:00",
   "timezone": "America/New_York",
   "startingFive": [
     {
@@ -44,6 +44,52 @@
           "role": "Center",
           "statLine": "32.0 PPG · First round",
           "copy": "Wilson anchors the five with elite scoring and two-way responsibility, carrying Las Vegas through the first round and scoring 24 in the semifinal opener.",
+          "photo": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1628932.png"
+        }
+      ]
+    },
+    {
+      "week": "2026-09-28",
+      "edition": "WNBA PLAYOFFS",
+      "picks": [
+        {
+          "name": "Paige Bueckers",
+          "label": "1 · PG",
+          "role": "Point Guard",
+          "statLine": "20.9 PPG · 5.9 APG · W score 95",
+          "copy": "Bueckers organizes the five with scoring craft, steady creation and just 2.2 turnovers per game.",
+          "photo": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1642784.png"
+        },
+        {
+          "name": "Kelsey Mitchell",
+          "label": "2 · SG",
+          "role": "Shooting Guard",
+          "statLine": "24.7 PPG · 64.2% TS",
+          "copy": "Mitchell stretches defenses with sustained scoring and 3.1 made threes per game.",
+          "photo": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1628909.png"
+        },
+        {
+          "name": "Breanna Stewart",
+          "label": "3 · SF",
+          "role": "Small Forward",
+          "statLine": "20.8 PPG · 8.3 RPG · W score 94",
+          "copy": "Stewart brings frontcourt versatility and wing creation after New York opened its first-round series with a win.",
+          "photo": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1628854.png"
+        },
+        {
+          "name": "Angel Reese",
+          "label": "4 · PF",
+          "role": "Power Forward",
+          "statLine": "16.4 PPG · 12.1 RPG · 1.8 SPG",
+          "copy": "Reese creates extra possessions with league-leading rebounding and disruptive defense.",
+          "photo": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1642291.png"
+        },
+        {
+          "name": "A'ja Wilson",
+          "label": "5 · C",
+          "role": "Center",
+          "statLine": "26.2 PPG · 1.9 BPG",
+          "copy": "Wilson anchors the five after leading the regular season in scoring and blocks and opening the playoffs with a Las Vegas win.",
           "photo": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1628932.png"
         }
       ]
@@ -313,6 +359,60 @@
           "statLine": "14 REB · 4 BLK · Semifinal Game 1",
           "why": "Stokes changes possessions with rim protection and relentless rebounding, supplying the interior activity that powers Golden State's defense.",
           "photo": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/204329.png"
+        }
+      ]
+    },
+    {
+      "week": "2026-09-28",
+      "edition": "WNBA PLAYOFFS",
+      "picks": [
+        {
+          "role": "Sixth Woman",
+          "roleId": "sixth-woman",
+          "name": "Kiki Rice",
+          "statLine": "13.4 PPG · 3.5 APG · 58.9% TS",
+          "why": "Rice brings scoring and secondary creation to lift the second unit.",
+          "photo": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1643445.png"
+        },
+        {
+          "role": "Microwave Scorer",
+          "roleId": "microwave",
+          "name": "Tiffany Hayes",
+          "statLine": "9.0 PPG · 17.0 MPG · 19.2 PER",
+          "why": "Hayes supplies efficient instant offense and veteran downhill pressure in a compact minutes load.",
+          "photo": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/203026.png"
+        },
+        {
+          "role": "3 & D Wing",
+          "roleId": "three-d",
+          "name": "Allisha Gray",
+          "statLine": "19.0 PPG · 1.4 SPG · W score 90",
+          "why": "Gray combines shooting pressure with reliable perimeter defense and lineup flexibility.",
+          "photo": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1628277.png"
+        },
+        {
+          "role": "Glue Player · Floor General",
+          "roleId": "glue",
+          "name": "Chelsea Gray",
+          "statLine": "6.7 APG · 1.4 SPG",
+          "why": "Gray steadies the group with precise half-court organization and playoff-tested decision making.",
+          "photo": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/203833.png"
+        },
+        {
+          "role": "Backup Floor General",
+          "roleId": "backup-pg",
+          "name": "Veronica Burton",
+          "statLine": "12.2 PPG · 5.7 APG · W score 91",
+          "why": "Burton supplies ball pressure and clean creation while limiting turnovers to 1.5 per game.",
+          "photo": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1631007.png"
+        },
+        {
+          "role": "Energy Big",
+          "roleId": "energy-big",
+          "name": "Awak Kuier",
+          "statLine": "1.8 BPG · 61.5% TS",
+          "why": "Kuier brings mobile rim protection and efficient finishing to the second-unit frontcourt.",
+          "photo": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1630386.png"
         }
       ]
     },

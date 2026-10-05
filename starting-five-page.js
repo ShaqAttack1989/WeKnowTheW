@@ -72,7 +72,7 @@ function sHonorableCard(item,byName){
   </a>`;
 }
 
-function sArchiveWeek(rotation,byName){
+function sArchiveWeek(rotation,byName,honorable=[]){
   const picks=Array.isArray(rotation.picks)?rotation.picks:[];
   const rows=picks.map(item=>{
     const player=byName.get(sKey(item.name))||{};
@@ -80,15 +80,16 @@ function sArchiveWeek(rotation,byName){
     const link=sLink(item);
     return `<a class="rotation-archive-player" href="${sSafe(link.href)}"${link.target}><span>${sSafe(item.name)}</span><small>${sSafe(meta)}</small></a>`;
   }).join('');
-  return `<details class="rotation-archive-week"><summary><span>Week of ${sSafe(sWeekLabel(rotation.week))}</span><b>${picks.length} players</b></summary><div class="rotation-archive-players">${rows}</div></details>`;
+  const mentions=honorable.length?`<section id="honorable-mention"><h3>All FIBA Honorable Mention · ${sSafe(sWeekLabel(rotation.week))}</h3><div class="portal-grid featured-player-grid">${honorable.map(item=>sHonorableCard(item,byName)).join('')}</div></section>`:'';
+  return `<details class="rotation-archive-week"><summary><span>Week of ${sSafe(sWeekLabel(rotation.week))}</span><b>${picks.length} players</b></summary><div class="rotation-archive-players">${rows}</div>${mentions}</details>`;
 }
 
-function sRenderHonorable(historyPayload,byName){
+function sRenderHonorable(historyPayload,byName,currentWeek){
   const archive=document.getElementById('rotation-archive');
   if(!archive)return;
   const editions=Array.isArray(historyPayload.honorableMention)?[...historyPayload.honorableMention]:[];
   editions.sort((a,b)=>String(b.week||'').localeCompare(String(a.week||'')));
-  const current=editions[0];
+  const current=editions.find(edition=>edition.week===currentWeek);
   if(!current||!Array.isArray(current.picks)||!current.picks.length)return;
   let section=document.getElementById('honorable-mention');
   if(!section){
@@ -125,10 +126,10 @@ async function renderStartingFive(){
   const edition=current.edition?` · ${current.edition}`:'';
   if(summary)summary.textContent=`Week of ${sWeekLabel(current.week)}${edition} · Five roles, one playable lineup.`;
   grid.innerHTML=picks.map(item=>sCurrentCard(item,byName)).join('')+`<article class="portal-card lime"><span class="portal-label">${sSafe(current.edition||'THIS WEEK’S FIVE')}</span><strong>Built for fit, not just fame.</strong><p>This five balances creation, defense, size, rebounding and current production.</p></article>`;
-  sRenderHonorable(historyPayload,byName);
+  sRenderHonorable(historyPayload,byName,current.week);
   if(archive){
     const past=rotations.slice(1);
-    archive.innerHTML=past.length?past.map(rotation=>sArchiveWeek(rotation,byName)).join(''):`<div class="rotation-empty"><strong>The archive starts here.</strong><p>This five will move into Past Starting Fives when the next Monday rotation is published.</p></div>`;
+    archive.innerHTML=past.length?past.map(rotation=>sArchiveWeek(rotation,byName,(historyPayload.honorableMention||[]).find(edition=>edition.week===rotation.week)?.picks||[])).join(''):`<div class="rotation-empty"><strong>The archive starts here.</strong><p>This five will move into Past Starting Fives when the next Monday rotation is published.</p></div>`;
   }
 }
 

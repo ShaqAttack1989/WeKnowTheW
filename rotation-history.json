@@ -1,7 +1,53 @@
 {
-  "updatedAt": "2026-09-22T03:30:00-04:00",
+  "updatedAt": "2026-10-05T08:30:00-04:00",
   "timezone": "America/New_York",
   "startingFive": [
+    {
+      "week": "2026-10-05",
+      "edition": "WNBA PLAYOFFS",
+      "picks": [
+        {
+          "name": "Jordin Canada",
+          "label": "1 · PG",
+          "role": "Point Guard",
+          "statLine": "25 PTS · 5 STL · 4 AST · Semifinal Game 1",
+          "copy": "Canada sets the pace with pressure defense and decisive creation, following a first-round clincher with a dominant semifinal opener.",
+          "photo": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1628886.png"
+        },
+        {
+          "name": "Allisha Gray",
+          "label": "2 · SG",
+          "role": "Shooting Guard",
+          "statLine": "22 PTS · 4 STL · First-round clincher",
+          "copy": "Gray balances the backcourt with scoring range and dependable perimeter defense, giving Atlanta another weapon beside Canada's creation.",
+          "photo": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1628277.png"
+        },
+        {
+          "name": "Gabby Williams",
+          "label": "3 · SF",
+          "role": "Small Forward",
+          "statLine": "25 PTS · 11 REB · 5 AST · Semifinal Game 1",
+          "copy": "Williams brings downhill creation, rebounding and versatile defense after powering Golden State through its first-round clincher and semifinal opener.",
+          "photo": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1628931.png"
+        },
+        {
+          "name": "Angel Reese",
+          "label": "4 · PF",
+          "role": "Power Forward",
+          "statLine": "17 PTS · 7 REB · 4 STL · 3 BLK · Semifinal Game 1",
+          "copy": "The Defensive Player of the Year supplies extra possessions and paint protection, giving the frontcourt a relentless physical presence.",
+          "photo": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1642291.png"
+        },
+        {
+          "name": "A'ja Wilson",
+          "label": "5 · C",
+          "role": "Center",
+          "statLine": "32.0 PPG · First round",
+          "copy": "Wilson anchors the five with elite scoring and two-way responsibility, carrying Las Vegas through the first round and scoring 24 in the semifinal opener.",
+          "photo": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1628932.png"
+        }
+      ]
+    },
     {
       "week": "2026-09-21",
       "edition": "WNBA FINAL WEEK",
@@ -216,6 +262,60 @@
     }
   ],
   "benchMob": [
+    {
+      "week": "2026-10-05",
+      "edition": "WNBA PLAYOFFS",
+      "picks": [
+        {
+          "role": "Sixth Woman",
+          "roleId": "sixth-woman",
+          "name": "Janelle Salaün",
+          "statLine": "2026 Sixth Player of the Year",
+          "why": "Salaün brings shooting, size and dependable production off the bench after a season of 509 bench points and 93 made threes.",
+          "photo": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1642767.png"
+        },
+        {
+          "role": "Microwave Scorer",
+          "roleId": "microwave",
+          "name": "DeWanna Bonner",
+          "statLine": "23 PTS · 9 REB · Semifinal Game 1",
+          "why": "Bonner provides immediate scoring pressure and veteran composure, turning Atlanta's second unit into a decisive offensive force.",
+          "photo": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/201886.png"
+        },
+        {
+          "role": "3 & D Wing",
+          "roleId": "three-d",
+          "name": "Kayla Thornton",
+          "statLine": "11 REB · Semifinal Game 1",
+          "why": "Thornton brings physical wing defense, lineup flexibility and possession-winning rebounding to complement the group's creators.",
+          "photo": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/203866.png"
+        },
+        {
+          "role": "Glue Player · Floor General",
+          "roleId": "glue",
+          "name": "Chelsea Gray",
+          "statLine": "16 PTS · Semifinal Game 1",
+          "why": "Gray steadies possessions with playoff-tested organization, half-court control and the ability to create a quality look under pressure.",
+          "photo": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/203833.png"
+        },
+        {
+          "role": "Backup Floor General",
+          "roleId": "backup-pg",
+          "name": "Veronica Burton",
+          "statLine": "16 PTS · 10 REB · First-round clincher",
+          "why": "Burton gives the second unit a composed decision maker and disruptive defender who can direct a comeback without losing the group's shape.",
+          "photo": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1631007.png"
+        },
+        {
+          "role": "Energy Big",
+          "roleId": "energy-big",
+          "name": "Kiah Stokes",
+          "statLine": "14 REB · 4 BLK · Semifinal Game 1",
+          "why": "Stokes changes possessions with rim protection and relentless rebounding, supplying the interior activity that powers Golden State's defense.",
+          "photo": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/204329.png"
+        }
+      ]
+    },
     {
       "week": "2026-09-21",
       "edition": "WNBA FINAL WEEK",

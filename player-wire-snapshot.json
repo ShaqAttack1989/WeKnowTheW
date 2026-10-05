@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-05T15:55:32.957Z",
+  "generatedAt": "2026-10-05T22:34:31.471Z",
   "movement": {
     "latestTransactionDate": "2026-09-28",
     "transactions": [
@@ -1433,43 +1433,60 @@
     "officialPdf": "https://ak-static.cms.nba.com/referee/wnba_injury/Injury-Report_2026-10-04_11_45PM.pdf",
     "injuries": [
       {
-        "player": "Brionna Jones",
+        "player": "Allisha Gray",
         "team": "Atlanta Dream",
         "status": "OUT",
-        "reason": "Injury/Illness - Left Knee; N/A",
-        "gameDate": "10/04/2026",
-        "gameTime": "02:00 (ET)",
-        "matchup": "NYL@ATL",
+        "reason": "Hand · Gray (hand) exited to the locker room in the second quarter of Sunday's Game 1 against the Liberty and will not return, Alexa Philippou of ESPN.com reports. She'll finish with seven points (1-5 FG, 1-3 3Pt, 4-5 FT), one rebound and one steal in 11 minutes.",
         "updated": "2026-10-04",
-        "source": "Official WNBA Injury Report PDF",
-        "officialCurrentReport": true,
-        "crossCheckOnly": false
+        "returnDate": "2026-10-07",
+        "matchup": "",
+        "gameTime": "",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null,
+        "officialCurrentReport": false,
+        "crossCheckOnly": true
       },
       {
         "player": "Dana Evans",
         "team": "Las Vegas Aces",
         "status": "OUT",
-        "reason": "Injury/Illness - Right Knee; Knee",
-        "gameDate": "10/04/2026",
-        "gameTime": "04:00 (ET)",
-        "matchup": "LVA@GSV",
+        "reason": "Knee · Evans (knee) is out for Game 1 of the semifinals against the Valkyries on Sunday.",
         "updated": "2026-10-04",
-        "source": "Official WNBA Injury Report PDF",
-        "officialCurrentReport": true,
-        "crossCheckOnly": false
+        "returnDate": "2026-10-07",
+        "matchup": "",
+        "gameTime": "",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null,
+        "officialCurrentReport": false,
+        "crossCheckOnly": true
+      },
+      {
+        "player": "Jewell Loyd",
+        "team": "Las Vegas Aces",
+        "status": "OUT",
+        "reason": "Leg · Loyd suffered a left leg injury in the third quarter of Sunday's Game 1 against the Valkyries and will not return, WNBA reporter Kareem Copeland reports. She'll finish with zero points (0-2 FG, 0-2 3Pt), two rebounds and one assist in 17 minutes.",
+        "updated": "2026-10-04",
+        "returnDate": "2026-10-07",
+        "matchup": "",
+        "gameTime": "",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null,
+        "officialCurrentReport": false,
+        "crossCheckOnly": true
       },
       {
         "player": "Stephanie Talbot",
         "team": "Las Vegas Aces",
         "status": "OUT",
-        "reason": "Injury/Illness - Left Leg; Leg",
-        "gameDate": "10/04/2026",
-        "gameTime": "04:00 (ET)",
-        "matchup": "LVA@GSV",
+        "reason": "Leg · Talbot (leg) has been ruled out for Game 1 of the semifinals against the Valkyries on Sunday.",
         "updated": "2026-10-04",
-        "source": "Official WNBA Injury Report PDF",
-        "officialCurrentReport": true,
-        "crossCheckOnly": false
+        "returnDate": "2026-10-07",
+        "matchup": "",
+        "gameTime": "",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null,
+        "officialCurrentReport": false,
+        "crossCheckOnly": true
       },
       {
         "player": "Alanna Smith",
@@ -1738,6 +1755,20 @@
         "crossCheckOnly": true
       },
       {
+        "player": "Matilde Villa",
+        "team": "Atlanta Dream",
+        "status": "OUT",
+        "reason": "Coach's Decision · Villa (coach's decision) has been ruled out for Wednesday's game against New York.",
+        "updated": "2026-09-23",
+        "returnDate": "2027-05-01",
+        "matchup": "",
+        "gameTime": "",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null,
+        "officialCurrentReport": false,
+        "crossCheckOnly": true
+      },
+      {
         "player": "Natasha Cloud",
         "team": "Chicago Sky",
         "status": "OUT",
@@ -1822,11 +1853,39 @@
         "crossCheckOnly": true
       },
       {
+        "player": "Elizabeth Balogun",
+        "team": "New York Liberty",
+        "status": "OUT",
+        "reason": "Not Injury Related · Balogun (not with team) is out for Wednesday's game against the Dream.",
+        "updated": "2026-09-22",
+        "returnDate": "2027-05-01",
+        "matchup": "",
+        "gameTime": "",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null,
+        "officialCurrentReport": false,
+        "crossCheckOnly": true
+      },
+      {
         "player": "Teja Oblak",
         "team": "Portland Fire",
         "status": "OUT",
         "reason": "Knee · Oblak (knee) has been ruled out for Tuesday's game against the Valkyries.",
         "updated": "2026-09-21",
+        "returnDate": "2027-05-01",
+        "matchup": "",
+        "gameTime": "",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null,
+        "officialCurrentReport": false,
+        "crossCheckOnly": true
+      },
+      {
+        "player": "Brionna Jones",
+        "team": "Atlanta Dream",
+        "status": "OUT",
+        "reason": "Leg · Jones will miss the remainder of the season after sustaining a left leg injury against the Sun on Aug. 13, Annie Costabile of The Athletic reports.",
+        "updated": "2026-09-17",
         "returnDate": "2027-05-01",
         "matchup": "",
         "gameTime": "",
@@ -2082,17 +2141,6 @@
         "crossCheckOnly": true
       },
       {
-        "player": "Iliana Rupert",
-        "team": "Golden State Valkyries",
-        "status": "OUT FOR SEASON",
-        "reason": "Pregnancy",
-        "updated": "2026-05-28",
-        "source": "WNBA Injury Report",
-        "officialCurrentReport": false,
-        "trackedCarryover": true,
-        "seasonLongCarryover": true
-      },
-      {
         "player": "Rickea Jackson",
         "team": "Chicago Sky",
         "status": "OUT",
@@ -2116,6 +2164,20 @@
         "officialCurrentReport": false,
         "trackedCarryover": true,
         "seasonLongCarryover": true
+      },
+      {
+        "player": "Iliana Rupert",
+        "team": "Golden State Valkyries",
+        "status": "OUT",
+        "reason": "Not Injury Related · Rupert is pregnant, and the Valkyries have filed for a replacement contract ahead of the 2026 season, Alexa Philippou of ESPN.com reports Thursday.",
+        "updated": "2026-05-07",
+        "returnDate": "2027-05-01",
+        "matchup": "",
+        "gameTime": "",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null,
+        "officialCurrentReport": false,
+        "crossCheckOnly": true
       }
     ],
     "teamStatuses": []

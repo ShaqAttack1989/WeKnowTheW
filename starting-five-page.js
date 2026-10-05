@@ -124,7 +124,7 @@ async function renderStartingFive(){
   const byName=new Map(roster.map(player=>[sKey(player.name),player]));
   const edition=current.edition?` · ${current.edition}`:'';
   if(summary)summary.textContent=`Week of ${sWeekLabel(current.week)}${edition} · Five roles, one playable lineup.`;
-  grid.innerHTML=picks.map(item=>sCurrentCard(item,byName)).join('')+`<article class="portal-card lime"><span class="portal-label">ALL FIBA EDITION</span><strong>Built for fit, not just fame.</strong><p>This five balances creation, defense, size, rebounding and tournament production. Current FIBA cards use official FIBA player imagery only. No AI images are used.</p></article>`;
+  grid.innerHTML=picks.map(item=>sCurrentCard(item,byName)).join('')+`<article class="portal-card lime"><span class="portal-label">${sSafe(current.edition||'THIS WEEK’S FIVE')}</span><strong>Built for fit, not just fame.</strong><p>This five balances creation, defense, size, rebounding and current production.</p></article>`;
   sRenderHonorable(historyPayload,byName);
   if(archive){
     const past=rotations.slice(1);

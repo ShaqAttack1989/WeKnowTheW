@@ -1,6 +1,7 @@
 const LEAGUE_ID = 5789;
 const V2_ROOT = 'https://www.thesportsdb.com/api/v2/json';
 const offseasonSnapshot = require('../college-snapshot-2025-26.json');
+const seasonGuide = require('../college-season-2026-27.json');
 
 function seasonLabel() {
   const now = new Date();
@@ -70,6 +71,41 @@ function normalize(event) {
   };
 }
 
+function officialOpeningGames(now = Date.now()) {
+  const items = [seasonGuide.opener, ...(seasonGuide.openingDay || [])].filter(Boolean);
+  return items
+    .map((game,index)=>({
+      id:`official-opening-${index+1}`,
+      date:game.date||'',
+      time:game.time||'',
+      status:'Scheduled',
+      homeTeam:game.homeTeam||'',
+      awayTeam:game.awayTeam||'',
+      homeScore:null,
+      awayScore:null,
+      location:game.location||'',
+      tv:game.tv||'',
+      event:game.event||'',
+      officialGuide:true
+    }))
+    .filter(game=>{
+      const raw=game.time&&game.time!=='TBD'
+        ? `${game.date} ${game.time.replace(/\s*ET$/i,'')} GMT-0400`
+        : `${game.date}T23:59:59-04:00`;
+      const ts=Date.parse(raw);
+      return !Number.isFinite(ts)||ts>=now;
+    });
+}
+
+function mergeUpcoming(primary=[],fallback=[]){
+  const seen=new Set();
+  return [...primary,...fallback].filter(game=>{
+    const key=[game.date,String(game.awayTeam||'').toLowerCase(),String(game.homeTeam||'').toLowerCase()].join('|');
+    if(seen.has(key))return false;
+    seen.add(key);return true;
+  }).sort((a,b)=>String(a.date||'').localeCompare(String(b.date||''))||String(a.time||'').localeCompare(String(b.time||''))).slice(0,10);
+}
+
 module.exports = async function handler(req, res) {
   if (req.method !== 'GET') {
     res.setHeader('Allow', 'GET');
@@ -84,7 +120,8 @@ module.exports = async function handler(req, res) {
 
   const baseSnapshot = {
     snapshot: offseasonSnapshot,
-    snapshotSource: 'NCAA.com'
+    snapshotSource: 'NCAA.com',
+    seasonGuide
   };
 
   if (!apiKey) {
@@ -95,9 +132,9 @@ module.exports = async function handler(req, res) {
       season: offseasonSnapshot.season,
       upcomingSeason,
       showingPriorSeason: true,
-      upcoming: [],
+      upcoming: officialOpeningGames(),
       recent: offseasonSnapshot.tournamentFinish || [],
-      providerMessage: `Showing the ${offseasonSnapshot.season} NCAA season snapshot while the independent schedule feed is unavailable.`,
+      providerMessage: `The 2025-26 record book remains visible while the official 2026-27 opening calendar is now on deck for Nov. 1.`,
       ...baseSnapshot
     });
   }
@@ -120,11 +157,12 @@ module.exports = async function handler(req, res) {
       }
     }
 
-    const upcoming = schedule
+    const providerUpcoming = schedule
       .filter(event => eventTime(event) >= now)
       .sort((a, b) => eventTime(a) - eventTime(b))
-      .slice(0, 8)
+      .slice(0, 10)
       .map(normalize);
+    const upcoming = mergeUpcoming(providerUpcoming, officialOpeningGames(now));
 
     let recent = schedule
       .filter(event => eventTime(event) < now && event.intHomeScore !== null && event.intAwayScore !== null)
@@ -148,10 +186,10 @@ module.exports = async function handler(req, res) {
       upcoming,
       recent,
       providerMessage: showingPriorSeason
-        ? `Showing the ${offseasonSnapshot.season} NCAA season snapshot until ${upcomingSeason} begins.`
+        ? `Showing the ${offseasonSnapshot.season} results beside the official ${upcomingSeason} opening calendar. The season tips Nov. 1 in Rome.`
         : schedule.length
           ? null
-          : 'The provider has not published a complete college schedule for this season yet.',
+          : `The official ${upcomingSeason} opening calendar is loaded while the independent full-season feed continues to populate.`,
       ...baseSnapshot
     });
   } catch (error) {
@@ -162,9 +200,9 @@ module.exports = async function handler(req, res) {
       season: offseasonSnapshot.season,
       upcomingSeason,
       showingPriorSeason: true,
-      upcoming: [],
+      upcoming: officialOpeningGames(),
       recent: offseasonSnapshot.tournamentFinish || [],
-      providerMessage: `Showing the ${offseasonSnapshot.season} NCAA season snapshot while the independent schedule feed is temporarily unavailable.`,
+      providerMessage: `The independent schedule feed is temporarily unavailable, so the official ${seasonGuide.season} opening calendar is being used.`,
       providerStatus: error.status || null,
       ...baseSnapshot
     });

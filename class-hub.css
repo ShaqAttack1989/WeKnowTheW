@@ -55,3 +55,43 @@
 .class-calendar-card>a{color:#5c1fc1;font-size:.76rem;font-weight:950;text-decoration:none}
 @media(max-width:900px){.class-kickoff-hero,.class-calendar-grid{grid-template-columns:1fr}.class-kickoff-matchup{min-height:270px}}
 @media(max-width:560px){.class-kickoff-copy,.class-kickoff-matchup,.class-calendar-card{border-radius:22px}.class-kickoff-matchup{padding:18px}.class-kickoff-matchup img{width:64px;height:64px}.class-march-dates{grid-template-columns:repeat(2,minmax(0,1fr))}.class-opening-list>div{grid-template-columns:1fr;gap:2px}}
+
+
+/* 2026-27 Opening Bell */
+.class-kickoff-section{background:linear-gradient(180deg,#fffdf8 0%,#f5effb 100%);padding:clamp(2.2rem,5vw,4.6rem) 0}
+.class-kickoff-hero{display:grid;grid-template-columns:minmax(0,1.18fr) minmax(320px,.82fr);gap:22px;align-items:stretch}
+.class-kickoff-copy,.class-kickoff-matchup{border:1px solid #e5dce9;border-radius:28px;box-shadow:0 16px 42px rgba(32,13,58,.08)}
+.class-kickoff-copy{padding:clamp(24px,4vw,38px);background:radial-gradient(circle at 92% 8%,rgba(216,255,79,.16),transparent 24%),linear-gradient(145deg,#140a2f,#4d1b88);color:#fff}
+.class-kickoff-copy>span{display:block;color:#d8ff4f;font-size:.72rem;font-weight:950;letter-spacing:.1em}
+.class-kickoff-copy h2{margin:.55rem 0 .8rem;color:#fff;font-size:clamp(2.4rem,5vw,4.6rem);line-height:.94;letter-spacing:-.045em}
+.class-kickoff-copy p{max-width:760px;margin:0;color:rgba(255,255,255,.8);font-size:1rem;line-height:1.6}
+.class-kickoff-actions{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;margin-top:22px}
+.class-kickoff-actions strong{display:inline-flex;align-items:center;min-height:42px;padding:10px 14px;border-radius:999px;background:#d8ff4f;color:#16082f;font-size:.88rem;font-weight:950}
+.class-kickoff-actions a{color:#fff;font-size:.82rem;font-weight:900;text-decoration:none}
+.class-kickoff-actions a:hover,.class-kickoff-actions a:focus-visible{text-decoration:underline}
+.class-kickoff-matchup{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:14px;align-items:center;padding:22px;background:#fff}
+.class-kickoff-matchup>div{display:grid;justify-items:center;gap:5px;text-align:center;min-width:0}
+.class-kickoff-matchup img{width:72px;height:72px;object-fit:contain}
+.class-kickoff-matchup small{font-size:.65rem;font-weight:950;letter-spacing:.08em;color:#6c6471}
+.class-kickoff-matchup strong{font-size:1.1rem}
+.class-kickoff-matchup>b{display:grid;place-items:center;width:42px;height:42px;border-radius:50%;background:#140a2f;color:#d8ff4f;font-size:.75rem}
+.class-kickoff-matchup footer{grid-column:1/-1;display:grid;gap:3px;padding-top:14px;border-top:1px solid #ece4ef;text-align:center}
+.class-kickoff-matchup footer span{font-size:.78rem;font-weight:950;color:#5c1fc1}
+.class-kickoff-matchup footer small{font-size:.72rem}
+.class-calendar-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:18px}
+.class-calendar-card{padding:22px;border:1px solid #e5dce9;border-radius:22px;background:#fff;box-shadow:0 9px 24px rgba(30,12,52,.05)}
+.class-calendar-card>span{display:block;color:#6c2ad9;font-size:.68rem;font-weight:950;letter-spacing:.09em}
+.class-calendar-card>strong{display:block;margin:7px 0 9px;font-size:1.35rem;line-height:1.08}
+.class-calendar-card>p{margin:0;color:#6b6372;font-size:.88rem;line-height:1.55}
+.class-opening-list{display:grid;gap:7px;margin-top:14px}
+.class-opening-list>div{display:grid;grid-template-columns:98px minmax(0,1fr);gap:10px;align-items:start;padding:8px 0;border-top:1px solid #eee6f0}
+.class-opening-list b{font-size:.75rem;color:#5c1fc1}
+.class-opening-list span{font-size:.8rem;font-weight:800}
+.class-march-dates{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin:16px 0}
+.class-march-dates>div{padding:10px;border-radius:14px;background:#f5f0f9;text-align:center}
+.class-march-dates b{display:block;color:#5c1fc1;font-size:.78rem}
+.class-march-dates small{display:block;margin-top:3px;color:#6b6271;font-size:.63rem;line-height:1.2}
+.class-calendar-card>a{color:#5c1fc1;font-size:.78rem;font-weight:950;text-decoration:none}
+.class-calendar-card>a:hover,.class-calendar-card>a:focus-visible{text-decoration:underline}
+@media(max-width:860px){.class-kickoff-hero,.class-calendar-grid{grid-template-columns:1fr}.class-kickoff-matchup{grid-template-columns:minmax(0,1fr) 38px minmax(0,1fr)}}
+@media(max-width:560px){.class-kickoff-copy,.class-kickoff-matchup{border-radius:22px}.class-kickoff-copy{padding:20px}.class-kickoff-matchup{padding:16px;gap:10px}.class-kickoff-matchup img{width:58px;height:58px}.class-kickoff-matchup strong{font-size:.98rem}.class-march-dates{grid-template-columns:repeat(2,minmax(0,1fr))}.class-opening-list>div{grid-template-columns:1fr;gap:2px}}

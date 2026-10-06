@@ -9,7 +9,7 @@
   <title>2027 WNBA Free Agency Movement Board | We Know the W</title>
   <link rel="stylesheet" href="/styles.css">
   <link rel="stylesheet" href="/landing.css">
-  <link rel="stylesheet" href="/2027-wnba-free-agency.css?v=20261006-v1">
+  <link rel="stylesheet" href="/2027-wnba-free-agency.css?v=20261006-v2">
 </head>
 <body class="fa-page">
   <a class="skip-link" href="#mainContent">Skip to the movement board</a>
@@ -28,6 +28,7 @@
         <p class="fa-deck">This is not a transaction report. It is a living We Know the W forecast of who looks most likely to stay, who has a real reason to leave, and which teams should already be nervous.</p>
         <div class="fa-actions">
           <a class="fa-button primary" href="#movement-dashboard">Open the movement board</a>
+          <a class="fa-button secondary" href="#destination-dashboard">Where could they go?</a>
           <a class="fa-button secondary" href="#full-board">See every current-team free agent</a>
         </div>
         <div class="fa-summary-strip">
@@ -101,6 +102,48 @@
       </div>
     </section>
 
+    <section class="destination-section" id="destination-dashboard" aria-labelledby="destinationTitle">
+      <div class="shell">
+        <header class="fa-section-head">
+          <div>
+            <p class="fa-section-kicker">IF SHE LEAVES: DESTINATION DASHBOARD</p>
+            <h2 id="destinationTitle">Okay, but where would she actually go?</h2>
+            <p>Pick a headliner to see the five alternative teams that make the most basketball sense right now. The destination share is conditional: it answers <b>where we think she could land only if she leaves her current team</b>. The five modeled alternatives add to 100% and are editorial estimates, not reported negotiations.</p>
+          </div>
+          <div class="live-stamp"><i aria-hidden="true"></i> FIT BOARD · OCT. 6</div>
+        </header>
+
+        <div class="destination-player-tabs" id="destinationPlayerTabs" role="tablist" aria-label="Select a free agent"></div>
+
+        <div class="destination-shell">
+          <aside class="destination-player-card" id="destinationPlayerCard" aria-live="polite"></aside>
+          <div class="destination-results">
+            <div class="destination-results-head">
+              <div>
+                <span>TOP ALTERNATIVE LANDING SPOTS</span>
+                <strong id="destinationHeadline">Loading destinations…</strong>
+              </div>
+              <div class="destination-legend"><span><i class="share-dot"></i> destination share</span><span><i class="fit-dot"></i> WKTW fit score</span></div>
+            </div>
+            <div class="destination-grid" id="destinationGrid" aria-live="polite"></div>
+          </div>
+        </div>
+
+        <div class="market-heat">
+          <header>
+            <div><p class="fa-section-kicker">LEAGUE HOT ZONES</p><h3>Which teams show up most often as plausible star destinations?</h3></div>
+            <p>This is a WKTW Market Pull Index built from the destination board above. It rewards teams that repeatedly grade as strong fits for multiple important free agents; it is not cap-room ranking or evidence that those teams are recruiting anyone.</p>
+          </header>
+          <div class="market-heat-grid" id="marketHeatGrid" aria-live="polite"></div>
+        </div>
+
+        <aside class="destination-context">
+          <strong>Why Golden State and Washington keep appearing</strong>
+          <p>Golden State finished 32-12 with the league's best opponent scoring mark but ranked 14th in scoring and 13th in assists, making another elite creator an obvious basketball fit. Washington went 28-16 with the No. 2 opponent scoring mark, while ranking 12th in scoring and 11th in assists; adding a veteran shot-creator or organizer next to its young core would attack the clearest offensive weakness. Seattle's 8-36 finish and bottom-tier scoring/playmaking numbers make it a very different pitch: less instant title equity, more opportunity to become the veteran offensive anchor of a rebuild.</p>
+        </aside>
+      </div>
+    </section>
+
     <section class="dominoes shell" aria-labelledby="dominoesTitle">
       <header class="fa-section-head compact">
         <div><p class="fa-section-kicker">THE FOUR DOMINOES</p><h2 id="dominoesTitle">The stars who can redraw the map.</h2></div>
@@ -169,10 +212,11 @@
       <div class="shell">
         <p class="fa-section-kicker">SOURCES + NOTES</p>
         <h2>What is fact, and what is forecast.</h2>
-        <p>Free-agent designations and transaction windows should be checked against the league's official transaction rules and current contract databases once qualifying offers are issued. Player movement percentages and stay/move labels on this page are We Know the W editorial analysis and are designed to change as trades, extensions, qualifying offers and public reporting develop.</p>
+        <p>Free-agent designations and contract status are checked against the Her Hoop Stats WNBA Salary Cap Database, with team records, roster construction and 2026 performance context from official WNBA team pages and standings. Player movement odds, destination shares, fit scores and Market Pull Index values are We Know the W editorial analysis and are designed to change as trades, extensions, qualifying offers and public reporting develop.</p>
         <div class="source-links">
-          <a href="https://www.wnba.com/" target="_blank" rel="noopener">WNBA official site ↗</a>
-          <a href="https://herhoopstats.com/" target="_blank" rel="noopener">Her Hoop Stats contract data ↗</a>
+          <a href="https://www.wnba.com/standings" target="_blank" rel="noopener">WNBA 2026 standings ↗</a>
+          <a href="https://www.wnba.com/players/roster-tracker" target="_blank" rel="noopener">WNBA roster tracker ↗</a>
+          <a href="https://herhoopstats.com/salary-cap-sheet/wnba/summary/2026/" target="_blank" rel="noopener">Her Hoop Stats cap database ↗</a>
           <a href="/around-the-w.html">Around the W roster hub →</a>
         </div>
         <p class="photo-credit">Player headshots: ESPN player media. Team marks: ESPN WNBA team media. Analysis and forecast model: We Know the W.</p>
@@ -183,6 +227,6 @@
   <footer class="footer"><div class="shell footer-inner"><div><strong>WE KNOW THE W · 2027 FREE AGENCY</strong><p>Know the players. Know the leverage. Know the W.</p></div><a href="#top">Back to top ↑</a></div></footer>
 
   <script src="/site.js?v=20261006-free-agency-v1"></script>
-  <script src="/2027-wnba-free-agency.js?v=20261006-v1" defer></script>
+  <script src="/2027-wnba-free-agency.js?v=20261006-v2" defer></script>
 </body>
 </html>

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-06T10:07:57.175Z",
+  "generatedAt": "2026-10-06T16:43:44.404Z",
   "movement": {
     "latestTransactionDate": "2026-09-28",
     "transactions": [
@@ -1429,8 +1429,8 @@
   },
   "availability": {
     "latestReportDate": "2026-10-06",
-    "reportLabel": "10/06/2026 06:00 AM ET",
-    "officialPdf": "https://ak-static.cms.nba.com/referee/wnba_injury/Injury-Report_2026-10-06_06_00AM.pdf",
+    "reportLabel": "10/06/2026 12:30 PM ET",
+    "officialPdf": "https://ak-static.cms.nba.com/referee/wnba_injury/Injury-Report_2026-10-06_12_30PM.pdf",
     "injuries": [
       {
         "player": "Dana Evans",

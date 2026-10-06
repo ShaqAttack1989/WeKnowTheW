@@ -1,0 +1,144 @@
+{
+  "season": "2026-27",
+  "label": "2026-27 Season Guide",
+  "asOf": "2026-10-06",
+  "startDate": "2026-11-01",
+  "firstFullSlateDate": "2026-11-02",
+  "opener": {
+    "date": "2026-11-01",
+    "time": "12:00 PM ET",
+    "awayTeam": "Villanova",
+    "homeTeam": "Notre Dame",
+    "location": "Rome, Italy · Palazzo dello Sport",
+    "event": "Eternal City Tip-Off",
+    "tv": "FS1",
+    "note": "The 2026-27 women's college basketball season opens internationally. NCAA's season guide notes this is the first regular-season women's college basketball game played in Italy.",
+    "sourceUrl": "https://www.ncaa.com/news/basketball-women/article/2026-08-28/when-does-2026-27-womens-college-basketball-season-start",
+    "scheduleSource": "https://fightingirish.com/boxscore/20483"
+  },
+  "openingDay": [
+    {
+      "date": "2026-11-02",
+      "time": "11:00 AM ET",
+      "awayTeam": "Davidson",
+      "homeTeam": "Columbia",
+      "location": "New York, NY",
+      "tv": "TBD"
+    },
+    {
+      "date": "2026-11-02",
+      "time": "12:00 PM ET",
+      "awayTeam": "Maryland",
+      "homeTeam": "South Carolina",
+      "location": "Paris, France",
+      "tv": "ESPN platforms",
+      "event": "Oui Play"
+    },
+    {
+      "date": "2026-11-02",
+      "time": "12:30 PM ET",
+      "awayTeam": "Stanford",
+      "homeTeam": "Arizona",
+      "location": "Las Vegas, NV",
+      "tv": "TBD"
+    },
+    {
+      "date": "2026-11-02",
+      "time": "2:30 PM ET",
+      "awayTeam": "Oklahoma",
+      "homeTeam": "North Carolina",
+      "location": "Paris, France",
+      "tv": "ESPN platforms",
+      "event": "Oui Play"
+    },
+    {
+      "date": "2026-11-02",
+      "time": "4:00 PM ET",
+      "awayTeam": "USC",
+      "homeTeam": "UNLV",
+      "location": "Las Vegas, NV",
+      "tv": "TBD"
+    },
+    {
+      "date": "2026-11-02",
+      "time": "TBD",
+      "awayTeam": "Cornell",
+      "homeTeam": "UConn",
+      "location": "Storrs, CT",
+      "tv": "TBD"
+    },
+    {
+      "date": "2026-11-02",
+      "time": "TBD",
+      "awayTeam": "Lehigh",
+      "homeTeam": "UCLA",
+      "location": "Los Angeles, CA",
+      "tv": "TBD"
+    },
+    {
+      "date": "2026-11-02",
+      "time": "7:30 PM ET",
+      "awayTeam": "Belmont",
+      "homeTeam": "Princeton",
+      "location": "Princeton, NJ",
+      "tv": "TBD"
+    },
+    {
+      "date": "2026-11-02",
+      "time": "9:00 PM ET",
+      "awayTeam": "Washington State",
+      "homeTeam": "California",
+      "location": "Berkeley, CA",
+      "tv": "TBD"
+    }
+  ],
+  "earlyDates": [
+    {
+      "date": "2026-11-08",
+      "label": "Ally Tip-Off · Charlotte",
+      "detail": "NC State vs. Kentucky · 3:00 PM ET; South Carolina vs. North Carolina · 5:30 PM ET · ESPN"
+    },
+    {
+      "date": "2026-11-19",
+      "label": "Baha Mar Hoops begins",
+      "detail": "Early-season multi-team event window begins Nov. 19."
+    },
+    {
+      "date": "2026-11-24",
+      "label": "Women's Battle 4 Atlantis begins",
+      "detail": "Tournament window runs Nov. 24-26 in the Bahamas."
+    }
+  ],
+  "tournament": {
+    "fieldSize": 76,
+    "selectionSunday": "2027-03-14",
+    "openingRound": "2027-03-17/18",
+    "firstRound": "2027-03-19/20",
+    "secondRound": "2027-03-21/22",
+    "sweet16": "2027-03-26/27",
+    "eliteEight": "2027-03-28/29",
+    "finalFour": "2027-04-02",
+    "championship": "2027-04-04",
+    "finalFourLocation": "Nationwide Arena · Columbus, Ohio",
+    "note": "2027 is the first 76-team NCAA women's tournament. Twenty-four teams will play 12 Opening Round games before the 64-team First Round.",
+    "sourceUrl": "https://www.ncaa.com/news/basketball-women/article/2026-05-07/2027-march-madness-womens-ncaa-tournament-schedule-dates-times"
+  },
+  "sources": [
+    {
+      "label": "NCAA · 2026-27 season start guide",
+      "url": "https://www.ncaa.com/news/basketball-women/article/2026-08-28/when-does-2026-27-womens-college-basketball-season-start"
+    },
+    {
+      "label": "Notre Dame · Eternal City Tip-Off",
+      "url": "https://fightingirish.com/news/2026/04/17/mens-womens-basketball-to-open-2026-27-season-in-rome"
+    },
+    {
+      "label": "Villanova · 2026-27 schedule",
+      "url": "https://villanova.com/sports/womens-basketball/schedule/2026-27"
+    },
+    {
+      "label": "NCAA · 2027 tournament schedule",
+      "url": "https://www.ncaa.com/news/basketball-women/article/2026-05-07/2027-march-madness-womens-ncaa-tournament-schedule-dates-times"
+    }
+  ]
+}

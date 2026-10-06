@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#16082f">
+  <meta name="description" content="We Know the W's 2027 WNBA free agency forecast: the players most likely to stay, move or hit a true toss-up, with an interactive movement dashboard.">
+  <link rel="canonical" href="https://www.weknowthew.com/2027-wnba-free-agency.html">
+  <title>2027 WNBA Free Agency Movement Board | We Know the W</title>
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/landing.css">
+  <link rel="stylesheet" href="/2027-wnba-free-agency.css?v=20261006-v1">
+</head>
+<body class="fa-page">
+  <a class="skip-link" href="#mainContent">Skip to the movement board</a>
+
+  <header class="fa-hero" id="top">
+    <nav class="nav shell" aria-label="Main navigation">
+      <a class="brand" href="/" aria-label="We Know the W home"><span class="brand-mark">W</span><span>WE KNOW THE W</span></a>
+      <button class="menu-button" id="menuButton" aria-expanded="false" aria-controls="navLinks">Menu</button>
+      <div class="nav-links" id="navLinks"></div>
+    </nav>
+
+    <div class="fa-hero-grid shell">
+      <div class="fa-hero-copy">
+        <p class="fa-kicker">FOOD FOR THOUGHT · FREE AGENCY LAB · OCT. 6, 2026</p>
+        <h1>2027 free agency could move the balance of the W.</h1>
+        <p class="fa-deck">This is not a transaction report. It is a living We Know the W forecast of who looks most likely to stay, who has a real reason to leave, and which teams should already be nervous.</p>
+        <div class="fa-actions">
+          <a class="fa-button primary" href="#movement-dashboard">Open the movement board</a>
+          <a class="fa-button secondary" href="#full-board">See every current-team free agent</a>
+        </div>
+        <div class="fa-summary-strip">
+          <span><b>2027</b> market</span>
+          <span><b>UFA + RFA</b> tracked</span>
+          <span><b>WKTW</b> editorial odds</span>
+        </div>
+      </div>
+
+      <div class="fa-hero-collage" aria-label="2027 free agency headliners">
+        <article class="hero-player hero-player-main">
+          <img src="https://a.espncdn.com/i/headshots/wnba/players/full/3142191.png" alt="Kelsey Mitchell headshot">
+          <div><img class="hero-team-logo" src="https://a.espncdn.com/i/teamlogos/wnba/500/ind.png" alt="Indiana Fever logo"><span>KELSEY MITCHELL</span><b>MOVE WATCH</b></div>
+        </article>
+        <article class="hero-player">
+          <img src="https://a.espncdn.com/i/headshots/wnba/players/full/3917450.png" alt="Napheesa Collier headshot">
+          <div><img class="hero-team-logo" src="https://a.espncdn.com/i/teamlogos/wnba/500/min.png" alt="Minnesota Lynx logo"><span>NAPHEESA COLLIER</span><b>LEAN STAY</b></div>
+        </article>
+        <article class="hero-player">
+          <img src="https://a.espncdn.com/i/headshots/wnba/players/full/3065570.png" alt="Kelsey Plum headshot">
+          <div><img class="hero-team-logo" src="https://a.espncdn.com/i/teamlogos/wnba/500/phx.png" alt="Phoenix Mercury logo"><span>KELSEY PLUM</span><b>TOSS-UP</b></div>
+        </article>
+        <article class="hero-player">
+          <img src="https://a.espncdn.com/i/headshots/wnba/players/full/4065870.png" alt="Jackie Young headshot">
+          <div><img class="hero-team-logo" src="https://a.espncdn.com/i/teamlogos/wnba/500/lv.png" alt="Las Vegas Aces logo"><span>JACKIE YOUNG</span><b>LIKELY STAY</b></div>
+        </article>
+      </div>
+    </div>
+  </header>
+
+  <main id="mainContent">
+    <section class="fa-opening shell">
+      <div>
+        <p class="fa-section-kicker">THE BIG IDEA</p>
+        <h2>Money matters. Choice matters more.</h2>
+      </div>
+      <p>The most important names in this class are not all chasing the same thing. Some have championship continuity. Some can finally choose their environment. Some are staring at smaller roles than their talent suggests. That is why the same dollar figure can mean very different things to different players.</p>
+    </section>
+
+    <section class="movement-section" id="movement-dashboard" aria-labelledby="movementTitle">
+      <div class="shell">
+        <header class="fa-section-head">
+          <div>
+            <p class="fa-section-kicker">DYNAMIC MOVEMENT DASHBOARD</p>
+            <h2 id="movementTitle">Who is most likely to change teams?</h2>
+            <p>Sort the board by movement odds, star power or current team. The percentage is a We Know the W editorial forecast, not a reported probability or betting market.</p>
+          </div>
+          <div class="live-stamp"><i aria-hidden="true"></i> LIVING BOARD · OCT. 6</div>
+        </header>
+
+        <div class="fa-controls" aria-label="Movement dashboard controls">
+          <div class="fa-control-group">
+            <span>Show</span>
+            <div class="fa-chip-row" id="movementFilters">
+              <button class="is-active" type="button" data-filter="all" aria-pressed="true">All headliners</button>
+              <button type="button" data-filter="move" aria-pressed="false">Move watch</button>
+              <button type="button" data-filter="toss" aria-pressed="false">Toss-ups</button>
+              <button type="button" data-filter="stay" aria-pressed="false">Likely stay</button>
+            </div>
+          </div>
+          <label class="fa-select"><span>Rank by</span><select id="movementSort"><option value="move">Movement odds</option><option value="star">Star power</option><option value="team">Current team</option></select></label>
+        </div>
+
+        <div class="movement-meter-row" id="movementSummary" aria-live="polite"></div>
+        <div class="movement-grid" id="movementGrid" aria-live="polite"></div>
+
+        <aside class="fa-method">
+          <strong>How the forecast works</strong>
+          <p>Movement odds weigh roster role, team trajectory, unrestricted vs. restricted status, recent team changes, contender fit, expected market demand and how much leverage the player appears to have. They are deliberately easy to update as the offseason changes.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="dominoes shell" aria-labelledby="dominoesTitle">
+      <header class="fa-section-head compact">
+        <div><p class="fa-section-kicker">THE FOUR DOMINOES</p><h2 id="dominoesTitle">The stars who can redraw the map.</h2></div>
+      </header>
+
+      <div class="domino-grid">
+        <article class="domino-card">
+          <div class="domino-top"><img src="https://a.espncdn.com/i/headshots/wnba/players/full/3917450.png" alt="Napheesa Collier"><img class="team-mark" src="https://a.espncdn.com/i/teamlogos/wnba/500/min.png" alt="Minnesota Lynx logo"></div>
+          <p class="status stay">LEAN STAY</p><h3>Napheesa Collier</h3>
+          <p>Minnesota still offers an elite basketball situation and a familiar home base. The difference in 2027 is leverage: Collier can listen to everybody before deciding whether home is still the best basketball answer.</p>
+        </article>
+        <article class="domino-card">
+          <div class="domino-top"><img src="https://a.espncdn.com/i/headshots/wnba/players/full/3142191.png" alt="Kelsey Mitchell"><img class="team-mark" src="https://a.espncdn.com/i/teamlogos/wnba/500/ind.png" alt="Indiana Fever logo"></div>
+          <p class="status move">MOVE WATCH</p><h3>Kelsey Mitchell</h3>
+          <p>Indiana can sell winning, continuity and a huge stage. Mitchell can finally decide whether she wants that exact stage again. That makes her the most compelling change-of-scenery candidate among the top stars.</p>
+        </article>
+        <article class="domino-card">
+          <div class="domino-top"><img src="https://a.espncdn.com/i/headshots/wnba/players/full/3065570.png" alt="Kelsey Plum"><img class="team-mark" src="https://a.espncdn.com/i/teamlogos/wnba/500/phx.png" alt="Phoenix Mercury logo"></div>
+          <p class="status toss">TRUE TOSS-UP</p><h3>Kelsey Plum</h3>
+          <p>Phoenix invested to get the first recruiting window, but the roster still has to prove the fit is worth extending. Plum has already shown she will make the decision that works for her, not for the neatest storyline.</p>
+        </article>
+        <article class="domino-card">
+          <div class="domino-top"><img src="https://a.espncdn.com/i/headshots/wnba/players/full/4065870.png" alt="Jackie Young"><img class="team-mark" src="https://a.espncdn.com/i/teamlogos/wnba/500/lv.png" alt="Las Vegas Aces logo"></div>
+          <p class="status stay">LIKELY STAY</p><h3>Jackie Young</h3>
+          <p>Other contenders should call because they have to. Vegas still has the cleanest pitch: role clarity, title equity and A'ja Wilson. A departure would be one of the biggest surprises of the market.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="full-board-section" id="full-board" aria-labelledby="fullBoardTitle">
+      <div class="shell">
+        <header class="fa-section-head">
+          <div>
+            <p class="fa-section-kicker">FULL CURRENT-TEAM BOARD</p>
+            <h2 id="fullBoardTitle">Every tracked UFA and RFA, one searchable board.</h2>
+            <p>Use this for the full stay/move picture. Restricted players lean toward staying because their incumbent team can retain matching rights after a qualifying offer.</p>
+          </div>
+        </header>
+
+        <div class="fa-controls full-controls">
+          <label class="fa-search"><span>Find a player or team</span><input id="playerSearch" type="search" placeholder="Try Mitchell, Aces or RFA" autocomplete="off"></label>
+          <label class="fa-select"><span>Status</span><select id="statusFilter"><option value="all">All calls</option><option value="move">Move watch</option><option value="toss">Toss-up</option><option value="stay">Lean/likely stay</option><option value="retire">Retirement watch</option></select></label>
+          <label class="fa-select"><span>Free agent type</span><select id="typeFilter"><option value="all">UFA + RFA</option><option value="UFA">UFA</option><option value="RFA">RFA</option></select></label>
+        </div>
+
+        <div class="full-board-grid" id="fullBoardGrid" aria-live="polite"></div>
+
+        <details class="return-watch">
+          <summary>Return-to-W watch: unrestricted players without an incumbent team</summary>
+          <p>Kayla Alexander · Lexie Brown · Chennedy Carter · Sha Carter · Mariella Fasoula · Dulcy Fankam Mendjiadeu · Nadia Fingall · Alex Fowler · Aubrey Griffin · Emese Hof · Joyner Holmes · Eliška Joklová · Teaira McCowan · Nikolina Milić · Shey Peddy · Alissa Pili · Tima Pouye · JJ Quinerly · Kamiah Smalls · Sug Sutton · Julie Vanloo · Kiana Williams · Peyton Williams · Alex Wilson · Laura Ziegler.</p>
+        </details>
+      </div>
+    </section>
+
+    <section class="fa-take shell" aria-labelledby="takeTitle">
+      <div class="take-number">01</div>
+      <div>
+        <p class="fa-section-kicker">FOOD FOR THOUGHT</p>
+        <h2 id="takeTitle">Kelsey Mitchell is the pressure point.</h2>
+        <p>If Mitchell stays, Indiana keeps one of the league's most dangerous backcourts together and the market loses one of its best scorers. If she leaves, every team with cap room and a playoff timeline suddenly has permission to dream bigger. That single decision could set the price and pace for the rest of the guard market.</p>
+        <p><b>The sleeper team to watch:</b> Washington. A young playoff roster that needs more perimeter creation is exactly the kind of situation that turns a theoretical free-agent pitch into a credible one.</p>
+      </div>
+    </section>
+
+    <section class="fa-sources">
+      <div class="shell">
+        <p class="fa-section-kicker">SOURCES + NOTES</p>
+        <h2>What is fact, and what is forecast.</h2>
+        <p>Free-agent designations and transaction windows should be checked against the league's official transaction rules and current contract databases once qualifying offers are issued. Player movement percentages and stay/move labels on this page are We Know the W editorial analysis and are designed to change as trades, extensions, qualifying offers and public reporting develop.</p>
+        <div class="source-links">
+          <a href="https://www.wnba.com/" target="_blank" rel="noopener">WNBA official site ↗</a>
+          <a href="https://herhoopstats.com/" target="_blank" rel="noopener">Her Hoop Stats contract data ↗</a>
+          <a href="/around-the-w.html">Around the W roster hub →</a>
+        </div>
+        <p class="photo-credit">Player headshots: ESPN player media. Team marks: ESPN WNBA team media. Analysis and forecast model: We Know the W.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer"><div class="shell footer-inner"><div><strong>WE KNOW THE W · 2027 FREE AGENCY</strong><p>Know the players. Know the leverage. Know the W.</p></div><a href="#top">Back to top ↑</a></div></footer>
+
+  <script src="/site.js?v=20261006-free-agency-v1"></script>
+  <script src="/2027-wnba-free-agency.js?v=20261006-v1" defer></script>
+</body>
+</html>

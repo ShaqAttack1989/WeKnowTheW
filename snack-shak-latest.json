@@ -2,6 +2,62 @@
   "site": "Snack Shak",
   "posts": [
     {
+      "slug": "issa-rae-unrivaled-investor-2026",
+      "type": "byte",
+      "priority": 4100,
+      "seriesLabel": "SNACK SHAK BYTE · UNRIVALED BUSINESS",
+      "title": "Issa Rae Is Unrivaled: Another Big Name Buys Into the $650M Bet",
+      "published": "2026-10-05",
+      "updated": "2026-10-05",
+      "week": "Unrivaled business · Oct. 5, 2026",
+      "dashboardUrl": "/snack-shak-bytes.html?post=issa-rae-unrivaled-investor-2026#story",
+      "image": "https://pub-ad8cc693759b4b55a181a76af041efa0.r2.dev/images/2ux0kh54k9pd/original.jpg",
+      "storyImage": "https://pub-ad8cc693759b4b55a181a76af041efa0.r2.dev/images/2ux0kh54k9pd/original.jpg",
+      "storyImageSourceUrl": "https://www.unrivaled.basketball/news/issa-rae-announced-as-unrivaled-investor-o48lra0oog4e",
+      "imageFit": "cover",
+      "imageFocus": "50% 34%",
+      "imageAlt": "Issa Rae in Unrivaled's official investor announcement",
+      "storyImageCaption": "Issa Rae joins Unrivaled as an investor. Official image via Unrivaled.",
+      "dek": "Issa Rae went from courtside to the cap table. Her investment came through the same oversubscribed Series C that valued Unrivaled at $650 million, giving the league another culture-shaping name as Season 3 approaches.",
+      "sections": [
+        {
+          "title": "From courtside to the cap table",
+          "paragraphs": [
+            "Unrivaled announced on October 5 that actor, producer and entrepreneur Issa Rae has joined the league as an investor. The investment was made through the oversubscribed Series C round the league announced in August.",
+            "Rae said seeing Unrivaled firsthand last season convinced her that the league was building something special. Unrivaled also described this as her first league-wide investment, adding another entertainment and business name to an investor group already packed with athletes, coaches and cultural heavyweights."
+          ]
+        },
+        {
+          "title": "The number did not change. The signal did.",
+          "paragraphs": [
+            "The $650 million valuation is not a fresh re-price caused by Rae's investment. That figure was set when Unrivaled announced the Series C on August 26. The round, led by Ten Pillars Sports Fund, surpassed its original $100 million target and was oversubscribed.",
+            "What changed today is the cap table. Rae joins an investor list that already includes Stephen Curry, Giannis Antetokounmpo, Coco Gauff, Billie Jean King, Alex Morgan, Dawn Staley, JuJu Watkins and others. Players remain the league's largest equity group, with Unrivaled valuing the player equity pool at nearly $200 million when the round was announced."
+          ]
+        },
+        {
+          "title": "Shak's bite",
+          "paragraphs": [
+            "Celebrity money by itself is not a business model. But the kind of people choosing to buy in tells you what they think the business can become.",
+            "Issa Rae brings something different from another athlete investor: entertainment reach, brand-building experience and a track record of creating culture instead of simply attaching her name to it. Unrivaled has spent two seasons proving it can make basketball feel like an event. Now it is adding investors who know how to turn an event into a larger ecosystem."
+          ]
+        }
+      ],
+      "debates": [
+        "Does Issa Rae's involvement make Unrivaled more interesting as a media and culture brand, not just a basketball league?",
+        "Which matters more for the league's long-term ceiling: celebrity investors, touring growth or player equity?"
+      ],
+      "sources": [
+        {
+          "label": "Unrivaled · Issa Rae announced as investor",
+          "url": "https://www.unrivaled.basketball/news/issa-rae-announced-as-unrivaled-investor-o48lra0oog4e"
+        },
+        {
+          "label": "Unrivaled · Series C at $650 million valuation",
+          "url": "https://www.unrivaled.basketball/news/unrivaled-oversubscribes-series-c-fundraise-led-by-ten-pillars-sports-fund-exceeding-100-million-target-at-new-league-valuation-of-650-million-ler51aahcnya"
+        }
+      ]
+    },
+    {
       "slug": "top-seed-first-out-lynx-2026",
       "type": "feature",
       "priority": 3200,

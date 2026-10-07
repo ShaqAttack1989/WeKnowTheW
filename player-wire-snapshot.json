@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-06T21:35:45.227Z",
+  "generatedAt": "2026-10-07T01:28:09.016Z",
   "movement": {
     "latestTransactionDate": "2026-09-28",
     "transactions": [
@@ -1429,8 +1429,8 @@
   },
   "availability": {
     "latestReportDate": "2026-10-06",
-    "reportLabel": "10/06/2026 05:30 PM ET",
-    "officialPdf": "https://ak-static.cms.nba.com/referee/wnba_injury/Injury-Report_2026-10-06_05_30PM.pdf",
+    "reportLabel": "10/06/2026 09:15 PM ET",
+    "officialPdf": "https://ak-static.cms.nba.com/referee/wnba_injury/Injury-Report_2026-10-06_09_15PM.pdf",
     "injuries": [
       {
         "player": "Allisha Gray",
@@ -1461,8 +1461,34 @@
       {
         "player": "Dana Evans",
         "team": "Las Vegas Aces",
+        "status": "QUESTIONABLE",
+        "reason": "Injury/Illness - Right Knee; injury",
+        "gameDate": "10/07/2026",
+        "gameTime": "09:30 (ET)",
+        "matchup": "LVA@GSV",
+        "updated": "2026-10-07",
+        "source": "Official WNBA Injury Report PDF",
+        "officialCurrentReport": true,
+        "crossCheckOnly": false
+      },
+      {
+        "player": "Jewell Loyd",
+        "team": "Las Vegas Aces",
         "status": "DOUBTFUL",
-        "reason": "Injury/Illness - Right knee; injury",
+        "reason": "Injury/Illness - Left Leg; injury",
+        "gameDate": "10/07/2026",
+        "gameTime": "09:30 (ET)",
+        "matchup": "LVA@GSV",
+        "updated": "2026-10-07",
+        "source": "Official WNBA Injury Report PDF",
+        "officialCurrentReport": true,
+        "crossCheckOnly": false
+      },
+      {
+        "player": "Stephanie Talbot",
+        "team": "Las Vegas Aces",
+        "status": "QUESTIONABLE",
+        "reason": "Injury/Illness - Left Leg; injury",
         "gameDate": "10/07/2026",
         "gameTime": "09:30 (ET)",
         "matchup": "LVA@GSV",
@@ -2118,16 +2144,7 @@
         "seasonLongCarryover": true
       }
     ],
-    "teamStatuses": [
-      {
-        "team": "Golden State Valkyries",
-        "status": "NOT YET SUBMITTED",
-        "gameDate": "10/07/2026",
-        "gameTime": "09:30 (ET)",
-        "matchup": "LVA@GSV",
-        "updated": "2026-10-07"
-      }
-    ]
+    "teamStatuses": []
   },
   "errors": []
 }

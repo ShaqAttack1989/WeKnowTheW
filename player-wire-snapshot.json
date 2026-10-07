@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-07T16:22:44.511Z",
+  "generatedAt": "2026-10-07T21:56:57.677Z",
   "movement": {
     "latestTransactionDate": "2026-09-28",
     "transactions": [
@@ -1429,8 +1429,8 @@
   },
   "availability": {
     "latestReportDate": "2026-10-07",
-    "reportLabel": "10/07/2026 12:15 PM ET",
-    "officialPdf": "https://ak-static.cms.nba.com/referee/wnba_injury/Injury-Report_2026-10-07_12_15PM.pdf",
+    "reportLabel": "10/07/2026 05:45 PM ET",
+    "officialPdf": "https://ak-static.cms.nba.com/referee/wnba_injury/Injury-Report_2026-10-07_05_45PM.pdf",
     "injuries": [
       {
         "player": "Allisha Gray",
@@ -1461,7 +1461,7 @@
       {
         "player": "Dana Evans",
         "team": "Las Vegas Aces",
-        "status": "QUESTIONABLE",
+        "status": "PROBABLE",
         "reason": "Injury/Illness - Right Knee; injury",
         "gameDate": "10/07/2026",
         "gameTime": "09:30 (ET)",
@@ -1474,7 +1474,7 @@
       {
         "player": "Jewell Loyd",
         "team": "Las Vegas Aces",
-        "status": "DOUBTFUL",
+        "status": "OUT",
         "reason": "Injury/Illness - Left Leg; injury",
         "gameDate": "10/07/2026",
         "gameTime": "09:30 (ET)",

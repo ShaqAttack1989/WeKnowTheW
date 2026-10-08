@@ -1030,9 +1030,9 @@
       "published": "2026-10-02",
       "updated": "2026-10-08",
       "week": "Semifinals · Atlanta and Golden State lead 2–0",
-      "image": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1631007.png",
-      "imageFit": "contain",
-      "imageAlt": "Official WNBA portrait of Golden State Valkyries guard Veronica Burton",
+      "image": "https://bc.gmg.io/image/upload/c_lfill,w_1600,h_1067,f_jpg/media/gmg/ZEQJOB3M7VH5DH72KJCQGBU2U4.jpg",
+      "imageFit": "cover",
+      "imageAlt": "Kalani Brown attempts a shot against Kiah Stokes and Veronica Burton in Valkyries–Aces Game 2 on October 7, 2026",
       "dek": "Veronica Burton buried the go-ahead three with 41 seconds left, Kiah Stokes erased Las Vegas’s final attempt and Golden State won 83-81. The Valkyries and Dream both take 2-0 leads into Friday closeout games.",
       "playoffGameOne": {
         "ariaLabel": "Golden State-Las Vegas Game 2 final, player lines and semifinal schedule",
@@ -1242,9 +1242,9 @@
         }
       ],
       "dashboardUrl": "/food-for-thought.html?post=the-playoff-watch-party-2026#story",
-      "storyImage": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1631007.png",
-      "storyImageCaption": "Veronica Burton hit the go-ahead three with 41 seconds left in Golden State’s 83-81 Game 2 win. Official WNBA player portrait.",
-      "storyImageSourceUrl": "https://www.wnba.com/game/1042600212",
+      "storyImage": "https://bc.gmg.io/image/upload/c_lfill,w_1600,h_1067,f_jpg/media/gmg/ZEQJOB3M7VH5DH72KJCQGBU2U4.jpg",
+      "storyImageCaption": "Kalani Brown shoots against Kiah Stokes and Veronica Burton during Game 2 in San Francisco, October 7, 2026. Photo: Jeff Chiu/AP, via News4JAX.",
+      "storyImageSourceUrl": "https://www.news4jax.com/sports/2026/10/08/burtons-3-pointer-with-41-seconds-left-helps-send-valkyries-past-aces-83-81-for-2-0-semifinals-lead/",
       "playoffWatch": {
         "title": "TWO SERIES. TWO 2–0 LEADS. TWO FRIDAY CLOSEOUT SHOTS.",
         "subtitle": "Atlanta survived overtime. Golden State survived the last possession. Both semifinal leaders can reach the Finals on the road Friday, Oct. 9.",
@@ -1393,7 +1393,8 @@
         "How aggressively should Atlanta keep trapping once New York changes its first outlet?"
       ],
       "imageFallback": "https://cdn.wnba.com/logos/wnba/1611661331/primary/L/logo.svg",
-      "storyImageFallback": "https://cdn.wnba.com/logos/wnba/1611661331/primary/L/logo.svg"
+      "storyImageFallback": "https://cdn.wnba.com/logos/wnba/1611661331/primary/L/logo.svg",
+      "imageFocus": "50% 45%"
     },
     {
       "slug": "farewell-connecticut-sun-2026",

@@ -56,14 +56,14 @@ test('Playoff watch keeps a 16px minimum for compact labels and copy',()=>{
 });
 
 
-test('Homepage orders the live semifinal update, Draft Watch and bracket with the Game 1 result visible',()=>{
+test('Homepage orders the live semifinal update, Draft Watch and bracket with the Game 2 result visible',()=>{
   const html=read('index.html');
   const bracket=html.indexOf('id="playoff-bracket"');
   const draft=html.indexOf('href="/wnba-draft-class-rankings.html"');
   const seasonal=html.indexOf('data-season=');
   assert.ok(seasonal>0&&draft>seasonal&&bracket>draft);
-  assert.match(html,/Home court held/);
-  assert.match(html,/ATL 92–82 NYL · GSV 71–60 LVA/);
+  assert.match(html,/Overtime answered/);
+  assert.match(html,/ATL 101–98 NYL · FINAL\/OT/);
   assert.match(html,/c3ba69a5-3273-4a3d-b9ea-ebef203d24f5_0\.jpg/);
 });
 

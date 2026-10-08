@@ -1026,90 +1026,90 @@
       "priority": 7600,
       "homepageSeason": "wnba-playoffs",
       "seriesLabel": "FOOD FOR THOUGHT · PLAYOFF WATCH GUIDE",
-      "title": "Home Court Held: Dream and Valkyries Take 1–0 Semifinal Leads",
+      "title": "Atlanta Survives Overtime and Takes a 2–0 Semifinal Lead",
       "published": "2026-10-02",
-      "updated": "2026-10-04",
-      "week": "Semifinals · Atlanta and Golden State lead 1–0",
+      "updated": "2026-10-07",
+      "week": "Semifinals · Atlanta leads New York 2–0",
       "image": "https://cdn.wnba.com/sites/4/2026/10/c3ba69a5-3273-4a3d-b9ea-ebef203d24f5_0.jpg",
       "imageFit": "top-cover",
       "imageAlt": "Jordin Canada pressures the New York Liberty during Atlanta's semifinal Game 1 win",
-      "dek": "Atlanta beat New York 92-82, then Golden State held Las Vegas to 60 in a 71-60 win. Gabby Williams delivered 25 points, 11 rebounds and five assists; both home teams carry 1-0 leads into Wednesday’s Game 2 doubleheader.",
+      "dek": "Atlanta survived New York 101-98 in overtime despite Breanna Stewart’s 35 points. Angel Reese and Jordin Canada scored 23 each, the Dream won the turnover battle 7-16 and now carry a 2-0 lead to Brooklyn.",
       "playoffGameOne": {
-        "ariaLabel": "Atlanta-New York Game 1 final, player lines and semifinal schedule",
-        "eyebrow": "SEMIFINALS · GAME 1 FINAL",
-        "title": "Atlanta’s pressure broke the opener.",
-        "dek": "The Dream created a 32-14 edge in points off turnovers, got 48 points from Canada and Bonner, and protected home court against the No. 8 seed that had just swept Minnesota.",
-        "asOf": "UPDATED · OCT. 4, 2026",
+        "ariaLabel": "Atlanta-New York Game 2 overtime final, player lines and semifinal schedule",
+        "eyebrow": "SEMIFINALS · GAME 2 FINAL/OT",
+        "title": "Atlanta won the possessions New York could not spare.",
+        "dek": "The Liberty shot 54.7 percent and Stewart scored 35, but Atlanta took 20 more shots, won points off turnovers 28-10 and escaped overtime with a 2-0 series lead.",
+        "asOf": "UPDATED · OCT. 7, 2026",
         "receipts": [
           {
-            "value": "92–82",
-            "label": "Atlanta owns Game 1",
-            "note": "The Dream won the semifinal opener by 10 and lead the best-of-five series 1-0."
+            "value": "101–98",
+            "label": "Atlanta owns Game 2 in OT",
+            "note": "The Dream survived 17 lead changes and eight ties to take a 2-0 best-of-five lead."
           },
           {
-            "value": "25 + 5",
-            "label": "Canada’s two-way line",
-            "note": "Jordin Canada scored 25 on 9-of-14 shooting, made four threes and collected five steals."
+            "value": "23 + 8",
+            "label": "Canada’s control line",
+            "note": "Jordin Canada scored 23 on 9-of-15 shooting, hit three threes and handed out eight assists."
           },
           {
-            "value": "23 + 9",
-            "label": "Bonner’s bench swing",
-            "note": "DeWanna Bonner supplied 23 points and nine rebounds in 30 minutes without starting."
+            "value": "23 + 7",
+            "label": "Reese at the center",
+            "note": "Angel Reese scored 23, grabbed seven rebounds and made all six free throws."
           },
           {
-            "value": "32",
+            "value": "28–10",
             "label": "Points off turnovers",
-            "note": "Atlanta converted New York’s mistakes into a 32-14 advantage in points off turnovers."
+            "note": "Atlanta converted New York’s 16 turnovers into an 18-point advantage in points off giveaways."
           },
           {
-            "value": "21",
-            "label": "Liberty turnovers",
-            "note": "New York gave the ball away 21 times against Atlanta’s traps, digs and active hands."
+            "value": "+20",
+            "label": "Atlanta shot attempts",
+            "note": "Atlanta attempted 84 field goals to New York’s 64, offsetting the Liberty’s 54.7 percent shooting."
           },
           {
-            "value": "1–0",
-            "label": "First to three",
-            "note": "Atlanta can take a two-game cushion Wednesday, Oct. 7 at 7:30 p.m. ET on ESPN."
+            "value": "2–0",
+            "label": "One win to advance",
+            "note": "Atlanta can close the series Friday, Oct. 9 at 7:30 p.m. ET on ESPN2 in Brooklyn."
           }
         ],
         "highlights": [
           {
-            "score": "NYL 82 · ATL 92",
-            "title": "Canada set the pressure tone",
+            "score": "NYL 98 · ATL 101 · OT",
+            "title": "Canada controlled the decisive possessions",
             "player": "Jordin Canada",
-            "stat": "25 PTS · 5 STL · 4 3PM",
-            "note": "Canada shot 9-of-14, scored 25 and led a Dream defense that produced 14 steals.",
-            "photo": "https://cdn.wnba.com/sites/4/2026/10/c3ba69a5-3273-4a3d-b9ea-ebef203d24f5_0.jpg",
-            "photoAlt": "Jordin Canada pressures New York during semifinal Game 1",
-            "photoCredit": "WNBA game media · Jordin Canada highlights",
+            "stat": "23 PTS · 8 AST · 3 3PM",
+            "note": "Canada shot 9-of-15 and paired 23 points with eight assists in the overtime win.",
+            "photo": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1628886.png",
+            "photoAlt": "Official WNBA portrait of Atlanta Dream guard Jordin Canada",
+            "photoCredit": "Official WNBA player portrait",
             "photoFallback": "https://cdn.wnba.com/logos/wnba/1611661330/primary/L/logo.svg"
           },
           {
-            "score": "ATL BENCH · 27 PTS",
-            "title": "Bonner changed the possession math",
-            "player": "DeWanna Bonner",
-            "stat": "23 PTS · 9 REB · 0 TO",
-            "note": "Bonner scored 23 without a turnover and nearly matched New York’s entire six-point bench by herself.",
-            "photo": "https://cdn.wnba.com/sites/4/2026/10/3f35b50e-f0e5-4c36-8213-c09ae36d7624_0.jpg",
-            "photoAlt": "Atlanta Dream players in action during their semifinal Game 1 win",
-            "photoCredit": "WNBA game media · Atlanta top plays"
+            "score": "ATL CENTER · 23 PTS",
+            "title": "Reese made the pressure pay",
+            "player": "Angel Reese",
+            "stat": "23 PTS · 7 REB · 5 OREB",
+            "note": "Reese made eight field goals, all six free throws and grabbed five offensive rebounds.",
+            "photo": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1642291.png",
+            "photoAlt": "Official WNBA portrait of Atlanta Dream center Angel Reese",
+            "photoCredit": "Official WNBA player portrait"
           },
           {
-            "score": "NYL · 21 TURNOVERS",
-            "title": "Ionescu’s 27 could not cover the giveaways",
-            "player": "Sabrina Ionescu",
-            "stat": "27 PTS · 3 3PM · 5 TO",
-            "note": "Ionescu led New York, but Atlanta kept the Liberty from matching its volume of clean possessions.",
-            "photo": "https://cdn.wnba.com/sites/4/2026/10/52625a6a-698e-48f2-9907-24607c47e977_0.jpg",
-            "photoAlt": "Sabrina Ionescu scores against Atlanta during semifinal Game 1",
-            "photoCredit": "WNBA game media · Sabrina Ionescu highlights"
+            "score": "NYL · 35 PTS",
+            "title": "Stewart’s masterpiece still needed more possessions",
+            "player": "Breanna Stewart",
+            "stat": "35 PTS · 11 REB · 6 AST",
+            "note": "Stewart shot 11-of-21 and committed only one turnover, but New York’s team-level possession deficit was too large.",
+            "photo": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1627668.png",
+            "photoAlt": "Official WNBA portrait of New York Liberty forward Breanna Stewart",
+            "photoCredit": "Official WNBA player portrait"
           },
           {
-            "score": "WED · 7:30 ET",
-            "title": "Game 2 stays in Atlanta",
-            "player": "New York at Atlanta",
-            "stat": "ATL LEADS 1–0 · ESPN",
-            "note": "The Liberty get one full adjustment window before Atlanta can move within one win of the Finals.",
+            "score": "FRI · 7:30 ET",
+            "title": "Game 3 shifts to Brooklyn",
+            "player": "Atlanta at New York",
+            "stat": "ATL LEADS 2–0 · ESPN2",
+            "note": "New York must protect home court to extend the season; Atlanta is one win from the WNBA Finals.",
             "photo": "https://cdn.wnba.com/sites/4/2026/10/3ba60f67-3a3e-434f-893d-616a96b17fd0_0.jpg",
             "photoAlt": "Rhyne Howard creates for Atlanta during semifinal Game 1",
             "photoCredit": "WNBA game media · Rhyne Howard highlights"
@@ -1118,45 +1118,45 @@
       },
       "gameGallery": {
         "eyebrow": "REAL GAME FRAMES · OFFICIAL MEDIA",
-        "title": "Game 1 belonged to Atlanta’s pressure",
-        "dek": "Official WNBA game media from the Dream’s 92-82 semifinal opener against New York.",
+        "title": "Game 2 belonged to Atlanta’s extra possessions",
+        "dek": "Official WNBA portraits and Game 2 receipts from the Dream’s 101-98 overtime win against New York.",
         "items": [
           {
-            "kicker": "POINT OF ATTACK · ATLANTA",
-            "title": "Canada took away the comfortable pass",
-            "caption": "Canada paired 25 points with five steals as Atlanta turned 21 Liberty turnovers into 32 points.",
-            "image": "https://cdn.wnba.com/sites/4/2026/10/c3ba69a5-3273-4a3d-b9ea-ebef203d24f5_0.jpg",
-            "alt": "Jordin Canada defends New York during semifinal Game 1",
-            "credit": "WNBA · Jordin Canada Game 1 highlights",
-            "sourceUrl": "https://www.wnba.com/watch/video/jordin-canada-with-5-steals-vs-new-york-liberty",
+            "kicker": "CONTROL · ATLANTA",
+            "title": "Canada created the clean looks",
+            "caption": "Canada paired 23 points with eight assists and hit three of six from deep in the overtime win.",
+            "image": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1628886.png",
+            "alt": "Official WNBA portrait of Atlanta Dream guard Jordin Canada",
+            "credit": "Official WNBA player portrait",
+            "sourceUrl": "https://www.wnba.com/game/1042600202",
             "imageFallback": "https://cdn.wnba.com/logos/wnba/1611661330/primary/L/logo.svg"
           },
           {
-            "kicker": "TEAM PRESSURE · ATLANTA",
-            "title": "Fourteen steals changed the floor",
-            "caption": "Atlanta created transition chances and extra possessions before New York could consistently establish its frontcourt offense.",
-            "image": "https://cdn.wnba.com/sites/4/2026/10/3f35b50e-f0e5-4c36-8213-c09ae36d7624_0.jpg",
-            "alt": "Atlanta Dream players in action against New York in semifinal Game 1",
-            "credit": "WNBA · Atlanta Dream top plays",
-            "sourceUrl": "https://www.wnba.com/watch/video/atlanta-dream-top-plays-vs-new-york-liberty-3"
+            "kicker": "SECOND CHANCES · ATLANTA",
+            "title": "Reese kept possessions alive",
+            "caption": "Reese scored 23, grabbed five offensive rebounds and helped Atlanta attempt 20 more field goals than New York.",
+            "image": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1642291.png",
+            "alt": "Official WNBA portrait of Atlanta Dream center Angel Reese",
+            "credit": "Official WNBA player portrait",
+            "sourceUrl": "https://www.wnba.com/game/1042600202"
           },
           {
-            "kicker": "CREATION · ATLANTA",
-            "title": "Howard filled the gaps",
-            "caption": "Rhyne Howard added 16 points, eight rebounds and eight assists while Canada and Bonner carried the scoring load.",
-            "image": "https://cdn.wnba.com/sites/4/2026/10/3ba60f67-3a3e-434f-893d-616a96b17fd0_0.jpg",
-            "alt": "Rhyne Howard creates offense for Atlanta against New York",
-            "credit": "WNBA · Rhyne Howard Game 1 highlights",
-            "sourceUrl": "https://www.wnba.com/watch/video/highlights-from-rhyne-howard-8-assist-game-4"
+            "kicker": "SHOTMAKING · NEW YORK",
+            "title": "Stewart nearly stole it anyway",
+            "caption": "Stewart produced 35 points, 11 rebounds and six assists while shooting 52.4 percent from the floor.",
+            "image": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1627668.png",
+            "alt": "Official WNBA portrait of New York Liberty forward Breanna Stewart",
+            "credit": "Official WNBA player portrait",
+            "sourceUrl": "https://www.wnba.com/game/1042600202"
           },
           {
-            "kicker": "COUNTERPUNCH · NEW YORK",
-            "title": "Ionescu kept scoring through the noise",
-            "caption": "Ionescu scored a game-high 27, but the Liberty’s 21 turnovers kept that shotmaking from controlling the opener.",
-            "image": "https://cdn.wnba.com/sites/4/2026/10/52625a6a-698e-48f2-9907-24607c47e977_0.jpg",
-            "alt": "Sabrina Ionescu scores for New York against Atlanta",
-            "credit": "WNBA · Sabrina Ionescu Game 1 highlights",
-            "sourceUrl": "https://www.wnba.com/watch/video/sabrina-ionescu-points-leader-in-atlanta-dream-vs-new-york-liberty-top-points"
+            "kicker": "BENCH COUNTER · NEW YORK",
+            "title": "Fauthoux made every minute matter",
+            "caption": "Marine Fauthoux scored 20 on 8-of-10 shooting and made four threes in 30:50 off the bench.",
+            "image": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1630469.png",
+            "alt": "Official WNBA portrait of New York Liberty guard Marine Fauthoux",
+            "credit": "Official WNBA player portrait",
+            "sourceUrl": "https://www.wnba.com/game/1042600202"
           }
         ]
       },
@@ -1197,6 +1197,10 @@
       ],
       "sources": [
         {
+          "label": "WNBA official box score: Dream 101, Liberty 98 (OT)",
+          "url": "https://www.wnba.com/game/1042600202"
+        },
+        {
           "label": "WNBA official box score: Dream 92, Liberty 82",
           "url": "https://www.wnba.com/game/1042600201"
         },
@@ -1234,32 +1238,32 @@
       "storyImageCaption": "Jordin Canada scored 25 points and made five steals as Atlanta beat New York 92-82 in semifinal Game 1. Official WNBA game media.",
       "storyImageSourceUrl": "https://www.wnba.com/watch/video/jordin-canada-with-5-steals-vs-new-york-liberty",
       "playoffWatch": {
-        "title": "DREAM 1–0. VALKYRIES 1–0. HOME COURT HELD.",
-        "subtitle": "Atlanta 92, New York 82. Golden State 71, Las Vegas 60. Both semifinal Game 2s are Wednesday, Oct. 7: 7:30 ET in Atlanta and 9:30 ET at Chase Center.",
-        "asOf": "BOTH GAME 1 FINALS · OCT. 4",
+        "title": "DREAM 2–0. ONE WIN FROM THE FINALS.",
+        "subtitle": "Atlanta 101, New York 98 in overtime. The Dream protected home court twice and can close the best-of-five semifinal Friday, Oct. 9 at 7:30 ET in Brooklyn.",
+        "asOf": "ATL–NYL GAME 2 FINAL · OCT. 7",
         "summary": [
           {
-            "value": "1–0",
+            "value": "2–0",
             "label": "Atlanta series lead"
           },
           {
-            "value": "1–0",
-            "label": "Golden State series lead"
+            "value": "101–98",
+            "label": "Atlanta Game 2 OT win"
           },
           {
-            "value": "71–60",
-            "label": "Valkyries Game 1 win"
+            "value": "35",
+            "label": "Stewart points in defeat"
           },
           {
-            "value": "WED · OCT 7",
-            "label": "Game 2 doubleheader"
+            "value": "FRI · OCT 9",
+            "label": "Atlanta closeout chance"
           }
         ],
         "matchups": [
           {
             "id": "atl-nyl",
             "roundKey": "Semifinals",
-            "roundLabel": "SEMIFINALS · GAME 1 FINAL",
+            "roundLabel": "SEMIFINALS · GAME 2 FINAL/OT",
             "highSeed": 4,
             "highTeam": "Atlanta Dream",
             "highRecord": "30-14",
@@ -1267,9 +1271,9 @@
             "lowTeam": "New York Liberty",
             "lowRecord": "26-18",
             "regularSeries": "ATL 2-1",
-            "series": "1-0",
-            "seriesNote": "ATLANTA LEADS · FIRST TO 3",
-            "nextGame": "Wed, Oct. 7 · 7:30 PM ET · ESPN · State Farm Arena",
+            "series": "2-0",
+            "seriesNote": "ATLANTA LEADS 2–0 · ONE WIN TO ADVANCE",
+            "nextGame": "Fri, Oct. 9 · 7:30 PM ET · ESPN2 · Barclays Center",
             "stars": [
               "Angel Reese",
               "Breanna Stewart"
@@ -1278,12 +1282,12 @@
               "https://cdn.wnba.com/headshots/wnba/latest/260x190/1642291.png",
               "https://cdn.wnba.com/headshots/wnba/latest/260x190/1627668.png"
             ],
-            "hot": "Atlanta won Game 1, 92-82, behind Canada’s 25 points and five steals, Bonner’s 23 points and nine rebounds, and a 32-14 edge in points off turnovers.",
-            "bench": "Bonner outscored New York’s entire bench 23-6 by herself. The Liberty need a second-unit scoring answer without weakening their ball security.",
-            "availability": "Game 1: ATL 92, NYL 82. Game 2: Wed. Oct. 7, 7:30 ET on ESPN. Game 3 shifts to New York on Fri. Oct. 9, 7:30 ET on ESPN2.",
-            "beat": "Atlanta turned pressure into 14 steals, 18 fast-break points and 32 points off turnovers. New York still made 11 threes and all 15 free throws, but it could not overcome 21 giveaways.",
-            "break": "New York must create safer first outlets against the trap and reach Stewart and Jones earlier. Atlanta must keep forcing decisions even if the live-ball turnover count regresses.",
-            "must": "Game 2 starts with possession quality: can the Liberty cut 21 turnovers without losing the spacing that produced 11 threes?",
+            "hot": "Atlanta won Game 2 in overtime, 101-98. Reese and Canada scored 23 each, and the Dream generated 28 points off turnovers while committing only seven themselves.",
+            "bench": "Isobel Borlase scored 11 on 4-of-9 shooting and hit three threes. New York countered with Marine Fauthoux’s 20 points on 8-of-10 shooting, but Atlanta owned the extra-possession math.",
+            "availability": "Game 1: ATL 92, NYL 82. Game 2: ATL 101, NYL 98 (OT). Game 3: Fri. Oct. 9, 7:30 ET on ESPN2 at Barclays Center.",
+            "beat": "New York shot 54.7 percent and made 12 threes, but Atlanta attempted 20 more field goals and won points off turnovers 28-10. Seventeen lead changes and eight ties turned into one extra-possession finish.",
+            "break": "Stewart delivered 35 points, 11 rebounds and six assists, while Fauthoux added 20. The Liberty still committed 16 turnovers and allowed 11 offensive rebounds, two leaks that erased elite shooting.",
+            "must": "New York has to win the possession count in Game 3. Atlanta can reach the Finals by keeping its pressure disciplined and feeding Reese before the Liberty defense gets set.",
             "highCode": "ATL",
             "lowCode": "NYL",
             "highWScore": 89,
@@ -1323,7 +1327,7 @@
             "lowWScore": 88
           }
         ],
-        "scoreMethod": "The W Score is a regular-season composite. Game 1 final, series record and Game 2 details are synced to the official WNBA postseason feed."
+        "scoreMethod": "The W Score is a regular-season composite. The Atlanta–New York Game 2 final, series record and Game 3 details are synced to the official WNBA postseason feed."
       },
       "awardFallout": {
         "eyebrow": "COACH OF THE YEAR + ROOKIE OF THE YEAR",

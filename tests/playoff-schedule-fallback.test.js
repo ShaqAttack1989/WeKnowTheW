@@ -9,7 +9,7 @@ function runHandler(){
   return Promise.resolve(handler(req,res)).then(()=>payload);
 }
 
-test('published 2026 fallback closes Round 1 and carries Atlanta-New York Game 1 final',async()=>{
+test('published 2026 fallback closes Round 1 and carries Atlanta-New York Game 2 final',async()=>{
   const originalFetch=global.fetch;
   global.fetch=async()=>({ok:true,json:async()=>({events:[]})});
   try{
@@ -34,8 +34,14 @@ test('published 2026 fallback closes Round 1 and carries Atlanta-New York Game 1
     assert.equal(game('2026-10-04','Las Vegas Aces','Golden State Valkyries').startTimeUtc,'2026-10-04T16:00:00-04:00');
     assert.deepEqual(game('2026-10-04','Las Vegas Aces','Golden State Valkyries').broadcasts,['Peacock','NBC']);
 
-    assert.equal(game('2026-10-07','New York Liberty','Atlanta Dream').startTimeUtc,'2026-10-07T19:30:00-04:00');
-    assert.deepEqual(game('2026-10-07','New York Liberty','Atlanta Dream').broadcasts,['ESPN']);
+    const atlantaGameTwo=game('2026-10-07','New York Liberty','Atlanta Dream');
+    assert.equal(atlantaGameTwo.id,'1042600202');
+    assert.equal(atlantaGameTwo.startTimeUtc,'2026-10-07T19:30:00-04:00');
+    assert.equal(atlantaGameTwo.homeScore,101);
+    assert.equal(atlantaGameTwo.awayScore,98);
+    assert.equal(atlantaGameTwo.status,'Final/OT');
+    assert.equal(atlantaGameTwo.completed,true);
+    assert.deepEqual(atlantaGameTwo.broadcasts,['ESPN']);
     assert.equal(game('2026-10-07','Las Vegas Aces','Golden State Valkyries').startTimeUtc,'2026-10-07T21:30:00-04:00');
     assert.deepEqual(game('2026-10-07','Las Vegas Aces','Golden State Valkyries').broadcasts,['Peacock','NBC Sports Network']);
 
@@ -51,7 +57,7 @@ test('published 2026 fallback closes Round 1 and carries Atlanta-New York Game 1
     assert.equal(semifinals.length,2);
     assert.ok(semifinals.every(row=>!row.complete&&row.targetWins===3));
     const atlantaSeries=semifinals.find(row=>row.teamA==='Atlanta Dream'&&row.teamB==='New York Liberty');
-    assert.equal(atlantaSeries.winsA,1);
+    assert.equal(atlantaSeries.winsA,2);
     assert.equal(atlantaSeries.winsB,0);
     const gsv=game('2026-10-04','Las Vegas Aces','Golden State Valkyries');
     assert.equal(gsv.id,'1042600211');
@@ -61,7 +67,7 @@ test('published 2026 fallback closes Round 1 and carries Atlanta-New York Game 1
     const gsvSeries=semifinals.find(row=>row.teamA==='Golden State Valkyries');
     assert.equal(gsvSeries.winsA,1);
     assert.equal(gsvSeries.winsB,0);
-    assert.equal(payload.sourceVersion,'20261004-both-semifinal-openers-final-v1');
+    assert.equal(payload.sourceVersion,'20261007-atlanta-semifinal-game-two-final-v1');
   }finally{
     global.fetch=originalFetch;
   }

@@ -64,6 +64,7 @@ test('Homepage orders the live semifinal update, Draft Watch and bracket with th
   assert.ok(seasonal>0&&draft>seasonal&&bracket>draft);
   assert.match(html,/Two home stands/);
   assert.match(html,/GSV 83–81 LVA · FINAL/);
+  assert.match(html,/Atlanta and Golden State both lead 2–0/);
   assert.match(html,/1631007\.png/);
 });
 

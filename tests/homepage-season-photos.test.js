@@ -15,9 +15,9 @@ const championsPhoto = '/assets/images/fiba-group-play/fiba-world-champions-usa-
 const jackieTrophyPhoto = '/assets/images/fiba-group-play/jackie-young-championship-trophy-2026.jpg';
 const libertySleeperPhoto = '/assets/images/snack-shak/liberty-post-fiba-sleeper.jpg';
 
-test('the static spotlight links to its featured stories', () => {
-  assert.match(index, /season-story season-story-lead" href="\/food-for-thought\.html\?post=the-playoff-watch-party-2026#story"/);
-  assert.match(index, /season-story" href="\/fiba-return-playoff-show-2026\.html"/);
+test('the spotlight loads fresh stories and retains its playoff tracker', () => {
+  assert.match(index, /id="freshTopStories"/);
+  assert.match(index, /homepage-fresh-stories\.js/);
   assert.match(index, /data-wktw-playoff-bracket data-variant="home"/);
 });
 

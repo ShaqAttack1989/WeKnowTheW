@@ -4,7 +4,7 @@
   const short=(value='',limit=175)=>{const clean=text(value);return clean.length<=limit?clean:`${clean.slice(0,limit).replace(/\s+\S*$/,'').trim()}…`;};
   const norm=value=>text(value).normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
   const slugify=value=>norm(value).replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
-  const dateValue=item=>item?.published||item?.date||item?.updatedAt||item?.updated||item?.week||'';
+  const dateValue=item=>[item?.published,item?.date,item?.updatedAt,item?.updated].filter(Boolean).sort().pop()||item?.week||'';
   const timeValue=value=>{const parsed=Date.parse(String(value||''));return Number.isFinite(parsed)?parsed:0;};
   const localDate=value=>{const raw=String(value||'').trim();const parsed=new Date(/^\d{4}-\d{2}-\d{2}$/.test(raw)?`${raw}T12:00:00`:raw);return parsed;};
   const fmtDate=value=>{const parsed=localDate(value);return Number.isNaN(parsed.getTime())?text(value):parsed.toLocaleDateString([],{month:'short',day:'numeric',year:'numeric'});};

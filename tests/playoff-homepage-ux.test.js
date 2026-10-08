@@ -56,16 +56,16 @@ test('Playoff watch keeps a 16px minimum for compact labels and copy',()=>{
 });
 
 
-test('Homepage orders the live semifinal update, Draft Watch and bracket with the latest Game 2 result visible',()=>{
+test('Homepage keeps the playoff context and automatically fills story slots before the bracket',()=>{
   const html=read('index.html');
   const bracket=html.indexOf('id="playoff-bracket"');
-  const draft=html.indexOf('href="/wnba-draft-class-rankings.html"');
-  const seasonal=html.indexOf('data-season=');
-  assert.ok(seasonal>0&&draft>seasonal&&bracket>draft);
+  const stories=html.indexOf('id="freshTopStories"');
+  const more=html.indexOf('id="freshMoreStories"');
+  assert.ok(stories>0&&more>stories&&bracket>more);
   assert.match(html,/Two home stands/);
-  assert.match(html,/GSV 83–81 LVA · FINAL/);
   assert.match(html,/Atlanta and Golden State both lead 2–0/);
-  assert.match(html,/1631007\.png/);
+  assert.match(html,/homepage-fresh-stories\.js/);
+  assert.match(html,/href="\/wnba-draft-class-rankings.html"/);
 });
 
 test('Homepage live game board prioritizes and deduplicates playoff games',()=>{

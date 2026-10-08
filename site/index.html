@@ -66,51 +66,11 @@
           <nav class="season-spotlight-nav" aria-label="WNBA playoff shortcuts">
             <a class="is-featured" href="/games.html">Playoff games</a>
             <a href="#playoff-bracket">Live bracket</a>
-            <a href="/fiba-return-playoff-show-2026.html">Return-night +131</a>
             <a href="/food-for-thought.html?post=the-playoff-watch-party-2026#story">Playoff watch guide</a>
-            <a href="/food-for-thought.html?post=farewell-connecticut-sun-2026#story">Farewell, Connecticut Sun</a>
+            <a href="/snack-shak.html">All stories</a>
           </nav>
 
-          <div class="season-story-grid">
-            <a class="season-story season-story-lead" href="/food-for-thought.html?post=the-playoff-watch-party-2026#story">
-              <figure class="season-story-media">
-                <img src="https://bc.gmg.io/image/upload/c_lfill,w_1600,h_1067,f_jpg/media/gmg/ZEQJOB3M7VH5DH72KJCQGBU2U4.jpg" alt="Valkyries defend Kalani Brown during Game 2 on October 7, 2026; Jeff Chiu/AP" loading="eager" fetchpriority="high" onerror="this.onerror=null;this.src='https://cdn.wnba.com/logos/wnba/1611661331/primary/L/logo.svg';this.style.objectFit='contain';this.style.objectPosition='center';" style="object-fit:cover;object-position:50% 45%;background:linear-gradient(135deg,#301934,#6d35a8)">
-                <span>FOOD FOR THOUGHT · PLAYOFF WATCH GUIDE</span>
-              </figure>
-              <div class="season-story-copy">
-                <p class="season-story-label">GSV 83–81 LVA · FINAL</p>
-                <h3>Burton’s shot. Stokes’s block. Golden State up 2-0.</h3>
-                <p>Hayes scored 21 off the bench, Williams added 20 and the Valkyries survived the last possession to stay perfect in the semifinal.</p>
-                <b>Read the updated watch guide <span aria-hidden="true">→</span></b>
-              </div>
-            </a>
-
-            <a class="season-story" href="/fiba-return-playoff-show-2026.html">
-              <figure class="season-story-media">
-                <img src="https://cdn.wnba.com/headshots/wnba/latest/1040x760/1629498.png" alt="Official WNBA portrait of Las Vegas Aces guard Jackie Young" loading="lazy" style="object-fit:contain;object-position:center center;background:linear-gradient(135deg,#180b36,#5e3191)">
-                <span>RETURN-NIGHT FOOD FOR THOUGHT</span>
-              </figure>
-              <div class="season-story-copy">
-                <p class="season-story-label">4 PLAYOFF TEAMS · 4 WINS · +131</p>
-                <h3>Berlin to Buckets: the playoff teams came back loud.</h3>
-                <p>Five finals, return-night milestones, Berlin-to-W player reads and a live playoff pressure dashboard.</p>
-                <b>Read the return-night feature <span aria-hidden="true">→</span></b>
-              </div>
-            </a>
-
-            <a class="season-story" href="/food-for-thought.html?post=farewell-connecticut-sun-2026#story">
-              <figure class="season-story-media report-card-media">
-                <img src="https://cdn.wnba.com/sites/1611661323/2026/09/gettyimages-2296356188-594x594-1.jpg" alt="Connecticut Sun fans celebrate at the final home game" loading="lazy" style="object-position:center 33%">
-                <span>CONNECTICUT SUN · 2003–2026</span>
-              </figure>
-              <div class="season-story-copy">
-                <p class="season-story-label">FOUR FINALS · 24 SEASONS · ONE LAST WIN</p>
-                <h3>One Last Sunrise: farewell to the Connecticut Sun.</h3>
-                <p>The final season was difficult. The final night was a win. Remember the moments in between.</p>
-                <b>Read the farewell <span aria-hidden="true">→</span></b>
-              </div>
-            </a>
-          </div>
+          <div class="season-story-grid" id="freshTopStories" aria-label="Latest stories"></div>
 
           <footer class="season-spotlight-foot">
             <span>Atlanta and Golden State both lead 2–0. Friday brings closeout games at 7:30 and 9:30 PM ET.</span>
@@ -119,6 +79,9 @@
         </div>
       </div>
     </section>
+
+  <section class="shell season-story-grid" id="freshNextStory" style="grid-template-columns:1fr" aria-label="More recent stories"></section>
+  <section class="shell season-story-grid" id="freshMoreStories" aria-label="More analysis"></section>
 
     <section class="home-playoff-bracket-section" id="playoff-bracket" aria-label="2026 WNBA playoff bracket">
       <div class="page-shell"><div data-wktw-playoff-bracket data-variant="home"></div></div>
@@ -275,6 +238,7 @@
   <script src="/game-broadcast-upgrade.js?v=20260825-official-v2"></script>
   <script src="/homepage-hub.js?v=20260925-fast-home-v4"></script>
   <script src="/homepage-week-live.js?v=20261002-12b27f68-weekly-hub"></script>
+  <script src="/homepage-fresh-stories.js?v=20261008-v1"></script>
   <script src="/homepage-specials.js?v=20261002-12b27f68-fresh-stories"></script>
   <script src="/homepage-desk.js?v=20260927-playoff-times-v5"></script>
   <script src="/playoff-bracket.js?v=20261008-gsv-g2-v1"></script>

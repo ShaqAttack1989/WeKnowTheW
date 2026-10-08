@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-08T16:24:44.732Z",
+  "generatedAt": "2026-10-08T22:01:22.140Z",
   "movement": {
     "latestTransactionDate": "2026-09-28",
     "transactions": [
@@ -1429,9 +1429,35 @@
   },
   "availability": {
     "latestReportDate": "2026-10-08",
-    "reportLabel": "10/08/2026 12:15 PM ET",
-    "officialPdf": "https://ak-static.cms.nba.com/referee/wnba_injury/Injury-Report_2026-10-08_12_15PM.pdf",
+    "reportLabel": "10/08/2026 06:00 PM ET",
+    "officialPdf": "https://ak-static.cms.nba.com/referee/wnba_injury/Injury-Report_2026-10-08_06_00PM.pdf",
     "injuries": [
+      {
+        "player": "Allisha Gray",
+        "team": "Atlanta Dream",
+        "status": "QUESTIONABLE",
+        "reason": "Injury/Illness - Left Hand; N/A",
+        "gameDate": "10/09/2026",
+        "gameTime": "07:30 (ET)",
+        "matchup": "ATL@NYL",
+        "updated": "2026-10-09",
+        "source": "Official WNBA Injury Report PDF",
+        "officialCurrentReport": true,
+        "crossCheckOnly": false
+      },
+      {
+        "player": "Brionna Jones",
+        "team": "Atlanta Dream",
+        "status": "OUT",
+        "reason": "Injury/Illness - Left Leg; N/A",
+        "gameDate": "10/09/2026",
+        "gameTime": "07:30 (ET)",
+        "matchup": "ATL@NYL",
+        "updated": "2026-10-09",
+        "source": "Official WNBA Injury Report PDF",
+        "officialCurrentReport": true,
+        "crossCheckOnly": false
+      },
       {
         "player": "Alanna Smith",
         "team": "Dallas Wings",
@@ -2081,14 +2107,6 @@
     ],
     "teamStatuses": [
       {
-        "team": "Atlanta Dream",
-        "status": "NOT YET SUBMITTED",
-        "gameDate": "10/09/2026",
-        "gameTime": "07:30 (ET)",
-        "matchup": "ATL@NYL",
-        "updated": "2026-10-09"
-      },
-      {
         "team": "Golden State Valkyries",
         "status": "NOT YET SUBMITTED",
         "gameDate": "10/09/2026",
@@ -2102,14 +2120,6 @@
         "gameDate": "10/09/2026",
         "gameTime": "09:30 (ET)",
         "matchup": "GSV@LVA",
-        "updated": "2026-10-09"
-      },
-      {
-        "team": "New York Liberty",
-        "status": "NOT YET SUBMITTED",
-        "gameDate": "10/09/2026",
-        "gameTime": "07:30 (ET)",
-        "matchup": "ATL@NYL",
         "updated": "2026-10-09"
       }
     ]

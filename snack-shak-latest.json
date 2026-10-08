@@ -2,6 +2,86 @@
   "site": "Snack Shak",
   "posts": [
     {
+      "slug": "down-0-2-somebody-has-to-be-first",
+      "type": "byte",
+      "priority": 5200,
+      "homepageSeason": "wnba-playoffs",
+      "seriesLabel": "SNACK SHAK BYTE · PLAYOFF HISTORY",
+      "title": "Down 0–2: Somebody Has to Be First",
+      "published": "2026-10-08",
+      "updated": "2026-10-08",
+      "week": "Playoff history · Oct. 8, 2026",
+      "dashboardUrl": "/snack-shak-bytes.html?post=down-0-2-somebody-has-to-be-first#story",
+      "image": "https://thumb.spokesman.com/Wv53Zo3By85p3tlqhGcaa5NRaWA=/1200x0/media.spokesman.com/photos/2018/09/04/Mercury_Storm_Basketball.JPG.jpg",
+      "storyImage": "https://thumb.spokesman.com/Wv53Zo3By85p3tlqhGcaa5NRaWA=/1200x0/media.spokesman.com/photos/2018/09/04/Mercury_Storm_Basketball.JPG.jpg",
+      "imageFit": "cover",
+      "imageFocus": "50% 35%",
+      "imageAlt": "Sue Bird drives past Yvonne Turner in Seattle against Phoenix during Game 5 on September 4, 2018",
+      "storyImageCaption": "Sue Bird drives past Phoenix’s Yvonne Turner during Game 5 in Seattle, September 4, 2018. Photo: Elaine Thompson/AP, via The Spokesman-Review.",
+      "storyImageSourceUrl": "https://www.spokesman.com/stories/2018/sep/04/sue-birds-big-4th-quarter-leads-seattle-storm-past/",
+      "teams": [
+        "Phoenix Mercury",
+        "Seattle Storm",
+        "New York Liberty",
+        "Las Vegas Aces",
+        "Atlanta Dream",
+        "Golden State Valkyries"
+      ],
+      "players": [
+        "Sue Bird",
+        "Diana Taurasi",
+        "Brittney Griner",
+        "DeWanna Bonner"
+      ],
+      "dek": "Has a WNBA team ever won a playoff series after falling behind 0–2? As of October 8, 2026, no. Phoenix got closest in 2018. Then Masked Sue Bird happened.",
+      "sections": [
+        {
+          "title": "The short answer: not yet",
+          "paragraphs": [
+            "No WNBA team has won a playoff series after losing its first two games, as of October 8, 2026. Coming back to tie a series is a different accomplishment from finishing the comeback. The 2018 Phoenix Mercury managed the first. Nobody has managed the second.",
+            "New York and Las Vegas now trail Atlanta and Golden State 0–2 in their best-of-five semifinals. Each needs three consecutive wins to advance. One win buys another game; it does not erase the deficit."
+          ]
+        },
+        {
+          "title": "Phoenix knocked. Bird changed the locks.",
+          "paragraphs": [
+            "In 2018, Phoenix lost the first two semifinal games in Seattle, then won both games at home to force Game 5. The Mercury became the first WNBA team to push a series to a deciding fifth game after an 0–2 start.",
+            "Game 4 was its own escape act. Phoenix erased a 17-point deficit and won 86–84 on September 2. Brittney Griner scored the go-ahead basket with 14.1 seconds left, then helped deny Seattle’s final attempt.",
+            "Two nights later, Sue Bird shut the door. Wearing a protective mask after breaking her nose in Game 4, she scored 14 of her 22 points in the fourth quarter as Seattle won Game 5, 94–84. Phoenix reached the doorstep. Seattle kept the keys."
+          ]
+        },
+        {
+          "title": "Shak’s take",
+          "paragraphs": [
+            "An 0–2 deficit is a history assignment with no completed answer key. The Liberty and Aces do not need to win three games on Friday. They need to win one, make the leaders pack for another, and repeat.",
+            "Impossible? The format allows it. Unprecedented? Absolutely. Somebody has to be first. Until then, Phoenix owns the closest call and Masked Sue owns the ending."
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "label": "WNBA · Phoenix forces Game 5 after an 0–2 start",
+          "url": "https://www.wnba.com/news/inside-the-w-mercurys-epic-comeback-forces-game-5/amp"
+        },
+        {
+          "label": "WNBA · Phoenix’s 17-point Game 4 comeback",
+          "url": "https://www.wnba.com/news/game-recap-mercury-come-back-from-17-down-force-game-5"
+        },
+        {
+          "label": "WNBA · Seattle wins Game 5, 94–84",
+          "url": "https://www.wnba.com/news/storm-and-mystics-advance-to-wnba-finals"
+        },
+        {
+          "label": "WNBA · Current playoff bracket",
+          "url": "https://www.wnba.com/playoffs/2026"
+        },
+        {
+          "label": "In-game photo · Elaine Thompson/AP via The Spokesman-Review",
+          "url": "https://www.spokesman.com/stories/2018/sep/04/sue-birds-big-4th-quarter-leads-seattle-storm-past/"
+        }
+      ]
+    },
+    {
       "slug": "issa-rae-unrivaled-investor-2026",
       "type": "byte",
       "priority": 4100,

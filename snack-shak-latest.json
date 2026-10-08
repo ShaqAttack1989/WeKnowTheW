@@ -2,6 +2,148 @@
   "site": "Snack Shak",
   "posts": [
     {
+      "slug": "aja-wilson-five-mvps-2026",
+      "type": "feature",
+      "priority": 9800,
+      "homepageSeason": "wnba-playoffs",
+      "seriesLabel": "FOOD FOR THOUGHT · PLAYER LEGACY",
+      "title": "A’ja Wilson’s Fifth MVP Puts Her in Basketball’s Most Decorated Company",
+      "published": "2026-10-08",
+      "updated": "2026-10-08",
+      "week": "Historic fifth MVP · Oct. 8, 2026",
+      "image": "https://www.thesportingtribune.com/img/wnba/aces/260621_aces_vs_valkyries/260621_0003_valkyries_at_aces-original.jpg",
+      "storyImage": "https://www.thesportingtribune.com/img/wnba/aces/260621_aces_vs_valkyries/260621_0003_valkyries_at_aces-original.jpg",
+      "imageFit": "cover",
+      "imageFocus": "50% 38%",
+      "imageAlt": "A’ja Wilson in game action against the Golden State Valkyries during a 2026 regular-season game in Las Vegas",
+      "storyImageCaption": "A’ja Wilson attacks against the Valkyries in Las Vegas, June 21, 2026. Photo: RJ Forbus / The Sporting Tribune.",
+      "teams": [
+        "Las Vegas Aces",
+        "Golden State Valkyries"
+      ],
+      "players": [
+        "A’ja Wilson",
+        "Michael Jordan",
+        "Kareem Abdul-Jabbar",
+        "Dawn Staley"
+      ],
+      "dek": "A fifth WNBA MVP gives Wilson the league record and a first: three consecutive honors. Three championships, two Finals MVPs, three Defensive Player of the Year awards, a national title and international gold make the case broader than one vote.",
+      "gameGallery": {
+        "eyebrow": "FROM THE GAME TAPE",
+        "title": "The résumé, in real game action",
+        "dek": "Three scenes from Wilson’s 2026 season, photographed courtside. Each image links to its original gallery and carries its photographer credit.",
+        "items": [
+          {
+            "image": "https://www.thesportingtribune.com/img/wnba/aces/260606_aces_vs_valkyries/260606_aces_vs_valkyries-5-original.jpg",
+            "alt": "A’ja Wilson in game action against the Golden State Valkyries in Las Vegas on June 6, 2026",
+            "kicker": "JUNE 6 · LAS VEGAS",
+            "title": "Power in the paint",
+            "caption": "Wilson and the Aces beat Golden State 84–79; she finished with 28 points and 14 rebounds.",
+            "credit": "DJ Cabanlong / The Sporting Tribune",
+            "sourceUrl": "https://www.thesportingtribune.com/2026/06/06/aces-vs-valkyries-images-june-6"
+          },
+          {
+            "image": "https://www.thesportingtribune.com/img/wnba/aces/260621_aces_vs_valkyries/260621_0003_valkyries_at_aces-original.jpg",
+            "alt": "A’ja Wilson rises for a shot against the Valkyries during a WNBA game in Las Vegas on June 21, 2026",
+            "kicker": "JUNE 21 · LAS VEGAS",
+            "title": "The scoring pressure",
+            "caption": "The Aces won 92–73 in Wilson’s third matchup with Golden State that month.",
+            "credit": "RJ Forbus / The Sporting Tribune",
+            "sourceUrl": "https://www.thesportingtribune.com/2026/06/21/aces-valkyries-photos"
+          },
+          {
+            "image": "https://cdn.wnba.com/sites/1611661319/2026/10/2026-10-07_Jed-Jacobsohn_NBAE_06.jpg",
+            "alt": "Game action from the Las Vegas Aces and Golden State Valkyries WNBA semifinal on October 7, 2026",
+            "kicker": "OCT. 7 · SEMIFINALS",
+            "title": "A record season, a live playoff run",
+            "caption": "Wilson scored a game-high 24 points and grabbed seven rebounds in the Aces’ 83–81 Game 2 loss.",
+            "credit": "Jed Jacobsohn / NBAE via Las Vegas Aces",
+            "sourceUrl": "https://aces.wnba.com/news/gallery-aces-valkyries-10-7-2026"
+          }
+        ]
+      },
+      "sections": [
+        {
+          "title": "A fifth award changes the WNBA record book",
+          "paragraphs": [
+            "A’ja Wilson has won the 2026 Kia WNBA Most Valuable Player award, her fifth. Her first came in 2020, followed by 2022 and then three in a row from 2024 through 2026. That last stretch is a league first: no WNBA player had won three consecutive MVPs.",
+            "The award follows another historic regular season. Wilson averaged 26.2 points, 9.4 rebounds, 3.2 assists, 1.4 steals and 1.9 blocks in 41 games. She led the league in scoring, blocks and win shares. Her 26.2 points per game is the second-highest scoring average in WNBA history; only Wilson’s own 26.9 in 2024 is higher.",
+            "The numbers show why the season resisted a one-skill description. She carried an elite scoring load, controlled the glass and remained one of the league’s most disruptive rim protectors."
+          ]
+        },
+        {
+          "title": "The wider basketball comparison—and its limits",
+          "paragraphs": [
+            "Five regular-season MVPs puts Wilson in rare company across professional basketball. It matches Michael Jordan’s five NBA MVPs and leaves her one behind Kareem Abdul-Jabbar’s NBA-record six.",
+            "That is a useful measure of how scarce the honor is, not proof that awards from different leagues or eras are interchangeable. The NBA and WNBA have distinct histories, schedules and voting contexts. The fair point is narrower: Wilson’s count now belongs beside the best-known MVP totals in the sport, while standing alone at the top of the WNBA."
+          ]
+        },
+        {
+          "title": "The full résumé reaches beyond the regular season",
+          "paragraphs": [
+            "Wilson is also a three-time WNBA champion, a two-time Finals MVP and a three-time Defensive Player of the Year. She entered the league as its 2018 Rookie of the Year. The spread matters: her record includes sustained regular-season dominance, postseason performance, defense and team success.",
+            "Her international record adds another layer. USA Basketball lists Wilson as a two-time Olympic gold medalist, a two-time FIBA Women’s World Cup champion, the MVP of the 2022 World Cup and the MVP of the 2024 Paris Olympics. At South Carolina, she helped win the 2017 NCAA title and was named Final Four Most Outstanding Player."
+          ]
+        },
+        {
+          "title": "The record is settled; the season is still live",
+          "paragraphs": [
+            "On October 7, Wilson scored a game-high 24 points and collected seven rebounds, but Las Vegas lost Game 2 of its semifinal series to Golden State, 83–81. The Aces now trail 0–2 in the best-of-five series and need a win at home to extend their title defense.",
+            "That tension is useful context for a legacy story. Individual awards recognize what a player did over a regular season; they do not decide what comes next. Wilson’s fifth MVP is already a record. The 2026 playoff chapter is still being written."
+          ]
+        },
+        {
+          "title": "Shak’s take",
+          "paragraphs": [
+            "The fifth MVP is the headline, but the case for Wilson’s place among basketball’s most decorated players comes from the combination: a WNBA record, three straight MVPs, titles, Finals MVPs, defensive awards, Olympic and World Cup gold, and a college championship.",
+            "Putting her in a wider all-time conversation does not require pretending that every league or era can be ranked on one clean scale. Her résumé already stands on its own: Wilson has become the most decorated regular-season MVP in WNBA history, and one of the most accomplished players the sport has produced."
+          ]
+        }
+      ],
+      "debates": [
+        "Which part of Wilson’s résumé stands out most: the fifth MVP, the three-year streak, the defensive honors or the international record?",
+        "How much should cross-league MVP comparisons shape an all-time basketball conversation?"
+      ],
+      "sources": [
+        {
+          "label": "Las Vegas Aces · Wilson’s historic fifth MVP",
+          "url": "https://aces.wnba.com/news/aja-wilson-earns-historic-third-consecutive-fifth-overall-kia-wnba-mvp-honor"
+        },
+        {
+          "label": "WNBA · 2026 Wilson statistics and league rankings",
+          "url": "https://www.wnba.com/news/2026-eos-awards-lookahead-all-wnba-first-team"
+        },
+        {
+          "label": "Las Vegas Aces · Full career biography and honors",
+          "url": "https://aces.wnba.com/aja-wilson-bio"
+        },
+        {
+          "label": "USA Basketball · Wilson’s international medals and honors",
+          "url": "https://www.usab.com/players/aja-wilson"
+        },
+        {
+          "label": "WNBA · Wilson’s 2024 MVP, Olympic gold and South Carolina career",
+          "url": "https://www.wnba.com/news/2024-mvp-kia-aja-wilson"
+        },
+        {
+          "label": "NBA.com · NBA regular-season MVP leaders",
+          "url": "https://www.nba.com/news/nba-players-with-at-least-3-mvps"
+        },
+        {
+          "label": "Las Vegas Aces · Oct. 7 semifinal recap and official photo gallery",
+          "url": "https://aces.wnba.com/news/gallery-aces-valkyries-10-7-2026"
+        },
+        {
+          "label": "Lead in-game photo · RJ Forbus / The Sporting Tribune",
+          "url": "https://www.thesportingtribune.com/2026/06/21/aces-valkyries-photos"
+        },
+        {
+          "label": "Game photos · DJ Cabanlong / The Sporting Tribune",
+          "url": "https://www.thesportingtribune.com/2026/06/06/aces-vs-valkyries-images-june-6"
+        }
+      ]
+    },
+    {
       "slug": "down-0-2-somebody-has-to-be-first",
       "type": "byte",
       "priority": 5200,

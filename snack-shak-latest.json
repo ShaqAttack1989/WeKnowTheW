@@ -52,13 +52,13 @@
             "sourceUrl": "https://www.thesportingtribune.com/2026/06/21/aces-valkyries-photos"
           },
           {
-            "image": "https://cdn.wnba.com/sites/1611661319/2026/10/2026-10-07_Jed-Jacobsohn_NBAE_06.jpg",
-            "alt": "Game action from the Las Vegas Aces and Golden State Valkyries WNBA semifinal on October 7, 2026",
-            "kicker": "OCT. 7 · SEMIFINALS",
-            "title": "A record season, a live playoff run",
-            "caption": "Wilson scored a game-high 24 points and grabbed seven rebounds in the Aces’ 83–81 Game 2 loss.",
-            "credit": "Jed Jacobsohn / NBAE via Las Vegas Aces",
-            "sourceUrl": "https://aces.wnba.com/news/gallery-aces-valkyries-10-7-2026"
+            "image": "https://cdn.wnba.com/sites/1611661319/2026/09/2026-09-27-_-Las-Vegas-Aces-_-David-Becker_-NBAE-Photos80.jpg",
+            "alt": "A’ja Wilson drives to the basket during the Aces’ Game 1 win over Indiana on September 27, 2026",
+            "kicker": "SEPT. 27 · PLAYOFFS",
+            "title": "Playoff dominance",
+            "caption": "Wilson tied her career high with 38 points and grabbed 16 rebounds in the Aces’ 102–85 Game 1 win over Indiana.",
+            "credit": "David Becker / NBAE via Las Vegas Aces",
+            "sourceUrl": "https://aces.wnba.com/news/gallery-aces-vs-fever-round-1-game-1-9-27-2026"
           }
         ]
       },
@@ -130,16 +130,20 @@
           "url": "https://www.nba.com/news/nba-players-with-at-least-3-mvps"
         },
         {
-          "label": "Las Vegas Aces · Oct. 7 semifinal recap and official photo gallery",
-          "url": "https://aces.wnba.com/news/gallery-aces-valkyries-10-7-2026"
-        },
-        {
           "label": "Lead in-game photo · RJ Forbus / The Sporting Tribune",
           "url": "https://www.thesportingtribune.com/2026/06/21/aces-valkyries-photos"
         },
         {
           "label": "Game photos · DJ Cabanlong / The Sporting Tribune",
           "url": "https://www.thesportingtribune.com/2026/06/06/aces-vs-valkyries-images-june-6"
+        },
+        {
+          "label": "Las Vegas Aces · Oct. 7 semifinal Game 2 recap",
+          "url": "https://aces.wnba.com/news/gallery-aces-valkyries-10-7-2026"
+        },
+        {
+          "label": "Playoff action photo · David Becker / NBAE via Las Vegas Aces",
+          "url": "https://aces.wnba.com/news/gallery-aces-vs-fever-round-1-game-1-9-27-2026"
         }
       ]
     },

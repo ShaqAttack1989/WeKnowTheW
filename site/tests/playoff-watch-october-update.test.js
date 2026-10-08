@@ -8,30 +8,30 @@ const text=file=>fs.readFileSync(path.join(root,file),'utf8');
 const latest=JSON.parse(text('snack-shak-latest.json'));
 const guide=latest.posts.find(post=>post.slug==='the-playoff-watch-party-2026');
 
-test('playoff watch guide is refreshed for Atlanta-New York Game 2',()=>{
+test('playoff watch guide is refreshed for both semifinal Game 2 finals',()=>{
   assert.ok(guide);
-  assert.equal(guide.updated,'2026-10-07');
-  assert.match(guide.title,/2–0 Semifinal Lead/);
+  assert.equal(guide.updated,'2026-10-08');
+  assert.match(guide.title,/Both Semifinals Are 2–0/);
   assert.equal(guide.playoffWatch.matchups.length,2);
   assert.deepEqual(guide.playoffWatch.matchups.map(item=>item.id),['atl-nyl','gsv-lva']);
   assert.ok(guide.playoffWatch.matchups.every(item=>item.roundKey==='Semifinals'));
   assert.equal(guide.playoffWatch.matchups.find(item=>item.id==='atl-nyl').series,'2-0');
-  assert.equal(guide.playoffWatch.matchups.find(item=>item.id==='gsv-lva').series,'1-0');
+  assert.equal(guide.playoffWatch.matchups.find(item=>item.id==='gsv-lva').series,'2-0');
   assert.match(guide.playoffWatch.matchups.find(item=>item.id==='atl-nyl').seriesNote,/ATLANTA LEADS/);
   assert.match(guide.playoffWatch.matchups.find(item=>item.id==='gsv-lva').seriesNote,/GOLDEN STATE LEADS/);
   assert.match(guide.playoffWatch.matchups.find(item=>item.id==='atl-nyl').availability,/ATL 101, NYL 98 \(OT\)/);
   assert.match(guide.playoffWatch.matchups.find(item=>item.id==='atl-nyl').availability,/Oct\. 9, 7:30 ET on ESPN2/);
-  assert.match(guide.playoffWatch.matchups.find(item=>item.id==='gsv-lva').availability,/Oct\. 7, 9:30 ET/);
+  assert.match(guide.playoffWatch.matchups.find(item=>item.id==='gsv-lva').availability,/GSV 83, LVA 81/);
   assert.match(guide.playoffWatch.matchups.find(item=>item.id==='gsv-lva').availability,/Oct\. 9, 9:30 ET/);
 });
 
-test('Game 2 records, analysis, official imagery and award fallout are explicit',()=>{
+test('latest Game 2 records, analysis, official imagery and award fallout are explicit',()=>{
   const values=guide.playoffGameOne.receipts.map(item=>item.value);
-  assert.ok(values.includes('101–98'));
-  assert.ok(values.includes('23 + 8'));
-  assert.ok(values.includes('23 + 7'));
-  assert.ok(values.includes('28–10'));
-  assert.ok(values.includes('+20'));
+  assert.ok(values.includes('83–81'));
+  assert.ok(values.includes('21'));
+  assert.ok(values.includes('20 + 5'));
+  assert.ok(values.includes('34–14'));
+  assert.ok(values.includes('24'));
   assert.ok(values.includes('2–0'));
   assert.equal(guide.gameGallery.items.length,4);
   assert.ok(guide.gameGallery.items.every(item=>item.image.startsWith('https://cdn.wnba.com/')));
@@ -51,7 +51,7 @@ test('live renderer supports logos, semifinal rounds and dynamic summaries',()=>
   assert.match(renderer,/atl-nyl/);
 });
 
-test('fallback feeds carry Atlanta-New York Game 1 final and the remaining semifinal dates',()=>{
+test('fallback feeds carry both semifinal Game 2 finals and the remaining dates',()=>{
   const competition=text('api/competition.js');
   const bracket=text('playoff-bracket.js');
   for(const source of [competition,bracket]){
@@ -60,7 +60,7 @@ test('fallback feeds carry Atlanta-New York Game 1 final and the remaining semif
     assert.match(source,/id:'1042600202'.*homeScore:101,awayScore:98.*status:'Final\/OT'.*completed:true/);
     assert.match(source,/2026-nyl-atl-sf-g3/);
     assert.match(source,/1042600211/);
-    assert.match(source,/2026-gsv-lva-sf-g2/);
+    assert.match(source,/id:'1042600212'.*homeScore:83,awayScore:81.*status:'Final'.*completed:true/);
     assert.match(source,/2026-lva-gsv-sf-g3/);
   }
   assert.match(competition,/2026-10-07T21:30:00-04:00/);

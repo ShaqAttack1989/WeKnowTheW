@@ -9,7 +9,7 @@ function runHandler(){
   return Promise.resolve(handler(req,res)).then(()=>payload);
 }
 
-test('published 2026 fallback closes Round 1 and carries Atlanta-New York Game 2 final',async()=>{
+test('published 2026 fallback closes Round 1 and carries both semifinal Game 2 finals',async()=>{
   const originalFetch=global.fetch;
   global.fetch=async()=>({ok:true,json:async()=>({events:[]})});
   try{
@@ -42,8 +42,14 @@ test('published 2026 fallback closes Round 1 and carries Atlanta-New York Game 2
     assert.equal(atlantaGameTwo.status,'Final/OT');
     assert.equal(atlantaGameTwo.completed,true);
     assert.deepEqual(atlantaGameTwo.broadcasts,['ESPN']);
-    assert.equal(game('2026-10-07','Las Vegas Aces','Golden State Valkyries').startTimeUtc,'2026-10-07T21:30:00-04:00');
-    assert.deepEqual(game('2026-10-07','Las Vegas Aces','Golden State Valkyries').broadcasts,['Peacock','NBC Sports Network']);
+    const goldenStateGameTwo=game('2026-10-07','Las Vegas Aces','Golden State Valkyries');
+    assert.equal(goldenStateGameTwo.id,'1042600212');
+    assert.equal(goldenStateGameTwo.startTimeUtc,'2026-10-07T21:30:00-04:00');
+    assert.equal(goldenStateGameTwo.homeScore,83);
+    assert.equal(goldenStateGameTwo.awayScore,81);
+    assert.equal(goldenStateGameTwo.status,'Final');
+    assert.equal(goldenStateGameTwo.completed,true);
+    assert.deepEqual(goldenStateGameTwo.broadcasts,['Peacock','NBC Sports Network']);
 
     assert.equal(game('2026-10-09','Atlanta Dream','New York Liberty').startTimeUtc,'2026-10-09T19:30:00-04:00');
     assert.deepEqual(game('2026-10-09','Atlanta Dream','New York Liberty').broadcasts,['ESPN2']);
@@ -65,9 +71,9 @@ test('published 2026 fallback closes Round 1 and carries Atlanta-New York Game 2
     assert.equal(gsv.awayScore,60);
     assert.equal(gsv.completed,true);
     const gsvSeries=semifinals.find(row=>row.teamA==='Golden State Valkyries');
-    assert.equal(gsvSeries.winsA,1);
+    assert.equal(gsvSeries.winsA,2);
     assert.equal(gsvSeries.winsB,0);
-    assert.equal(payload.sourceVersion,'20261007-atlanta-semifinal-game-two-final-v1');
+    assert.equal(payload.sourceVersion,'20261008-semifinal-game-two-finals-v1');
   }finally{
     global.fetch=originalFetch;
   }

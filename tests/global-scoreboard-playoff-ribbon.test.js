@@ -11,6 +11,7 @@ test('global scoreboard bootstraps the current semifinal slate before network fe
   assert.match(source,/BOOTSTRAP_PLAYOFF_GAMES/);
   assert.match(source,/id:'1042600201'.*homeScore:92,awayScore:82.*status:'Final'.*completed:true/);
   assert.match(source,/id:'1042600202'.*homeScore:101,awayScore:98.*status:'Final\/OT'.*completed:true/);
+  assert.match(source,/id:'1042600212'.*homeScore:83,awayScore:81.*status:'Final'.*completed:true/);
   assert.match(source,/1042600211/);
   assert.match(source,/2026-nyl-atl-sf-g4/);
   assert.match(source,/2026-gsv-lva-sf-g5/);

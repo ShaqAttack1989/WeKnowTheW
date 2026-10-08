@@ -1026,172 +1026,172 @@
       "priority": 7600,
       "homepageSeason": "wnba-playoffs",
       "seriesLabel": "FOOD FOR THOUGHT · PLAYOFF WATCH GUIDE",
-      "title": "Atlanta Survives Overtime and Takes a 2–0 Semifinal Lead",
+      "title": "Golden State Wins the Wild Finish — Both Semifinals Are 2–0",
       "published": "2026-10-02",
-      "updated": "2026-10-07",
-      "week": "Semifinals · Atlanta leads New York 2–0",
-      "image": "https://cdn.wnba.com/sites/4/2026/10/c3ba69a5-3273-4a3d-b9ea-ebef203d24f5_0.jpg",
-      "imageFit": "top-cover",
-      "imageAlt": "Jordin Canada pressures the New York Liberty during Atlanta's semifinal Game 1 win",
-      "dek": "Atlanta survived New York 101-98 in overtime despite Breanna Stewart’s 35 points. Angel Reese and Jordin Canada scored 23 each, the Dream won the turnover battle 7-16 and now carry a 2-0 lead to Brooklyn.",
+      "updated": "2026-10-08",
+      "week": "Semifinals · Atlanta and Golden State lead 2–0",
+      "image": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1631007.png",
+      "imageFit": "contain",
+      "imageAlt": "Official WNBA portrait of Golden State Valkyries guard Veronica Burton",
+      "dek": "Veronica Burton buried the go-ahead three with 41 seconds left, Kiah Stokes erased Las Vegas’s final attempt and Golden State won 83-81. The Valkyries and Dream both take 2-0 leads into Friday closeout games.",
       "playoffGameOne": {
-        "ariaLabel": "Atlanta-New York Game 2 overtime final, player lines and semifinal schedule",
-        "eyebrow": "SEMIFINALS · GAME 2 FINAL/OT",
-        "title": "Atlanta won the possessions New York could not spare.",
-        "dek": "The Liberty shot 54.7 percent and Stewart scored 35, but Atlanta took 20 more shots, won points off turnovers 28-10 and escaped overtime with a 2-0 series lead.",
-        "asOf": "UPDATED · OCT. 7, 2026",
+        "ariaLabel": "Golden State-Las Vegas Game 2 final, player lines and semifinal schedule",
+        "eyebrow": "SEMIFINALS · GAME 2 FINAL",
+        "title": "Burton found the shot. Stokes finished the stop.",
+        "dek": "Golden State led by 17, absorbed a Las Vegas comeback and survived 83-81 after Veronica Burton’s late three and Kiah Stokes’s block on the final possession.",
+        "asOf": "UPDATED · OCT. 8, 2026",
         "receipts": [
           {
-            "value": "101–98",
-            "label": "Atlanta owns Game 2 in OT",
-            "note": "The Dream survived 17 lead changes and eight ties to take a 2-0 best-of-five lead."
+            "value": "83–81",
+            "label": "Golden State owns Game 2",
+            "note": "The Valkyries protected Chase Center twice and take a 2-0 best-of-five lead to Las Vegas."
           },
           {
-            "value": "23 + 8",
-            "label": "Canada’s control line",
-            "note": "Jordin Canada scored 23 on 9-of-15 shooting, hit three threes and handed out eight assists."
+            "value": "21",
+            "label": "Hayes led the bench wave",
+            "note": "Tiffany Hayes scored 21 in 16:32, going 6-of-10 from the floor and 8-of-8 at the line."
           },
           {
-            "value": "23 + 7",
-            "label": "Reese at the center",
-            "note": "Angel Reese scored 23, grabbed seven rebounds and made all six free throws."
+            "value": "20 + 5",
+            "label": "Williams kept creating",
+            "note": "Gabby Williams scored 20, grabbed five rebounds and hit three of eight from deep."
           },
           {
-            "value": "28–10",
-            "label": "Points off turnovers",
-            "note": "Atlanta converted New York’s 16 turnovers into an 18-point advantage in points off giveaways."
+            "value": "34–14",
+            "label": "Bench scoring",
+            "note": "Golden State’s reserves outscored Las Vegas’s bench by 20, with Hayes supplying 21."
           },
           {
-            "value": "+20",
-            "label": "Atlanta shot attempts",
-            "note": "Atlanta attempted 84 field goals to New York’s 64, offsetting the Liberty’s 54.7 percent shooting."
+            "value": "24",
+            "label": "Wilson in defeat",
+            "note": "A’ja Wilson scored 24 on 9-of-16 shooting with seven rebounds, but Vegas fell one stop short."
           },
           {
             "value": "2–0",
-            "label": "One win to advance",
-            "note": "Atlanta can close the series Friday, Oct. 9 at 7:30 p.m. ET on ESPN2 in Brooklyn."
+            "label": "Two leaders, two chances",
+            "note": "Atlanta and Golden State can both reach the Finals with road wins Friday, Oct. 9."
           }
         ],
         "highlights": [
           {
-            "score": "NYL 98 · ATL 101 · OT",
-            "title": "Canada controlled the decisive possessions",
-            "player": "Jordin Canada",
-            "stat": "23 PTS · 8 AST · 3 3PM",
-            "note": "Canada shot 9-of-15 and paired 23 points with eight assists in the overtime win.",
-            "photo": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1628886.png",
-            "photoAlt": "Official WNBA portrait of Atlanta Dream guard Jordin Canada",
+            "score": "LVA 81 · GSV 83",
+            "title": "Burton authored the closing swing",
+            "player": "Veronica Burton",
+            "stat": "8 PTS · 3 AST · GO-AHEAD 3",
+            "note": "Burton made her only field goal from deep with 41 seconds left, then secured the final rebound.",
+            "photo": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1631007.png",
+            "photoAlt": "Official WNBA portrait of Golden State Valkyries guard Veronica Burton",
             "photoCredit": "Official WNBA player portrait",
-            "photoFallback": "https://cdn.wnba.com/logos/wnba/1611661330/primary/L/logo.svg"
+            "photoFallback": "https://cdn.wnba.com/logos/wnba/1611661331/primary/L/logo.svg"
           },
           {
-            "score": "ATL CENTER · 23 PTS",
-            "title": "Reese made the pressure pay",
-            "player": "Angel Reese",
-            "stat": "23 PTS · 7 REB · 5 OREB",
-            "note": "Reese made eight field goals, all six free throws and grabbed five offensive rebounds.",
-            "photo": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1642291.png",
-            "photoAlt": "Official WNBA portrait of Atlanta Dream center Angel Reese",
+            "score": "GSV BENCH · 21 PTS",
+            "title": "Hayes detonated in 16 minutes",
+            "player": "Tiffany Hayes",
+            "stat": "21 PTS · 6-10 FG · 8-8 FT",
+            "note": "Hayes drove Golden State’s 34-14 bench-scoring edge in just 16:32.",
+            "photo": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/203026.png",
+            "photoAlt": "Official WNBA portrait of Golden State Valkyries guard Tiffany Hayes",
             "photoCredit": "Official WNBA player portrait"
           },
           {
-            "score": "NYL · 35 PTS",
-            "title": "Stewart’s masterpiece still needed more possessions",
-            "player": "Breanna Stewart",
-            "stat": "35 PTS · 11 REB · 6 AST",
-            "note": "Stewart shot 11-of-21 and committed only one turnover, but New York’s team-level possession deficit was too large.",
-            "photo": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1627668.png",
-            "photoAlt": "Official WNBA portrait of New York Liberty forward Breanna Stewart",
+            "score": "GSV WING · 20 PTS",
+            "title": "Williams stretched every coverage",
+            "player": "Gabby Williams",
+            "stat": "20 PTS · 5 REB · 3 AST",
+            "note": "Williams hit three threes and gave Golden State a second 20-point scorer.",
+            "photo": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1628931.png",
+            "photoAlt": "Official WNBA portrait of Golden State Valkyries guard Gabby Williams",
             "photoCredit": "Official WNBA player portrait"
           },
           {
-            "score": "FRI · 7:30 ET",
-            "title": "Game 3 shifts to Brooklyn",
-            "player": "Atlanta at New York",
-            "stat": "ATL LEADS 2–0 · ESPN2",
-            "note": "New York must protect home court to extend the season; Atlanta is one win from the WNBA Finals.",
-            "photo": "https://cdn.wnba.com/sites/4/2026/10/3ba60f67-3a3e-434f-893d-616a96b17fd0_0.jpg",
-            "photoAlt": "Rhyne Howard creates for Atlanta during semifinal Game 1",
-            "photoCredit": "WNBA game media · Rhyne Howard highlights"
+            "score": "LVA · 24 PTS",
+            "title": "Wilson could not finish the comeback alone",
+            "player": "A’ja Wilson",
+            "stat": "24 PTS · 7 REB · 9-16 FG",
+            "note": "Wilson matched her Game 1 scoring total, but Las Vegas’s season now reaches an elimination game Friday.",
+            "photo": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1628932.png",
+            "photoAlt": "Official WNBA portrait of Las Vegas Aces forward A’ja Wilson",
+            "photoCredit": "Official WNBA player portrait"
           }
         ]
       },
       "gameGallery": {
         "eyebrow": "REAL GAME FRAMES · OFFICIAL MEDIA",
-        "title": "Game 2 belonged to Atlanta’s extra possessions",
-        "dek": "Official WNBA portraits and Game 2 receipts from the Dream’s 101-98 overtime win against New York.",
+        "title": "Golden State’s Game 2 belonged to the bench — and the last stop",
+        "dek": "Official WNBA portraits and Game 2 receipts from the Valkyries’ 83-81 win against Las Vegas.",
         "items": [
           {
-            "kicker": "CONTROL · ATLANTA",
-            "title": "Canada created the clean looks",
-            "caption": "Canada paired 23 points with eight assists and hit three of six from deep in the overtime win.",
-            "image": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1628886.png",
-            "alt": "Official WNBA portrait of Atlanta Dream guard Jordin Canada",
+            "kicker": "CLOSING SHOT · GOLDEN STATE",
+            "title": "Burton waited for the possession that mattered",
+            "caption": "Burton’s deep three with 41 seconds left put Golden State ahead for good; she then secured the final rebound.",
+            "image": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1631007.png",
+            "alt": "Official WNBA portrait of Golden State Valkyries guard Veronica Burton",
             "credit": "Official WNBA player portrait",
-            "sourceUrl": "https://www.wnba.com/game/1042600202",
-            "imageFallback": "https://cdn.wnba.com/logos/wnba/1611661330/primary/L/logo.svg"
+            "sourceUrl": "https://www.wnba.com/game/1042600212",
+            "imageFallback": "https://cdn.wnba.com/logos/wnba/1611661331/primary/L/logo.svg"
           },
           {
-            "kicker": "SECOND CHANCES · ATLANTA",
-            "title": "Reese kept possessions alive",
-            "caption": "Reese scored 23, grabbed five offensive rebounds and helped Atlanta attempt 20 more field goals than New York.",
-            "image": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1642291.png",
-            "alt": "Official WNBA portrait of Atlanta Dream center Angel Reese",
+            "kicker": "BENCH FORCE · GOLDEN STATE",
+            "title": "Hayes changed the scoring ceiling",
+            "caption": "Hayes scored 21 in 16:32 and made all eight free throws as the Valkyries won bench scoring 34-14.",
+            "image": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/203026.png",
+            "alt": "Official WNBA portrait of Golden State Valkyries guard Tiffany Hayes",
             "credit": "Official WNBA player portrait",
-            "sourceUrl": "https://www.wnba.com/game/1042600202"
+            "sourceUrl": "https://www.wnba.com/game/1042600212"
           },
           {
-            "kicker": "SHOTMAKING · NEW YORK",
-            "title": "Stewart nearly stole it anyway",
-            "caption": "Stewart produced 35 points, 11 rebounds and six assists while shooting 52.4 percent from the floor.",
-            "image": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1627668.png",
-            "alt": "Official WNBA portrait of New York Liberty forward Breanna Stewart",
+            "kicker": "CREATION · GOLDEN STATE",
+            "title": "Williams kept the floor wide",
+            "caption": "Williams scored 20 with three threes, five rebounds and three assists in 29:41.",
+            "image": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1628931.png",
+            "alt": "Official WNBA portrait of Golden State Valkyries guard Gabby Williams",
             "credit": "Official WNBA player portrait",
-            "sourceUrl": "https://www.wnba.com/game/1042600202"
+            "sourceUrl": "https://www.wnba.com/game/1042600212"
           },
           {
-            "kicker": "BENCH COUNTER · NEW YORK",
-            "title": "Fauthoux made every minute matter",
-            "caption": "Marine Fauthoux scored 20 on 8-of-10 shooting and made four threes in 30:50 off the bench.",
-            "image": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1630469.png",
-            "alt": "Official WNBA portrait of New York Liberty guard Marine Fauthoux",
+            "kicker": "LAST LINE · GOLDEN STATE",
+            "title": "Stokes erased the final chance",
+            "caption": "Stokes blocked Chelsea Gray’s last layup attempt after playing 28:47 with seven rebounds.",
+            "image": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/204329.png",
+            "alt": "Official WNBA portrait of Golden State Valkyries center Kiah Stokes",
             "credit": "Official WNBA player portrait",
-            "sourceUrl": "https://www.wnba.com/game/1042600202"
+            "sourceUrl": "https://www.wnba.com/game/1042600212"
           }
         ]
       },
       "sections": [
         {
-          "title": "Canada set the pressure tone; Bonner made it hurt",
+          "title": "Atlanta’s overtime win was a possession-count win",
           "paragraphs": [
-            "Atlanta’s opening argument was exactly what the matchup preview promised: make New York solve pressure before it can settle into size and spacing. Canada was the loudest part of it, finishing with five of Atlanta’s 14 steals and scoring 25 on 9-of-14 shooting.",
-            "Bonner turned the bench minutes into a mismatch. She scored 23, grabbed nine rebounds and did not commit a turnover in 30 minutes. Atlanta’s reserves won their scoring minutes 27-6, a margin that let the Dream keep attacking even when the starters rotated.",
-            "Howard’s 16 points, eight rebounds and eight assists completed the shape of the win. Atlanta did not need one scorer to own every possession; it needed Canada to disrupt, Bonner to punish the second unit and Howard to connect the actions."
+            "New York shot 54.7 percent and Breanna Stewart produced 35 points, 11 rebounds and six assists. Atlanta still won 101-98 in overtime because it attempted 84 field goals to New York’s 64.",
+            "The Dream forced 16 turnovers while committing seven, won points off turnovers 28-10 and collected 11 offensive rebounds. Angel Reese and Jordin Canada scored 23 apiece; Canada added eight assists and Reese grabbed five offensive boards.",
+            "Atlanta now takes a 2-0 lead to Brooklyn. The path to the Finals is one more night of connected pressure and extra possessions, even if New York’s shotmaking remains elite."
           ]
         },
         {
-          "title": "New York’s shooting was playable. Its possession count was not.",
+          "title": "New York’s counter must begin before the shot",
           "paragraphs": [
-            "The Liberty made 11 threes, hit all 15 free throws and received 27 points from Ionescu. Jonquel Jones added 12 points, 11 rebounds and five blocks. Those are workable ingredients for a road playoff win.",
-            "The failure was getting enough clean possessions to let those ingredients matter. New York committed 21 turnovers, and Atlanta scored 32 points from them. The Dream took six more field-goal attempts and generated 18 fast-break points while holding New York scoreless in transition.",
-            "Stewart’s 19 points and Ionescu’s shotmaking kept New York attached, but Atlanta repeatedly made the Liberty start offense late, sideways or after recovering from a trap. Game 2 begins with ball security, not shot selection."
+            "Marine Fauthoux gave the Liberty 20 points off the bench on 8-of-10 shooting, and New York made 12 threes. The loss was not a failure to generate makes; it was a failure to preserve enough trips.",
+            "Game 3 asks the Liberty to protect the first pass, finish defensive possessions and keep Atlanta from turning live-ball mistakes into immediate points. The shot profile can win. The possession deficit cannot.",
+            "Friday’s 7:30 p.m. ET tip on ESPN2 is an elimination game for New York and a closeout opportunity for Atlanta."
           ]
         },
         {
-          "title": "Golden State made the Aces play its game",
+          "title": "Golden State found a different way to beat Las Vegas",
           "paragraphs": [
-            "The regular-season sweep belonged to Las Vegas. The semifinal opener belonged to Golden State, 71-60. Williams finished with 25 points, 11 rebounds and five assists on 9-of-18 shooting, including four threes.",
-            "The possession margin came from the glass. Golden State had 17 individual offensive rebounds to Las Vegas’s two and won second-chance points 20-5. Kayla Thornton pulled down 11 rebounds, five offensive, while the Valkyries won paint scoring 34-18.",
-            "The bench supplied another 20-point gap, 27-7. Chen scored 11 and Gueye nine. Wilson’s 24, Gray’s 16 and Young’s 11 accounted for 51 of the Aces’ 60; Las Vegas shot 33.9 percent overall. Game 2 needs better shot quality and more support around that core.",
-            "Golden State leads 1-0 and stays home for Wednesday, Oct. 7 at 9:30 p.m. ET on Peacock/NBC Sports Network. This is one win toward three, not an elimination: all four semifinal teams remain alive. No new historical record is claimed without an official record citation."
+            "Game 1 belonged to Golden State’s rebounding. Game 2 belonged to its depth and nerve. Tiffany Hayes scored 21 in 16:32, Gabby Williams added 20 and Kayla Thornton scored 16 as the Valkyries built a 17-point lead.",
+            "Las Vegas climbed all the way back behind A’ja Wilson’s 24, Chelsea Gray’s 19 and Jackie Young’s 14 points and eight assists. Gray’s three tied the game with 2:10 left, turning the finish into a one-possession exam.",
+            "Veronica Burton passed it. Her deep three with 41 seconds left was her only made field goal, and her two late free throws completed an eight-point line. Kiah Stokes then blocked Gray’s final layup attempt, and Burton secured the ball.",
+            "Golden State leads 2-0 and is one win from the WNBA Finals. No team was eliminated Wednesday, so the draft-class playoff audit remains unchanged."
           ]
         },
         {
-          "title": "The Wednesday adjustment window",
+          "title": "Friday is a double elimination window",
           "paragraphs": [
-            "New York has three days to build cleaner outlets against the first trap, reduce the live-ball giveaways and make Atlanta defend deeper into the possession. The Liberty do not need to abandon their frontcourt advantage; they need to reach it without donating transition offense.",
-            "Atlanta’s counter is to keep the pressure connected even if New York protects the ball better. The Dream can also ask whether the 23-point Bonner burst can become a repeatable matchup edge rather than a one-game surprise.",
-            "Game 2 is Wednesday, Oct. 7 at 7:30 p.m. ET on ESPN in Atlanta. Game 3 shifts to New York on Friday, Oct. 9 at 7:30 p.m. ET on ESPN2. The best-of-five uses a 2-2-1 home pattern, and the Dream are two wins from the Finals."
+            "Atlanta visits New York at 7:30 p.m. ET on ESPN2. Golden State visits Las Vegas at 9:30 p.m. ET on Peacock and NBC Sports Network. Both road teams arrive with 2-0 leads.",
+            "Las Vegas improved its shooting and ball pressure in Game 2, but Golden State again produced a 20-point bench advantage. The Aces need their core plus a reserve counter; the Valkyries need to keep changing who carries the scoring load.",
+            "Neither series is complete. Games 4 and 5 remain conditional, and the bracket, records and team dashboards now correctly show two wins for Atlanta and two for Golden State."
           ]
         }
       ],
@@ -1231,32 +1231,40 @@
         {
           "label": "WNBA official Game 1 box score: Valkyries 71, Aces 60",
           "url": "https://www.wnba.com/game/1042600211"
+        },
+        {
+          "label": "WNBA official Game 2 box score: Valkyries 83, Aces 81",
+          "url": "https://www.wnba.com/game/1042600212"
+        },
+        {
+          "label": "WNBA video: wild ending to Valkyries-Aces Game 2",
+          "url": "https://www.wnba.com/watch/video/final-0330-wild-ending-golden-state-valkyries-vs-las-vegas-aces-10-07-2026"
         }
       ],
       "dashboardUrl": "/food-for-thought.html?post=the-playoff-watch-party-2026#story",
-      "storyImage": "https://cdn.wnba.com/sites/4/2026/10/c3ba69a5-3273-4a3d-b9ea-ebef203d24f5_0.jpg",
-      "storyImageCaption": "Jordin Canada scored 25 points and made five steals as Atlanta beat New York 92-82 in semifinal Game 1. Official WNBA game media.",
-      "storyImageSourceUrl": "https://www.wnba.com/watch/video/jordin-canada-with-5-steals-vs-new-york-liberty",
+      "storyImage": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1631007.png",
+      "storyImageCaption": "Veronica Burton hit the go-ahead three with 41 seconds left in Golden State’s 83-81 Game 2 win. Official WNBA player portrait.",
+      "storyImageSourceUrl": "https://www.wnba.com/game/1042600212",
       "playoffWatch": {
-        "title": "DREAM 2–0. ONE WIN FROM THE FINALS.",
-        "subtitle": "Atlanta 101, New York 98 in overtime. The Dream protected home court twice and can close the best-of-five semifinal Friday, Oct. 9 at 7:30 ET in Brooklyn.",
-        "asOf": "ATL–NYL GAME 2 FINAL · OCT. 7",
+        "title": "TWO SERIES. TWO 2–0 LEADS. TWO FRIDAY CLOSEOUT SHOTS.",
+        "subtitle": "Atlanta survived overtime. Golden State survived the last possession. Both semifinal leaders can reach the Finals on the road Friday, Oct. 9.",
+        "asOf": "BOTH GAME 2 FINALS · OCT. 7",
         "summary": [
           {
             "value": "2–0",
-            "label": "Atlanta series lead"
+            "label": "Atlanta over New York"
           },
           {
-            "value": "101–98",
-            "label": "Atlanta Game 2 OT win"
+            "value": "2–0",
+            "label": "Golden State over Las Vegas"
           },
           {
-            "value": "35",
-            "label": "Stewart points in defeat"
+            "value": "83–81",
+            "label": "Valkyries Game 2 win"
           },
           {
             "value": "FRI · OCT 9",
-            "label": "Atlanta closeout chance"
+            "label": "Double closeout slate"
           }
         ],
         "matchups": [
@@ -1296,7 +1304,7 @@
           {
             "id": "gsv-lva",
             "roundKey": "Semifinals",
-            "roundLabel": "SEMIFINALS · GAME 1 FINAL",
+            "roundLabel": "SEMIFINALS · GAME 2 FINAL",
             "highSeed": 2,
             "highTeam": "Golden State Valkyries",
             "highRecord": "32-12",
@@ -1304,9 +1312,9 @@
             "lowTeam": "Las Vegas Aces",
             "lowRecord": "31-13",
             "regularSeries": "LVA 3-0",
-            "series": "1-0",
-            "seriesNote": "GOLDEN STATE LEADS · FIRST TO 3",
-            "nextGame": "Wed, Oct. 7 · 9:30 PM ET · Peacock/NBC Sports Network · Chase Center",
+            "series": "2-0",
+            "seriesNote": "GOLDEN STATE LEADS 2–0 · ONE WIN TO ADVANCE",
+            "nextGame": "Fri, Oct. 9 · 9:30 PM ET · Peacock/NBC Sports Network · Las Vegas",
             "stars": [
               "Gabby Williams",
               "A'ja Wilson"
@@ -1315,19 +1323,19 @@
               "https://cdn.wnba.com/headshots/wnba/latest/260x190/1628931.png",
               "https://cdn.wnba.com/headshots/wnba/latest/260x190/1628932.png"
             ],
-            "hot": "Gabby Williams led Golden State with 25 points, 11 rebounds and five assists, making four of seven threes. The Valkyries held Las Vegas to 60 points and 33.9 percent shooting.",
-            "bench": "Golden State won bench scoring 27-7. Kaitlyn Chen scored 11 and Aminata Gueye added nine in 12:32; Vegas received seven points from its reserves.",
-            "availability": "Game 1 final: GSV 71, LVA 60. Game 2: Wed. Oct. 7, 9:30 ET at Chase Center. Game 3 shifts to Las Vegas on Fri. Oct. 9, 9:30 ET.",
-            "beat": "Golden State won second-chance points 20-5 and points in the paint 34-18. Williams supplied the creation while the frontcourt kept possessions alive.",
-            "break": "Las Vegas committed only six turnovers, but shot 21-of-62 and collected just two individual offensive rebounds. Protecting the ball did not solve the missed-shot and rebounding problem.",
-            "must": "Wilson scored 24, Gray 16 and Young 11. Vegas needs more efficient two-point offense and a bench answer; Golden State must keep Williams supported when the Aces adjust.",
+            "hot": "Tiffany Hayes scored 21 in 16:32, Gabby Williams added 20 and Veronica Burton hit the go-ahead three with 41 seconds left in Golden State’s 83-81 win.",
+            "bench": "Golden State won bench scoring 34-14. Hayes shot 6-of-10 and made all eight free throws; Kaitlyn Chen added seven points in 12:25.",
+            "availability": "Game 1: GSV 71, LVA 60. Game 2: GSV 83, LVA 81. Game 3: Fri. Oct. 9, 9:30 ET on Peacock/NBC Sports Network in Las Vegas.",
+            "beat": "Golden State led by 17, absorbed a fourth-quarter comeback and closed with Burton’s shot, two free throws and Stokes’s final-possession block.",
+            "break": "Wilson scored 24, Gray 19 and Young 14 with eight assists. Las Vegas made eight of 19 threes, but its bench was outscored by 20 for the second straight game.",
+            "must": "Las Vegas must solve Golden State’s depth to extend the season. The Valkyries need one more balanced scoring night to reach the Finals in their second season.",
             "highCode": "GSV",
             "lowCode": "LVA",
             "highWScore": 77,
             "lowWScore": 88
           }
         ],
-        "scoreMethod": "The W Score is a regular-season composite. The Atlanta–New York Game 2 final, series record and Game 3 details are synced to the official WNBA postseason feed."
+        "scoreMethod": "The W Score is a regular-season composite. Both Oct. 7 Game 2 finals, the 2–0 series records and Friday Game 3 details are synced to official WNBA sources."
       },
       "awardFallout": {
         "eyebrow": "COACH OF THE YEAR + ROOKIE OF THE YEAR",
@@ -1384,8 +1392,8 @@
         "Can Las Vegas close a 20-5 second-chance gap and a 27-7 bench gap in Game 2?",
         "How aggressively should Atlanta keep trapping once New York changes its first outlet?"
       ],
-      "imageFallback": "https://cdn.wnba.com/logos/wnba/1611661330/primary/L/logo.svg",
-      "storyImageFallback": "https://cdn.wnba.com/logos/wnba/1611661330/primary/L/logo.svg"
+      "imageFallback": "https://cdn.wnba.com/logos/wnba/1611661331/primary/L/logo.svg",
+      "storyImageFallback": "https://cdn.wnba.com/logos/wnba/1611661331/primary/L/logo.svg"
     },
     {
       "slug": "farewell-connecticut-sun-2026",

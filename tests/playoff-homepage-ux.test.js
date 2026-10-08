@@ -26,7 +26,7 @@ test('Homepage scoreboard trusts a published tip time over a stale TBD status',(
 
 test('Global scoreboard is installed by the shared site shell and refreshes the full slate',()=>{
   const site=read('site.js'),scoreboard=read('global-scoreboard.js');
-  assert.match(site,/global-scoreboard\.js\?v=20261004-both-g1-v2/);
+  assert.match(site,/global-scoreboard\.js\?v=20261008-gsv-g2-v1/);
   assert.match(site,/global-scoreboard\.css\?v=20261003-readable-ribbon-v5/);
   assert.match(scoreboard,/livePayload\.todayGames\|\|livePayload\.games/);
   assert.match(scoreboard,/setInterval\(\(\)=>\{if\(!document\.hidden\)refreshLive\(\);\},10000\)/);
@@ -56,15 +56,15 @@ test('Playoff watch keeps a 16px minimum for compact labels and copy',()=>{
 });
 
 
-test('Homepage orders the live semifinal update, Draft Watch and bracket with the Game 2 result visible',()=>{
+test('Homepage orders the live semifinal update, Draft Watch and bracket with the latest Game 2 result visible',()=>{
   const html=read('index.html');
   const bracket=html.indexOf('id="playoff-bracket"');
   const draft=html.indexOf('href="/wnba-draft-class-rankings.html"');
   const seasonal=html.indexOf('data-season=');
   assert.ok(seasonal>0&&draft>seasonal&&bracket>draft);
-  assert.match(html,/Overtime answered/);
-  assert.match(html,/ATL 101–98 NYL · FINAL\/OT/);
-  assert.match(html,/c3ba69a5-3273-4a3d-b9ea-ebef203d24f5_0\.jpg/);
+  assert.match(html,/Two home stands/);
+  assert.match(html,/GSV 83–81 LVA · FINAL/);
+  assert.match(html,/1631007\.png/);
 });
 
 test('Homepage live game board prioritizes and deduplicates playoff games',()=>{

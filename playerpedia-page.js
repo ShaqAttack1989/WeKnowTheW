@@ -102,7 +102,7 @@ function renderPlayerWire(payload={}){
 async function load(){
   try{
     const [rosterResult,advancedResult]=await Promise.allSettled([
-      fetch('/api/players?publicCopy=20260822-transparent-v1',{headers:{Accept:'application/json'}}).then(async r=>{const payload=await r.json().catch(()=>({}));if(!r.ok)throw new Error(payload.error||'Playerpedia unavailable');return payload;}),
+      fetch('/api/players?publicCopy=20261009-heidi-career-source-v1',{headers:{Accept:'application/json'}}).then(async r=>{const payload=await r.json().catch(()=>({}));if(!r.ok)throw new Error(payload.error||'Playerpedia unavailable');return payload;}),
       fetch('/api/advanced-stats?season=2026',{headers:{Accept:'application/json'}}).then(async r=>{const payload=await r.json().catch(()=>({}));if(!r.ok)throw new Error(payload.error||'Advanced stats unavailable');return payload;})
     ]);
     if(rosterResult.status!=='fulfilled')throw rosterResult.reason;
@@ -207,6 +207,8 @@ function careerMetricsMarkup(player={}){
   const stat=value=>hasMetric(value)?Number(value).toFixed(1):'0.0';
   const coverage=Number(c.statCoverage||player.statCoverage||0);
   const eligible=coverage>=3;
+  const provenance=c.sourceNote?` ${pSafe(c.sourceNote)}`:'';
+  const source=/^https?:\\/\\//i.test(String(c.sourceUrl||''))?` <a href="${pSafe(c.sourceUrl)}" target="_blank" rel="noopener">${pSafe(c.sourceLabel||'Career statistics source')} ↗</a>`:'';
   return `<section class="profile-subsection"><h4>WNBA career snapshot</h4><div class="why-metrics">
     <div class="why-metric"><span>PPG</span><strong>${pSafe(stat(c.ppg))}</strong><small>career per game</small></div>
     <div class="why-metric"><span>RPG</span><strong>${pSafe(stat(c.rpg))}</strong><small>career per game</small></div>
@@ -214,7 +216,7 @@ function careerMetricsMarkup(player={}){
     <div class="why-metric"><span>SPG</span><strong>${pSafe(stat(c.spg))}</strong><small>career per game</small></div>
     <div class="why-metric"><span>BPG</span><strong>${pSafe(stat(c.bpg))}</strong><small>career per game</small></div>
     <div class="why-metric"><span>WEIGHTED SCORE</span><strong>${pSafe(stat(c.weightedScore))}</strong><small>35% PTS · 20% REB · 20% AST · 12.5% STL · 12.5% BLK</small></div>
-  </div><p class="why-source">${pSafe(c.games||0)} games · ${pSafe(c.seasons||0)} seasons · ${coverage}/5 sourced gameplay stats · ${eligible?'eligible for stat-driven Run the W modes':'Playerpedia / Do You Know the W only'}.</p></section>`;
+  </div><p class="why-source">${pSafe(c.games||0)} games · ${pSafe(c.seasons||0)} seasons · ${coverage}/5 sourced gameplay stats · ${eligible?'eligible for stat-driven Run the W modes':'Playerpedia / Do You Know the W only'}.${provenance}${source}</p></section>`;
 }
 
 async function openProfile(id){

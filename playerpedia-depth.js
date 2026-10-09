@@ -19,7 +19,7 @@
     const [factSets,draft,curated,affiliations,playersPayload]=await Promise.all([
       Promise.all(FACT_FILES.map(url=>json(url).catch(()=>({})))),
       json('/data/wnba-draft-history.json').catch(()=>({picks:[],undrafted:[],aliases:{}})),
-      json('/data/playerpedia-depth-curated.json?v=20261009-aja-five-time-mvp-v1').catch(()=>({players:{}})),
+      json('/data/playerpedia-depth-curated.json?v=20261009-aja-fact-final-points-v2').catch(()=>({players:{}})),
       json('/pro-offseason-affiliations.json').catch(()=>({})),
       json('/api/players').catch(()=>({players:[]}))
     ]);
@@ -157,6 +157,21 @@
     const label=[latest.label||'LATEST RECORD',latest.dateLabel].filter(Boolean).join(' · ');
     const body=`<div class="deep-milestone-stat"><strong>${safe(latest.value)}</strong><small>${safe(latest.unit||'')}</small></div><p>${safe(latest.detail||'')}</p>`;
     return sectionCard(label,latest.headline,body,receipts,'latest-milestone');
+  }
+
+  function applyCuratedAmazingFact(modal,curated={}){
+    const text=String(curated.amazingFact||'').trim();
+    if(!text)return;
+    const card=modal.querySelector('.why-we-know-her .amazing-fact');
+    const paragraph=card?.querySelector('p');
+    if(!card||!paragraph)return;
+    paragraph.textContent=text;
+    if(curated.amazingFactSource&&!card.querySelector('.curated-fact-source')){
+      const source=document.createElement('small');
+      source.className='why-source curated-fact-source';
+      source.innerHTML=sourceLink(curated.amazingFactSource,curated.amazingFactSourceLabel||'Official WNBA source');
+      card.appendChild(source);
+    }
   }
 
   function memorialCard(curated={}){
@@ -300,6 +315,7 @@
       const accomplishmentList=achievements(detail,curated,baseFact,draft);
       loading.className='playerpedia-deep-file';
       loading.innerHTML=`<div class="deep-file-head"><div><span>THE DEEP FILE</span><p>Latest verified awards and records, pronunciation, WNBA entry, franchise history, college and international basketball, accomplishments, memorable facts and connections beyond the box score.</p></div></div><div class="deep-bio-grid">${memorialCard(curated)}${latestAwardCard(curated)}${latestMilestoneCard(curated)}${pronunciationCard(name,current,curated)}${draftCard(draft,college,curated,current,legacy)}${trailCard(trail,curated)}${collegeInternationalCard(college,nationality,connections,international,curated)}${accomplishmentCard(accomplishmentList,curated)}${memorableCard(fact,curated)}${offCourtCard(curated,detail)}</div>`;
+      applyCuratedAmazingFact(modal,curated);
       activateGettyEmbeds(loading);
     }catch(error){
       loading.innerHTML='<div class="deep-file-head"><div><span>THE DEEP FILE</span><p>The standard Playerpedia profile remains available while the research layer reconnects.</p></div></div>';

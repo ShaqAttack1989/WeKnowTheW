@@ -63,6 +63,8 @@
 }
 .amazing-fact>span{display:block;font-size:.67rem;font-weight:950;letter-spacing:.11em;margin-bottom:5px;}
 .amazing-fact p{margin:0!important;color:#251d35!important;font-weight:750;line-height:1.55;}
+.amazing-fact .curated-fact-source{display:block;margin-top:8px!important;color:#251d35!important;font-size:.73rem;line-height:1.35;}
+.amazing-fact .curated-fact-source a{color:#251d35!important;text-decoration:underline;text-underline-offset:2px;}
 .why-source{margin:13px 0 0!important;color:rgba(255,255,255,.5)!important;font-size:.7rem;line-height:1.45;}
 .profile-data-note{margin:14px 0 0;padding:12px 14px;border-radius:14px;background:#fff4d6;color:#655016;font-size:.8rem;}
 

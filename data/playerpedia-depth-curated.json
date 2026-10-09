@@ -38,9 +38,19 @@
         "value": "1,021",
         "unit": "2026 POINTS",
         "headline": "The only player with multiple 1,000-point WNBA seasons",
-        "detail": "Wilson scored 30 against Seattle to finish the night at 1,021 points, matching her own 2024 total. Her two 1,000-point seasons are a league first, and both 1,021-point campaigns sit behind Kelsey Mitchell's 1,056 in 2026.",
+        "detail": "Wilson scored 30 against Seattle to reach 1,021 points, matching her own 2024 total; she remains the only player with multiple 1,000-point WNBA seasons. Kelsey Mitchell later finished 2026 with the league-record 1,086 points.",
         "source": "https://aces.wnba.com/news/game-recap-aces-complete-season-sweep-against-seattle-with-98-77-win",
-        "sourceLabel": "Aces game recap"
+        "sourceLabel": "Aces game recap",
+        "sources": [
+          {
+            "url": "https://aces.wnba.com/news/game-recap-aces-complete-season-sweep-against-seattle-with-98-77-win",
+            "label": "Aces Sept. 20 game recap"
+          },
+          {
+            "url": "https://www.wnba.com/news/wilson-named-2026-most-valuable-player",
+            "label": "Final 2026 scoring totals"
+          }
+        ]
       },
       "offCourt": "Her South Carolina legacy and business/brand work are connected to Herstory and the site's A'ja Wilson feature.",
       "offCourtLink": "/aja-wilson-south-carolina-nike-deal.html",
@@ -67,7 +77,10 @@
         }
       ],
       "memorable": "Wilson has now won five WNBA MVPs, including three straight. In 2026, she averaged 26.2 points, 9.4 rebounds, 3.2 assists, 1.4 steals and 1.9 blocks over 41 games.",
-      "memorableSource": "https://www.wnba.com/news/wilson-named-2026-most-valuable-player"
+      "memorableSource": "https://www.wnba.com/news/wilson-named-2026-most-valuable-player",
+      "amazingFact": "Wilson's 26.2 points per game in 2026 rank second in WNBA history, behind only her own 26.9 in 2024.",
+      "amazingFactSource": "https://www.wnba.com/news/wilson-named-2026-most-valuable-player",
+      "amazingFactSourceLabel": "Official WNBA season records"
     },
     "alyssathomas": {
       "latestMilestone": {

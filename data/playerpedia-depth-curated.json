@@ -10,14 +10,26 @@
       "pronunciation": "A-zhuh, like Asia",
       "pronunciationSource": "https://cdn.wnba.com/sites/1611661319/2025/06/2025-06-25-Aces-v-Conn-Wash-Notes-v2.pdf",
       "latestAward": {
-        "date": "2026-09-27",
-        "dateLabel": "SEPT. 27, 2026",
-        "label": "AP AWARDS",
-        "ribbon": "4× PLAYER OF THE YEAR · AP FIRST TEAM",
-        "headline": "2026 AP Player of the Year",
-        "detail": "Wilson earned 15 of 17 first-place votes and became the first four-time AP Player of the Year. She was also named to the 2026 AP first team.",
-        "source": "https://www.espn.com/wnba/story/_/id/50042340/aja-wilson-angel-reese-lead-ap-wnba-award-winners",
-        "sourceLabel": "2026 AP award results"
+        "date": "2026-10-08",
+        "dateLabel": "OCT. 8, 2026",
+        "label": "WNBA MVP",
+        "ribbon": "5× MVP · FIRST THREE-PEAT",
+        "headline": "The first five-time WNBA MVP",
+        "detail": "Wilson won the 2026 Kia WNBA MVP, her fifth overall (2020, 2022, 2024–26) and her third straight, becoming the first player in league history to reach both marks. She received 65 of 74 first-place votes.",
+        "sources": [
+          {
+            "url": "https://www.wnba.com/news/wilson-named-2026-most-valuable-player",
+            "label": "Official WNBA award announcement"
+          },
+          {
+            "url": "https://aces.wnba.com/news/aja-wilson-earns-historic-third-consecutive-fifth-overall-kia-wnba-mvp-honor",
+            "label": "Las Vegas Aces award release"
+          },
+          {
+            "url": "https://www.weknowthew.com/food-for-thought.html?post=aja-wilson-five-mvps-2026#story",
+            "label": "Read the Playerpedia legacy feature"
+          }
+        ]
       },
       "latestMilestone": {
         "date": "2026-09-20",
@@ -33,14 +45,29 @@
       "offCourt": "Her South Carolina legacy and business/brand work are connected to Herstory and the site's A'ja Wilson feature.",
       "offCourtLink": "/aja-wilson-south-carolina-nike-deal.html",
       "achievements": [
-        "Named 2026 Week 15 Western Conference Player of the Week after averaging 27.8 points, 8.8 rebounds and 3.8 assists during the final week of the regular season.",
-        "The Week 15 honor was Wilson's fifth Player of the Week award of 2026 and her record-tying 33rd career weekly honor."
+        "Three-time WNBA champion with Las Vegas (2022, 2023 and 2025).",
+        "Two-time WNBA Finals MVP (2023 and 2025).",
+        "Three-time WNBA Defensive Player of the Year (2022, 2023 and the shared 2025 honor).",
+        "2018 WNBA Rookie of the Year after being selected No. 1 overall.",
+        "Two-time Olympic gold medalist, two-time FIBA Women’s World Cup champion, 2022 World Cup MVP and 2024 Olympic MVP.",
+        "2017 NCAA champion and Final Four Most Outstanding Player with South Carolina."
       ],
       "achievementsSources": [
-        "https://aces.wnba.com/news/aja-wilson-earns-wnba-record-tying-33rd-wnba-player-of-the-week-honor-and-fifth-of-the-season"
+        {
+          "url": "https://aces.wnba.com/aja-wilson-bio",
+          "label": "Aces career honors"
+        },
+        {
+          "url": "https://www.usab.com/players/aja-wilson",
+          "label": "USA Basketball honors"
+        },
+        {
+          "url": "https://www.wnba.com/news/2024-mvp-kia-aja-wilson",
+          "label": "WNBA career profile"
+        }
       ],
-      "memorable": "Wilson closed the 2026 regular season with another league weekly honor: 27.8 points, 8.8 rebounds and 3.8 assists per game across the final award window, bringing her career total to a WNBA record-tying 33.",
-      "memorableSource": "https://aces.wnba.com/news/aja-wilson-earns-wnba-record-tying-33rd-wnba-player-of-the-week-honor-and-fifth-of-the-season"
+      "memorable": "Wilson has now won five WNBA MVPs, including three straight. In 2026, she averaged 26.2 points, 9.4 rebounds, 3.2 assists, 1.4 steals and 1.9 blocks over 41 games.",
+      "memorableSource": "https://www.wnba.com/news/wilson-named-2026-most-valuable-player"
     },
     "alyssathomas": {
       "latestMilestone": {

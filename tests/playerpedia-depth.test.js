@@ -103,3 +103,20 @@ test('deep bio layer does not depend on the prohibited WNBA stats API',()=>{
   assert.doesNotMatch(client,/stats\.wnba\.com/i);
   assert.doesNotMatch(client,/wnba-official-stats/i);
 });
+
+
+test('Heidi Burge memorial includes a credited real game photo and current source data',()=>{
+  const heidi=curated.players.heidiburge;
+  const photo=heidi?.memorial?.photoEmbed;
+  assert.ok(photo,'Heidi memorial photo embed missing');
+  assert.equal(photo.item,'1784757');
+  assert.equal(photo.credit,'Harry How / Allsport · Getty Images');
+  assert.match(photo.url,/^https:\/\/www\.gettyimages\.com\/detail\/1784757$/);
+  assert.doesNotMatch(heidi.achievements.join(' '),/averaging 5\.5 points/i);
+  assert.match(client,/function activateGettyEmbeds/);
+  assert.match(client,/embed-cdn\.gettyimages\.com\/widgets\.js/);
+  assert.match(client,/playerpedia-depth-curated\.json\?v=20261009-heidi-horton-memorial-v4/);
+  assert.match(page,/playerpedia-depth\.js\?v=20261009-heidi-horton-memorial-v4/);
+  assert.match(page,/playerpedia-depth\.css\?v=20261009-heidi-horton-photo-v1/);
+  assert.match(css,/\.deep-game-photo/);
+});

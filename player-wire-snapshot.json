@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-09T08:55:27.942Z",
+  "generatedAt": "2026-10-09T16:07:38.393Z",
   "movement": {
     "latestTransactionDate": "2026-09-28",
     "transactions": [
@@ -1429,8 +1429,8 @@
   },
   "availability": {
     "latestReportDate": "2026-10-09",
-    "reportLabel": "10/09/2026 04:45 AM ET",
-    "officialPdf": "https://ak-static.cms.nba.com/referee/wnba_injury/Injury-Report_2026-10-09_04_45AM.pdf",
+    "reportLabel": "10/09/2026 12:00 PM ET",
+    "officialPdf": "https://ak-static.cms.nba.com/referee/wnba_injury/Injury-Report_2026-10-09_12_00PM.pdf",
     "injuries": [
       {
         "player": "Allisha Gray",

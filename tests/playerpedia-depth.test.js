@@ -9,6 +9,7 @@ const client=fs.readFileSync(path.join(root,'playerpedia-depth.js'),'utf8');
 const pageClient=fs.readFileSync(path.join(root,'playerpedia-page.js'),'utf8');
 const apiClient=fs.readFileSync(path.join(root,'api','players.js'),'utf8');
 const css=fs.readFileSync(path.join(root,'playerpedia-depth.css'),'utf8');
+const advancedCss=fs.readFileSync(path.join(root,'playerpedia-advanced.css'),'utf8');
 const curated=JSON.parse(fs.readFileSync(path.join(root,'data','playerpedia-depth-curated.json'),'utf8'));
 const draft=JSON.parse(fs.readFileSync(path.join(root,'data','wnba-draft-history.json'),'utf8'));
 
@@ -135,4 +136,12 @@ test('Heidi Burge career snapshot follows official averages and shows its source
   assert.match(pageClient,/c\.sourceNote/);
   assert.match(pageClient,/publicCopy=20261009-heidi-career-source-v1/);
   assert.match(page,/playerpedia-page\.js\?v=20261009-heidi-career-source-v1/);
+});
+
+
+test('career metric cards retain readable contrast on the light profile panel',()=>{
+  assert.match(advancedCss,/\.profile-subsection \.why-metric>strong\{color:#20142b\}/);
+  assert.match(advancedCss,/\.profile-subsection \.why-metric>small\{color:#62566b\}/);
+  assert.match(advancedCss,/\.profile-subsection \.why-source\{color:#62566b!important/);
+  assert.match(page,/playerpedia-advanced\.css\?v=20261009-career-metric-contrast-v1/);
 });

@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-27T16:29:40Z",
+  "updatedAt": "2026-10-09",
   "rules": {
     "pronunciation": "Only use a written pronunciation when a team, league or other reliable media guide explicitly provides it. When a player-recorded audio pronunciation is available, link to that instead of inventing phonetics.",
     "offCourt": "Only include a personal, family, education, advocacy, business, media, music or nickname connection when it is documented in the Playerpedia bio tracker or a cited public source.",
@@ -763,6 +763,72 @@
       ],
       "memorable": "Kelly turned the inaugural UPSHOT season into a direct bridge back to the WNBA: league scoring and assists leader, Charlotte champion, Championship MVP, then a Dallas Wings developmental contract less than a month later.",
       "memorableSource": "https://www.oursportscentral.com/services/releases/dallas-wings-sign-deja-kelly-to-developmental-player-contract/n-6415741"
+    },
+    "heidiburge": {
+      "latestMilestone": {
+        "date": "2026-10-05",
+        "dateLabel": "OCT. 5, 2026",
+        "label": "IN MEMORIAM",
+        "value": "54",
+        "unit": "YEARS",
+        "headline": "Heidi Burge Horton · 1971–2026",
+        "detail": "The former Virginia forward-center died in Houston on Oct. 5, aged 54. Burge played two WNBA seasons and stayed close to the game through youth coaching in Houston.",
+        "sources": [
+          {
+            "url": "https://www.eickenhorstfuneral.com/obituaries/heidi-horton",
+            "label": "Family obituary"
+          },
+          {
+            "url": "https://www.wnba.com/player/100156/heidi-burge",
+            "label": "Official WNBA profile"
+          },
+          {
+            "url": "https://www.gettyimages.com/detail/news-photo/heidi-burge-of-the-los-angeles-sparks-tries-to-keep-the-news-photo/1784757?slot=15",
+            "label": "1997 Sparks in-game photo · Getty Images (license required)"
+          }
+        ]
+      },
+      "entry": {
+        "year": "1997",
+        "status": "Undrafted",
+        "team": "Los Angeles Sparks",
+        "note": "Burge made her WNBA debut with the Sparks in 1997, then joined the expansion Washington Mystics in 1998. The league lists a two-season career across 52 games.",
+        "source": "https://www.chron.com/culture/article/heidi-burge-horton-dead-22468784.php",
+        "sourceLabel": "Career timeline"
+      },
+      "franchiseTrail": [
+        {
+          "team": "Los Angeles Sparks",
+          "years": "1997"
+        },
+        {
+          "team": "Washington Mystics",
+          "years": "1998"
+        }
+      ],
+      "franchiseTrailSource": "https://static.virginiasports.com/pdfs/w-bball/2024-25/GameNotes/020225-Syracuse-GameNotes.pdf",
+      "collegeInternational": {
+        "college": "University of Virginia · 1989–93",
+        "clubs": [
+          "Played professional basketball in Europe before joining the WNBA in 1997."
+        ],
+        "source": "https://www.chron.com/culture/article/heidi-burge-horton-dead-22468784.php"
+      },
+      "achievements": [
+        "Scored 1,191 points in 134 games for Virginia and earned three ACC Academic Honor Roll selections (1991–93).",
+        "Helped Virginia reach three consecutive NCAA Final Fours (1990–92); the Cavaliers played in the 1991 national championship game.",
+        "Played 52 WNBA games over two seasons for the Los Angeles Sparks (1997) and Washington Mystics (1998), averaging 5.5 points, 3.3 rebounds and 0.8 assists."
+      ],
+      "achievementsSources": [
+        "https://uvamagazine.org/articles/legends_on_the_court",
+        "https://virginiasports.com/news/2011/03/15/she-s-one-of-a-kind",
+        "https://www.wnba.com/player/100156/heidi-burge",
+        "https://static.virginiasports.com/pdfs/w-bball/2024-25/GameNotes/020225-Syracuse-GameNotes.pdf"
+      ],
+      "memorable": "The Burge twins’ high-school basketball story inspired Disney Channel’s 2002 movie Double Teamed. Horton later took over Hoops School in Houston, where she coached young players as “Coach Heidi.”",
+      "memorableSource": "https://thebuzzmagazines.com/articles/2024/08/highest-heights",
+      "offCourt": "After a back injury ended her professional playing career, Horton returned to Houston, worked as a physical therapist and kept teaching basketball through youth camps and Hoops School.",
+      "offCourtSource": "https://uvamagazine.org/articles/legends_on_the_court"
     }
   }
 }

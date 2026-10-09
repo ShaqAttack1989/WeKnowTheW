@@ -9,7 +9,7 @@
       "seriesLabel": "FOOD FOR THOUGHT · PLAYER LEGACY",
       "title": "A’ja Wilson’s Fifth MVP Puts Her in Basketball’s Most Decorated Company",
       "published": "2026-10-08",
-      "updated": "2026-10-08",
+      "updated": "2026-10-09",
       "week": "Historic fifth MVP · Oct. 8, 2026",
       "image": "https://www.thesportingtribune.com/img/wnba/aces/260621_aces_vs_valkyries/260621_0003_valkyries_at_aces-original.jpg",
       "storyImage": "https://www.thesportingtribune.com/img/wnba/aces/260621_aces_vs_valkyries/260621_0003_valkyries_at_aces-original.jpg",
@@ -105,6 +105,10 @@
         "How much should cross-league MVP comparisons shape an all-time basketball conversation?"
       ],
       "sources": [
+        {
+          "label": "WNBA · Official 2026 fifth MVP announcement",
+          "url": "https://www.wnba.com/news/wilson-named-2026-most-valuable-player"
+        },
         {
           "label": "Las Vegas Aces · Wilson’s historic fifth MVP",
           "url": "https://aces.wnba.com/news/aja-wilson-earns-historic-third-consecutive-fifth-overall-kia-wnba-mvp-honor"

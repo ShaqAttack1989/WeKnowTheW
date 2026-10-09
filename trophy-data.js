@@ -82,7 +82,7 @@ window.TROPHY_DATA = (() => {
   ];
 
   const recent = {
-    mvp:[['2025',"A'ja Wilson",'Las Vegas Aces'],['2024',"A'ja Wilson",'Las Vegas Aces'],['2023','Breanna Stewart','New York Liberty'],['2022',"A'ja Wilson",'Las Vegas Aces'],['2021','Jonquel Jones','Connecticut Sun'],['2020',"A'ja Wilson",'Las Vegas Aces'],['2019','Elena Delle Donne','Washington Mystics'],['2018','Breanna Stewart','Seattle Storm'],['2017','Sylvia Fowles','Minnesota Lynx'],['2016','Nneka Ogwumike','Los Angeles Sparks']],
+    mvp:[['2026',"A'ja Wilson",'Las Vegas Aces'],['2025',"A'ja Wilson",'Las Vegas Aces'],['2024',"A'ja Wilson",'Las Vegas Aces'],['2023','Breanna Stewart','New York Liberty'],['2022',"A'ja Wilson",'Las Vegas Aces'],['2021','Jonquel Jones','Connecticut Sun'],['2020',"A'ja Wilson",'Las Vegas Aces'],['2019','Elena Delle Donne','Washington Mystics'],['2018','Breanna Stewart','Seattle Storm'],['2017','Sylvia Fowles','Minnesota Lynx'],['2016','Nneka Ogwumike','Los Angeles Sparks']],
     dpoy:[['2025',"A'ja Wilson and Alanna Smith",'Las Vegas Aces and Minnesota Lynx'],['2024','Napheesa Collier','Minnesota Lynx'],['2023',"A'ja Wilson",'Las Vegas Aces'],['2022',"A'ja Wilson",'Las Vegas Aces'],['2021','Sylvia Fowles','Minnesota Lynx'],['2020','Candace Parker','Los Angeles Sparks'],['2019','Natasha Howard','Seattle Storm'],['2018','Alana Beard','Los Angeles Sparks'],['2017','Alana Beard','Los Angeles Sparks'],['2016','Sylvia Fowles','Minnesota Lynx']],
     mip:[['2025','Veronica Burton','Golden State Valkyries'],['2024','DiJonai Carrington','Connecticut Sun'],['2023','Satou Sabally','Dallas Wings'],['2022','Jackie Young','Las Vegas Aces'],['2021','Brionna Jones','Connecticut Sun'],['2020','Betnijah Laney','Atlanta Dream'],['2019','Leilani Mitchell','Phoenix Mercury'],['2018','Natasha Howard','Seattle Storm'],['2017','Jonquel Jones','Connecticut Sun'],['2016','Elizabeth Williams','Atlanta Dream']],
     sixth:[['2025','Naz Hillmon','Atlanta Dream'],['2024','Tiffany Hayes','Las Vegas Aces'],['2023','Alysha Clark','Las Vegas Aces'],['2022','Brionna Jones','Connecticut Sun'],['2021','Kelsey Plum','Las Vegas Aces'],['2020','Dearica Hamby','Las Vegas Aces'],['2019','Dearica Hamby','Las Vegas Aces'],['2018','Jonquel Jones','Connecticut Sun'],['2017','Sugar Rodgers','New York Liberty'],['2016','Jantel Lavender','Los Angeles Sparks']],
@@ -94,9 +94,9 @@ window.TROPHY_DATA = (() => {
     mvp:{
       slug:'award-mvp.html',eyebrow:'MOST VALUABLE PLAYER',title:'The center of the season',short:'MVP',
       description:'The regular season award for the player whose performance, impact and value defined the league year.',
-      current:{year:'2025',name:"A'ja Wilson",team:'Las Vegas Aces',photo:headshot('1628932'),stat:'Record fourth MVP',note:'Wilson became the first four time MVP in league history.'},
-      history:recent.mvp,records:[['4',"A'ja Wilson",'The league record'],['3','Sheryl Swoopes, Lisa Leslie, Lauren Jackson','Three time winners'],['2025','Most recent completed season','The 2026 award remains open']],
-      source:'https://www.wnba.com/history-mvp',currentSource:'https://www.wnba.com/history'
+      current:{year:'2026',name:"A'ja Wilson",team:'Las Vegas Aces',photo:headshot('1628932'),stat:'Record fifth MVP',note:'Wilson is the first five-time MVP and the first player to win three consecutive awards (2024–26).'},
+      history:recent.mvp,records:[['5',"A'ja Wilson",'Most MVP awards in WNBA history'],['3','Sheryl Swoopes, Lisa Leslie and Lauren Jackson','Next-highest career totals'],['3 straight',"A'ja Wilson (2024–26)",'Longest consecutive MVP run']],
+      source:'https://www.wnba.com/history-mvp',currentSource:'https://www.wnba.com/news/wilson-named-2026-most-valuable-player'
     },
     dpoy:{
       slug:'award-dpoy.html',eyebrow:'DEFENSIVE PLAYER OF THE YEAR',title:'The players who erase plans',short:'DPOY',

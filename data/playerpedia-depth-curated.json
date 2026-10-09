@@ -825,9 +825,22 @@
           },
           {
             "url": "https://www.gettyimages.com/detail/news-photo/heidi-burge-of-the-los-angeles-sparks-tries-to-keep-the-news-photo/1784757?slot=15",
-            "label": "1997 Sparks in-game photo · Getty Images (license required)"
+            "label": "1997 in-game photo · Harry How / Allsport · Getty Images"
           }
-        ]
+        ],
+        "photoEmbed": {
+          "id": "_dRGP2bYRYFRfo3IfnG46w",
+          "signature": "7u-N9GdLKaDZwwo6dYfCmxgUznTGLFXemSUZRIRM9FY=",
+          "width": "396px",
+          "height": "594px",
+          "item": "1784757",
+          "caption": true,
+          "tld": "com",
+          "is360": false,
+          "url": "https://www.gettyimages.com/detail/1784757",
+          "credit": "Harry How / Allsport · Getty Images",
+          "captionText": "July 13, 1997: Heidi Burge of the Los Angeles Sparks tries to keep the ball away from Phoenix’s Michele Timms during a game at the Great Western Forum."
+        }
       }
     }
   }

@@ -19,7 +19,7 @@
     const [factSets,draft,curated,affiliations,playersPayload]=await Promise.all([
       Promise.all(FACT_FILES.map(url=>json(url).catch(()=>({})))),
       json('/data/wnba-draft-history.json').catch(()=>({picks:[],undrafted:[],aliases:{}})),
-      json('/data/playerpedia-depth-curated.json?v=20261009-heidi-horton-memorial-v2').catch(()=>({players:{}})),
+      json('/data/playerpedia-depth-curated.json?v=20261009-heidi-horton-memorial-v3').catch(()=>({players:{}})),
       json('/pro-offseason-affiliations.json').catch(()=>({})),
       json('/api/players').catch(()=>({players:[]}))
     ]);
@@ -112,7 +112,8 @@
   function achievements(detail,curated={},fact='',draft=null){
     const curatedList=Array.isArray(curated.achievements)?curated.achievements:[];
     const recentAward=curated.latestAward?.achievement||curated.latestAward?.headline||'';
-    const recentMilestone=curated.latestMilestone?.achievement||curated.latestMilestone?.headline||'';
+    const memorialMilestone=/memorial|in memoriam/i.test(String(curated.latestMilestone?.label||''));
+    const recentMilestone=memorialMilestone?'':(curated.latestMilestone?.achievement||curated.latestMilestone?.headline||'');
     let list=unique([recentAward,recentMilestone,...curatedList,...[...(detail?.honours||[]),...(detail?.milestones||[])].map(achievementText).filter(Boolean)]);
     if(!list.length)list=achievementSentences(detail?.player?.description||'');
     if(!list.length&&factLooksLikeAchievement(fact))list=[fact];

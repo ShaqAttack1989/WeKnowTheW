@@ -172,8 +172,10 @@
       const response = await fetch(`/api/players?recordRack=${Date.now()}`, {headers:{Accept:'application/json'},cache:'no-store'});
       const payload = await response.json();
       if (!response.ok || !Array.isArray(payload.players)) return;
+      const currentRosterPlayers = payload.players.filter(player => player?.currentRoster === true);
+      if (!currentRosterPlayers.length) return;
       activeNames.clear();
-      payload.players.forEach(player => activeNames.add(key(player.name)));
+      currentRosterPlayers.forEach(player => activeNames.add(key(player.name)));
       applyActiveState();
       document.querySelectorAll('[data-active-legend]').forEach(node => node.textContent = 'Bold = on a current 2026 roster');
     } catch { /* Snapshot flags remain as the fallback. */ }

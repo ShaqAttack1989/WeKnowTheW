@@ -39,6 +39,7 @@ test('record rack is reconciled to final 2026 regular-season totals',()=>{
   const browser=read('trophy-records.js');
   assert.match(browser,/snapshotActiveNames/);
   assert.match(browser,/preserveVerifiedActiveState\(payload\.career\[board\.key\]\)/);
+  assert.match(browser,/player\?\.currentRoster === true/);
 });
 
 test('current basketball operations and team leadership replace stale officeholders',()=>{

@@ -131,7 +131,7 @@ test('Heidi Burge career snapshot follows official averages and shows its source
   assert.equal(heidi.sourceUrl,'https://www.wnba.com/player/100156/heidi-burge/profile');
   assert.match(client,/sourceUrl: String\(stats\.sourceUrl/);
   assert.match(pageClient,/Career statistics source/);
-  assert.match(page,/c\.sourceNote/);
+  assert.match(pageClient,/c\.sourceNote/);
   assert.match(pageClient,/publicCopy=20261009-heidi-career-source-v1/);
   assert.match(page,/playerpedia-page\.js\?v=20261009-heidi-career-source-v1/);
 });

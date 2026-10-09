@@ -120,3 +120,17 @@ test('Heidi Burge memorial includes a credited real game photo and current sourc
   assert.match(page,/playerpedia-depth\.css\?v=20261009-heidi-horton-photo-v1/);
   assert.match(css,/\.deep-game-photo/);
 });
+
+
+test('Heidi Burge career snapshot follows official averages and shows its source',()=>{
+  const heidi=JSON.parse(fs.readFileSync(path.join(root,'data','playerpedia-career-stats.json'),'utf8')).byKey.heidiburge;
+  assert.deepEqual([heidi.ppg,heidi.rpg,heidi.apg],[5.5,3.3,0.8]);
+  assert.equal(heidi.weightedScore,22.6);
+  assert.match(heidi.sourceNote,/Career PPG, RPG and APG follow the official WNBA profile/);
+  assert.equal(heidi.sourceUrl,'https://www.wnba.com/player/100156/heidi-burge/profile');
+  assert.match(client,/sourceUrl: String\(stats\.sourceUrl/);
+  assert.match(page,/Career statistics source/);
+  assert.match(page,/c\.sourceNote/);
+  assert.match(page,/publicCopy=20261009-heidi-career-source-v1/);
+  assert.match(page,/playerpedia-page\.js\?v=20261009-heidi-career-source-v1/);
+});

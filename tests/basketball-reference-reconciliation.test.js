@@ -52,8 +52,13 @@ test('current basketball operations and team leadership replace stale officehold
   assert.match(culture,/\['Las Vegas Aces','Nikki Fargas','President & General Manager'/);
   assert.match(culture,/\['Los Angeles Sparks','Ariana Andonian','General Manager'/);
   assert.match(culture,/\['Washington Mystics','Jamila Wideman','General Manager'/);
+  assert.match(culture,/\['Connecticut Sun','Fertitta Entertainment \/ Tilman J\. Fertitta'/);
+  assert.doesNotMatch(culture,/\['Connecticut Sun','Mohegan Tribe \/ Mohegan Sun'/);
+  assert.match(culture,/\['Connecticut Sun','Jennifer Rizzotti','President of Basketball Operations · Houston transition'/);
   assert.match(guides,/gm:'Nikki Fargas'/);
   assert.match(guides,/gm:'Ariana Andonian', coach:'Vacant'/);
+  assert.match(guides,/owner:'Fertitta Entertainment \/ Tilman J\. Fertitta'/);
+  assert.match(guides,/2027 PRESIDENT OF BASKETBALL OPERATIONS','Jennifer Rizzotti'/);
   assert.match(guides,/\['5×','League MVP','A’ja Wilson became the first five-time WNBA MVP in 2026\.'/);
   assert.doesNotMatch(site,/\['Lynne Roberts','Los Angeles Sparks'\]/);
   assert.match(site,/Ariana Andonian/);

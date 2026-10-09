@@ -65,7 +65,10 @@ function careerFields(name = '', historical = null) {
     spg: Number(stats.spg || 0),
     bpg: Number(stats.bpg || 0),
     statCoverage,
-    weightedScore: Number(stats.weightedScore || 0)
+    weightedScore: Number(stats.weightedScore || 0),
+    sourceUrl: String(stats.sourceUrl || ''),
+    sourceLabel: String(stats.sourceLabel || ''),
+    sourceNote: String(stats.sourceNote || '')
   } : null;
   return {
     firstWnbaSeason,

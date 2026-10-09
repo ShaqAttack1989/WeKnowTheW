@@ -6,6 +6,7 @@ const path=require('node:path');
 const root=path.join(__dirname,'..');
 const page=fs.readFileSync(path.join(root,'playerpedia.html'),'utf8');
 const client=fs.readFileSync(path.join(root,'playerpedia-depth.js'),'utf8');
+const pageClient=fs.readFileSync(path.join(root,'playerpedia-page.js'),'utf8');
 const css=fs.readFileSync(path.join(root,'playerpedia-depth.css'),'utf8');
 const curated=JSON.parse(fs.readFileSync(path.join(root,'data','playerpedia-depth-curated.json'),'utf8'));
 const draft=JSON.parse(fs.readFileSync(path.join(root,'data','wnba-draft-history.json'),'utf8'));
@@ -129,8 +130,8 @@ test('Heidi Burge career snapshot follows official averages and shows its source
   assert.match(heidi.sourceNote,/Career PPG, RPG and APG follow the official WNBA profile/);
   assert.equal(heidi.sourceUrl,'https://www.wnba.com/player/100156/heidi-burge/profile');
   assert.match(client,/sourceUrl: String\(stats\.sourceUrl/);
-  assert.match(page,/Career statistics source/);
+  assert.match(pageClient,/Career statistics source/);
   assert.match(page,/c\.sourceNote/);
-  assert.match(page,/publicCopy=20261009-heidi-career-source-v1/);
+  assert.match(pageClient,/publicCopy=20261009-heidi-career-source-v1/);
   assert.match(page,/playerpedia-page\.js\?v=20261009-heidi-career-source-v1/);
 });

@@ -9,6 +9,7 @@ on:
       - 'data/playerpedia-career-stats.json'
       - 'playerpedia-depth.js'
       - 'playerpedia-depth.css'
+      - 'playerpedia-advanced.css'
       - 'data/playerpedia-depth-curated.json'
       - 'data/playerpedia-facts-*.json'
       - 'data/wnba-draft-history.json'

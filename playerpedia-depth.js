@@ -19,7 +19,7 @@
     const [factSets,draft,curated,affiliations,playersPayload]=await Promise.all([
       Promise.all(FACT_FILES.map(url=>json(url).catch(()=>({})))),
       json('/data/wnba-draft-history.json').catch(()=>({picks:[],undrafted:[],aliases:{}})),
-      json('/data/playerpedia-depth-curated.json?v=20261009-heidi-horton-memorial-v3').catch(()=>({players:{}})),
+      json('/data/playerpedia-depth-curated.json?v=20261009-heidi-horton-memorial-v4').catch(()=>({players:{}})),
       json('/pro-offseason-affiliations.json').catch(()=>({})),
       json('/api/players').catch(()=>({players:[]}))
     ]);
@@ -166,8 +166,31 @@
     const receipts=receiptRows.map((item,index)=>sourceLink(item?.url||item,item?.label||(receiptRows.length>1?`Memorial source ${index+1}`:'Memorial source'))).join(' ');
     const label=[memorial.label||'IN MEMORIAM',memorial.dateLabel].filter(Boolean).join(' · ');
     const value=memorial.value?`<div class="deep-milestone-stat"><strong>${safe(memorial.value)}</strong><small>${safe(memorial.unit||'')}</small></div>`:'';
-    const body=`${value}<p>${safe(memorial.detail||'')}</p>`;
+    const photo=memorial.photoEmbed;
+    const photoMarkup=photo?.id&&photo?.signature&&photo?.item?`<figure class="deep-game-photo"><div class="deep-getty-embed" data-getty-embed data-id="${safe(photo.id)}" data-sig="${safe(photo.signature)}" data-width="${safe(photo.width||'396px')}" data-height="${safe(photo.height||'594px')}" data-item="${safe(photo.item)}" data-caption="${photo.caption?'true':'false'}" data-tld="${safe(photo.tld||'com')}" data-is360="${photo.is360?'true':'false'}"><a id="${safe(photo.id)}" class="gie-single" href="${safe(photo.url||'#')}" target="_blank" rel="noopener noreferrer" style="color:#a7a7a7;text-decoration:none;font-weight:normal!important;border:none;display:inline-block;">Embed from Getty Images</a></div><figcaption>${safe(photo.captionText||'')} <span>${safe(photo.credit||'Getty Images')}</span></figcaption></figure>`:'';
+    const body=`${value}<p>${safe(memorial.detail||'')}</p>${photoMarkup}`;
     return sectionCard(label,memorial.headline,body,receipts,'latest-milestone memorial-card');
+  }
+
+  function activateGettyEmbeds(root){
+    const embeds=[...root.querySelectorAll('[data-getty-embed]')];
+    if(!embeds.length)return;
+    window.gie=window.gie||function(callback){(window.gie.q=window.gie.q||[]).push(callback);};
+    embeds.forEach(node=>{
+      if(node.dataset.gieInitialized==='true')return;
+      node.dataset.gieInitialized='true';
+      const data=node.dataset;
+      const request={id:data.id,sig:data.sig,w:data.width,h:data.height,items:data.item,caption:data.caption==='true',tld:data.tld,is360:data.is360==='true'};
+      window.gie(()=>{if(window.gie.widgets?.load)window.gie.widgets.load(request);});
+    });
+    if(!document.querySelector('script[data-getty-widget-loader]')){
+      const script=document.createElement('script');
+      script.src='https://embed-cdn.gettyimages.com/widgets.js';
+      script.async=true;
+      script.charset='utf-8';
+      script.dataset.gettyWidgetLoader='true';
+      document.head.appendChild(script);
+    }
   }
 
   function nicknameMarkup(curated={}){
@@ -277,6 +300,7 @@
       const accomplishmentList=achievements(detail,curated,baseFact,draft);
       loading.className='playerpedia-deep-file';
       loading.innerHTML=`<div class="deep-file-head"><div><span>THE DEEP FILE</span><p>Latest verified awards and records, pronunciation, WNBA entry, franchise history, college and international basketball, accomplishments, memorable facts and connections beyond the box score.</p></div></div><div class="deep-bio-grid">${memorialCard(curated)}${latestAwardCard(curated)}${latestMilestoneCard(curated)}${pronunciationCard(name,current,curated)}${draftCard(draft,college,curated,current,legacy)}${trailCard(trail,curated)}${collegeInternationalCard(college,nationality,connections,international,curated)}${accomplishmentCard(accomplishmentList,curated)}${memorableCard(fact,curated)}${offCourtCard(curated,detail)}</div>`;
+      activateGettyEmbeds(loading);
     }catch(error){
       loading.innerHTML='<div class="deep-file-head"><div><span>THE DEEP FILE</span><p>The standard Playerpedia profile remains available while the research layer reconnects.</p></div></div>';
     }

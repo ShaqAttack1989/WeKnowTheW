@@ -208,7 +208,9 @@ function careerMetricsMarkup(player={}){
   const coverage=Number(c.statCoverage||player.statCoverage||0);
   const eligible=coverage>=3;
   const provenance=c.sourceNote?` ${pSafe(c.sourceNote)}`:'';
-  const source=/^https?:\\/\\//i.test(String(c.sourceUrl||''))?` <a href="${pSafe(c.sourceUrl)}" target="_blank" rel="noopener">${pSafe(c.sourceLabel||'Career statistics source')} ↗</a>`:'';
+  const sourceUrl=String(c.sourceUrl||'');
+  const sourceProtocol=sourceUrl.slice(0,7).toLowerCase()==='http://' || sourceUrl.slice(0,8).toLowerCase()==='https://';
+  const source=sourceProtocol?` <a href="${pSafe(sourceUrl)}" target="_blank" rel="noopener">${pSafe(c.sourceLabel||'Career statistics source')} ↗</a>`:'';
   return `<section class="profile-subsection"><h4>WNBA career snapshot</h4><div class="why-metrics">
     <div class="why-metric"><span>PPG</span><strong>${pSafe(stat(c.ppg))}</strong><small>career per game</small></div>
     <div class="why-metric"><span>RPG</span><strong>${pSafe(stat(c.rpg))}</strong><small>career per game</small></div>
@@ -253,7 +255,7 @@ async function openProfile(id){
   const refreshed=advancedUpdatedAt?new Date(advancedUpdatedAt):null;
   const refreshedText=refreshed&&!Number.isNaN(refreshed.getTime())?` Last refreshed ${refreshed.toLocaleString([],{month:'short',day:'numeric',hour:'numeric',minute:'2-digit'})}.`:'';
   const statNote=p.historicalPlayerpedia
-    ? '<p class="why-source">Career numbers aggregate We Know the W historical season snapshots from the player’s WNBA seasons. Missing stat fields are stored as 0 only after source coverage is counted.</p>'
+    ? '<p class="why-source">Career stat sources and methodology appear in the WNBA career snapshot. Missing fields count toward coverage only after they are sourced.</p>'
     : advancedFeedReady?`<p class="why-source">2026 efficiency metrics refresh with official WNBA season data and available advanced-stat sources.${pSafe(refreshedText)}</p>`:'<p class="why-source">Advanced metrics are temporarily unavailable and will repopulate automatically when the season feed reconnects.</p>';
   const currentMetrics=p.historicalPlayerpedia?'':metricsMarkup(name);
   const careerMetrics=careerMetricsMarkup(p);

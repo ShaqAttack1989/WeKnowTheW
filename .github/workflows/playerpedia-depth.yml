@@ -4,6 +4,9 @@ on:
   push:
     paths:
       - 'playerpedia.html'
+      - 'playerpedia-page.js'
+      - 'api/players.js'
+      - 'data/playerpedia-career-stats.json'
       - 'playerpedia-depth.js'
       - 'playerpedia-depth.css'
       - 'data/playerpedia-depth-curated.json'

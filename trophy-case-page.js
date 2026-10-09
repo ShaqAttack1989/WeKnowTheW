@@ -94,5 +94,15 @@
     </a>`;
   }).join('');
 
+  const awardIndexGrid = document.getElementById('awardIndexGrid');
+  if (awardIndexGrid) awardIndexGrid.innerHTML = (data.awardIndex || []).map(group => `
+    <article class="award-index-card">
+      <div class="award-index-card-heading"><h4>${safeAttr(group.group)}</h4><p>${safeAttr(group.note)}</p></div>
+      <ul>${group.items.map(([label,status,href]) => {
+        const external = href.startsWith('https://');
+        return `<li><a href="${safeAttr(href)}"${external ? ' target="_blank" rel="noopener"' : ''}><span>${safeAttr(label)}</span><small>${safeAttr(status)}</small><b aria-hidden="true">${external ? '↗' : '→'}</b></a></li>`;
+      }).join('')}</ul>
+    </article>`).join('');
+
   loadTeamLogos();
 })();

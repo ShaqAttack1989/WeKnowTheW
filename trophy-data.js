@@ -83,11 +83,11 @@ window.TROPHY_DATA = (() => {
 
   const recent = {
     mvp:[['2026',"A'ja Wilson",'Las Vegas Aces'],['2025',"A'ja Wilson",'Las Vegas Aces'],['2024',"A'ja Wilson",'Las Vegas Aces'],['2023','Breanna Stewart','New York Liberty'],['2022',"A'ja Wilson",'Las Vegas Aces'],['2021','Jonquel Jones','Connecticut Sun'],['2020',"A'ja Wilson",'Las Vegas Aces'],['2019','Elena Delle Donne','Washington Mystics'],['2018','Breanna Stewart','Seattle Storm'],['2017','Sylvia Fowles','Minnesota Lynx'],['2016','Nneka Ogwumike','Los Angeles Sparks']],
-    dpoy:[['2025',"A'ja Wilson and Alanna Smith",'Las Vegas Aces and Minnesota Lynx'],['2024','Napheesa Collier','Minnesota Lynx'],['2023',"A'ja Wilson",'Las Vegas Aces'],['2022',"A'ja Wilson",'Las Vegas Aces'],['2021','Sylvia Fowles','Minnesota Lynx'],['2020','Candace Parker','Los Angeles Sparks'],['2019','Natasha Howard','Seattle Storm'],['2018','Alana Beard','Los Angeles Sparks'],['2017','Alana Beard','Los Angeles Sparks'],['2016','Sylvia Fowles','Minnesota Lynx']],
-    mip:[['2025','Veronica Burton','Golden State Valkyries'],['2024','DiJonai Carrington','Connecticut Sun'],['2023','Satou Sabally','Dallas Wings'],['2022','Jackie Young','Las Vegas Aces'],['2021','Brionna Jones','Connecticut Sun'],['2020','Betnijah Laney','Atlanta Dream'],['2019','Leilani Mitchell','Phoenix Mercury'],['2018','Natasha Howard','Seattle Storm'],['2017','Jonquel Jones','Connecticut Sun'],['2016','Elizabeth Williams','Atlanta Dream']],
-    sixth:[['2025','Naz Hillmon','Atlanta Dream'],['2024','Tiffany Hayes','Las Vegas Aces'],['2023','Alysha Clark','Las Vegas Aces'],['2022','Brionna Jones','Connecticut Sun'],['2021','Kelsey Plum','Las Vegas Aces'],['2020','Dearica Hamby','Las Vegas Aces'],['2019','Dearica Hamby','Las Vegas Aces'],['2018','Jonquel Jones','Connecticut Sun'],['2017','Sugar Rodgers','New York Liberty'],['2016','Jantel Lavender','Los Angeles Sparks']],
-    roy:[['2025','Paige Bueckers','Dallas Wings'],['2024','Caitlin Clark','Indiana Fever'],['2023','Aliyah Boston','Indiana Fever'],['2022','Rhyne Howard','Atlanta Dream'],['2021','Michaela Onyenwere','New York Liberty'],['2020','Crystal Dangerfield','Minnesota Lynx'],['2019','Napheesa Collier','Minnesota Lynx'],['2018',"A'ja Wilson",'Las Vegas Aces'],['2017','Allisha Gray','Dallas Wings'],['2016','Breanna Stewart','Seattle Storm']],
-    coy:[['2025','Natalie Nakase','Golden State Valkyries'],['2024','Cheryl Reeve','Minnesota Lynx'],['2023','Stephanie White','Connecticut Sun'],['2022','Becky Hammon','Las Vegas Aces'],['2021','Curt Miller','Connecticut Sun'],['2020','Cheryl Reeve','Minnesota Lynx'],['2019','James Wade','Chicago Sky'],['2018','Nicki Collen','Atlanta Dream'],['2017','Curt Miller','Connecticut Sun'],['2016','Cheryl Reeve','Minnesota Lynx']]
+    dpoy:[['2026','Angel Reese','Atlanta Dream'],['2025',"A'ja Wilson and Alanna Smith",'Las Vegas Aces and Minnesota Lynx'],['2024','Napheesa Collier','Minnesota Lynx'],['2023',"A'ja Wilson",'Las Vegas Aces'],['2022',"A'ja Wilson",'Las Vegas Aces'],['2021','Sylvia Fowles','Minnesota Lynx'],['2020','Candace Parker','Los Angeles Sparks'],['2019','Natasha Howard','Seattle Storm'],['2018','Alana Beard','Los Angeles Sparks'],['2017','Alana Beard','Los Angeles Sparks']],
+    mip:[['2026','Jessica Shepard','Dallas Wings'],['2025','Veronica Burton','Golden State Valkyries'],['2024','DiJonai Carrington','Connecticut Sun'],['2023','Satou Sabally','Dallas Wings'],['2022','Jackie Young','Las Vegas Aces'],['2021','Brionna Jones','Connecticut Sun'],['2020','Betnijah Laney','Atlanta Dream'],['2019','Leilani Mitchell','Phoenix Mercury'],['2018','Natasha Howard','Seattle Storm'],['2017','Jonquel Jones','Connecticut Sun']],
+    sixth:[['2026','Janelle Salaün','Golden State Valkyries'],['2025','Naz Hillmon','Atlanta Dream'],['2024','Tiffany Hayes','Las Vegas Aces'],['2023','Alysha Clark','Las Vegas Aces'],['2022','Brionna Jones','Connecticut Sun'],['2021','Kelsey Plum','Las Vegas Aces'],['2020','Dearica Hamby','Las Vegas Aces'],['2019','Dearica Hamby','Las Vegas Aces'],['2018','Jonquel Jones','Connecticut Sun'],['2017','Sugar Rodgers','New York Liberty']],
+    roy:[['2026','Olivia Miles','Minnesota Lynx'],['2025','Paige Bueckers','Dallas Wings'],['2024','Caitlin Clark','Indiana Fever'],['2023','Aliyah Boston','Indiana Fever'],['2022','Rhyne Howard','Atlanta Dream'],['2021','Michaela Onyenwere','New York Liberty'],['2020','Crystal Dangerfield','Minnesota Lynx'],['2019','Napheesa Collier','Minnesota Lynx'],['2018',"A'ja Wilson",'Las Vegas Aces'],['2017','Allisha Gray','Dallas Wings']],
+    coy:[['2026','Cheryl Reeve','Minnesota Lynx'],['2025','Natalie Nakase','Golden State Valkyries'],['2024','Cheryl Reeve','Minnesota Lynx'],['2023','Stephanie White','Connecticut Sun'],['2022','Becky Hammon','Las Vegas Aces'],['2021','Curt Miller','Connecticut Sun'],['2020','Cheryl Reeve','Minnesota Lynx'],['2019','James Wade','Chicago Sky'],['2018','Nicki Collen','Atlanta Dream'],['2017','Curt Miller','Connecticut Sun']]
   };
 
   const awardPages = {
@@ -101,37 +101,37 @@ window.TROPHY_DATA = (() => {
     dpoy:{
       slug:'award-dpoy.html',eyebrow:'DEFENSIVE PLAYER OF THE YEAR',title:'The players who erase plans',short:'DPOY',
       description:'The award for elite defensive impact, from point of attack pressure to switchability, rebounding and rim protection.',
-      current:{year:'2025',name:"A'ja Wilson and Alanna Smith",team:'Las Vegas Aces and Minnesota Lynx',photos:[headshot('1628932'),headshot('1629501')],stat:'First co winners',note:'The 2025 vote produced the award’s first shared result.'},
+      current:{year:'2026',name:'Angel Reese',team:'Atlanta Dream',photo:headshot('1642291'),stat:'First Dream winner',note:'Reese led the league with a record 521 rebounds, finished third in steals and became the first Atlanta player to win the award.'},
       history:recent.dpoy,records:[['5','Tamika Catchings','League record'],['4','Sylvia Fowles','Four time winner'],['3',"A'ja Wilson and Sheryl Swoopes",'Three time winners']],
-      source:'https://www.wnba.com/history-defensive-player-of-the-year',currentSource:'https://www.wnba.com/news/category/awards'
+      source:'https://www.wnba.com/history-defensive-player-of-the-year',currentSource:'https://www.wnba.com/webview/news/reese-named-2026-defensive-player-of-the-year'
     },
     mip:{
       slug:'award-mip.html',eyebrow:'MOST IMPROVED PLAYER',title:'The leap becomes the story',short:'MIP',
       description:'The award recognizes the player whose growth creates the biggest season to season change in role, production and impact.',
-      current:{year:'2025',name:'Veronica Burton',team:'Golden State Valkyries',photo:headshot('1631007'),stat:'68 of 72 votes',note:'Burton’s breakout became one of Golden State’s defining inaugural season stories.'},
-      history:recent.mip,records:[['2000','Award introduced','Tari Phillips won the first'],['2004','Only shared award','Kelly Miller and Wendy Palmer'],['26','Completed award seasons','Through 2025']],
-      source:'https://www.wnba.com/history-most-improved-player',currentSource:'https://www.wnba.com/news/burton-2025-mip'
+      current:{year:'2026',name:'Jessica Shepard',team:'Dallas Wings',photo:headshot('1629491'),stat:'6 triple-doubles',note:'Shepard posted career highs of 14.5 points, 11.1 rebounds and 5.3 assists while helping Dallas back to the playoffs.'},
+      history:recent.mip,records:[['2000','Award introduced','Tari Phillips won the first'],['2004','Only shared award','Kelly Miller and Wendy Palmer'],['27','Completed award seasons','Through 2026']],
+      source:'https://www.wnba.com/history-most-improved-player',currentSource:'https://www.wnba.com/news/shepard-named-2026-most-improved-player'
     },
     sixth:{
       slug:'award-sixth-player.html',eyebrow:'SIXTH PLAYER OF THE YEAR',title:'Starter level impact from the bench',short:'Sixth Player',
       description:'The award celebrates the reserve who changes games through scoring, defense, versatility and lineup stability.',
-      current:{year:'2025',name:'Naz Hillmon',team:'Atlanta Dream',photo:headshot('1631044'),stat:'First Dream winner',note:'Hillmon turned durability and all around bench impact into Atlanta history.'},
+      current:{year:'2026',name:'Janelle Salaün',team:'Golden State Valkyries',photo:headshot('1642767'),stat:'Unanimous selection',note:'Salaün set reserve records with 509 points and 93 made threes while coming off the bench in all 40 appearances.'},
       history:recent.sixth,records:[['3','DeWanna Bonner','Most wins'],['2','Allie Quigley and Dearica Hamby','Two time winners'],['2007','Award introduced','Plenette Pierson won the first']],
-      source:'https://www.wnba.com/history-sixth-woman-of-the-year',currentSource:'https://www.wnba.com/news/2025-kia-wnba-sixth-poy'
+      source:'https://www.wnba.com/history-sixth-woman-of-the-year',currentSource:'https://www.wnba.com/news/janelle-salaun-named-sixth-player-of-the-year'
     },
     roy:{
       slug:'award-roy.html',eyebrow:'ROOKIE OF THE YEAR',title:'The opening chapter lands loudly',short:'ROY',
       description:'The award honors the strongest first season and often introduces the next face of a franchise.',
-      current:{year:'2025',name:'Paige Bueckers',team:'Dallas Wings',photo:headshot('1642784'),stat:'Unanimous selection',note:'Bueckers led all rookies in scoring and assists while earning All WNBA Second Team honors.'},
-      history:recent.roy,records:[['2008','Candace Parker','Only player to win Rookie and MVP in the same season'],['2025','Paige Bueckers','Most recent completed season'],['1998','First Rookie award','Tracy Reid']],
-      source:'https://www.wnba.com/history-rookie-of-the-year',currentSource:'https://www.wnba.com/news/bueckers-2025-roty'
+      current:{year:'2026',name:'Olivia Miles',team:'Minnesota Lynx',photo:headshot('1643426'),stat:'Unanimous selection',note:'Miles set WNBA rookie records with 790 points and 22 games of at least 20 points while directing the No. 1 seed.'},
+      history:recent.roy,records:[['790','Olivia Miles','Rookie points record, set in 2026'],['2008','Candace Parker','Only player to win Rookie and MVP in the same season'],['1998','First Rookie award','Tracy Reid']],
+      source:'https://www.wnba.com/history-rookie-of-the-year',currentSource:'https://www.wnba.com/news/miles-named-2026-rookie-of-the-year'
     },
     coy:{
       slug:'award-coy.html',eyebrow:'COACH OF THE YEAR',title:'The season behind the clipboard',short:'COY',
       description:'The award recognizes coaching leadership, player development, strategy and team performance across the regular season.',
-      current:{year:'2025',name:'Natalie Nakase',team:'Golden State Valkyries',image:'/assets/team-posters/golden-state-valkyries.webp',stat:'Expansion history',note:'Nakase guided Golden State to 23 wins and a playoff berth in its inaugural season.'},
-      history:recent.coy,records:[['4','Cheryl Reeve','League record'],['3','Van Chancellor and Mike Thibault','Three time winners'],['2025','Natalie Nakase','First Valkyries winner']],
-      source:'https://www.wnba.com/history-coach-of-the-year',currentSource:'https://www.wnba.com/news/category/awards'
+      current:{year:'2026',name:'Cheryl Reeve',team:'Minnesota Lynx',image:'/assets/team-posters/minnesota-lynx.webp',stat:'Record fifth award',note:'Reeve led Minnesota to a league-best 33–11 record and became the WNBA’s all-time regular-season coaching wins leader.'},
+      history:recent.coy,records:[['5','Cheryl Reeve','League record'],['3','Van Chancellor and Mike Thibault','Next-highest career totals'],['397','Cheryl Reeve','Career regular-season wins through 2026']],
+      source:'https://www.wnba.com/history-coach-of-the-year',currentSource:'https://www.wnba.com/news/reeve-named-2026-coach-of-the-year'
     },
     cup:{
       slug:'commissioners-cup.html',eyebrow:'COMMISSIONER’S CUP',title:'A trophy inside the season',short:'Commissioner’s Cup',
@@ -167,12 +167,57 @@ window.TROPHY_DATA = (() => {
     }
   };
 
+  const awardIndex = [
+    {
+      group:'Individual season awards',
+      note:'The six core regular-season awards now reflect the completed 2026 voting.',
+      items:[
+        ['Most Valuable Player','2026 · A’ja Wilson','/award-mvp.html'],
+        ['Defensive Player of the Year','2026 · Angel Reese','/award-dpoy.html'],
+        ['Rookie of the Year','2026 · Olivia Miles','/award-roy.html'],
+        ['Most Improved Player','2026 · Jessica Shepard','/award-mip.html'],
+        ['Sixth Player of the Year','2026 · Janelle Salaün','/award-sixth-player.html'],
+        ['Coach of the Year','2026 · Cheryl Reeve','/award-coy.html']
+      ]
+    },
+    {
+      group:'Selection teams',
+      note:'The 2025 teams remain displayed until the WNBA announces the 2026 selections.',
+      items:[
+        ['All-WNBA Teams','2026 selections pending','/all-wnba.html'],
+        ['All-Defensive Teams','2026 selections pending','/all-defensive.html'],
+        ['All-Rookie Team','2026 selections pending','/all-rookie.html']
+      ]
+    },
+    {
+      group:'Postseason + showcase honors',
+      note:'These awards follow separate event calendars rather than the regular-season ballot.',
+      items:[
+        ['Finals MVP','Awarded after the WNBA Finals','#finals-mvp'],
+        ['Commissioner’s Cup MVP','2026 · Breanna Stewart','/commissioners-cup.html'],
+        ['All-Star Game MVP','Browse the historical index','https://www.basketball-reference.com/wnba/awards/']
+      ]
+    },
+    {
+      group:'League + community honors',
+      note:'Latest completed winner stays visible when a 2026 award has not yet been announced.',
+      items:[
+        ['Executive of the Year','2026 announcement pending','https://www.basketball-reference.com/wnba/awards/'],
+        ['Sportsmanship Award','2026 announcement pending','https://www.basketball-reference.com/wnba/awards/'],
+        ['Community Assist','Monthly and season honors','https://www.basketball-reference.com/wnba/awards/'],
+        ['Dawn Staley Leadership Award','Historical winners','https://www.basketball-reference.com/wnba/awards/'],
+        ['Player of the Week + Month','In-season recognition','https://www.basketball-reference.com/wnba/awards/']
+      ]
+    }
+  ];
+
   return {
     champions,
     finalsMvpPhotos,
     dynasties,
     franchiseCounts,
     awardPages,
+    awardIndex,
     awardOrder:['mvp','dpoy','mip','sixth','roy','coy','cup','allWnba','allDefense','allRookie'],
     sources:{champions:'https://www.wnba.com/all-time-wnba-champions',finalsMvp:'https://www.wnba.com/history-wnba-finals-mvp',history:'https://www.wnba.com/history'}
   };

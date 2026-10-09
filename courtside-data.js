@@ -49,6 +49,24 @@ const COURTSIDE_OWNERS = [
   ['Washington Mystics','Ted Leonsis / Monumental Sports & Entertainment','The Mystics sit inside Washington’s multi-team sports organization.']
 ].map(([team,name,summary])=>({team,name,summary}));
 
+const COURTSIDE_EXECUTIVES = [
+  ['Atlanta Dream','Dan Padover','General Manager & Executive Vice President of Basketball Operations','Leads Atlanta’s personnel strategy and remains the latest completed Executive of the Year winner (2025).','https://dream.wnba.com/front-office/'],
+  ['Chicago Sky','Jeff Pagliocca','General Manager','Leads Chicago’s roster construction and basketball operations.','https://sky.wnba.com/news/chicago-sky-name-jeff-pagliocca-general-manager'],
+  ['Connecticut Sun','Morgan Tuck','General Manager','Oversees Connecticut’s current basketball operations through the franchise’s final season in the market.','https://sun.wnba.com/front-office/'],
+  ['Dallas Wings','Curt Miller','Executive Vice President & General Manager','Directs Dallas basketball operations and the current competitive build.','https://wings.wnba.com/news/curt-miller-named-executive-vice-president-and-general-manager'],
+  ['Golden State Valkyries','Ohemaa Nyanin','General Manager','The first general manager in Valkyries history built the expansion roster and its next phase.','https://valkyries.wnba.com/news/ohemaa-nyanin-named-general-manager'],
+  ['Indiana Fever','Amber Cox','Chief Operating Officer & General Manager','Leads the Fever’s basketball strategy and broader team operations.','https://fever.wnba.com/news/amber-cox-named-chief-operating-officer-and-general-manager'],
+  ['Las Vegas Aces','Nikki Fargas','President & General Manager','Oversees both basketball and business operations for the Aces.','https://aces.wnba.com/front-office/'],
+  ['Los Angeles Sparks','Ariana Andonian','General Manager','Named general manager on Sept. 4, 2026, with oversight of all basketball operations.','https://sparks.wnba.com/news/ariana-andonian-named-general-manager'],
+  ['Minnesota Lynx','Cheryl Reeve','Head Coach & President of Basketball Operations','Leads Minnesota on the bench and at the top of basketball operations.','https://lynx.wnba.com/front-office/'],
+  ['New York Liberty','Jonathan Kolb','General Manager','Leads New York’s roster construction and basketball operations.','https://liberty.wnba.com/front-office/jonathan-kolb'],
+  ['Phoenix Mercury','Nick U’Ren','General Manager','Oversees Phoenix basketball operations and roster strategy.','https://mercury.wnba.com/news/nick-uren-named-general-manager'],
+  ['Portland Fire','Vanja Černivec','General Manager','The first general manager of Portland’s new 2026 expansion franchise.','https://fire.wnba.com/news/portland-fire-name-vanja-cernivec-general-manager'],
+  ['Seattle Storm','Talisa Rhea','General Manager','Leads Seattle’s basketball operations and roster planning.','https://storm.wnba.com/news/seattle-storm-names-talisa-rhea-general-manager'],
+  ['Toronto Tempo','Monica Wright Rogers','General Manager','The first general manager in Tempo history built Canada’s inaugural WNBA roster.','https://tempo.wnba.com/news/monica-wright-rogers-named-general-manager'],
+  ['Washington Mystics','Jamila Wideman','General Manager','Leads Washington’s basketball operations and long-term roster plan.','https://mystics.wnba.com/news/washington-mystics-name-jamila-wideman-general-manager']
+].map(([team,name,role,summary,source])=>({team,name,role,summary,source}));
+
 const COURTSIDE_MASCOTS = [
   ['Atlanta Dream','Star','Legacy mascot','The Dream’s original gray bird remains part of franchise memory; Atlanta has not announced a current replacement.','https://dream.wnba.com/news/star-on-tour'],
   ['Chicago Sky','Skye the Lioness','#00','Inspired by the Art Institute of Chicago’s lions and introduced in 2024.','https://sky.wnba.com/news/chicago-sky-introduce-new-mascot-skye-the-lioness'],

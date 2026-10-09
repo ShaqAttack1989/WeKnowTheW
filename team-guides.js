@@ -66,33 +66,33 @@ const TEAM_GUIDES = {
     official:'https://www.wnba.com/team/1611661325/indiana-fever'
   },
   'las-vegas-aces': {
-    established:'1997', arena:'Michelob Ultra Arena', owner:'Mark Davis', gm:'Las Vegas basketball operations', coach:'Becky Hammon',
+    established:'1997', arena:'Michelob Ultra Arena', owner:'Mark Davis', gm:'Nikki Fargas', coach:'Becky Hammon',
     intro:'Las Vegas · the Starzz-to-Stars lineage and the W’s newest three-title dynasty.',
     history:[['1997–2002','Utah Starzz','The franchise entered the WNBA as one of the original eight.'],['2003–17','San Antonio era','The Silver Stars—later the Stars—reached the 2008 Finals and built the Becky Hammon chapter.'],['2018','Las Vegas Aces','The franchise moved to Nevada and adopted a new identity.'],['2022–25','Three championships','Las Vegas won titles in 2022, 2023 and 2025.']],
-    honors:[['3','WNBA championships','Titles in 2022, 2023 and 2025.'],['2022','Commissioner’s Cup','Las Vegas won the in-season crown.'],['4×','League MVP','A’ja Wilson became the first four-time WNBA MVP.'],['3×','Finals MVP','Chelsea Gray, A’ja Wilson and the 2025 title run define the dynasty.']],
+    honors:[['3','WNBA championships','Titles in 2022, 2023 and 2025.'],['2022','Commissioner’s Cup','Las Vegas won the in-season crown.'],['5×','League MVP','A’ja Wilson became the first five-time WNBA MVP in 2026.'],['3×','Finals MVP','Chelsea Gray, A’ja Wilson and the 2025 title run define the dynasty.']],
     uniforms:[['original','Utah purple and copper','The Starzz began with a mountain-west palette and star imagery.'],['city','San Antonio silver and black','The Stars era introduced the colors that later fit Las Vegas naturally.'],['rebel','Aces black, red and gold','Playing-card geometry and championship gold define the modern dynasty.']],
     retired:{value:'1',title:'No. 25 Becky Hammon',text:'The franchise retired Hammon’s number in 2016 during the San Antonio era.'},
-    people:[['OWNER','Mark Davis','Leads the franchise’s Las Vegas era.'],['HEAD COACH','Becky Hammon','The Hall of Fame guard became a championship head coach.'],['FRANCHISE CENTER','A’ja Wilson','The four-time MVP anchors the Aces’ identity on and off the court.'],['HOME COURT','Michelob Ultra Arena','A championship-era home on the Las Vegas Strip.']],
+    people:[['OWNER','Mark Davis','Leads the franchise’s Las Vegas era.'],['PRESIDENT & GENERAL MANAGER','Nikki Fargas','Oversees basketball and business operations for the Aces.'],['HEAD COACH','Becky Hammon','The Hall of Fame guard became a championship head coach.'],['FRANCHISE CENTER','A’ja Wilson','The five-time MVP anchors the Aces’ identity on and off the court.'],['HOME COURT','Michelob Ultra Arena','A championship-era home on the Las Vegas Strip.']],
     official:'https://www.wnba.com/team/1611661319/las-vegas-aces'
   },
   'los-angeles-sparks': {
-    established:'1997', arena:'Crypto.com Arena', owner:'Earvin Johnson & Mark Walter', gm:'Reagan Pebley', coach:'Lynne Roberts',
+    established:'1997', arena:'Crypto.com Arena', owner:'Earvin Johnson & Mark Walter', gm:'Ariana Andonian', coach:'Vacant',
     intro:'Los Angeles · an original franchise shaped by superstars, three titles and Hollywood-scale visibility.',
     history:[['1997','An original eight franchise','Los Angeles played in the WNBA’s first season and won the league’s opening game.'],['2001–02','Back-to-back champions','Lisa Leslie, Mwadi Mabika and company made the Sparks the league’s first back-to-back champion.'],['2008–20','The Candace Parker era','Parker arrived as an MVP rookie and extended the franchise’s star lineage.'],['2016','A third championship','Nneka Ogwumike’s shot sealed a dramatic Finals win over Minnesota.'],['2026','Lisa Leslie in bronze','The Sparks unveiled Leslie’s statue at Star Plaza, making her the second WNBA player honored with a statue by her franchise.']],
     honors:[['3','WNBA championships','Titles in 2001, 2002 and 2016.'],['3','Retired numbers','Candace Parker, Lisa Leslie and Penny Toler.'],['3×','League MVP','Lisa Leslie won three MVP awards as a Spark.'],['2008','MVP + Rookie of the Year','Candace Parker won both awards in the same season.']],
     uniforms:[['original','Purple, gold and teal','The founding look mixed Los Angeles basketball tradition with a distinct WNBA-era teal.'],['city','Purple and gold','The modern core palette keeps the Sparks rooted in Los Angeles.'],['rebel','Black and electric accents','Alternates translate Hollywood lights and city energy into a sharper uniform.']],
     retired:{value:'3',title:'No. 3 Candace Parker · No. 9 Lisa Leslie · No. 11 Penny Toler',text:'Three foundational Sparks figures are honored in the rafters.'},
-    people:[['OWNERSHIP','Earvin Johnson & Mark Walter','Lead the Sparks ownership group.'],['GENERAL MANAGER','Reagan Pebley','Directs current basketball operations.'],['HEAD COACH','Lynne Roberts','Guides the current Sparks era.'],['HOME COURT','Crypto.com Arena','The franchise’s downtown Los Angeles stage.']],
+    people:[['OWNERSHIP','Earvin Johnson & Mark Walter','Lead the Sparks ownership group.'],['GENERAL MANAGER','Ariana Andonian','Named Sept. 4, 2026, with oversight of all basketball operations.'],['HEAD COACH SEARCH','Vacant','Los Angeles dismissed Lynne Roberts on Sept. 25, 2026 and is searching for its next head coach.'],['HOME COURT','Crypto.com Arena','The franchise’s downtown Los Angeles stage.']],
     official:'https://www.wnba.com/team/1611661320/los-angeles-sparks'
   },
   'minnesota-lynx': {
-    established:'1999', arena:'Target Center', owner:'Marc Lore & Alex Rodriguez', gm:'Minnesota basketball operations', coach:'Cheryl Reeve',
+    established:'1999', arena:'Target Center', owner:'Marc Lore & Alex Rodriguez', gm:'Cheryl Reeve', coach:'Cheryl Reeve',
     intro:'Minneapolis · four championships and one of the defining dynasties in women’s basketball.',
     history:[['1999','Minnesota joins the W','The Lynx began play as an expansion franchise.'],['2011–17','A four-title dynasty','Minnesota won championships in 2011, 2013, 2015 and 2017.'],['2011–18','The legendary core','Seimone Augustus, Lindsay Whalen, Maya Moore, Rebekkah Brunson and Sylvia Fowles built an era.'],['2024','Commissioner’s Cup champions','The Lynx added the in-season trophy to their collection.']],
     honors:[['4','WNBA championships','Titles in 2011, 2013, 2015 and 2017.'],['5','Retired numbers','Whalen, Moore, Brunson, Augustus and Fowles.'],['2024','Commissioner’s Cup','Minnesota won its first Cup.'],['3×','Finals MVP','Maya Moore, Sylvia Fowles and Seimone Augustus headline the title-era honors.']],
     uniforms:[['original','Blue and silver','The founding palette established a cold-weather, North Star identity.'],['city','Navy and action green','Modern colors sharpen the Lynx mark and connect to Minnesota sports.'],['rebel','First Avenue and city culture','Special editions have celebrated Minneapolis music and community.']],
     retired:{value:'5',title:'No. 13 Whalen · 23 Moore · 32 Brunson · 33 Augustus · 34 Fowles',text:'The championship core lives together in the Target Center rafters.'},
-    people:[['OWNERSHIP','Marc Lore & Alex Rodriguez','The controlling owners lead the Lynx, with Rodriguez serving as WNBA governor.'],['HEAD COACH','Cheryl Reeve','Architect of the four-title dynasty.'],['ASSOCIATE HEAD COACH','Eric Thibault','Part of the current leadership group.'],['HOME COURT','Target Center','The Minneapolis home of the Lynx.']],
+    people:[['OWNERSHIP','Marc Lore & Alex Rodriguez','The controlling owners lead the Lynx, with Rodriguez serving as WNBA governor.'],['PRESIDENT OF BASKETBALL OPERATIONS & HEAD COACH','Cheryl Reeve','The five-time Coach of the Year leads roster strategy and the bench.'],['ASSOCIATE HEAD COACH','Eric Thibault','Part of the current leadership group.'],['HOME COURT','Target Center','The Minneapolis home of the Lynx.']],
     official:'https://www.wnba.com/team/1611661324/minnesota-lynx'
   },
   'new-york-liberty': {

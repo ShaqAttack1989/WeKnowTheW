@@ -1,4 +1,4 @@
-const LOCKER_UPDATED = 'Sep 22, 2026';
+const LOCKER_UPDATED = 'Oct 9, 2026';
 const lockerHeadshot = id => `https://cdn.wnba.com/headshots/wnba/latest/1040x760/${id}.png`;
 
 const LOCKER_SECTIONS = [
@@ -82,6 +82,7 @@ const CLOSED_BRANCHES = [
 ];
 
 const LOCKER_SOURCES = [
+  ['Basketball-Reference WNBA team index','https://www.basketball-reference.com/wnba/teams/'],
   ['Houston Comets approved return','https://www.houstoncomets.com/articles/approved-sale'],
   ['WNBA approval of Sun sale and Houston relocation','https://www.wnba.com/news/wnba-nba-approve-connecticut-sun-sale'],
   ['Jennifer Rizzotti on moving to Houston','https://www.nbcconnecticut.com/news/local/connecticut-sun-president-jennifer-rizzotti-headed-to-houston-with-team/3777073/'],

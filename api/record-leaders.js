@@ -16,6 +16,21 @@ const TEAM_NAMES = {
   PHO: 'Phoenix', PDX: 'Portland', SEA: 'Seattle', TOR: 'Toronto', WAS: 'Washington'
 };
 
+const REGULAR_SEASON_ENDS = {
+  2026: '2026-09-24T23:59:59-04:00'
+};
+
+function seasonIsComplete(season, now = new Date()) {
+  if (season < 2026) return true;
+  const end = REGULAR_SEASON_ENDS[season];
+  return end ? now >= new Date(end) : false;
+}
+
+function seasonDetail(season, team = '') {
+  const status = seasonIsComplete(season) ? '' : ' · ongoing';
+  return `${season}${status}${team ? ` · ${team}` : ''}`;
+}
+
 function format(value) {
   const number = Number(value);
   return Number.isFinite(number) ? number.toLocaleString('en-US') : String(value || '');
@@ -40,7 +55,7 @@ function rookieEntries(rows = [], key = '', season = 2026) {
       rank: String(index + 1),
       name: row.name,
       value: format(row[key]),
-      detail: `${season} · ${TEAM_NAMES[row.team] || row.team || 'WNBA'} · ongoing`,
+      detail: seasonDetail(season, TEAM_NAMES[row.team] || row.team || 'WNBA'),
       activeAtSnapshot: true
     }));
 }
@@ -75,7 +90,7 @@ module.exports = async function handler(req, res) {
         rank: String(row.rank || ''),
         name: row.name,
         value: format(row.value),
-        detail: `${season} · ongoing${row.team ? ` · ${row.team}` : ''}`,
+        detail: seasonDetail(season, row.team),
         activeAtSnapshot: true
       }));
       rookie[board] = rookieEntries(rookieTotals, config.category, season);

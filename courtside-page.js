@@ -10,9 +10,7 @@
   const posterBySlug={
     'atlanta-dream':'17989.png','chicago-sky':'17990.png','connecticut-sun':'17991.png','dallas-wings':'17992.png','golden-state-valkyries':'17993.png','indiana-fever':'17994.png','las-vegas-aces':'17995.png','los-angeles-sparks':'17998.png','minnesota-lynx':'17997.png','new-york-liberty':'17996.png','phoenix-mercury':'17999.png','portland-fire':'18000.png','seattle-storm':'18001.png','toronto-tempo':'18174.jpg','washington-mystics':'18172.jpg'
   };
-  const officialCoachPhotos={
-    'Lynne Roberts':{image:'https://cdn.wnba.com/headshots/wnba/latest/260x190/1642749.png',sourceUrl:'https://sparks.wnba.com/roster',credit:'Official Los Angeles Sparks headshot'}
-  };
+  const officialCoachPhotos={};
   function photo(name,type,team,source){
     const colors=`--team:${team.primary};--team2:${team.secondary}`;
     return `<div class="culture-photo" style="${colors}" data-media-name="${escape(name)}" data-media-type="${type}" data-media-source="${escape(source||'')}" data-fallback="${escape(posterBySlug[team.slug]?`/assets/images/${posterBySlug[team.slug]}`:'')}"><div class="culture-initials">${initials(name)}</div></div>`;
@@ -45,6 +43,8 @@
   }
   if(page==='owners'){
     const node=$('#cultureGrid');node.innerHTML=COURTSIDE_OWNERS.map(item=>{const team=teamFor(item.team);return `<article class="culture-card text-only" style="--team:${team.primary};--team2:${team.secondary}"><div class="culture-card-body"><span class="culture-kicker">${escape(item.team)}</span><h3>${escape(item.name)}</h3><p>${escape(item.summary)}</p><a href="${team.href}">Franchise hub →</a></div></article>`}).join('');
+    const executiveGrid=$('#executiveGrid');
+    if(executiveGrid)executiveGrid.innerHTML=COURTSIDE_EXECUTIVES.map(item=>{const team=teamFor(item.team);const source=safeHttps(item.source);return `<article class="culture-card executive-card" style="--team:${team.primary};--team2:${team.secondary}"><div class="culture-card-body"><span class="culture-kicker">${escape(item.team)}</span><h3>${escape(item.name)}</h3><strong class="executive-role">${escape(item.role)}</strong><p>${escape(item.summary)}</p><div class="culture-card-links"><a href="${team.href}">Franchise hub →</a>${source?`<a href="${escape(source)}" target="_blank" rel="noopener">Official team source ↗</a>`:''}</div></div></article>`}).join('');
   }
   if(page==='fans')renderCards('#cultureGrid',COURTSIDE_FANS,'celebrity');
   if(page==='vibes'){

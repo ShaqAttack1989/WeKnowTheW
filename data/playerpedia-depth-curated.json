@@ -765,29 +765,6 @@
       "memorableSource": "https://www.oursportscentral.com/services/releases/dallas-wings-sign-deja-kelly-to-developmental-player-contract/n-6415741"
     },
     "heidiburge": {
-      "latestMilestone": {
-        "date": "2026-10-05",
-        "dateLabel": "OCT. 5, 2026",
-        "label": "IN MEMORIAM",
-        "value": "54",
-        "unit": "YEARS",
-        "headline": "Heidi Burge Horton · 1971–2026",
-        "detail": "The former Virginia forward-center died in Houston on Oct. 5, aged 54. Burge played two WNBA seasons and stayed close to the game through youth coaching in Houston.",
-        "sources": [
-          {
-            "url": "https://www.eickenhorstfuneral.com/obituaries/heidi-horton",
-            "label": "Family obituary"
-          },
-          {
-            "url": "https://www.wnba.com/player/100156/heidi-burge",
-            "label": "Official WNBA profile"
-          },
-          {
-            "url": "https://www.gettyimages.com/detail/news-photo/heidi-burge-of-the-los-angeles-sparks-tries-to-keep-the-news-photo/1784757?slot=15",
-            "label": "1997 Sparks in-game photo · Getty Images (license required)"
-          }
-        ]
-      },
       "entry": {
         "year": "1997",
         "status": "Undrafted",
@@ -828,7 +805,30 @@
       "memorable": "The Burge twins’ high-school basketball story inspired Disney Channel’s 2002 movie Double Teamed. Horton later took over Hoops School in Houston, where she coached young players as “Coach Heidi.”",
       "memorableSource": "https://thebuzzmagazines.com/articles/2024/08/highest-heights",
       "offCourt": "After a back injury ended her professional playing career, Horton returned to Houston, worked as a physical therapist and kept teaching basketball through youth camps and Hoops School.",
-      "offCourtSource": "https://uvamagazine.org/articles/legends_on_the_court"
+      "offCourtSource": "https://uvamagazine.org/articles/legends_on_the_court",
+      "memorial": {
+        "date": "2026-10-05",
+        "dateLabel": "OCT. 5, 2026",
+        "label": "IN MEMORIAM",
+        "value": "54",
+        "unit": "YEARS",
+        "headline": "Heidi Burge Horton · 1971–2026",
+        "detail": "The former Virginia forward-center died in Houston on Oct. 5, aged 54. Burge played two WNBA seasons and stayed close to the game through youth coaching in Houston.",
+        "sources": [
+          {
+            "url": "https://www.eickenhorstfuneral.com/obituaries/heidi-horton",
+            "label": "Family obituary"
+          },
+          {
+            "url": "https://www.wnba.com/player/100156/heidi-burge",
+            "label": "Official WNBA profile"
+          },
+          {
+            "url": "https://www.gettyimages.com/detail/news-photo/heidi-burge-of-the-los-angeles-sparks-tries-to-keep-the-news-photo/1784757?slot=15",
+            "label": "1997 Sparks in-game photo · Getty Images (license required)"
+          }
+        ]
+      }
     }
   }
 }

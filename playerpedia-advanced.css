@@ -71,3 +71,5 @@
   .why-metrics{grid-template-columns:1fr;}
   .why-metric{min-height:108px;}
 }
+
+.why-metric>span{font-size:.72rem}.why-metric>small{color:rgba(255,255,255,.75);font-size:.8rem}.profile-subsection .why-metric{border-color:#e2d7eb;background:#f6f0fb}.profile-subsection .why-metric>span{color:#5b22b7}.profile-subsection .why-metric>strong{color:#20142b}.profile-subsection .why-metric>small{color:#62566b}.profile-subsection .why-source{color:#62566b!important;font-size:.9rem}.profile-subsection .why-source a{color:#5b22b7;font-weight:900}

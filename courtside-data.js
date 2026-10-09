@@ -34,7 +34,7 @@ const COURT_TO_CLIPBOARD = [
 const COURTSIDE_OWNERS = [
   ['Atlanta Dream','Larry Gottesdiener, Renee Montgomery & Suzanne Abair','Player-informed leadership has been central to the franchise since 2021.'],
   ['Chicago Sky','Michael Alter','The founding ownership era continues in Chicago.'],
-  ['Connecticut Sun','Mohegan Tribe / Mohegan Sun','The first independently owned WNBA franchise and the first professional sports team owned by a Native American tribe.'],
+  ['Connecticut Sun','Fertitta Entertainment / Tilman J. Fertitta','The WNBA and NBA approved the sale from the Mohegan Tribe in May 2026. Fertitta Entertainment now owns the franchise, which becomes the Houston Comets for the 2027 season.'],
   ['Dallas Wings','Bill Cameron and the Wings ownership group','North Texas investment now spans the team, front office and future arena plans.'],
   ['Golden State Valkyries','Joe Lacob and Peter Guber','The Warriors ownership group launched the Valkyries in 2025.'],
   ['Indiana Fever','Herb Simon','Pacers Sports & Entertainment connects Indiana’s women’s and men’s basketball operations.'],
@@ -52,7 +52,7 @@ const COURTSIDE_OWNERS = [
 const COURTSIDE_EXECUTIVES = [
   ['Atlanta Dream','Dan Padover','General Manager & Executive Vice President of Basketball Operations','Leads Atlanta’s personnel strategy and remains the latest completed Executive of the Year winner (2025).','https://dream.wnba.com/front-office/'],
   ['Chicago Sky','Jeff Pagliocca','General Manager','Leads Chicago’s roster construction and basketball operations.','https://sky.wnba.com/news/chicago-sky-name-jeff-pagliocca-general-manager'],
-  ['Connecticut Sun','Morgan Tuck','General Manager','Oversees Connecticut’s current basketball operations through the franchise’s final season in the market.','https://sun.wnba.com/front-office/'],
+  ['Connecticut Sun','Jennifer Rizzotti','President of Basketball Operations · Houston transition','Rizzotti said she will move with the franchise and serve as President of Basketball Operations in Houston in 2027. Morgan Tuck remains listed by the Sun as the 2026 General Manager until Houston publishes its full basketball staff.','https://www.nbcconnecticut.com/wnba/connecticut-sun-final-game-state-emotional-farewell/3778073/'],
   ['Dallas Wings','Curt Miller','Executive Vice President & General Manager','Directs Dallas basketball operations and the current competitive build.','https://wings.wnba.com/news/curt-miller-named-executive-vice-president-and-general-manager'],
   ['Golden State Valkyries','Ohemaa Nyanin','General Manager','The first general manager in Valkyries history built the expansion roster and its next phase.','https://valkyries.wnba.com/news/ohemaa-nyanin-named-general-manager'],
   ['Indiana Fever','Amber Cox','Chief Operating Officer & General Manager','Leads the Fever’s basketball strategy and broader team operations.','https://fever.wnba.com/news/amber-cox-named-chief-operating-officer-and-general-manager'],

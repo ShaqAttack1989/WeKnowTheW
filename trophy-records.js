@@ -13,6 +13,23 @@
   const checked = document.getElementById('recordRackChecked');
   const activeNames = new Set();
   const teamLogoMap = new Map();
+  const snapshotActiveNames = new Set();
+
+  function rememberSnapshotActive(entries = []) {
+    entries.forEach(entry => {
+      if (entry?.activeAtSnapshot && entry.name) snapshotActiveNames.add(key(entry.name));
+    });
+  }
+
+  data.playerBoards.forEach(board => Object.values(board.scopes || {}).forEach(rememberSnapshotActive));
+  data.careerOnlyBoards.forEach(board => rememberSnapshotActive(board.entries));
+
+  function preserveVerifiedActiveState(entries = []) {
+    return entries.map(entry => ({
+      ...entry,
+      activeAtSnapshot: snapshotActiveNames.has(key(entry.name))
+    }));
+  }
 
   function playerRow(entry, unit) {
     const active = Boolean(entry.activeAtSnapshot);
@@ -95,20 +112,20 @@
 
   function mergeDynamicRecords(payload = {}) {
     for (const board of data.playerBoards) {
-      if (Array.isArray(payload.career?.[board.key])) board.scopes.career = payload.career[board.key];
+      if (Array.isArray(payload.career?.[board.key])) board.scopes.career = preserveVerifiedActiveState(payload.career[board.key]);
       const liveSeason = payload.currentSeason?.[board.key];
       if (Array.isArray(liveSeason) && liveSeason.length) {
         const historical = (board.scopes.season || []).filter(entry => !/^2026\b/.test(String(entry.detail || '')));
-        board.scopes.season = rankTopFive([...historical,...liveSeason]);
+        board.scopes.season = rankTopFive([...historical,...preserveVerifiedActiveState(liveSeason)]);
       }
       const liveRookie = payload.rookie?.[board.key];
       if (Array.isArray(liveRookie) && liveRookie.length) {
         const historical = (board.scopes.rookie || []).filter(entry => !/^2026\b/.test(String(entry.detail || '')));
-        board.scopes.rookie = rankTopFive([...historical,...liveRookie]);
+        board.scopes.rookie = rankTopFive([...historical,...preserveVerifiedActiveState(liveRookie)]);
       }
     }
     for (const board of data.careerOnlyBoards) {
-      if (Array.isArray(payload.careerOnly?.[board.key])) board.entries = payload.careerOnly[board.key];
+      if (Array.isArray(payload.careerOnly?.[board.key])) board.entries = preserveVerifiedActiveState(payload.careerOnly[board.key]);
     }
     if (payload.updatedAt) data.updatedAt = payload.updatedAt;
   }

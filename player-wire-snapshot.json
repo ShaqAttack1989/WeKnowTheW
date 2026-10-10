@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-09T20:49:31.458Z",
+  "generatedAt": "2026-10-10T00:44:01.117Z",
   "movement": {
     "latestTransactionDate": "2026-09-28",
     "transactions": [
@@ -11,6 +11,15 @@
         "detail": "Announced she is stepping away from playing basketball after her rookie WNBA season. Harrison appeared in 16 games with two starts for Portland, averaging 5.1 points, 1.8 rebounds and 4.2 assists; in her final game she posted 6 points and 10 assists in the Fire's comeback win over Golden State.",
         "source": "Jordan Harrison announcement · KPTV report",
         "sourceUrl": "https://www.kptv.com/2026/09/29/portland-fires-jordan-harrison-stepping-away-basketball/"
+      },
+      {
+        "date": "2026-09-24",
+        "type": "RETIRED",
+        "player": "Nneka Ogwumike",
+        "team": "Los Angeles Sparks",
+        "detail": "Retired from the WNBA following the conclusion of the 2026 season after 15 seasons. Her final game closed a career that included the 2016 MVP, 2016 championship and 11 All-Star selections.",
+        "source": "WNBA retirement statement",
+        "sourceUrl": "https://www.wnba.com/news/wnba-statement-nneka-ogwumike-retirement"
       },
       {
         "date": "2026-09-22",
@@ -1429,13 +1438,13 @@
   },
   "availability": {
     "latestReportDate": "2026-10-09",
-    "reportLabel": "10/09/2026 04:45 PM ET",
-    "officialPdf": "https://ak-static.cms.nba.com/referee/wnba_injury/Injury-Report_2026-10-09_04_45PM.pdf",
+    "reportLabel": "10/09/2026 08:30 PM ET",
+    "officialPdf": "https://ak-static.cms.nba.com/referee/wnba_injury/Injury-Report_2026-10-09_08_30PM.pdf",
     "injuries": [
       {
         "player": "Allisha Gray",
         "team": "Atlanta Dream",
-        "status": "QUESTIONABLE",
+        "status": "OUT",
         "reason": "Injury/Illness - Left Hand; N/A",
         "gameDate": "10/09/2026",
         "gameTime": "07:30 (ET)",

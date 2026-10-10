@@ -2,6 +2,112 @@
   "site": "Snack Shak",
   "posts": [
     {
+      "slug": "expansion-golden-state-ordered-express-delivery",
+      "type": "byte",
+      "priority": 5300,
+      "homepageSeason": "wnba-playoffs",
+      "seriesLabel": "SNACK SHAK BYTE · EXPANSION HISTORY",
+      "title": "Expansion? Golden State Ordered Express Delivery",
+      "published": "2026-10-10",
+      "updated": "2026-10-10",
+      "week": "Finals history · Oct. 10, 2026",
+      "dashboardUrl": "/snack-shak-bytes.html?post=expansion-golden-state-ordered-express-delivery#story",
+      "image": "https://i.guim.co.uk/img/media/edc39d25b31a97ad84dcb4ca589416607d601d59/0_0_4210_2807/master/4210.jpg?width=1920&quality=85&auto=format&fit=max&s=dbc266ad93b5b12bed28061ee1978816",
+      "storyImage": "https://i.guim.co.uk/img/media/edc39d25b31a97ad84dcb4ca589416607d601d59/0_0_4210_2807/master/4210.jpg?width=1920&quality=85&auto=format&fit=max&s=dbc266ad93b5b12bed28061ee1978816",
+      "imageFit": "contain",
+      "imageAlt": "Tiffany Hayes attacks the basket during Golden State’s semifinal Game 3 in Las Vegas, October 9, 2026",
+      "storyImageCaption": "Tiffany Hayes in Las Vegas during semifinal Game 3, October 9, 2026. Photo: Ian Maule/AP, via The Guardian.",
+      "storyImageSourceUrl": "https://www.theguardian.com/sport/2026/oct/10/golden-state-valkyries-las-vegas-aces-wnba-finals-sweep-gabby-williams",
+      "teams": [
+        "Golden State Valkyries",
+        "Atlanta Dream",
+        "Seattle Storm",
+        "Dallas Wings",
+        "Connecticut Sun"
+      ],
+      "players": [
+        "Tiffany Hayes",
+        "Angel Reese"
+      ],
+      "dek": "The Valkyries reached the Finals in season two. Their closest expansion-history comparison? The Dream waiting on the other side.",
+      "sections": [
+        {
+          "title": "Golden State skipped the waiting room",
+          "paragraphs": [
+            "Golden State reached the 2026 WNBA Finals in its second season, sweeping defending champion Las Vegas with an 87–77 overtime win on October 9. The Valkyries are the first expansion franchise to reach the championship series that quickly.",
+            "Atlanta is the closest comparison. The Dream debuted in 2008 and reached the 2010 Finals in season three. Seattle arrived in 2000 and made its first Finals in 2004, season five. Detroit debuted in 1998 and reached—and won—the 2003 Finals in season six."
+          ]
+        },
+        {
+          "title": "The relocation receipt",
+          "paragraphs": [
+            "Connecticut reached the 2004 Finals in its second season as the Sun. But that franchise began as the Orlando Miracle in 1999, making it season six of the franchise’s life. A new address does not reset the expansion clock."
+          ]
+        },
+        {
+          "title": "Another first: Reese gets there ahead of her draft peers",
+          "paragraphs": [
+            "Angel Reese was the seventh selection in the 2024 WNBA Draft. With Atlanta’s October 9 clincher, she secured a Finals berth before the six players selected ahead of her: Caitlin Clark, Cameron Brink, Kamilla Cardoso, Rickea Jackson, Jacy Sheldon and Aaliyah Edwards.",
+            "That is a milestone in the 2024 class, not a verdict on six careers. Injuries, roster construction and team circumstances shape the route. Reese still earned her part: 22 points and nine rebounds in Atlanta’s 85–83 closeout in Brooklyn."
+          ]
+        },
+        {
+          "title": "Shak’s take",
+          "paragraphs": [
+            "Atlanta brings the longer wait. Golden State brings the shortest runway. Neither franchise has won a WNBA championship.",
+            "The Valkyries unpacked their boxes and started shopping for a trophy case."
+          ]
+        }
+      ],
+      "gameGallery": {
+        "eyebrow": "2024 DRAFT CLASS · FINALS MILESTONE",
+        "title": "Seventh pick, first to the Finals",
+        "dek": "Reese’s place in her draft class adds another layer to Atlanta’s return.",
+        "items": [
+          {
+            "image": "assets/photos/angel-reese-draft-class-finals-tsn-2026.jpg",
+            "alt": "TSN graphic showing Angel Reese and the six players selected ahead of her in the 2024 WNBA Draft",
+            "kicker": "ANGEL REESE · NO. 7 IN 2024",
+            "title": "A different order of arrival",
+            "caption": "The 2024 draft order and the order of reaching the Finals are different lists.",
+            "credit": "Graphic: TSN",
+            "sourceUrl": "https://www.tsn.ca/",
+            "imageFit": "contain"
+          }
+        ]
+      },
+      "sources": [
+        {
+          "label": "Valkyries · Second-season Finals berth",
+          "url": "https://valkyries.wnba.com/news/golden-state-valkyries-advance-to-2026-wnba-finals-20261009"
+        },
+        {
+          "label": "Dream · October 9 closeout",
+          "url": "https://dream.wnba.com/news/dream-heads-to-wnba-finals-after-sweeping-liberty"
+        },
+        {
+          "label": "WNBA · 2024 draft results",
+          "url": "https://www.wnba.com/webview/news/wnba-draft-2024-results"
+        },
+        {
+          "label": "WNBA · 2010 playoffs",
+          "url": "https://www.wnba.com/playoffs/2010"
+        },
+        {
+          "label": "WNBA · 2004 playoffs",
+          "url": "https://www.wnba.com/playoffs/2004"
+        },
+        {
+          "label": "WNBA · Detroit franchise history",
+          "url": "https://www.wnba.com/detroit/faq"
+        },
+        {
+          "label": "Connecticut · Franchise history",
+          "url": "https://www.basketball-reference.com/wnba/teams/CON/"
+        }
+      ]
+    },
+    {
       "slug": "aja-wilson-five-mvps-2026",
       "type": "feature",
       "priority": 9800,

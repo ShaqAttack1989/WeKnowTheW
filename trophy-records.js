@@ -112,7 +112,13 @@
 
   function mergeDynamicRecords(payload = {}) {
     for (const board of data.playerBoards) {
-      if (Array.isArray(payload.career?.[board.key])) board.scopes.career = preserveVerifiedActiveState(payload.career[board.key]);
+      const liveCareer = payload.career?.[board.key];
+      // Keep the verified local career snapshot whenever the official provider
+      // returns a partial/empty category. A 200 response with diagnostics must
+      // never blank a populated record board.
+      if (Array.isArray(liveCareer) && liveCareer.length >= 5) {
+        board.scopes.career = preserveVerifiedActiveState(liveCareer);
+      }
       const liveSeason = payload.currentSeason?.[board.key];
       if (Array.isArray(liveSeason) && liveSeason.length) {
         const historical = (board.scopes.season || []).filter(entry => !/^2026\b/.test(String(entry.detail || '')));
@@ -125,7 +131,10 @@
       }
     }
     for (const board of data.careerOnlyBoards) {
-      if (Array.isArray(payload.careerOnly?.[board.key])) board.entries = preserveVerifiedActiveState(payload.careerOnly[board.key]);
+      const liveCareerOnly = payload.careerOnly?.[board.key];
+      if (Array.isArray(liveCareerOnly) && liveCareerOnly.length >= 5) {
+        board.entries = preserveVerifiedActiveState(liveCareerOnly);
+      }
     }
     if (payload.updatedAt) data.updatedAt = payload.updatedAt;
   }

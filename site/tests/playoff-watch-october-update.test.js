@@ -39,3 +39,17 @@ test('homepage spotlight reflects the Finals and removes semifinal closeout call
  assert.match(s,/Dream–Valkyries Finals begin October 17/);
  assert.doesNotMatch(s,/Two 2–0 semifinal leads|Friday brings closeout games/);
 });
+
+test('shared bracket renders both sweeps and the Finals without a DOM error',()=>{
+ const vm=require('node:vm');
+ const mount={isConnected:true,dataset:{variant:'home'},classList:{add(){}},querySelector(){return null;},innerHTML:''};
+ const window={addEventListener(){}};
+ const document={readyState:'loading',addEventListener(){},querySelectorAll(){return [mount];}};
+ vm.runInNewContext(read('playoff-bracket.js'),{window,document,Intl,Date,Set,Map,URL,AbortController,setInterval(){},setTimeout(){},clearTimeout(){},fetch:()=>new Promise(()=>{})});
+ assert.doesNotThrow(()=>window.WKTWPlayoffBracket.init());
+ assert.match(mount.innerHTML,/TEAMS LEFT<\/span><strong>2<\/strong>/);
+ assert.match(mount.innerHTML,/SERIES CLOSED<\/span><strong>6<\/strong>/);
+ assert.match(mount.innerHTML,/data-bracket-matchup="finals"/);
+ assert.match(mount.innerHTML,/Golden State Valkyries/);
+ assert.match(mount.innerHTML,/Atlanta Dream/);
+});

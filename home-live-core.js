@@ -96,7 +96,7 @@ function renderGamePanel(){
   if(gameMode==='live'){
     title.textContent='Happening now';results.innerHTML=liveGamesMarkup(liveItems);liveButton?.classList.add('active');liveButton?.setAttribute('aria-pressed','true');
   }else if(gameMode==='upcoming'){
-    title.textContent=livePayload.hasPlayoffs?'Playoff games · first round':"What's next?";results.innerHTML=upcomingGamesMarkup(upcomingItems);upcomingButton?.classList.add('active');upcomingButton?.setAttribute('aria-pressed','true');
+    title.textContent=livePayload.hasPlayoffs?'Playoff games':"What's next?";results.innerHTML=upcomingGamesMarkup(upcomingItems);upcomingButton?.classList.add('active');upcomingButton?.setAttribute('aria-pressed','true');
   }else{
     title.textContent='What just happened?';results.innerHTML=pastGamesMarkup(pastItems);pastButton?.classList.add('active');pastButton?.setAttribute('aria-pressed','true');
   }

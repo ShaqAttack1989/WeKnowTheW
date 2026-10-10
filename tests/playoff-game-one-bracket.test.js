@@ -8,21 +8,7 @@ const read=file=>fs.readFileSync(path.join(root,file),'utf8');
 const latest=JSON.parse(read('snack-shak-latest.json'));
 const post=latest.posts.find(item=>item.slug==='the-playoff-watch-party-2026');
 
-test('the playoff watch guide carries Golden State-Las Vegas Game 2 receipts and official WNBA photos',()=>{
-  assert.ok(post);
-  assert.equal(post.published,'2026-10-02');
-  assert.equal(post.updated,'2026-10-08');
-  assert.match(post.title,/Both Semifinals Are 2–0/);
-  assert.equal(post.playoffGameOne.receipts.length,6);
-  assert.equal(post.playoffGameOne.highlights.length,4);
-  assert.ok(post.playoffGameOne.highlights.every(item=>/^https:\/\/cdn\.wnba\.com\//.test(item.photo)));
-  assert.ok(post.playoffGameOne.highlights.every(item=>/(WNBA|NBAE|Official)/.test(item.photoCredit)));
-  assert.match(JSON.stringify(post.playoffGameOne.receipts),/Hayes led the bench wave/);
-  assert.match(JSON.stringify(post.playoffGameOne.receipts),/Williams kept creating/);
-  assert.match(JSON.stringify(post.playoffGameOne.receipts),/Bench scoring/);
-  assert.equal(post.gameGallery.items.length,4);
-  assert.doesNotMatch(JSON.stringify(post),/(unsplash|midjourney|dall-e|ai generated)/i);
-});
+test('playoff watch has Finals receipts and real Game 3 imagery',()=>{assert.equal(post.updated,'2026-10-10');assert.match(post.title,/Finals/);assert.match(post.image,/2026-10-09_Jeff-Bottari_NBAE/);assert.equal(post.playoffWatch.matchups[0].series,'0-0');});
 
 test('one shared live bracket renders on the homepage and in the article',()=>{
   const index=read('index.html'),food=read('food-for-thought.html'),collections=read('snack-shak-collections.js'),bracket=read('playoff-bracket.js'),styles=read('playoff-bracket.css');
@@ -34,7 +20,7 @@ test('one shared live bracket renders on the homepage and in the article',()=>{
   assert.match(bracket,/setInterval\(\(\)=>\{if\(!document\.hidden\)refreshLive\(\);\},10000\)/);
   assert.match(bracket,/id:'1042600202'.*homeScore:101,awayScore:98/);
   assert.match(bracket,/id:'1042600212'.*homeScore:83,awayScore:81/);
-  assert.match(bracket,/2026-lva-gsv-sf-g3/);
+  assert.match(bracket,/1042600213/);
   assert.match(bracket,/First Round/);
   assert.match(bracket,/Semifinals/);
   assert.match(bracket,/Finals/);

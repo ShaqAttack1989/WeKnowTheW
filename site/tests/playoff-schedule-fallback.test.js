@@ -61,9 +61,9 @@ test('published 2026 fallback closes Round 1 and carries both semifinal Game 2 f
     assert.equal(firstRound.length,4);
     assert.ok(firstRound.every(row=>row.complete&&row.targetWins===2));
     assert.equal(semifinals.length,2);
-    assert.ok(semifinals.every(row=>!row.complete&&row.targetWins===3));
+    assert.ok(semifinals.every(row=>row.complete&&row.targetWins===3));
     const atlantaSeries=semifinals.find(row=>row.teamA==='Atlanta Dream'&&row.teamB==='New York Liberty');
-    assert.equal(atlantaSeries.winsA,2);
+    assert.equal(atlantaSeries.winsA,3);
     assert.equal(atlantaSeries.winsB,0);
     const gsv=game('2026-10-04','Las Vegas Aces','Golden State Valkyries');
     assert.equal(gsv.id,'1042600211');
@@ -71,9 +71,9 @@ test('published 2026 fallback closes Round 1 and carries both semifinal Game 2 f
     assert.equal(gsv.awayScore,60);
     assert.equal(gsv.completed,true);
     const gsvSeries=semifinals.find(row=>row.teamA==='Golden State Valkyries');
-    assert.equal(gsvSeries.winsA,2);
+    assert.equal(gsvSeries.winsA,3);
     assert.equal(gsvSeries.winsB,0);
-    assert.equal(payload.sourceVersion,'20261008-semifinal-game-two-finals-v1');
+    assert.equal(payload.sourceVersion,'20261010-semifinal-sweeps-finals-v1');
   }finally{
     global.fetch=originalFetch;
   }

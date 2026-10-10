@@ -159,7 +159,7 @@
     {
       abbr: 'ATL',
       name: 'Atlanta Dream',
-      status: 'SEMIFINALS',
+      status: 'FINALS',
       bracketRank: 4,
       color: '#c8102e',
       logo: 'https://cdn.wnba.com/logos/wnba/1611661330/primary/L/logo.svg',
@@ -174,7 +174,7 @@
     {
       abbr: 'LVA',
       name: 'Las Vegas Aces',
-      status: 'SEMIFINALS',
+      status: 'ELIMINATED · SEMIFINALS',
       bracketRank: 3,
       color: '#9c8d7c',
       logo: 'https://cdn.wnba.com/logos/wnba/1611661319/primary/L/logo.svg',
@@ -189,7 +189,7 @@
     {
       abbr: 'NYL',
       name: 'New York Liberty',
-      status: 'SEMIFINALS',
+      status: 'ELIMINATED · SEMIFINALS',
       bracketRank: 8,
       color: '#50bfa6',
       logo: 'https://cdn.wnba.com/logos/wnba/1611661313/primary/L/logo.svg',
@@ -203,7 +203,7 @@
     {
       abbr: 'GSV',
       name: 'Golden State Valkyries',
-      status: 'SEMIFINALS',
+      status: 'FINALS',
       bracketRank: 2,
       color: '#7a3fc4',
       logo: 'https://cdn.wnba.com/logos/wnba/1611661331/primary/L/logo.svg',
@@ -310,8 +310,8 @@
         </div>
       </article>`).join('');
 
-    const topTen = playoffTeams.reduce((sum, team) => sum + team.picks.length, 0);
-    const ones = playoffTeams.reduce((sum, team) => sum + teamNoOnes(team), 0);
+    const topTen = playoffTeams.filter(team => team.status === 'FINALS').reduce((sum, team) => sum + team.picks.length, 0);
+    const ones = playoffTeams.filter(team => team.status === 'FINALS').reduce((sum, team) => sum + teamNoOnes(team), 0);
     const topTenHost = document.getElementById('topTenTotal');
     const onesHost = document.getElementById('numberOneTotal');
     if (topTenHost) topTenHost.textContent = topTen;

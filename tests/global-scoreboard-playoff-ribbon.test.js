@@ -13,8 +13,8 @@ test('global scoreboard bootstraps the current semifinal slate before network fe
   assert.match(source,/id:'1042600202'.*homeScore:101,awayScore:98.*status:'Final\/OT'.*completed:true/);
   assert.match(source,/id:'1042600212'.*homeScore:83,awayScore:81.*status:'Final'.*completed:true/);
   assert.match(source,/1042600211/);
-  assert.match(source,/2026-nyl-atl-sf-g4/);
-  assert.match(source,/2026-gsv-lva-sf-g5/);
+  assert.match(source,/1042600203/);
+  assert.match(source,/2026-gsv-atl-finals-g1/);
   assert.match(source,/render\(\);\s*refreshBase\(\);refreshLive\(\);/);
 });
 
@@ -27,11 +27,4 @@ test('playoff ribbon shows multi-date game cards with stage, game number and bro
   assert.match(source,/if\(!direct\)return 'TBD'/);
 });
 
-test('competition fallback contains optional semifinal Games 4 and 5',()=>{
-  const source=read('api/competition.js');
-  assert.match(source,/2026-nyl-atl-sf-g4/);
-  assert.match(source,/2026-lva-gsv-sf-g4/);
-  assert.match(source,/2026-atl-nyl-sf-g5/);
-  assert.match(source,/2026-gsv-lva-sf-g5/);
-  assert.match(source,/conditional:true/);
-});
+test('competition fallback removes unneeded semifinals and schedules Finals opener',()=>{const source=read('api/competition.js');assert.doesNotMatch(source,/sf-g4|sf-g5/);assert.match(source,/2026-gsv-atl-finals-g1/);});

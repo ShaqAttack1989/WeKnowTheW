@@ -118,9 +118,9 @@
       const payload=await response.json(),series=payload.playoffs?.series||[],games=payload.playoffs?.games||[];
       const day=value=>{if(!value)return'';const d=new Date(value+'T12:00:00-04:00');return Number.isNaN(d.getTime())?'':new Intl.DateTimeFormat('en-US',{timeZone:'America/New_York',weekday:'short',month:'short',day:'numeric'}).format(d);};
       const tip=value=>{if(!value)return'';const d=new Date(value);return Number.isNaN(d.getTime())?'':new Intl.DateTimeFormat('en-US',{timeZone:'America/New_York',hour:'numeric',minute:'2-digit'}).format(d)+' ET';};
-      const firstRound=series.filter(item=>(item.round||'First Round')==='First Round'),closed=firstRound.filter(item=>item.complete).length;
+      const closed=series.filter(item=>item.complete).length;
       const summaryValue=(key,value)=>{const host=root.querySelector(`[data-playoff-summary-key="${key}"] strong`);if(host)host.textContent=String(value);};
-      summaryValue('teams',Math.max(4,8-closed));
+      summaryValue('teams',Math.max(1,8-closed));
       summaryValue('game3s',games.filter(game=>(game.round||'First Round')==='First Round'&&Number(game.gameNumber)===3&&!game.completed&&String(game.state||'').toLowerCase()!=='post').length);
       root.querySelectorAll('[data-playoff-matchup]').forEach(card=>{
         const config={a:card.dataset.teamA,b:card.dataset.teamB,round:card.dataset.playoffRound||'First Round'};if(!config.a||!config.b)return;

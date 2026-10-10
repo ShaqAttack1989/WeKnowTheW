@@ -6,7 +6,8 @@
     {id:'min-nyl',a:{name:'Minnesota Lynx',seed:1},b:{name:'New York Liberty',seed:8},route:'semi-a'},
     {id:'atl-was',a:{name:'Atlanta Dream',seed:4},b:{name:'Washington Mystics',seed:5},route:'semi-a'},
     {id:'gsv-dal',a:{name:'Golden State Valkyries',seed:2},b:{name:'Dallas Wings',seed:7},route:'semi-b'},
-    {id:'lva-ind',a:{name:'Las Vegas Aces',seed:3},b:{name:'Indiana Fever',seed:6},route:'semi-b'}
+    {id:'lva-ind',a:{name:'Las Vegas Aces',seed:3},b:{name:'Indiana Fever',seed:6},route:'semi-b'},
+    {id:'2026-gsv-atl-finals-g1',date:'2026-10-17',startTimeUtc:'',homeTeam:'Golden State Valkyries',awayTeam:'Atlanta Dream',homeScore:null,awayScore:null,broadcasts:[],status:'Finals Game 1 · Time TBD',state:'pre',completed:false,round:'Finals',gameNumber:1}
   ];
   const TEAM_META={
     'Atlanta Dream':{code:'ATL',color:'#c8102e',slug:'atlanta-dream',logo:'https://cdn.wnba.com/logos/wnba/1611661330/primary/L/logo.svg'},
@@ -33,12 +34,8 @@
     {id:'1042600211',date:'2026-10-04',startTimeUtc:'2026-10-04T16:00:00-04:00',homeTeam:'Golden State Valkyries',awayTeam:'Las Vegas Aces',homeScore:71,awayScore:60,broadcasts:['Peacock','NBC'],status:'Final',state:'post',completed:true,round:'Semifinals',gameNumber:1},
     {id:'1042600202',date:'2026-10-07',startTimeUtc:'2026-10-07T19:30:00-04:00',homeTeam:'Atlanta Dream',awayTeam:'New York Liberty',homeScore:101,awayScore:98,broadcasts:['ESPN'],status:'Final/OT',state:'post',completed:true,round:'Semifinals',gameNumber:2},
     {id:'1042600212',date:'2026-10-07',startTimeUtc:'2026-10-07T21:30:00-04:00',homeTeam:'Golden State Valkyries',awayTeam:'Las Vegas Aces',homeScore:83,awayScore:81,broadcasts:['Peacock','NBC Sports Network'],status:'Final',state:'post',completed:true,round:'Semifinals',gameNumber:2},
-    {id:'2026-nyl-atl-sf-g3',date:'2026-10-09',startTimeUtc:'2026-10-09T19:30:00-04:00',homeTeam:'New York Liberty',awayTeam:'Atlanta Dream',homeScore:null,awayScore:null,broadcasts:['ESPN2'],status:'Semifinals Game 3',state:'pre',completed:false,round:'Semifinals',gameNumber:3},
-    {id:'2026-lva-gsv-sf-g3',date:'2026-10-09',startTimeUtc:'2026-10-09T21:30:00-04:00',homeTeam:'Las Vegas Aces',awayTeam:'Golden State Valkyries',homeScore:null,awayScore:null,broadcasts:['Peacock','NBC Sports Network'],status:'Semifinals Game 3',state:'pre',completed:false,round:'Semifinals',gameNumber:3},
-    {id:'2026-nyl-atl-sf-g4',date:'2026-10-11',startTimeUtc:'',homeTeam:'New York Liberty',awayTeam:'Atlanta Dream',homeScore:null,awayScore:null,broadcasts:['ABC'],status:'If necessary',state:'pre',completed:false,round:'Semifinals',gameNumber:4,conditional:true},
-    {id:'2026-lva-gsv-sf-g4',date:'2026-10-11',startTimeUtc:'',homeTeam:'Las Vegas Aces',awayTeam:'Golden State Valkyries',homeScore:null,awayScore:null,broadcasts:['NBC','Peacock'],status:'If necessary',state:'pre',completed:false,round:'Semifinals',gameNumber:4,conditional:true},
-    {id:'2026-atl-nyl-sf-g5',date:'2026-10-14',startTimeUtc:'',homeTeam:'Atlanta Dream',awayTeam:'New York Liberty',homeScore:null,awayScore:null,broadcasts:['ESPN'],status:'If necessary',state:'pre',completed:false,round:'Semifinals',gameNumber:5,conditional:true},
-    {id:'2026-gsv-lva-sf-g5',date:'2026-10-14',startTimeUtc:'',homeTeam:'Golden State Valkyries',awayTeam:'Las Vegas Aces',homeScore:null,awayScore:null,broadcasts:['Peacock'],status:'If necessary',state:'pre',completed:false,round:'Semifinals',gameNumber:5,conditional:true}
+    {id:'1042600203',date:'2026-10-09',startTimeUtc:'2026-10-09T19:30:00-04:00',homeTeam:'New York Liberty',awayTeam:'Atlanta Dream',homeScore:83,awayScore:85,broadcasts:['ESPN2'],status:'Final',state:'post',completed:true,round:'Semifinals',gameNumber:3},
+    {id:'1042600213',date:'2026-10-09',startTimeUtc:'2026-10-09T21:30:00-04:00',homeTeam:'Las Vegas Aces',awayTeam:'Golden State Valkyries',homeScore:77,awayScore:87,broadcasts:['Peacock','NBC Sports Network'],status:'Final/OT',state:'post',completed:true,round:'Semifinals',gameNumber:3},
   ];
   const mounts=new Set();
   const logos=new Map();

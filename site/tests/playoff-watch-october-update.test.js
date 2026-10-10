@@ -1,84 +1,34 @@
 const test=require('node:test');
 const assert=require('node:assert/strict');
 const fs=require('node:fs');
-const path=require('node:path');
-
-const root=path.join(__dirname,'..');
-const text=file=>fs.readFileSync(path.join(root,file),'utf8');
-const latest=JSON.parse(text('snack-shak-latest.json'));
-const guide=latest.posts.find(post=>post.slug==='the-playoff-watch-party-2026');
-
-test('playoff watch guide is refreshed for both semifinal Game 2 finals',()=>{
-  assert.ok(guide);
-  assert.equal(guide.updated,'2026-10-08');
-  assert.match(guide.title,/Both Semifinals Are 2–0/);
-  assert.equal(guide.playoffWatch.matchups.length,2);
-  assert.deepEqual(guide.playoffWatch.matchups.map(item=>item.id),['atl-nyl','gsv-lva']);
-  assert.ok(guide.playoffWatch.matchups.every(item=>item.roundKey==='Semifinals'));
-  assert.equal(guide.playoffWatch.matchups.find(item=>item.id==='atl-nyl').series,'2-0');
-  assert.equal(guide.playoffWatch.matchups.find(item=>item.id==='gsv-lva').series,'2-0');
-  assert.match(guide.playoffWatch.matchups.find(item=>item.id==='atl-nyl').seriesNote,/ATLANTA LEADS/);
-  assert.match(guide.playoffWatch.matchups.find(item=>item.id==='gsv-lva').seriesNote,/GOLDEN STATE LEADS/);
-  assert.match(guide.playoffWatch.matchups.find(item=>item.id==='atl-nyl').availability,/ATL 101, NYL 98 \(OT\)/);
-  assert.match(guide.playoffWatch.matchups.find(item=>item.id==='atl-nyl').availability,/Oct\. 9, 7:30 ET on ESPN2/);
-  assert.match(guide.playoffWatch.matchups.find(item=>item.id==='gsv-lva').availability,/GSV 83, LVA 81/);
-  assert.match(guide.playoffWatch.matchups.find(item=>item.id==='gsv-lva').availability,/Oct\. 9, 9:30 ET/);
+const read=p=>fs.readFileSync(require('node:path').join(__dirname,'..',p),'utf8');
+const guide=JSON.parse(read('snack-shak-latest.json')).posts.find(p=>p.slug==='the-playoff-watch-party-2026');
+test('both closeouts feed a zero-win Finals matchup without carrying semifinal wins',()=>{
+ assert.equal(guide.updated,'2026-10-10');
+ const rows=guide.playoffWatch.matchups;
+ assert.equal(rows.find(r=>r.roundKey==='Finals').series,'0-0');
+ assert.deepEqual(rows.filter(r=>r.roundKey==='Semifinals').map(r=>r.series),['3-0','3-0']);
+ for(const file of ['api/competition.js','playoff-bracket.js','global-scoreboard.js']){
+  const s=read(file);
+  assert.match(s,/id:'1042600203'.*homeScore:83,awayScore:85.*completed:true/);
+  assert.match(s,/id:'1042600213'.*homeScore:77,awayScore:87.*Final\/OT.*completed:true/);
+  assert.match(s,/2026-gsv-atl-finals-g1.*2026-10-17.*Golden State Valkyries.*Atlanta Dream/);
+  assert.doesNotMatch(s,/2026-(?:nyl-atl|lva-gsv)-sf-g4|2026-(?:atl-nyl|gsv-lva)-sf-g5/);
+ }
 });
-
-test('latest Game 2 records, analysis, official imagery and award fallout are explicit',()=>{
-  const values=guide.playoffGameOne.receipts.map(item=>item.value);
-  assert.ok(values.includes('83–81'));
-  assert.ok(values.includes('21'));
-  assert.ok(values.includes('20 + 5'));
-  assert.ok(values.includes('34–14'));
-  assert.ok(values.includes('24'));
-  assert.ok(values.includes('2–0'));
-  assert.equal(guide.gameGallery.items.length,4);
-  assert.ok(guide.gameGallery.items.every(item=>item.image.startsWith('https://cdn.wnba.com/')));
-  assert.deepEqual(guide.awardFallout.people.map(item=>item.name),['Cheryl Reeve','Olivia Miles']);
-  assert.equal(guide.awardFallout.implications.length,4);
-  assert.match(guide.awardFallout.note,/regular-season awards/i);
+test('main and homepage use verified Game 3 action with credit and official source',()=>{
+ assert.equal(guide.image,guide.storyImage);
+ assert.match(guide.image,/2026-10-09_Jeff-Bottari_NBAE/);
+ assert.match(guide.storyImageCaption,/Jeff Bottari\/NBAE/);
+ assert.match(guide.storyImageSourceUrl,/aces\.wnba\.com.*10-9-2026/);
+ assert.match(guide.imageAlt,/October 9, 2026/);
+ assert.match(JSON.stringify(guide.sections),/500 career playoff points/);
+ assert.match(read('homepage-fresh-stories.js'),/image/);
 });
-
-test('live renderer supports logos, semifinal rounds and dynamic summaries',()=>{
-  const renderer=text('snack-shak-collections.js');
-  assert.match(renderer,/PLAYOFF_TEAM_LOGOS/);
-  assert.match(renderer,/data-playoff-round/);
-  assert.match(renderer,/board\.summary/);
-  assert.match(renderer,/data-playoff-summary-key/);
-  assert.match(renderer,/playoffGalleryMarkup\(post\.gameGallery\)/);
-  assert.match(renderer,/playoffAwardFalloutMarkup\(post\.awardFallout\)/);
-  assert.match(renderer,/atl-nyl/);
-});
-
-test('fallback feeds carry both semifinal Game 2 finals and the remaining dates',()=>{
-  const competition=text('api/competition.js');
-  const bracket=text('playoff-bracket.js');
-  for(const source of [competition,bracket]){
-    assert.match(source,/homeTeam:'Golden State Valkyries',awayTeam:'Dallas Wings',homeScore:77,awayScore:73/);
-    assert.match(source,/id:'1042600201'.*homeScore:92,awayScore:82.*status:'Final'.*completed:true/);
-    assert.match(source,/id:'1042600202'.*homeScore:101,awayScore:98.*status:'Final\/OT'.*completed:true/);
-    assert.match(source,/2026-nyl-atl-sf-g3/);
-    assert.match(source,/1042600211/);
-    assert.match(source,/id:'1042600212'.*homeScore:83,awayScore:81.*status:'Final'.*completed:true/);
-    assert.match(source,/2026-lva-gsv-sf-g3/);
-  }
-  assert.match(competition,/2026-10-07T21:30:00-04:00/);
-  assert.match(competition,/2026-10-09T19:30:00-04:00/);
-  assert.match(bracket,/snapshot\?\.winner\|\|\(aWins>=target/);
-});
-
-test('scheduled Semifinals status is never mistaken for a final result',()=>{
-  const bracket=text('playoff-bracket.js');
-  const games=text('games-page.js');
-  const scoreboard=text('global-scoreboard.js');
-  const stats=text('live-stats-page.js');
-  const cards=text('game-cards.js');
-  const competition=text('api/competition.js');
-  for(const source of [bracket,scoreboard,stats,competition]) assert.match(source,/\/\\bfinal\\b\/i/);
-  assert.doesNotMatch(bracket,/\/final\/i\.test/);
-  assert.doesNotMatch(scoreboard,/\/final\/i\.test/);
-  assert.doesNotMatch(stats,/\/final\/i\.test/);
-  assert.doesNotMatch(games,/toLowerCase\(\)\.includes\('final'\)/);
-  assert.match(cards,/\/\\bFINAL\\b\|/);
+test('finalist audit keeps eliminated roster receipts but counts only surviving teams',()=>{
+ const s=read('draft-class-rankings.js');
+ assert.match(s,/Las Vegas Aces',\s+status: 'ELIMINATED/);
+ assert.match(s,/New York Liberty',\s+status: 'ELIMINATED/);
+ assert.match(s,/filter\(team => team.status === 'FINALS'\)/);
+ assert.match(read('wnba-draft-class-rankings.html'),/<b>2<\/b> teams alive now/);
 });

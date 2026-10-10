@@ -96,13 +96,10 @@ const PLAYOFF_2026_SCHEDULE=[
   {id:'1042600211',date:'2026-10-04',startTimeUtc:'2026-10-04T16:00:00-04:00',homeTeam:'Golden State Valkyries',awayTeam:'Las Vegas Aces',homeScore:71,awayScore:60,broadcasts:['Peacock','NBC'],status:'Final',state:'post',completed:true},
   {id:'1042600202',date:'2026-10-07',startTimeUtc:'2026-10-07T19:30:00-04:00',homeTeam:'Atlanta Dream',awayTeam:'New York Liberty',homeScore:101,awayScore:98,broadcasts:['ESPN'],status:'Final/OT',state:'post',completed:true},
   {id:'1042600212',date:'2026-10-07',startTimeUtc:'2026-10-07T21:30:00-04:00',homeTeam:'Golden State Valkyries',awayTeam:'Las Vegas Aces',homeScore:83,awayScore:81,broadcasts:['Peacock','NBC Sports Network'],status:'Final',state:'post',completed:true},
-  {id:'2026-nyl-atl-sf-g3',date:'2026-10-09',startTimeUtc:'2026-10-09T19:30:00-04:00',homeTeam:'New York Liberty',awayTeam:'Atlanta Dream',homeScore:null,awayScore:null,broadcasts:['ESPN2'],status:'Semifinals Game 3',state:'pre',completed:false},
-  {id:'2026-lva-gsv-sf-g3',date:'2026-10-09',startTimeUtc:'2026-10-09T21:30:00-04:00',homeTeam:'Las Vegas Aces',awayTeam:'Golden State Valkyries',homeScore:null,awayScore:null,broadcasts:['Peacock','NBC Sports Network'],status:'Semifinals Game 3',state:'pre',completed:false},
-  {id:'2026-nyl-atl-sf-g4',date:'2026-10-11',startTimeUtc:'',homeTeam:'New York Liberty',awayTeam:'Atlanta Dream',homeScore:null,awayScore:null,broadcasts:['ABC'],status:'If necessary',state:'pre',completed:false,conditional:true},
-  {id:'2026-lva-gsv-sf-g4',date:'2026-10-11',startTimeUtc:'',homeTeam:'Las Vegas Aces',awayTeam:'Golden State Valkyries',homeScore:null,awayScore:null,broadcasts:['NBC','Peacock'],status:'If necessary',state:'pre',completed:false,conditional:true},
-  {id:'2026-atl-nyl-sf-g5',date:'2026-10-14',startTimeUtc:'',homeTeam:'Atlanta Dream',awayTeam:'New York Liberty',homeScore:null,awayScore:null,broadcasts:['ESPN'],status:'If necessary',state:'pre',completed:false,conditional:true},
-  {id:'2026-gsv-lva-sf-g5',date:'2026-10-14',startTimeUtc:'',homeTeam:'Golden State Valkyries',awayTeam:'Las Vegas Aces',homeScore:null,awayScore:null,broadcasts:['Peacock'],status:'If necessary',state:'pre',completed:false,conditional:true}
-].map(game=>({...game,competitionLabel:`Playoffs · ${game.date>='2026-10-04'?'Semifinals':'First Round'}`,officialFallback:true}));
+  {id:'1042600203',date:'2026-10-09',startTimeUtc:'2026-10-09T19:30:00-04:00',homeTeam:'New York Liberty',awayTeam:'Atlanta Dream',homeScore:83,awayScore:85,broadcasts:['ESPN2'],status:'Final',state:'post',completed:true},
+  {id:'1042600213',date:'2026-10-09',startTimeUtc:'2026-10-09T21:30:00-04:00',homeTeam:'Las Vegas Aces',awayTeam:'Golden State Valkyries',homeScore:77,awayScore:87,broadcasts:['Peacock','NBC Sports Network'],status:'Final/OT',state:'post',completed:true},
+    {id:'2026-gsv-atl-finals-g1',date:'2026-10-17',startTimeUtc:'',homeTeam:'Golden State Valkyries',awayTeam:'Atlanta Dream',homeScore:null,awayScore:null,broadcasts:[],status:'Finals Game 1 · Time TBD',state:'pre',completed:false,round:'Finals',gameNumber:1}
+].map(game=>({...game,competitionLabel:`Playoffs · ${game.date>='2026-10-17'?'Finals':game.date>='2026-10-04'?'Semifinals':'First Round'}`,officialFallback:true}));
 
 function playoffRound(game={}){
   const date=String(game.date||'').slice(0,10);
@@ -165,6 +162,6 @@ module.exports=async function handler(req,res){
     playoffs:{games:postseason,series:series(postseason),starts:'2026-09-27',started:Date.now()>=Date.parse('2026-09-27T00:00:00-04:00')},
     sources:{cup:'https://www.wnba.com/commissioners-cup/2026/about-the-cup',cupResults:'https://www.wnba.com/news/category/2026-commissioners-cup',cupFinal:'https://www.wnba.com/commissioners-cup/2026/leaderboard',playoffs:'https://www.wnba.com/playoffs/2026'},
     providerErrors,
-    sourceVersion:'20261008-semifinal-game-two-finals-v1'
+    sourceVersion:'20261010-semifinal-sweeps-finals-v1'
   });
 };

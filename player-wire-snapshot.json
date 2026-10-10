@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-10T00:44:01.117Z",
+  "generatedAt": "2026-10-10T06:59:26.238Z",
   "movement": {
     "latestTransactionDate": "2026-09-28",
     "transactions": [
@@ -1437,61 +1437,23 @@
     ]
   },
   "availability": {
-    "latestReportDate": "2026-10-09",
-    "reportLabel": "10/09/2026 08:30 PM ET",
-    "officialPdf": "https://ak-static.cms.nba.com/referee/wnba_injury/Injury-Report_2026-10-09_08_30PM.pdf",
+    "latestReportDate": "2026-10-10",
+    "reportLabel": "10/10/2026 12:00 AM ET",
+    "officialPdf": "https://ak-static.cms.nba.com/referee/wnba_injury/Injury-Report_2026-10-10_12_00AM.pdf",
     "injuries": [
       {
         "player": "Allisha Gray",
         "team": "Atlanta Dream",
         "status": "OUT",
-        "reason": "Injury/Illness - Left Hand; N/A",
-        "gameDate": "10/09/2026",
-        "gameTime": "07:30 (ET)",
-        "matchup": "ATL@NYL",
+        "reason": "Hand · Gray (hand) is out for Friday's Game 3 of the semifinals against New York.",
         "updated": "2026-10-09",
-        "source": "Official WNBA Injury Report PDF",
-        "officialCurrentReport": true,
-        "crossCheckOnly": false
-      },
-      {
-        "player": "Brionna Jones",
-        "team": "Atlanta Dream",
-        "status": "OUT",
-        "reason": "Injury/Illness - Left Leg; N/A",
-        "gameDate": "10/09/2026",
-        "gameTime": "07:30 (ET)",
-        "matchup": "ATL@NYL",
-        "updated": "2026-10-09",
-        "source": "Official WNBA Injury Report PDF",
-        "officialCurrentReport": true,
-        "crossCheckOnly": false
-      },
-      {
-        "player": "Jewell Loyd",
-        "team": "Las Vegas Aces",
-        "status": "QUESTIONABLE",
-        "reason": "Injury/Illness - Left Leg; Injury",
-        "gameDate": "10/09/2026",
-        "gameTime": "09:30 (ET)",
-        "matchup": "GSV@LVA",
-        "updated": "2026-10-09",
-        "source": "Official WNBA Injury Report PDF",
-        "officialCurrentReport": true,
-        "crossCheckOnly": false
-      },
-      {
-        "player": "Stephanie Talbot",
-        "team": "Las Vegas Aces",
-        "status": "PROBABLE",
-        "reason": "Injury/Illness - Left Leg; Injury",
-        "gameDate": "10/09/2026",
-        "gameTime": "09:30 (ET)",
-        "matchup": "GSV@LVA",
-        "updated": "2026-10-09",
-        "source": "Official WNBA Injury Report PDF",
-        "officialCurrentReport": true,
-        "crossCheckOnly": false
+        "returnDate": "2026-10-11",
+        "matchup": "",
+        "gameTime": "",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null,
+        "officialCurrentReport": false,
+        "crossCheckOnly": true
       },
       {
         "player": "Alanna Smith",
@@ -1760,6 +1722,20 @@
         "crossCheckOnly": true
       },
       {
+        "player": "Matilde Villa",
+        "team": "Atlanta Dream",
+        "status": "OUT",
+        "reason": "Coach's Decision · Villa (coach's decision) has been ruled out for Wednesday's game against New York.",
+        "updated": "2026-09-23",
+        "returnDate": "2027-05-01",
+        "matchup": "",
+        "gameTime": "",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null,
+        "officialCurrentReport": false,
+        "crossCheckOnly": true
+      },
+      {
         "player": "Natasha Cloud",
         "team": "Chicago Sky",
         "status": "OUT",
@@ -1844,11 +1820,39 @@
         "crossCheckOnly": true
       },
       {
+        "player": "Elizabeth Balogun",
+        "team": "New York Liberty",
+        "status": "OUT",
+        "reason": "Not Injury Related · Balogun (not with team) is out for Wednesday's game against the Dream.",
+        "updated": "2026-09-22",
+        "returnDate": "2027-05-01",
+        "matchup": "",
+        "gameTime": "",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null,
+        "officialCurrentReport": false,
+        "crossCheckOnly": true
+      },
+      {
         "player": "Teja Oblak",
         "team": "Portland Fire",
         "status": "OUT",
         "reason": "Knee · Oblak (knee) has been ruled out for Tuesday's game against the Valkyries.",
         "updated": "2026-09-21",
+        "returnDate": "2027-05-01",
+        "matchup": "",
+        "gameTime": "",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null,
+        "officialCurrentReport": false,
+        "crossCheckOnly": true
+      },
+      {
+        "player": "Brionna Jones",
+        "team": "Atlanta Dream",
+        "status": "OUT",
+        "reason": "Leg · Jones will miss the remainder of the season after sustaining a left leg injury against the Sun on Aug. 13, Annie Costabile of The Athletic reports.",
+        "updated": "2026-09-17",
         "returnDate": "2027-05-01",
         "matchup": "",
         "gameTime": "",
@@ -2140,7 +2144,24 @@
         "seasonLongCarryover": true
       }
     ],
-    "teamStatuses": []
+    "teamStatuses": [
+      {
+        "team": "Golden State Valkyries",
+        "status": "NOT YET SUBMITTED",
+        "gameDate": "10/11/2026",
+        "gameTime": "03:30 (ET)",
+        "matchup": "GSV@LVA",
+        "updated": "2026-10-11"
+      },
+      {
+        "team": "Las Vegas Aces",
+        "status": "NOT YET SUBMITTED",
+        "gameDate": "10/11/2026",
+        "gameTime": "03:30 (ET)",
+        "matchup": "GSV@LVA",
+        "updated": "2026-10-11"
+      }
+    ]
   },
   "errors": []
 }

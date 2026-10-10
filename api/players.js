@@ -267,9 +267,10 @@ function baseFromRecent(raw, teamIds, season = 2025) {
 }
 function baseFromRetained(item, teamIds, season = 2025) {
   const lastTeam = item.lastTeam || '';
+  const retired = retiredLike(item.status);
   const base = baseFromStatic({
     name: item.name,
-    team: lastTeam || 'Free Agent',
+    team: lastTeam || (retired ? 'Retired' : 'Free Agent'),
     position: item.position || 'Player',
     number: item.number || '',
     wnbaId: item.wnbaId || '',
@@ -279,9 +280,11 @@ function baseFromRetained(item, teamIds, season = 2025) {
     ...base,
     curated: true,
     teamId: '',
-    team: lastTeam ? `Free Agent · last: ${lastTeam}` : 'Free Agent',
+    team: retired ? (lastTeam ? `Retired · last: ${lastTeam}` : 'Retired') : (lastTeam ? `Free Agent · last: ${lastTeam}` : 'Free Agent'),
     currentRoster: false,
     recentPlayerpedia: true,
+    retiredPlayerpedia: retired,
+    historicalPlayerpedia: Boolean(retired || base.historicalPlayerpedia),
     retainedPlayerpedia: true,
     lastWnbaSeason: Number(item.lastWnbaSeason || season),
     wnbaRegularSeasonGames: Number.isFinite(Number(item.wnbaRegularSeasonGames)) ? Number(item.wnbaRegularSeasonGames) : null,
@@ -429,7 +432,7 @@ function buildRoster(rosterData = {}, recentRosterData = {}, recentSeason = 2025
       byName.set(playerKey, applyOverride(existing, override, teamIds));
       continue;
     }
-    if (freeAgentLike(status)) {
+    if (freeAgentLike(status) || retiredLike(status)) {
       const lastTeam = override.lastTeam || lastTeamByMovement.get(playerKey) || '';
       if (!lastTeam && !override.retainInPlayerpedia) continue;
       byName.set(playerKey, baseFromRetained({ ...override, lastTeam, lastWnbaSeason: override.lastWnbaSeason || 2026 }, teamIds, recentSeason));

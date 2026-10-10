@@ -1587,7 +1587,24 @@
       ],
       "imageFallback": "https://cdn.wnba.com/logos/wnba/1611661330/primary/L/logo.svg",
       "storyImageFallback": "https://cdn.wnba.com/logos/wnba/1611661330/primary/L/logo.svg",
-      "imageFocus": "65% 40%"
+      "imageFocus": "65% 40%",
+      "finalsGraphic": {
+        "eyebrow": "2026 WNBA FINALS · MATCHUP GRAPHIC",
+        "title": "Dream meets Valkyries",
+        "dek": "Two finalists. One first-time champion.",
+        "items": [
+          {
+            "image": "assets/photos/dream-valkyries-finals-jws-2026.jpg",
+            "alt": "Just Women’s Sports graphic featuring Atlanta Dream and Golden State Valkyries players for the 2026 WNBA Finals",
+            "kicker": "ATLANTA × GOLDEN STATE",
+            "title": "The championship stage",
+            "caption": "Atlanta and Golden State take their title chase to the Finals.",
+            "credit": "Graphic: Just Women’s Sports (JWS)",
+            "sourceUrl": "https://www.instagram.com/justwomenssports/",
+            "imageFit": "contain"
+          }
+        ]
+      }
     },
     {
       "slug": "farewell-connecticut-sun-2026",

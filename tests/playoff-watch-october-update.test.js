@@ -62,3 +62,14 @@ test('finalist action photos are distinct within the article',()=>{
  assert.match(guide.gameGallery.items[1].alt,/Tiffany Hayes/);
  for(const item of guide.gameGallery.items){assert.ok(item.credit);assert.ok(item.sourceUrl);assert.match(item.alt,/October 9, 2026/);}
 });
+
+
+test('Finals matchup graphic is credited separately from game photography',()=>{
+ const graphic=guide.finalsGraphic.items[0];
+ assert.match(graphic.credit,/Just Women’s Sports/);
+ assert.match(graphic.alt,/graphic.*2026 WNBA Finals/);
+ assert.equal(graphic.imageFit,'contain');
+ assert.ok(fs.existsSync(require('node:path').join(__dirname,'..',graphic.image)));
+ assert.match(read('snack-shak-collections.js'),/playoffGalleryMarkup\(post.finalsGraphic\)/);
+ assert.ok(!guide.gameGallery.items.some(item=>item.image===graphic.image));
+});

@@ -259,7 +259,8 @@
     "years": "1999–2004",
     "clipboard": "Indiana Fever · Head coach",
     "careerState": "retired",
-    "photo": "",
+    "photo": "https://cdn.wnba.com/headshots/wnba/latest/260x190/100370.png",
+    "photoSource": "https://fever.wnba.com/roster",
     "lastWnbaSeason": 2004
   },
   {
@@ -286,7 +287,8 @@
     "years": "1998–2003",
     "clipboard": "Toronto Tempo · Head coach",
     "careerState": "retired",
-    "photo": "",
+    "photo": "https://cdn.wnba.com/headshots/wnba/latest/260x190/101168.png",
+    "photoSource": "https://tempo.wnba.com/roster",
     "lastWnbaSeason": 2003
   },
   {
@@ -371,7 +373,8 @@
     "years": "2004–2014",
     "clipboard": "Los Angeles Sparks · Assistant coach",
     "careerState": "retired",
-    "photo": "",
+    "photo": "https://cdn.wnba.com/headshots/wnba/latest/260x190/100928.png",
+    "photoSource": "https://sparks.wnba.com/roster",
     "lastWnbaSeason": 2014
   },
   {

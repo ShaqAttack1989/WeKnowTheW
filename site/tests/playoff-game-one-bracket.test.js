@@ -8,7 +8,7 @@ const read=file=>fs.readFileSync(path.join(root,file),'utf8');
 const latest=JSON.parse(read('snack-shak-latest.json'));
 const post=latest.posts.find(item=>item.slug==='the-playoff-watch-party-2026');
 
-test('playoff watch has Finals receipts and real Game 3 imagery',()=>{assert.equal(post.updated,'2026-10-10');assert.match(post.title,/Finals/);assert.match(post.image,/2026-10-09_Jeff-Bottari_NBAE/);assert.equal(post.playoffWatch.matchups[0].series,'0-0');});
+test('playoff watch has Finals receipts and real Game 3 imagery',()=>{assert.equal(post.updated,'2026-10-10');assert.match(post.title,/Finals/);assert.match(post.image,/53109b8f7bdd419a65d3abb786964fac24ab093b/);assert.equal(post.playoffWatch.matchups[0].series,'0-0');});
 
 test('one shared live bracket renders on the homepage and in the article',()=>{
   const index=read('index.html'),food=read('food-for-thought.html'),collections=read('snack-shak-collections.js'),bracket=read('playoff-bracket.js'),styles=read('playoff-bracket.css');

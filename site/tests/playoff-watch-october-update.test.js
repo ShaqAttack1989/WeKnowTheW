@@ -18,9 +18,9 @@ test('both closeouts feed a zero-win Finals matchup without carrying semifinal w
 });
 test('main and homepage use verified Game 3 action with credit and official source',()=>{
  assert.equal(guide.image,guide.storyImage);
- assert.match(guide.image,/2026-10-09_Jeff-Bottari_NBAE/);
- assert.match(guide.storyImageCaption,/Jeff Bottari\/NBAE/);
- assert.match(guide.storyImageSourceUrl,/aces\.wnba\.com.*10-9-2026/);
+ assert.match(guide.image,/53109b8f7bdd419a65d3abb786964fac24ab093b/);
+ assert.match(guide.storyImageCaption,/Ishika Samant\/Getty Images/);
+ assert.match(guide.storyImageSourceUrl,/theguardian\.com.*2026\/oct\/09/);
  assert.match(guide.imageAlt,/October 9, 2026/);
  assert.match(JSON.stringify(guide.sections),/500 career playoff points/);
  assert.match(read('homepage-fresh-stories.js'),/image/);
@@ -52,4 +52,13 @@ test('shared bracket renders both sweeps and the Finals without a DOM error',()=
  assert.match(mount.innerHTML,/data-bracket-matchup="finals"/);
  assert.match(mount.innerHTML,/Golden State Valkyries/);
  assert.match(mount.innerHTML,/Atlanta Dream/);
+});
+
+test('finalist action photos are distinct within the article',()=>{
+ const photos=[guide.storyImage,...guide.gameGallery.items.map(item=>item.image)];
+ assert.equal(new Set(photos).size,photos.length);
+ assert.match(guide.imageAlt,/Angel Reese/);
+ assert.match(guide.gameGallery.items[0].alt,/Jordin Canada/);
+ assert.match(guide.gameGallery.items[1].alt,/Tiffany Hayes/);
+ for(const item of guide.gameGallery.items){assert.ok(item.credit);assert.ok(item.sourceUrl);assert.match(item.alt,/October 9, 2026/);}
 });

@@ -1290,9 +1290,9 @@
       "published": "2026-10-02",
       "updated": "2026-10-10",
       "week": "Finals · Golden State vs. Atlanta · Begins Oct. 17",
-      "image": "https://cdn.wnba.com/sites/1611661319/2026/10/2026-10-09_Jeff-Bottari_NBAE_16.jpg",
+      "image": "https://i.guim.co.uk/img/media/53109b8f7bdd419a65d3abb786964fac24ab093b/0_0_4506_3005/master/4506.jpg?width=1920&quality=85&auto=format&fit=max&s=92e194d3c36e859bc2e846bd89813fed",
       "imageFit": "contain",
-      "imageAlt": "A’ja Wilson shoots against Golden State during semifinal Game 3 in Las Vegas, October 9, 2026",
+      "imageAlt": "Angel Reese during semifinal Game 3, October 9, 2026",
       "dek": "Atlanta held on 85–83. Golden State took overtime 87–77. Both completed 3–0 sweeps, setting up a Finals in which somebody will win her franchise’s first championship.",
       "playoffGameOne": {
         "ariaLabel": "Semifinal Game 3 finals and Finals matchup",
@@ -1325,18 +1325,28 @@
         "highlights": []
       },
       "gameGallery": {
-        "eyebrow": "OCT. 9 · REAL GAME ACTION",
-        "title": "The last night of the semifinals",
-        "dek": "In-game photography from Golden State’s series-clinching visit to Las Vegas.",
+        "eyebrow": "OCT. 9 · THE FINALISTS IN ACTION",
+        "title": "Two roads to the Finals",
+        "dek": "Atlanta in Brooklyn. Golden State in Las Vegas. Different games, the same destination.",
         "items": [
           {
-            "image": "https://cdn.wnba.com/sites/1611661319/2026/10/2026-10-09_Jeff-Bottari_NBAE_16.jpg",
-            "alt": "A’ja Wilson shoots against Golden State during semifinal Game 3 in Las Vegas, October 9, 2026",
-            "title": "A final shot at extending the season",
-            "kicker": "GAME 3 · LAS VEGAS",
-            "caption": "Golden State advanced with an 87–77 overtime win.",
-            "credit": "Jeff Bottari/NBAE · Las Vegas Aces",
-            "sourceUrl": "https://aces.wnba.com/news/semis-game-3-gallery-aces-vs-valkyries-10-9-2026",
+            "image": "https://i.guim.co.uk/img/media/6816dad18c9c802e07b1f94c54a57384cecfced1/0_0_5609_3739/master/5609.jpg?width=1920&quality=85&auto=format&fit=max&s=88fed48c65dd0692b41ed0ba2f3226d1",
+            "alt": "Jordin Canada during semifinal Game 3, October 9, 2026",
+            "title": "Atlanta’s floor general",
+            "kicker": "DREAM · GAME 3 · OCT. 9",
+            "caption": "Jordin Canada · Brooklyn.",
+            "credit": "Ishika Samant/Getty Images",
+            "sourceUrl": "https://www.theguardian.com/sport/2026/oct/09/atlanta-dream-new-york-liberty-wnba-semi-finals-sweep-angel-reese",
+            "imageFit": "contain"
+          },
+          {
+            "image": "https://i.guim.co.uk/img/media/edc39d25b31a97ad84dcb4ca589416607d601d59/0_0_4210_2807/master/4210.jpg?width=1920&quality=85&auto=format&fit=max&s=dbc266ad93b5b12bed28061ee1978816",
+            "alt": "Tiffany Hayes during semifinal Game 3, October 9, 2026",
+            "title": "Golden State at the rim",
+            "kicker": "VALKYRIES · GAME 3 · OCT. 9",
+            "caption": "Tiffany Hayes · Las Vegas.",
+            "credit": "Ian Maule/AP",
+            "sourceUrl": "https://www.theguardian.com/sport/2026/oct/10/golden-state-valkyries-las-vegas-aces-wnba-finals-sweep-gabby-williams",
             "imageFit": "contain"
           }
         ]
@@ -1394,9 +1404,9 @@
         }
       ],
       "dashboardUrl": "/food-for-thought.html?post=the-playoff-watch-party-2026#story",
-      "storyImage": "https://cdn.wnba.com/sites/1611661319/2026/10/2026-10-09_Jeff-Bottari_NBAE_16.jpg",
-      "storyImageCaption": "A’ja Wilson shoots against Golden State in Game 3, Las Vegas, October 9, 2026. Photo: Jeff Bottari/NBAE, via Las Vegas Aces.",
-      "storyImageSourceUrl": "https://aces.wnba.com/news/semis-game-3-gallery-aces-vs-valkyries-10-9-2026",
+      "storyImage": "https://i.guim.co.uk/img/media/53109b8f7bdd419a65d3abb786964fac24ab093b/0_0_4506_3005/master/4506.jpg?width=1920&quality=85&auto=format&fit=max&s=92e194d3c36e859bc2e846bd89813fed",
+      "storyImageCaption": "Angel Reese · Game 3 · October 9, 2026. Photo: Ishika Samant/Getty Images, via The Guardian.",
+      "storyImageSourceUrl": "https://www.theguardian.com/sport/2026/oct/09/atlanta-dream-new-york-liberty-wnba-semi-finals-sweep-angel-reese",
       "playoffWatch": {
         "title": "DREAM × VALKYRIES. THE FINALS ARE SET.",
         "subtitle": "Both swept 3–0 on October 9. A first championship awaits one franchise.",
@@ -1575,9 +1585,9 @@
         "Can Atlanta control the possession count against Golden State’s pressure?",
         "Which bench can keep producing when the opponent changes coverage?"
       ],
-      "imageFallback": "https://cdn.wnba.com/logos/wnba/1611661331/primary/L/logo.svg",
-      "storyImageFallback": "https://cdn.wnba.com/logos/wnba/1611661331/primary/L/logo.svg",
-      "imageFocus": "50% 30%"
+      "imageFallback": "https://cdn.wnba.com/logos/wnba/1611661330/primary/L/logo.svg",
+      "storyImageFallback": "https://cdn.wnba.com/logos/wnba/1611661330/primary/L/logo.svg",
+      "imageFocus": "65% 40%"
     },
     {
       "slug": "farewell-connecticut-sun-2026",

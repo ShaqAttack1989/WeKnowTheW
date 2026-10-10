@@ -3,12 +3,13 @@
     "generatedAt": "2026-09-19T00:41:03.990Z",
     "sources": [
       "Official WNBA current headshot CDN",
-      "Official NBA/WNBA legacy headshot archive"
+      "Official NBA/WNBA legacy headshot archive",
+      "ESPN WNBA player headshots"
     ],
-    "verifiedReal": 340,
+    "verifiedReal": 342,
     "modernCdnVerified": 245,
     "legacyArchiveVerified": 95,
-    "placeholderRejected": 707,
+    "placeholderRejected": 705,
     "falseLegacyResponsesRejected": 6
   },
   "byId": {
@@ -1725,6 +1726,13 @@
         2019
       ]
     },
+    "204296": {
+      "name": "Rebecca Allen",
+      "url": "https://a.espncdn.com/i/headshots/wnba/players/full/3102133.png",
+      "source": "ESPN WNBA player headshot",
+      "sourceUrl": "https://www.espn.com/wnba/player/_/id/3102133",
+      "verifiedAt": "2026-10-09"
+    },
     "204297": {
       "name": "Cayla George",
       "url": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/204297.png",
@@ -2186,6 +2194,13 @@
         2018,
         2018
       ]
+    },
+    "1628878": {
+      "name": "Ariel Atkins",
+      "url": "https://a.espncdn.com/i/headshots/wnba/players/full/3146151.png",
+      "source": "ESPN WNBA player headshot",
+      "sourceUrl": "https://www.espn.com/wnba/player/_/id/3146151",
+      "verifiedAt": "2026-10-09"
     },
     "1628882": {
       "name": "Lexie Brown",

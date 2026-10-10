@@ -17,7 +17,17 @@ function playerPhoto(player={}){
   if(espn)return `/api/photo?id=${espn[2]}${espn[1]==='wnba'?'':'&league=ncaaw'}`;
   return `/api/photo?src=${encodeURIComponent(String(direct).trim())}`;
 }
-function avatarMarkup(player={},large=false){const photo=playerPhoto(player),name=player.name||'Player',cutout=Boolean(player.officialHeadshot||player.photoCutout),classes=`player-avatar photo-avatar${large?' large':''}`;return `<span class="${classes}" aria-hidden="true"><span class="player-avatar-fallback">${pSafe(initials(name))}</span>${photo?`<img class="player-avatar-image${cutout?' player-cutout':''}" src="${pSafe(photo)}" alt="" loading="lazy" decoding="async" onerror="this.style.display='none'">`:''}</span>`;}
+function avatarMarkup(player={},large=false){
+  const photo=playerPhoto(player),name=player.name||'Player';
+  const cutout=Boolean(player.officialHeadshot||player.photoCutout);
+  const classes=`player-avatar photo-avatar${large?' large':''}`;
+  // Keep the initials visible below the image. If a CDN or proxy fails, try
+  // the player's other supplied, real-photo URL before showing initials.
+  const alternatives=[player.officialHeadshot,player.photoCutout,player.photo,player.photoThumb,player.headshot]
+    .filter(value=>/^https?:\/\//i.test(String(value||'').trim())&&String(value).trim()!==photo);
+  const backup=alternatives.length?alternatives[0]:'';
+  return `<span class="${classes}" aria-hidden="true"><span class="player-avatar-fallback">${pSafe(initials(name))}</span>${photo?`<img class="player-avatar-image${cutout?' player-cutout':''}" src="${pSafe(photo)}" data-portrait-backup="${pSafe(backup)}" alt="" loading="lazy" decoding="async" onerror="if(this.dataset.portraitBackup){this.src=this.dataset.portraitBackup;this.dataset.portraitBackup='';}else{this.style.display='none';}">`:''}</span>`;
+}
 function prettyDate(value=''){if(!value)return '';const date=new Date(`${String(value).slice(0,10)}T12:00:00`);return Number.isNaN(date.getTime())?value:date.toLocaleDateString([],{month:'short',day:'numeric'});}
 function playerKey(value=''){return String(value).normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]/g,'');}
 function hasMetric(value){return value!==null&&value!==undefined&&String(value).trim()!==''&&Number.isFinite(Number(value));}

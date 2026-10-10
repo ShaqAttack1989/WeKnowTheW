@@ -1485,9 +1485,18 @@
         {
           "title": "A first title is guaranteed. The winner is not.",
           "paragraphs": [
-            "The best-of-seven Finals begin October 17 at Chase Center. Golden State is the No. 2 seed; Atlanta is No. 4. Both franchises seek their first WNBA championship.",
+            "The best-of-seven Finals begin October 17 at 3:30 p.m. ET at Chase Center on NBC and Peacock. Golden State is the No. 2 seed; Atlanta is No. 4. Both franchises seek their first WNBA championship.",
             "The canceled semifinal Games 4 and 5 no longer belong on the upcoming slate. Game 1’s tip time and broadcast will appear once confirmed by the league.",
             "Analysis: Canada’s organization and Reese’s interior work meet a Golden State team that keeps finding a different scorer. The matchup rewards the team that can protect possessions without surrendering its pace."
+          ]
+        },
+        {
+          "title": "The Finals watch schedule",
+          "paragraphs": [
+            "All times Eastern. Golden State hosts Games 1, 2, 5 and 7; Atlanta hosts Games 3, 4 and 6.",
+            "Game 1: Sat., Oct. 17, 3:30 p.m. · NBC / Peacock. Game 2: Mon., Oct. 19, 8 p.m. · USA / Peacock.",
+            "Game 3: Thu., Oct. 22, 8 p.m. · USA / Peacock. Game 4: Sat., Oct. 24, 3:30 p.m. · NBC / Peacock.",
+            "If necessary: Game 5, Mon., Oct. 26; Game 6, Thu., Oct. 29; Game 7, Sat., Oct. 31. Each tips at 8 p.m. on USA and Peacock."
           ]
         }
       ],
@@ -1507,6 +1516,10 @@
         {
           "label": "Official Game 3 photo gallery",
           "url": "https://aces.wnba.com/news/semis-game-3-gallery-aces-vs-valkyries-10-9-2026"
+        },
+        {
+          "label": "WNBA · Official Finals times and broadcasts",
+          "url": "https://www.wnba.com/news/2026-wnba-postseason-faq"
         }
       ],
       "dashboardUrl": "/food-for-thought.html?post=the-playoff-watch-party-2026#story",
@@ -1549,7 +1562,7 @@
             "regularSeries": "Regular-season context remains separate from Finals wins",
             "series": "0-0",
             "seriesNote": "FINALS BEGIN OCT. 17 · FIRST TO FOUR WINS",
-            "nextGame": "Sat, Oct. 17 · Chase Center · Time/broadcast TBD",
+            "nextGame": "Sat, Oct. 17 · 3:30 PM ET · Chase Center · NBC / Peacock",
             "stars": [
               "Gabby Williams",
               "Angel Reese"

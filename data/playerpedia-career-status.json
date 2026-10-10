@@ -10,15 +10,15 @@
     "sourceLabel": "WNBA career feature"
   },
   "Nneka Ogwumike": {
-    "status": "retirement-announced",
-    "label": "RETIREMENT ANNOUNCED",
-    "icon": "◷",
+    "status": "retired",
+    "label": "RETIRED",
+    "icon": "✓",
     "announcedDate": "2026-08-19",
-    "retirementAfterSeason": 2026,
-    "activeUntilSeasonEnd": true,
-    "summary": "Announced her intent to retire from the WNBA after the conclusion of the 2026 season. She remains an active Los Angeles Sparks player until the season ends.",
-    "source": "https://sparks.wnba.com/news/nneka-ogwumike-announces-retirement-from-the-wnba-following-the-2026-season",
-    "sourceLabel": "Los Angeles Sparks announcement"
+    "retiredYear": 2026,
+    "effectiveDate": "2026-09-24",
+    "summary": "Retired from the WNBA following the 2026 season after 15 seasons. Her final regular-season game was Sept. 24, 2026.",
+    "source": "https://www.wnba.com/news/wnba-statement-nneka-ogwumike-retirement",
+    "sourceLabel": "WNBA retirement statement"
   },
   "Jordan Harrison": {
     "status": "retired",

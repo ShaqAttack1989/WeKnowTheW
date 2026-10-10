@@ -32,3 +32,10 @@ test('finalist audit keeps eliminated roster receipts but counts only surviving 
  assert.match(s,/filter\(team => team.status === 'FINALS'\)/);
  assert.match(read('wnba-draft-class-rankings.html'),/<b>2<\/b> teams alive now/);
 });
+
+test('homepage spotlight reflects the Finals and removes semifinal closeout callouts',()=>{
+ const s=read('index.html');
+ assert.match(s,/Finals are set/);
+ assert.match(s,/Dream–Valkyries Finals begin October 17/);
+ assert.doesNotMatch(s,/Two 2–0 semifinal leads|Friday brings closeout games/);
+});

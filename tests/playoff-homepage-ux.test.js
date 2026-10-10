@@ -62,8 +62,8 @@ test('Homepage keeps the playoff context and automatically fills story slots bef
   const stories=html.indexOf('id="freshTopStories"');
   const more=html.indexOf('id="freshMoreStories"');
   assert.ok(stories>0&&more>stories&&bracket>more);
-  assert.match(html,/Two home stands/);
-  assert.match(html,/Atlanta and Golden State both lead 2–0/);
+  assert.match(html,/Two sweeps/);
+  assert.match(html,/The Dream and Valkyries meet for the title/);
   assert.match(html,/homepage-fresh-stories\.js/);
   assert.match(html,/href="\/wnba-draft-class-rankings.html"/);
 });

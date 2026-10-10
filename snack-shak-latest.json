@@ -2,6 +2,69 @@
   "site": "Snack Shak",
   "posts": [
     {
+      "slug": "ballhalla-meets-the-balance-sheet",
+      "type": "byte",
+      "priority": 5400,
+      "homepageSeason": "wnba-playoffs",
+      "seriesLabel": "SNACK SHAK BYTE · THE BUSINESS OF THE W",
+      "title": "Ballhalla Meets the Balance Sheet",
+      "published": "2026-10-10",
+      "updated": "2026-10-10",
+      "week": "Golden State · Revenue milestone",
+      "dashboardUrl": "/snack-shak-bytes.html?post=ballhalla-meets-the-balance-sheet#story",
+      "image": "https://fieldlevelmedia.com/wp-content/uploads/2026/10/30000512-1024x683.jpg",
+      "storyImage": "https://fieldlevelmedia.com/wp-content/uploads/2026/10/30000512-1024x683.jpg",
+      "imageFit": "contain",
+      "imageAlt": "Golden State players celebrate during semifinal Game 1 against Las Vegas at Chase Center, October 4, 2026",
+      "storyImageCaption": "Golden State’s bench during semifinal Game 1 against Las Vegas, October 4, 2026. Photo: D. Ross Cameron / Imagn Images, via Field Level Media.",
+      "storyImageSourceUrl": "https://fieldlevelmedia.com/news/valkyries-first-wnba-franchise-to-hit-100m-in-annual-revenue/",
+      "teams": [
+        "Golden State Valkyries"
+      ],
+      "dek": "The Valkyries have a Finals ticket and a reported $100 million revenue milestone. The scoreboard is only half the story.",
+      "sections": [
+        {
+          "title": "The violet receipts are in",
+          "paragraphs": [
+            "According to Sportico’s October 7 report, covered by Field Level Media and Reuters on October 8, Golden State exceeded $100 million in annual revenue in 2026. The reporting identifies the Valkyries as the first women’s professional sports team to reach that mark.",
+            "That is revenue: money coming into the business before expenses. It does not establish $100 million in profit. A franchise valuation is a separate estimate of what the team is worth."
+          ]
+        },
+        {
+          "title": "Full buildings, then a Finals berth",
+          "paragraphs": [
+            "Golden State sold out all 22 regular-season home games and finished 32–12. The second-year franchise then swept Las Vegas, clinching its first Finals appearance with an 87–77 overtime win on October 9.",
+            "Sportico also projected that a Finals run could lift gross revenue above $130 million. Golden State has now reached the series; that projection remains a projection, not a confirmed final total."
+          ]
+        },
+        {
+          "title": "Shak’s take",
+          "paragraphs": [
+            "Ballhalla brought the noise. The balance sheet brought receipts. A packed arena and a winning roster make a strong business story, but one exceptional franchise is not a financial statement for the entire league.",
+            "The useful question now: how does that demand translate into lasting investment in players, staff and the fan experience? Golden State has shown what a market can support. The next chapter is what the organization does with it."
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "label": "Sportico · Original October 7 revenue report",
+          "url": "https://www.sportico.com/leagues/basketball/2026/golden-state-valkyries-revenue-first-100-million-1234946807/"
+        },
+        {
+          "label": "Field Level Media · Revenue report and photo credit",
+          "url": "https://fieldlevelmedia.com/news/valkyries-first-wnba-franchise-to-hit-100m-in-annual-revenue/"
+        },
+        {
+          "label": "Reuters · October 8 coverage",
+          "url": "https://www.reuters.com/sports/valkyries-first-wnba-franchise-hit-100m-annual-revenue--flm-2026-10-08/"
+        },
+        {
+          "label": "Valkyries · Finals berth confirmed October 9",
+          "url": "https://valkyries.wnba.com/news/golden-state-valkyries-advance-to-2026-wnba-finals-20261009"
+        }
+      ]
+    },
+    {
       "slug": "expansion-golden-state-ordered-express-delivery",
       "type": "byte",
       "priority": 5300,

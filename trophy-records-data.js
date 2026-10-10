@@ -31,7 +31,7 @@ window.TROPHY_RECORDS_DATA = {
           {rank:'1',name:'Diana Taurasi',value:'10,646',detail:'Phoenix'},
           {rank:'2',name:'Tina Charles',value:'8,396',detail:'Career total'},
           {rank:'3',name:'DeWanna Bonner',value:'8,243',detail:'Career total',activeAtSnapshot:true},
-          {rank:'4',name:'Nneka Ogwumike',value:'8,047',detail:'Career total',activeAtSnapshot:true},
+          {rank:'4',name:'Nneka Ogwumike',value:'8,047',detail:'Career total · retired 2026'},
           {rank:'5',name:'Tina Thompson',value:'7,488',detail:'Career total'}
         ]
       }
@@ -98,7 +98,7 @@ window.TROPHY_RECORDS_DATA = {
         career:[
           {rank:'1',name:'Tina Charles',value:'4,262',detail:'Career total'},
           {rank:'2',name:'Sylvia Fowles',value:'4,006',detail:'Career total'},
-          {rank:'3',name:'Nneka Ogwumike',value:'3,657',detail:'Career total',activeAtSnapshot:true},
+          {rank:'3',name:'Nneka Ogwumike',value:'3,657',detail:'Career total · retired 2026'},
           {rank:'4',name:'Candace Parker',value:'3,467',detail:'Career total'},
           {rank:'5',name:'DeWanna Bonner',value:'3,456',detail:'Career total',activeAtSnapshot:true}
         ]
@@ -168,7 +168,7 @@ window.TROPHY_RECORDS_DATA = {
           {rank:'1',name:'Tamika Catchings',value:'1,074',detail:'Career total'},
           {rank:'2',name:'Ticha Penicheiro',value:'764',detail:'Career total'},
           {rank:'3',name:'Sue Bird',value:'724',detail:'Career total'},
-          {rank:'4',name:'Nneka Ogwumike',value:'718',detail:'Career total',activeAtSnapshot:true},
+          {rank:'4',name:'Nneka Ogwumike',value:'718',detail:'Career total · retired 2026'},
           {rank:'5',name:'Alana Beard',value:'710',detail:'Career total'}
         ]
       }

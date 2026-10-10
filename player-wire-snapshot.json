@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-10T13:34:47.099Z",
+  "generatedAt": "2026-10-10T18:30:13.071Z",
   "movement": {
     "latestTransactionDate": "2026-09-28",
     "transactions": [
@@ -2108,17 +2108,6 @@
         "crossCheckOnly": true
       },
       {
-        "player": "Iliana Rupert",
-        "team": "Golden State Valkyries",
-        "status": "OUT FOR SEASON",
-        "reason": "Pregnancy",
-        "updated": "2026-05-28",
-        "source": "WNBA Injury Report",
-        "officialCurrentReport": false,
-        "trackedCarryover": true,
-        "seasonLongCarryover": true
-      },
-      {
         "player": "Rickea Jackson",
         "team": "Chicago Sky",
         "status": "OUT",
@@ -2142,6 +2131,20 @@
         "officialCurrentReport": false,
         "trackedCarryover": true,
         "seasonLongCarryover": true
+      },
+      {
+        "player": "Iliana Rupert",
+        "team": "Golden State Valkyries",
+        "status": "OUT",
+        "reason": "Not Injury Related · Rupert is pregnant, and the Valkyries have filed for a replacement contract ahead of the 2026 season, Alexa Philippou of ESPN.com reports Thursday.",
+        "updated": "2026-05-07",
+        "returnDate": "2027-05-01",
+        "matchup": "",
+        "gameTime": "",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null,
+        "officialCurrentReport": false,
+        "crossCheckOnly": true
       }
     ],
     "teamStatuses": [

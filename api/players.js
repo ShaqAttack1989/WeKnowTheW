@@ -91,6 +91,8 @@ function baseFromHistorical(item = {}) {
     wnbaId: String(item.wnbaId || ''),
     espnId: '',
     name,
+    aliases: Array.isArray(item.aliases) ? item.aliases : [],
+    displayName: item.displayName || name,
     firstName,
     lastName,
     teamId: '',

@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generatedAt": "2026-09-18T15:42:07.372Z",
+    "generatedAt": "2026-10-09T20:35:00-04:00",
     "playerCount": 1046,
     "sourceUrl": "https://data.nba.com/data/v2015/json/mobile_teams/wnba/2022/players/10_historical_players.json",
     "roadTo1000Benchmark": "https://herhoopstats.substack.com/p/wnba-debuts-every-player-ever",
@@ -1101,7 +1101,12 @@
       "firstWnbaSeason": 1997,
       "lastWnbaSeason": 1998,
       "legacyStatus": "I",
-      "source": "WNBA legacy mobile historical players feed"
+      "source": "WNBA legacy mobile historical players feed",
+      "aliases": [
+        "Heidi Burge Horton",
+        "Heidi Horton"
+      ],
+      "displayName": "Heidi Burge Horton"
     },
     {
       "wnbaId": "100401",

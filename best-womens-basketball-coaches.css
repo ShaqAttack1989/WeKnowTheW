@@ -933,9 +933,9 @@
 }
 
 #wnbaTable th:nth-child(1),
-#wnbaTable td:nth-child(1) { width: 5%; }
+#wnbaTable td:nth-child(1) { width: 6%; }
 #wnbaTable th:nth-child(2),
-#wnbaTable td:nth-child(2) { width: 22%; }
+#wnbaTable td:nth-child(2) { width: 21%; }
 #wnbaTable th:nth-child(3),
 #wnbaTable td:nth-child(3) { width: 16%; }
 #wnbaTable th:nth-child(4),
@@ -946,9 +946,9 @@
 #wnbaTable td:nth-child(6) { width: 27%; }
 
 #collegeTable th:nth-child(1),
-#collegeTable td:nth-child(1) { width: 4%; }
+#collegeTable td:nth-child(1) { width: 6%; }
 #collegeTable th:nth-child(2),
-#collegeTable td:nth-child(2) { width: 20%; }
+#collegeTable td:nth-child(2) { width: 19%; }
 #collegeTable th:nth-child(3),
 #collegeTable td:nth-child(3) { width: 12%; }
 #collegeTable th:nth-child(4),

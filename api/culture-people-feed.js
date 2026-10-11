@@ -2,6 +2,7 @@ const CELEBRITY_SOURCES = [
   {
     "title": "Angel Reese shares a postgame moment with the new A Different World cast",
     "href": "https://www.thebiglead.com/angel-reese-different-world-cast-wnba-playoffs-fans-cameo/",
+    "image": "https://www.thebiglead.com/wp-content/uploads/2026/10/BASKETBALL-WNBA-NYL-ATL-5.jpg",
     "sourceType": "THE BIG LEAD",
     "category": "Postgame crossover",
     "team": "Atlanta Dream",

@@ -7,7 +7,7 @@
   <meta name="description" content="Meet every current WNBA head coach and former players who moved from court to clipboard.">
   <link rel="stylesheet" href="/styles.css">
   <link rel="stylesheet" href="/landing.css">
-  <link rel="stylesheet" href="/courtside-culture.css?v=20261009-coach-audit-v1">
+  <link rel="stylesheet" href="/courtside-culture.css?v=20261011-coach-dashboard-v1">
 </head>
 <body class="section-page culture-page" data-culture-page="coaches">
   <header class="subhero">
@@ -25,7 +25,7 @@
   </header>
   <nav class="culture-subnav" aria-label="Courtside Culture sections">
     <div class="page-shell">
-      <a href="/mascots.html">Mascots</a><a href="/coaches.html" aria-current="page">Coaches</a><a href="#court-to-clipboard">Court to Clipboard</a><a href="/owners.html#ownership">Owners</a><a href="/owners.html#basketball-operations">Basketball Ops</a><a href="/celebrity-fans.html">Celebrity Fans</a><a href="/gameday-vibes.html">Gameday Vibes</a><a href="/wnba-fits.html">The Fits</a>
+      <a href="/mascots.html">Mascots</a><a href="/coaches.html" aria-current="page">Coaches</a><a href="#coach-dashboard">Dashboard</a><a href="#court-to-clipboard">Court to Clipboard</a><a href="/owners.html#ownership">Owners</a><a href="/owners.html#basketball-operations">Basketball Ops</a><a href="/celebrity-fans.html">Celebrity Fans</a><a href="/gameday-vibes.html">Gameday Vibes</a><a href="/wnba-fits.html">The Fits</a>
     </div>
   </nav>
   <main>
@@ -35,6 +35,53 @@
           <div><p class="eyebrow">2026 HEAD COACHES</p><h2>Fifteen teams. Fourteen current head coaches and one reported vacancy.</h2><p>Current head coaches across the league, plus the Los Angeles vacancy reported Sept. 25. Former WNBA players link directly back to their Playerpedia playing careers.</p></div>
           <aside class="culture-note"><span>ROSTER DATE</span><strong>Updated Oct. 9, 2026.</strong><span>Current team announcements take priority over an older directory entry; historical coaching records remain linked below.</span></aside>
         </div>
+
+        <section class="coach-dashboard" id="coach-dashboard" aria-labelledby="coach-dashboard-title">
+          <div class="coach-dashboard-heading">
+            <div>
+              <p class="eyebrow">INTERACTIVE COACH DASHBOARD</p>
+              <h2 id="coach-dashboard-title">The bench boss scorecard</h2>
+              <p>Compare 2026 records, career wins, playoff runs, WNBA titles and Coach of the Year honors.</p>
+            </div>
+            <div class="coach-dashboard-date"><span>DATA THROUGH</span><strong>Oct. 11, 2026</strong><small>2026 regular season complete · playoffs through Oct. 9</small></div>
+          </div>
+          <div class="coach-dashboard-kpis" id="coachDashboardKpis" aria-label="Coach dashboard totals"></div>
+          <div class="coach-dashboard-controls">
+            <div class="coach-dashboard-control">
+              <label for="coachDashboardSearch">Find a coach or team</label>
+              <input id="coachDashboardSearch" type="search" placeholder="Search all 15 coaches" autocomplete="off">
+            </div>
+            <div class="coach-dashboard-control">
+              <label for="coachDashboardSort">Sort coaches by</label>
+              <select id="coachDashboardSort">
+                <option value="careerWins">Career regular-season wins</option>
+                <option value="seasonWins">2026 regular-season wins</option>
+                <option value="playoffWins">Career playoff wins</option>
+                <option value="titles">WNBA championships</option>
+                <option value="coty">Coach of the Year awards</option>
+              </select>
+            </div>
+            <div class="coach-dashboard-control">
+              <label for="coachDashboardSelect">Coach spotlight</label>
+              <select id="coachDashboardSelect"><option value="">Select a coach</option></select>
+            </div>
+            <p id="coachDashboardCount" class="coach-dashboard-count" role="status" aria-live="polite"></p>
+          </div>
+          <div id="coachDashboardSpotlight" class="coach-dashboard-spotlight" aria-live="polite"></div>
+          <div class="coach-dashboard-table-wrap" role="region" aria-label="Sortable WNBA coach records" tabindex="0">
+            <table class="coach-dashboard-table">
+              <thead>
+                <tr><th scope="col">Coach / team</th><th scope="col">2026 regular</th><th scope="col">2026 playoffs</th><th scope="col">Career regular</th><th scope="col">Career playoffs</th><th scope="col">WNBA titles</th><th scope="col">Coach of Year</th></tr>
+              </thead>
+              <tbody id="coachDashboardTable"></tbody>
+            </table>
+          </div>
+          <div class="coach-dashboard-sources">
+            <p>Career regular-season totals include games through the 2026 regular season. Playoff totals include games through Oct. 9, 2026. Lynne Roberts’ line is retained for her completed 2026 season; Los Angeles has since announced a vacancy.</p>
+            <a href="https://www.basketball-reference.com/wnba/years/2026_coaches.html" target="_blank" rel="noopener">Full coach records ↗</a>
+            <a href="https://www.wnba.com/history-coach-of-the-year" target="_blank" rel="noopener">Official Coach of the Year history ↗</a>
+          </div>
+        </section>
         <div class="culture-grid" id="cultureGrid"></div>
         <div class="source-banner"><p><strong>History without rollback:</strong> use the Basketball-Reference coach index for career records and official team pages for today’s bench.</p><a href="https://www.basketball-reference.com/wnba/coaches/" target="_blank" rel="noopener">Basketball-Reference coach index ↗</a></div>
         <section class="clipboard-feature" id="court-to-clipboard">
@@ -46,8 +93,8 @@
     </section>
   </main>
   <script src="/site.js?v=20261009-operations-v1"></script>
-  <script src="/courtside-data.js?v=20261009-operations-v1"></script>
-  <script src="/courtside-page.js?v=20261009-operations-v1"></script>
+  <script src="/courtside-data.js?v=20261011-coach-dashboard-v1"></script>
+  <script src="/courtside-page.js?v=20261011-coach-dashboard-v1"></script>
   <script src="/coach-photo-fix.js?v=20261009-official-portrait-v2"></script>
 </body>
 </html>

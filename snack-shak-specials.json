@@ -2,6 +2,54 @@
   "site": "Snack Shak",
   "posts": [
     {
+      "slug": "drafted-to-dominate-overlooked-to-overdeliver",
+      "type": "feature",
+      "priority": 65,
+      "seriesLabel": "FOOD FOR THOUGHT",
+      "title": "Drafted to Dominate. Overlooked to Overdeliver.",
+      "published": "2026-10-11",
+      "week": "WNBA draft retrospective · Where are they now?",
+      "dashboardUrl": "/drafted-to-dominate-overlooked-to-overdeliver.html",
+      "dek": "Seven high WNBA draft picks who fell short, seven players who exceeded expectations — including undrafted Sydney Taylor — and the overseas careers that changed the narrative.",
+      "image": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1642321.png",
+      "storyImage": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1642321.png",
+      "imageAlt": "Sydney Taylor with the Chicago Sky, official WNBA player photo",
+      "imageFocus": "50% 20%",
+      "players": [
+        "Charli Collier",
+        "Evelyn Akhator",
+        "Lauren Cox",
+        "Kysre Gondrezick",
+        "Chelsea Dungee",
+        "Alaina Coates",
+        "Kaleena Mosqueda-Lewis",
+        "Sydney Taylor",
+        "Becky Hammon",
+        "Erica Wheeler",
+        "Kayla Thornton",
+        "Alysha Clark",
+        "Pauline Astier",
+        "Marine Fauthoux"
+      ],
+      "teams": [
+        "Dallas Wings",
+        "Indiana Fever",
+        "Chicago Sky",
+        "Seattle Storm",
+        "Golden State Valkyries",
+        "New York Liberty",
+        "Las Vegas Aces"
+      ],
+      "sections": [
+        {
+          "title": "The scouting report isn't the final report",
+          "paragraphs": [
+            "Seven high picks are measured against draft expectations and where their basketball careers went next. Seven overlooked players show how overseas leagues, persistence and player development can rewrite the narrative."
+          ]
+        }
+      ]
+    },
+    {
       "slug": "2026-playoff-player-board",
       "type": "feature",
       "priority": 30,
@@ -76,16 +124,61 @@
       "week": "Playoff picture through Aug. 25, 2026",
       "dek": "Minnesota owns the league’s best record and the deepest résumé, but eight losses have left a scouting report. The real question is which lessons still apply now that Napheesa Collier is back.",
       "storyTable": {
-        "columns": ["Date", "Who beat Minnesota", "Score", "What worked"],
+        "columns": [
+          "Date",
+          "Who beat Minnesota",
+          "Score",
+          "What worked"
+        ],
         "rows": [
-          ["May 9", "Atlanta Dream", "91–90", "A 19-point comeback, five double-digit scorers and clutch rim defense"],
-          ["May 17", "Chicago Sky", "86–79", "Physical interior play and a 28–10 bench scoring edge"],
-          ["June 13", "Las Vegas Aces", "100–97", "A 32-point first quarter, star shot-making and a 22–7 bench edge"],
-          ["June 21", "Washington Mystics", "84–79", "A 12–0 closing run and second-unit pressure"],
-          ["July 3", "New York Liberty", "99–86", "Breanna Stewart’s shot creation plus paint and transition pressure"],
-          ["July 6", "Connecticut Sun", "90–89", "Brittney Griner’s interior gravity and Kennedy Burke’s late threes"],
-          ["Aug. 6", "Los Angeles Sparks", "89–82", "Ball movement, a 46–28 paint advantage and an 8–0 finish"],
-          ["Aug. 24", "Golden State Valkyries", "80–66", "Turnover pressure, five scorers in double figures and half-court strangulation"]
+          [
+            "May 9",
+            "Atlanta Dream",
+            "91–90",
+            "A 19-point comeback, five double-digit scorers and clutch rim defense"
+          ],
+          [
+            "May 17",
+            "Chicago Sky",
+            "86–79",
+            "Physical interior play and a 28–10 bench scoring edge"
+          ],
+          [
+            "June 13",
+            "Las Vegas Aces",
+            "100–97",
+            "A 32-point first quarter, star shot-making and a 22–7 bench edge"
+          ],
+          [
+            "June 21",
+            "Washington Mystics",
+            "84–79",
+            "A 12–0 closing run and second-unit pressure"
+          ],
+          [
+            "July 3",
+            "New York Liberty",
+            "99–86",
+            "Breanna Stewart’s shot creation plus paint and transition pressure"
+          ],
+          [
+            "July 6",
+            "Connecticut Sun",
+            "90–89",
+            "Brittney Griner’s interior gravity and Kennedy Burke’s late threes"
+          ],
+          [
+            "Aug. 6",
+            "Los Angeles Sparks",
+            "89–82",
+            "Ball movement, a 46–28 paint advantage and an 8–0 finish"
+          ],
+          [
+            "Aug. 24",
+            "Golden State Valkyries",
+            "80–66",
+            "Turnover pressure, five scorers in double figures and half-court strangulation"
+          ]
         ]
       },
       "sections": [
@@ -144,17 +237,50 @@
         "script": "Minnesota still owns the kitchen, but eight teams have left recipe cards on the counter. Atlanta brought the comeback. Chicago brought the bench. Vegas brought star power. Washington brought the late squeeze. New York and Connecticut attacked the paint. Los Angeles kept the ball moving. Golden State turned the whole thing into a pressure cooker. The problem for everybody else is that most of those recipes were cooked before Napheesa Collier even walked into the restaurant. So yes, the title is the Lynx’s to lose. But if somebody can mix Golden State pressure, Los Angeles ball movement and Vegas-level shot creation in the same pan, Minnesota might finally have to share the stove."
       },
       "sources": [
-        {"label": "WNBA standings", "url": "https://www.wnba.com/standings"},
-        {"label": "Dallas Wings clinch the eighth 2026 playoff berth", "url": "https://wings.wnba.com/news/dallas-wings-clinch-2026-playoff-berth"},
-        {"label": "Minnesota at Atlanta, May 9", "url": "https://www.wnba.com/game/1022600010"},
-        {"label": "Chicago at Minnesota, May 17", "url": "https://www.wnba.com/game/1022600025"},
-        {"label": "Minnesota at Las Vegas, June 13", "url": "https://www.wnba.com/game/1022600098/min-vs-lva"},
-        {"label": "Minnesota at Washington, June 21", "url": "https://www.wnba.com/game/1022600121"},
-        {"label": "Minnesota at New York, July 3", "url": "https://www.wnba.com/game/min-vs-nyl-1022600148"},
-        {"label": "Connecticut at Minnesota, July 6", "url": "https://www.wnba.com/game/1022600155/CON-vs-MIN"},
-        {"label": "Sparks defeat Lynx, Aug. 6", "url": "https://www.wnba.com/webview/watch/video/game-recap-los-angeles-sparks-89-minnesota-lynx-82-08-06-2026"},
-        {"label": "Valkyries defeat Lynx, Aug. 24", "url": "https://valkyries.wnba.com/news/gameday-recap-20260824"},
-        {"label": "Napheesa Collier injury update", "url": "https://lynx.wnba.com/news/napheesa-collier-injury-update-3"}
+        {
+          "label": "WNBA standings",
+          "url": "https://www.wnba.com/standings"
+        },
+        {
+          "label": "Dallas Wings clinch the eighth 2026 playoff berth",
+          "url": "https://wings.wnba.com/news/dallas-wings-clinch-2026-playoff-berth"
+        },
+        {
+          "label": "Minnesota at Atlanta, May 9",
+          "url": "https://www.wnba.com/game/1022600010"
+        },
+        {
+          "label": "Chicago at Minnesota, May 17",
+          "url": "https://www.wnba.com/game/1022600025"
+        },
+        {
+          "label": "Minnesota at Las Vegas, June 13",
+          "url": "https://www.wnba.com/game/1022600098/min-vs-lva"
+        },
+        {
+          "label": "Minnesota at Washington, June 21",
+          "url": "https://www.wnba.com/game/1022600121"
+        },
+        {
+          "label": "Minnesota at New York, July 3",
+          "url": "https://www.wnba.com/game/min-vs-nyl-1022600148"
+        },
+        {
+          "label": "Connecticut at Minnesota, July 6",
+          "url": "https://www.wnba.com/game/1022600155/CON-vs-MIN"
+        },
+        {
+          "label": "Sparks defeat Lynx, Aug. 6",
+          "url": "https://www.wnba.com/webview/watch/video/game-recap-los-angeles-sparks-89-minnesota-lynx-82-08-06-2026"
+        },
+        {
+          "label": "Valkyries defeat Lynx, Aug. 24",
+          "url": "https://valkyries.wnba.com/news/gameday-recap-20260824"
+        },
+        {
+          "label": "Napheesa Collier injury update",
+          "url": "https://lynx.wnba.com/news/napheesa-collier-injury-update-3"
+        }
       ]
     },
     {
@@ -174,12 +300,32 @@
       "week": "Scoring milestone audit through Aug. 23, 2026",
       "dek": "The headline is true when career means regular season plus playoffs, but the stat deserves a clean label: Wilson has 99 regular-season 25+ point games and 16 more in the postseason, putting her comfortably beyond 100 combined WNBA games.",
       "storyTable": {
-        "columns": ["A’ja Wilson 25+ point games", "Total", "What the number means"],
+        "columns": [
+          "A’ja Wilson 25+ point games",
+          "Total",
+          "What the number means"
+        ],
         "rows": [
-          ["Regular season", "99", "Current total through Aug. 23, 2026"],
-          ["Playoffs", "16", "Career postseason games with at least 25 points"],
-          ["Combined WNBA career", "115", "Regular season plus playoffs"],
-          ["Diana Taurasi regular-season benchmark", "140", "The long-standing regular-season standard"]
+          [
+            "Regular season",
+            "99",
+            "Current total through Aug. 23, 2026"
+          ],
+          [
+            "Playoffs",
+            "16",
+            "Career postseason games with at least 25 points"
+          ],
+          [
+            "Combined WNBA career",
+            "115",
+            "Regular season plus playoffs"
+          ],
+          [
+            "Diana Taurasi regular-season benchmark",
+            "140",
+            "The long-standing regular-season standard"
+          ]
         ]
       },
       "sections": [
@@ -237,11 +383,26 @@
         "script": "A’ja Wilson is absolutely in the century club, but Snack Shak checks the receipt before the plate hits the table. Regular season? Ninety-nine 25-point games. Playoffs? Sixteen more. Combined? One hundred fifteen. So the viral graphic has the right destination, but it skipped a turn on the way there. The fun part is that A’ja is now one regular-season 25-point night away from another clean milestone anyway. No need to season the number when the actual résumé already tastes this good."
       },
       "sources": [
-        {"label": "Aces vs. Tempo gallery, Aug. 23, 2026", "url": "https://aces.wnba.com/news/gallery-aces-tempo-8-23-2026"},
-        {"label": "Las Vegas at Toronto game", "url": "https://www.wnba.com/game/lva-vs-tor-1022600281"},
-        {"label": "Aces historical regular-season 25-point leaderboard", "url": "https://cdn.wnba.com/sites/1611661319/2025/09/2025-09-23-Aces-SF-G2-Notes-FINAL.pdf"},
-        {"label": "Wilson current regular-season 25+ game count", "url": "https://www.statmuse.com/wnba/ask/aja-25-pt-career-games"},
-        {"label": "Wilson career playoff 25+ game count", "url": "https://www.statmuse.com/wnba/ask?q=how+many+times+did++a%27ja+wilson+scored+25%2Bpoints+in+a+playoff+game"}
+        {
+          "label": "Aces vs. Tempo gallery, Aug. 23, 2026",
+          "url": "https://aces.wnba.com/news/gallery-aces-tempo-8-23-2026"
+        },
+        {
+          "label": "Las Vegas at Toronto game",
+          "url": "https://www.wnba.com/game/lva-vs-tor-1022600281"
+        },
+        {
+          "label": "Aces historical regular-season 25-point leaderboard",
+          "url": "https://cdn.wnba.com/sites/1611661319/2025/09/2025-09-23-Aces-SF-G2-Notes-FINAL.pdf"
+        },
+        {
+          "label": "Wilson current regular-season 25+ game count",
+          "url": "https://www.statmuse.com/wnba/ask/aja-25-pt-career-games"
+        },
+        {
+          "label": "Wilson career playoff 25+ game count",
+          "url": "https://www.statmuse.com/wnba/ask?q=how+many+times+did++a%27ja+wilson+scored+25%2Bpoints+in+a+playoff+game"
+        }
       ]
     }
   ]

@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#140a2f">
+  <meta name="description" content="Food for Thought: a searchable WNBA coaching legacy board, a women's college basketball all-time board, and the 2026 Finals matchup between Karl Smesko and Natalie Nakase.">
+  <link rel="canonical" href="https://www.weknowthew.com/best-womens-basketball-coaches.html">
+  <meta property="og:title" content="The Best Coaches in the W: Legends, Legacy & the 2026 Finals">
+  <meta property="og:description" content="Two searchable coaching scoreboards, one Finals matchup, and a fair answer to whether Karl Smesko was robbed.">
+  <meta property="og:image" content="https://cdn.wnba.com/headshots/wnba/latest/1040x760/1642743.png">
+  <title>The Best Coaches in the W: Legends, Legacy & the 2026 Finals | Food for Thought</title>
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/landing.css">
+  <link rel="stylesheet" href="/snack-shaq.css?v=20261011-coaches-feature-v1">
+  <link rel="stylesheet" href="/best-womens-basketball-coaches.css?v=20261011-v1">
+</head>
+<body class="snack-page coach-legacy-page">
+  <header class="snack-hero legacy-hero">
+    <nav class="nav shell" aria-label="Main navigation">
+      <a class="brand" href="/" aria-label="We Know the W home"><span class="brand-mark">W</span><span>WE KNOW THE W</span></a>
+      <button class="menu-button" id="menuButton" aria-expanded="false" aria-controls="navLinks">Menu</button>
+      <div class="nav-links" id="navLinks"></div>
+    </nav>
+    <div class="shell legacy-hero-inner">
+      <p class="eyebrow">FOOD FOR THOUGHT · COACHING LEGACIES</p>
+      <h1>The best coaches in the W:<br><em>legends, legacy &amp; the 2026 Finals</em></h1>
+      <p class="legacy-dek">What makes a great coach: the winning percentage, the banners, the longevity, or the team that was supposed to be a year away? Two searchable boards put the records on the table. Then we get to the Finals question: was Karl Smesko robbed?</p>
+      <div class="legacy-byline"><span>WE KNOW THE W</span><span>UPDATED OCT. 11, 2026</span><a href="/food-for-thought.html">Food for Thought</a></div>
+    </div>
+  </header>
+
+  <nav class="legacy-jump shell" aria-label="Article sections">
+    <a href="#finals-matchup">2026 Finals</a>
+    <a href="#wnba-legacy">WNBA all-time</a>
+    <a href="#college-legacy">College all-time</a>
+    <a href="#was-smesko-robbed">Was Smesko robbed?</a>
+  </nav>
+
+  <main class="legacy-main shell">
+    <section class="legacy-opening">
+      <div class="legacy-opening-copy">
+        <p class="eyebrow">THE COACHING DEBATE</p>
+        <h2>There is no single kind of greatness.</h2>
+        <p>Winning a title is the loudest credential. It is not the whole résumé. Some coaches build dynasties; some change a franchise’s ceiling; some turn a first-year expansion team into a playoff team. We score those stories separately, and keep regular-season records, playoff records and championships visible beside every number.</p>
+        <p>The WNBA and college boards use different career scorecards. They are designed for debate inside their own leagues, not as a claim that a college title and a WNBA title are interchangeable.</p>
+      </div>
+      <aside class="legacy-callout" aria-label="The scorecard promise">
+        <span class="callout-label">OUR RULE</span>
+        <strong>Show the math.<br>Keep the context.</strong>
+        <span>Editorial W Scores are comparison tools, not official league statistics.</span>
+      </aside>
+    </section>
+
+    <section class="legacy-section finalist-section" id="finals-matchup" aria-labelledby="finalists-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">2026 WNBA FINALS · ATLANTA vs. GOLDEN STATE</p>
+          <h2 id="finalists-title">Two benches. Two very different paths.</h2>
+          <p>Atlanta’s Karl Smesko meets Golden State’s Natalie Nakase. The snapshot below is through Oct. 9, before the Finals; a championship point has not been added to either coach’s W Rating.</p>
+        </div>
+        <a class="text-link" href="https://www.wnba.com/playoffs/2026" target="_blank" rel="noopener">2026 playoff bracket <span aria-hidden="true">↗</span></a>
+      </div>
+
+      <div class="finalist-tabs" role="group" aria-label="Choose finalist record view">
+        <button type="button" class="is-active" data-finalist-mode="season" aria-pressed="true">2026 Finals snapshot</button>
+        <button type="button" data-finalist-mode="career" aria-pressed="false">WNBA career so far</button>
+      </div>
+      <div class="finalist-grid" id="finalistGrid" aria-live="polite"></div>
+      <p class="dashboard-note"><strong>Current We Know the W Rating:</strong> returning-coach career regular-season win rate × 30, 2026 regular-season win rate × 10, pre-2026 career playoff win rate × 30, 2026 playoff win rate × 10, plus five points per WNBA title (maximum 20). Coach of the Year honors are shown as context and do not affect this score. See the <a href="/coaches.html#coach-dashboard">full current-coach dashboard</a> for the complete method.</p>
+    </section>
+
+    <section class="legacy-section" id="wnba-legacy" aria-labelledby="wnba-legacy-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">THE PRO GAME · CAREER RESUMÉS</p>
+          <h2 id="wnba-legacy-title">The WNBA legacy board</h2>
+          <p>A selected group of title winners and career leaders. Sort by W Score, wins, titles or either win percentage; search a coach’s name to find a résumé quickly.</p>
+        </div>
+        <span class="snapshot-pill">THROUGH OCT. 9, 2026</span>
+      </div>
+      <div class="legacy-dashboard" data-dashboard="wnba">
+        <div class="dashboard-controls">
+          <label class="search-label">Find a coach
+            <input id="wnbaSearch" type="search" placeholder="Search name or team" autocomplete="off">
+          </label>
+          <label>Filter
+            <select id="wnbaFilter">
+              <option value="all">All selected coaches</option>
+              <option value="twoplus">Two or more titles</option>
+              <option value="threeplus">Three or more titles</option>
+            </select>
+          </label>
+          <label>Sort by
+            <select id="wnbaSort">
+              <option value="score">W Score</option>
+              <option value="wins">Regular-season wins</option>
+              <option value="titles">WNBA titles</option>
+              <option value="regular">Regular-season win %</option>
+              <option value="playoff">Playoff win %</option>
+            </select>
+          </label>
+          <span class="result-count" id="wnbaCount" aria-live="polite"></span>
+        </div>
+        <div class="table-wrap">
+          <table class="legacy-table" id="wnbaTable">
+            <caption>Selected WNBA coaching legacies and editorial W Scores</caption>
+            <thead><tr>
+              <th scope="col"><button type="button" data-sort="rank">Rank</button></th>
+              <th scope="col"><button type="button" data-sort="name">Coach</button></th>
+              <th scope="col"><button type="button" data-sort="regular">Regular season</button></th>
+              <th scope="col"><button type="button" data-sort="playoff">Playoffs</button></th>
+              <th scope="col"><button type="button" data-sort="titles">WNBA titles</button></th>
+              <th scope="col" aria-sort="descending"><button type="button" data-sort="score">Legacy W Score</button></th>
+            </tr></thead>
+            <tbody id="wnbaRows"></tbody>
+          </table>
+        </div>
+        <p class="dashboard-note">Legacy W Score = career regular-season win percentage × 40 + playoff win percentage × 40 + 5 points per WNBA title, capped at 20. The board focuses on coaches with at least 100 regular-season games; shorter WNBA résumés, including Smesko’s, are featured separately above. Records include 2026 results where applicable.</p>
+      </div>
+    </section>
+
+    <section class="legacy-section" id="college-legacy" aria-labelledby="college-legacy-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">THE COLLEGE GAME · CAREER WIN LEADERS</p>
+          <h2 id="college-legacy-title">The women’s college coaching board</h2>
+          <p>Longevity carries weight here, because a career total tells a different story than a single tournament. The 2026 champion gets her place on the board, too.</p>
+        </div>
+        <span class="snapshot-pill">END OF 2025–26 SEASON</span>
+      </div>
+      <div class="college-champ-highlight">
+        <span>2026 NCAA CHAMPION</span>
+        <strong>Cori Close · UCLA</strong>
+        <p>UCLA finished 37–1 and won the program’s first NCAA title. Her score reflects a shorter career sample; it does not diminish the season that just ended.</p>
+      </div>
+      <div class="legacy-dashboard" data-dashboard="college">
+        <div class="dashboard-controls">
+          <label class="search-label">Find a coach
+            <input id="collegeSearch" type="search" placeholder="Search coach or school" autocomplete="off">
+          </label>
+          <label>Filter
+            <select id="collegeFilter">
+              <option value="all">All selected coaches</option>
+              <option value="champions">NCAA champions</option>
+              <option value="threeplus">Three or more titles</option>
+            </select>
+          </label>
+          <label>Sort by
+            <select id="collegeSort">
+              <option value="score">W Score</option>
+              <option value="wins">Career wins</option>
+              <option value="titles">NCAA titles</option>
+              <option value="regular">Career win %</option>
+            </select>
+          </label>
+          <span class="result-count" id="collegeCount" aria-live="polite"></span>
+        </div>
+        <div class="table-wrap">
+          <table class="legacy-table" id="collegeTable">
+            <caption>Selected NCAA Division I women's basketball coaching legacies and editorial W Scores</caption>
+            <thead><tr>
+              <th scope="col"><button type="button" data-sort="rank">Rank</button></th>
+              <th scope="col"><button type="button" data-sort="name">Coach · signature school</button></th>
+              <th scope="col"><button type="button" data-sort="wins">Career record</button></th>
+              <th scope="col"><button type="button" data-sort="regular">Win %</button></th>
+              <th scope="col"><button type="button" data-sort="titles">NCAA titles</button></th>
+              <th scope="col" aria-sort="descending"><button type="button" data-sort="score">Legacy W Score</button></th>
+            </tr></thead>
+            <tbody id="collegeRows"></tbody>
+          </table>
+        </div>
+        <p class="dashboard-note">College Legacy W Score = career win percentage × 35 + 8 points per NCAA Division I title (maximum 32) + career wins ÷ 1,300 × 33 (maximum 33). Records are through the completed 2025–26 season; career totals follow the cited college coaching records, while titles count NCAA Division I championships. The title count and raw records stay visible so the score cannot hide the résumé.</p>
+      </div>
+      <p class="source-line">Data references: <a href="https://fs.ncaa.org.s3.amazonaws.com/Docs/stats/w_basketball_RB/Coaches.pdf" target="_blank" rel="noopener">NCAA women’s basketball coaching records</a> · <a href="https://www.ncaa.com/history/basketball-women/d1" target="_blank" rel="noopener">NCAA Division I championship history</a> · <a href="https://texaslonghorns.com/staff-directory/jody-conradt/1648" target="_blank" rel="noopener">Texas record for Jody Conradt</a>.</p>
+    </section>
+
+    <section class="legacy-section verdict-section" id="was-smesko-robbed" aria-labelledby="verdict-title">
+      <div class="verdict-mark" aria-hidden="true">?</div>
+      <div>
+        <p class="eyebrow">THE FOOD FOR THOUGHT QUESTION</p>
+        <h2 id="verdict-title">Was Smesko robbed?</h2>
+        <div class="verdict-grid">
+          <article>
+            <span class="verdict-year">2025 COACH OF THE YEAR</span>
+            <h3>No.</h3>
+            <p>Nakase earned 53 of 72 votes; Smesko finished second with 15. In year one, Nakase took an expansion roster to a 23–21 record and the Valkyries became the first expansion team to reach the playoffs in its inaugural season. That was a historic award case, not a bad call.</p>
+          </article>
+          <article>
+            <span class="verdict-year">2026 COACH OF THE YEAR</span>
+            <h3>Overlooked? Yes. Robbed? Debatable.</h3>
+            <p>The official ballot gave Reeve 40 votes, Nakase 20 and Sydney Johnson 14. Those 74 votes leave Smesko with none, despite Atlanta’s 30–14 regular season. That is a fair snub argument. Reeve still had the league’s best record at 33–11, while Nakase went 32–12. The Finals run came after the regular-season award was decided, so it cannot be the evidence for changing that ballot.</p>
+          </article>
+        </div>
+        <p class="verdict-close">Our call: Nakase was the right 2025 winner. In 2026, Smesko deserved a place in the conversation; “robbed” depends on whether you think Atlanta’s 30-win season should have earned him some share of the 74 votes.</p>
+      </div>
+    </section>
+
+    <section class="legacy-section thought-section">
+      <p class="eyebrow">FOOD FOR THOUGHT</p>
+      <h2>What should count most in a coaching legacy?</h2>
+      <div class="thought-points">
+        <p><strong>Make the playoffs.</strong> It is the minimum test of a regular-season builder.</p>
+        <p><strong>Win the games that get harder.</strong> Postseason results deserve their own column.</p>
+        <p><strong>Change the ceiling.</strong> A first-year expansion playoff berth and a fourth title are not the same achievement, but both can be extraordinary.</p>
+      </div>
+      <p class="share-prompt">Who belongs above the numbers: the dynasty builder, the best tactician, or the coach who changed what a franchise could be?</p>
+    </section>
+
+    <section class="legacy-section sources-section" aria-labelledby="sources-title">
+      <h2 id="sources-title">Records, awards &amp; reporting</h2>
+      <ul>
+        <li><a href="https://valkyries.wnba.com/news/golden-state-valkyries-advance-to-2026-wnba-finals-20261009" target="_blank" rel="noopener">Golden State advances to the 2026 WNBA Finals</a></li>
+        <li><a href="https://www.wnba.com/news/reeve-named-2026-coach-of-the-year" target="_blank" rel="noopener">2026 WNBA Coach of the Year vote</a></li>
+        <li><a href="https://www.wnba.com/news/nakase-2025-coty" target="_blank" rel="noopener">2025 WNBA Coach of the Year vote</a></li>
+        <li><a href="https://www.wnba.com/standings" target="_blank" rel="noopener">2026 WNBA regular-season standings</a></li>
+        <li><a href="https://dream.wnba.com/karl-smesko" target="_blank" rel="noopener">Atlanta Dream: Karl Smesko profile and coaching background</a></li>
+        <li><a href="https://www.basketball-reference.com/wnba/coaches/" target="_blank" rel="noopener">WNBA head-coach records by season and career</a></li>
+        <li><a href="https://fs.ncaa.org.s3.amazonaws.com/Docs/stats/w_basketball_RB/Coaches.pdf" target="_blank" rel="noopener">NCAA Division I women’s basketball coaching records</a></li>
+        <li><a href="https://www.ncaa.com/history/basketball-women/d1" target="_blank" rel="noopener">NCAA Division I women’s championship history</a></li>
+      </ul>
+      <p class="closing-credit">All ratings are We Know the W editorial scorecards built from the linked records. Scores are rounded to the nearest whole point.</p>
+    </section>
+  </main>
+  <footer class="legacy-footer shell"><a href="/food-for-thought.html">← Back to Food for Thought</a><a href="/coaches.html">Current WNBA coach dashboard →</a></footer>
+
+  <script src="/site.js?v=20261009-operations-v1"></script>
+  <script src="/best-womens-basketball-coaches.js?v=20261011-v1"></script>
+</body>
+</html>

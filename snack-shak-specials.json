@@ -2,6 +2,82 @@
   "site": "Snack Shak",
   "posts": [
     {
+      "slug": "best-womens-basketball-coaches",
+      "type": "feature",
+      "priority": 120,
+      "seriesLabel": "FOOD FOR THOUGHT",
+      "title": "The Best Coaches in the W: Legends, Legacy & the 2026 Finals",
+      "published": "2026-10-11",
+      "week": "Coaching legacies · 2026 WNBA Finals snapshot",
+      "dashboardUrl": "/best-womens-basketball-coaches.html",
+      "dek": "Searchable WNBA and women’s college coaching scoreboards, a Finals matchup between Karl Smesko and Natalie Nakase, and a fair answer to whether Smesko was robbed.",
+      "image": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1642743.png",
+      "storyImage": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1642743.png",
+      "imageAlt": "Official WNBA headshot of Atlanta Dream head coach Karl Smesko",
+      "imageFocus": "50% 18%",
+      "storyImageSourceUrl": "https://dream.wnba.com/karl-smesko",
+      "storyImageCaption": "Official WNBA headshot of Atlanta Dream head coach Karl Smesko.",
+      "teams": [
+        "Atlanta Dream",
+        "Golden State Valkyries",
+        "Minnesota Lynx",
+        "UConn",
+        "Tennessee",
+        "UCLA"
+      ],
+      "sections": [
+        {
+          "title": "What counts as a coaching legacy?",
+          "paragraphs": [
+            "Career win rates, playoff records, championships and career volume each tell a different part of the story. This Food for Thought feature puts the records beside editorial W Scores and keeps WNBA and college scorecards separate.",
+            "The WNBA legacy board highlights title winners and career leaders. The college board runs through the end of 2025–26 and gives the 2026 NCAA champion Cori Close a place alongside the sport’s longest-running winners."
+          ]
+        },
+        {
+          "title": "Two Finals coaches, two paths",
+          "paragraphs": [
+            "Karl Smesko brings 26 college seasons and an unbeaten 5–0 2026 playoff run to Atlanta’s first Finals appearance. Natalie Nakase was the 2025 Coach of the Year after guiding an expansion team to a 23–21 record and an inaugural playoff berth; Golden State is back in the Finals after a 32–12 regular season."
+          ]
+        },
+        {
+          "title": "Was Smesko robbed?",
+          "paragraphs": [
+            "For 2025 Coach of the Year, no: Nakase received 53 of 72 votes and Smesko placed second with 15. For 2026, Smesko was shut out despite Atlanta’s 30–14 regular season. That is a credible snub argument, while Cheryl Reeve’s league-best 33–11 and Nakase’s 32–12 remain strong award cases. The postseason run came after the award ballot."
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "label": "2026 WNBA Finals matchup",
+          "url": "https://valkyries.wnba.com/news/golden-state-valkyries-advance-to-2026-wnba-finals-20261009"
+        },
+        {
+          "label": "2026 Coach of the Year vote",
+          "url": "https://www.wnba.com/news/reeve-named-2026-coach-of-the-year"
+        },
+        {
+          "label": "2025 Coach of the Year vote",
+          "url": "https://www.wnba.com/news/nakase-2025-coty"
+        },
+        {
+          "label": "Karl Smesko coaching profile",
+          "url": "https://dream.wnba.com/karl-smesko"
+        },
+        {
+          "label": "WNBA coaching career records",
+          "url": "https://www.basketball-reference.com/wnba/coaches/"
+        },
+        {
+          "label": "NCAA coaching records",
+          "url": "https://fs.ncaa.org.s3.amazonaws.com/Docs/stats/w_basketball_RB/Coaches.pdf"
+        },
+        {
+          "label": "NCAA championship history",
+          "url": "https://www.ncaa.com/history/basketball-women/d1"
+        }
+      ]
+    },
+    {
       "slug": "drafted-to-dominate-overlooked-to-overdeliver",
       "type": "feature",
       "priority": 65,

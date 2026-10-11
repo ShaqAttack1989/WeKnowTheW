@@ -6,8 +6,9 @@ const CELEBRITY_SOURCES = [
     "category": "Postgame crossover",
     "team": "Atlanta Dream",
     "date": "2026-10-09T12:00:00-04:00",
-    "image": "/assets/images/17989.png",
-    "imageAlt": "Atlanta Dream team artwork",
+    "imageAlt": "Angel Reese and Queen Latifah at the Atlanta Dream–New York Liberty game on September 21, 2026",
+    "imageCredit": "Wendell Cruz/IMAGN Images via Reuters Connect",
+    "imageCreditHref": "https://www.reutersconnect.com/item/wnba-atlanta-dream-at-new-york-liberty/dGFnOnJldXRlcnMuY29tLDIwMjY6bmV3c21sX01UMVVTQVRPREFZMjk4ODM4NzQ",
     "summary": "After Atlanta clinched its Finals berth at Barclays Center, Reese linked up with Maleah Moon and Cornell Young IV, cast members of Netflix’s new A Different World series."
   },
   {

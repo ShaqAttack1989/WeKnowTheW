@@ -5,22 +5,26 @@
   const safeHttps=value=>{const raw=String(value??'').trim();if(!raw)return'';try{const parsed=new URL(raw,location.origin);return parsed.protocol==='https:'||parsed.origin===location.origin?parsed.toString():''}catch{return''}};
   const teamFor=name=>COURTSIDE_TEAMS.find(team=>team.name===name)||{slug:'wnba',name,primary:'#5b2bbf',secondary:'#d7ff42',href:'/around-the-w.html'};
   const calculateCoachRating=item=>{
-    const winRate=record=>{
-      const games=record.wins+record.losses;
-      return games?record.wins/games:0;
-    };
-    const priorRegular={
-      wins:Math.max(0,item.careerRegular.wins-item.season2026.wins),
-      losses:Math.max(0,item.careerRegular.losses-item.season2026.losses)
-    };
-    const points={
-      season2026:winRate(item.season2026)*30,
-      priorRegular:winRate(priorRegular)*20,
-      playoffs:winRate(item.careerPlayoffs)*15,
-      titles:Math.min(item.titles.length*5,25),
-      awards:Math.min(item.coyYears.length*2,10)
-    };
-    return {total:Math.round(Object.values(points).reduce((sum,value)=>sum+value,0)),points};
+    const games=record=>(record?.wins||0)+(record?.losses||0);
+    const winRate=record=>games(record)?record.wins/games(record):0;
+    const beforeSeason=(career,season)=>({
+      wins:Math.max(0,(career?.wins||0)-(season?.wins||0)),
+      losses:Math.max(0,(career?.losses||0)-(season?.losses||0))
+    });
+    const priorRegular=beforeSeason(item.careerRegular,item.season2026);
+    const priorPlayoffs=beforeSeason(item.careerPlayoffs,item.seasonPlayoffs2026);
+    const firstYear=games(priorRegular)===0&&games(priorPlayoffs)===0;
+    const points=firstYear?[
+      {label:'2026 regular season · first year',points:winRate(item.season2026)*40,max:40},
+      {label:'2026 playoffs · first year',points:winRate(item.seasonPlayoffs2026)*40,max:40}
+    ]:[
+      {label:'Career regular · through 2025',points:winRate(priorRegular)*20,max:20},
+      {label:'2026 regular season',points:winRate(item.season2026)*20,max:20},
+      {label:'Career playoffs · through 2025',points:winRate(priorPlayoffs)*20,max:20},
+      {label:'2026 playoffs',points:winRate(item.seasonPlayoffs2026)*20,max:20}
+    ];
+    points.push({label:'WNBA titles',points:Math.min((item.titles||[]).length*5,20),max:20});
+    return {total:Math.round(points.reduce((sum,component)=>sum+component.points,0)),points,firstYear};
   };
   const initials=name=>String(name).split(/\s+|&/).filter(Boolean).slice(0,2).map(word=>word[0]).join('').toUpperCase();
   const clipboardNames=new Set((window.COURT_TO_CLIPBOARD||COURT_TO_CLIPBOARD||[]).map(item=>item.name));
@@ -101,11 +105,7 @@
       const rating=calculateCoachRating(item);
       const ratingBreakdown=
         '<div class="coach-rating-breakdown" aria-label="We Know the W Rating points by component">'+
-          '<div><span>2026 form</span><strong>'+displayPoints(rating.points.season2026)+' / 30</strong></div>'+
-          '<div><span>Pre-2026 regular</span><strong>'+displayPoints(rating.points.priorRegular)+' / 20</strong></div>'+
-          '<div><span>Career playoffs</span><strong>'+displayPoints(rating.points.playoffs)+' / 15</strong></div>'+
-          '<div><span>Titles</span><strong>'+displayPoints(rating.points.titles)+' / 25</strong></div>'+
-          '<div><span>COY awards</span><strong>'+displayPoints(rating.points.awards)+' / 10</strong></div>'+
+          rating.points.map(component=>'<div><span>'+escape(component.label)+'</span><strong>'+displayPoints(component.points)+' / '+component.max+'</strong></div>').join('')+
         '</div>';
       spotlight.innerHTML=
         '<article class="coach-spotlight-card" style="--team:'+team.primary+';--team2:'+team.secondary+'">'+

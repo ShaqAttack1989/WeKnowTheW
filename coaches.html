@@ -7,7 +7,7 @@
   <meta name="description" content="Meet every current WNBA head coach and former players who moved from court to clipboard.">
   <link rel="stylesheet" href="/styles.css">
   <link rel="stylesheet" href="/landing.css">
-  <link rel="stylesheet" href="/courtside-culture.css?v=20261011-coach-rating-v3">
+  <link rel="stylesheet" href="/courtside-culture.css?v=20261011-coach-rating-v4">
 </head>
 <body class="section-page culture-page" data-culture-page="coaches">
   <header class="subhero">
@@ -48,15 +48,15 @@
           <details class="coach-rating-method">
             <summary>How the We Know the W Rating is calculated</summary>
             <div class="coach-rating-method-body">
-              <p>The editorial score runs from 0 to 100 and combines recent form, career results and recognition:</p>
+              <p>The We Know the W Rating is a 0–100, results-focused score: 40 points for regular-season winning, 40 for playoff winning and 20 for WNBA championships.</p>
               <ul>
-                <li>2026 regular-season win percentage × 30 points</li>
-                <li>Pre-2026 WNBA regular-season win percentage × 20 points</li>
-                <li>Career WNBA playoff win percentage × 15 points</li>
-                <li>5 points per WNBA title as head coach, capped at 25</li>
-                <li>2 points per WNBA Coach of the Year award, capped at 10</li>
+                <li>Pre-2026 WNBA career regular-season win percentage × 20</li>
+                <li>2026 regular-season win percentage × 20</li>
+                <li>Pre-2026 WNBA career playoff win percentage × 20</li>
+                <li>2026 playoff win percentage × 20</li>
+                <li>5 points per WNBA title as head coach, capped at 20</li>
               </ul>
-              <p>Percentages use the records shown below. The total is rounded to the nearest whole point. A missing regular-season or playoff sample earns zero points for that component. This is a We Know the W editorial comparison, not an official WNBA statistic.</p>
+              <p>For a first-year WNBA head coach with no pre-2026 record, the 2026 regular-season rate and playoff rate each carry 40 points. Career components end before 2026 so this season is not counted twice. Missing game samples earn zero for that component. Coach of the Year honors remain visible on the dashboard but do not affect this score. The total rounds to the nearest whole point. This is an editorial comparison, not an official WNBA statistic.</p>
             </div>
           </details>
           <div class="coach-dashboard-kpis" id="coachDashboardKpis" aria-label="Coach dashboard totals"></div>
@@ -109,7 +109,7 @@
   </main>
   <script src="/site.js?v=20261009-operations-v1"></script>
   <script src="/courtside-data.js?v=20261011-coach-dashboard-v1"></script>
-  <script src="/courtside-page.js?v=20261011-coach-rating-v1"></script>
+  <script src="/courtside-page.js?v=20261011-career-playoff-v2"></script>
   <script src="/coach-photo-fix.js?v=20261009-official-portrait-v2"></script>
 </body>
 </html>

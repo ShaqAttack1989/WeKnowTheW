@@ -70,7 +70,7 @@
 .coach-spotlight-trophy small{font-weight:800;font-size:.63rem}
 .coach-spotlight-rating{min-width:154px}
 .coach-spotlight-rating strong{font-size:2.5rem;letter-spacing:-.06em}
-.coach-rating-breakdown{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:.5rem;padding:0 1.1rem 1rem}
+.coach-rating-breakdown{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:.5rem;padding:0 1.1rem 1rem}
 .coach-rating-breakdown>div{display:flex;justify-content:space-between;align-items:center;gap:.3rem;padding:.55rem .62rem;border:1px solid #51465a;border-radius:11px;background:rgba(15,12,18,.45);min-width:0}
 .coach-rating-breakdown span{color:#d4c8db;font-size:.64rem;font-weight:800}
 .coach-rating-breakdown strong{color:var(--culture-lime);font-size:.68rem;white-space:nowrap}

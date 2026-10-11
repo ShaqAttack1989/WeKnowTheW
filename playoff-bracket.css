@@ -70,3 +70,44 @@
   .wktw-bracket-card-top span,.wktw-bracket-round>header span,.wktw-bracket-round>header small{font-size:.82rem}
   .wktw-bracket>footer{align-items:flex-start;flex-direction:column;padding:16px}
 }
+
+
+/* Central, team-by-team draft and playoff context in Food for Thought stories. */
+.playoff-draft-board{margin:32px 0;padding:clamp(18px,3.4vw,34px);border:1px solid rgba(255,255,255,.14);border-radius:26px;background:radial-gradient(circle at 88% 0,rgba(111,37,232,.22),transparent 38%),linear-gradient(145deg,#11101a,#17111f 62%,#10131b);color:#fff}
+.playoff-draft-heading{display:flex;justify-content:space-between;align-items:flex-end;gap:18px;margin-bottom:20px}
+.playoff-draft-heading>div>span{display:block;color:#d8ff4f;font-size:.72rem;font-weight:950;letter-spacing:.13em;text-transform:uppercase}
+.playoff-draft-heading h3{margin:8px 0 7px;font-size:clamp(1.7rem,3.5vw,2.7rem);line-height:1.02;letter-spacing:-.035em;color:#fff}
+.playoff-draft-heading p{max-width:760px;margin:0;color:#d5d2df;font-size:.98rem;line-height:1.5}
+.playoff-draft-heading>small{flex:0 0 auto;color:#c8c3d1;font-size:.68rem;font-weight:850;letter-spacing:.08em;text-align:right}
+.playoff-draft-highlights{display:grid;grid-template-columns:1.2fr 1fr;gap:10px;margin:0 0 16px}
+.playoff-draft-highlights>div{display:grid;gap:4px;padding:15px 17px;border:1px solid rgba(216,255,79,.3);border-radius:16px;background:linear-gradient(115deg,rgba(216,255,79,.12),rgba(111,37,232,.15))}
+.playoff-draft-highlights span{color:#d8ff4f;font-size:.65rem;font-weight:950;letter-spacing:.11em}
+.playoff-draft-highlights strong{font-size:1.27rem;line-height:1.1;color:#fff}
+.playoff-draft-highlights small{color:#e4e0eb;font-size:.78rem;line-height:1.4}
+.playoff-draft-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.playoff-draft-team{display:flex;flex-direction:column;min-width:0;padding:14px;border:1px solid rgba(255,255,255,.14);border-top:3px solid var(--draft-team);border-radius:17px;background:rgba(9,9,14,.68)}
+.playoff-draft-team.is-finalist{border-color:rgba(216,255,79,.45);border-top-color:#d8ff4f;background:linear-gradient(155deg,rgba(216,255,79,.11),rgba(9,9,14,.76) 44%)}
+.playoff-draft-team-head{display:flex;justify-content:space-between;align-items:flex-start;gap:8px}
+.playoff-draft-team-id{display:flex;align-items:center;gap:9px;min-width:0}
+.playoff-draft-team-id img{width:34px;height:34px;flex:0 0 34px;object-fit:contain}
+.playoff-draft-team-id>div{min-width:0}
+.playoff-draft-team-id>div>span{display:block;margin-bottom:4px;color:#c9c2d4;font-size:.59rem;font-weight:950;letter-spacing:.08em}
+.playoff-draft-team-id h4{margin:0;color:#fff;font-size:.92rem;line-height:1.1}
+.playoff-draft-count{display:flex;align-items:center;gap:5px;flex:0 0 auto;color:#d8ff4f}
+.playoff-draft-count strong{font-size:1.65rem;line-height:.95}
+.playoff-draft-count span{font-size:.52rem;font-weight:950;line-height:1.05}
+.playoff-draft-run{margin:12px 0 8px;padding:9px 0;border-top:1px solid rgba(255,255,255,.12);border-bottom:1px solid rgba(255,255,255,.12)}
+.playoff-draft-run span{display:block;margin-bottom:4px;color:#d8ff4f;font-size:.57rem;font-weight:950;letter-spacing:.1em}
+.playoff-draft-run p{margin:0;color:#e4e0eb;font-size:.71rem;line-height:1.35}
+.playoff-draft-picks{display:grid;grid-template-columns:minmax(0,1fr);gap:0;margin:0;padding:0;list-style:none}
+.playoff-draft-picks li{display:grid;grid-template-columns:27px minmax(0,1fr);column-gap:6px;align-items:start;padding:5px 0;border-bottom:1px solid rgba(255,255,255,.07)}
+.playoff-draft-pick-slot{grid-row:span 2;color:#d8ff4f;font-size:.67rem;font-weight:950}
+.playoff-draft-pick-name{color:#fff;font-size:.69rem;font-weight:800;line-height:1.25;overflow-wrap:anywhere}
+.playoff-draft-picks li small{grid-column:2;color:#bdb6c9;font-size:.56rem;line-height:1.2}
+.playoff-draft-team-note{margin:8px 0 0;color:#ffe8a1;font-size:.65rem;line-height:1.4}
+.playoff-draft-roster-link{margin-top:auto;padding-top:10px;color:#d8ff4f;font-size:.6rem;font-weight:950;letter-spacing:.08em;text-decoration:none}
+.playoff-draft-roster-link:hover{text-decoration:underline}
+.playoff-draft-method{margin:16px 0 0;padding-top:12px;border-top:1px solid rgba(255,255,255,.12);color:#c8c3d1;font-size:.7rem;line-height:1.5}
+@media(max-width:1050px){.playoff-draft-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:620px){.playoff-draft-board{padding:18px 13px;border-radius:19px}.playoff-draft-heading{align-items:flex-start;flex-direction:column;gap:8px}.playoff-draft-heading>small{text-align:left}.playoff-draft-highlights{grid-template-columns:1fr}.playoff-draft-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.playoff-draft-team{padding:10px;border-radius:14px}.playoff-draft-team-id{gap:6px}.playoff-draft-team-id img{width:27px;height:27px;flex-basis:27px}.playoff-draft-team-id>div>span{font-size:.52rem}.playoff-draft-team-id h4{font-size:.77rem}.playoff-draft-count strong{font-size:1.35rem}.playoff-draft-count span{font-size:.47rem}.playoff-draft-run p{font-size:.66rem}.playoff-draft-pick-name{font-size:.64rem}}
+@media(max-width:380px){.playoff-draft-grid{grid-template-columns:1fr}}

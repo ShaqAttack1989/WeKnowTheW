@@ -1525,7 +1525,7 @@
       "seriesLabel": "FOOD FOR THOUGHT · PLAYOFF WATCH GUIDE",
       "title": "Two Sweeps, One New Champion: Dream–Valkyries Finals Are Set",
       "published": "2026-10-02",
-      "updated": "2026-10-10",
+      "updated": "2026-10-11",
       "week": "Finals · Golden State vs. Atlanta · Begins Oct. 17",
       "image": "https://i.guim.co.uk/img/media/53109b8f7bdd419a65d3abb786964fac24ab093b/0_0_4506_3005/master/4506.jpg?width=1920&quality=85&auto=format&fit=max&s=92e194d3c36e859bc2e846bd89813fed",
       "imageFit": "contain",
@@ -1556,7 +1556,7 @@
           {
             "value": "11",
             "label": "Finalists’ top-10 picks",
-            "note": "Verified after both October 9 semifinals."
+            "note": "Atlanta 7 · Golden State 4. See the full eight-team draft board directly below."
           }
         ],
         "highlights": []
@@ -1666,6 +1666,18 @@
         {
           "label": "WNBA · Renee Montgomery career bio",
           "url": "https://www.wnba.com/player/201904/renee-montgomery/bio"
+        },
+        {
+          "label": "WNBA · 2025 official draft board",
+          "url": "https://www.wnba.com/draft/2025/board"
+        },
+        {
+          "label": "WNBA · 2026 official draft board",
+          "url": "https://www.wnba.com/draft/2026/board"
+        },
+        {
+          "label": "WNBA · Azzi Fudd season-ending injury update",
+          "url": "https://www.wnba.com/news/dallas-wings-azzi-fudd-to-undergo-season-ending-knee-surgery"
         }
       ],
       "dashboardUrl": "/food-for-thought.html?post=the-playoff-watch-party-2026#story",
@@ -1867,6 +1879,397 @@
             "credit": "Graphic: Just Women’s Sports (JWS)",
             "sourceUrl": "https://www.instagram.com/justwomenssports/",
             "imageFit": "contain"
+          }
+        ]
+      },
+      "playoffDraftBoard": {
+        "title": "Top-10 draft picks, team by team",
+        "subtitle": "A roster-based draft snapshot for all eight playoff clubs, paired with each team’s seed and postseason finish.",
+        "asOf": "OFFICIAL BRACKET · UPDATED OCT. 11, 2026",
+        "highlights": [
+          {
+            "label": "FINALS MATCHUP",
+            "value": "ATL 7 · GSV 4",
+            "note": "11 top-10 picks across the finalists. Rhyne Howard is the only No. 1 overall pick between them."
+          },
+          {
+            "label": "FINALS GAME 1",
+            "value": "OCT. 17",
+            "note": "Golden State hosts Atlanta · best of seven"
+          }
+        ],
+        "note": "Pick numbers are overall selections and follow the player, even if another team drafted them. Counts use 2026 team rosters. Dallas includes Azzi Fudd (No. 1, 2026), who is out for the season.",
+        "teams": [
+          {
+            "team": "Golden State Valkyries",
+            "code": "GSV",
+            "seed": 2,
+            "status": "FINALS",
+            "result": "Beat Dallas 2–1, then swept Las Vegas 3–0.",
+            "roster": "https://valkyries.wnba.com/roster",
+            "picks": [
+              {
+                "name": "Gabby Williams",
+                "year": 2018,
+                "pick": 4,
+                "origin": "CHI"
+              },
+              {
+                "name": "Justė Jocytė",
+                "year": 2025,
+                "pick": 5,
+                "origin": "GSV"
+              },
+              {
+                "name": "Veronica Burton",
+                "year": 2022,
+                "pick": 7,
+                "origin": "DAL"
+              },
+              {
+                "name": "Laeticia Amihere",
+                "year": 2023,
+                "pick": 8,
+                "origin": "ATL"
+              }
+            ],
+            "color": "#6d35a8"
+          },
+          {
+            "team": "Atlanta Dream",
+            "code": "ATL",
+            "seed": 4,
+            "status": "FINALS",
+            "result": "Swept Washington 2–0 and New York 3–0.",
+            "roster": "https://dream.wnba.com/roster",
+            "picks": [
+              {
+                "name": "Rhyne Howard",
+                "year": 2022,
+                "pick": 1,
+                "origin": "ATL"
+              },
+              {
+                "name": "Allisha Gray",
+                "year": 2017,
+                "pick": 4,
+                "origin": "DAL"
+              },
+              {
+                "name": "DeWanna Bonner",
+                "year": 2009,
+                "pick": 5,
+                "origin": "PHX"
+              },
+              {
+                "name": "Jordin Canada",
+                "year": 2018,
+                "pick": 5,
+                "origin": "SEA"
+              },
+              {
+                "name": "Shatori Walker-Kimbrough",
+                "year": 2017,
+                "pick": 6,
+                "origin": "WAS"
+              },
+              {
+                "name": "Angel Reese",
+                "year": 2024,
+                "pick": 7,
+                "origin": "CHI"
+              },
+              {
+                "name": "Brionna Jones",
+                "year": 2017,
+                "pick": 8,
+                "origin": "CON"
+              }
+            ],
+            "color": "#c8102e"
+          },
+          {
+            "team": "Las Vegas Aces",
+            "code": "LVA",
+            "seed": 3,
+            "status": "SEMIFINAL EXIT",
+            "result": "Beat Indiana 2–1; lost to Golden State 0–3.",
+            "roster": "https://aces.wnba.com/roster",
+            "picks": [
+              {
+                "name": "Jewell Loyd",
+                "year": 2015,
+                "pick": 1,
+                "origin": "SEA"
+              },
+              {
+                "name": "A'ja Wilson",
+                "year": 2018,
+                "pick": 1,
+                "origin": "LVA"
+              },
+              {
+                "name": "Jackie Young",
+                "year": 2019,
+                "pick": 1,
+                "origin": "LVA"
+              },
+              {
+                "name": "NaLyssa Smith",
+                "year": 2022,
+                "pick": 2,
+                "origin": "IND"
+              },
+              {
+                "name": "Cheyenne Parker-Tyus",
+                "year": 2015,
+                "pick": 5,
+                "origin": "CHI"
+              }
+            ],
+            "color": "#c8102e"
+          },
+          {
+            "team": "New York Liberty",
+            "code": "NYL",
+            "seed": 8,
+            "status": "SEMIFINAL EXIT",
+            "result": "Swept Minnesota 2–0; lost to Atlanta 0–3.",
+            "roster": "https://liberty.wnba.com/roster",
+            "picks": [
+              {
+                "name": "Breanna Stewart",
+                "year": 2016,
+                "pick": 1,
+                "origin": "SEA"
+              },
+              {
+                "name": "Sabrina Ionescu",
+                "year": 2020,
+                "pick": 1,
+                "origin": "NYL"
+              },
+              {
+                "name": "Satou Sabally",
+                "year": 2020,
+                "pick": 2,
+                "origin": "DAL"
+              },
+              {
+                "name": "Jonquel Jones",
+                "year": 2016,
+                "pick": 6,
+                "origin": "LAS"
+              }
+            ],
+            "color": "#6eceb2"
+          },
+          {
+            "team": "Minnesota Lynx",
+            "code": "MIN",
+            "seed": 1,
+            "status": "FIRST-ROUND EXIT",
+            "result": "Lost to New York 0–2.",
+            "roster": "https://lynx.wnba.com/roster",
+            "picks": [
+              {
+                "name": "Olivia Miles",
+                "year": 2026,
+                "pick": 2,
+                "origin": "MIN"
+              },
+              {
+                "name": "Kayla McBride",
+                "year": 2014,
+                "pick": 3,
+                "origin": "SAS"
+              },
+              {
+                "name": "Natasha Howard",
+                "year": 2014,
+                "pick": 5,
+                "origin": "IND"
+              },
+              {
+                "name": "Nia Coffey",
+                "year": 2017,
+                "pick": 5,
+                "origin": "SAS"
+              },
+              {
+                "name": "Napheesa Collier",
+                "year": 2019,
+                "pick": 6,
+                "origin": "MIN"
+              },
+              {
+                "name": "Courtney Williams",
+                "year": 2016,
+                "pick": 8,
+                "origin": "PHX"
+              }
+            ],
+            "color": "#0c2340"
+          },
+          {
+            "team": "Washington Mystics",
+            "code": "WAS",
+            "seed": 5,
+            "status": "FIRST-ROUND EXIT",
+            "result": "Lost to Atlanta 0–2.",
+            "roster": "https://mystics.wnba.com/roster",
+            "picks": [
+              {
+                "name": "Shakira Austin",
+                "year": 2022,
+                "pick": 3,
+                "origin": "WAS"
+              },
+              {
+                "name": "Sonia Citron",
+                "year": 2025,
+                "pick": 3,
+                "origin": "WAS"
+              },
+              {
+                "name": "Kiki Iriafen",
+                "year": 2025,
+                "pick": 4,
+                "origin": "WAS"
+              },
+              {
+                "name": "Lauren Betts",
+                "year": 2026,
+                "pick": 4,
+                "origin": "WAS"
+              },
+              {
+                "name": "Michaela Onyenwere",
+                "year": 2021,
+                "pick": 6,
+                "origin": "NYL"
+              },
+              {
+                "name": "Georgia Amoore",
+                "year": 2025,
+                "pick": 6,
+                "origin": "WAS"
+              },
+              {
+                "name": "Angela Dugalić",
+                "year": 2026,
+                "pick": 9,
+                "origin": "WAS"
+              }
+            ],
+            "color": "#002b5c"
+          },
+          {
+            "team": "Indiana Fever",
+            "code": "IND",
+            "seed": 6,
+            "status": "FIRST-ROUND EXIT",
+            "result": "Lost to Las Vegas 1–2.",
+            "roster": "https://fever.wnba.com/roster",
+            "picks": [
+              {
+                "name": "Aliyah Boston",
+                "year": 2023,
+                "pick": 1,
+                "origin": "IND"
+              },
+              {
+                "name": "Caitlin Clark",
+                "year": 2024,
+                "pick": 1,
+                "origin": "IND"
+              },
+              {
+                "name": "Kelsey Mitchell",
+                "year": 2018,
+                "pick": 2,
+                "origin": "IND"
+              },
+              {
+                "name": "Lexie Hull",
+                "year": 2022,
+                "pick": 6,
+                "origin": "IND"
+              },
+              {
+                "name": "Tyasha Harris",
+                "year": 2020,
+                "pick": 7,
+                "origin": "DAL"
+              },
+              {
+                "name": "Raven Johnson",
+                "year": 2026,
+                "pick": 10,
+                "origin": "IND"
+              }
+            ],
+            "color": "#002d62"
+          },
+          {
+            "team": "Dallas Wings",
+            "code": "DAL",
+            "seed": 7,
+            "status": "FIRST-ROUND EXIT",
+            "result": "Lost to Golden State 1–2.",
+            "roster": "https://wings.wnba.com/roster",
+            "note": "Azzi Fudd (2026 No. 1) is included in the roster count; she was ruled out for the rest of the season on Aug. 19.",
+            "picks": [
+              {
+                "name": "Paige Bueckers",
+                "year": 2025,
+                "pick": 1,
+                "origin": "DAL"
+              },
+              {
+                "name": "Azzi Fudd",
+                "year": 2026,
+                "pick": 1,
+                "origin": "DAL"
+              },
+              {
+                "name": "Odyssey Sims",
+                "year": 2014,
+                "pick": 2,
+                "origin": "TUL"
+              },
+              {
+                "name": "Awak Kuier",
+                "year": 2021,
+                "pick": 2,
+                "origin": "DAL"
+              },
+              {
+                "name": "Maddy Siegrist",
+                "year": 2023,
+                "pick": 3,
+                "origin": "DAL"
+              },
+              {
+                "name": "Arike Ogunbowale",
+                "year": 2019,
+                "pick": 5,
+                "origin": "DAL"
+              },
+              {
+                "name": "Haley Jones",
+                "year": 2023,
+                "pick": 6,
+                "origin": "ATL"
+              },
+              {
+                "name": "Alanna Smith",
+                "year": 2019,
+                "pick": 8,
+                "origin": "PHX"
+              }
+            ],
+            "color": "#0c2340"
           }
         ]
       }

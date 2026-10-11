@@ -2,6 +2,74 @@
   "site": "Snack Shak",
   "posts": [
     {
+      "slug": "renee-montgomery-player-owner-finals-2026",
+      "type": "byte",
+      "priority": 5600,
+      "homepageSeason": "wnba-playoffs",
+      "seriesLabel": "SNACK SHAK BYTE · COURT TO CLIPBOARD",
+      "title": "Renee Montgomery Reaches the Finals From Both Sides",
+      "published": "2026-10-10",
+      "updated": "2026-10-10",
+      "week": "Finals Herstory · Oct. 10, 2026",
+      "dashboardUrl": "/snack-shak-bytes.html?post=renee-montgomery-player-owner-finals-2026#story",
+      "image": "https://cdn.wnba.com/sites/4/2023/02/Renee-1.png",
+      "storyImage": "https://cdn.wnba.com/sites/4/2023/02/Renee-1.png",
+      "imageFit": "contain",
+      "imageAlt": "Renee Montgomery, partner and vice president of the Atlanta Dream, at courtside",
+      "storyImageCaption": "Renee Montgomery is a partner and vice president of the Atlanta Dream. Photo: WNBA.",
+      "storyImageSourceUrl": "https://www.wnba.com/news/bhm-emerging-leaders-renee-montgomery",
+      "imageFallback": "/assets/team-posters/atlanta-dream.webp",
+      "storyImageFallback": "/assets/team-posters/atlanta-dream.webp",
+      "teams": [
+        "Atlanta Dream",
+        "Minnesota Lynx"
+      ],
+      "players": [
+        "Renee Montgomery"
+      ],
+      "dek": "Minnesota gave her two WNBA championships on the floor. Atlanta’s Finals berth puts Renee Montgomery back on the championship stage as a co-owner and vice president.",
+      "sections": [
+        {
+          "title": "Two titles, a new seat",
+          "paragraphs": [
+            "Montgomery won WNBA titles with Minnesota in 2015 and 2017. She finished her 11-season playing career with Atlanta, sat out 2020 to focus on social reform, and joined the Dream’s ownership group in 2021. The team lists her as partner and vice president."
+          ]
+        },
+        {
+          "title": "A first with Atlanta",
+          "paragraphs": [
+            "Atlanta clinched its first Finals berth since 2013 with an 85–83 win over New York on October 9. Lining up Montgomery’s Finals appearances with her ownership timeline makes her the first person in WNBA history to reach the series in both capacities: first with Minnesota as a player, now with Atlanta as a team owner.",
+            "The WNBA already marks her as the first former player to hold both team equity and an executive role. The 2026 berth adds a Finals milestone to that path."
+          ]
+        },
+        {
+          "title": "Why this belongs in the Finals story",
+          "paragraphs": [
+            "The Dream’s players will decide the series on the floor; Montgomery is not suiting up. Her place in the story is different: a former player helps lead the franchise as it competes for its first championship.",
+            "That path from the court to ownership shows how a WNBA career can keep shaping the league after the final season ends."
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "label": "Atlanta Dream · Renee Montgomery official profile",
+          "url": "https://dream.wnba.com/renee-montgomery"
+        },
+        {
+          "label": "WNBA · Renee Montgomery career bio",
+          "url": "https://www.wnba.com/player/201904/renee-montgomery/bio"
+        },
+        {
+          "label": "Atlanta Dream · Finals clincher",
+          "url": "https://dream.wnba.com/news/dream-heads-to-wnba-finals-after-sweeping-liberty"
+        },
+        {
+          "label": "WNBA · Game 3 recap",
+          "url": "https://www.wnba.com/news/2026-playoffs-dream-liberty-game-3-recap"
+        }
+      ]
+    },
+    {
       "slug": "ballhalla-meets-the-balance-sheet",
       "type": "byte",
       "priority": 5400,
@@ -1554,6 +1622,13 @@
           ]
         },
         {
+          "title": "Renee Montgomery’s story has two Finals seats",
+          "paragraphs": [
+            "Dream partner and vice president Renee Montgomery won WNBA championships with Minnesota in 2015 and 2017. She joined Atlanta’s ownership group in 2021; when the Dream clinched a 2026 Finals berth, she became the first person in WNBA history to reach the Finals as both a player and team owner.",
+            "The WNBA describes Montgomery as the first former player to hold both team equity and an executive title. Her Finals story now spans two franchises and two roles: champion on the floor, then a Finals-bound owner in Atlanta."
+          ]
+        },
+        {
           "title": "The Finals watch schedule",
           "paragraphs": [
             "All times Eastern. Golden State hosts Games 1, 2, 5 and 7; Atlanta hosts Games 3, 4 and 6.",
@@ -1583,6 +1658,14 @@
         {
           "label": "WNBA · Official Finals times and broadcasts",
           "url": "https://www.wnba.com/news/2026-wnba-postseason-faq"
+        },
+        {
+          "label": "Atlanta Dream · Renee Montgomery official profile",
+          "url": "https://dream.wnba.com/renee-montgomery"
+        },
+        {
+          "label": "WNBA · Renee Montgomery career bio",
+          "url": "https://www.wnba.com/player/201904/renee-montgomery/bio"
         }
       ],
       "dashboardUrl": "/food-for-thought.html?post=the-playoff-watch-party-2026#story",

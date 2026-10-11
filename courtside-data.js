@@ -32,7 +32,7 @@ const COURT_TO_CLIPBOARD = [
 ].map(([name,role,path,source])=>({name,role,path,source}));
 
 const COURTSIDE_OWNERS = [
-  ['Atlanta Dream','Larry Gottesdiener, Renee Montgomery & Suzanne Abair','Player-informed leadership has been central to the franchise since 2021.'],
+  ['Atlanta Dream','Larry Gottesdiener, Renee Montgomery & Suzanne Abair','Two-time Lynx champion Renee Montgomery returns to the Finals as Atlanta’s partner and vice president. The 2026 berth makes her the first person to reach the series as both a player and owner.'],
   ['Chicago Sky','Michael Alter','The founding ownership era continues in Chicago.'],
   ['Connecticut Sun','Fertitta Entertainment / Tilman J. Fertitta','The WNBA and NBA approved the sale from the Mohegan Tribe in May 2026. Fertitta Entertainment now owns the franchise, which becomes the Houston Comets for the 2027 season.'],
   ['Dallas Wings','Bill Cameron and the Wings ownership group','North Texas investment now spans the team, front office and future arena plans.'],

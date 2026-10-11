@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-11T14:03:15.166Z",
+  "generatedAt": "2026-10-11T18:55:01.492Z",
   "movement": {
     "latestTransactionDate": "2026-09-28",
     "transactions": [
@@ -1447,7 +1447,7 @@
         "status": "OUT",
         "reason": "Hand · Gray (hand) is out for Friday's Game 3 of the semifinals against New York.",
         "updated": "2026-10-09",
-        "returnDate": "2026-10-11",
+        "returnDate": "2026-10-17",
         "matchup": "",
         "gameTime": "",
         "source": "ESPN via WeHoop-compatible endpoint",

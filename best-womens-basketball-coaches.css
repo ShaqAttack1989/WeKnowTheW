@@ -907,6 +907,7 @@
 }
 
 .legacy-table {
+  max-width: 100%;
   min-width: 0;
   table-layout: fixed;
   width: 100%;
@@ -924,6 +925,7 @@
 }
 
 .legacy-table td {
+  overflow: visible;
   overflow-wrap: anywhere;
   padding: .72rem .5rem;
   vertical-align: middle;
@@ -933,20 +935,20 @@
 #wnbaTable th:nth-child(1),
 #wnbaTable td:nth-child(1) { width: 5%; }
 #wnbaTable th:nth-child(2),
-#wnbaTable td:nth-child(2) { width: 23%; }
+#wnbaTable td:nth-child(2) { width: 22%; }
 #wnbaTable th:nth-child(3),
-#wnbaTable td:nth-child(3) { width: 17%; }
+#wnbaTable td:nth-child(3) { width: 16%; }
 #wnbaTable th:nth-child(4),
-#wnbaTable td:nth-child(4) { width: 17%; }
+#wnbaTable td:nth-child(4) { width: 16%; }
 #wnbaTable th:nth-child(5),
 #wnbaTable td:nth-child(5) { width: 14%; }
 #wnbaTable th:nth-child(6),
-#wnbaTable td:nth-child(6) { width: 24%; }
+#wnbaTable td:nth-child(6) { width: 27%; }
 
 #collegeTable th:nth-child(1),
-#collegeTable td:nth-child(1) { width: 5%; }
+#collegeTable td:nth-child(1) { width: 4%; }
 #collegeTable th:nth-child(2),
-#collegeTable td:nth-child(2) { width: 21%; }
+#collegeTable td:nth-child(2) { width: 20%; }
 #collegeTable th:nth-child(3),
 #collegeTable td:nth-child(3) { width: 12%; }
 #collegeTable th:nth-child(4),
@@ -954,9 +956,9 @@
 #collegeTable th:nth-child(5),
 #collegeTable td:nth-child(5) { width: 12%; }
 #collegeTable th:nth-child(6),
-#collegeTable td:nth-child(6) { width: 17%; }
+#collegeTable td:nth-child(6) { width: 18%; }
 #collegeTable th:nth-child(7),
-#collegeTable td:nth-child(7) { width: 24%; }
+#collegeTable td:nth-child(7) { width: 25%; }
 
 .score-cell {
   align-items: center;

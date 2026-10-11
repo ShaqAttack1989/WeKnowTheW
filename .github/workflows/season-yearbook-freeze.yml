@@ -1,0 +1,55 @@
+name: Season yearbook freeze
+
+on:
+  schedule:
+    # After the WNBA season, check daily for a verified completed Finals before closing the book.
+    - cron: '23 14 * 11,12 *'
+  workflow_dispatch:
+    inputs:
+      season:
+        description: 'Season to freeze'
+        required: false
+        type: string
+      force:
+        description: 'Force freeze even before normal closeout checks'
+        required: false
+        default: false
+        type: boolean
+
+permissions:
+  contents: write
+
+concurrency:
+  group: season-yearbook-freeze
+  cancel-in-progress: false
+
+jobs:
+  freeze:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Close completed season book
+        env:
+          YEARBOOK_SEASON: ${{ inputs.season }}
+          FORCE_YEARBOOK_FREEZE: ${{ inputs.force }}
+          YEARBOOK_BASE_URL: https://www.weknowthew.com
+        run: node scripts/freeze-season-yearbook.mjs
+      - name: Validate yearbook code
+        run: |
+          node --check season-yearbooks.js
+          node --check api/yearbook-transactions.js
+          node --check scripts/freeze-season-yearbook.mjs
+      - name: Publish newly frozen book
+        run: |
+          if git status --porcelain data/season-yearbooks | grep -q .; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add data/season-yearbooks
+            git commit -m "Freeze completed WNBA season yearbook"
+            git push
+          else
+            echo "No season yearbook is ready to freeze."
+          fi

@@ -1,0 +1,33 @@
+{
+  "Tiffany Hayes": {
+    "status": "returned",
+    "label": "RETIRED + RETURNED",
+    "icon": "↩",
+    "retiredYear": 2023,
+    "returnedYear": 2024,
+    "summary": "Retired from the WNBA after the 2023 season, then returned in 2024.",
+    "source": "https://www.wnba.com/webview/news/tiffany-hayes-breathes-life-into-valkyries-inaugural-season",
+    "sourceLabel": "WNBA career feature"
+  },
+  "Nneka Ogwumike": {
+    "status": "retired",
+    "label": "RETIRED",
+    "icon": "✓",
+    "announcedDate": "2026-08-19",
+    "retiredYear": 2026,
+    "effectiveDate": "2026-09-24",
+    "summary": "Retired from the WNBA following the 2026 season after 15 seasons. Her final regular-season game was Sept. 24, 2026.",
+    "source": "https://www.wnba.com/news/wnba-statement-nneka-ogwumike-retirement",
+    "sourceLabel": "WNBA retirement statement"
+  },
+  "Jordan Harrison": {
+    "status": "retired",
+    "label": "RETIRED",
+    "icon": "✓",
+    "announcedDate": "2026-09-28",
+    "retiredYear": 2026,
+    "summary": "Announced she is stepping away from playing basketball after her rookie 2026 WNBA season with the Portland Fire.",
+    "source": "https://www.kptv.com/2026/09/29/portland-fires-jordan-harrison-stepping-away-basketball/",
+    "sourceLabel": "KPTV · retirement report"
+  }
+}

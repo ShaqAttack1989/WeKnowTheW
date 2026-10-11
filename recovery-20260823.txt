@@ -1,0 +1,1 @@
+Recovery deployment marker, August 23, 2026. Restored the last known-good site state after a client-side regression in the sticky navigation and portrait fallback batch.

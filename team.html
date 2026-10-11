@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#140a2f">
+  <title>Team | We Know the W</title>
+  <link rel="stylesheet" href="/styles.css?v=20260822-transparent-headshots-v1">
+  <link rel="stylesheet" href="/landing.css?v=20260822-games-v1">
+  <link rel="stylesheet" href="/team-page.css?v=20260930-playoff-pulse-v2">
+  <link rel="stylesheet" href="/team-logo-only.css?v=20260820-posters-v1">
+  <link rel="stylesheet" href="/team-culture-identity.css?v=20260823-v5">
+  <link rel="stylesheet" href="/homecourt-culture.css?v=20260826-v1">
+  <link rel="stylesheet" href="/team-dna.css?v=20260823-v1">
+  <link rel="stylesheet" href="/team-stat-leaders.css?v=20260827-v1">
+</head>
+<body class="team-page">
+  <header class="team-hero" id="teamHero">
+    <nav class="nav shell" aria-label="Main navigation">
+      <a class="brand" href="/"><span class="brand-mark">W</span><span>WE KNOW THE W</span></a>
+      <button class="menu-button" id="menuButton" aria-expanded="false" aria-controls="navLinks">Menu</button>
+      <div class="nav-links" id="navLinks"></div>
+    </nav>
+    <div id="teamHeaderBackdrop" class="team-header-backdrop" aria-hidden="true"></div>
+    <div id="teamSkyline"></div>
+    <span class="team-hero-stripe stripe-a" aria-hidden="true"></span>
+    <span class="team-hero-stripe stripe-b" aria-hidden="true"></span>
+    <span class="team-hero-stripe stripe-c" aria-hidden="true"></span>
+    <div class="page-shell team-hero-inner">
+      <div class="team-brand-stage">
+        <div class="team-hero-badge-shell">
+          <img id="teamHeroBadge" class="team-hero-badge" alt="" hidden>
+          <span id="teamHeroBadgeFallback" class="team-hero-badge-fallback">W</span>
+        </div>
+        <div class="team-hero-copy">
+          <p class="eyebrow">AROUND THE W · TEAM PAGE</p>
+          <img id="teamHeroWordmark" class="team-hero-wordmark" alt="" hidden>
+          <h1 id="teamName">Loading team…</h1>
+          <p id="teamIntro">Current season, roster, history and culture in one franchise home.</p>
+          <div class="page-crumbs"><a href="/">Home</a><span>›</span><a href="/#live">Live Stats</a><span>›</span><a href="/around-the-w.html">Around the W</a><span>›</span><b id="teamCrumb">Team</b></div>
+        </div>
+      </div>
+      <aside class="team-snapshot">
+        <span class="team-monogram" id="teamTag">W</span>
+        <span>2026 snapshot</span>
+        <strong id="teamRecord">—</strong>
+        <small id="teamPct">Checking the live record…</small>
+      </aside>
+    </div>
+  </header>
+
+  <main>
+    <nav class="team-local-nav" id="teamLocalNav" aria-label="Team page sections" hidden>
+      <div class="team-switcher-shell">
+        <a id="previousTeamLink" class="team-cycle-link" href="/around-the-w.html">← Previous</a>
+        <label class="team-switcher"><span>Switch franchise</span><select id="teamSwitcher" aria-label="Choose a franchise"></select></label>
+        <a id="nextTeamLink" class="team-cycle-link" href="/around-the-w.html">Next →</a>
+      </div>
+      <div class="team-local-nav-inner">
+        <a href="#whats-happening">Now</a>
+        <a href="#team-stat-leaders">Stat leaders</a>
+        <a href="#current-roster">Current players</a>
+        <a href="#franchise-history">History</a>
+        <a href="#titles-awards">Titles &amp; awards</a>
+        <a href="#uniforms-numbers">Uniforms &amp; numbers</a>
+        <a href="#people-around-team">People &amp; culture</a>
+        <a href="#team-connections">Explore more</a>
+      </div>
+    </nav>
+
+    <section class="team-content" id="genericTeamOverview" hidden>
+      <div class="team-section-heading"><p class="kicker">FRANCHISE FILE</p><h2>Everything about this team has a lane.</h2><p>Use this landing page as the bridge between the live season and the deeper encyclopedia sections.</p></div>
+      <div class="team-overview-grid">
+        <article class="team-panel"><span class="panel-label">THE W VAULT</span><strong>Franchise history</strong><p>Origins, eras, relocations, defining seasons and the players who shaped the franchise story.</p></article>
+        <article class="team-panel"><span class="panel-label">THE TROPHY CASE</span><strong>Titles & awards</strong><p>Championships, individual award winners and the biggest pieces of hardware connected to this team.</p></article>
+        <article class="team-panel"><span class="panel-label">THE LOCKER ROOM</span><strong>Uniforms & retired numbers</strong><p>Visual eras, throwbacks, retired jerseys and the design history that makes the franchise recognizable.</p></article>
+        <article class="team-panel"><span class="panel-label">COURTSIDE CULTURE</span><strong>Mascot, fanbase &amp; home court</strong><p>Meet the mascot, learn the fan community name and see the arena and home-court nickname connected to the franchise.</p></article>
+        <article class="team-panel"><span class="panel-label">PLAYERPEDIA</span><strong>Current players</strong><p>The roster connects directly into individual player profiles, Herstory, The Starting Five and The Bench Mob.</p></article>
+        <article class="team-panel"><span class="panel-label">2026 SEASON</span><strong>What’s happening now</strong><p id="teamSeasonNote">Live record and roster information refresh automatically from the official WNBA statistics and availability feeds.</p></article>
+      </div>
+      <div class="team-link-row"><a href="/around-the-w.html">← All current teams</a><a class="secondary" id="teamPlayerpediaLink" href="/playerpedia.html">Open this team in Playerpedia →</a></div>
+      <p class="small-note" style="margin-top:18px">Team names and logos are trademarks of their respective owners and are used here for identification on this independent fan-built encyclopedia.</p>
+    </section>
+
+    <div id="teamLiveHub" hidden>
+      <section class="team-content dream-now-section" id="whats-happening">
+        <div class="team-section-heading dream-heading-row">
+          <div><p class="kicker">WHAT’S HAPPENING NOW</p><h2 id="teamNowHeading">The team, right now.</h2><p id="teamNowCopy">Live standings, the next tipoffs and the latest final scores update automatically with the 2026 season feed.</p></div>
+          <p class="dream-feed-status" id="dreamFeedStatus"><span aria-hidden="true"></span> Connecting to the live season…</p>
+        </div>
+        <div class="dream-stat-grid" id="dreamStatGrid" aria-live="polite">
+          <article><span>Record</span><strong>—</strong><small>Live standings</small></article>
+          <article><span>Overall</span><strong>—</strong><small>League position</small></article>
+          <article><span>Streak</span><strong>—</strong><small>Current run</small></article>
+          <article><span>Last 10</span><strong>—</strong><small>Recent form</small></article>
+        </div>
+        <section class="team-playoff-pulse" id="teamPlayoffPulse" hidden aria-live="polite"></section>
+        <div class="dream-schedule-grid">
+          <section class="dream-schedule-panel">
+            <div class="dream-panel-heading"><div><span>UP NEXT</span><h3>Upcoming games</h3></div><a href="/games.html">Full schedule →</a></div>
+            <div id="dreamUpcomingGames" class="dream-games-feed"><div class="schedule-loading">Loading upcoming games…</div></div>
+          </section>
+          <section class="dream-schedule-panel">
+            <div class="dream-panel-heading"><div><span>LATEST FINALS</span><h3>Recent results</h3></div><a href="/live-stats.html#games">Live Stats →</a></div>
+            <div id="dreamRecentGames" class="dream-games-feed"><div class="schedule-loading">Loading recent results…</div></div>
+          </section>
+        </div>
+        <section class="dream-roster-wire" aria-labelledby="dreamRosterWireHeading">
+          <div class="dream-panel-heading"><div><span>ROSTER · AVAILABILITY · STORIES</span><h3 id="dreamRosterWireHeading">The latest team updates</h3></div><a id="teamUpdatesFullReport" href="/team-season-report.html">Full report →</a></div>
+          <div id="dreamTeamUpdates" class="dream-update-grid" aria-live="polite"><div class="schedule-loading">Checking the live roster wire…</div></div>
+        </section>
+        <div class="dream-action-row">
+          <a href="/player-movement.html">Player Movement</a>
+          <a href="/availability-report.html">Availability Report</a>
+          <a id="teamOfficialNewsLink" href="/around-the-w.html" target="_blank" rel="noopener">Official team page ↗</a>
+        </div>
+      </section>
+    </div>
+
+    <section class="team-content" id="team-stat-leaders" aria-labelledby="teamLeadersTitle" aria-busy="true">
+      <div class="team-leaders-heading"><div class="team-section-heading"><p class="kicker">WHO LEADS THE TEAM?</p><h2 id="teamLeadersTitle">Team stat leaders</h2><p id="teamLeadersScope">2026 regular season · Current roster · Only games played for this team count.</p></div><button type="button" id="teamLeadersRefresh">Refresh</button></div>
+      <p class="team-leaders-status" id="teamLeadersStatus" role="status" aria-live="polite">Checking team leaders…</p>
+      <div class="team-leaders-grid" id="teamLeadersGrid"><div class="team-leaders-message">Loading season statistics and current-roster leaders…</div></div>
+      <noscript><p>Enable JavaScript to load this team’s current leaders. <a href="https://www.basketball-reference.com/wnba/years/2026_totals.html">View the season statistics.</a></p></noscript>
+      <div class="team-leaders-notes" id="teamLeadersRules"><p><strong>Leader eligibility:</strong> At least 5 games with this team. Shooting leaders also need 50 field-goal attempts, 20 three-point attempts or 20 free-throw attempts, respectively. These are We Know the W’s team-dashboard minimums.</p><p>Rates are calculated from season totals. Exact ties share the lead; rounded values alone do not create a tie. A player’s production with a previous team is excluded.</p><p id="teamLeadersCoverage"></p><p>Statistics: <a href="https://www.basketball-reference.com/wnba/years/2026_totals.html" target="_blank" rel="noopener noreferrer">Basketball-Reference</a>. Roster membership is separate from <a href="/availability-report.html">game availability</a>.</p></div>
+      <nav class="team-leaders-links" aria-label="Team leader connections"><a id="teamLeadersPlayerpedia" href="/playerpedia.html">Team in Playerpedia →</a><a href="/stat-kitchen.html#stat-kitchen">League leaders in The Stat Kitchen →</a></nav>
+    </section>
+
+    <section class="team-band" id="current-roster">
+      <div class="team-content">
+        <div class="team-section-heading dream-heading-row"><div><p class="kicker">CURRENT PLAYERS</p><h2 id="rosterHeading">Who’s on the team?</h2><p id="rosterStatus">Loading the current roster…</p></div><a class="dream-heading-link" id="rosterPlayerpediaLink" href="/playerpedia.html?team=Atlanta%20Dream">Open Atlanta in Playerpedia →</a></div>
+        <div id="teamRoster" class="team-roster-grid"></div>
+      </div>
+    </section>
+
+    <div id="teamArchive" hidden>
+      <section class="team-content dream-history-section" id="franchise-history">
+        <div class="team-section-heading"><p class="kicker">THE W VAULT · FRANCHISE HISTORY</p><h2 id="teamHistoryHeading">A franchise story.</h2><p id="teamHistoryIntro">Origins, eras and defining seasons.</p></div>
+        <div class="dream-timeline" id="teamHistoryTimeline"></div>
+        <div class="dream-source-row"><a href="/w-vault.html">Explore more in The W Vault →</a><a id="teamHistorySource" href="/around-the-w.html" target="_blank" rel="noopener">Official franchise profile ↗</a></div>
+      </section>
+
+      <section class="dream-dark-section" id="titles-awards">
+        <div class="team-content">
+          <div class="team-section-heading"><p class="kicker">THE TROPHY ROOM</p><h2>Titles, firsts and franchise honors.</h2><p id="teamHonorsIntro">The milestones that define the record book.</p></div>
+          <div class="dream-honors-grid" id="teamHonorsGrid"></div>
+          <div class="dream-source-row light"><a href="/trophy-case.html#championships">Explore championships in The Trophy Room →</a><a id="teamHonorsSource" href="/around-the-w.html" target="_blank" rel="noopener">Official team history ↗</a></div>
+        </div>
+      </section>
+
+      <section class="team-content" id="uniforms-numbers">
+        <div class="team-section-heading"><p class="kicker">THE LOCKER ROOM</p><h2>Uniform eras and retired numbers.</h2><p id="teamUniformIntro">The colors, marks and players honored above the floor.</p></div>
+        <div class="dream-uniform-layout">
+          <div class="dream-uniform-story" id="teamUniformStory"></div>
+          <aside class="dream-retired-card"><span class="retired-zero" id="teamRetiredValue">0</span><div><p class="panel-label">RETIRED NUMBERS</p><h3 id="teamRetiredTitle">Franchise honors</h3><p id="teamRetiredText">Loading the team honor roll…</p></div></aside>
+        </div>
+        <div class="dream-source-row"><a href="/locker-room.html">Explore The Locker Room →</a><a id="teamUniformSource" href="/around-the-w.html" target="_blank" rel="noopener">Official franchise profile ↗</a></div>
+      </section>
+
+      <section class="team-band" id="people-around-team">
+        <div class="team-content">
+          <div class="team-section-heading"><p class="kicker">COURTSIDE CULTURE</p><h2 id="teamPeopleHeading">The people and home-court identity around the team.</h2><p>The roster is only one part of a franchise. Mascots, fan communities, arenas, ownership, basketball operations and coaches shape everything around it.</p></div>
+          <div class="dream-people-grid" id="teamPeopleGrid"></div>
+        </div>
+      </section>
+
+      <section class="team-content" id="team-connections">
+        <div class="team-section-heading"><p class="kicker">KEEP EXPLORING</p><h2 id="teamConnectionsHeading">This team connects across We Know the W.</h2><p>Move between the current season, individual player stories, franchise history, style and the people shaping the team.</p></div>
+        <div class="dream-connection-grid">
+          <a id="teamPlayerConnection" href="/playerpedia.html"><span>PLAYERPEDIA</span><strong id="teamPlayerConnectionTitle">Meet every current player</strong><small>Profiles, career details and connected stories →</small></a>
+          <a href="/live-stats.html"><span>LIVE STATS</span><strong>Follow the standings</strong><small>Records, streaks, last 10 and league position →</small></a>
+          <a href="/w-vault.html"><span>THE W VAULT</span><strong id="teamVaultConnectionTitle">Put the team in league history</strong><small>Franchises, eras and milestones →</small></a>
+          <a href="/trophy-case.html"><span>THE TROPHY ROOM</span><strong>Explore the hardware</strong><small>Championships and individual honors →</small></a>
+          <a href="/locker-room.html"><span>THE LOCKER ROOM</span><strong>See the visual history</strong><small>Uniforms, jerseys and retired numbers →</small></a>
+          <a href="/courtside-culture.html#home-court-roll-call"><span>COURTSIDE CULTURE</span><strong>Meet the mascot, fanbase &amp; home court</strong><small>Mascot bios, fan identities, arenas and game-day nicknames →</small></a>
+        </div>
+        <div class="team-link-row"><a href="/around-the-w.html">← All franchise hubs</a><a class="secondary" id="teamOfficialLink" href="/around-the-w.html" target="_blank" rel="noopener">Official team page ↗</a></div>
+        <p class="small-note" style="margin-top:18px">Team names and logos are trademarks of their respective owners and are used here for identification on this independent fan-built encyclopedia.</p>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer"><div class="shell footer-inner"><div><strong>WE KNOW THE W</strong><p>Independent, fan-built women’s basketball encyclopedia.</p></div><a href="/around-the-w.html">Back to Around the W ↑</a></div></footer>
+  <script src="/site.js"></script>
+  <script src="/team-data.js"></script>
+  <script src="/team-guides.js?v=20261009-sun-sale-v2"></script>
+  <script src="/game-cards.js?v=20260930-playoff-current-v3"></script>
+  <script src="/mascot-data.js?v=20260823-v1"></script>
+  <script src="/mascot-refresh-20260823.js?v=20260823-v1"></script>
+  <script src="/team-culture-data.js?v=20260826-v1"></script>
+  <script src="/team-page.js?v=20260930-playoff-pulse-v2"></script>
+  <script src="/team-stat-leaders-model.js?v=20260827-v1"></script>
+  <script src="/team-stat-leaders.js?v=20260827-v1"></script>
+  <script src="/team-updates-data.js?v=20260930-playoff-pulse-v2"></script>
+  <script src="/team-availability.js?v=20260924-final-results-v1"></script>
+  <script src="/team-rivalry.js?v=20260824-v11" data-team-rivalry="true"></script>
+  <script src="/team-dna.js?v=20260927-ap-awards-v1"></script>
+  <script src="/team-culture-identity.js?v=20260823-v5"></script>
+  <script src="/homecourt-culture.js?v=20260826-v2"></script>
+</body>
+</html>

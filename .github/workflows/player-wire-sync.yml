@@ -1,0 +1,54 @@
+name: Refresh Player Wire
+
+on:
+  schedule:
+    - cron: '12 * * * *'
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/player-wire-sync.yml'
+      - 'scripts/sync-player-wire.mjs'
+      - 'lib/current-availability-patch.js'
+      - 'lib/current-movement-patch.js'
+      - 'lib/latest-movement-patch.js'
+      - 'player-live-updates.json'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: refresh-player-wire
+  cancel-in-progress: true
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out site
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Refresh movement and availability snapshot
+        run: node scripts/sync-player-wire.mjs
+
+      - name: Save player wire snapshot
+        shell: bash
+        run: |
+          git config user.name "weknowthew-bot"
+          git config user.email "weknowthew-bot@users.noreply.github.com"
+          git add player-wire-snapshot.json
+          if git diff --cached --quiet; then
+            echo "No player wire changes to save."
+            exit 0
+          fi
+          git commit -m "Refresh player movement and availability snapshot"
+          git pull --rebase origin main
+          git push origin HEAD:main

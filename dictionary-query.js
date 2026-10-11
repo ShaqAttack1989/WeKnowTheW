@@ -1,0 +1,1 @@
+(()=>{const value=new URLSearchParams(location.search).get('search');if(!value)return;const input=document.getElementById('dictionarySearch');if(!input)return;input.value=value;input.dispatchEvent(new Event('input',{bubbles:true}));setTimeout(()=>{input.scrollIntoView({behavior:'smooth',block:'center'});input.focus({preventScroll:true});},80);})();

@@ -1,0 +1,36 @@
+name: Playerpedia Deep Bios
+
+on:
+  push:
+    paths:
+      - 'playerpedia.html'
+      - 'playerpedia-page.js'
+      - 'api/players.js'
+      - 'data/playerpedia-career-stats.json'
+      - 'playerpedia-depth.js'
+      - 'playerpedia-depth.css'
+      - 'playerpedia-advanced.css'
+      - 'data/playerpedia-depth-curated.json'
+      - 'data/playerpedia-facts-*.json'
+      - 'data/wnba-draft-history.json'
+      - 'pro-offseason-affiliations.json'
+      - 'tests/playerpedia-depth.test.js'
+      - '.github/workflows/playerpedia-depth.yml'
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check deep bio JavaScript
+        run: node --check playerpedia-depth.js
+      - name: Check Playerpedia profile JavaScript
+        run: node --check playerpedia-page.js
+      - name: Check Playerpedia roster API JavaScript
+        run: node --check api/players.js
+      - name: Validate deep bio research layer
+        run: node --test tests/playerpedia-depth.test.js

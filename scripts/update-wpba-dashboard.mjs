@@ -1,0 +1,186 @@
+import fs from 'node:fs/promises';
+import path from 'node:path';
+import process from 'node:process';
+import { chromium } from 'playwright';
+
+const ROOT=process.cwd();
+const DATA_PATH=path.join(ROOT,'data','wpba-2026.json');
+const BASE='https://www.womenspba.com/stats#/2693';
+const DIVISION='49639';
+const METRIC_GROUP={PPG:'Scoring','FG%':'Scoring','2PT FG%':'Shooting','3PT FG%':'Shooting','FT%':'Shooting',APG:'Playmaking',RPG:'Rebounding',SPG:'Defense',BPG:'Defense'};
+const clean=value=>String(value??'').replace(/\s+/g,' ').trim();
+const num=value=>Number(String(value??'').replace(/[^0-9.-]/g,''));
+const nameKey=value=>clean(value).toLowerCase().replace(/[^a-z0-9]/g,'');
+function canonicalTeam(value,knownTeams=[]){
+  const raw=clean(value),rawKey=nameKey(raw);
+  if(!rawKey)return raw;
+  const match=[...knownTeams]
+    .filter(Boolean)
+    .sort((a,b)=>String(b).length-String(a).length)
+    .find(name=>rawKey.includes(nameKey(name)));
+  return match||raw;
+}
+
+async function openDashboard(page,route,readyText){
+  const separator=route.includes('?')?'&':'?';
+  await page.goto(`${BASE}/${route}${separator}division_id=${DIVISION}`,{waitUntil:'domcontentloaded',timeout:90000});
+  await page.waitForFunction(text=>{
+    const main=document.querySelector('main');
+    if(!main)return false;
+    return [...main.querySelectorAll('*')].some(node=>{
+      const style=getComputedStyle(node);
+      const visible=style.display!=='none'&&style.visibility!=='hidden'&&node.getClientRects().length>0;
+      return visible&&String(node.textContent||'').replace(/\s+/g,' ').trim().includes(text);
+    });
+  },readyText,{timeout:90000});
+  if(route.startsWith('standings'))await page.locator('main table tbody tr').first().waitFor({state:'visible',timeout:30000});
+  if(route.startsWith('leaders'))await page.locator('main table, main h2, main h3, main h4').first().waitFor({state:'visible',timeout:30000});
+  if(route.startsWith('scores'))await page.locator('main article, main table').first().waitFor({state:'visible',timeout:30000});
+  await page.waitForTimeout(1800);
+}
+
+async function scrapeStandings(page,knownTeams=[]){
+  await openDashboard(page,'standings','Standings');
+  const tables=await page.locator('main table').evaluateAll(nodes=>nodes.map(table=>({
+    headers:[...table.querySelectorAll('thead th')].map(cell=>cell.textContent.replace(/\s+/g,' ').trim()),
+    rows:[...table.querySelectorAll('tbody tr')].map(row=>[...row.querySelectorAll('th,td')].map(cell=>cell.textContent.replace(/\s+/g,' ').trim()))
+  })));
+  const names=tables.find(table=>table.headers.some(header=>/^team$/i.test(header))&&table.rows.length>=8);
+  const stats=tables.find(table=>table.headers.includes('GP')&&table.headers.some(header=>/W%/.test(header))&&table.rows.length>=8);
+  if(!names||!stats)throw new Error('Could not identify the official WPBA standings tables');
+  const column=label=>stats.headers.findIndex(header=>clean(header).toLowerCase()===label.toLowerCase());
+  const nameColumn=Math.max(0,names.headers.findIndex(header=>/^team$/i.test(header)));
+  const rows=stats.rows.slice(0,8).map((values,index)=>({
+    rank:index+1,
+    team:canonicalTeam(names.rows[index]?.[nameColumn]||names.rows[index]?.find(Boolean),knownTeams),
+    gp:num(values[column('GP')]),w:num(values[column('W')]),l:num(values[column('L')]),
+    pct:clean(values[column('W%')]),pf:num(values[column('PF')]),pa:num(values[column('PA')]),
+    gb:clean(values[column('GB')]),l10:clean(values[column('L10')]),streak:clean(values[column('Streak')])
+  }));
+  if(rows.length!==8||rows.some(row=>!row.team||!Number.isFinite(row.gp)))throw new Error('Official WPBA standings were incomplete');
+  return rows;
+}
+
+async function scrapeTeamLogos(page, teams){
+  const names=teams.map(team=>team.name);
+  return page.evaluate(names=>{
+    const norm=value=>String(value||'').replace(/\s+/g,' ').trim().toLowerCase();
+    return names.map(name=>{
+      const target=norm(name);
+      const nodes=[...document.querySelectorAll('a,td,th,div,span')].filter(node=>norm(node.textContent)===target);
+      for(const node of nodes){
+        let container=node.closest('tr')||node.parentElement;
+        for(let depth=0;depth<5&&container;depth+=1){
+          const image=container.querySelector?.('img');
+          const src=image?.currentSrc||image?.src||image?.getAttribute?.('data-src')||'';
+          if(src)return {name,logo:src};
+          container=container.parentElement;
+        }
+      }
+      return {name,logo:''};
+    });
+  },names);
+}
+
+async function scrapeLeaders(page,previous){
+  await openDashboard(page,'leaders/grid?game_type=Regular%20Season','Leaders');
+  const found=await page.evaluate(metrics=>{
+    const normalize=value=>String(value??'').replace(/\s+/g,' ').trim();
+    const absolute=value=>{try{return new URL(value,location.href).toString();}catch{return '';}};
+    const bestPlayerImage=(row,player)=>{
+      const playerKey=normalize(player).toLowerCase();
+      return [...row.querySelectorAll('img')].map(img=>{
+        const src=img.currentSrc||img.src||img.getAttribute('data-src')||'',alt=normalize(img.alt),text=`${alt} ${src}`.toLowerCase();
+        let score=0;
+        if(alt.toLowerCase().includes(playerKey))score+=10;
+        if(/headshot|player|athlete|profile|portrait/.test(text))score+=6;
+        if(/logo|team|icon|mark/.test(text))score-=6;
+        const box=img.getBoundingClientRect();
+        if(box.width>=48&&box.height>=48)score+=3;
+        if(box.height>box.width*.9)score+=2;
+        return {src:absolute(src),score};
+      }).filter(item=>/^https?:\/\//.test(item.src)).sort((a,b)=>b.score-a.score)[0]?.src||'';
+    };
+    const output=[];
+    for(const metric of metrics){
+      const heading=[...document.querySelectorAll('h2,h3,h4')].find(node=>normalize(node.textContent).toUpperCase()===metric.toUpperCase());
+      if(!heading)continue;
+      let container=heading.parentElement;
+      for(let i=0;i<4&&container;i+=1){
+        const links=[...container.querySelectorAll('a')].filter(link=>normalize(link.textContent)&&!normalize(link.textContent).match(/view|more|team|leader/i));
+        if(links.length){
+          const playerLink=links[0],player=normalize(playerLink.textContent);
+          let row=playerLink.parentElement;
+          for(let j=0;j<5&&row;j+=1){
+            const text=normalize(row.textContent);
+            const values=text.match(/\b\d+(?:\.\d+)?%?\b/g)||[];
+            if(text.includes(player)&&values.length){
+              const nearbyLinks=[...row.querySelectorAll('a')].map(link=>normalize(link.textContent)).filter(Boolean);
+              output.push({metric,player,team:nearbyLinks.find(value=>value!==player)||'',value:values[values.length-1],profileUrl:absolute(playerLink.href),photo:bestPlayerImage(row,player)});
+              break;
+            }
+            row=row.parentElement;
+          }
+          break;
+        }
+        container=container.parentElement;
+      }
+    }
+    return output;
+  },Object.keys(METRIC_GROUP));
+  if(found.length<5)return previous;
+  const previousByMetric=new Map(previous.map(item=>[item.metric,item]));
+  found.forEach(item=>{
+    if(item.player&&item.value){
+      const old=previousByMetric.get(item.metric)||{};
+      previousByMetric.set(item.metric,{group:METRIC_GROUP[item.metric],metric:item.metric,player:item.player,team:item.team||old.team||'',value:item.value,profileUrl:item.profileUrl||old.profileUrl||'',photo:item.photo||old.photo||''});
+    }
+  });
+  return [...previousByMetric.values()];
+}
+
+async function scrapeGames(page,previous){
+  await openDashboard(page,'scores','Scores');
+  const scraped=await page.locator('main article[aria-label*=" vs "]').evaluateAll(nodes=>nodes.map(node=>({label:node.getAttribute('aria-label')||'',text:node.textContent.replace(/\s+/g,' ').trim()})));
+  const parsed=scraped.map(item=>{
+    const match=item.label.match(/^(.*?)\s+vs\s+(.*?)\s+on\s+(\d{4}-\d{2}-\d{2})(?:\s+at\s+(.+))?$/i);
+    if(!match)return null;
+    const scorePair=item.text.match(/\b(\d{1,3})\s*[-–]\s*(\d{1,3})\b/);
+    const status=/forfeit/i.test(item.text)?'Forfeit':/final/i.test(item.text)?'Final':'Scheduled';
+    return {date:match[3],time:clean(match[4]),away:clean(match[1]),home:clean(match[2]),awayScore:scorePair?num(scorePair[1]):null,homeScore:scorePair?num(scorePair[2]):null,status,venue:item.text.match(/San Leandro High School/i)?.[0]||''};
+  }).filter(Boolean);
+  if(parsed.length<4)return previous;
+  const prior=new Map(previous.map(game=>[`${game.date}|${game.away}|${game.home}`,game]));
+  return parsed.map(game=>{
+    const old=prior.get(`${game.date}|${game.away}|${game.home}`)||{};
+    return {...old,...game,awayScore:game.awayScore??old.awayScore??null,homeScore:game.homeScore??old.homeScore??null,venue:game.venue||old.venue||''};
+  });
+}
+
+const stable=value=>JSON.stringify(value,(key,item)=>key==='updatedAt'?undefined:item);
+const previous=JSON.parse(await fs.readFile(DATA_PATH,'utf8'));
+const browser=await chromium.launch({headless:true});
+const page=await browser.newPage({viewport:{width:1440,height:1200}});
+let next=structuredClone(previous);
+try{
+  const standings=await scrapeStandings(page,(previous.teams||[]).map(team=>team.name));
+  const idByName=new Map(previous.standings.map(row=>[row.team,row.teamId]));
+  next.standings=standings.map(row=>({...row,teamId:idByName.get(row.team)||null}));
+  const logoRows=await scrapeTeamLogos(page,previous.teams||[]);
+  const logoByName=new Map(logoRows.filter(row=>row.logo).map(row=>[row.name,row.logo]));
+  next.teams=(previous.teams||[]).map(team=>({...team,logo:logoByName.get(team.name)||team.logo||''}));
+  next.leaders=await scrapeLeaders(page,previous.leaders||[]);
+  next.games=await scrapeGames(page,previous.games||[]);
+}finally{
+  await browser.close();
+}
+const changed=stable(next)!==stable(previous);
+const checkedAt=new Date().toISOString();
+next.checkedAt=checkedAt;
+next.updatedAt=changed?checkedAt:(previous.updatedAt||checkedAt);
+if(!changed&&previous.checkedAt&&Date.now()-Date.parse(previous.checkedAt)<20*60*60*1000){
+  console.log('WPBA dashboard already matches the official feed; freshness check is current.');
+  process.exit(0);
+}
+await fs.writeFile(DATA_PATH,`${JSON.stringify(next,null,2)}\n`);
+console.log(changed?`Updated WPBA dashboard at ${next.updatedAt}.`:`Verified unchanged WPBA dashboard at ${next.checkedAt}.`);

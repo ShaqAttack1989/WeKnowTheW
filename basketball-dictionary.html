@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="A searchable plain-language basketball dictionary covering offense, defense, court geography, coaching language and advanced stats." />
+  <title>Basketball Dictionary | The Film Room</title>
+  <link rel="stylesheet" href="/styles.css?v=20260823-film-room-v1" />
+  <link rel="stylesheet" href="/landing.css" />
+  <link rel="stylesheet" href="/film-room.css?v=20260823-film-room-v1" />
+</head>
+<body class="section-page dictionary-page">
+  <header class="subhero dictionary-hero">
+    <nav class="nav shell" aria-label="Main navigation">
+      <a class="brand" href="/" aria-label="We Know the W home"><span class="brand-mark">W</span><span>WE KNOW THE W</span></a>
+      <button class="menu-button" id="menuButton" aria-expanded="false" aria-controls="navLinks">Menu</button>
+      <div class="nav-links" id="navLinks"></div>
+    </nav>
+    <div class="page-shell subhero-inner">
+      <p class="eyebrow">THE W VAULT · THE FILM ROOM</p>
+      <h1>BASKETBALL <em>DICTIONARY</em></h1>
+      <p>Broadcast phrase, scouting shorthand or coach-speak giving you trouble? Search the term, learn it in plain English and know exactly what to watch for on the next possession.</p>
+      <div class="page-crumbs"><a href="/">Home</a><span>›</span><a href="/w-vault.html">The W Vault</a><span>›</span><a href="/film-room.html">The Film Room</a><span>›</span><b>Basketball Dictionary</b></div>
+    </div>
+  </header>
+
+  <main>
+    <section class="dictionary-tools">
+      <div class="page-shell">
+        <div class="dictionary-tool-card">
+          <div class="dictionary-search">
+            <label for="dictionarySearch">Search basketball terms</label>
+            <input id="dictionarySearch" type="search" placeholder="Try ‘drop,’ ‘Spain,’ ‘true shooting’ or ‘nail’" autocomplete="off" />
+            <button id="dictionaryClear" type="button">Clear</button>
+          </div>
+          <div id="dictionaryFilters" class="dictionary-filters" aria-label="Filter terms by category"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="page-section">
+      <div class="page-shell">
+        <div class="dictionary-visuals" aria-label="Basketball court geography examples">
+          <article class="dictionary-visual"><div class="clipboard-drawing" id="courtSpotsBoard"></div><div class="dictionary-visual-copy"><h3>Court geography</h3><p>Learn the elbow, nail, slot, corner, wing and dunker spot.</p></div></article>
+          <article class="dictionary-visual"><div class="clipboard-drawing" id="tagBoard"></div><div class="dictionary-visual-copy"><h3>Help and recover</h3><p>The weak-side defender tags the roller, then returns to the shooter.</p></div></article>
+          <article class="dictionary-visual"><div class="clipboard-drawing" id="closeoutBoard"></div><div class="dictionary-visual-copy"><h3>Closeout</h3><p>A defender travels from help position to contest the next catch.</p></div></article>
+        </div>
+        <div class="dictionary-status"><p id="dictionaryStatus" aria-live="polite"></p><strong>Tip: search everyday language too—“fake screen” finds ghost screen.</strong></div>
+        <div id="dictionaryGrid" class="dictionary-grid"></div>
+        <div id="dictionaryEmpty" class="dictionary-empty"><strong>No matching term yet.</strong><p>Try a shorter word or choose “All terms.” The dictionary can only cook with the letters it has.</p></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="page-shell page-footer-nav"><a href="/film-room.html">← The Film Room</a><a href="/film-room.html#watch-like-a-coach">Watch Like a Coach →</a></footer>
+  <script src="/site.js"></script>
+  <script src="/basketball-dictionary-page.js?v=20260823-film-room-v1" defer></script>
+  <script src="/dictionary-query.js?v=20260825-v1" defer></script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+.vibe-card.has-arena-photo{padding:0;min-height:430px;display:flex;flex-direction:column;background:linear-gradient(145deg,var(--team),#15131a)}
+.vibe-card.has-arena-photo:after{z-index:0;bottom:-88px;right:-35px}
+.arena-photo-shell{position:relative;height:190px;overflow:hidden;background:linear-gradient(135deg,rgba(255,255,255,.14),rgba(0,0,0,.24));border-bottom:1px solid rgba(255,255,255,.16);z-index:2}
+.arena-photo-link{position:absolute;inset:0;display:block;color:#fff!important;text-decoration:none!important}
+.arena-photo-shell img{width:100%;height:100%;display:block;object-fit:cover;object-position:center;filter:saturate(.96) contrast(1.03);transition:transform .35s ease}
+.vibe-card.has-arena-photo:hover .arena-photo-shell img{transform:scale(1.025)}
+.arena-photo-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,8,13,.03) 32%,rgba(10,8,13,.84) 100%)}
+.arena-venue-label{position:absolute!important;left:1rem;right:1rem;bottom:.82rem;z-index:2!important;display:flex;flex-direction:column;gap:.18rem;color:#fff;text-transform:none!important;letter-spacing:0!important}
+.arena-venue-label b{font-size:1.05rem;line-height:1.05}.arena-venue-label small{font-size:.62rem;line-height:1.3;color:rgba(255,255,255,.8);max-width:95%}
+.arena-photo-credit{position:absolute!important;right:.7rem;top:.65rem;z-index:3!important;border-radius:999px;padding:.28rem .52rem;background:rgba(17,13,21,.78);backdrop-filter:blur(6px);color:#fff!important;font-size:.56rem!important;font-weight:900;letter-spacing:.05em!important;text-transform:uppercase}
+.arena-photo-missing .arena-photo-shade{background:linear-gradient(135deg,rgba(255,255,255,.09),rgba(0,0,0,.18))}
+.vibe-card-copy{position:relative;z-index:1;display:flex;flex:1;flex-direction:column;padding:1.15rem 1.2rem 1.25rem}
+.vibe-card-copy>span:first-child{font-size:.7rem;font-weight:950;letter-spacing:.12em;text-transform:none}
+.vibe-card-copy h3{margin:.52rem 0 .58rem;font-size:1.72rem;line-height:1.02}
+.vibe-card-copy p{margin:0 0 1rem;line-height:1.45}.vibe-card-copy a{margin-top:auto;width:max-content}
+@media(max-width:900px){.arena-photo-shell{height:175px}.vibe-card.has-arena-photo{min-height:410px}}
+@media(max-width:620px){.arena-photo-shell{height:210px}.vibe-card.has-arena-photo{min-height:0}}

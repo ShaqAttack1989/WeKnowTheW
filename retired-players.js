@@ -1,0 +1,20 @@
+const retiredLogo = code => `https://a.espncdn.com/i/teamlogos/wnba/500/${code}.png`;
+
+const RETIRED_TEAMS = {
+  'Atlanta Dream':{code:'atl',abbr:'ATL'},'Charlotte Sting':{code:'cha',abbr:'CHA'},'Chicago Sky':{code:'chi',abbr:'CHI'},'Connecticut Sun':{code:'con',abbr:'CON'},'Dallas Wings':{code:'dal',abbr:'DAL'},'Detroit Shock':{code:'det',abbr:'DET'},'Houston Comets':{code:'hou',abbr:'HOU'},'Indiana Fever':{code:'ind',abbr:'IND'},'Las Vegas Aces':{code:'lv',abbr:'LVA'},'Los Angeles Sparks':{code:'la',abbr:'LAS'},'Miami Sol':{abbr:'MIA'},'Minnesota Lynx':{code:'min',abbr:'MIN'},'New York Liberty':{code:'ny',abbr:'NYL'},'Phoenix Mercury':{code:'phx',abbr:'PHX'},'Sacramento Monarchs':{code:'sac',abbr:'SAC'},'San Antonio Stars':{code:'sa',abbr:'SAS'},'San Antonio Silver Stars':{code:'sa',abbr:'SAS'},'Seattle Storm':{code:'sea',abbr:'SEA'},'Tulsa Shock':{code:'tul',abbr:'TUL'},'Washington Mystics':{code:'wsh',abbr:'WAS'}
+};
+
+const retiredPlayers = window.WPlayerpediaLegacy.players.map(player=>({...player,wnbaYears:player.years}));
+
+const escRetired=(value='')=>String(value).replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[ch]));
+const normRetired=(value='')=>String(value).normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
+function initials(name){return name.split(/\s+/).map(p=>p[0]).slice(0,2).join('');}
+function teamLogo(team){const meta=RETIRED_TEAMS[team]||{abbr:team.slice(0,3).toUpperCase()};return `<span class="retired-team-logo"><img src="${meta.code?retiredLogo(meta.code):''}" alt="${escRetired(team)} logo" loading="lazy" onerror="this.parentElement.classList.add('logo-failed')"><b>${escRetired(meta.abbr)}</b></span>`;}
+function teamStop([team,years]){return `<div class="retired-team-stop">${teamLogo(team)}<div><strong>${escRetired(team)}</strong><span>${escRetired(years)}</span></div></div>`;}
+function card(player){return `<article class="retired-card"><div class="retired-card-top"><span class="retired-monogram">${escRetired(initials(player.name))}</span><div><small>${escRetired(window.WPlayerpediaLegacy.statusLabel(player))}</small><h3>${escRetired(player.name)}</h3></div></div><div class="retired-card-body"><p>${escRetired(player.fact)}</p><div class="retired-team-path">${player.teams.map(teamStop).join('')}</div><a class="retired-card-source" href="${escRetired(player.source)}" target="_blank" rel="noopener">${escRetired(player.sourceLabel)} →</a></div></article>`;}
+const teamNames=[...new Set(retiredPlayers.flatMap(player=>player.teams.map(([team])=>team)))].sort();
+const search=document.getElementById('retiredSearch'),filter=document.getElementById('retiredTeamFilter'),reset=document.getElementById('retiredReset'),grid=document.getElementById('retiredPlayerGrid'),status=document.getElementById('retiredStatus');
+if(filter)filter.innerHTML='<option value="">All teams</option>'+teamNames.map(team=>`<option value="${escRetired(team)}">${escRetired(team)}</option>`).join('');
+function renderRetired(){if(!grid)return;const query=search?.value||'',team=filter?.value||'';const visible=retiredPlayers.filter(player=>{return window.WPlayerpediaLegacy.matches(player,query)&&(!team||player.teams.some(([name])=>name===team));});grid.innerHTML=visible.map(card).join('')||'<div class="page-note">No career record matches yet. Try another name or team.</div>';if(status)status.textContent=`Showing ${visible.length} of ${retiredPlayers.length} career records.`;}
+function renderTeamKey(){const host=document.getElementById('retiredTeamKey');if(!host)return;host.innerHTML=teamNames.map(team=>`<div class="retired-team-key-item">${teamLogo(team)}<span>${escRetired(team)}</span></div>`).join('');}
+search?.addEventListener('input',renderRetired);filter?.addEventListener('change',renderRetired);reset?.addEventListener('click',()=>{if(search)search.value='';if(filter)filter.value='';renderRetired();});document.getElementById('retiredPlayerCount').textContent=String(retiredPlayers.length);renderRetired();renderTeamKey();

@@ -1,0 +1,274 @@
+{
+  "site": "Snack Shak",
+  "posts": [
+    {
+      "slug": "we-know-the-w-2026-mock-awards",
+      "type": "feature",
+      "priority": 1500,
+      "seriesLabel": "FOOD FOR THOUGHT · 2026 MOCK AWARDS",
+      "title": "The Grades Made Their Case: Shak’s 2026 WNBA Mock Awards",
+      "published": "2026-09-16",
+      "week": "2026 WNBA awards · W Composite edition",
+      "image": "/assets/images/snack-shak/we-know-the-w-mock-awards-2026.svg",
+      "storyImage": "/assets/images/snack-shak/we-know-the-w-mock-awards-2026.svg",
+      "imageFit": "contain",
+      "imageAlt": "We Know the W 2026 mock WNBA awards card with A'ja Wilson as MVP and Defensive Player of the Year, Olivia Miles as Rookie of the Year, Megan DiLeo as Most Improved Player, Janelle Salaün as Sixth Player of the Year and Natalie Nakase as Coach of the Year",
+      "storyImageCaption": "We Know the W mock ballot using W Composite grades through September 16, 2026. This is an editorial exercise, not the official WNBA awards ballot.",
+      "teams": ["Las Vegas Aces", "Minnesota Lynx", "Indiana Fever", "Portland Fire", "Golden State Valkyries", "Toronto Tempo", "New York Liberty", "Washington Mystics", "Dallas Wings"],
+      "players": ["A'ja Wilson", "Olivia Miles", "Aliyah Boston", "Jackie Young", "Natasha Howard", "Megan DiLeo", "Janelle Salaün", "Kiki Rice", "Pauline Astier", "Lauren Betts", "Azzi Fudd"],
+      "dek": "The W Composite supplies the receipts, then the ballot makes the choices. A’ja Wilson sweeps the top two awards, Olivia Miles owns the rookie race, Natalie Nakase stays in the Coach of the Year seat, and one crowded 94 point tie decides the First Team.",
+      "storyTable": {
+        "columns": ["Award", "Pick", "Composite receipt", "The case"],
+        "rows": [
+          ["MVP", "A'ja Wilson", "96 · A+", "The highest grade on the board, with 26.0 points, 9.4 rebounds and a 32.0 PER."],
+          ["Defensive Player", "A'ja Wilson", "96 · A+ · 2.0 BPG", "The same player who drives the offense also protects the rim at an award level."],
+          ["Rookie of the Year", "Olivia Miles", "95 · A+", "The top rookie grade and second best grade in the entire league."],
+          ["Most Improved", "Megan DiLeo", "60 to 87 · plus 27", "The largest meaningful year over year W Score jump among established rotation players."],
+          ["Sixth Player", "Janelle Salaün", "85 · B+ · 0 starts", "Starter quality production and efficiency delivered entirely from a reserve role."],
+          ["Coach of the Year", "Natalie Nakase", "Golden State · 29 and 11", "The Valkyries sit second overall, two games off the league lead, with a four game winning streak."],
+          ["All WNBA First Team", "A'ja Wilson · Olivia Miles · Aliyah Boston · Jackie Young · Natasha Howard", "96 · 95 · 94 · 94 · 94", "The top two scores plus three selections from the five player 94 point tie."],
+          ["All Rookie Team", "Olivia Miles · Kiki Rice · Pauline Astier · Lauren Betts · Azzi Fudd", "95 · 87 · 85 · 83 · 81", "The five highest rookie grades on this editorial board."]
+        ]
+      },
+      "sections": [
+        {
+          "title": "Start with the score, then make the ballot",
+          "paragraphs": [
+            "The W Composite is the base layer. It blends league relative percentiles for PER, true shooting, scoring, assists, rebounding, steals and blocks, win shares per 40 and assist to turnover ratio. The scale runs from 55 to 99, and players with small samples are marked provisional.",
+            "A formula can organize the conversation, but it should not pretend to finish it. Award categories have their own rules. Role matters for Sixth Player. Year over year growth matters for Most Improved. Team performance and problem solving matter for Coach of the Year. The score gives us the receipts, then Shak makes the basketball call."
+          ]
+        },
+        {
+          "title": "A’ja Wilson owns both ends of the headline",
+          "paragraphs": [
+            "Wilson is the only player at 96, and the gap is not created by one loud category. She is averaging 26.0 points and 9.4 rebounds with a 32.0 PER and 62.0 percent true shooting. That is an MVP résumé before the defense enters the room.",
+            "Then the defense enters anyway. Wilson is averaging 2.0 blocks while carrying the largest offensive burden on this board. Giving her both MVP and Defensive Player of the Year is not double counting. It is recognizing that the league’s best composite season is elite on both sides of the floor."
+          ]
+        },
+        {
+          "title": "Olivia Miles turns the rookie race into a leaguewide statement",
+          "paragraphs": [
+            "Miles does not merely lead rookies. Her 95 is the second highest W Score in the league. Through 38 games she is producing 19.7 points, 6.0 assists and 4.6 rebounds with 60.8 percent true shooting.",
+            "That makes Rookie of the Year the simplest choice on the board. Kiki Rice, Pauline Astier, Lauren Betts and Azzi Fudd complete the All Rookie group, but Miles is playing on a different shelf."
+          ]
+        },
+        {
+          "title": "The role awards reward real change",
+          "paragraphs": [
+            "Megan DiLeo moves from a 60 in 2025 to an 87 in 2026. The leap is backed by 13.2 points per game, a 19.7 PER and 64.7 percent true shooting in a much larger role. Most Improved should reward the player whose game became meaningfully more valuable, not simply the player who received more minutes. DiLeo did both.",
+            "Janelle Salaün earns Sixth Player with an 85 grade, 12.9 points per game and no starts. Her case is exactly what the category is supposed to capture: a reserve whose production changes the level of a good team without needing a starter label."
+          ]
+        },
+        {
+          "title": "Natalie Nakase stays in the Coach of the Year seat",
+          "paragraphs": [
+            "Golden State is 29 and 11, second overall, two games behind Minnesota, riding a four game winning streak and carrying an 8 and 2 record over its last ten. That is the profile of a team that has built answers across a long season.",
+            "Nakase remains the pick because the Valkyries keep translating depth, role clarity and defensive commitment into wins. Coach of the Year should ask which team most consistently looks prepared for the problem in front of it. Golden State keeps answering yes."
+          ]
+        },
+        {
+          "title": "The 94 point tie needs an editorial tiebreaker",
+          "paragraphs": [
+            "Aliyah Boston, Caitlin Clark, Jackie Young, Natasha Howard and Paige Bueckers all carry a 94. There are only three First Team places left after Wilson and Miles, so the composite cannot separate the entire group by itself.",
+            "This ballot takes Boston, Young and Howard. Boston supplies interior efficiency and two way value. Young gives the lineup another creator, elite shooting efficiency and size at guard. Howard supplies frontcourt mobility, 7.7 rebounds, 1.7 steals and a 23.0 PER across 40 games. Clark and Bueckers are not outside because their seasons were weak. They are outside because a five player tie has to be broken somewhere, and this version favors lineup balance and two way coverage."
+          ]
+        }
+      ],
+      "debates": [
+        "Would your 94 point tiebreaker favor Caitlin Clark’s creation, Paige Bueckers’ scoring balance or the two way combination of Jackie Young and Natasha Howard?",
+        "Can any defensive candidate overcome A’ja Wilson’s value at both the rim and the center of Las Vegas’ offense?",
+        "Does Golden State’s closing stretch strengthen Natalie Nakase’s Coach of the Year case enough to make her the clear choice?"
+      ],
+      "foodSegment": {
+        "title": "The score starts the argument. It does not get the last word.",
+        "script": "A ballot without numbers is just a feeling. A ballot made only by numbers is just a spreadsheet. The W Composite tells us where the cases begin. The roles, the lineups and the season context tell us where Shak’s ballot ends."
+      },
+      "sources": [
+        {"label": "We Know the W 2026 player grades", "url": "https://www.weknowthew.com/api/player-grades?season=2026"},
+        {"label": "We Know the W live standings", "url": "https://www.weknowthew.com/live-stats.html"},
+        {"label": "Basketball Reference 2026 per game statistics", "url": "https://www.basketball-reference.com/wnba/years/2026_per_game.html"},
+        {"label": "Basketball Reference 2026 advanced statistics", "url": "https://www.basketball-reference.com/wnba/years/2026_advanced.html"},
+        {"label": "Official WNBA standings", "url": "https://www.wnba.com/standings"}
+      ]
+    },
+    {
+      "imageFocus": "50% 25%",
+      "imageFit": "cover",
+      "slug": "welcome-back-to-the-w-september-17-2026",
+      "type": "feature",
+      "priority": 1400,
+      "seriesLabel": "FOOD FOR THOUGHT · WELCOME BACK TO THE W",
+      "title": "Welcome Back to the W: Five Games, Ten Teams, One Final Sprint",
+      "published": "2026-09-15",
+      "week": "WNBA returns September 17 · Five game watch guide",
+      "dashboardUrl": "/welcome-back-to-the-w-2026.html",
+      "image": "/assets/images/fiba-group-play/jackie-young-usab-final-2026.jpg",
+      "storyImage": "/assets/images/fiba-group-play/jackie-young-usab-final-2026.jpg",
+      "imageAlt": "Jackie Young on the court in her USA uniform",
+      "storyImageCaption": "Jackie Young at the World Cup before the return to WNBA play.",
+      "teams": ["Connecticut Sun", "Atlanta Dream", "Washington Mystics", "Chicago Sky", "Los Angeles Sparks", "Dallas Wings", "Phoenix Mercury", "Portland Fire", "Las Vegas Aces", "Seattle Storm"],
+      "players": ["Rhyne Howard", "Sonia Citron", "Rickea Jackson", "Paige Bueckers", "Carla Leite", "Jackie Young", "Dominique Malonga"],
+      "dek": "The passports are back in the drawer and the W jerseys are back on. September 17 brings five games, ten teams, two national TV windows and one final week to sharpen seed lines, rotations and playoff habits.",
+      "sections": [
+        {
+          "title": "The W comes back all at once",
+          "paragraphs": [
+            "The WNBA returns September 17 with Connecticut at Atlanta, Washington at Chicago, Los Angeles at Dallas, Phoenix at Portland and Las Vegas at Seattle. The first two games tip at 7:30 PM ET, Dallas follows at 8:00, and the late window begins at 10:00.",
+            "This is not a normal restart. The regular season ends September 24 and the playoffs begin September 27. That turns every possession into information about seeding, rhythm, workload and which teams can switch back from international basketball fastest."
+          ]
+        },
+        {
+          "title": "The guide is a dashboard, not a poster",
+          "paragraphs": [
+            "The full watch guide connects to the site's live 2026 standings and game feeds, official team artwork, current Playerpedia rosters and advanced player metrics. Scores, records, streaks, last ten form, PER and true shooting can update without rewriting the story.",
+            "It also teaches four things to watch beyond points: the first five minutes after the international break, the possession battle, what happens after a paint touch and which five players a coach trusts to close."
+          ]
+        },
+        {
+          "title": "Real players only",
+          "paragraphs": [
+            "Player cards use official WNBA headshots when available and real ESPN roster photography as the fallback. Team marks come from the site's existing team artwork feed. No AI generated player images are used in the guide."
+          ]
+        }
+      ],
+      "debates": [
+        "Which returning international player will look most different when she changes back to her WNBA role?",
+        "Which September 17 game tells us the most about playoff seeding?",
+        "What matters more on the first night back, fresh legs or immediate chemistry?"
+      ],
+      "sources": [
+        {"label": "Full Welcome Back to the W watch guide", "url": "https://www.weknowthew.com/welcome-back-to-the-w-2026.html"},
+        {"label": "WNBA World Cup FAQ and September 17 return schedule", "url": "https://www.wnba.com/news/2026-fiba-womens-basketball-world-cup-faq"},
+        {"label": "WNBA standings", "url": "https://www.wnba.com/standings"}
+      ]
+    },
+    {
+      "storyImageSourceUrl": "https://www.wnba.com/news/five-things-i-like-2026-fiba-world-cup",
+      "imageFocus": "50% 38%",
+      "imageFit": "cover",
+      "slug": "shaks-all-fiba-starting-five-bench-mob-2026",
+      "type": "byte",
+      "priority": 1200,
+      "seriesLabel": "SNACK SHAK BYTE · ALL FIBA EDITION",
+      "title": "Berlin Built a Superteam: Shak’s All FIBA Starting Five, Bench Mob and Five More",
+      "published": "2026-09-14",
+      "week": "FIBA World Cup · All Tournament Rotation",
+      "image": "https://cdn.wnba.com/sites/4/2026/09/GettyImages-2294430014-scaled.jpg",
+      "storyImage": "https://cdn.wnba.com/sites/4/2026/09/GettyImages-2294430014-scaled.jpg",
+      "imageAlt": "Angel Reese defends for Team USA during the 2026 World Cup",
+      "storyImageCaption": "Angel Reese in World Cup action. Official photography via WNBA.com.",
+      "teams": ["United States", "France", "Germany", "Belgium", "Puerto Rico", "Türkiye", "China", "Mali", "Japan", "Spain", "Australia", "Hungary"],
+      "players": ["Jackie Young", "Gabby Williams", "Leonie Fiebich", "Breanna Stewart", "Emma Meesseman", "Trinity San Antonio", "Sevgi Uzun", "Angel Reese", "Xu Han", "Sika Kone", "Ramu Tokashiki", "Iyana Martin", "Steph Talbot", "Nyara Sabally", "Janelle Salaun", "Dorka Juhasz"],
+      "dek": "One World Cup, sixteen names, three tiers. Jackie Young runs Shak’s All FIBA Starting Five, Gabby Williams brings the havoc, Stewie brings the MVP, Emma Meesseman brings the tournament’s loudest efficiency, and the Bench Mob is loaded enough to start an argument by itself.",
+      "storyTable": {
+        "columns": ["Group", "Player", "Country", "Tournament case"],
+        "rows": [
+          ["Starting Five", "Jackie Young", "USA", "12.3 PPG, 3.7 RPG, 3.2 APG, plus 18 points, 6 rebounds and 5 assists in the final"],
+          ["Starting Five", "Gabby Williams", "France", "18.7 PPG, 4.0 APG, 2.8 SPG, All-Star Five and Best Defensive Player"],
+          ["Starting Five", "Leonie Fiebich", "Germany", "9.9 PPG, 8.6 RPG, 3.6 APG and an All-Star Five place"],
+          ["Starting Five", "Breanna Stewart", "USA", "12.8 PPG, 7.3 RPG, first two time Women's World Cup MVP"],
+          ["Starting Five", "Emma Meesseman", "Belgium", "21.0 PPG and 25.0 EFF, tournament leader in scoring and efficiency"],
+          ["Bench Mob", "Trinity San Antonio", "Puerto Rico", "15.5 PPG, 4.8 APG and a tournament best 5.0 SPG"],
+          ["Bench Mob", "Sevgi Uzun", "Türkiye", "17.7 PPG and a tournament best 8.3 APG"],
+          ["Bench Mob", "Angel Reese", "USA", "7.2 PPG, 5.0 RPG and 2.5 offensive rebounds per game in a compact role"],
+          ["Bench Mob", "Xu Han", "China", "18.8 PPG, 10.8 RPG and 21.8 EFF"],
+          ["Bench Mob", "Sika Kone", "Mali", "16.0 PPG, 10.3 RPG and 60.6 percent shooting"],
+          ["Bench Mob", "Ramu Tokashiki", "Japan", "Tournament leader at 2.3 blocks per game"],
+          ["Honorable Mention", "Iyana Martin", "Spain", "Rising Star, All-Star Five, 17.5 PPG, 4.2 APG and 2.2 SPG"],
+          ["Honorable Mention", "Steph Talbot", "Australia", "13.8 PPG, 8.6 RPG, 4.4 APG and 21.0 EFF"],
+          ["Honorable Mention", "Nyara Sabally", "Germany", "12.1 PPG, 6.0 RPG and All-Second Team recognition"],
+          ["Honorable Mention", "Janelle Salaun", "France", "11.2 PPG, 5.8 RPG and All-Second Team recognition"],
+          ["Honorable Mention", "Dorka Juhasz", "Hungary", "12.6 PPG, 10.4 RPG and a tournament double double"]
+        ]
+      },
+      "sections": [
+        {
+          "title": "The five I would actually start",
+          "paragraphs": [
+            "Jackie Young gets the ball first. Her championship game made the case even louder, but the fit is what seals it. Young can organize, defend and score without needing every possession. Gabby Williams gives the backcourt a second creator and the tournament's most disruptive perimeter defender. Leonie Fiebich adds size, rebounding and connective passing on the wing.",
+            "Breanna Stewart is the automatic frontcourt choice after another gold medal and a second World Cup MVP. Emma Meesseman gets the final spot because lineup balance matters more to me than copying the official awards sheet. She led the tournament in scoring and efficiency while still creating for teammates. That is too much offense, size and intelligence to leave outside the first five."
+          ]
+        },
+        {
+          "title": "The Bench Mob would change the game",
+          "paragraphs": [
+            "Trinity San Antonio and Sevgi Uzun give the second unit pressure at both ends. San Antonio led the tournament in steals, while Uzun led it in assists. Angel Reese is there to turn one missed shot into another possession. Xu Han supplies a true interior scorer. Sika Kone brings efficient power, and Ramu Tokashiki gives the group a tournament leading rim protector.",
+            "That is the point of a Bench Mob. The second unit should not imitate the starters. It should introduce a new problem. This one can speed the game up, dominate the glass, pound the paint or lock down the rim depending on what the matchup needs."
+          ]
+        },
+        {
+          "title": "Honorable mention is not a consolation prize",
+          "paragraphs": [
+            "Iyana Martin was brilliant enough to make the official All-Star Five and win Rising Star while carrying Spain to bronze. Steph Talbot did everything for Australia. Nyara Sabally helped Germany make history. Janelle Salaun was central to France's first finals run, and Dorka Juhasz left Berlin averaging a double double.",
+            "There was no clean top ten in Berlin. There were too many players with real cases, which is exactly why the honorable mention group belongs on the board instead of disappearing beneath the cut line."
+          ]
+        }
+      ],
+      "debates": [
+        "Would you start Emma Meesseman over Iyana Martin if the goal is lineup balance rather than matching FIBA's official five?",
+        "Which Bench Mob player would force her way into your closing five first?",
+        "Did Iyana Martin do enough to make your first group despite Jackie Young's championship finish?"
+      ],
+      "foodSegment": {
+        "title": "Shak’s bite: this roster would be rude",
+        "script": "Jackie organizes it, Gabby wrecks it, Fiebich connects it, Stewie closes it and Emma makes every matchup uncomfortable. Then Trinity, Sevgi, Angel, Xu Han, Sika Kone and Ramu Tokashiki walk in off the bench. That is not a rotation. That is an international problem."
+      },
+      "sources": [
+        {"label": "Official FIBA Women's Basketball World Cup 2026", "url": "https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026"},
+        {"label": "Breanna Stewart named World Cup MVP", "url": "https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026/news/breanna-stewart-makes-history-as-two-time-womens-world-cup-tissot-mvp"},
+        {"label": "FIBA Women's World Cup All-Second Team", "url": "https://www.fiba.basketball/en/news/fiba-womens-basketball-world-cup-2026-all-second-team"},
+        {"label": "FIBA nation MVP review", "url": "https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026/news/who-was-each-nations-mvp-at-the-womens-world-cup"},
+        {"label": "Shak's Starting Five", "url": "https://www.weknowthew.com/starting-five.html"},
+        {"label": "Shak's Bench Mob", "url": "https://www.weknowthew.com/bench-mob.html"}
+      ]
+    },
+    {
+      "slug": "usa-france-world-cup-final-2026",
+      "type": "byte",
+      "priority": 950,
+      "seriesLabel": "SNACK SHAK BYTE · FIBA WORLD CUP FINAL",
+      "title": "One Streak. One Drought. One Trophy: USA vs France for the World",
+      "published": "2026-09-12",
+      "week": "FIBA World Cup · Championship Game",
+      "dashboardUrl": "/fiba-world-cup-final-2026.html",
+      "image": "/assets/images/fiba-group-play/fiba-world-champions-usa-2026.jpg",
+      "storyImage": "/assets/images/fiba-group-play/fiba-world-champions-usa-2026.jpg",
+      "imageAlt": "Team USA celebrating the 2026 FIBA Women's Basketball World Cup championship in Berlin",
+      "imageSourceUrl": "https://about.fiba.basketball/en/news/usa-continue-dominance-with-12th-fiba-womens-basketball-world-cup-title",
+      "teams": ["United States", "France"],
+      "players": ["Breanna Stewart", "Jackie Young", "Caitlin Clark", "Rhyne Howard", "Gabby Williams", "Marine Johannes", "Janelle Salaun", "Dominique Malonga"],
+      "dek": "USA brings 35 straight World Cup wins and a 71 game run across World Cup and Olympic play. France brings the tournament's biggest average scoring margin and its first World Cup final. Paris 2024 was one point. Berlin gets the rematch.",
+      "sections": [
+        {
+          "title": "Dynasty meets the team with the loudest margin",
+          "paragraphs": [
+            "USA enters the title game with 35 consecutive World Cup wins, four straight World Cup championships and a 71 game winning streak across World Cup and Olympic play. France enters 5 and 0, averaging 96.2 points and winning by 35.6 points per game through the semifinals.",
+            "Both teams are unbeaten. Only one arrives with eleven world titles. Only one arrives in its first World Cup final."
+          ]
+        },
+        {
+          "title": "Paris was one point. Berlin gets the rematch.",
+          "paragraphs": [
+            "The 2024 Olympic gold medal game ended USA 67, France 66. Now Gabby Williams and France get another championship shot at the Americans, while Breanna Stewart and USA try to make a fifth consecutive World Cup title feel inevitable one more time."
+          ]
+        }
+      ],
+      "debates": [
+        "Can France's tournament best scoring margin survive USA's depth and late game defense?",
+        "Does the pressure sit heavier on the program protecting a 35 game streak or the program playing its first World Cup final?",
+        "Which matters more in one game, USA's history or France's current form?"
+      ],
+      "foodSegment": {
+        "title": "One Streak, One Drought, One Trophy",
+        "script": "USA walks in with 35 straight World Cup wins and four straight titles. France walks in with zero world titles, but also with the bigger scoring margin in Berlin and a first ever trip to the final. Paris 2024 came down to one point. So no, this is not a coronation. It is a rematch with receipts."
+      },
+      "sources": [
+        {"label": "Interactive USA vs France final dashboard", "url": "https://www.weknowthew.com/fiba-world-cup-final-2026.html"},
+        {"label": "Official FIBA USA team profile", "url": "https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026/teams/usa"},
+        {"label": "Official FIBA France team profile", "url": "https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026/teams/france"},
+        {"label": "FIBA all time World Cup medalists", "url": "https://www.fiba.basketball/en/events/fiba-womens-basketball-world-cup-2026/all-time-medalists"},
+        {"label": "USA semifinal report and 35 game streak", "url": "https://www.theguardian.com/sport/2026/sep/12/usa-spain-womens-basketball-world-cup-semi-final"}
+      ]
+    }
+  ]
+}

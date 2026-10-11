@@ -1,0 +1,838 @@
+{
+  "site": "Snack Shak",
+  "tagline": "Where the food gets seasoned, the rankings get debated, and everybody gets served.",
+  "posts": [
+    {
+      "imageFocus": "50% 38%",
+      "imageFit": "cover",
+      "storyImageSourceUrl": "https://valkyries.wnba.com/news/gameday-recap-20260824",
+      "storyImageCaption": "Golden State game action from August 24. Photo via the Golden State Valkyries.",
+      "imageAlt": "Cecilia Zandalasini shoots against Minnesota",
+      "storyImage": "https://cdn.wnba.com/sites/1611661331/2026/08/feat-image-ceci-20260824-scaled.png",
+      "image": "https://cdn.wnba.com/sites/1611661331/2026/08/feat-image-ceci-20260824-scaled.png",
+      "slug": "snack-shak-byte-2026-08-31",
+      "type": "byte",
+      "title": "Golden State Takes the Apron, Minnesota Gets Served",
+      "published": "2026-08-31",
+      "week": "Games from Aug. 24 through 30, 2026",
+      "dek": "Golden State swept a four-game week, Atlanta answered one ugly loss by serving Minnesota another, and Angel Reese grabbed enough rebounds to stock the pantry.",
+      "rankings": [
+        {
+          "rank": 1,
+          "team": "Golden State Valkyries",
+          "movement": "Up 4",
+          "note": "29 wins, 11 losses. Golden State went 4 wins and 0 losses, beat Minnesota by 14, held New York to 60 points, and closed the week on a four-game streak. The Valkyries own this week’s apron."
+        },
+        {
+          "rank": 2,
+          "team": "Atlanta Dream",
+          "movement": "Same",
+          "note": "26 wins, 14 losses. Atlanta went 2 wins and 1 loss, with Angel Reese setting rebounding records before the Dream handed Minnesota its second straight defeat. The Portland loss keeps them out of the top spot."
+        },
+        {
+          "rank": 3,
+          "team": "Las Vegas Aces",
+          "movement": "Same",
+          "note": "27 wins, 13 losses. Las Vegas beat Toronto, 93 to 73, for a third straight win, but losing NaLyssa Smith for the season changes the championship recipe."
+        },
+        {
+          "rank": 4,
+          "team": "Minnesota Lynx",
+          "movement": "Down 3",
+          "note": "31 wins, 9 losses. The league leaders lost to Golden State and Atlanta, their second pair of consecutive losses this season. Still the best full-season record, but not the best plate this week."
+        },
+        {
+          "rank": 5,
+          "team": "Indiana Fever",
+          "movement": "Down 1",
+          "note": "26 wins, 14 losses. Indiana scored 111 against Connecticut as Caitlin Clark and Kelsey Mitchell delivered 34 points apiece. One scorching win was not enough to hold off bigger weeks above them."
+        },
+        {
+          "rank": 6,
+          "team": "Dallas Wings",
+          "movement": "Up 2",
+          "note": "24 wins, 16 losses. Dallas extended its winning streak to four and finished the week by routing Connecticut, 97 to 71. The Wings are heating up at exactly the right time."
+        },
+        {
+          "rank": 7,
+          "team": "Washington Mystics",
+          "movement": "Same",
+          "note": "24 wins, 16 losses. Washington reached sixth in the standings after Georgia Amoore’s career-high 25 points against Phoenix, then let an 11-point halftime lead escape against Los Angeles."
+        },
+        {
+          "rank": 8,
+          "team": "New York Liberty",
+          "movement": "Down 2",
+          "note": "24 wins, 16 losses. New York split two games, scoring a season-low 60 against Golden State before beating Chicago. The bounce-back helped, but the Valkyries matchup is now a real concern."
+        },
+        {
+          "rank": 9,
+          "team": "Los Angeles Sparks",
+          "movement": "Up 2",
+          "note": "15 wins, 25 losses. Los Angeles lost to Atlanta, then beat Washington and Seattle. Two straight wins and three victories in four games finally put some spark back in the pan."
+        },
+        {
+          "rank": 10,
+          "team": "Portland Fire",
+          "movement": "Same",
+          "note": "16 wins, 24 losses. Portland stopped Atlanta’s four-game streak behind Carla Leite and Emily Engstler, then lost by 17 to Golden State. Dangerous, inconsistent, and never bland."
+        },
+        {
+          "rank": 11,
+          "team": "Phoenix Mercury",
+          "movement": "Up 1",
+          "note": "14 wins, 26 losses. Phoenix lost to Washington before blowing out Toronto, 101 to 69. One family-sized win cannot erase a 3 win, 7 loss stretch."
+        },
+        {
+          "rank": 12,
+          "team": "Chicago Sky",
+          "movement": "Down 3",
+          "note": "15 wins, 25 losses. Chicago lost both games and has dropped three straight. The contender-upset flavor from the prior edition cooled fast."
+        },
+        {
+          "rank": 13,
+          "team": "Seattle Storm",
+          "movement": "Up 2",
+          "note": "8 wins, 32 losses. Seattle beat short-handed Toronto before losing to Los Angeles. The record is rough, but Flau’jae Johnson and Dominique Malonga keep giving the rebuild something worth tasting."
+        },
+        {
+          "rank": 14,
+          "team": "Connecticut Sun",
+          "movement": "Same",
+          "note": "10 wins, 30 losses. Connecticut went 1 win and 3 losses and surrendered 208 points across its final two games. Aaliyah Edwards’ 26 against Dallas was one bright bite in a difficult week."
+        },
+        {
+          "rank": 15,
+          "team": "Toronto Tempo",
+          "movement": "Down 2",
+          "note": "11 wins, 29 losses. Toronto lost all three games by a combined 64 points and enters the break on a four-game skid. The injury-shortened roster has reached the expansion wall."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Facts on the bottom",
+          "paragraphs": [
+            "Golden State produced the week’s only 4 win, 0 loss record and moved to 29 wins and 11 losses, two games behind Minnesota. The Valkyries beat the Lynx, Sun, Liberty, and Fire, holding Minnesota to a season-low 66 points and New York to a season-low 60.",
+            "Minnesota remains first in the official standings at 31 wins and 9 losses, but the Lynx lost consecutive games to Golden State and Atlanta. Las Vegas, Atlanta, and Indiana are next at 27 wins, 26 wins, and 26 wins. New York, Washington, and Dallas are tied at 24 wins and 16 losses."
+          ]
+        },
+        {
+          "title": "The main course, Golden State stole the apron",
+          "paragraphs": [
+            "Facts first: Golden State beat Minnesota, 80 to 66, Connecticut, 89 to 64, New York, 79 to 60, and Portland, 86 to 69. The Valkyries defeated the league leader, swept the Liberty season series, and won the second night of back-to-back games in New York.",
+            "Snack Shak opinion: that is the best week any contender served. Golden State’s defense is not garnish. It is the whole cast-iron skillet. Until somebody proves they can score comfortably against it in a playoff series, the Valkyries belong in the championship conversation with Minnesota, Atlanta, Las Vegas, and Indiana."
+          ]
+        },
+        {
+          "title": "Players who brought the flavor",
+          "paragraphs": [
+            "Angel Reese grabbed a WNBA single-game record 26 rebounds with 11 points against Los Angeles, passing Chamique Holdsclaw’s record of 24. The performance also pushed Reese past A’ja Wilson’s single-season rebounding record. Six days later, Reese recorded her 29th double-double of the season, another WNBA record, as Atlanta beat Minnesota.",
+            "Caitlin Clark and Kelsey Mitchell scored 34 points apiece in Indiana’s 111 to 91 win over Connecticut. Clark added 12 assists, and both guards shot 12 of 19. Two cooks, one kitchen, 68 points, no leftovers.",
+            "Cecilia Zandalasini scored 18 against Minnesota and 20 against New York during Golden State’s sweep. Veronica Burton added 13 assists without a turnover against the Liberty, while the Valkyries held New York to 30.2 percent shooting.",
+            "Carla Leite scored 26 points and Emily Engstler added a career-high 25 as Portland upset Atlanta, 101 to 83. Nneka Ogwumike closed Los Angeles’ two-win finish with 23 points and 12 rebounds against Seattle.",
+            "Olivia Miles scored 21 against Atlanta and passed Seimone Augustus for the most points by a Lynx rookie. She finished the game with 749 rookie-season points."
+          ]
+        },
+        {
+          "title": "Injury and roster radar",
+          "paragraphs": [
+            "Las Vegas announced that NaLyssa Smith will miss the remainder of the season after a non-contact left leg injury. Smith was averaging 11.7 points and 6.4 rebounds while leading the league at 63.8 percent from the field. The Aces signed 6 foot 7 center Kalani Brown to a rest-of-season hardship contract.",
+            "Atlanta signed six-time All-Star and two-time champion DeWanna Bonner after her contract with Phoenix ended. Bonner debuted against Minnesota. The Dream released Jaylyn Sherrod and waived Aaliyah Nye while making room for the veteran addition.",
+            "Los Angeles waived Kate Martin on Aug. 29. Toronto cycled through seven-day help while playing without Brittney Sykes and Aneesah Morrow, both already ruled out for the season.",
+            "Olivia Miles took a hard fall on a late driving layup against Atlanta and was slow to rise, but she walked off under her own power. No diagnosis or confirmed absence had been announced as of Aug. 31, so this is a watch item, not a declared injury."
+          ]
+        }
+      ],
+      "debates": [
+        "Did Golden State’s 4 win, 0 loss week make the Valkyries the league’s most trustworthy playoff team right now?",
+        "Should back-to-back losses knock Minnesota from the top power-ranking spot even while the Lynx own the best overall record?",
+        "Is Angel Reese’s record-breaking rebounding season enough to put her into the MVP top three?",
+        "Can Las Vegas replace NaLyssa Smith’s efficiency well enough to win another championship?",
+        "Which 24 win team would you trust most in a playoff series: New York, Washington, or red-hot Dallas?"
+      ],
+      "foodSegment": {
+        "title": "The Valkyries’ Four-Burner Takeover",
+        "script": "Welcome back to Snack Shak, where the food gets seasoned, the rankings get debated, and everybody gets served. Golden State just turned on all four burners. Burner one, the Valkyries held Minnesota to a season-low 66 points. Burner two, Connecticut got served by 25. Burner three, New York scored only 60 while Cecilia Zandalasini dropped 20. Burner four, Portland lost by 17. That is four games, four wins, and one defense locking the pantry after every possession. Facts on the bottom, spice on top: Minnesota still owns the league’s best record, but Golden State cooked the best plate this week. So here is the debate: are the Valkyries the team nobody wants in a playoff series, or are we over-seasoning one perfect week? I say the apron is theirs until somebody takes it. Keep your takes spicy and your turnovers low."
+      },
+      "sources": [
+        {
+          "label": "Official WNBA standings, Aug. 31, 2026",
+          "url": "https://www.wnba.com/standings"
+        },
+        {
+          "label": "Valkyries defeat Lynx, 80 to 66",
+          "url": "https://valkyries.wnba.com/news/gameday-recap-20260824"
+        },
+        {
+          "label": "Valkyries defeat Liberty, 79 to 60",
+          "url": "https://www.cbssports.com/wnba/gametracker/recap/WNBA_20260827_GS%40NYL/"
+        },
+        {
+          "label": "Angel Reese sets single-game rebound record",
+          "url": "https://www.reuters.com/sports/angel-reese-grabs-wnba-record-26-rebounds-dreams-win-over-sparks--flm-2026-08-25/"
+        },
+        {
+          "label": "Dream defeat Lynx as Reese sets double-double record",
+          "url": "https://www.cbssports.com/wnba/gametracker/recap/WNBA_20260830_MIN%40ATL/"
+        },
+        {
+          "label": "Clark and Mitchell score 34 apiece",
+          "url": "https://www.reuters.com/sports/caitlin-clark-kelsey-mitchell-combine-68-fever-trounce-sun--flm-2026-08-29/"
+        },
+        {
+          "label": "Wings rout Sun and extend winning streak",
+          "url": "https://www.mavsmoneyball.com/dallas-wings/61878/wings-vs-sun-recap-dallas-breaks-connecticuts-will-in-97-71-rout-before-world-cup-break"
+        },
+        {
+          "label": "Aces announce NaLyssa Smith’s season-ending injury",
+          "url": "https://aces.wnba.com/news/nalyssa-smith-sidelined-for-remainder-of-season"
+        },
+        {
+          "label": "WNBA transactions",
+          "url": "https://www.espn.com/wnba/transactions"
+        },
+        {
+          "label": "Lynx report on Olivia Miles after late fall",
+          "url": "https://www.startribune.com/minnesota-lynx-atlanta-dream-game-score-olivia-miles-wnba-playoffs-standings-fiba-world-cup/601637899"
+        }
+      ]
+    },
+    {
+      "imageFocus": "50% 38%",
+      "imageFit": "cover",
+      "storyImageSourceUrl": "https://wings.wnba.com/news/wings-quiet-storm-92-70-at-home-sunday",
+      "storyImageCaption": "Dallas–Seattle game action. Photo via the Dallas Wings.",
+      "imageAlt": "Dallas Wings guard Paige Bueckers dribbles against Seattle",
+      "storyImage": "https://cdn.wnba.com/sites/1611661321/2026/08/GettyImages-2291736417-scaled.jpg",
+      "image": "https://cdn.wnba.com/sites/1611661321/2026/08/GettyImages-2291736417-scaled.jpg",
+      "slug": "snack-shak-byte-2026-08-24",
+      "type": "byte",
+      "title": "Atlanta Sets the Table, Minnesota Owns the Kitchen",
+      "published": "2026-08-24",
+      "week": "Games from Aug. 17 through 23, 2026",
+      "dek": "Atlanta swept a statement week, Minnesota kept its grip on the league, Chicago crashed the contender party, and the playoff table became considerably less polite.",
+      "rankings": [
+        {
+          "rank": 1,
+          "team": "Minnesota Lynx",
+          "movement": "Same",
+          "note": "31 wins, 7 losses. Minnesota won both games and extended its streak to six. The Lynx remain the league’s deepest, steadiest, and best seasoned plate."
+        },
+        {
+          "rank": 2,
+          "team": "Atlanta Dream",
+          "movement": "Up 4",
+          "note": "24 wins, 13 losses. Atlanta went 3 wins and 0 losses, beat Las Vegas, demolished Los Angeles, defeated Phoenix, and clinched a playoff berth. Nobody brought more heat this week."
+        },
+        {
+          "rank": 3,
+          "team": "Las Vegas Aces",
+          "movement": "Up 1",
+          "note": "26 wins, 13 losses. The Aces recovered from a 97 to 82 loss to Atlanta with two straight victories. A’ja Wilson remains the ingredient that can rescue almost any recipe."
+        },
+        {
+          "rank": 4,
+          "team": "Indiana Fever",
+          "movement": "Down 1",
+          "note": "25 wins, 14 losses. Indiana split four games, lost to Dallas and New York, then poured in 113 points against Chicago. The offense is elite, but the week exposed defensive questions."
+        },
+        {
+          "rank": 5,
+          "team": "Golden State Valkyries",
+          "movement": "Down 3",
+          "note": "25 wins, 11 losses. Golden State finished the week with consecutive losses, including a 73 to 70 defeat against Chicago. The full season remains excellent, but the pan cooled quickly."
+        },
+        {
+          "rank": 6,
+          "team": "New York Liberty",
+          "movement": "Down 1",
+          "note": "23 wins, 15 losses. New York lost to Chicago before defeating Indiana, 109 to 102. Leonie Fiebich’s return immediately made the Liberty look more balanced."
+        },
+        {
+          "rank": 7,
+          "team": "Washington Mystics",
+          "movement": "Same",
+          "note": "22 wins, 15 losses. Washington went 2 wins and 1 loss, then clinched its first playoff berth since 2023 behind Shakira Austin’s career night in Portland."
+        },
+        {
+          "rank": 8,
+          "team": "Dallas Wings",
+          "movement": "Same",
+          "note": "22 wins, 16 losses. Dallas defeated Indiana and Seattle, with Paige Bueckers delivering a historic shooting performance. The Wings finally found some crunch around the edges."
+        },
+        {
+          "rank": 9,
+          "team": "Chicago Sky",
+          "movement": "Up 2",
+          "note": "15 wins, 23 losses. Chicago beat New York and Golden State before Indiana ended the run. Two wins over contenders make this the week’s best gate crasher story."
+        },
+        {
+          "rank": 10,
+          "team": "Portland Fire",
+          "movement": "Down 1",
+          "note": "15 wins, 22 losses. Portland dropped both games, including a painful late collapse against Washington. Carla Leite keeps producing, but the playoff door is nearly closed."
+        },
+        {
+          "rank": 11,
+          "team": "Los Angeles Sparks",
+          "movement": "Up 1",
+          "note": "13 wins, 24 losses. Los Angeles finished the week with a win over Connecticut, but the victory was overshadowed by Dearica Hamby’s ejection and Raegan Beers leaving with a jaw injury."
+        },
+        {
+          "rank": 12,
+          "team": "Phoenix Mercury",
+          "movement": "Down 2",
+          "note": "13 wins, 24 losses. Phoenix lost its only game of the week to Atlanta and has dropped two straight. Adding scoring has not solved the defensive recipe."
+        },
+        {
+          "rank": 13,
+          "team": "Toronto Tempo",
+          "movement": "Up 2",
+          "note": "11 wins, 26 losses. Toronto finally ended a 12 game losing streak, but season ending injuries to Brittney Sykes and Aneesah Morrow turned celebration into concern."
+        },
+        {
+          "rank": 14,
+          "team": "Connecticut Sun",
+          "movement": "Same",
+          "note": "9 wins, 27 losses. Connecticut managed one victory in three games, then lost to Los Angeles. The offense still makes every possession feel like cooking without a stove."
+        },
+        {
+          "rank": 15,
+          "team": "Seattle Storm",
+          "movement": "Down 2",
+          "note": "7 wins, 31 losses. Seattle lost its only game of the week by 22 in Dallas and has dropped three straight. The season is now entirely about development and evaluation."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Facts on the plate",
+          "paragraphs": [
+            "Minnesota leads the official standings at 31 wins and 7 losses, with six consecutive victories and a 9 win, 1 loss record over its last ten games. Golden State remains second in the standings, while Las Vegas, Atlanta, Indiana, New York, and Washington have also clinched playoff berths.",
+            "Atlanta produced the week’s cleanest team performance. The Dream beat Las Vegas, Los Angeles, and Phoenix to finish 3 wins and 0 losses. Chicago supplied the surprise, defeating both New York and Golden State before losing to Indiana."
+          ]
+        },
+        {
+          "title": "The main course, Atlanta is done asking for attention",
+          "paragraphs": [
+            "The Dream did not sneak through this week. They kicked in the kitchen door. Atlanta beat Las Vegas by 15, overwhelmed Los Angeles, and finished the sweep with a 99 to 89 victory over Phoenix.",
+            "That run moved Atlanta to 24 wins and 13 losses and secured a playoff berth. The factual case is strong, three victories, quality opponents, and sustained scoring. The Snack Shak opinion is spicier, Atlanta belongs in the championship conversation right now, not in the waiting room outside it."
+          ]
+        },
+        {
+          "title": "Players who brought the flavor",
+          "paragraphs": [
+            "Paige Bueckers scored 32 points on 12 of 16 shooting against Seattle and made all six of her three point attempts. That tied the WNBA record for the most threes made in a game without a miss.",
+            "Natasha Cloud erupted for a career high 35 points, nine rebounds, and six assists as Chicago defeated New York, 93 to 86. She became the first Sky player to record at least 35 points, five rebounds, and five assists in one game.",
+            "Shakira Austin produced a career high 31 points with 10 rebounds as Washington defeated Portland, 105 to 100, and clinched a playoff berth. Kiki Iriafen added 18 points and 10 rebounds.",
+            "Kelsey Mitchell scored 37 points against Dallas and extended her WNBA record to 21 consecutive games with at least 20 points. Caitlin Clark answered Chicago with 37 points and 10 assists in Indiana’s 113 to 90 victory.",
+            "A’ja Wilson finished the week with 27 points, seven rebounds, and seven assists against Toronto, helping Las Vegas secure an 88 to 78 victory."
+          ]
+        },
+        {
+          "title": "Injury and roster radar",
+          "paragraphs": [
+            "Toronto announced that Brittney Sykes and Aneesah Morrow will miss the remainder of the season. Sykes sustained a left foot injury and Morrow injured her left knee during Toronto’s victory over Portland. Neither injury is expected to require surgery.",
+            "Leonie Fiebich returned from a foot injury and supplied 20 points, five rebounds, and five assists in New York’s win over Indiana. Satou Sabally remained away from the Liberty while dealing with lingering effects from a head injury.",
+            "Dearica Hamby was ejected after receiving a flagrant foul for striking Connecticut rookie Raegan Beers in the face. Beers left with a jaw injury, and the league may review the incident further."
+          ]
+        }
+      ],
+      "debates": [
+        "Is Atlanta now the second most trustworthy championship contender behind Minnesota?",
+        "Should Golden State’s full season excellence outweigh consecutive losses to end the week?",
+        "Can Indiana win a title while allowing opponents to keep pace with its explosive offense?",
+        "Did Chicago reveal a real late season identity, or was this simply one beautifully seasoned week?",
+        "How much pressure should fall on Paige Bueckers after Dallas lost Azzi Fudd and entered the stretch run needing consistency?"
+      ],
+      "foodSegment": {
+        "title": "The Dream’s Three Alarm Peach Cobbler",
+        "script": "Welcome back to Snack Shak, where Atlanta just pulled a three alarm peach cobbler out of the oven! First scoop, the Dream walked into Las Vegas and won by 15. Second scoop, Los Angeles got served the family sized portion. Third scoop, Atlanta beat Phoenix, finished the week undefeated, and clinched a playoff seat. That is not a cute little hot streak. That is contender crust, MVP level filling, and championship seasoning around the edges. Minnesota still owns the kitchen, but Atlanta is standing at the counter with a spoon and absolutely no interest in waiting its turn. So here is the spicy question, are the Dream really the league’s second best team right now, or did they simply catch everybody before the oven timer went off? Either way, this cobbler is hot, and the playoff table just got crowded."
+      },
+      "sources": [
+        {
+          "label": "Official WNBA standings, Aug. 24, 2026",
+          "url": "https://www.wnba.com/standings"
+        },
+        {
+          "label": "Dream defeat Mercury and clinch playoff berth",
+          "url": "https://www.wnba.com/watch/video/game-recap-atlanta-dream-99-phoenix-mercury-89-08-22-2026"
+        },
+        {
+          "label": "Wings recap, Bueckers scores 32",
+          "url": "https://wings.wnba.com/news/wings-quiet-storm-92-70-at-home-sunday"
+        },
+        {
+          "label": "Sky recap, Cloud scores career high 35",
+          "url": "https://sky.wnba.com/news/recap-clouds-career-high-helps-lift-sky-over-liberty-at-home-93-86"
+        },
+        {
+          "label": "Mystics clinch playoff berth",
+          "url": "https://www.wnba.com/watch/video/game-recap-washington-mystics-105-portland-fire-100-08-23-2026"
+        },
+        {
+          "label": "Fever defeat Sky",
+          "url": "https://fever.wnba.com/news/game-recap-fever-sky-260823"
+        },
+        {
+          "label": "Aces defeat Tempo",
+          "url": "https://www.wnba.com/game/lva-vs-tor-1022600281"
+        },
+        {
+          "label": "Toronto season ending injury report",
+          "url": "https://www.sbnation.com/womens-sports/1125783/toronto-tempo-injury-aneesah-morrow-brittney-sykes"
+        }
+      ]
+    },
+    {
+      "imageFocus": "50% 38%",
+      "imageFit": "cover",
+      "storyImageSourceUrl": "https://fever.wnba.com/news/game-recap-fever-dream-260816",
+      "storyImageCaption": "Indiana–Atlanta game action from August 16. Photo via the Indiana Fever.",
+      "imageAlt": "Indiana Fever guard Kelsey Mitchell drives against Atlanta",
+      "storyImage": "https://cdn.wnba.com/sites/1611661325/2026/08/GettyImages-2290260721.jpg",
+      "image": "https://cdn.wnba.com/sites/1611661325/2026/08/GettyImages-2290260721.jpg",
+      "slug": "snack-shak-byte-2026-08-17",
+      "type": "byte",
+      "title": "Indiana Turns Up the Heat",
+      "published": "2026-08-17",
+      "week": "Games from Aug. 10 through 16, 2026",
+      "dek": "Indiana brought the full three course feast, Minnesota remained the head chef, and Washington discovered that Las Vegas keeps a fire extinguisher specifically for hot streaks.",
+      "rankings": [
+        {
+          "rank": 1,
+          "team": "Minnesota Lynx",
+          "movement": "Same",
+          "note": "29 wins, 7 losses. Minnesota beat Portland and Las Vegas while improving to 15 wins and 2 losses on the road. Still the league’s most complete meal."
+        },
+        {
+          "rank": 2,
+          "team": "Golden State Valkyries",
+          "movement": "Same",
+          "note": "24 wins, 9 losses. Golden State extended its winning streak to five by routing Chicago, 91 to 71, despite missing key rotation players. Quietly terrifying."
+        },
+        {
+          "rank": 3,
+          "team": "Indiana Fever",
+          "movement": "Up 3",
+          "note": "23 wins, 12 losses. Indiana swept New York, Dallas, and Atlanta. Four straight victories have moved the Fever from exciting contender to legitimate championship threat."
+        },
+        {
+          "rank": 4,
+          "team": "Las Vegas Aces",
+          "movement": "Up 1",
+          "note": "24 wins, 12 losses. Las Vegas ended Washington’s seven game streak twice before falling to Minnesota. The veteran machinery remains dangerous."
+        },
+        {
+          "rank": 5,
+          "team": "New York Liberty",
+          "movement": "Down 1",
+          "note": "22 wins, 14 losses. New York recovered from a 106 to 92 loss to Indiana with victories over Los Angeles and Connecticut. Its depth is carrying the team through significant absences."
+        },
+        {
+          "rank": 6,
+          "team": "Atlanta Dream",
+          "movement": "Up 1",
+          "note": "21 wins, 13 losses. Atlanta crushed Connecticut by 35 before losing an overtime thriller to Indiana. Strong, but still searching for consistency against the league’s top teams."
+        },
+        {
+          "rank": 7,
+          "team": "Washington Mystics",
+          "movement": "Down 4",
+          "note": "20 wins, 14 losses. Las Vegas swept the two game series and cooled Washington’s seven game streak. A win over Los Angeles stopped the slide."
+        },
+        {
+          "rank": 8,
+          "team": "Dallas Wings",
+          "movement": "Same",
+          "note": "20 wins, 15 losses. Dallas completed a season sweep of Toronto, then surrendered 98 points to Indiana. Injuries matter, but a stretch of 3 wins and 7 losses raises real concerns."
+        },
+        {
+          "rank": 9,
+          "team": "Portland Fire",
+          "movement": "Same",
+          "note": "15 wins, 20 losses. Portland pushed Minnesota before beating Seattle and Phoenix. The Fire may be outside the playoff field, but nobody should want them on the schedule."
+        },
+        {
+          "rank": 10,
+          "team": "Phoenix Mercury",
+          "movement": "Up 3",
+          "note": "13 wins, 23 losses. Phoenix beat Los Angeles but surrendered an eight point fourth quarter lead to Portland during Diana Taurasi’s jersey retirement night."
+        },
+        {
+          "rank": 11,
+          "team": "Chicago Sky",
+          "movement": "Down 1",
+          "note": "13 wins, 22 losses. Chicago lost badly to Golden State and split two close games with Seattle. Still alive mathematically, but the burner is barely on."
+        },
+        {
+          "rank": 12,
+          "team": "Los Angeles Sparks",
+          "movement": "Down 1",
+          "note": "12 wins, 22 losses. Los Angeles competed with New York before falling to Washington. Four straight losses have left the Sparks serving cold leftovers."
+        },
+        {
+          "rank": 13,
+          "team": "Seattle Storm",
+          "movement": "Up 2",
+          "note": "7 wins, 30 losses. Seattle snapped an 11 game losing streak with 97 points against Chicago, then lost two games by a combined four points. Small progress still counts."
+        },
+        {
+          "rank": 14,
+          "team": "Connecticut Sun",
+          "movement": "Down 2",
+          "note": "8 wins, 25 losses. Connecticut lost by 35 to Atlanta and by seven to New York. Its offense remains the plain oatmeal of this week’s rankings."
+        },
+        {
+          "rank": 15,
+          "team": "Toronto Tempo",
+          "movement": "Down 1",
+          "note": "10 wins, 23 losses. Toronto has lost ten consecutive games. The expansion wall is now reinforced concrete."
+        }
+      ],
+      "sections": [
+        {
+          "title": "This week’s plate",
+          "paragraphs": [
+            "The Fever delivered the week’s strongest statement by defeating New York, Dallas, and Atlanta while scoring at least 95 points in every game. Minnesota continued to set the league’s standard, Golden State quietly collected its fifth consecutive victory, and Portland strengthened its case as the most dangerous team currently outside the playoff picture.",
+            "Minnesota continued to lead the league with 29 wins and 7 losses, followed by Golden State with 24 wins and 9 losses. Indiana climbed within half a game of third place Las Vegas, while eighth place Dallas maintained a six game cushion over Portland."
+          ]
+        },
+        {
+          "title": "The main course, Indiana is no longer just promising",
+          "paragraphs": [
+            "The Fever entered the week surrounded by questions about whether their explosive offense could consistently defeat playoff caliber opponents. Three victories later, Indiana supplied a rather loud answer.",
+            "Caitlin Clark recorded 29 points and 10 assists against Dallas before producing 26 points and nine assists in Indiana’s 95 to 91 overtime win over Atlanta. Kelsey Mitchell extended her WNBA record single season streak to 19 consecutive games with at least 20 points.",
+            "Mitchell provides the reliable scoring pressure. Clark controls the pace and creates opportunities. Aliyah Boston gives Indiana a steady interior option. Together, they have transformed the Fever into something more dangerous than a fun offensive team. Indiana now looks capable of surviving different types of games, and that matters much more in the playoffs than simply piling up regular season points."
+          ]
+        },
+        {
+          "title": "Players who brought the flavor",
+          "paragraphs": [
+            "Olivia Miles continued to make her rookie season look suspiciously veteran. She finished with 23 points and eight assists in Minnesota’s 92 to 87 victory over Las Vegas. Napheesa Collier added 19 points, while Natasha Howard contributed 13 points and 11 rebounds. Minnesota did not merely beat another contender, it demonstrated how many different players can carry the plate.",
+            "A’ja Wilson still delivered 32 points and seven rebounds in the loss. Las Vegas may have fallen short, but Wilson reminded everyone that a close playoff game can change quickly when she starts demanding the ball.",
+            "Golden State received an unexpected burst from Tiffany Hayes, who scored a season high 22 points in only 17 minutes during the Valkyries’ 91 to 71 win over Chicago. Golden State was missing Kiah Stokes and Janelle Salaün, yet still won by 20. That is the kind of depth that travels well in the postseason.",
+            "Allisha Gray poured in 32 points against Indiana, while Angel Reese produced 15 points, 14 rebounds, and six assists. Atlanta had two opportunities to win at the end of regulation but could not convert, allowing the Fever to take control in overtime.",
+            "Portland rookie Carla Leite added another chapter to her impressive season by playing through discomfort and finishing with 21 points and five assists against Phoenix. The Fire erased an eight point fourth quarter deficit and escaped with an 88 to 85 victory."
+          ]
+        },
+        {
+          "title": "Injury and roster radar",
+          "paragraphs": [
+            "Indiana added veteran center Mercedes Russell through a season ending injury exception after Damiris Dantas underwent surgery for a torn meniscus. Russell brings size, frontcourt flexibility, and experience from two WNBA championship teams.",
+            "Clark briefly left the Dallas game after appearing to turn her ankle, but she returned after halftime, finished with 29 points and 10 assists, and played in the following game against Atlanta. It remains something to watch, but it was not a confirmed absence.",
+            "New York continued to navigate more serious concerns. Satou Sabally stepped away from the team while experiencing lingering effects from a head injury. Sabrina Ionescu missed the Connecticut game with a foot issue, while Leonie Fiebich remained unavailable.",
+            "Dallas faced Indiana without Azzi Fudd, Jessica Shepard, and Aziaha James. Shepard appeared to be approaching a return, but Fudd remained sidelined with a right knee injury.",
+            "Portland added Nigerian international Amy Okonkwo on a rest of season hardship contract, while Toronto signed guard Zaay Green to a player development contract."
+          ]
+        }
+      ],
+      "debates": [
+        "Does Indiana have two legitimate MVP candidates in Caitlin Clark and Kelsey Mitchell?",
+        "Is Golden State being overlooked because Minnesota has been so dominant?",
+        "Did Las Vegas expose Washington as a hot team that is still one tier below the true championship contenders?",
+        "Can Dallas be trusted in the playoffs while injuries and recent defensive struggles continue to pile up?",
+        "Is Portland building the strongest long term foundation among the league’s newest teams?"
+      ],
+      "foodSegment": {
+        "title": "The Three Course Fever Feast",
+        "script": "Welcome back to Snack Shak, where the rankings are hot and Indiana just ordered the full three course meal! First course, the Liberty. The Fever dropped 106 points and sent New York home with a doggie bag. Second course, Dallas. Caitlin Clark served 29 points and 10 assists, while Kelsey Mitchell kept her historic scoring streak cooking. Then came dessert in Atlanta, an overtime win that pushed Indiana’s streak to four. Minnesota still owns the kitchen, and Golden State has reservations at the championship table. But Indiana is no longer serving promising young team. This is contender cuisine. Can Clark, Mitchell, and Aliyah Boston keep feeding everybody during the playoffs, or will an experienced defense finally send the check? Either way, the Fever are cooking, and somebody forgot to turn off the stove."
+      },
+      "sources": [
+        {
+          "label": "Official WNBA standings",
+          "url": "https://www.wnba.com/standings"
+        },
+        {
+          "label": "Fever and Dream recap",
+          "url": "https://fever.wnba.com/news/game-recap-fever-dream-260816"
+        },
+        {
+          "label": "Fever and Wings coverage",
+          "url": "https://www.wnba.com/news/team/1611661321/wings"
+        },
+        {
+          "label": "Lynx and Aces recap",
+          "url": "https://www.espn.com/wnba/recap?gameId=401857147"
+        },
+        {
+          "label": "WNBA transactions",
+          "url": "https://www.wnba.com/players/transactions"
+        }
+      ]
+    },
+    {
+      "slug": "snack-shak-byte-2026-08-10",
+      "type": "byte",
+      "title": "Washington brought the seven-alarm heat",
+      "published": "2026-08-10",
+      "week": "Games from Aug. 3–9, 2026",
+      "dek": "Washington brought the seven-alarm heat, Golden State quietly kept cooking, and Las Vegas finished an exhausting road trip looking like somebody unplugged the air fryer.",
+      "rankings": [
+        {
+          "rank": 1,
+          "team": "Minnesota Lynx",
+          "movement": "—",
+          "note": "No. 1 for this edition."
+        },
+        {
+          "rank": 2,
+          "team": "Golden State Valkyries",
+          "movement": "—",
+          "note": "Still cooking near the top."
+        },
+        {
+          "rank": 3,
+          "team": "Washington Mystics",
+          "movement": "—",
+          "note": "The seven-alarm week."
+        },
+        {
+          "rank": 4,
+          "team": "New York Liberty",
+          "movement": "—",
+          "note": "Top-four position in this Byte."
+        },
+        {
+          "rank": 5,
+          "team": "Las Vegas Aces",
+          "movement": "—",
+          "note": "Road-trip fatigue was part of the conversation."
+        },
+        {
+          "rank": 6,
+          "team": "Indiana Fever",
+          "movement": "—",
+          "note": "Sixth on this week’s board."
+        },
+        {
+          "rank": 7,
+          "team": "Atlanta Dream",
+          "movement": "—",
+          "note": "Seventh in the Aug. 3–9 reset."
+        },
+        {
+          "rank": 8,
+          "team": "Dallas Wings",
+          "movement": "—",
+          "note": "Holding the middle."
+        },
+        {
+          "rank": 9,
+          "team": "Portland Fire",
+          "movement": "—",
+          "note": "Expansion team sitting ninth."
+        },
+        {
+          "rank": 10,
+          "team": "Chicago Sky",
+          "movement": "—",
+          "note": "Rounded out the top ten."
+        },
+        {
+          "rank": 11,
+          "team": "Los Angeles Sparks",
+          "movement": "—",
+          "note": "Eleventh this week."
+        },
+        {
+          "rank": 12,
+          "team": "Connecticut Sun",
+          "movement": "—",
+          "note": "Twelfth this week."
+        },
+        {
+          "rank": 13,
+          "team": "Phoenix Mercury",
+          "movement": "—",
+          "note": "Thirteenth this week."
+        },
+        {
+          "rank": 14,
+          "team": "Toronto Tempo",
+          "movement": "—",
+          "note": "Fourteenth this week."
+        },
+        {
+          "rank": 15,
+          "team": "Seattle Storm",
+          "movement": "—",
+          "note": "Fifteenth this week."
+        }
+      ],
+      "sections": [
+        {
+          "title": "The Byte",
+          "paragraphs": [
+            "This was the week Washington jumped all the way into the top three while Minnesota and Golden State kept the top two seats.",
+            "The archive keeps the original ranking order so the next edition’s movement has something real to compare against."
+          ]
+        }
+      ],
+      "foodSegment": {
+        "title": "The Seven-Layer Mystics Dip",
+        "script": "The original short-form segment from this edition was The Seven-Layer Mystics Dip. The title stays in the archive with the ranking board rather than replacing the original script with a made-up reconstruction."
+      },
+      "sources": []
+    },
+    {
+      "slug": "snack-shak-w-reset-2026-07-18",
+      "type": "byte",
+      "title": "Standings sizzling, defense in the air fryer",
+      "published": "2026-07-18",
+      "week": "Midseason W reset",
+      "dek": "Standings, streaks, stars, snubs, and who looked like a contender versus who still looked like they were reading the instructions.",
+      "rankings": [
+        {
+          "rank": 1,
+          "team": "Minnesota Lynx",
+          "movement": "—",
+          "note": "19-6, W4, with the best scoring margin in the scouting reset."
+        },
+        {
+          "rank": 2,
+          "team": "Golden State Valkyries",
+          "movement": "—",
+          "note": "18-7, W8, and the best opponent-points defense in the reset."
+        },
+        {
+          "rank": 3,
+          "team": "Las Vegas Aces",
+          "movement": "—",
+          "note": "Dynasty and drama at the same time."
+        },
+        {
+          "rank": 4,
+          "team": "Dallas Wings",
+          "movement": "—",
+          "note": "The transformation story of the season at that point."
+        },
+        {
+          "rank": 5,
+          "team": "Atlanta Dream",
+          "movement": "—",
+          "note": "Three All-Stars and a loud starter-snub conversation."
+        },
+        {
+          "rank": 6,
+          "team": "Indiana Fever",
+          "movement": "—",
+          "note": "Elite scoring with a defense that kept the debate spicy."
+        },
+        {
+          "rank": 7,
+          "team": "New York Liberty",
+          "movement": "—",
+          "note": "Talented, but wobbling."
+        },
+        {
+          "rank": 8,
+          "team": "Washington Mystics",
+          "movement": "—",
+          "note": "Rebound everything, score later."
+        },
+        {
+          "rank": 9,
+          "team": "Portland Fire",
+          "movement": "—",
+          "note": "Expansion with personality."
+        },
+        {
+          "rank": 10,
+          "team": "Los Angeles Sparks",
+          "movement": "—",
+          "note": "Offense without enough stops."
+        },
+        {
+          "rank": 11,
+          "team": "Toronto Tempo",
+          "movement": "—",
+          "note": "Expansion pace and personality."
+        },
+        {
+          "rank": 12,
+          "team": "Chicago Sky",
+          "movement": "—",
+          "note": "A roster still under construction."
+        },
+        {
+          "rank": 13,
+          "team": "Phoenix Mercury",
+          "movement": "—",
+          "note": "A proud name in reset mode."
+        },
+        {
+          "rank": 14,
+          "team": "Connecticut Sun",
+          "movement": "—",
+          "note": "Rebuilding and trying to manufacture offense."
+        },
+        {
+          "rank": 15,
+          "team": "Seattle Storm",
+          "movement": "—",
+          "note": "The future was clearer than the present."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Current top tier",
+          "paragraphs": [
+            "Minnesota stayed No. 1 at 19-6 with a four-game win streak and the best scoring margin in the reset. Golden State was the twist at 18-7 with eight straight wins and the best scoring defense. That defense was not a cute storyline anymore; it was a padlock."
+          ]
+        },
+        {
+          "title": "Aces, Dallas and the Fever debate",
+          "paragraphs": [
+            "Las Vegas had the historic 106-58 Phoenix win and then later got humbled by Indiana, so the Aces were giving dynasty and drama at the same time.",
+            "Dallas had gone from a 10-win 2025 to 16-8 in this snapshot. Indiana led the league in scoring at 93.9 points per game while allowing 89.7, which is exactly why the offense-versus-defense conversation stayed spicy."
+          ]
+        },
+        {
+          "title": "Snub watch",
+          "paragraphs": [
+            "Atlanta had Allisha Gray, Rhyne Howard and Angel Reese as reserves with zero starters while Indiana had three starters. That was the argument on the table."
+          ]
+        }
+      ],
+      "foodSegment": {
+        "title": "The contender plate",
+        "script": "If I’m cooking a contender plate today, Minnesota gets the main dish, Golden State gets the side that steals the show, Vegas gets the championship seasoning, and Dallas gets the ‘don’t say I didn’t warn you’ sauce."
+      },
+      "sources": []
+    },
+    {
+      "slug": "welcome-to-snack-shak",
+      "type": "intro",
+      "title": "Welcome to Snack Shak",
+      "published": "2026-08-18",
+      "week": "The weekly W check-in",
+      "dek": "Pull up a chair. We’re talking hoops like we talk hoops in real life: with receipts, opinions, a little side-eye and something cooking on the stove.",
+      "sections": [
+        {
+          "title": "What this is",
+          "paragraphs": [
+            "Snack Shak is the weekly temperature check for the W. We’ll move through the power rankings, talk about who is cooking, who needs to get out of the kitchen for a minute, and which storylines deserve more attention than they’re getting.",
+            "The numbers still matter. So do injuries, roster changes, matchups and the stuff that doesn’t fit neatly in a box score. But this is not supposed to read like somebody copied a press release into a robot. It should sound like basketball talk — because that’s what it is."
+          ]
+        },
+        {
+          "title": "What shows up every week",
+          "paragraphs": [
+            "Expect the full power ranking and movement from the last edition, the biggest team and player stories, standout performances, injury and roster watch, a few spicy debate questions, and one food-themed segment built for a short video.",
+            "The rule around here is simple: facts on the bottom, spice on top. If a stat is a fact, we source it. If it’s a take, we say it like a take."
+          ]
+        }
+      ],
+      "debates": [
+        "Who is being underrated right now?",
+        "Which contender has the biggest flaw nobody wants to talk about?",
+        "Who would you trust with one possession and the game on the line?"
+      ],
+      "foodSegment": {
+        "title": "Setting the Table",
+        "script": "Welcome to Snack Shak, where the food gets seasoned, the rankings get debated, and everybody gets served. Every week we’re checking the standings, the streaks, the stars, the role players and the teams somebody swore were cooked three games ago. Bring your receipts, because the rankings are hot and I am absolutely going to ask who needs more seasoning. Keep your takes spicy and your turnovers low."
+      },
+      "sources": []
+    }
+  ]
+}

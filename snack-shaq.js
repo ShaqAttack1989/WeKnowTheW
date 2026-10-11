@@ -1,0 +1,227 @@
+function snackSafe(value = '') {
+  return String(value)
+    .replaceAll('&', '&amp;')
+    .replaceAll('<', '&lt;')
+    .replaceAll('>', '&gt;')
+    .replaceAll('"', '&quot;')
+    .replaceAll("'", '&#039;');
+}
+
+if(!document.querySelector('script[data-snack-shak-nav]')){const s=document.createElement('script');s.src='/snack-shak-nav.js?v=20260828-v1';s.dataset.snackShakNav='true';s.defer=true;document.head.appendChild(s);}
+
+function formatDate(value) {
+  const date = new Date(`${value}T12:00:00`);
+  return Number.isNaN(date.getTime())
+    ? value
+    : date.toLocaleDateString([], { month: 'long', day: 'numeric', year: 'numeric' });
+}
+
+function displaySeries(post = {}) {
+  return post.type === 'feature' ? 'FOOD FOR THOUGHT' : (post.seriesLabel || 'SNACK SHAK BYTE');
+}
+
+function movementClass(value = '') {
+  const text = String(value).toLowerCase();
+  if (text.includes('up') || text.startsWith('+')) return 'up';
+  if (text.includes('down') || text.startsWith('-')) return 'down';
+  return '';
+}
+
+function rankingsMarkup(rankings = []) {
+  if (!rankings.length) return '';
+  return `
+    <section class="snack-section">
+      <h3>Power rankings</h3>
+      <div class="rankings-table">
+        <div class="rank-row head"><span>#</span><span>Team</span><span>Move</span><span>What I’m seeing</span></div>
+        ${rankings.map(item => `
+          <div class="rank-row">
+            <span class="rank">${snackSafe(item.rank)}</span>
+            <strong>${snackSafe(item.team)}</strong>
+            <span class="move ${movementClass(item.movement)}">${snackSafe(item.movement || '—')}</span>
+            <span>${snackSafe(item.note || '')}</span>
+          </div>
+        `).join('')}
+      </div>
+    </section>
+  `;
+}
+
+function storyTableMarkup(table = {}) {
+  const columns = Array.isArray(table.columns) ? table.columns : [];
+  const rows = Array.isArray(table.rows) ? table.rows : [];
+  if (!columns.length || !rows.length) return '';
+  const columnCount = Math.max(1, columns.length);
+  return `
+    <section class="snack-section story-table-section">
+      <div class="story-table-scroll">
+        <div class="story-table" style="--story-cols:${columnCount}">
+          <div class="story-table-row head">${columns.map(column => `<span>${snackSafe(column)}</span>`).join('')}</div>
+          ${rows.map(row => `<div class="story-table-row">${row.map((cell, index) => index === 1 ? `<strong>${snackSafe(cell)}</strong>` : `<span>${snackSafe(cell)}</span>`).join('')}</div>`).join('')}
+        </div>
+      </div>
+    </section>
+  `;
+}
+
+function sectionsMarkup(sections = []) {
+  return sections.map(section => `
+    <section class="snack-section">
+      <h3>${snackSafe(section.title)}</h3>
+      ${(section.paragraphs || []).map(paragraph => `<p>${snackSafe(paragraph)}</p>`).join('')}
+    </section>
+  `).join('');
+}
+
+function debatesMarkup(items = []) {
+  if (!items.length) return '';
+  return `
+    <section class="snack-debate-board">
+      <h3>Spicy debate board</h3>
+      <ul>${items.map(item => `<li>${snackSafe(item)}</li>`).join('')}</ul>
+    </section>
+  `;
+}
+
+function foodMarkup(food) {
+  if (!food?.title && !food?.script) return '';
+  return `
+    <section class="food-segment">
+      <span class="segment-label">FROM THE KITCHEN</span>
+      <h3>${snackSafe(food.title || 'This week’s segment')}</h3>
+      ${food.script ? `<blockquote>${snackSafe(food.script)}</blockquote>` : ''}
+    </section>
+  `;
+}
+
+function sourcesMarkup(sources = []) {
+  if (!sources.length) return '';
+  return `
+    <section class="source-list">
+      <strong>Receipts</strong>
+      <p>${sources.map(source => `<a href="${snackSafe(source.url)}" target="_blank" rel="noopener noreferrer">${snackSafe(source.label || 'Source')}</a>`).join(' · ')}</p>
+    </section>
+  `;
+}
+
+function postMarkup(post) {
+  return `
+    <header class="snack-post-header ${post.type === 'feature' ? 'feature-header' : ''}">
+      <span class="snack-series-label">${snackSafe(displaySeries(post))}</span>
+      <div class="meta"><span>${snackSafe(formatDate(post.published))}</span><span>•</span><span>${snackSafe(post.week || 'Weekly update')}</span></div>
+      <h2>${snackSafe(post.title)}</h2>
+      <p class="dek">${snackSafe(post.dek || '')}</p>
+    </header>
+    ${post.dashboardUrl ? `<section class="snack-section"><p><a href="${snackSafe(post.dashboardUrl)}"><strong>Read the full feature →</strong></a></p></section>` : ''}
+    ${rankingsMarkup(post.rankings)}
+    ${storyTableMarkup(post.storyTable)}
+    ${sectionsMarkup(post.sections)}
+    ${debatesMarkup(post.debates)}
+    ${foodMarkup(post.foodSegment)}
+    ${sourcesMarkup(post.sources)}
+  `;
+}
+
+function snackStoryHref(post) {
+  return post.dashboardUrl || `/snack-shak.html?post=${encodeURIComponent(post.slug)}#latest`;
+}
+
+function featuredMarkup(posts, activeSlug) {
+  return posts.map((post, index) => `
+    <a class="snack-feature-card ${post.type === 'feature' ? 'feature' : 'byte'} ${post.slug === activeSlug ? 'active' : ''}" href="${snackSafe(snackStoryHref(post))}" ${post.slug === activeSlug ? 'aria-current="page"' : ''}>
+      <span class="snack-feature-rank">${String(index + 1).padStart(2, '0')}</span>
+      <div class="snack-feature-copy">
+        <div class="snack-feature-meta">
+          <em>${snackSafe(displaySeries(post))}</em>
+          <span>${snackSafe(formatDate(post.published))}</span>
+        </div>
+        <strong>${snackSafe(post.title)}</strong>
+        <p>${snackSafe(post.dek || '')}</p>
+        <b>${post.type === 'feature' ? 'Read Food for Thought →' : 'Read story →'}</b>
+      </div>
+    </a>
+  `).join('');
+}
+
+function archiveMarkup(posts, activeSlug) {
+  if (!posts.length) return '<div class="snack-archive-empty"><strong>The archive is caught up.</strong><p>Older stories will collect here as new plates are published.</p></div>';
+  return posts.map(post => `
+    <a class="archive-card ${post.type === 'feature' ? 'feature-card' : ''}" href="${snackSafe(snackStoryHref(post))}" ${post.slug === activeSlug ? 'aria-current="page"' : ''}>
+      <em>${snackSafe(displaySeries(post))}</em>
+      <span>${snackSafe(formatDate(post.published))}</span>
+      <strong>${snackSafe(post.title)}</strong>
+      <p>${snackSafe(post.dek || '')}</p>
+    </a>
+  `).join('');
+}
+
+function sortPosts(posts = []) {
+  return [...posts].sort((a, b) => {
+    if (a.type === 'intro' && b.type !== 'intro') return 1;
+    if (b.type === 'intro' && a.type !== 'intro') return -1;
+    const date = String(b.published || '').localeCompare(String(a.published || ''));
+    if (date) return date;
+    return Number(b.priority || 0) - Number(a.priority || 0);
+  });
+}
+
+async function fetchPostFile(url) {
+  const response = await fetch(`${url}?cb=${Date.now()}`, { headers: { Accept: 'application/json', 'Cache-Control':'no-cache' }, cache: 'no-store' });
+  if (!response.ok) return [];
+  const payload = await response.json().catch(() => ({}));
+  return Array.isArray(payload.posts) ? payload.posts : [];
+}
+
+function updateFoodThoughtHero(posts=[]){
+  const latest=posts.find(post=>post.type==='feature');
+  const hero=document.querySelector('.around-feature-story');
+  if(!latest||!hero)return;
+  hero.href=snackStoryHref(latest);
+  const copy=hero.querySelector('.around-feature-copy');
+  const media=hero.querySelector('.around-feature-media');
+  if(copy)copy.innerHTML=`<span class="portal-label">FOOD FOR THOUGHT · LATEST</span><h2>${snackSafe(latest.title)}</h2><p>${snackSafe(latest.dek||'The newest long-form analysis from We Know the W.')}</p><strong>Read Food for Thought →</strong>`;
+  if(media){media.style.background='radial-gradient(circle at 70% 20%,rgba(216,255,79,.22),transparent 24%),linear-gradient(135deg,#080808,#5b246f)';media.innerHTML=`<div style="position:relative;z-index:1;text-align:center;padding:30px;color:#fff"><span style="display:block;color:#f2d8ff;font-size:.74rem;font-weight:1000;letter-spacing:.12em">PLAYOFF FILM · MINNESOTA</span><strong style="display:block;margin-top:10px;color:#d8ff4f;font-size:clamp(3rem,7vw,6rem);line-height:.9;letter-spacing:-.06em">18 TOV</strong><small style="display:block;margin-top:14px;color:rgba(255,255,255,.72);font-weight:900">THE PRESSURE BLUEPRINT</small></div><span class="around-feature-badge">${snackSafe(String(latest.published||'').toUpperCase())}</span>`;}
+}
+
+async function loadSnackShaq() {
+  const latest = document.getElementById('latestPost');
+  const featured = document.getElementById('featuredGrid');
+  const archive = document.getElementById('archiveGrid');
+  try {
+    const [latestResult, breakingResult, specialResult, archiveResult] = await Promise.allSettled([
+      fetchPostFile('/snack-shak-latest.json'),
+      fetchPostFile('/snack-shak-breaking.json'),
+      fetchPostFile('/snack-shak-specials.json'),
+      fetchPostFile('/snack-shaq-posts.json')
+    ]);
+    const latestPosts = latestResult.status === 'fulfilled' ? latestResult.value : [];
+    const breaking = breakingResult.status === 'fulfilled' ? breakingResult.value : [];
+    const specials = specialResult.status === 'fulfilled' ? specialResult.value : [];
+    const weekly = archiveResult.status === 'fulfilled' ? archiveResult.value : [];
+    const bySlug = new Map();
+    [...weekly, ...specials, ...breaking, ...latestPosts].forEach(post => {
+      if (post?.slug) bySlug.set(post.slug, post);
+    });
+    const posts = sortPosts([...bySlug.values()]);
+    const stories = posts.filter(post => post.type !== 'intro');
+    if (!stories.length) throw new Error('No Snack Shak stories have been published yet.');
+
+    updateFoodThoughtHero(stories);
+    const requested = new URLSearchParams(location.search).get('post')?.replaceAll('snack-shaq', 'snack-shak');
+    const active = stories.find(post => post.slug === requested) || stories[0];
+    const featuredPosts = stories.slice(0, 4);
+    const archivedPosts = stories.slice(4);
+
+    latest.classList.remove('snack-loading');
+    latest.innerHTML = postMarkup(active);
+    featured.innerHTML = featuredMarkup(featuredPosts, active.slug);
+    archive.innerHTML = archiveMarkup(archivedPosts, active.slug);
+    document.title = `${active.title} | Snack Shak`;
+  } catch (error) {
+    latest.innerHTML = `<div class="error-box"><strong>Snack Shak could not load.</strong><span>${snackSafe(error.message)}</span></div>`;
+    if (featured) featured.innerHTML = '';
+    archive.innerHTML = '';
+  }
+}
+
+loadSnackShaq();

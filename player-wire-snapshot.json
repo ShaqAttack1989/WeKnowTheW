@@ -1,0 +1,2170 @@
+{
+  "generatedAt": "2026-10-11T01:48:44.043Z",
+  "movement": {
+    "latestTransactionDate": "2026-09-28",
+    "transactions": [
+      {
+        "date": "2026-09-28",
+        "type": "RETIRED",
+        "player": "Jordan Harrison",
+        "team": "Portland Fire",
+        "detail": "Announced she is stepping away from playing basketball after her rookie WNBA season. Harrison appeared in 16 games with two starts for Portland, averaging 5.1 points, 1.8 rebounds and 4.2 assists; in her final game she posted 6 points and 10 assists in the Fire's comeback win over Golden State.",
+        "source": "Jordan Harrison announcement · KPTV report",
+        "sourceUrl": "https://www.kptv.com/2026/09/29/portland-fires-jordan-harrison-stepping-away-basketball/"
+      },
+      {
+        "date": "2026-09-24",
+        "type": "RETIRED",
+        "player": "Nneka Ogwumike",
+        "team": "Los Angeles Sparks",
+        "detail": "Retired from the WNBA following the conclusion of the 2026 season after 15 seasons. Her final game closed a career that included the 2016 MVP, 2016 championship and 11 All-Star selections.",
+        "source": "WNBA retirement statement",
+        "sourceUrl": "https://www.wnba.com/news/wnba-statement-nneka-ogwumike-retirement"
+      },
+      {
+        "date": "2026-09-22",
+        "type": "SIGNED",
+        "player": "Deja Kelly",
+        "team": "Dallas Wings",
+        "detail": "Developmental Player contract; joined Dallas after winning the inaugural UPSHOT League championship and Championship MVP with Charlotte Crown. Will wear No. 2.",
+        "source": "Dallas Wings",
+        "sourceUrl": null
+      },
+      {
+        "date": "2026-09-20",
+        "type": "SIGNED",
+        "player": "Aminata Gueye",
+        "team": "Golden State Valkyries",
+        "detail": "Signed C Aminata Gueye to a Rest-of-Season Hardship contract. Waived C Nadia Fingall.",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null
+      },
+      {
+        "date": "2026-09-19",
+        "type": "SIGNED",
+        "player": "Kamila Borkowska",
+        "team": "Toronto Tempo",
+        "detail": "Signed C Kamila Borkowska to a player development contract.",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null
+      },
+      {
+        "date": "2026-09-19",
+        "type": "SIGNED",
+        "player": "Maria Gakdeng",
+        "team": "Toronto Tempo",
+        "detail": "Signed a developmental contract with Toronto after her 2026 UPSHOT season with the Greensboro Groove.",
+        "source": "Toronto Tempo",
+        "sourceUrl": "https://www.oursportscentral.com/services/releases/toronto-tempo-sign-maria-gakdeng-to-developmental-contract/n-6414753"
+      },
+      {
+        "date": "2026-09-18",
+        "type": "RELEASED",
+        "player": "Saylor Poffenbarger",
+        "team": "Phoenix Mercury",
+        "detail": "Released F Saylor Poffenbarger. Signed G Shay Ciezki to a rest of season contract. Signed F Saylor Poffenbarger to a player development contract.",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null
+      },
+      {
+        "date": "2026-09-16",
+        "type": "WAIVED",
+        "player": "Sug Sutton",
+        "team": "Dallas Wings",
+        "detail": "Waived G Sug Sutton.",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null
+      },
+      {
+        "date": "2026-09-15",
+        "type": "SIGNED DEVELOPMENTAL",
+        "player": "Hailey Van Lith",
+        "team": "Connecticut Sun",
+        "detail": "Re-signed to a developmental contract with Connecticut; the official WNBA profile lists her as a Sun developmental player.",
+        "source": "Official WNBA profile",
+        "sourceUrl": "https://www.wnba.com/player/1642817/hailey-van-lith/profile"
+      },
+      {
+        "date": "2026-09-12",
+        "type": "SET ACTIVE",
+        "player": "Cecilia Zandalasini",
+        "team": "Golden State Valkyries",
+        "detail": "Golden State set Zandalasini active after her temporary FIBA World Cup suspension.",
+        "source": "Official WNBA team transactions",
+        "sourceUrl": "https://www.wnba.com/webview/draft/2026/teams/golden-state-valkyries"
+      },
+      {
+        "date": "2026-09-08",
+        "type": "SET ACTIVE",
+        "player": "Kennedy Burke",
+        "team": "Connecticut Sun",
+        "detail": "Set active by Connecticut after her temporary FIBA World Cup suspension. Her Aug. 27 temporary suspension remains preserved in transaction history.",
+        "source": "WNBA Transactions",
+        "sourceUrl": "https://www.wnba.com/draft/2026/teams/connecticut-sun"
+      },
+      {
+        "date": "2026-09-07",
+        "type": "SIGNED",
+        "player": "Aari McDonald",
+        "team": "Minnesota Lynx",
+        "detail": "Signed by Minnesota. The current official Lynx roster lists McDonald as No. 2, guard.",
+        "source": "Minnesota Lynx announcement · official Lynx roster",
+        "sourceUrl": "https://lynx.wnba.com/news/minnesota-lynx-sign-guard-aari-mcdonald"
+      },
+      {
+        "date": "2026-09-07",
+        "type": "WAIVED",
+        "player": "Eliska Joklova",
+        "team": "Minnesota Lynx",
+        "detail": "Waived by Minnesota in the corresponding roster move when the Lynx signed Aari McDonald.",
+        "source": "Minnesota Lynx announcement",
+        "sourceUrl": "https://lynx.wnba.com/news/minnesota-lynx-sign-guard-aari-mcdonald"
+      },
+      {
+        "date": "2026-09-02",
+        "type": "RELEASED",
+        "player": "Hailey Van Lith",
+        "team": "Connecticut Sun",
+        "detail": "Released by Connecticut after her first 7-day contract. Retained in Playerpedia with Connecticut as her last WNBA team.",
+        "source": "WNBA Transactions",
+        "sourceUrl": "https://www.wnba.com/draft/2026/teams/connecticut-sun"
+      },
+      {
+        "date": "2026-09-02",
+        "type": "SIGNED",
+        "player": "Kate Martin",
+        "team": "Chicago Sky",
+        "detail": "Signed to a developmental contract by the Chicago Sky. Martin will wear No. 20 and will be available after the FIBA break if activated.",
+        "source": "Chicago Sky announcement",
+        "sourceUrl": "https://sky.wnba.com/news/chicago-sky-sign-kate-martin-to-developmental-contract"
+      },
+      {
+        "date": "2026-09-02",
+        "type": "SIGNED",
+        "player": "Madison Scott",
+        "team": "New York Liberty",
+        "detail": "Signed a Player Development Contract with New York. The current official Liberty roster lists Scott as No. 24, guard-forward.",
+        "source": "WNBA Transactions · official Liberty roster",
+        "sourceUrl": "https://www.wnba.com/webview/draft/2026/teams/new-york-liberty"
+      },
+      {
+        "date": "2026-09-01",
+        "type": "RELEASED",
+        "player": "Saylor Poffenbarger",
+        "team": "Phoenix Mercury",
+        "detail": "Released by Phoenix after her first 7-day contract. Retained in Playerpedia with Phoenix as her last WNBA team.",
+        "source": "WNBA Transactions",
+        "sourceUrl": "https://www.wnba.com/draft/2026/teams/phoenix-mercury"
+      },
+      {
+        "date": "2026-08-31",
+        "type": "RELEASED",
+        "player": "Kiana Williams",
+        "team": "Toronto Tempo",
+        "detail": "Toronto released Williams after her 7-day extreme hardship contract. She remains searchable in Playerpedia with Toronto as her last WNBA team.",
+        "source": "WNBA transaction log cross-check · current official Toronto roster",
+        "sourceUrl": "https://tempo.wnba.com/roster"
+      },
+      {
+        "date": "2026-08-31",
+        "type": "SIGNED",
+        "player": "Shyanne Sellers",
+        "team": "Los Angeles Sparks",
+        "detail": "Signed to a WNBA Player Development Pool contract by the Los Angeles Sparks. Official roster lists No. 7.",
+        "source": "Los Angeles Sparks announcement · official Sparks roster",
+        "sourceUrl": "https://sparks.wnba.com/news/los-angeles-sparks-sign-shyanne-sellers-to-development-contract"
+      },
+      {
+        "date": "2026-08-30",
+        "type": "CLAIMED",
+        "player": "Aaliyah Nye",
+        "team": "Los Angeles Sparks",
+        "detail": "Claimed off waivers by the Los Angeles Sparks after appearing in 19 games for Atlanta. Official roster lists No. 32.",
+        "source": "Los Angeles Sparks announcement · official Sparks roster",
+        "sourceUrl": "https://sparks.wnba.com/news/los-angeles-sparks-claim-aaliyah-nye-off-waivers"
+      },
+      {
+        "date": "2026-08-29",
+        "type": "ACQUIRED",
+        "player": "Aaliyah Nye",
+        "team": "Los Angeles Sparks",
+        "detail": "Acquired G/F Aaliyah Nye off waivers. Released F Alissa Pili. Waived G Kate Martin.",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null
+      },
+      {
+        "date": "2026-08-29",
+        "type": "RELEASED",
+        "player": "Alissa Pili",
+        "team": "Los Angeles Sparks",
+        "detail": "Released from her player development contract by the Los Angeles Sparks.",
+        "source": "Los Angeles Sparks PR",
+        "sourceUrl": "https://x.com/LASparksPR/status/2093815310688358681"
+      },
+      {
+        "date": "2026-08-29",
+        "type": "TEMPORARILY SUSPENDED",
+        "player": "Carla Leite",
+        "team": "Portland Fire",
+        "detail": "Contract temporarily suspended for FIBA World Cup national-team obligations; remains tied to Portland.",
+        "source": "WNBA transaction log cross-check · WNBA FIBA World Cup roster release",
+        "sourceUrl": "https://www.wnba.com/news/2026-fiba-womens-basketball-world-cup-wnba-rosters"
+      },
+      {
+        "date": "2026-08-29",
+        "type": "SIGNED",
+        "player": "Kalani Brown",
+        "team": "Las Vegas Aces",
+        "detail": "Las Vegas signed veteran 6-7 center Kalani Brown after NaLyssa Smith was ruled out for the remainder of the season.",
+        "source": "Las Vegas Aces announcement · official Aces roster",
+        "sourceUrl": "https://aces.wnba.com/roster"
+      },
+      {
+        "date": "2026-08-29",
+        "type": "WAIVED",
+        "player": "Kate Martin",
+        "team": "Los Angeles Sparks",
+        "detail": "Waived by the Los Angeles Sparks after joining the active roster on a standard contract in July.",
+        "source": "Yahoo Sports transaction report",
+        "sourceUrl": "https://sports.yahoo.com/articles/kate-martin-waived-sparks-signing-212105138.html"
+      },
+      {
+        "date": "2026-08-29",
+        "type": "SIGNED",
+        "player": "Ndjakalenga Mwenentanda",
+        "team": "Los Angeles Sparks",
+        "detail": "Signed to a WNBA Player Development contract by the Los Angeles Sparks. Official roster lists No. 32.",
+        "source": "Los Angeles Sparks announcement · official Sparks roster",
+        "sourceUrl": "https://sparks.wnba.com/news/los-angeles-sparks-sign-ndjakalenga-mwenentanda-to-development-contract"
+      },
+      {
+        "date": "2026-08-28",
+        "type": "TEMPORARILY SUSPENDED",
+        "player": "Cecilia Zandalasini",
+        "team": "Golden State Valkyries",
+        "detail": "Contract temporarily suspended for FIBA World Cup national-team obligations; Golden State confirmed she departed for the World Cup.",
+        "source": "WNBA transaction log cross-check · Golden State game preview",
+        "sourceUrl": "https://valkyries.wnba.com/news/gameday-preview-20260830"
+      },
+      {
+        "date": "2026-08-28",
+        "type": "TEMPORARILY SUSPENDED",
+        "player": "Gabby Williams",
+        "team": "Golden State Valkyries",
+        "detail": "Contract temporarily suspended for FIBA World Cup national-team obligations; Golden State confirmed she departed for the World Cup.",
+        "source": "WNBA transaction log cross-check · Golden State game preview",
+        "sourceUrl": "https://valkyries.wnba.com/news/gameday-preview-20260830"
+      },
+      {
+        "date": "2026-08-28",
+        "type": "TEMPORARILY SUSPENDED",
+        "player": "Janelle Salaun",
+        "team": "Golden State Valkyries",
+        "detail": "Contract temporarily suspended for FIBA World Cup national-team obligations; Golden State confirmed she departed for the World Cup.",
+        "source": "WNBA transaction log cross-check · Golden State game preview",
+        "sourceUrl": "https://valkyries.wnba.com/news/gameday-preview-20260830"
+      },
+      {
+        "date": "2026-08-28",
+        "type": "TEMPORARILY SUSPENDED",
+        "player": "Valeriane Ayayi",
+        "team": "Phoenix Mercury",
+        "detail": "Contract temporarily suspended for FIBA World Cup national-team obligations.",
+        "source": "WNBA Transactions",
+        "sourceUrl": "https://www.wnba.com/draft/2026/teams/phoenix-mercury"
+      },
+      {
+        "date": "2026-08-27",
+        "type": "WAIVED",
+        "player": "Aaliyah Nye",
+        "team": "Atlanta Dream",
+        "detail": "Waived as Atlanta announced the signing of DeWanna Bonner.",
+        "source": "Atlanta Dream announcement",
+        "sourceUrl": "https://dream.wnba.com/news/atlanta-dream-signs-two-time-wnba-champion-dewanna-bonner"
+      },
+      {
+        "date": "2026-08-27",
+        "type": "TEMPORARILY SUSPENDED",
+        "player": "Awa Fam",
+        "team": "Seattle Storm",
+        "detail": "Contract temporarily suspended for international national-team obligations.",
+        "source": "WNBA Transactions",
+        "sourceUrl": "https://www.wnba.com/draft/2026/teams/seattle-storm"
+      },
+      {
+        "date": "2026-08-27",
+        "type": "SIGNED",
+        "player": "DeWanna Bonner",
+        "team": "Atlanta Dream",
+        "detail": "Atlanta confirmed Bonner for the remainder of the season. She is listed as No. 24.",
+        "source": "Atlanta Dream announcement and official roster",
+        "sourceUrl": "https://dream.wnba.com/news/atlanta-dream-signs-two-time-wnba-champion-dewanna-bonner"
+      },
+      {
+        "date": "2026-08-27",
+        "type": "WAIVED",
+        "player": "Jaylyn Sherrod",
+        "team": "Atlanta Dream",
+        "detail": "Atlanta also waived developmental player Jaylyn Sherrod in its Bonner announcement.",
+        "source": "Atlanta Dream announcement",
+        "sourceUrl": "https://dream.wnba.com/news/atlanta-dream-signs-two-time-wnba-champion-dewanna-bonner"
+      },
+      {
+        "date": "2026-08-27",
+        "type": "RELEASED",
+        "player": "Jaylyn Sherrod",
+        "team": "Atlanta Dream",
+        "detail": "Released G Jaylyn Sherrod. Signed F/G DeWanna Bonner to a rest-of-season contract. Waived G/F Aaliyah.",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null
+      },
+      {
+        "date": "2026-08-27",
+        "type": "TEMPORARILY SUSPENDED",
+        "player": "Kennedy Burke",
+        "team": "Connecticut Sun",
+        "detail": "Contract temporarily suspended for FIBA World Cup national-team obligations.",
+        "source": "WNBA Transactions",
+        "sourceUrl": "https://www.wnba.com/draft/2026/teams/connecticut-sun"
+      },
+      {
+        "date": "2026-08-27",
+        "type": "TEMPORARILY SUSPENDED",
+        "player": "Maria Conde",
+        "team": "Toronto Tempo",
+        "detail": "Contract temporarily suspended for FIBA World Cup national-team obligations; remains tied to Toronto.",
+        "source": "WNBA transaction log cross-check · WNBA FIBA World Cup roster release",
+        "sourceUrl": "https://www.wnba.com/news/2026-fiba-womens-basketball-world-cup-wnba-rosters"
+      },
+      {
+        "date": "2026-08-27",
+        "type": "TEMPORARILY SUSPENDED",
+        "player": "Nyara Sabally",
+        "team": "Toronto Tempo",
+        "detail": "Contract temporarily suspended for FIBA World Cup national-team obligations; remains tied to Toronto.",
+        "source": "WNBA transaction log cross-check · WNBA FIBA World Cup roster release",
+        "sourceUrl": "https://www.wnba.com/news/2026-fiba-womens-basketball-world-cup-wnba-rosters"
+      },
+      {
+        "date": "2026-08-26",
+        "type": "TEMPORARILY SUSPENDED",
+        "player": "Frieda Buhner",
+        "team": "Portland Fire",
+        "detail": "Contract temporarily suspended for FIBA World Cup national-team obligations; remains tied to Portland.",
+        "source": "WNBA transaction log cross-check · WNBA FIBA World Cup roster release",
+        "sourceUrl": "https://www.wnba.com/news/2026-fiba-womens-basketball-world-cup-wnba-rosters"
+      },
+      {
+        "date": "2026-08-26",
+        "type": "SIGNED",
+        "player": "Hailey Van Lith",
+        "team": "Connecticut Sun",
+        "detail": "Upgraded to a 7-day contract while Leila Lacan is away for FIBA World Cup obligations.",
+        "source": "Connecticut Sun announcement",
+        "sourceUrl": "https://sun.wnba.com/news/connecticut-sun-sign-hailey-van-lith-to-7-day-contract"
+      },
+      {
+        "date": "2026-08-26",
+        "type": "TEMPORARILY SUSPENDED",
+        "player": "Kyara Linskens",
+        "team": "Phoenix Mercury",
+        "detail": "Contract temporarily suspended for FIBA World Cup national-team obligations.",
+        "source": "WNBA Transactions",
+        "sourceUrl": "https://www.wnba.com/draft/2026/teams/phoenix-mercury"
+      },
+      {
+        "date": "2026-08-25",
+        "type": "TEMPORARILY SUSPENDED",
+        "player": "Antonia Delaere",
+        "team": "Minnesota Lynx",
+        "detail": "Contract temporarily suspended for international national-team obligations.",
+        "source": "WNBA Transactions",
+        "sourceUrl": "https://www.wnba.com/draft/2025/teams/minnesota-lynx"
+      },
+      {
+        "date": "2026-08-25",
+        "type": "TEMPORARILY SUSPENDED",
+        "player": "Dorka Juhasz",
+        "team": "Minnesota Lynx",
+        "detail": "Contract temporarily suspended for international national-team obligations.",
+        "source": "WNBA Transactions",
+        "sourceUrl": "https://www.wnba.com/draft/2025/teams/minnesota-lynx"
+      },
+      {
+        "date": "2026-08-25",
+        "type": "SIGNED",
+        "player": "Saylor Poffenbarger",
+        "team": "Phoenix Mercury",
+        "detail": "Signed to a 7-day contract by Phoenix and listed as No. 6 on the current Mercury roster.",
+        "source": "Phoenix Mercury announcement · official Mercury roster",
+        "sourceUrl": "https://mercury.wnba.com/roster"
+      },
+      {
+        "date": "2026-08-24",
+        "type": "BUYOUT",
+        "player": "DeWanna Bonner",
+        "team": "Phoenix Mercury",
+        "detail": "Phoenix and Bonner agreed to a contract buyout, making the six-time All-Star a free agent for the stretch run.",
+        "source": "Phoenix Mercury announcement · Bleacher Report cross-check",
+        "sourceUrl": null
+      },
+      {
+        "date": "2026-08-24",
+        "type": "WAIVED",
+        "player": "DeWanna Bonner",
+        "team": "Phoenix Mercury",
+        "detail": "Waived F/G DeWanna Bonner.",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null
+      },
+      {
+        "date": "2026-08-24",
+        "type": "SIGNED",
+        "player": "Kiana Williams",
+        "team": "Toronto Tempo",
+        "detail": "Signed to a 7-day extreme hardship contract by Toronto.",
+        "source": "Toronto Tempo announcement",
+        "sourceUrl": "https://tempo.wnba.com/news/toronto-tempo-sign-kiana-williams-to-7-day-extreme-hardship-contract"
+      },
+      {
+        "date": "2026-08-24",
+        "type": "SIGNED",
+        "player": "Kitija Laksa",
+        "team": "Dallas Wings",
+        "detail": "Signed by Dallas and listed as No. 33 on the current Wings roster.",
+        "source": "WNBA Transactions Report · official Dallas roster",
+        "sourceUrl": "https://wings.wnba.com/roster"
+      },
+      {
+        "date": "2026-08-23",
+        "type": "TEMPORARILY SUSPENDED",
+        "player": "Leila Lacan",
+        "team": "Connecticut Sun",
+        "detail": "Contract temporarily suspended for FIBA World Cup national-team obligations.",
+        "source": "WNBA Transactions",
+        "sourceUrl": "https://www.wnba.com/draft/2026/teams/connecticut-sun"
+      },
+      {
+        "date": "2026-08-19",
+        "type": "RETIREMENT ANNOUNCED",
+        "player": "Nneka Ogwumike",
+        "team": "Los Angeles Sparks",
+        "detail": "Announced her intent to retire from the WNBA after the conclusion of the 2026 season. She remains an active Sparks player through the end of the season.",
+        "source": "Los Angeles Sparks announcement",
+        "sourceUrl": "https://sparks.wnba.com/news/nneka-ogwumike-announces-retirement-from-the-wnba-following-the-2026-season"
+      },
+      {
+        "date": "2026-08-18",
+        "type": "SIGNED",
+        "player": "Elizabeth Balogun",
+        "team": "New York Liberty",
+        "detail": "Signed a developmental player contract with New York.",
+        "source": "WNBA Transactions Report · Basketball Reference cross-check",
+        "sourceUrl": null
+      },
+      {
+        "date": "2026-08-18",
+        "type": "SIGNED",
+        "player": "Maddy Westbeld",
+        "team": "Phoenix Mercury",
+        "detail": "Signed by Phoenix for the remainder of the 2026 season.",
+        "source": "WNBA Transactions Report · Basketball Reference cross-check",
+        "sourceUrl": null
+      },
+      {
+        "date": "2026-08-18",
+        "type": "SIGNED",
+        "player": "Morgan Maly",
+        "team": "Chicago Sky",
+        "detail": "Signed a developmental player contract with Chicago.",
+        "source": "WNBA Transactions Report · Chicago Sky · Basketball Reference cross-check",
+        "sourceUrl": null
+      },
+      {
+        "date": "2026-08-16",
+        "type": "SIGNED",
+        "player": "Tonie Morgan",
+        "team": "Los Angeles Sparks",
+        "detail": "Signed to a standard WNBA contract after beginning in the Player Development Pool. Official roster lists No. 4.",
+        "source": "Los Angeles Sparks announcement · official Sparks roster",
+        "sourceUrl": "https://sparks.wnba.com/news/los-angeles-sparks-sign-tonie-morgan-to-standard-contract"
+      },
+      {
+        "date": "2026-08-15",
+        "type": "SIGNED",
+        "player": "Ashlon Jackson",
+        "team": "Connecticut Sun",
+        "detail": "Signed by the Connecticut Sun.",
+        "source": "WNBA Transactions Report · Basketball Reference cross-check",
+        "sourceUrl": null
+      },
+      {
+        "date": "2026-08-15",
+        "type": "WAIVED",
+        "player": "Kiana Williams",
+        "team": "Los Angeles Sparks",
+        "detail": "Waived by the Los Angeles Sparks before later signing a 7-day extreme hardship contract with Toronto on Aug. 24.",
+        "source": "WNBA Transactions Report · Basketball Reference cross-check",
+        "sourceUrl": null
+      },
+      {
+        "date": "2026-08-15",
+        "type": "SIGNED",
+        "player": "Rayah Marshall",
+        "team": "Connecticut Sun",
+        "detail": "Signed to a developmental player contract after her 7-day contract ended.",
+        "source": "WNBA Transactions Report · Basketball Reference cross-check",
+        "sourceUrl": null
+      },
+      {
+        "date": "2026-08-15",
+        "type": "SIGNED",
+        "player": "Tonie Morgan",
+        "team": "Los Angeles Sparks",
+        "detail": "Signed G Tonie Morgan. Waived G Kiana Williams.",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null
+      },
+      {
+        "date": "2026-08-14",
+        "type": "SIGNED",
+        "player": "Christyn Williams",
+        "team": "Dallas Wings",
+        "detail": "Developmental player contract; moved up from Greensboro Groove (UPSHOT).",
+        "source": "WNBA Transactions Report",
+        "sourceUrl": null
+      },
+      {
+        "date": "2026-08-12",
+        "type": "SIGNED",
+        "player": "Zaay Green",
+        "team": "Toronto Tempo",
+        "detail": "Signed a developmental contract with Toronto.",
+        "source": "WNBA Transactions Report",
+        "sourceUrl": null
+      },
+      {
+        "date": "2026-08-11",
+        "type": "SIGNED",
+        "player": "Elena Buenavida",
+        "team": "Minnesota Lynx",
+        "detail": "Signed G Elena Buenavida to a player development contract.",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null
+      },
+      {
+        "date": "2026-08-11",
+        "type": "SIGNED",
+        "player": "Zaay Green",
+        "team": "Toronto Tempo",
+        "detail": "Signed G Zaay Green to a player development contract.",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null
+      },
+      {
+        "date": "2026-08-10",
+        "type": "SIGNED",
+        "player": "Mercedes Russell",
+        "team": "Indiana Fever",
+        "detail": "Signed C Mercedes Russell to a rest-of-season hardship contract.",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null
+      },
+      {
+        "date": "2026-08-10",
+        "type": "SIGNED",
+        "player": "Rori Harmon",
+        "team": "Washington Mystics",
+        "detail": "Signed a Player Development Contract with Washington.",
+        "source": "WNBA Transactions Report",
+        "sourceUrl": null
+      },
+      {
+        "date": "2026-08-08",
+        "type": "CLAIMED",
+        "player": "Betnijah Laney-Hamilton",
+        "team": "Washington Mystics",
+        "detail": "Claimed off waivers after release by New York.",
+        "source": "WNBA Transactions Report",
+        "sourceUrl": null
+      },
+      {
+        "date": "2026-08-08",
+        "type": "TEMPORARILY SUSPENDED",
+        "player": "Costanza Verona",
+        "team": "Dallas Wings",
+        "detail": "Contract temporarily suspended for international national-team obligations.",
+        "source": "WNBA Transactions",
+        "sourceUrl": "https://www.wnba.com/draft/2026/teams/dallas-wings"
+      },
+      {
+        "date": "2026-08-08",
+        "type": "WAIVED",
+        "player": "Rori Harmon",
+        "team": "Washington Mystics",
+        "detail": "Waived to create roster space for Laney-Hamilton.",
+        "source": "WNBA Transactions Report",
+        "sourceUrl": null
+      },
+      {
+        "date": "2026-08-06",
+        "type": "RELEASED",
+        "player": "Betnijah Laney-Hamilton",
+        "team": "New York Liberty",
+        "detail": "Released; later claimed by Washington.",
+        "source": "WNBA Transactions Report",
+        "sourceUrl": null
+      },
+      {
+        "date": "2026-08-06",
+        "type": "WAIVED",
+        "player": "Betnijah Laney-Hamilton",
+        "team": "New York Liberty",
+        "detail": "Waived G/F Betnijah Laney-Hamilton.",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null
+      },
+      {
+        "date": "2026-08-06",
+        "type": "SIGNED",
+        "player": "Marine Fauthoux",
+        "team": "New York Liberty",
+        "detail": "Developmental contract converted to a multiyear deal.",
+        "source": "WNBA Transactions Report",
+        "sourceUrl": null
+      },
+      {
+        "date": "2026-08-03",
+        "type": "SIGNED",
+        "player": "Marta Suarez",
+        "team": "Phoenix Mercury",
+        "detail": "Signed F Marta Suarez to a rest-of-season contract.",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null
+      },
+      {
+        "date": "2026-08-02",
+        "type": "SIGNED",
+        "player": "Eliska Joklova",
+        "team": "Minnesota Lynx",
+        "detail": "Signed G Eliska Joklova to a rest-of-season hardship contract.",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null
+      },
+      {
+        "date": "2026-08-02",
+        "type": "ACQUIRED",
+        "player": "Kelsey Plum",
+        "team": "Phoenix Mercury",
+        "detail": "Acquired from Los Angeles; Sparks received Monique Akoa Makani plus 2027 first- and 2028 second-round picks.",
+        "source": "WNBA Transactions Report",
+        "sourceUrl": null
+      },
+      {
+        "date": "2026-08-02",
+        "type": "ACQUIRED",
+        "player": "Monique Akoa Makani",
+        "team": "Los Angeles Sparks",
+        "detail": "Acquired from Phoenix in the Kelsey Plum trade.",
+        "source": "WNBA Transactions Report",
+        "sourceUrl": null
+      },
+      {
+        "date": "2026-08-01",
+        "type": "RELEASED",
+        "player": "Eliska Hamzova",
+        "team": "Minnesota Lynx",
+        "detail": "Released G Eliska Hamzova. Signed F Chloe Bibby to a Rest-of-Season contract.",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null
+      },
+      {
+        "date": "2026-07-31",
+        "type": "ACQUIRED",
+        "player": "Aneesah Morrow",
+        "team": "Toronto Tempo",
+        "detail": "Acquired from Connecticut for the rights to Maria Kliundikova and a 2028 second-round pick.",
+        "source": "WNBA Transactions Report",
+        "sourceUrl": null
+      },
+      {
+        "date": "2026-07-31",
+        "type": "ACQUIRED",
+        "player": "exclusive negotiating rights of F Maria Kliundikova",
+        "team": "Connecticut Sun",
+        "detail": "Acquired exclusive negotiating rights of F Maria Kliundikova from Toronto.",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null
+      },
+      {
+        "date": "2026-07-31",
+        "type": "SIGNED",
+        "player": "Michelle Onyiah",
+        "team": "Indiana Fever",
+        "detail": "Developmental player contract; first UPSHOT League player to earn a WNBA contract.",
+        "source": "WNBA Transactions Report",
+        "sourceUrl": null
+      },
+      {
+        "date": "2026-07-31",
+        "type": "SIGNED",
+        "player": "Ugonne Onyiah",
+        "team": "Indiana Fever",
+        "detail": "Signed C Ugonne Onyiah to a player development contract.",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null
+      },
+      {
+        "date": "2026-07-26",
+        "type": "RELEASED",
+        "player": "Quionche Carter",
+        "team": "Phoenix Mercury",
+        "detail": "Released F Quionche Carter. Signed F Marta Suarez to a seven-day contract. Signed G Kara Dunn to a player development contract.",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null
+      },
+      {
+        "date": "2026-07-24",
+        "type": "RELEASED",
+        "player": "Eliska Hamzova",
+        "team": "Minnesota Lynx",
+        "detail": "Released G Eliska Hamzova.",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null
+      },
+      {
+        "date": "2026-07-24",
+        "type": "RELEASED",
+        "player": "Marta Suarez",
+        "team": "Phoenix Mercury",
+        "detail": "Released F Marta Suarez.",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null
+      },
+      {
+        "date": "2026-07-23",
+        "type": "RELEASED",
+        "player": "Kayla Alexander",
+        "team": "Toronto Tempo",
+        "detail": "Released C Kayla Alexander.",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null
+      },
+      {
+        "date": "2026-07-17",
+        "type": "RELEASED",
+        "player": "Eliska Hamzova",
+        "team": "Minnesota Lynx",
+        "detail": "Released G Eliska Hamzova and signed her to a second seven-day contract.",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null
+      },
+      {
+        "date": "2026-07-17",
+        "type": "SIGNED",
+        "player": "Marta Suarez",
+        "team": "Phoenix Mercury",
+        "detail": "Signed F Marta Suarez to a seven-day contract.",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null
+      },
+      {
+        "date": "2026-07-17",
+        "type": "SIGNED",
+        "player": "Tonie Morgan",
+        "team": "Los Angeles Sparks",
+        "detail": "Signed to a Player Development contract by Los Angeles before later earning a standard WNBA contract.",
+        "source": "Los Angeles Sparks announcement",
+        "sourceUrl": "https://sparks.wnba.com/news/los-angeles-sparks-sign-tonie-morgan-to-a-player-development-contract"
+      },
+      {
+        "date": "2026-07-16",
+        "type": "RELEASED",
+        "player": "Kayla Alexander",
+        "team": "Toronto Tempo",
+        "detail": "Released C Kayla Alexander and signed her to a second seven-day contract.",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null
+      },
+      {
+        "date": "2026-07-16",
+        "type": "RELEASED",
+        "player": "Marta Suarez",
+        "team": "Phoenix Mercury",
+        "detail": "Released F Marta Suarez.",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null
+      },
+      {
+        "date": "2026-07-10",
+        "type": "SIGNED",
+        "player": "Liatu King",
+        "team": "Minnesota Lynx",
+        "detail": "Signed F Liatu King to a player development contract. Signed G Eliška Hamzová to a seven-day contract.",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null
+      },
+      {
+        "date": "2026-07-09",
+        "type": "SIGNED",
+        "player": "Kayla Alexander",
+        "team": "Toronto Tempo",
+        "detail": "Signed C Kayla Alexander to a seven-day contract.",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null
+      },
+      {
+        "date": "2026-07-09",
+        "type": "SIGNED",
+        "player": "Marta Suarez",
+        "team": "Phoenix Mercury",
+        "detail": "Signed F Marta Suarez to a seven-day contract. Signed F Quionche Carter to a player developmental contract.",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null
+      },
+      {
+        "date": "2026-07-07",
+        "type": "WAIVED",
+        "player": "Chennedy Carter",
+        "team": "Las Vegas Aces",
+        "detail": "Waived by Las Vegas.",
+        "source": "WNBA Transactions Report",
+        "sourceUrl": null
+      },
+      {
+        "date": "2026-07-07",
+        "type": "SIGNED",
+        "player": "Justine Pissott",
+        "team": "Las Vegas Aces",
+        "detail": "Signed G/F Justine Pissott to a rest-of-season contract. Waived G Chennedy Carter.",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null
+      },
+      {
+        "date": "2026-07-07",
+        "type": "WAIVED",
+        "player": "Liatu King",
+        "team": "Minnesota Lynx",
+        "detail": "Waived F Liatu King.",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null
+      },
+      {
+        "date": "2026-07-07",
+        "type": "WAIVED",
+        "player": "Quionche Carter",
+        "team": "Phoenix Mercury",
+        "detail": "Waived F Quionche Carter.",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null
+      },
+      {
+        "date": "2026-07-07",
+        "type": "SIGNED",
+        "player": "Shatori Walker-Kimbrough",
+        "team": "Atlanta Dream",
+        "detail": "Signed G Shatori Walker-Kimbrough to a rest-of-season contract. Waived G Indya Nivar.",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null
+      },
+      {
+        "date": "2026-07-06",
+        "type": "SIGNED",
+        "player": "Kate Martin",
+        "team": "Los Angeles Sparks",
+        "detail": "Signed G Kate Martin to a contract. Waived G Ta'Niya Latson",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null
+      },
+      {
+        "date": "2026-06-30",
+        "type": "SIGNED",
+        "player": "Chloe Bibby",
+        "team": "Chicago Sky",
+        "detail": "Signed F Chloe Bibby to a player developmental contract.",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null
+      },
+      {
+        "date": "2026-06-29",
+        "type": "SIGNED",
+        "player": "Jaylyn Sherrod",
+        "team": "Atlanta Dream",
+        "detail": "Signed G Jaylyn Sherrod to a player development contract.",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null
+      },
+      {
+        "date": "2026-06-29",
+        "type": "SIGNED",
+        "player": "Ornella Bankole",
+        "team": "Toronto Tempo",
+        "detail": "Signed F Ornella Bankole to a player development contract.",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null
+      },
+      {
+        "date": "2026-06-25",
+        "type": "WAIVED",
+        "player": "Teaira McCowan",
+        "team": "Minnesota Lynx",
+        "detail": "Waived C Teaira McCowan.",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null
+      },
+      {
+        "date": "2026-06-23",
+        "type": "WAIVED",
+        "player": "Saylor Poffenbarger",
+        "team": "Chicago Sky",
+        "detail": "Waived F Saylor Poffenbarger.",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null
+      },
+      {
+        "date": "2026-06-22",
+        "type": "SIGNED",
+        "player": "Shay Ciezki",
+        "team": "Phoenix Mercury",
+        "detail": "Signed G Shay Ciezki to a player development contract.",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null
+      },
+      {
+        "date": "2026-06-21",
+        "type": "SIGNED",
+        "player": "Haley Jones",
+        "team": "Dallas Wings",
+        "detail": "Signed F/G Haley Jones to a player development contract.",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null
+      },
+      {
+        "date": "2026-06-19",
+        "type": "SIGNED",
+        "player": "Kiana Williams",
+        "team": "Los Angeles Sparks",
+        "detail": "Signed G Kiana Williams. Waived F Sania Feagin.",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null
+      },
+      {
+        "date": "2026-06-14",
+        "type": "SIGNED",
+        "player": "Sug Sutton",
+        "team": "Dallas Wings",
+        "detail": "Signed G Sug Sutton to a rest-of-season contract. Waived G JJ Wuinerly.",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null
+      },
+      {
+        "date": "2026-06-08",
+        "type": "WAIVED",
+        "player": "Lexie Brown",
+        "team": "Seattle Storm",
+        "detail": "Waived G Lexie Brown.",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null
+      },
+      {
+        "date": "2026-06-07",
+        "type": "SIGNED",
+        "player": "Nadia Fingall",
+        "team": "Golden State Valkyries",
+        "detail": "Signed C Nadia Fingall to a rest-of-season hardship contract. Waived G Ndjakalena Mwenentanda.",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null
+      },
+      {
+        "date": "2026-06-06",
+        "type": "WAIVED",
+        "player": "Joyner Holmes",
+        "team": "Seattle Storm",
+        "detail": "Waived F Joyner Holmes.",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null
+      },
+      {
+        "date": "2026-06-04",
+        "type": "SIGNED",
+        "player": "Alicia Florez",
+        "team": "Washington Mystics",
+        "detail": "Signed G Alicia Florez to a contract.",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null
+      },
+      {
+        "date": "2026-06-04",
+        "type": "WAIVED",
+        "player": "Nikolina Milic",
+        "team": "Toronto Tempo",
+        "detail": "Waived C Nikolina Milic.",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null
+      },
+      {
+        "date": "2026-06-04",
+        "type": "RELEASED",
+        "player": "Shay Ciezki",
+        "team": "Phoenix Mercury",
+        "detail": "Released G Shay Ciezki. Signed G Kiani Williams to a player development contract.",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null
+      },
+      {
+        "date": "2026-06-02",
+        "type": "WAIVED",
+        "player": "Alex Wilson",
+        "team": "Washington Mystics",
+        "detail": "Waived G Alex Wilson.",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null
+      },
+      {
+        "date": "2026-06-02",
+        "type": "RELEASED",
+        "player": "Dulcy Fankam Mendijadeu",
+        "team": "Dallas Wings",
+        "detail": "Released F/C Dulcy Fankam Mendijadeu.",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null
+      },
+      {
+        "date": "2026-06-01",
+        "type": "SIGNED",
+        "player": "Lexi Held",
+        "team": "Phoenix Mercury",
+        "detail": "Signed G Lexi Held to a rest-of-season contract.",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null
+      },
+      {
+        "date": "2026-05-28",
+        "type": "SIGNED",
+        "player": "Eliška Hamzová",
+        "team": "Minnesota Lynx",
+        "detail": "Signed G Eliška Hamzová to a player development contract. Signed C Teaira McCowan to a contract.",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null
+      },
+      {
+        "date": "2026-05-28",
+        "type": "WAIVED",
+        "player": "Lexi Held",
+        "team": "Toronto Tempo",
+        "detail": "Waived G Lexi Held. Signed G Tima Pouye to a rest-of-season contract.",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null
+      },
+      {
+        "date": "2026-05-27",
+        "type": "SIGNED",
+        "player": "Saylor Poffenbarger",
+        "team": "Chicago Sky",
+        "detail": "Signed F Saylor Poffenbarger to a rest-of-season hardship contract.",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null
+      },
+      {
+        "date": "2026-05-22",
+        "type": "RELEASED",
+        "player": "Alex Fowler",
+        "team": "New York Liberty",
+        "detail": "Released F Alex Fowler. Waived G Julie Vanloo.",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null
+      },
+      {
+        "date": "2026-05-22",
+        "type": "SIGNED",
+        "player": "Grace VanSlooten",
+        "team": "Indiana Fever",
+        "detail": "Signed F Grace VanSlooten to a contract.",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null
+      },
+      {
+        "date": "2026-05-22",
+        "type": "SIGNED",
+        "player": "Joyner Holmes",
+        "team": "Seattle Storm",
+        "detail": "Signed F Joyner Holmes to a rest-of-season hardship contract.",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null
+      },
+      {
+        "date": "2026-05-21",
+        "type": "WAIVED",
+        "player": "Gs Sug Sutton",
+        "team": "Portland Fire",
+        "detail": "Waived Gs Sug Sutton and Kamiah Smalls and G/F Haley Jones. Activated G Teja Oblak.",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null
+      },
+      {
+        "date": "2026-05-21",
+        "type": "WAIVED",
+        "player": "Shatori Walker-Kimbrough",
+        "team": "Indiana Fever",
+        "detail": "Waived G Shatori Walker-Kimbrough.",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null
+      },
+      {
+        "date": "2026-05-19",
+        "type": "WAIVED",
+        "player": "Ashten Prechtel",
+        "team": "Golden State Valkyries",
+        "detail": "Waived F Ashten Prechtel.",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null
+      },
+      {
+        "date": "2026-05-19",
+        "type": "WAIVED",
+        "player": "Aubrey Griffin",
+        "team": "New York Liberty",
+        "detail": "Waived G/F Aubrey Griffin.",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null
+      },
+      {
+        "date": "2026-05-18",
+        "type": "WAIVED",
+        "player": "Grace Vanslooten",
+        "team": "Seattle Storm",
+        "detail": "Waived F Grace Vanslooten.",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null
+      },
+      {
+        "date": "2026-05-16",
+        "type": "WAIVED",
+        "player": "Anneli Maley",
+        "team": "Phoenix Mercury",
+        "detail": "Waived F Anneli Maley.",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null
+      },
+      {
+        "date": "2026-05-14",
+        "type": "SIGNED",
+        "player": "Taylor Thierry",
+        "team": "Seattle Storm",
+        "detail": "Signed G/F Taylor Thierry to a player development contract.",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null
+      },
+      {
+        "date": "2026-05-13",
+        "type": "SIGNED",
+        "player": "Holly Winterburn",
+        "team": "Portland Fire",
+        "detail": "Signed G Holly Winterburn to a player development contract.",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null
+      },
+      {
+        "date": "2026-05-11",
+        "type": "WAIVED",
+        "player": "Peyton Williams",
+        "team": "Phoenix Mercury",
+        "detail": "Waived F Peyton Williams.",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null
+      },
+      {
+        "date": "2026-05-01",
+        "type": "WAIVED",
+        "player": "Peyton Williams",
+        "team": "Portland Fire",
+        "detail": "Waived F Peyton Williams.",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null
+      },
+      {
+        "date": "2026-04-23",
+        "type": "WAIVED",
+        "player": "Amelia Hasset",
+        "team": "Los Angeles Sparks",
+        "detail": "Waived F Amelia Hasset.",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null
+      },
+      {
+        "date": "2026-04-23",
+        "type": "SIGNED",
+        "player": "Marine Johannes",
+        "team": "New York Liberty",
+        "detail": "Signed C Marine Johannes to a training camp contract.",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null
+      },
+      {
+        "date": "2026-04-23",
+        "type": "WAIVED",
+        "player": "Sidney Cooks",
+        "team": "Chicago Sky",
+        "detail": "Waived C Sidney Cooks.",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null
+      },
+      {
+        "date": "2026-04-21",
+        "type": "WAIVED",
+        "player": "Kamaria McDaniel",
+        "team": "Washington Mystics",
+        "detail": "Waived G Kamaria McDaniel and F Mya Hollingshed.",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null
+      },
+      {
+        "date": "2026-04-21",
+        "type": "WAIVED",
+        "player": "Kyla Oldacre",
+        "team": "Dallas Wings",
+        "detail": "Waived C Kyla Oldacre and F Lazaria Spearman.",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null
+      },
+      {
+        "date": "2026-04-16",
+        "type": "WAIVED",
+        "player": "Bailey Maupin",
+        "team": "Golden State Valkyries",
+        "detail": "Waived G Bailey Maupin.",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null
+      },
+      {
+        "date": "2026-04-11",
+        "type": "SIGNED",
+        "player": "Awa Fam",
+        "team": "Seattle Storm",
+        "detail": "Signed C Awa Fam and G Taina Mair to rookie scale contracts.",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null
+      },
+      {
+        "date": "2026-04-11",
+        "type": "SIGNED",
+        "player": "Bella Fontleroy, G Indya Nivar, C Madina Okot",
+        "team": "Atlanta Dream",
+        "detail": "Signed F Bella Fontleroy, G Indya Nivar, C Madina Okot and F/C Sacha Washington to rookie scale contracts. Signed F Stephanie Jones and G Laila Phelia to training camp contracts.",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null
+      },
+      {
+        "date": "2026-04-11",
+        "type": "SIGNED",
+        "player": "Christeen Iwuala",
+        "team": "Washington Mystics",
+        "detail": "Signed C Christeen Iwuala and F Nyla Harris to rookie scale contracts.",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null
+      },
+      {
+        "date": "2026-04-11",
+        "type": "SIGNED",
+        "player": "Cs Sakima Walker",
+        "team": "Minnesota Lynx",
+        "detail": "Signed Cs Sakima Walker and Ra Shaya Kyle, F Jade Masogayo and Gs Lani White, Saylor Poffenbarger and Amaya Battle to rookie scale contracts. Signed F Liatu King to a training camp contract.",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null
+      },
+      {
+        "date": "2026-04-11",
+        "type": "SIGNED",
+        "player": "Gs Shatori Walker-Kimbrough, Megan McConnell",
+        "team": "Indiana Fever",
+        "detail": "Signed Gs Shatori Walker-Kimbrough, Megan McConnell and Kayana Traylor to training camp contracts.",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null
+      },
+      {
+        "date": "2026-04-11",
+        "type": "SIGNED",
+        "player": "Kaitlyn Chen",
+        "team": "Golden State Valkyries",
+        "detail": "Signed G Kaitlyn Chen and F Laeticia Amihere to training camp contracts.",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null
+      },
+      {
+        "date": "2026-04-11",
+        "type": "SIGNED",
+        "player": "Odyssey Sims",
+        "team": "Dallas Wings",
+        "detail": "Signed G Odyssey Sims to a training camp contract.",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null
+      },
+      {
+        "date": "2026-04-11",
+        "type": "SIGNED",
+        "player": "Sidney Cooks",
+        "team": "Chicago Sky",
+        "detail": "Signed F Sidney Cooks to a rookie scale contract.",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null
+      },
+      {
+        "date": "2026-04-10",
+        "type": "SIGNED",
+        "player": "A'ja Wilson",
+        "team": "Las Vegas Aces",
+        "detail": "Signed C A'ja Wilson to a three-year supermax contract.",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null
+      },
+      {
+        "date": "2026-04-10",
+        "type": "SIGNED",
+        "player": "Azzi Fudd",
+        "team": "Dallas Wings",
+        "detail": "Signed G Azzi Fudd to a rookie scale contract.",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null
+      },
+      {
+        "date": "2026-04-10",
+        "type": "SIGNED",
+        "player": "Dara Mabrey",
+        "team": "Toronto Tempo",
+        "detail": "Signed G Dara Mabrey to a rookie scale contract.",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null
+      },
+      {
+        "date": "2026-04-10",
+        "type": "SIGNED",
+        "player": "Gs AShley Owusu",
+        "team": "New York Liberty",
+        "detail": "Signed Gs AShley Owusu and Rebekah Gardner to training camp contracts. Signed C Ugonne Onyiah and G Derin Erdogan to rookie scale contracts.",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null
+      },
+      {
+        "date": "2026-04-10",
+        "type": "SIGNED",
+        "player": "Gs Caroline Ducharme, Ndjakalenga Mwenentanda",
+        "team": "Golden State Valkyries",
+        "detail": "Signed Gs Caroline Ducharme, Ndjakalenga Mwenentanda and Bailey Maupin to rookie scale contracts.",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null
+      },
+      {
+        "date": "2026-04-10",
+        "type": "SIGNED",
+        "player": "Gs Rori Harmon",
+        "team": "Washington Mystics",
+        "detail": "Signed Gs Rori Harmon and Cassandre Prosper to rookie scale contracts. Signed F Mya Hollingshed to a training camp contract.",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null
+      },
+      {
+        "date": "2026-04-10",
+        "type": "SIGNED",
+        "player": "Kamiah Smalls",
+        "team": "Portland Fire",
+        "detail": "Signed G Kamiah Smalls to a training camp contract.",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null
+      },
+      {
+        "date": "2026-04-10",
+        "type": "SIGNED",
+        "player": "Reagan Beers",
+        "team": "Connecticut Sun",
+        "detail": "Signed C Reagan Beers to a rookie scale contract. Signed Gs Harmoni Turner and Madison Hayes to training camp contracts.",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null
+      },
+      {
+        "date": "2026-04-10",
+        "type": "SIGNED",
+        "player": "Rennia Davis",
+        "team": "Seattle Storm",
+        "detail": "Signed G/F Rennia Davis and F Beatrice Mompremier to training camp contracts. Signed G/F Jaelyn Brown and G Ellie Ladine to rookie scale contracts.",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null
+      },
+      {
+        "date": "2026-04-07",
+        "type": "SIGNED",
+        "player": "Emma Cechova, G's Antonia Delaere, Eliksa Hamzova, Reigan Richardson",
+        "team": "Minnesota Lynx",
+        "detail": "Signed F Emma Cechova, G's Antonia Delaere, Eliksa Hamzova, Reigan Richardson and Jaylon Sherrod to training camp contracts. Signed G/F Aubrey Griffin to a rookie scale contract.",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null
+      },
+      {
+        "date": "2026-04-06",
+        "type": "SIGNED",
+        "player": "Bridget Carleton",
+        "team": "Portland Fire",
+        "detail": "Signed F Bridget Carleton and G Karlie Samuelson.",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null
+      },
+      {
+        "date": "2026-04-06",
+        "type": "SIGNED",
+        "player": "Brittney Griner",
+        "team": "Connecticut Sun",
+        "detail": "Signed C Brittney Griner. Re-signed C Olivia Nelson-Ododa.",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null
+      },
+      {
+        "date": "2026-04-06",
+        "type": "SIGNED",
+        "player": "Gs Brittney Sykes",
+        "team": "Toronto Tempo",
+        "detail": "Signed Gs Brittney Sykes and Julie Allemand to multi-year contracts. Signed Gs Lexi Held, María Conde and Kristy Wallace, Fs Nikolina Milić, Laura Juškaitė and Elizabeth Balogun to training camp contracts. Tendered an offer sheet to F/C Shakira Austin.",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null
+      },
+      {
+        "date": "2026-04-06",
+        "type": "ACQUIRED",
+        "player": "Jacy Sheldon",
+        "team": "Chicago Sky",
+        "detail": "Acquired G Jacy Sheldon from Washington in exchange for a 2028 first-round pick. Signed Gs Rachel Banham and Skylar Diggins and F/Cs Elizabeth Williams and Azurá Stevens.",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null
+      }
+    ]
+  },
+  "availability": {
+    "latestReportDate": "2026-10-10",
+    "reportLabel": "10/10/2026 12:00 AM ET",
+    "officialPdf": "https://ak-static.cms.nba.com/referee/wnba_injury/Injury-Report_2026-10-10_12_00AM.pdf",
+    "injuries": [
+      {
+        "player": "Allisha Gray",
+        "team": "Atlanta Dream",
+        "status": "OUT",
+        "reason": "Hand · Gray (hand) is out for Friday's Game 3 of the semifinals against New York.",
+        "updated": "2026-10-09",
+        "returnDate": "2026-10-11",
+        "matchup": "",
+        "gameTime": "",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null,
+        "officialCurrentReport": false,
+        "crossCheckOnly": true
+      },
+      {
+        "player": "Alanna Smith",
+        "team": "Dallas Wings",
+        "status": "OUT",
+        "reason": "Lower Leg · Smith (lower leg) is out for Game 3 of the first round of the playoffs against Golden State on Friday.",
+        "updated": "2026-10-01",
+        "returnDate": "2027-05-01",
+        "matchup": "",
+        "gameTime": "",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null,
+        "officialCurrentReport": false,
+        "crossCheckOnly": true
+      },
+      {
+        "player": "Anastasiia Olairi Kosu",
+        "team": "Minnesota Lynx",
+        "status": "OUT",
+        "reason": "Foot · Kosu (foot) has been ruled out for Tuesday's Game 2 of the first round of the playoffs against the Liberty.",
+        "updated": "2026-09-28",
+        "returnDate": "2027-05-01",
+        "matchup": "",
+        "gameTime": "",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null,
+        "officialCurrentReport": false,
+        "crossCheckOnly": true
+      },
+      {
+        "player": "Tyasha Harris",
+        "team": "Indiana Fever",
+        "status": "OUT",
+        "reason": "Leg · Harris (leg) will miss the rest of the season, WNBA reporter Kareem Copeland reports.",
+        "updated": "2026-09-26",
+        "returnDate": "2027-05-01",
+        "matchup": "",
+        "gameTime": "",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null,
+        "officialCurrentReport": false,
+        "crossCheckOnly": true
+      },
+      {
+        "player": "Kara Dunn",
+        "team": "Phoenix Mercury",
+        "status": "OUT",
+        "reason": "Coach's Decision · Dunn (coach's decision) is listed as out for Thursday's game against the Aces.",
+        "updated": "2026-09-25",
+        "returnDate": "2027-05-01",
+        "matchup": "",
+        "gameTime": "",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null,
+        "officialCurrentReport": false,
+        "crossCheckOnly": true
+      },
+      {
+        "player": "Ndjakalenga Mwenentanda",
+        "team": "Los Angeles Sparks",
+        "status": "OUT",
+        "reason": "Coach's Decision · Mwenentanda (coach's decision) has been ruled out for Thursday's game against Golden State.",
+        "updated": "2026-09-25",
+        "returnDate": "2027-05-01",
+        "matchup": "",
+        "gameTime": "",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null,
+        "officialCurrentReport": false,
+        "crossCheckOnly": true
+      },
+      {
+        "player": "Rayah Marshall",
+        "team": "Connecticut Sun",
+        "status": "OUT",
+        "reason": "Knee · Marshall has been ruled out for the remainder of Thursday's game against the Tempo due to a right knee injury.",
+        "updated": "2026-09-25",
+        "returnDate": "2027-05-01",
+        "matchup": "",
+        "gameTime": "",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null,
+        "officialCurrentReport": false,
+        "crossCheckOnly": true
+      },
+      {
+        "player": "Shyanne Sellers",
+        "team": "Los Angeles Sparks",
+        "status": "OUT",
+        "reason": "Coach's Decision · Sellers (coach's decision) is out for Thursday's game against the Valkyries.",
+        "updated": "2026-09-25",
+        "returnDate": "2027-05-01",
+        "matchup": "",
+        "gameTime": "",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null,
+        "officialCurrentReport": false,
+        "crossCheckOnly": true
+      },
+      {
+        "player": "Aaliyah Nye",
+        "team": "Los Angeles Sparks",
+        "status": "OUT",
+        "reason": "Ankle · Nye (ankle) has been ruled out for Thursday's game against Golden State.",
+        "updated": "2026-09-24",
+        "returnDate": "2027-05-01",
+        "matchup": "",
+        "gameTime": "",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null,
+        "officialCurrentReport": false,
+        "crossCheckOnly": true
+      },
+      {
+        "player": "Cameron Brink",
+        "team": "Los Angeles Sparks",
+        "status": "OUT",
+        "reason": "Ankle · Brink (ankle) is listed as out for Thursday's game against Golden State.",
+        "updated": "2026-09-24",
+        "returnDate": "2027-05-01",
+        "matchup": "",
+        "gameTime": "",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null,
+        "officialCurrentReport": false,
+        "crossCheckOnly": true
+      },
+      {
+        "player": "Elena Buenavida",
+        "team": "Minnesota Lynx",
+        "status": "OUT",
+        "reason": "Coach's Decision · Buenavida (coach's decision) is out for Thursday's game against the Fever.",
+        "updated": "2026-09-24",
+        "returnDate": "2027-05-01",
+        "matchup": "",
+        "gameTime": "",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null,
+        "officialCurrentReport": false,
+        "crossCheckOnly": true
+      },
+      {
+        "player": "Kamila Borkowska",
+        "team": "Toronto Tempo",
+        "status": "OUT",
+        "reason": "Coach's Decision · Borkowska (coach's decision) is out for Thursday's game against the Sun.",
+        "updated": "2026-09-24",
+        "returnDate": "2027-05-01",
+        "matchup": "",
+        "gameTime": "",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null,
+        "officialCurrentReport": false,
+        "crossCheckOnly": true
+      },
+      {
+        "player": "Maria Conde",
+        "team": "Toronto Tempo",
+        "status": "OUT",
+        "reason": "Back · Conde (back) is out for Thursday's game against the Sun.",
+        "updated": "2026-09-24",
+        "returnDate": "2027-05-01",
+        "matchup": "",
+        "gameTime": "",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null,
+        "officialCurrentReport": false,
+        "crossCheckOnly": true
+      },
+      {
+        "player": "Maria Gakdeng",
+        "team": "Toronto Tempo",
+        "status": "OUT",
+        "reason": "Coach's Decision · Gakdeng is out for Thursday's game against the Sun as a coach's decision.",
+        "updated": "2026-09-24",
+        "returnDate": "2027-05-01",
+        "matchup": "",
+        "gameTime": "",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null,
+        "officialCurrentReport": false,
+        "crossCheckOnly": true
+      },
+      {
+        "player": "Taina Mair",
+        "team": "Seattle Storm",
+        "status": "OUT",
+        "reason": "Coach's Decision · Mair (coach's decision) has been ruled out for Wednesday's game against the Wings.",
+        "updated": "2026-09-24",
+        "returnDate": "2027-05-01",
+        "matchup": "",
+        "gameTime": "",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null,
+        "officialCurrentReport": false,
+        "crossCheckOnly": true
+      },
+      {
+        "player": "Aicha Coulibaly",
+        "team": "Chicago Sky",
+        "status": "OUT",
+        "reason": "Knee · Coulibaly (knee) is out for Thursday's game against the Mystics",
+        "updated": "2026-09-23",
+        "returnDate": "2027-05-01",
+        "matchup": "",
+        "gameTime": "",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null,
+        "officialCurrentReport": false,
+        "crossCheckOnly": true
+      },
+      {
+        "player": "Azura Stevens",
+        "team": "Chicago Sky",
+        "status": "OUT",
+        "reason": "Knee · Stevens (knee) is out for Thursday's game against the Mystics",
+        "updated": "2026-09-23",
+        "returnDate": "2027-05-01",
+        "matchup": "",
+        "gameTime": "",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null,
+        "officialCurrentReport": false,
+        "crossCheckOnly": true
+      },
+      {
+        "player": "Brittney Griner",
+        "team": "Connecticut Sun",
+        "status": "OUT",
+        "reason": "Knee · Griner (knee) is out for Thursday's game against the Tempo.",
+        "updated": "2026-09-23",
+        "returnDate": "2027-05-01",
+        "matchup": "",
+        "gameTime": "",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null,
+        "officialCurrentReport": false,
+        "crossCheckOnly": true
+      },
+      {
+        "player": "DiJonai Carrington",
+        "team": "Chicago Sky",
+        "status": "OUT",
+        "reason": "Foot · Carrington (foot) has been ruled out for Thursday's game against the Mystics.",
+        "updated": "2026-09-23",
+        "returnDate": "2027-05-01",
+        "matchup": "",
+        "gameTime": "",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null,
+        "officialCurrentReport": false,
+        "crossCheckOnly": true
+      },
+      {
+        "player": "Holly Winterburn",
+        "team": "Portland Fire",
+        "status": "OUT",
+        "reason": "Back · Winterburn (back) has been ruled out for Tuesday's game against Golden State.",
+        "updated": "2026-09-23",
+        "returnDate": "2027-05-01",
+        "matchup": "",
+        "gameTime": "",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null,
+        "officialCurrentReport": false,
+        "crossCheckOnly": true
+      },
+      {
+        "player": "Matilde Villa",
+        "team": "Atlanta Dream",
+        "status": "OUT",
+        "reason": "Coach's Decision · Villa (coach's decision) has been ruled out for Wednesday's game against New York.",
+        "updated": "2026-09-23",
+        "returnDate": "2027-05-01",
+        "matchup": "",
+        "gameTime": "",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null,
+        "officialCurrentReport": false,
+        "crossCheckOnly": true
+      },
+      {
+        "player": "Natasha Cloud",
+        "team": "Chicago Sky",
+        "status": "OUT",
+        "reason": "Knee · Cloud (knee) is out for Thursday's game against the Mystics.",
+        "updated": "2026-09-23",
+        "returnDate": "2027-05-01",
+        "matchup": "",
+        "gameTime": "",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null,
+        "officialCurrentReport": false,
+        "crossCheckOnly": true
+      },
+      {
+        "player": "Nyadiew Puoch",
+        "team": "Portland Fire",
+        "status": "OUT",
+        "reason": "Knee · Puoch (knee) is listed as out for Tuesday's game against Golden State.",
+        "updated": "2026-09-23",
+        "returnDate": "2027-05-01",
+        "matchup": "",
+        "gameTime": "",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null,
+        "officialCurrentReport": false,
+        "crossCheckOnly": true
+      },
+      {
+        "player": "Olivia Nelson-Ododa",
+        "team": "Connecticut Sun",
+        "status": "OUT",
+        "reason": "Knee · Nelson-Ododa (knee) is out for Thursday's game against the Tempo.",
+        "updated": "2026-09-23",
+        "returnDate": "2027-05-01",
+        "matchup": "",
+        "gameTime": "",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null,
+        "officialCurrentReport": false,
+        "crossCheckOnly": true
+      },
+      {
+        "player": "Saniya Rivers",
+        "team": "Connecticut Sun",
+        "status": "OUT",
+        "reason": "Ankle · Rivers (ankle) is out for Thursday's game against the Tempo.",
+        "updated": "2026-09-23",
+        "returnDate": "2027-05-01",
+        "matchup": "",
+        "gameTime": "",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null,
+        "officialCurrentReport": false,
+        "crossCheckOnly": true
+      },
+      {
+        "player": "Temi Fagbenle",
+        "team": "Toronto Tempo",
+        "status": "OUT",
+        "reason": "Personal · Fagbenle (personal) is out for Thursday's game against the Sun.",
+        "updated": "2026-09-23",
+        "returnDate": "2027-05-01",
+        "matchup": "",
+        "gameTime": "",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null,
+        "officialCurrentReport": false,
+        "crossCheckOnly": true
+      },
+      {
+        "player": "Zia Cooke",
+        "team": "Seattle Storm",
+        "status": "OUT",
+        "reason": "Knee · Cooke (knee) has been ruled out for Wednesday's game against Dallas.",
+        "updated": "2026-09-23",
+        "returnDate": "2027-05-01",
+        "matchup": "",
+        "gameTime": "",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null,
+        "officialCurrentReport": false,
+        "crossCheckOnly": true
+      },
+      {
+        "player": "Elizabeth Balogun",
+        "team": "New York Liberty",
+        "status": "OUT",
+        "reason": "Not Injury Related · Balogun (not with team) is out for Wednesday's game against the Dream.",
+        "updated": "2026-09-22",
+        "returnDate": "2027-05-01",
+        "matchup": "",
+        "gameTime": "",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null,
+        "officialCurrentReport": false,
+        "crossCheckOnly": true
+      },
+      {
+        "player": "Teja Oblak",
+        "team": "Portland Fire",
+        "status": "OUT",
+        "reason": "Knee · Oblak (knee) has been ruled out for Tuesday's game against the Valkyries.",
+        "updated": "2026-09-21",
+        "returnDate": "2027-05-01",
+        "matchup": "",
+        "gameTime": "",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null,
+        "officialCurrentReport": false,
+        "crossCheckOnly": true
+      },
+      {
+        "player": "Brionna Jones",
+        "team": "Atlanta Dream",
+        "status": "OUT",
+        "reason": "Leg · Jones will miss the remainder of the season after sustaining a left leg injury against the Sun on Aug. 13, Annie Costabile of The Athletic reports.",
+        "updated": "2026-09-17",
+        "returnDate": "2027-05-01",
+        "matchup": "",
+        "gameTime": "",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null,
+        "officialCurrentReport": false,
+        "crossCheckOnly": true
+      },
+      {
+        "player": "Marina Mabrey",
+        "team": "Toronto Tempo",
+        "status": "OUT FOR SEASON",
+        "reason": "Right adductor injury · Toronto announced Sept. 16 that Mabrey will miss the final four games of the 2026 season. Surgery is not required, and she is expected to make a full recovery ahead of 2027.",
+        "updated": "2026-09-16",
+        "source": "Toronto Tempo announcement reported by Yahoo Sports",
+        "sourceUrl": "https://sports.yahoo.com/wnba/breaking-news/article/tempo-guard-marina-mabrey-out-for-rest-of-wnba-season-with-adductor-injury-161401247.html",
+        "carryover": true,
+        "officialCurrentReport": false,
+        "crossCheckOnly": false,
+        "trackedCarryover": true,
+        "seasonLongCarryover": true
+      },
+      {
+        "player": "Kennedy Burke",
+        "team": "Connecticut Sun",
+        "status": "OUT",
+        "reason": "Shoulder · The Sun announced Monday that Burke suffered a sprained AC joint in the FIBA World Cup and will miss the rest of the season.",
+        "updated": "2026-09-14",
+        "returnDate": "2027-05-01",
+        "matchup": "",
+        "gameTime": "",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null,
+        "officialCurrentReport": false,
+        "crossCheckOnly": true
+      },
+      {
+        "player": "Katie Lou Samuelson",
+        "team": "Seattle Storm",
+        "status": "OUT",
+        "reason": "Knee · The Storm announced Friday that Samuelson underwent successful left knee surgery and will miss the remainder of the season.",
+        "updated": "2026-09-11",
+        "returnDate": "2027-05-01",
+        "matchup": "",
+        "gameTime": "",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null,
+        "officialCurrentReport": false,
+        "crossCheckOnly": true
+      },
+      {
+        "player": "Ezi Magbegor",
+        "team": "Seattle Storm",
+        "status": "OUT FOR SEASON",
+        "reason": "Right ACL tear · Seattle announced Sept. 10 that Magbegor will miss the remainder of the 2026 WNBA season after the injury suffered while playing for Australia against Italy at the FIBA World Cup.",
+        "updated": "2026-09-10",
+        "source": "Seattle Storm announcement reported by SB Nation",
+        "sourceUrl": "https://www.sbnation.com/womens-sports/1127935/wnba-star-suffered-devastating-injury-at-fiba-world-cup",
+        "carryover": true,
+        "officialCurrentReport": false,
+        "crossCheckOnly": false,
+        "trackedCarryover": true,
+        "seasonLongCarryover": true
+      },
+      {
+        "player": "Satou Sabally",
+        "team": "New York Liberty",
+        "status": "OUT FOR SEASON",
+        "reason": "Head injury/concussion · New York announced Sept. 3 that Sabally will miss the remainder of the 2026 regular season and postseason while continuing her recovery.",
+        "updated": "2026-09-03",
+        "source": "New York Liberty team announcement · AP/Reuters confirmation",
+        "sourceUrl": "https://www.reuters.com/sports/libertys-satou-sabally-concussion-out-rest-2026--flm-2026-09-03/",
+        "carryover": true,
+        "officialCurrentReport": false,
+        "crossCheckOnly": false,
+        "trackedCarryover": true,
+        "seasonLongCarryover": true
+      },
+      {
+        "player": "Skylar Diggins",
+        "team": "Chicago Sky",
+        "status": "OUT FOR SEASON",
+        "reason": "Right knee · Chicago announced Sept. 1 that Diggins will miss the remainder of the 2026 season while continuing rehabilitation after reaggravating the knee earlier in the year.",
+        "updated": "2026-09-01",
+        "source": "Chicago Sky announcement · Reuters/AP confirmation",
+        "sourceUrl": "https://www.reuters.com/sports/sky-g-skylar-diggins-knee-shut-down-season--flm-2026-09-01/",
+        "carryover": true,
+        "officialCurrentReport": false,
+        "crossCheckOnly": false,
+        "trackedCarryover": true,
+        "seasonLongCarryover": true
+      },
+      {
+        "player": "Aneesah Morrow",
+        "team": "Toronto Tempo",
+        "status": "OUT FOR SEASON",
+        "reason": "Knee · WNBA confirmed entering the FIBA break that Morrow is out for the remainder of the 2026 season.",
+        "updated": "2026-08-31",
+        "source": "WNBA 2026 Power Rankings Week 14",
+        "sourceUrl": "https://www.wnba.com/news/2026-power-rankings-week-14",
+        "carryover": true,
+        "officialCurrentReport": false,
+        "crossCheckOnly": false,
+        "trackedCarryover": true,
+        "seasonLongCarryover": true
+      },
+      {
+        "player": "Brittney Sykes",
+        "team": "Toronto Tempo",
+        "status": "OUT FOR SEASON",
+        "reason": "Foot · WNBA confirmed entering the FIBA break that Sykes is out for the remainder of the 2026 season.",
+        "updated": "2026-08-31",
+        "source": "WNBA 2026 Power Rankings Week 14",
+        "sourceUrl": "https://www.wnba.com/news/2026-power-rankings-week-14",
+        "carryover": true,
+        "officialCurrentReport": false,
+        "crossCheckOnly": false,
+        "trackedCarryover": true,
+        "seasonLongCarryover": true
+      },
+      {
+        "player": "Kelsey Plum",
+        "team": "Phoenix Mercury",
+        "status": "OUT FOR SEASON",
+        "reason": "Lower leg · Phoenix announced Aug. 31 that Plum will miss the remainder of the 2026 WNBA season while continuing to recover. She appeared in five games and logged 105 minutes for the Mercury after the Aug. 2 trade from Los Angeles.",
+        "updated": "2026-08-31",
+        "source": "Phoenix Mercury announcement reported by ESPN",
+        "sourceUrl": "https://mercury.wnba.com/news",
+        "carryover": true,
+        "officialCurrentReport": false,
+        "crossCheckOnly": false,
+        "trackedCarryover": true,
+        "seasonLongCarryover": true
+      },
+      {
+        "player": "NaLyssa Smith",
+        "team": "Las Vegas Aces",
+        "status": "OUT FOR SEASON",
+        "reason": "Left leg · Las Vegas announced she will miss the remainder of the 2026 season after the non-contact injury suffered Aug. 23 vs. Toronto.",
+        "updated": "2026-08-27",
+        "source": "Las Vegas Aces team announcement",
+        "sourceUrl": "https://aces.wnba.com/news",
+        "carryover": true,
+        "officialCurrentReport": false,
+        "crossCheckOnly": false,
+        "trackedCarryover": true,
+        "seasonLongCarryover": true
+      },
+      {
+        "player": "Azzi Fudd",
+        "team": "Dallas Wings",
+        "status": "OUT",
+        "reason": "Knee · Fudd will undergo an arthroscopic procedure to address her right knee soreness and will be sidelined for the remainder of the 2026 season.",
+        "updated": "2026-08-19",
+        "returnDate": "2027-05-01",
+        "matchup": "",
+        "gameTime": "",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null,
+        "officialCurrentReport": false,
+        "crossCheckOnly": true
+      },
+      {
+        "player": "Costanza Verona",
+        "team": "Dallas Wings",
+        "status": "OUT",
+        "reason": "Personal · Verona's contract was temporarily suspended by the Wings Saturday.",
+        "updated": "2026-08-08",
+        "returnDate": "2027-05-01",
+        "matchup": "",
+        "gameTime": "",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null,
+        "officialCurrentReport": false,
+        "crossCheckOnly": true
+      },
+      {
+        "player": "Luisa Geiselsoder",
+        "team": "Portland Fire",
+        "status": "OUT",
+        "reason": "Personal · Geiselsoder (personal) won't return this season, according to Sean Highkin of RoseGardenReport.com.",
+        "updated": "2026-08-08",
+        "returnDate": "2027-05-01",
+        "matchup": "",
+        "gameTime": "",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null,
+        "officialCurrentReport": false,
+        "crossCheckOnly": true
+      },
+      {
+        "player": "Damiris Dantas",
+        "team": "Indiana Fever",
+        "status": "OUT FOR SEASON",
+        "reason": "Knee · meniscus surgery",
+        "updated": "2026-08-04",
+        "source": "WNBA Injury Report",
+        "officialCurrentReport": false,
+        "trackedCarryover": true,
+        "seasonLongCarryover": true
+      },
+      {
+        "player": "Sarah Ashlee Barker",
+        "team": "Portland Fire",
+        "status": "OUT",
+        "reason": "Knee · The Fire announced Friday that Barker will undergo surgery to repair a torn ACL and will miss the remainder of the 2026 campaign.",
+        "updated": "2026-07-24",
+        "returnDate": "2027-05-01",
+        "matchup": "",
+        "gameTime": "",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null,
+        "officialCurrentReport": false,
+        "crossCheckOnly": true
+      },
+      {
+        "player": "Janiah Barker",
+        "team": "Las Vegas Aces",
+        "status": "OUT FOR SEASON",
+        "reason": "Leg",
+        "updated": "2026-07-15",
+        "source": "WNBA Injury Report",
+        "officialCurrentReport": false,
+        "trackedCarryover": true,
+        "seasonLongCarryover": true
+      },
+      {
+        "player": "Sania Feagin",
+        "team": "Portland Fire",
+        "status": "OUT",
+        "reason": "Knee · Feagin (knee) was diagnosed with a torn left ACL on Thursday and will miss the rest of the 2026 campaign, WNBA reporter Kareem Copeland reports.",
+        "updated": "2026-07-09",
+        "returnDate": "2027-05-01",
+        "matchup": "",
+        "gameTime": "",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null,
+        "officialCurrentReport": false,
+        "crossCheckOnly": true
+      },
+      {
+        "player": "Jovana Nogic",
+        "team": "Phoenix Mercury",
+        "status": "OUT",
+        "reason": "Not Injury Related · Nogic (not injury related) intends to play professionally in Russia and won't return to Phoenix this season, Aya Abdeen of TheIXSports.com reports.",
+        "updated": "2026-06-28",
+        "returnDate": "2027-05-01",
+        "matchup": "",
+        "gameTime": "",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null,
+        "officialCurrentReport": false,
+        "crossCheckOnly": true
+      },
+      {
+        "player": "Rickea Jackson",
+        "team": "Chicago Sky",
+        "status": "OUT",
+        "reason": "Knee · The Sky announced Tuesday that Jackson will miss the remainder of the season after suffering a torn ACL in her left knee during Sunday's 86-79 win over the Lynx.",
+        "updated": "2026-05-19",
+        "returnDate": "2027-05-01",
+        "matchup": "",
+        "gameTime": "",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null,
+        "officialCurrentReport": false,
+        "crossCheckOnly": true
+      },
+      {
+        "player": "Ema Cechova",
+        "team": "Minnesota Lynx",
+        "status": "OUT FOR SEASON",
+        "reason": "Right knee · torn ACL",
+        "updated": "2026-05-15",
+        "source": "WNBA Injury Report",
+        "officialCurrentReport": false,
+        "trackedCarryover": true,
+        "seasonLongCarryover": true
+      },
+      {
+        "player": "Iliana Rupert",
+        "team": "Golden State Valkyries",
+        "status": "OUT",
+        "reason": "Not Injury Related · Rupert is pregnant, and the Valkyries have filed for a replacement contract ahead of the 2026 season, Alexa Philippou of ESPN.com reports Thursday.",
+        "updated": "2026-05-07",
+        "returnDate": "2027-05-01",
+        "matchup": "",
+        "gameTime": "",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null,
+        "officialCurrentReport": false,
+        "crossCheckOnly": true
+      }
+    ],
+    "teamStatuses": [
+      {
+        "team": "Golden State Valkyries",
+        "status": "NOT YET SUBMITTED",
+        "gameDate": "10/11/2026",
+        "gameTime": "03:30 (ET)",
+        "matchup": "GSV@LVA",
+        "updated": "2026-10-11"
+      },
+      {
+        "team": "Las Vegas Aces",
+        "status": "NOT YET SUBMITTED",
+        "gameDate": "10/11/2026",
+        "gameTime": "03:30 (ET)",
+        "matchup": "GSV@LVA",
+        "updated": "2026-10-11"
+      }
+    ]
+  },
+  "errors": []
+}

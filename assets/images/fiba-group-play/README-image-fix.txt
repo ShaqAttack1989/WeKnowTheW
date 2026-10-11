@@ -1,0 +1,1 @@
+Image update is managed through Git blob upload.

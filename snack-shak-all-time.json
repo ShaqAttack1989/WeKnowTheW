@@ -1,0 +1,37 @@
+{
+  "site": "We Know the W",
+  "posts": [
+    {
+      "slug": "wnba-all-time-starting-five",
+      "type": "feature",
+      "priority": 1200,
+      "seriesLabel": "FOOD FOR THOUGHT · WNBA ALL TIME",
+      "title": "Sixteen Seats, Thirty Seasons: Shak’s All Time WNBA Roster",
+      "published": "2026-09-15",
+      "week": "Starting Five · Bench Mob · Honorable Mentions",
+      "dashboardUrl": "/wnba-all-time-starting-five.html",
+      "image": "/assets/images/wnba-all-time/starting-five.jpg",
+      "storyImage": "/assets/images/wnba-all-time/starting-five.jpg",
+      "imageAlt": "We Know the W graphic showing Shak's all time WNBA Starting Five with real player photos, team logos and W Scores",
+      "teams": ["Seattle Storm", "Phoenix Mercury", "Minnesota Lynx", "Las Vegas Aces", "Los Angeles Sparks", "Houston Comets", "Indiana Fever", "Washington Mystics", "New York Liberty"],
+      "players": ["Sue Bird", "Diana Taurasi", "Maya Moore", "A'ja Wilson", "Lisa Leslie", "Cynthia Cooper", "Sheryl Swoopes", "Tamika Catchings", "Candace Parker", "Lauren Jackson", "Sylvia Fowles", "Breanna Stewart", "Tina Charles", "Nneka Ogwumike", "Elena Delle Donne", "Seimone Augustus"],
+      "dek": "Sixteen players, four eras and one impossible roster. Shak builds an all time Starting Five, Bench Mob and Honorable Mentions, then gives every legend a transparent We Know the W rating.",
+      "sections": [
+        {
+          "title": "Built to play, not simply rank",
+          "paragraphs": ["This is not a one through sixteen résumé list. The Starting Five must fit, the Bench Mob must change a game, and the Honorable Mentions must show how deep thirty seasons of WNBA greatness really run."]
+        },
+        {
+          "title": "The W Score",
+          "paragraphs": ["Each player is graded on peak dominance, winning and playoff translation, two way impact, longevity, role portability and league imprint. The scale remains open because the league is still writing its history."]
+        }
+      ],
+      "debates": ["Would you start Cynthia Cooper or Sue Bird?", "Which era produced the strongest frontcourt?", "Who is the hardest omission from the sixteen player roster?"],
+      "sources": [
+        {"label": "Read the complete Food for Thought feature", "url": "https://www.weknowthew.com/wnba-all-time-starting-five.html"},
+        {"label": "WNBA all time milestones", "url": "https://www.wnba.com/news/all-time-milestones-points-rebounds-assists"},
+        {"label": "The W25", "url": "https://www.wnba.com/news/wnba-continues-celebration-of-landmark-25th-season-names-greatest-players-in-league-history-the-w25"}
+      ]
+    }
+  ]
+}

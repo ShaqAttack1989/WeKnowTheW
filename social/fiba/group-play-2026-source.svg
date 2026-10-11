@@ -1,0 +1,130 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1536" height="1024" viewBox="0 0 1536 1024">
+  <defs>
+    <linearGradient id="shade" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0a031c" stop-opacity=".2"/><stop offset=".55" stop-color="#100526" stop-opacity=".02"/><stop offset="1" stop-color="#050112" stop-opacity=".3"/></linearGradient>
+    <linearGradient id="panel" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#25104e" stop-opacity=".98"/><stop offset="1" stop-color="#100729" stop-opacity=".98"/></linearGradient>
+    <linearGradient id="photoFade" x1="0" y1="0" x2="0" y2="1"><stop offset=".42" stop-color="#0a031b" stop-opacity="0"/><stop offset="1" stop-color="#070118" stop-opacity=".96"/></linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="160%"><feDropShadow dx="0" dy="12" stdDeviation="15" flood-color="#060018" flood-opacity=".58"/></filter>
+    <clipPath id="photo1"><rect x="514" y="38" width="250" height="392" rx="18"/></clipPath>
+    <clipPath id="photo2"><rect x="773" y="38" width="233" height="392" rx="18"/></clipPath>
+    <clipPath id="photo3"><rect x="1015" y="38" width="231" height="392" rx="18"/></clipPath>
+    <clipPath id="photo4"><rect x="1255" y="38" width="239" height="392" rx="18"/></clipPath>
+  </defs>
+
+  <image x="0" y="0" width="1536" height="1024" xlink:href="../../assets/images/fiba-group-play/group-play-bg.jpg" preserveAspectRatio="xMidYMid slice"/>
+  <rect width="1536" height="1024" fill="url(#shade)"/>
+
+  <g font-family="DejaVu Sans,Arial,sans-serif">
+    <g filter="url(#shadow)">
+      <image x="514" y="38" width="250" height="392" xlink:href="../../assets/images/fiba-group-play/france-action.jpg" preserveAspectRatio="xMidYMid slice" clip-path="url(#photo1)"/>
+      <image x="773" y="38" width="233" height="392" xlink:href="../../assets/images/fiba-group-play/belgium.jpg" preserveAspectRatio="xMidYMid slice" clip-path="url(#photo2)"/>
+      <image x="1015" y="38" width="231" height="392" xlink:href="../../assets/images/fiba-group-play/usa-action.jpg" preserveAspectRatio="xMidYMid slice" clip-path="url(#photo3)"/>
+      <image x="1255" y="38" width="239" height="392" xlink:href="../../assets/images/fiba-group-play/spain-action.jpg" preserveAspectRatio="xMidYMid slice" clip-path="url(#photo4)"/>
+      <rect x="514" y="38" width="250" height="392" rx="18" fill="url(#photoFade)"/>
+      <rect x="773" y="38" width="233" height="392" rx="18" fill="url(#photoFade)"/>
+      <rect x="1015" y="38" width="231" height="392" rx="18" fill="url(#photoFade)"/>
+      <rect x="1255" y="38" width="239" height="392" rx="18" fill="url(#photoFade)"/>
+      <rect x="514" y="38" width="980" height="392" rx="20" fill="none" stroke="#ffffff" stroke-opacity=".45"/>
+    </g>
+
+    <g font-weight="900">
+      <text x="42" y="58" fill="#dfff4f" font-size="17" letter-spacing="4">FOOD FOR THOUGHT</text>
+      <line x1="275" y1="51" x2="426" y2="51" stroke="#dfff4f" stroke-width="2"/>
+      <text x="42" y="137" fill="#ffffff" font-family="DejaVu Sans Condensed,Arial Narrow,sans-serif" font-size="72" letter-spacing="-3">WHAT GROUP</text>
+      <text x="42" y="207" fill="#ffffff" font-family="DejaVu Sans Condensed,Arial Narrow,sans-serif" font-size="72" letter-spacing="-3">PLAY</text>
+      <text x="42" y="280" fill="#dfff4f" font-family="DejaVu Sans Condensed,Arial Narrow,sans-serif" font-size="78" letter-spacing="-3">TOLD US</text>
+      <text x="42" y="323" fill="#ffffff" font-size="18"><tspan x="42">France owns the W Score. USA owns a</tspan><tspan x="42" dy="25">quarterfinal bye, but almost none of the</tspan><tspan x="42" dy="25">individual leaderboard.</tspan></text>
+      <rect x="42" y="387" width="370" height="30" rx="15" fill="#12082b" fill-opacity=".78" stroke="#dfff4f" stroke-opacity=".55"/>
+      <text x="58" y="407" fill="#ffffff" font-size="10" letter-spacing="1.5">GROUP PHASE COMPLETE · DATA THROUGH SEPT. 7</text>
+    </g>
+
+    <g font-weight="900">
+      <image x="530" y="363" width="31" height="21" xlink:href="../../assets/images/fiba-group-play/flags/fr.png" preserveAspectRatio="none"/>
+      <text x="570" y="380" fill="#ffffff" font-size="16">FRANCE</text><text x="530" y="402" fill="#dfff4f" font-size="9" letter-spacing="1.5">GROUP B WINNER</text>
+      <image x="789" y="363" width="31" height="21" xlink:href="../../assets/images/fiba-group-play/flags/be.png" preserveAspectRatio="none"/>
+      <text x="829" y="380" fill="#ffffff" font-size="16">BELGIUM</text><text x="789" y="402" fill="#dfff4f" font-size="9" letter-spacing="1.5">GROUP C WINNER</text>
+      <image x="1031" y="363" width="31" height="21" xlink:href="../../assets/images/fiba-group-play/flags/us.png" preserveAspectRatio="none"/>
+      <text x="1071" y="380" fill="#ffffff" font-size="16">USA</text><text x="1031" y="402" fill="#dfff4f" font-size="9" letter-spacing="1.5">GROUP D WINNER</text>
+      <image x="1271" y="363" width="31" height="21" xlink:href="../../assets/images/fiba-group-play/flags/es.png" preserveAspectRatio="none"/>
+      <text x="1311" y="380" fill="#ffffff" font-size="16">SPAIN</text><text x="1271" y="402" fill="#dfff4f" font-size="9" letter-spacing="1.5">GROUP A WINNER</text>
+    </g>
+
+    <g transform="translate(1268 54)">
+      <rect x="0" y="0" width="212" height="60" rx="13" fill="#0f0627" fill-opacity=".86"/>
+      <circle cx="30" cy="30" r="20" fill="#dfff4f"/><text x="19" y="38" fill="#13072a" font-family="DejaVu Serif,Georgia,serif" font-size="26" font-weight="900" font-style="italic">W</text>
+      <text x="59" y="27" fill="#ffffff" font-size="13" font-weight="900">WE KNOW THE W</text>
+      <text x="59" y="42" fill="#dfff4f" font-size="5.5" font-weight="900" letter-spacing="1">KNOW THE PLAYERS. KNOW THE GAME.</text>
+    </g>
+
+    <g filter="url(#shadow)">
+      <rect x="113" y="493" width="430" height="270" rx="15" fill="url(#panel)" stroke="#ffffff" stroke-opacity=".58"/>
+      <rect x="559" y="493" width="420" height="270" rx="15" fill="url(#panel)" stroke="#ffffff" stroke-opacity=".58"/>
+      <rect x="995" y="493" width="428" height="270" rx="15" fill="url(#panel)" stroke="#ffffff" stroke-opacity=".58"/>
+    </g>
+
+    <g font-weight="900">
+      <rect x="113" y="493" width="430" height="43" rx="15" fill="#0c0424" fill-opacity=".75"/>
+      <text x="129" y="520" fill="#ffffff" font-size="14" letter-spacing="1.3">WE KNOW THE W COMPOSITE</text>
+      <text x="450" y="520" fill="#dfff4f" font-size="9" text-anchor="middle">W SCORE</text>
+      <text x="129" y="555" fill="#aaa3ba" font-size="9">#</text><text x="165" y="555" fill="#aaa3ba" font-size="9">TEAM</text><text x="515" y="555" fill="#aaa3ba" font-size="9" text-anchor="end">SCORE</text>
+      <g font-size="14">
+        <text x="129" y="586" fill="#dfff4f">1</text><image x="162" y="568" width="27" height="18" xlink:href="../../assets/images/fiba-group-play/flags/fr.png" preserveAspectRatio="none"/><text x="199" y="584" fill="#ffffff">France</text><rect x="465" y="562" width="58" height="27" rx="8" fill="#dfff4f"/><text x="494" y="581" fill="#16072c" text-anchor="middle">93.3</text>
+        <text x="129" y="620" fill="#dfff4f">2</text><image x="162" y="602" width="27" height="18" xlink:href="../../assets/images/fiba-group-play/flags/us.png" preserveAspectRatio="none"/><text x="199" y="618" fill="#ffffff">USA</text><rect x="465" y="596" width="58" height="27" rx="8" fill="#dfff4f"/><text x="494" y="615" fill="#16072c" text-anchor="middle">88.7</text>
+        <text x="129" y="654" fill="#dfff4f">3</text><image x="162" y="636" width="27" height="18" xlink:href="../../assets/images/fiba-group-play/flags/be.png" preserveAspectRatio="none"/><text x="199" y="652" fill="#ffffff">Belgium</text><rect x="465" y="630" width="58" height="27" rx="8" fill="#dfff4f"/><text x="494" y="649" fill="#16072c" text-anchor="middle">82.3</text>
+        <text x="129" y="688" fill="#dfff4f">4</text><image x="162" y="670" width="27" height="18" xlink:href="../../assets/images/fiba-group-play/flags/es.png" preserveAspectRatio="none"/><text x="199" y="686" fill="#ffffff">Spain</text><rect x="465" y="664" width="58" height="27" rx="8" fill="#ffffff"/><text x="494" y="683" fill="#26123d" text-anchor="middle">68.2</text>
+        <text x="129" y="722" fill="#dfff4f">5</text><image x="162" y="704" width="27" height="18" xlink:href="../../assets/images/fiba-group-play/flags/au.png" preserveAspectRatio="none"/><text x="199" y="720" fill="#ffffff">Australia</text><rect x="465" y="698" width="58" height="27" rx="8" fill="#ffffff"/><text x="494" y="717" fill="#26123d" text-anchor="middle">61.9</text>
+      </g>
+      <text x="129" y="746" fill="#aaa3ba" font-size="8.5">TOP FIVE AFTER ALL 24 GROUP GAMES</text>
+    </g>
+
+    <g font-weight="900">
+      <rect x="559" y="493" width="420" height="43" rx="15" fill="#0c0424" fill-opacity=".75"/>
+      <text x="575" y="520" fill="#ffffff" font-size="14" letter-spacing="1.2">USA: WINNING BY COMMITTEE</text><text x="959" y="520" fill="#dfff4f" font-size="9" text-anchor="end">3–0 · +25.7</text>
+      <text x="575" y="567" fill="#ffffff" font-size="25"><tspan x="575">ONLY ONE USA</tspan><tspan x="575" dy="28">TOP-THREE SLOT</tspan></text>
+      <rect x="844" y="549" width="113" height="61" rx="12" fill="#dfff4f"/><text x="900" y="580" fill="#17072d" font-size="30" text-anchor="middle">1</text><text x="900" y="597" fill="#17072d" font-size="8" text-anchor="middle" letter-spacing="1">OF 18 SLOTS</text>
+      <g font-size="9">
+        <rect x="575" y="624" width="118" height="48" rx="9" fill="#ffffff" fill-opacity=".06" stroke="#ffffff" stroke-opacity=".14"/><text x="585" y="642" fill="#c4bbd0">POINTS</text><text x="585" y="659" fill="#ffffff" font-size="10">NO USA TOP 3</text>
+        <rect x="700" y="624" width="118" height="48" rx="9" fill="#ffffff" fill-opacity=".06" stroke="#ffffff" stroke-opacity=".14"/><text x="710" y="642" fill="#c4bbd0">REBOUNDS</text><text x="710" y="659" fill="#ffffff" font-size="10">NO USA TOP 3</text>
+        <rect x="825" y="624" width="132" height="48" rx="9" fill="#ffffff" fill-opacity=".06" stroke="#ffffff" stroke-opacity=".14"/><text x="835" y="642" fill="#c4bbd0">EFFICIENCY</text><text x="835" y="659" fill="#ffffff" font-size="10">NO USA TOP 3</text>
+        <rect x="575" y="680" width="118" height="48" rx="9" fill="#dfff4f" fill-opacity=".14" stroke="#dfff4f" stroke-opacity=".65"/><text x="585" y="698" fill="#dfff4f">ASSISTS</text><text x="585" y="715" fill="#ffffff" font-size="10">CLARK · #3 · 6.3</text>
+        <rect x="700" y="680" width="118" height="48" rx="9" fill="#ffffff" fill-opacity=".06" stroke="#ffffff" stroke-opacity=".14"/><text x="710" y="698" fill="#c4bbd0">STEALS</text><text x="710" y="715" fill="#ffffff" font-size="10">NO USA TOP 3</text>
+        <rect x="825" y="680" width="132" height="48" rx="9" fill="#ffffff" fill-opacity=".06" stroke="#ffffff" stroke-opacity=".14"/><text x="835" y="698" fill="#c4bbd0">BLOCKS</text><text x="835" y="715" fill="#ffffff" font-size="10">NO USA TOP 3</text>
+      </g>
+      <text x="575" y="747" fill="#aaa3ba" font-size="8.5">JACKIE YOUNG LEADS USA AT 11.3 PPG · TIED 33RD OVERALL</text>
+    </g>
+
+    <g font-weight="900">
+      <rect x="995" y="493" width="428" height="43" rx="15" fill="#0c0424" fill-opacity=".75"/>
+      <text x="1011" y="520" fill="#ffffff" font-size="14" letter-spacing="1.2">QUALIFICATION ROUND</text><text x="1407" y="520" fill="#dfff4f" font-size="9" text-anchor="end">WIN OR GO HOME</text>
+      <g font-size="12">
+        <image x="1012" y="555" width="28" height="18" xlink:href="../../assets/images/fiba-group-play/flags/hu.png" preserveAspectRatio="none"/><text x="1048" y="570" fill="#ffffff">HUN</text><text x="1102" y="570" fill="#dfff4f">v</text><image x="1122" y="555" width="28" height="18" xlink:href="../../assets/images/fiba-group-play/flags/jp.png" preserveAspectRatio="none"/><text x="1158" y="570" fill="#ffffff">JPN</text><text x="1212" y="570" fill="#dfff4f">→</text><text x="1242" y="570" fill="#ffffff">WINNER FACES</text><text x="1403" y="570" fill="#dfff4f" text-anchor="end">USA</text>
+        <line x1="1011" y1="584" x2="1407" y2="584" stroke="#ffffff" stroke-opacity=".11"/>
+        <image x="1012" y="601" width="28" height="18" xlink:href="../../assets/images/fiba-group-play/flags/de.png" preserveAspectRatio="none"/><text x="1048" y="616" fill="#ffffff">GER</text><text x="1102" y="616" fill="#dfff4f">v</text><image x="1122" y="601" width="28" height="18" xlink:href="../../assets/images/fiba-group-play/flags/kr.png" preserveAspectRatio="none"/><text x="1158" y="616" fill="#ffffff">KOR</text><text x="1212" y="616" fill="#dfff4f">→</text><text x="1242" y="616" fill="#ffffff">WINNER FACES</text><text x="1403" y="616" fill="#dfff4f" text-anchor="end">BEL</text>
+        <line x1="1011" y1="630" x2="1407" y2="630" stroke="#ffffff" stroke-opacity=".11"/>
+        <image x="1012" y="647" width="28" height="18" xlink:href="../../assets/images/fiba-group-play/flags/pr.png" preserveAspectRatio="none"/><text x="1048" y="662" fill="#ffffff">PUR</text><text x="1102" y="662" fill="#dfff4f">v</text><image x="1122" y="647" width="28" height="18" xlink:href="../../assets/images/fiba-group-play/flags/cn.png" preserveAspectRatio="none"/><text x="1158" y="662" fill="#ffffff">CHN</text><text x="1212" y="662" fill="#dfff4f">→</text><text x="1242" y="662" fill="#ffffff">WINNER FACES</text><text x="1403" y="662" fill="#dfff4f" text-anchor="end">FRA</text>
+        <line x1="1011" y1="676" x2="1407" y2="676" stroke="#ffffff" stroke-opacity=".11"/>
+        <image x="1012" y="693" width="28" height="18" xlink:href="../../assets/images/fiba-group-play/flags/it.png" preserveAspectRatio="none"/><text x="1048" y="708" fill="#ffffff">ITA</text><text x="1102" y="708" fill="#dfff4f">v</text><image x="1122" y="693" width="28" height="18" xlink:href="../../assets/images/fiba-group-play/flags/au.png" preserveAspectRatio="none"/><text x="1158" y="708" fill="#ffffff">AUS</text><text x="1212" y="708" fill="#dfff4f">→</text><text x="1242" y="708" fill="#ffffff">WINNER FACES</text><text x="1403" y="708" fill="#dfff4f" text-anchor="end">ESP</text>
+      </g>
+      <text x="1011" y="746" fill="#aaa3ba" font-size="8.5">SEPT. 8–9 · FOUR QUARTERFINAL TICKETS AT STAKE</text>
+    </g>
+
+    <g filter="url(#shadow)"><rect x="118" y="782" width="1300" height="112" rx="15" fill="#10072b" stroke="#ffffff" stroke-opacity=".5"/></g>
+    <g font-weight="900">
+      <rect x="118" y="782" width="215" height="112" rx="15" fill="#29114d"/>
+      <text x="138" y="820" fill="#dfff4f" font-size="11" letter-spacing="2">GROUP PLAY</text><text x="138" y="850" fill="#ffffff" font-size="21">WHO DROVE IT</text><text x="138" y="873" fill="#aaa3ba" font-size="8">FIELD-WIDE LEADERS</text>
+      <g font-size="9">
+        <line x1="333" y1="795" x2="333" y2="880" stroke="#ffffff" stroke-opacity=".15"/><text x="352" y="810" fill="#aaa3ba">SCORING</text><text x="352" y="836" fill="#ffffff" font-size="13">GABBY WILLIAMS</text><text x="352" y="855" fill="#aaa3ba">FRANCE</text><text x="352" y="878" fill="#dfff4f" font-size="17">18.7 PPG</text>
+        <line x1="543" y1="795" x2="543" y2="880" stroke="#ffffff" stroke-opacity=".15"/><text x="562" y="810" fill="#aaa3ba">EFFICIENCY</text><text x="562" y="836" fill="#ffffff" font-size="13">MEESSEMAN / WILLIAMS</text><text x="562" y="855" fill="#aaa3ba">BELGIUM / FRANCE</text><text x="562" y="878" fill="#dfff4f" font-size="17">23.3 EFF</text>
+        <line x1="786" y1="795" x2="786" y2="880" stroke="#ffffff" stroke-opacity=".15"/><text x="805" y="810" fill="#aaa3ba">REBOUNDING</text><text x="805" y="836" fill="#ffffff" font-size="13">IMANI McGEE-STAFFORD</text><text x="805" y="855" fill="#aaa3ba">PUERTO RICO</text><text x="805" y="878" fill="#dfff4f" font-size="17">13.0 RPG</text>
+        <line x1="1037" y1="795" x2="1037" y2="880" stroke="#ffffff" stroke-opacity=".15"/><text x="1056" y="810" fill="#aaa3ba">PLAYMAKING</text><text x="1056" y="836" fill="#ffffff" font-size="13">SEVGI UZUN</text><text x="1056" y="855" fill="#aaa3ba">TÜRKIYE</text><text x="1056" y="878" fill="#dfff4f" font-size="17">8.3 APG</text>
+        <rect x="1243" y="782" width="175" height="112" rx="15" fill="#dfff4f" fill-opacity=".11"/><line x1="1243" y1="795" x2="1243" y2="880" stroke="#dfff4f" stroke-opacity=".35"/><text x="1262" y="810" fill="#dfff4f">USA SCORING LEADER</text><text x="1262" y="836" fill="#ffffff" font-size="13">JACKIE YOUNG</text><text x="1262" y="855" fill="#aaa3ba">TIED 33RD OVERALL</text><text x="1262" y="878" fill="#dfff4f" font-size="17">11.3 PPG</text>
+      </g>
+    </g>
+
+    <g font-weight="900">
+      <text x="45" y="948" fill="#dfff4f" font-size="10">W SCORE:</text><text x="112" y="948" fill="#ffffff" font-size="9" letter-spacing=".6">45% WIN RATE · 30% POINT DIFFERENTIAL · 15% SCORING RATE · 10% STRENGTH OF SCHEDULE</text>
+      <text x="45" y="968" fill="#bdb5c7" font-size="8.5">EDITORIAL METRIC, NOT AN OFFICIAL FIBA RANKING · PLAYER PHOTOS FROM OFFICIAL FIBA COVERAGE</text>
+      <text x="1490" y="959" fill="#ffffff" font-size="15" text-anchor="end" letter-spacing="2">WEKNOWTHEW.COM</text>
+      <text x="1490" y="978" fill="#dfff4f" font-size="8" text-anchor="end" letter-spacing="2">A BRIGHTER GAME FOR WHAT’S NEXT</text>
+    </g>
+  </g>
+</svg>

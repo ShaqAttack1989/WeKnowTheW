@@ -18,10 +18,10 @@
       {label:'2026 regular season · first year',points:winRate(item.season2026)*40,max:40},
       {label:'2026 playoffs · first year',points:winRate(item.seasonPlayoffs2026)*40,max:40}
     ]:[
-      {label:'Career regular · through 2025',points:winRate(priorRegular)*20,max:20},
-      {label:'2026 regular season',points:winRate(item.season2026)*20,max:20},
-      {label:'Career playoffs · through 2025',points:winRate(priorPlayoffs)*20,max:20},
-      {label:'2026 playoffs',points:winRate(item.seasonPlayoffs2026)*20,max:20}
+      {label:'Career regular · through 2025',points:winRate(priorRegular)*30,max:30},
+      {label:'2026 regular season',points:winRate(item.season2026)*10,max:10},
+      {label:'Career playoffs · through 2025',points:winRate(priorPlayoffs)*30,max:30},
+      {label:'2026 playoffs',points:winRate(item.seasonPlayoffs2026)*10,max:10}
     ];
     points.push({label:'WNBA titles',points:Math.min((item.titles||[]).length*5,20),max:20});
     return {total:Math.round(points.reduce((sum,component)=>sum+component.points,0)),points,firstYear};

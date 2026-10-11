@@ -48,15 +48,15 @@
           <details class="coach-rating-method">
             <summary>How the We Know the W Rating is calculated</summary>
             <div class="coach-rating-method-body">
-              <p>The We Know the W Rating is a 0–100, results-focused score: 40 points for regular-season winning, 40 for playoff winning and 20 for WNBA championships.</p>
+              <p>The We Know the W Rating is a 0–100 editorial score built around three goals: a winning regular season, winning in the playoffs and winning a WNBA championship. Returning coaches earn up to 60 points from their WNBA career, 20 from 2026 results and 20 from titles.</p>
               <ul>
-                <li>Pre-2026 WNBA career regular-season win percentage × 20</li>
-                <li>2026 regular-season win percentage × 20</li>
-                <li>Pre-2026 WNBA career playoff win percentage × 20</li>
-                <li>2026 playoff win percentage × 20</li>
+                <li>Pre-2026 WNBA career regular-season win percentage × 30</li>
+                <li>2026 regular-season win percentage × 10</li>
+                <li>Pre-2026 WNBA career playoff win percentage × 30</li>
+                <li>2026 playoff win percentage × 10</li>
                 <li>5 points per WNBA title as head coach, capped at 20</li>
               </ul>
-              <p>For a first-year WNBA head coach with no pre-2026 record, the 2026 regular-season rate and playoff rate each carry 40 points. Career components end before 2026 so this season is not counted twice. Missing game samples earn zero for that component. Coach of the Year honors remain visible on the dashboard but do not affect this score. The total rounds to the nearest whole point. This is an editorial comparison, not an official WNBA statistic.</p>
+              <p>For a first-year WNBA head coach with no prior WNBA head-coaching record, the 2026 regular-season and playoff win rates each carry up to 40 points. Career components stop before 2026 so this season is not counted twice. Missing game samples earn zero for that component. Coach of the Year honors remain visible but do not affect the score. The total rounds to the nearest whole point. This is an editorial comparison, not an official WNBA statistic.</p>
             </div>
           </details>
           <div class="coach-dashboard-kpis" id="coachDashboardKpis" aria-label="Coach dashboard totals"></div>
@@ -109,7 +109,7 @@
   </main>
   <script src="/site.js?v=20261009-operations-v1"></script>
   <script src="/coach-dashboard-data.js?v=20261011-career-score-v1"></script>
-  <script src="/courtside-page.js?v=20261011-career-playoff-v2"></script>
+  <script src="/courtside-page.js?v=20261011-career-weighted-v1"></script>
   <script src="/coach-photo-fix.js?v=20261009-official-portrait-v2"></script>
 </body>
 </html>

@@ -16,10 +16,14 @@
     return `<div class="culture-photo" style="${colors}" data-media-name="${escape(name)}" data-media-type="${type}" data-media-source="${escape(source||'')}" data-fallback="${escape(posterBySlug[team.slug]?`/assets/images/${posterBySlug[team.slug]}`:'')}"><div class="culture-initials">${initials(name)}</div></div>`;
   }
   function card({name,team:teamName,summary,source,label,role,path},type){
-    const team=teamFor(teamName);const kicker=role||teamName||label||'Courtside Culture';const linkedPlayer=type==='coach'&&clipboardNames.has(name);
-    const links=[source?`<a href="${escape(source)}" target="_blank" rel="noopener">Coaching source ↗</a>`:`<a href="${team.href}">Team page →</a>`];
-    if(linkedPlayer)links.push(`<a class="culture-playerpedia-link" href="${escape(playerpediaHref(name))}">Playerpedia playing career →</a>`);
-    return `<article class="culture-card" style="--team:${team.primary};--team2:${team.secondary}">${photo(name,type,team,source)}<div class="culture-card-body"><span class="culture-kicker">${escape(kicker)}</span><h3>${escape(name)}</h3><p>${escape(summary||path||'')}</p><div class="culture-card-links">${links.join('')}</div></div></article>`;
+    const team=teamFor(teamName);
+    const kicker=role||teamName||label||'Courtside Culture';
+    const linkedPlayer=type==='coach'&&clipboardNames.has(name);
+    const stats=type==='coach'&&typeof COURTSIDE_COACH_STATS!=='undefined'?COURTSIDE_COACH_STATS.find(item=>item.name===name&&item.team===teamName):null;
+    const links=[source?'<a href="'+escape(source)+'" target="_blank" rel="noopener">Coaching source ↗</a>':'<a href="'+team.href+'">Team page →</a>'];
+    if(linkedPlayer)links.push('<a class="culture-playerpedia-link" href="'+escape(playerpediaHref(name))+'">Playerpedia playing career →</a>');
+    const mini=stats?'<div class="coach-mini-dashboard"><span><b>2026</b> '+stats.season2026.wins+'–'+stats.season2026.losses+'</span><span><b>🏆 '+stats.titles.length+'</b> titles · <b>'+stats.coyYears.length+'</b> COY</span><button type="button" data-coach-focus="'+escape(stats.name)+'">Open dashboard →</button></div>':'';
+    return '<article class="culture-card" style="--team:'+team.primary+';--team2:'+team.secondary+'">'+photo(name,type,team,source)+'<div class="culture-card-body"><span class="culture-kicker">'+escape(kicker)+'</span><h3>'+escape(name)+'</h3><p>'+escape(summary||path||'')+'</p>'+mini+'<div class="culture-card-links">'+links.join('')+'</div></div></article>';
   }
   async function loadOne(el){
     const name=el.dataset.mediaName,type=el.dataset.mediaType,source=el.dataset.mediaSource;
@@ -36,8 +40,117 @@
   }
   function hydrateMedia(){document.querySelectorAll('[data-media-name]').forEach(loadOne);}
   function renderCards(target,items,type){const node=$(target);if(!node)return;node.innerHTML=items.map(item=>card(item,type)).join('');hydrateMedia();}
+
+  function renderCoachDashboard(){
+    const dashboard=$('#coach-dashboard');
+    if(!dashboard||typeof COURTSIDE_COACH_STATS==='undefined')return;
+    const data=COURTSIDE_COACH_STATS.slice();
+    const table=$('#coachDashboardTable');
+    const search=$('#coachDashboardSearch');
+    const sort=$('#coachDashboardSort');
+    const select=$('#coachDashboardSelect');
+    const spotlight=$('#coachDashboardSpotlight');
+    const count=$('#coachDashboardCount');
+    const kpis=$('#coachDashboardKpis');
+    const formatRecord=record=>record.wins+'–'+record.losses;
+    const percent=record=>{
+      const games=record.wins+record.losses;
+      return games?((record.wins/games)*100).toFixed(1)+'%':'—';
+    };
+    const titleTotal=data.reduce((sum,item)=>sum+item.titles.length,0);
+    const awardTotal=data.reduce((sum,item)=>sum+item.coyYears.length,0);
+    const playoffCoaches=data.filter(item=>item.seasonPlayoffs2026.wins+item.seasonPlayoffs2026.losses>0).length;
+    kpis.innerHTML=
+      '<div class="coach-kpi"><strong>'+data.length+'</strong><span>2026 season coaches tracked</span></div>'+
+      '<div class="coach-kpi"><strong>'+titleTotal+'</strong><span>WNBA titles as head coach</span></div>'+
+      '<div class="coach-kpi"><strong>'+awardTotal+'</strong><span>Coach of the Year awards</span></div>'+
+      '<div class="coach-kpi"><strong>'+playoffCoaches+'</strong><span>2026 playoff coaches</span></div>';
+    select.innerHTML=data.slice().sort((a,b)=>a.name.localeCompare(b.name)).map(item=>'<option value="'+escape(item.name)+'">'+escape(item.name+' · '+item.team+(item.isCurrent?'':' · vacancy'))+'</option>').join('');
+    function updateSpotlight(name){
+      const item=data.find(coach=>coach.name===name)||data[0];
+      const team=teamFor(item.team);
+      const roster=COURTSIDE_COACHES.find(coach=>coach.name===item.name);
+      const summary=roster?roster.summary:(item.isCurrent?'Current WNBA head coach.':'Los Angeles announced a head-coach vacancy on Sept. 25, 2026; this row preserves Roberts’ completed 2026 season.');
+      const profile=safeHttps(item.profileSource||(roster&&roster.source));
+      const titles=item.titles.length?item.titles.map(year=>'<span class="coach-year-chip">'+year+'</span>').join(''):'<span class="coach-no-awards">No WNBA title as a head coach yet</span>';
+      const coty=item.coyYears.length?item.coyYears.map(year=>'<span class="coach-year-chip">'+year+'</span>').join(''):'<span class="coach-no-awards">No WNBA Coach of the Year award yet</span>';
+      const recognition=(item.distinctions||[]).length?'<div class="coach-recognition"><strong>Other recognition</strong><span>'+item.distinctions.map(escape).join(' · ')+'</span></div>':'';
+      const badge=item.isCurrent?'CURRENT HEAD COACH':'2026 SEASON COACH · ROLE VACANT';
+      spotlight.innerHTML=
+        '<article class="coach-spotlight-card" style="--team:'+team.primary+';--team2:'+team.secondary+'">'+
+          '<div class="coach-spotlight-heading"><div><span class="coach-spotlight-kicker">'+escape(item.team)+' · '+badge+'</span><h3>'+escape(item.name)+'</h3><p>'+escape(summary)+'</p></div>'+
+          '<div class="coach-spotlight-trophy"><span>WNBA championships</span><strong>'+item.titles.length+'</strong><small>as a head coach</small></div></div>'+
+          '<div class="coach-spotlight-metrics">'+
+            '<div><span>2026 regular season</span><strong>'+formatRecord(item.season2026)+'</strong><small>'+percent(item.season2026)+' wins</small></div>'+
+            '<div><span>Career regular season</span><strong>'+formatRecord(item.careerRegular)+'</strong><small>'+percent(item.careerRegular)+' wins · through 2026</small></div>'+
+            '<div><span>2026 playoffs</span><strong>'+formatRecord(item.seasonPlayoffs2026)+'</strong><small>'+(item.seasonPlayoffs2026.wins+item.seasonPlayoffs2026.losses?'through Oct. 9':'did not qualify')+'</small></div>'+
+            '<div><span>Career playoffs</span><strong>'+formatRecord(item.careerPlayoffs)+'</strong><small>'+percent(item.careerPlayoffs)+' win rate · through Oct. 9</small></div>'+
+            '<div><span>WNBA titles</span><strong>'+item.titles.length+'</strong><small>as a head coach</small></div>'+
+            '<div><span>Coach of the Year</span><strong>'+item.coyYears.length+'</strong><small>honors as head coach</small></div>'+
+          '</div>'+
+          '<div class="coach-trophy-shelf"><div><strong>Championship seasons</strong><div class="coach-year-list">'+titles+'</div></div><div><strong>Coach of the Year</strong><div class="coach-year-list">'+coty+'</div></div></div>'+
+          recognition+
+          '<div class="coach-spotlight-links"><a href="'+team.href+'">Team hub →</a>'+
+            '<a href="https://www.basketball-reference.com/wnba/years/2026_coaches.html" target="_blank" rel="noopener">Record table ↗</a>'+
+            '<a href="https://www.wnba.com/history-coach-of-the-year" target="_blank" rel="noopener">WNBA awards ↗</a>'+
+            (profile?'<a href="'+escape(profile)+'" target="_blank" rel="noopener">Coach bio / team source ↗</a>':'')+
+          '</div></article>';
+    }
+    function renderRows(){
+      const term=search.value.trim().toLowerCase();
+      const key=sort.value;
+      const value=item=>{
+        if(key==='seasonWins')return item.season2026.wins;
+        if(key==='playoffWins')return item.careerPlayoffs.wins;
+        if(key==='titles')return item.titles.length;
+        if(key==='coty')return item.coyYears.length;
+        return item.careerRegular.wins;
+      };
+      const rows=data.filter(item=>(item.name+' '+item.team).toLowerCase().includes(term))
+        .sort((a,b)=>value(b)-value(a)||a.name.localeCompare(b.name));
+      table.innerHTML=rows.length?rows.map(item=>{
+        const currentPlayoffGames=item.seasonPlayoffs2026.wins+item.seasonPlayoffs2026.losses;
+        const titles=item.titles.length?item.titles.join(', '):'—';
+        const coty=item.coyYears.length?item.coyYears.join(', '):'—';
+        const status=item.isCurrent?'Head coach':'2026 coach · role vacant';
+        return '<tr class="'+(select.value===item.name?'is-selected':'')+'">'+
+          '<th scope="row"><button class="coach-table-name" type="button" data-coach-spotlight="'+escape(item.name)+'">'+escape(item.name)+'</button><span>'+escape(item.team)+'</span><small>'+status+'</small></th>'+
+          '<td><strong>'+formatRecord(item.season2026)+'</strong><small>'+percent(item.season2026)+'</small></td>'+
+          '<td><strong>'+formatRecord(item.seasonPlayoffs2026)+'</strong><small>'+(currentPlayoffGames?'through Oct. 9':'—')+'</small></td>'+
+          '<td><strong>'+formatRecord(item.careerRegular)+'</strong><small>'+percent(item.careerRegular)+'</small></td>'+
+          '<td><strong>'+formatRecord(item.careerPlayoffs)+'</strong><small>'+percent(item.careerPlayoffs)+'</small></td>'+
+          '<td><strong class="coach-honor-number">'+item.titles.length+'</strong><small>'+titles+'</small></td>'+
+          '<td><strong class="coach-honor-number">'+item.coyYears.length+'</strong><small>'+coty+'</small></td></tr>';
+      }).join(''):'<tr><td class="coach-empty-row" colspan="7">No coach matches that search.</td></tr>';
+      count.textContent='Showing '+rows.length+' of '+data.length+' coach records';
+    }
+    function chooseCoach(name){
+      if(!data.some(item=>item.name===name))return;
+      select.value=name;
+      updateSpotlight(name);
+      renderRows();
+    }
+    select.addEventListener('change',()=>chooseCoach(select.value));
+    search.addEventListener('input',renderRows);
+    sort.addEventListener('change',renderRows);
+    table.addEventListener('click',event=>{
+      const button=event.target.closest('[data-coach-spotlight]');
+      if(button)chooseCoach(button.dataset.coachSpotlight);
+    });
+    document.addEventListener('click',event=>{
+      const button=event.target.closest('[data-coach-focus]');
+      if(!button)return;
+      chooseCoach(button.dataset.coachFocus);
+      dashboard.scrollIntoView({behavior:'smooth',block:'start'});
+    });
+    select.value='Cheryl Reeve';
+    updateSpotlight(select.value);
+    renderRows();
+  }
+
   if(page==='mascots')renderCards('#cultureGrid',COURTSIDE_MASCOTS,'mascot');
   if(page==='coaches'){
+    renderCoachDashboard();
     renderCards('#cultureGrid',COURTSIDE_COACHES,'coach');
     const clipboard=$('#clipboardGrid');if(clipboard){clipboard.innerHTML=COURT_TO_CLIPBOARD.map(item=>card({...item,team:item.role.split(' · ')[0],summary:item.path},'coach')).join('');hydrateMedia();}
   }

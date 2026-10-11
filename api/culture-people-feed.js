@@ -221,7 +221,7 @@ async function fetchMeta(url){
 async function hydrate(items){
   return Promise.all(items.map(async item=>{
     const extra=item.image?{}:await fetchMeta(item.href);
-    return {...item,image:item.image||extra.image||'',summary:item.summary||extra.description||''};
+    return {...item,image:item.image||'',summary:item.summary||extra.description||''};
   }));
 }
 module.exports=async function handler(req,res){

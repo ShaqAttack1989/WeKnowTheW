@@ -15,17 +15,17 @@
   ];
 
   var collegeCoaches = [
-    { name: "Geno Auriemma", school: "Connecticut", wins: 1288, losses: 166, titles: 12, titleYears: "12 NCAA titles" },
-    { name: "Pat Summitt", school: "Tennessee", wins: 1098, losses: 208, titles: 8, titleYears: "8 NCAA titles" },
-    { name: "Tara VanDerveer", school: "Stanford", wins: 1216, losses: 271, titles: 3, titleYears: "1990, 1992, 2021" },
-    { name: "Kim Mulkey", school: "Baylor · LSU", wins: 783, losses: 130, titles: 4, titleYears: "2005, 2012, 2019, 2023" },
-    { name: "Dawn Staley", school: "South Carolina", wins: 683, losses: 194, titles: 3, titleYears: "2017, 2022, 2024" },
-    { name: "Muffet McGraw", school: "Notre Dame", wins: 936, losses: 293, titles: 2, titleYears: "2001, 2018" },
-    { name: "Sylvia Hatchell", school: "North Carolina", wins: 1023, losses: 405, titles: 1, titleYears: "1994" },
-    { name: "Jody Conradt", school: "Texas", wins: 900, losses: 306, titles: 1, titleYears: "1986" },
-    { name: "C. Vivian Stringer", school: "Cheyney · Iowa · Rutgers", wins: 1055, losses: 426, titles: 0, titleYears: "3 NCAA title-game appearances" },
-    { name: "Gary Blair", school: "Texas A&M", wins: 852, losses: 345, titles: 1, titleYears: "2011" },
-    { name: "Cori Close", school: "UCLA", wins: 395, losses: 145, titles: 1, titleYears: "2026" }
+    { name: "Geno Auriemma", school: "Connecticut", wins: 1288, losses: 166, titles: 12, firstRoundPicks: 29, titleYears: "12 NCAA titles" },
+    { name: "Pat Summitt", school: "Tennessee", wins: 1098, losses: 208, titles: 8, firstRoundPicks: 16, titleYears: "8 NCAA titles" },
+    { name: "Tara VanDerveer", school: "Stanford", wins: 1216, losses: 271, titles: 3, firstRoundPicks: 15, titleYears: "1990, 1992, 2021" },
+    { name: "Kim Mulkey", school: "Baylor · LSU", wins: 783, losses: 130, titles: 4, firstRoundPicks: 14, titleYears: "2005, 2012, 2019, 2023" },
+    { name: "Dawn Staley", school: "South Carolina", wins: 683, losses: 194, titles: 3, firstRoundPicks: 17, titleYears: "2017, 2022, 2024" },
+    { name: "Muffet McGraw", school: "Notre Dame", wins: 936, losses: 293, titles: 2, firstRoundPicks: 10, titleYears: "2001, 2018" },
+    { name: "Sylvia Hatchell", school: "North Carolina", wins: 1023, losses: 405, titles: 1, firstRoundPicks: 9, titleYears: "1994" },
+    { name: "Jody Conradt", school: "Texas", wins: 900, losses: 306, titles: 1, firstRoundPicks: 3, titleYears: "1986" },
+    { name: "C. Vivian Stringer", school: "Cheyney · Iowa · Rutgers", wins: 1055, losses: 426, titles: 0, firstRoundPicks: 7, titleYears: "3 NCAA title-game appearances" },
+    { name: "Gary Blair", school: "Texas A&M", wins: 852, losses: 345, titles: 1, firstRoundPicks: 3, titleYears: "2011" },
+    { name: "Cori Close", school: "UCLA", wins: 395, losses: 145, titles: 1, firstRoundPicks: 7, titleYears: "2026" }
   ];
 
   var finalists = [
@@ -108,6 +108,7 @@
       if (key === "name") return (coach.name + " " + (coach.teams || coach.school)).toLowerCase();
       if (key === "wins") return coach.wins;
       if (key === "titles") return coach.titles;
+      if (key === "picks") return coach.firstRoundPicks || 0;
       if (key === "regular") return coach.regularPct;
       if (key === "playoff") return coach.playoffPct || 0;
       if (key === "rank" || key === "score") return coach.rawScore;
@@ -151,25 +152,26 @@
       if (kind === "wnba") {
         rows.innerHTML = filtered.length ? filtered.map(function (coach, index) {
           return '<tr>' +
-            '<td class="rank-cell">' + ranks[index] + '</td>' +
-            '<td><a class="coach-name" href="' + escapeHtml(coach.href) + '" target="_blank" rel="noopener">' + escapeHtml(coach.name) + '</a><span class="coach-sub">' + escapeHtml(coach.teams) + '</span></td>' +
-            '<td>' + record(coach.wins, coach.losses) + '<span class="coach-sub">' + percentLabel(coach.regularPct) + ' win rate</span></td>' +
-            '<td>' + record(coach.playoffWins, coach.playoffLosses) + '<span class="coach-sub">' + percentLabel(coach.playoffPct) + ' win rate</span></td>' +
-            '<td><span class="title-badge">' + coach.titles + '</span><span class="coach-sub">' + escapeHtml(coach.titleYears) + '</span></td>' +
-            '<td>' + scoreMarkup(coach.score) + '</td>' +
+            '<td class="rank-cell" data-label="Rank">' + ranks[index] + '</td>' +
+            '<td data-label="Coach"><a class="coach-name" href="' + escapeHtml(coach.href) + '" target="_blank" rel="noopener">' + escapeHtml(coach.name) + '</a><span class="coach-sub">' + escapeHtml(coach.teams) + '</span></td>' +
+            '<td data-label="Regular season">' + record(coach.wins, coach.losses) + '<span class="coach-sub">' + percentLabel(coach.regularPct) + ' win rate</span></td>' +
+            '<td data-label="Playoffs">' + record(coach.playoffWins, coach.playoffLosses) + '<span class="coach-sub">' + percentLabel(coach.playoffPct) + ' win rate</span></td>' +
+            '<td data-label="WNBA titles"><span class="title-badge">' + coach.titles + '</span><span class="coach-sub">' + escapeHtml(coach.titleYears) + '</span></td>' +
+            '<td data-label="Legacy W Score">' + scoreMarkup(coach.score) + '</td>' +
             '</tr>';
-        }).join("") : '<tr><td colspan="6" class="empty-state">No coaches match that search.</td></tr>';
+        }).join("") : '<tr><td colspan="' + (kind === "college" ? 7 : 6) + '" class="empty-state">No coaches match that search.</td></tr>';
       } else {
         rows.innerHTML = filtered.length ? filtered.map(function (coach, index) {
           return '<tr>' +
-            '<td class="rank-cell">' + ranks[index] + '</td>' +
-            '<td><span class="coach-name">' + escapeHtml(coach.name) + '</span><span class="coach-sub">' + escapeHtml(coach.school) + '</span></td>' +
-            '<td>' + record(coach.wins, coach.losses) + '</td>' +
-            '<td>' + percentLabel(coach.regularPct) + '</td>' +
-            '<td><span class="title-badge">' + coach.titles + '</span><span class="coach-sub">' + escapeHtml(coach.titleYears) + '</span></td>' +
-            '<td>' + scoreMarkup(coach.score) + '</td>' +
+            '<td class="rank-cell" data-label="Rank">' + ranks[index] + '</td>' +
+            '<td data-label="Coach · signature school"><span class="coach-name">' + escapeHtml(coach.name) + '</span><span class="coach-sub">' + escapeHtml(coach.school) + '</span></td>' +
+            '<td data-label="Career record">' + record(coach.wins, coach.losses) + '</td>' +
+            '<td data-label="Career win %">' + percentLabel(coach.regularPct) + '</td>' +
+            '<td data-label="NCAA titles"><span class="title-badge">' + coach.titles + '</span><span class="coach-sub">' + escapeHtml(coach.titleYears) + '</span></td>' +
+            '<td data-label="WNBA first-round picks"><span class="draft-count">' + coach.firstRoundPicks + '</span><span class="coach-sub">career picks</span></td>' +
+            '<td data-label="Legacy W Score">' + scoreMarkup(coach.score) + '</td>' +
             '</tr>';
-        }).join("") : '<tr><td colspan="6" class="empty-state">No coaches match that search.</td></tr>';
+        }).join("") : '<tr><td colspan="' + (kind === "college" ? 7 : 6) + '" class="empty-state">No coaches match that search.</td></tr>';
       }
 
       if (count) count.textContent = filtered.length + (filtered.length === 1 ? " coach" : " coaches");

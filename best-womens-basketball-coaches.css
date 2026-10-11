@@ -459,14 +459,14 @@
 .table-wrap {
   border: 1px solid #e9e5ee;
   border-radius: 0 0 16px 16px;
-  overflow-x: auto;
-  overscroll-behavior-x: contain;
+  overflow: visible;
 }
 
 .legacy-table {
   background: #fff;
   border-collapse: collapse;
-  min-width: 790px;
+  min-width: 0;
+  table-layout: fixed;
   text-align: left;
   width: 100%;
 }
@@ -489,7 +489,8 @@
   letter-spacing: .1em;
   padding: .82rem .8rem;
   text-transform: uppercase;
-  white-space: nowrap;
+  overflow-wrap: anywhere;
+  white-space: normal;
 }
 
 .legacy-table th button {
@@ -523,7 +524,8 @@
   color: #514a60;
   font-size: .83rem;
   padding: .82rem .8rem;
-  white-space: nowrap;
+  overflow-wrap: anywhere;
+  white-space: normal;
 }
 
 .legacy-table tbody tr:hover {
@@ -554,7 +556,7 @@
 }
 
 .score-cell {
-  min-width: 150px;
+  min-width: 0;
 }
 
 .score-cell strong {
@@ -890,5 +892,192 @@
   .score-meter span,
   .score-fill {
     transition: none;
+  }
+}
+
+
+/* Keep both legacy boards fully visible at desktop widths. */
+.legacy-dashboard,
+.table-wrap {
+  min-width: 0;
+}
+
+.table-wrap {
+  overflow: visible;
+}
+
+.legacy-table {
+  min-width: 0;
+  table-layout: fixed;
+  width: 100%;
+}
+
+.legacy-table th {
+  overflow-wrap: anywhere;
+  padding: .72rem .5rem;
+  white-space: normal;
+}
+
+.legacy-table th button {
+  line-height: 1.25;
+  white-space: normal;
+}
+
+.legacy-table td {
+  overflow-wrap: anywhere;
+  padding: .72rem .5rem;
+  vertical-align: middle;
+  white-space: normal;
+}
+
+#wnbaTable th:nth-child(1),
+#wnbaTable td:nth-child(1) { width: 5%; }
+#wnbaTable th:nth-child(2),
+#wnbaTable td:nth-child(2) { width: 23%; }
+#wnbaTable th:nth-child(3),
+#wnbaTable td:nth-child(3) { width: 17%; }
+#wnbaTable th:nth-child(4),
+#wnbaTable td:nth-child(4) { width: 17%; }
+#wnbaTable th:nth-child(5),
+#wnbaTable td:nth-child(5) { width: 14%; }
+#wnbaTable th:nth-child(6),
+#wnbaTable td:nth-child(6) { width: 24%; }
+
+#collegeTable th:nth-child(1),
+#collegeTable td:nth-child(1) { width: 5%; }
+#collegeTable th:nth-child(2),
+#collegeTable td:nth-child(2) { width: 21%; }
+#collegeTable th:nth-child(3),
+#collegeTable td:nth-child(3) { width: 12%; }
+#collegeTable th:nth-child(4),
+#collegeTable td:nth-child(4) { width: 9%; }
+#collegeTable th:nth-child(5),
+#collegeTable td:nth-child(5) { width: 12%; }
+#collegeTable th:nth-child(6),
+#collegeTable td:nth-child(6) { width: 17%; }
+#collegeTable th:nth-child(7),
+#collegeTable td:nth-child(7) { width: 24%; }
+
+.score-cell {
+  align-items: center;
+  display: flex;
+  gap: .35rem;
+  min-width: 0;
+}
+
+.score-cell .score-track {
+  flex: 1 1 54px;
+  margin-left: 0;
+  min-width: 28px;
+  width: auto;
+}
+
+.draft-count {
+  background: #eee8fa;
+  border-radius: 999px;
+  color: #43217d;
+  display: inline-block;
+  font-size: .82rem;
+  font-weight: 900;
+  min-width: 2rem;
+  padding: .28rem .48rem;
+  text-align: center;
+}
+
+@media (max-width: 760px) {
+  .table-wrap {
+    border: 0;
+    overflow: visible;
+  }
+
+  .legacy-table {
+    background: transparent;
+    border-collapse: separate;
+    border-spacing: 0 .7rem;
+    display: block;
+    min-width: 0;
+  }
+
+  .legacy-table thead {
+    clip: rect(0, 0, 0, 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+  }
+
+  .legacy-table tbody {
+    display: grid;
+    gap: .75rem;
+  }
+
+  .legacy-table tbody tr {
+    background: #fff;
+    border: 1px solid #e9e5ee;
+    border-radius: 14px;
+    box-shadow: 0 8px 20px rgba(31, 18, 63, .05);
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    overflow: hidden;
+  }
+
+  .legacy-table tbody tr:hover {
+    background: #fff;
+  }
+
+  .legacy-table tbody tr td {
+    border: 0;
+    border-top: 1px solid #f0edf4;
+    display: flex;
+    flex-direction: column;
+    gap: .28rem;
+    min-width: 0;
+    padding: .68rem .78rem;
+  }
+
+  .legacy-table tbody tr td::before {
+    color: #817891;
+    content: attr(data-label);
+    display: block;
+    font-size: .58rem;
+    font-weight: 900;
+    letter-spacing: .08em;
+    line-height: 1.2;
+    text-transform: uppercase;
+  }
+
+  .legacy-table tbody tr td:nth-child(1),
+  .legacy-table tbody tr td:nth-child(2),
+  .legacy-table tbody tr td:last-child {
+    grid-column: 1 / -1;
+  }
+
+  .legacy-table tbody tr td:nth-child(1) {
+    background: #f8f6fc;
+    border-top: 0;
+  }
+
+  .legacy-table tbody tr td:nth-child(2) {
+    border-top: 0;
+  }
+
+  .legacy-table tbody tr td.empty-state {
+    grid-column: 1 / -1;
+    text-align: center;
+  }
+
+  .legacy-table tbody tr td.empty-state::before {
+    content: none;
+  }
+
+  .score-cell {
+    max-width: 300px;
+    width: 100%;
+  }
+
+  .score-cell .score-track {
+    flex-basis: 90px;
   }
 }

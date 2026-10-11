@@ -1,5 +1,42 @@
 const CELEBRITY_SOURCES = [
   {
+    "title": "Angel Reese shares a postgame moment with the new A Different World cast",
+    "href": "https://www.thebiglead.com/angel-reese-different-world-cast-wnba-playoffs-fans-cameo/",
+    "sourceType": "THE BIG LEAD",
+    "category": "Postgame crossover",
+    "team": "Atlanta Dream",
+    "date": "2026-10-09T12:00:00-04:00",
+    "image": "/assets/images/17989.png",
+    "imageAlt": "Atlanta Dream team artwork",
+    "summary": "After Atlanta clinched its Finals berth at Barclays Center, Reese linked up with Maleah Moon and Cornell Young IV, cast members of Netflix’s new A Different World series."
+  },
+  {
+    "title": "Jermaine Dupri and T.I. pull up for Game 2",
+    "href": "https://sports.yahoo.com/articles/york-liberty-vs-atlanta-dream-100127381.html",
+    "sourceType": "YAHOO SPORTS",
+    "category": "Courtside sighting",
+    "team": "Atlanta Dream",
+    "date": "2026-10-07T12:00:00-04:00",
+    "image": "https://people.com/thmb/yu_Y2BgyWdKHzZznSFEMSc_dEQE%3D/4000x0/filters%3Ano_upscale%28%29%3Amax_bytes%28150000%29%3Astrip_icc%28%29%3Afocal%28999x0%3A1001x2%29%3Aformat%28webp%29/Rapper-T.I.-100826-ed7ee6e976164120ac53e46d2938e2e9.jpg",
+    "imageAlt": "T.I. sits courtside at an Atlanta Dream playoff game on October 7, 2026",
+    "imageCredit": "Paras Griffin/Getty Images",
+    "imageCreditHref": "https://people.com/star-tracks-saturday-october-10-2026-new-celebrity-photos-updated-daily-12167143",
+    "summary": "Atlanta music fixtures Jermaine Dupri and T.I. watched the Dream’s semifinal Game 2 at State Farm Arena as Atlanta moved to a 2–0 series lead."
+  },
+  {
+    "title": "2 Chainz and Belly Gang make Atlanta’s Game 2 a full-court culture moment",
+    "href": "https://www.ajc.com/sports/2026/10/atlanta-dream-new-york-liberty-wnba-game-2/",
+    "sourceType": "ATLANTA JOURNAL-CONSTITUTION",
+    "category": "Music + courtside",
+    "team": "Atlanta Dream",
+    "date": "2026-10-07T12:00:00-04:00",
+    "image": "https://people.com/thmb/QOD34450zs5F8YXr1ACiQTd5njg%3D/4000x0/filters%3Ano_upscale%28%29%3Amax_bytes%28150000%29%3Astrip_icc%28%29%3Afocal%28999x0%3A1001x2%29%3Aformat%28webp%29/2-Chainz-100826-18a703743bd24d879dade33aec8dd7b9.jpg",
+    "imageAlt": "2 Chainz performs at halftime during Atlanta Dream playoff Game 2 on October 7, 2026",
+    "imageCredit": "Paras Griffin/Getty Images",
+    "imageCreditHref": "https://people.com/star-tracks-saturday-october-10-2026-new-celebrity-photos-updated-daily-12167143",
+    "summary": "2 Chainz performed at halftime and in-game. The AJC also reports that The-Dream and T.I. were featured in the arena, Belly Gang Kushington performed during a timeout and joined Angel Reese on the Win Cam after Atlanta’s 101–98 overtime win, and Atlanta Mayor Andre Dickens and Keisha Lance Bottoms attended."
+  },
+  {
     title:'Kanter Freedom ejected after confrontation with Sky’s Natasha Cloud',
     href:'https://www.espnlacrosse.com/2026/08/23/kanter-freedom-tossed-after-clash-with-cloud/',
     sourceType:'ESPN',
@@ -182,8 +219,8 @@ async function fetchMeta(url){
 }
 async function hydrate(items){
   return Promise.all(items.map(async item=>{
-    const extra=await fetchMeta(item.href);
-    return {...item,image:extra.image||'',summary:item.summary||extra.description||''};
+    const extra=item.image?{}:await fetchMeta(item.href);
+    return {...item,image:item.image||extra.image||'',summary:item.summary||extra.description||''};
   }));
 }
 module.exports=async function handler(req,res){

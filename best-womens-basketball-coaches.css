@@ -1083,3 +1083,12 @@
     flex-basis: 90px;
   }
 }
+
+
+/* Keep the compact rank heading on one line. */
+#wnbaTable thead th:first-child button,
+#collegeTable thead th:first-child button {
+  font-size: .56rem;
+  letter-spacing: .02em;
+  white-space: nowrap;
+}

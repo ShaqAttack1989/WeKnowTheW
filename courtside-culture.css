@@ -37,11 +37,18 @@
 .coach-dashboard-heading{display:flex;align-items:flex-end;justify-content:space-between;gap:1.4rem;margin-bottom:1.25rem}
 .coach-dashboard-heading h2{font-size:clamp(1.7rem,3.7vw,3rem);line-height:.98;letter-spacing:-.045em;margin:.15rem 0 .55rem;color:#fff}
 .coach-dashboard-heading p:not(.eyebrow){max-width:60ch;color:#d9d1e0;margin:0}
+.coach-rating-method{margin:0 0 1rem;border:1px solid #51465a;border-radius:14px;background:#211b27}
+.coach-rating-method summary{padding:.72rem .9rem;color:var(--culture-lime);font-size:.78rem;font-weight:900;cursor:pointer}
+.coach-rating-method summary:focus-visible{outline:3px solid var(--culture-lime);outline-offset:3px;border-radius:8px}
+.coach-rating-method-body{padding:0 .9rem .8rem;color:#ded6e4;font-size:.76rem;line-height:1.5}
+.coach-rating-method-body p{margin:.2rem 0 .45rem}
+.coach-rating-method-body ul{margin:.35rem 0 .55rem;padding-left:1.25rem}
+.coach-rating-method-body li{margin:.15rem 0}
 .coach-dashboard-date{flex:0 0 auto;display:flex;flex-direction:column;gap:.18rem;padding:.8rem 1rem;border:1px solid #4a4051;border-radius:16px;background:#211b27}
 .coach-dashboard-date span,.coach-dashboard-date small{color:#bdb2c7;font-size:.7rem;font-weight:800;letter-spacing:.06em}
 .coach-dashboard-date strong{color:#fff;font-size:1rem}
 .coach-dashboard-date small{letter-spacing:0;font-weight:600}
-.coach-dashboard-kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.7rem;margin:1rem 0 1.2rem}
+.coach-dashboard-kpis{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:.7rem;margin:1rem 0 1.2rem}
 .coach-kpi{padding:.85rem 1rem;border:1px solid #453b4c;border-radius:16px;background:#211b27;display:flex;flex-direction:column;gap:.18rem}
 .coach-kpi strong{font-size:clamp(1.35rem,2.5vw,2rem);line-height:1;color:var(--culture-lime);font-weight:950}
 .coach-kpi span{color:#e1d9e7;font-size:.76rem;font-weight:750}
@@ -61,6 +68,12 @@
 .coach-spotlight-trophy span{font-size:.61rem;font-weight:950;text-transform:uppercase;letter-spacing:.06em;text-align:center}
 .coach-spotlight-trophy strong{font-size:1.8rem;line-height:1.1}
 .coach-spotlight-trophy small{font-weight:800;font-size:.63rem}
+.coach-spotlight-rating{min-width:154px}
+.coach-spotlight-rating strong{font-size:2.5rem;letter-spacing:-.06em}
+.coach-rating-breakdown{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:.5rem;padding:0 1.1rem 1rem}
+.coach-rating-breakdown>div{display:flex;justify-content:space-between;align-items:center;gap:.3rem;padding:.55rem .62rem;border:1px solid #51465a;border-radius:11px;background:rgba(15,12,18,.45);min-width:0}
+.coach-rating-breakdown span{color:#d4c8db;font-size:.64rem;font-weight:800}
+.coach-rating-breakdown strong{color:var(--culture-lime);font-size:.68rem;white-space:nowrap}
 .coach-spotlight-metrics{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:.55rem;padding:0 1.1rem 1rem}
 .coach-spotlight-metrics>div{display:flex;flex-direction:column;gap:.25rem;padding:.72rem .75rem;border:1px solid #403645;border-radius:14px;background:rgba(15,12,18,.42);min-width:0}
 .coach-spotlight-metrics span{color:#cfc4d6;font-size:.65rem;font-weight:850;text-transform:uppercase;letter-spacing:.035em}
@@ -78,7 +91,7 @@
 .coach-spotlight-links a,.coach-dashboard-sources a{color:var(--culture-lime);font-size:.74rem;font-weight:850;text-decoration:none}
 .coach-spotlight-links a:hover,.coach-dashboard-sources a:hover{text-decoration:underline}
 .coach-dashboard-table-wrap{overflow:auto;border:1px solid #473d4e;border-radius:16px;background:#211b27}
-.coach-dashboard-table{width:100%;min-width:930px;border-collapse:collapse;text-align:left}
+.coach-dashboard-table{width:100%;min-width:1020px;border-collapse:collapse;text-align:left}
 .coach-dashboard-table thead{background:#302837}
 .coach-dashboard-table th,.coach-dashboard-table td{padding:.68rem .72rem;border-bottom:1px solid #403645;vertical-align:middle}
 .coach-dashboard-table th{color:#d4c8db;font-size:.64rem;font-weight:950;text-transform:uppercase;letter-spacing:.045em}
@@ -92,6 +105,12 @@
 .coach-dashboard-table tbody th>span,.coach-dashboard-table tbody th>small,.coach-dashboard-table td small{display:block;margin-top:.2rem;color:#bfb4c8;font-size:.64rem;font-weight:650;white-space:normal}
 .coach-dashboard-table td strong{font-size:.82rem}
 .coach-dashboard-table td .coach-honor-number{color:var(--culture-lime);font-size:1rem}
+.coach-dashboard-table td.coach-rating-cell strong{display:inline-flex;align-items:center;justify-content:center;min-width:2rem;min-height:2rem;border-radius:10px;background:var(--culture-lime);color:#17131d;font-size:.92rem;font-weight:950}
+.coach-dashboard-table td.coach-rating-cell small{font-size:.61rem}
+.coach-rating-mini{display:flex;align-items:baseline;gap:.25rem;color:#30243a}
+.coach-rating-mini b{font-size:.64rem}
+.coach-rating-mini strong{color:#4c248a;font-size:1rem}
+.coach-rating-mini small{font-size:.61rem;font-weight:800}
 .coach-empty-row{text-align:center!important;color:#d9d0df!important;padding:1.5rem!important}
 .coach-dashboard-sources{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem 1rem;margin-top:.8rem}
 .coach-dashboard-sources p{flex:1 1 100%;margin:0;color:#c3b8cc;font-size:.7rem;line-height:1.45}
@@ -103,6 +122,7 @@
 .coach-mini-dashboard button:hover{text-decoration:underline}
 @media(max-width:900px){
  .coach-dashboard-controls{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .coach-dashboard-kpis{grid-template-columns:repeat(3,minmax(0,1fr))}
  .coach-dashboard-count{grid-column:1/-1}
  .coach-spotlight-metrics{grid-template-columns:repeat(3,minmax(0,1fr))}
 }
@@ -114,7 +134,12 @@
  .coach-dashboard-count{grid-column:auto}
  .coach-spotlight-heading{align-items:flex-start}
  .coach-spotlight-trophy{min-width:85px}
+ .coach-spotlight-rating{min-width:116px}
+ .coach-spotlight-rating strong{font-size:2rem}
  .coach-spotlight-metrics{grid-template-columns:repeat(2,minmax(0,1fr));padding:0 .75rem .75rem}
+ .coach-rating-breakdown{grid-template-columns:1fr;padding:0 .75rem .75rem}
+ .coach-rating-breakdown>div{padding:.45rem .58rem}
+ .coach-dashboard-table{min-width:920px}
  .coach-trophy-shelf{grid-template-columns:1fr}
  .coach-recognition{flex-direction:column;gap:.25rem}
  .coach-dashboard-table{min-width:860px}

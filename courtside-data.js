@@ -10,7 +10,7 @@ const COURTSIDE_COACHES = [
   ['Golden State Valkyries','Natalie Nakase','The 2025 Coach of the Year established Ballhalla’s identity.','https://valkyries.wnba.com/news/natalie-nakase-named-2025-wnba-coach-of-the-year'],
   ['Indiana Fever','Stephanie White','A former Fever player and championship assistant now leading the bench.','https://fever.wnba.com/news/indiana-fever-hire-stephanie-white-as-head-coach'],
   ['Las Vegas Aces','Becky Hammon','The Hall of Fame guard became a three-time championship head coach.','https://aces.wnba.com/head-coach-becky-hammon'],
-  ['Los Angeles Sparks','Reported head coach vacancy','ESPN reported on Sept. 25, 2026 that Los Angeles dismissed Lynne Roberts after the Sparks missed the playoffs for a second straight season under her. The Sparks basketball-operations page was still showing Roberts at the time of this update, so this card is marked from the reported change while the team page catches up.','https://www.espn.com/wnba/'],
+  ['Los Angeles Sparks','Reported head coach vacancy','The Sparks announced on Sept. 25, 2026 that they and Lynne Roberts parted ways after the season. The dashboard keeps Roberts’ completed 2026 record in the history table; the head-coach role is now vacant.','https://sparks.wnba.com/news/los-angeles-sparks-part-ways-with-head-coach-lynne-roberts'],
   ['Minnesota Lynx','Cheryl Reeve','The architect of Minnesota’s four-title dynasty.','https://lynx.wnba.com/news/minnesota-lynx-head-coach-cheryl-reeve-named-2026-wnba-all-star-coach'],
   ['New York Liberty','Chris DeMarco','A four-time NBA champion leading New York’s next chapter.','https://liberty.wnba.com/news/new-york-liberty-name-chris-demarco-head-coach'],
   ['Phoenix Mercury','Nate Tibbetts','Leads a fast, detail-heavy Mercury system.','https://mercury.wnba.com/news/phoenix-mercury-name-nate-tibbetts-head-coach'],
@@ -111,3 +111,422 @@ const GAMEDAY_VIBES = [
   ['Toronto Tempo','Canada’s first WNBA party','Dez, Dot, music and a new national fan base give the Tempo an atmosphere all their own.'],
   ['Washington Mystics','District basketball','CareFirst Arena creates a compact, defense-minded home floor rooted in D.C. basketball culture.']
 ].map(([team,title,summary])=>({team,title,summary}));
+
+
+const COURTSIDE_COACH_STATS = [
+  {
+    "team": "Atlanta Dream",
+    "name": "Karl Smesko",
+    "isCurrent": true,
+    "season2026": {
+      "wins": 30,
+      "losses": 14
+    },
+    "seasonPlayoffs2026": {
+      "wins": 5,
+      "losses": 0
+    },
+    "careerRegular": {
+      "wins": 60,
+      "losses": 28
+    },
+    "careerPlayoffs": {
+      "wins": 6,
+      "losses": 2
+    },
+    "titles": [],
+    "coyYears": [],
+    "distinctions": [
+      "2025 Coach of the Year runner-up"
+    ],
+    "profileSource": "https://dream.wnba.com/news/atlanta-dream-name-karl-smesko-head-coach"
+  },
+  {
+    "team": "Chicago Sky",
+    "name": "Tyler Marsh",
+    "isCurrent": true,
+    "season2026": {
+      "wins": 16,
+      "losses": 28
+    },
+    "seasonPlayoffs2026": {
+      "wins": 0,
+      "losses": 0
+    },
+    "careerRegular": {
+      "wins": 26,
+      "losses": 62
+    },
+    "careerPlayoffs": {
+      "wins": 0,
+      "losses": 0
+    },
+    "titles": [],
+    "coyYears": [],
+    "distinctions": [],
+    "profileSource": "https://sky.wnba.com/news/chicago-sky-name-tyler-marsh-head-coach"
+  },
+  {
+    "team": "Connecticut Sun",
+    "name": "Rachid Meziane",
+    "isCurrent": true,
+    "season2026": {
+      "wins": 11,
+      "losses": 33
+    },
+    "seasonPlayoffs2026": {
+      "wins": 0,
+      "losses": 0
+    },
+    "careerRegular": {
+      "wins": 22,
+      "losses": 66
+    },
+    "careerPlayoffs": {
+      "wins": 0,
+      "losses": 0
+    },
+    "titles": [],
+    "coyYears": [],
+    "distinctions": [],
+    "profileSource": "https://sun.wnba.com/news/connecticut-sun-name-rachid-meziane-head-coach"
+  },
+  {
+    "team": "Dallas Wings",
+    "name": "José Fernández",
+    "isCurrent": true,
+    "season2026": {
+      "wins": 27,
+      "losses": 17
+    },
+    "seasonPlayoffs2026": {
+      "wins": 1,
+      "losses": 2
+    },
+    "careerRegular": {
+      "wins": 27,
+      "losses": 17
+    },
+    "careerPlayoffs": {
+      "wins": 1,
+      "losses": 2
+    },
+    "titles": [],
+    "coyYears": [],
+    "distinctions": [],
+    "profileSource": "https://wings.wnba.com/news/jose-fernandez-named-head-coach"
+  },
+  {
+    "team": "Golden State Valkyries",
+    "name": "Natalie Nakase",
+    "isCurrent": true,
+    "season2026": {
+      "wins": 32,
+      "losses": 12
+    },
+    "seasonPlayoffs2026": {
+      "wins": 5,
+      "losses": 1
+    },
+    "careerRegular": {
+      "wins": 55,
+      "losses": 33
+    },
+    "careerPlayoffs": {
+      "wins": 5,
+      "losses": 3
+    },
+    "titles": [],
+    "coyYears": [
+      2025
+    ],
+    "distinctions": [
+      "2026 Coach of the Year runner-up"
+    ],
+    "profileSource": "https://valkyries.wnba.com/news/natalie-nakase-named-2025-wnba-coach-of-the-year"
+  },
+  {
+    "team": "Indiana Fever",
+    "name": "Stephanie White",
+    "isCurrent": true,
+    "season2026": {
+      "wins": 28,
+      "losses": 16
+    },
+    "seasonPlayoffs2026": {
+      "wins": 1,
+      "losses": 2
+    },
+    "careerRegular": {
+      "wins": 144,
+      "losses": 92
+    },
+    "careerPlayoffs": {
+      "wins": 18,
+      "losses": 19
+    },
+    "titles": [],
+    "coyYears": [
+      2023
+    ],
+    "distinctions": [
+      "2012 WNBA champion as an assistant coach"
+    ],
+    "profileSource": "https://fever.wnba.com/news/indiana-fever-hire-stephanie-white-as-head-coach"
+  },
+  {
+    "team": "Los Angeles Sparks",
+    "name": "Lynne Roberts",
+    "isCurrent": false,
+    "season2026": {
+      "wins": 16,
+      "losses": 28
+    },
+    "seasonPlayoffs2026": {
+      "wins": 0,
+      "losses": 0
+    },
+    "careerRegular": {
+      "wins": 37,
+      "losses": 51
+    },
+    "careerPlayoffs": {
+      "wins": 0,
+      "losses": 0
+    },
+    "titles": [],
+    "coyYears": [],
+    "distinctions": [],
+    "profileSource": "https://sparks.wnba.com/news/los-angeles-sparks-part-ways-with-head-coach-lynne-roberts"
+  },
+  {
+    "team": "Las Vegas Aces",
+    "name": "Becky Hammon",
+    "isCurrent": true,
+    "season2026": {
+      "wins": 31,
+      "losses": 13
+    },
+    "seasonPlayoffs2026": {
+      "wins": 2,
+      "losses": 4
+    },
+    "careerRegular": {
+      "wins": 148,
+      "losses": 56
+    },
+    "careerPlayoffs": {
+      "wins": 30,
+      "losses": 13
+    },
+    "titles": [
+      2022,
+      2023,
+      2025
+    ],
+    "coyYears": [
+      2022
+    ],
+    "distinctions": [
+      "Naismith Memorial Basketball Hall of Fame · 2023"
+    ],
+    "profileSource": "https://aces.wnba.com/head-coach-becky-hammon"
+  },
+  {
+    "team": "Minnesota Lynx",
+    "name": "Cheryl Reeve",
+    "isCurrent": true,
+    "season2026": {
+      "wins": 33,
+      "losses": 11
+    },
+    "seasonPlayoffs2026": {
+      "wins": 0,
+      "losses": 2
+    },
+    "careerRegular": {
+      "wins": 397,
+      "losses": 201
+    },
+    "careerPlayoffs": {
+      "wins": 52,
+      "losses": 33
+    },
+    "titles": [
+      2011,
+      2013,
+      2015,
+      2017
+    ],
+    "coyYears": [
+      2011,
+      2016,
+      2020,
+      2024,
+      2026
+    ],
+    "distinctions": [
+      "Women’s Basketball Hall of Fame · Class of 2026"
+    ],
+    "profileSource": "https://lynx.wnba.com/basketball-operations/cheryl-reeve"
+  },
+  {
+    "team": "New York Liberty",
+    "name": "Chris DeMarco",
+    "isCurrent": true,
+    "season2026": {
+      "wins": 26,
+      "losses": 18
+    },
+    "seasonPlayoffs2026": {
+      "wins": 2,
+      "losses": 3
+    },
+    "careerRegular": {
+      "wins": 26,
+      "losses": 18
+    },
+    "careerPlayoffs": {
+      "wins": 2,
+      "losses": 3
+    },
+    "titles": [],
+    "coyYears": [],
+    "distinctions": [
+      "Four-time NBA champion as an assistant coach"
+    ],
+    "profileSource": "https://liberty.wnba.com/news/new-york-liberty-name-chris-demarco-head-coach"
+  },
+  {
+    "team": "Phoenix Mercury",
+    "name": "Nate Tibbetts",
+    "isCurrent": true,
+    "season2026": {
+      "wins": 16,
+      "losses": 28
+    },
+    "seasonPlayoffs2026": {
+      "wins": 0,
+      "losses": 0
+    },
+    "careerRegular": {
+      "wins": 62,
+      "losses": 66
+    },
+    "careerPlayoffs": {
+      "wins": 5,
+      "losses": 8
+    },
+    "titles": [],
+    "coyYears": [],
+    "distinctions": [],
+    "profileSource": "https://mercury.wnba.com/news/phoenix-mercury-name-nate-tibbetts-head-coach"
+  },
+  {
+    "team": "Portland Fire",
+    "name": "Alex Sarama",
+    "isCurrent": true,
+    "season2026": {
+      "wins": 17,
+      "losses": 27
+    },
+    "seasonPlayoffs2026": {
+      "wins": 0,
+      "losses": 0
+    },
+    "careerRegular": {
+      "wins": 17,
+      "losses": 27
+    },
+    "careerPlayoffs": {
+      "wins": 0,
+      "losses": 0
+    },
+    "titles": [],
+    "coyYears": [],
+    "distinctions": [],
+    "profileSource": "https://fire.wnba.com/news/portland-fire-name-alex-sarama-head-coach"
+  },
+  {
+    "team": "Seattle Storm",
+    "name": "Sonia Raman",
+    "isCurrent": true,
+    "season2026": {
+      "wins": 8,
+      "losses": 36
+    },
+    "seasonPlayoffs2026": {
+      "wins": 0,
+      "losses": 0
+    },
+    "careerRegular": {
+      "wins": 8,
+      "losses": 36
+    },
+    "careerPlayoffs": {
+      "wins": 0,
+      "losses": 0
+    },
+    "titles": [],
+    "coyYears": [],
+    "distinctions": [],
+    "profileSource": "https://storm.wnba.com/news/seattle-storm-names-sonia-raman-head-coach"
+  },
+  {
+    "team": "Toronto Tempo",
+    "name": "Sandy Brondello",
+    "isCurrent": true,
+    "season2026": {
+      "wins": 11,
+      "losses": 33
+    },
+    "seasonPlayoffs2026": {
+      "wins": 0,
+      "losses": 0
+    },
+    "careerRegular": {
+      "wins": 282,
+      "losses": 214
+    },
+    "careerPlayoffs": {
+      "wins": 40,
+      "losses": 32
+    },
+    "titles": [
+      2014,
+      2024
+    ],
+    "coyYears": [
+      2014
+    ],
+    "distinctions": [],
+    "profileSource": "https://tempo.wnba.com/news/toronto-tempo-names-sandy-brondello-head-coach"
+  },
+  {
+    "team": "Washington Mystics",
+    "name": "Sydney Johnson",
+    "isCurrent": true,
+    "season2026": {
+      "wins": 28,
+      "losses": 16
+    },
+    "seasonPlayoffs2026": {
+      "wins": 0,
+      "losses": 2
+    },
+    "careerRegular": {
+      "wins": 44,
+      "losses": 44
+    },
+    "careerPlayoffs": {
+      "wins": 0,
+      "losses": 2
+    },
+    "titles": [],
+    "coyYears": [],
+    "distinctions": [
+      "2026 Coach of the Year finalist · third place"
+    ],
+    "profileSource": "https://mystics.wnba.com/news/washington-mystics-name-sydney-johnson-head-coach"
+  }
+];

@@ -35,7 +35,7 @@
     const name=card.querySelector('h3')?.textContent?.trim();
     const photo=card.querySelector('.culture-photo');
     const source=byName.get(name);
-    if (!photo || !source || attempted.has(photo)) return;
+    if (!photo || !source || attempted.has(photo) || photo.dataset.coachPhotoPinned==='true') return;
     attempted.add(photo);
     // The normal image resolver gets first chance; the official source is a backup.
     const result=await imageFromSource(source);

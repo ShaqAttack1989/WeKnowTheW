@@ -32,24 +32,21 @@
   const posterBySlug={
     'atlanta-dream':'17989.png','chicago-sky':'17990.png','connecticut-sun':'17991.png','dallas-wings':'17992.png','golden-state-valkyries':'17993.png','indiana-fever':'17994.png','las-vegas-aces':'17995.png','los-angeles-sparks':'17998.png','minnesota-lynx':'17997.png','new-york-liberty':'17996.png','phoenix-mercury':'17999.png','portland-fire':'18000.png','seattle-storm':'18001.png','toronto-tempo':'18174.jpg','washington-mystics':'18172.jpg'
   };
+  // Identity-checked single-subject photos. These cards must NEVER use name-search,
+  // generic article OG images or team-logo artwork as automatic replacements.
   const officialCoachPhotos={
-    // Pinned, identity-verified 2026 LA Sparks media-day photo.
-    // Never resolve this coach by an unqualified name search; that matched a film actor.
-    'Lynne Roberts': {
-      image: 'https://hermes.media.static.aol.com/media/2026/04/30/db65fad1-4f41-31ff-ab91-d8a9d14db273/bebc289f-8659-4fb4-9d60-29a9487654e0.jpg',
-      credit: 'Photo via AOL · Sparks media day (2026)',
-      sourceUrl: 'https://www.aol.com/articles/sparks-head-coach-explains-player-211824000.html'
-    },
-    // Official Seattle Storm / WNBA roster headshot, pinned to avoid team-artwork fallback.
-    'Sonia Raman': {
-      image: 'https://cdn.wnba.com/headshots/wnba/latest/260x190/1630290.png',
-      credit: 'Seattle Storm · official WNBA headshot',
-      sourceUrl: 'https://storm.wnba.com/roster'
-    }
+    "Karl Smesko": {image: "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/13/Karl_Smesko%2C_head_coach_Florida_Gulf_Coast.jpg/500px-Karl_Smesko%2C_head_coach_Florida_Gulf_Coast.jpg", credit: "Sphilbrick · CC BY-SA 3.0", sourceUrl: "https://commons.wikimedia.org/wiki/File:Karl_Smesko,_head_coach_Florida_Gulf_Coast.jpg"},
+    "Tyler Marsh": {image: "https://cst.brightspotcdn.com/dims4/default/6d498cd/2147483647/strip/false/crop/5842x3897%2B0%2B0/resize/1486x991%21/quality/90/?url=https%3A%2F%2Fchorus-production-cst-web.s3.us-east-1.amazonaws.com%2Fbrightspot%2F50%2F87%2F97c428ce476380e63902e20aac78%2Fsky-111324-17.jpg", credit: "Ashlee Rezin · Chicago Sun-Times", sourceUrl: "https://chicago.suntimes.com/chicago-sky/2025/04/27/coach-tyler-marsh-begins-work-on-getting-sky-to-compete-and-commit"},
+    "José Fernández": {image: "https://www.tampafp.com/wp-content/uploads/2024/10/Jose-Fernandez.jpeg", credit: "José Fernández · Tampa Free Press (USF portrait)", sourceUrl: "https://www.tampafp.com/jose-fernandez-ready-to-embark-on-25th-season-as-usf-womens-basketball-coach/"},
+    "Becky Hammon": {image: "https://upload.wikimedia.org/wikipedia/commons/3/36/240529_Lynx_Aces_JohnMc039_%28cropped%29.jpg", credit: "John Mac · CC BY-SA 2.0", sourceUrl: "https://commons.wikimedia.org/wiki/File:240529_Lynx_Aces_JohnMc039_(cropped).jpg"},
+    "Stephanie White": {image: "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ea/Stephanie_White_2024_%28cropped%29.jpg/500px-Stephanie_White_2024_%28cropped%29.jpg", credit: "John Mac · CC BY-SA 2.0", sourceUrl: "https://commons.wikimedia.org/wiki/File:Stephanie_White_2024_(cropped).jpg"},
+    "Sonia Raman": {image: "https://static.wixstatic.com/media/ab43c9_64875ba5f6444eb6ae95f2d28c4405ec~mv2.png/v1/fill/w_940%2Ch_705%2Cal_c%2Cq_90/ab43c9_64875ba5f6444eb6ae95f2d28c4405ec~mv2.png", credit: "Seattle Storm portrait · Abound", sourceUrl: "https://blog.joinabound.com/post/raman-makes-wnba-history-as-the-first-person-of-indian-descent-to-be-a-head-coach"},
+    "Lynne Roberts": {image: "https://hermes.media.static.aol.com/media/2026/04/30/db65fad1-4f41-31ff-ab91-d8a9d14db273/bebc289f-8659-4fb4-9d60-29a9487654e0.jpg", credit: "Sparks media-day photograph", sourceUrl: "https://www.aol.com/articles/sparks-head-coach-explains-player-211824000.html"}
   };
   function photo(name,type,team,source){
     const colors=`--team:${team.primary};--team2:${team.secondary}`;
-    return `<div class="culture-photo" style="${colors}" data-media-name="${escape(name)}" data-media-type="${type}" data-media-source="${escape(source||'')}" data-fallback="${escape(posterBySlug[team.slug]?`/assets/images/${posterBySlug[team.slug]}`:'')}"><div class="culture-initials">${initials(name)}</div></div>`;
+    const pinned=type==='coach'&&Boolean(officialCoachPhotos[name]);
+    return `<div class="culture-photo" style="${colors}" data-media-name="${escape(name)}" data-media-type="${type}" data-media-source="${escape(source||'')}" data-coach-photo-pinned="${pinned?'true':'false'}" data-fallback="${escape(pinned?'':posterBySlug[team.slug]?`/assets/images/${posterBySlug[team.slug]}`:'')}"><div class="culture-initials">${initials(name)}</div></div>`;
   }
   function card({name,team:teamName,summary,source,label,role,path},type){
     const team=teamFor(teamName);
@@ -73,17 +70,21 @@
     if(!image)return;
     const img=document.createElement('img');img.src=image;img.alt=`${name} — ${type}`;img.loading='lazy';img.decoding='async';if(!payload?.found&&!(type==='coach'&&officialCoachPhotos[name]))img.className='is-fallback';
     img.addEventListener('error',()=>{
-      // A failed verified source must never trigger an unverified name-based replacement.
-      const fallback=el.dataset.fallback;
-      if(type==='coach'&&officialCoachPhotos[name]&&fallback&&img.src!==new URL(fallback,location.origin).href){
-        img.src=fallback;
-        const coachRecord=COURTSIDE_COACHES.find(coach=>coach.name===name);
-        const team=teamFor(coachRecord?.team||'WNBA');
-        img.alt=team.name+' team artwork';
-        const creditNode=el.querySelector('.culture-photo-credit');
-        if(creditNode){creditNode.href=team.href;creditNode.textContent='Team artwork';}
-      }else img.remove();
-    });el.querySelector('.culture-initials')?.remove();el.prepend(img);
+      // Identity-verified coach photos must fail closed, not become team logos or wrong people.
+      if(type==='coach'&&officialCoachPhotos[name]){
+        img.remove();
+        if(!el.querySelector('.culture-initials')){
+          const monogram=document.createElement('div');
+          monogram.className='culture-initials';
+          monogram.textContent=initials(name);
+          el.prepend(monogram);
+        }
+        return;
+      }
+      img.remove();
+    },{once:true});
+    el.querySelector('.culture-initials')?.remove();
+    el.prepend(img);
     if(creditUrl){const a=document.createElement('a');a.className='culture-photo-credit';a.href=creditUrl;a.target='_blank';a.rel='noopener';a.textContent=credit||'Photo source';el.appendChild(a);}
   }
   function hydrateMedia(){document.querySelectorAll('[data-media-name]').forEach(loadOne);}

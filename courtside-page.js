@@ -32,7 +32,15 @@
   const posterBySlug={
     'atlanta-dream':'17989.png','chicago-sky':'17990.png','connecticut-sun':'17991.png','dallas-wings':'17992.png','golden-state-valkyries':'17993.png','indiana-fever':'17994.png','las-vegas-aces':'17995.png','los-angeles-sparks':'17998.png','minnesota-lynx':'17997.png','new-york-liberty':'17996.png','phoenix-mercury':'17999.png','portland-fire':'18000.png','seattle-storm':'18001.png','toronto-tempo':'18174.jpg','washington-mystics':'18172.jpg'
   };
-  const officialCoachPhotos={};
+  const officialCoachPhotos={
+    // Pinned, identity-verified 2026 LA Sparks media-day photo.
+    // Never resolve this coach by an unqualified name search; that matched a film actor.
+    'Lynne Roberts': {
+      image: 'https://hermes.media.static.aol.com/media/2026/04/30/db65fad1-4f41-31ff-ab91-d8a9d14db273/bebc289f-8659-4fb4-9d60-29a9487654e0.jpg',
+      credit: 'Photo via AOL · Sparks media day (2026)',
+      sourceUrl: 'https://www.aol.com/articles/sparks-head-coach-explains-player-211824000.html'
+    }
+  };
   function photo(name,type,team,source){
     const colors=`--team:${team.primary};--team2:${team.secondary}`;
     return `<div class="culture-photo" style="${colors}" data-media-name="${escape(name)}" data-media-type="${type}" data-media-source="${escape(source||'')}" data-fallback="${escape(posterBySlug[team.slug]?`/assets/images/${posterBySlug[team.slug]}`:'')}"><div class="culture-initials">${initials(name)}</div></div>`;
@@ -58,7 +66,16 @@
     if(!image&&el.dataset.fallback){image=el.dataset.fallback;credit='Team artwork';creditUrl=teamFor(el.closest('.culture-card')?.querySelector('.culture-kicker')?.textContent||'').href;}
     if(!image)return;
     const img=document.createElement('img');img.src=image;img.alt=`${name} — ${type}`;img.loading='lazy';img.decoding='async';if(!payload?.found&&!(type==='coach'&&officialCoachPhotos[name]))img.className='is-fallback';
-    img.addEventListener('error',()=>img.remove(),{once:true});el.querySelector('.culture-initials')?.remove();el.prepend(img);
+    img.addEventListener('error',()=>{
+      // A failed verified source must never trigger an unverified name-based replacement.
+      const fallback=el.dataset.fallback;
+      if(type==='coach'&&officialCoachPhotos[name]&&fallback&&img.src!==new URL(fallback,location.origin).href){
+        img.src=fallback;
+        img.alt=teamFor('Los Angeles Sparks').name+' team artwork';
+        const creditNode=el.querySelector('.culture-photo-credit');
+        if(creditNode){creditNode.href=teamFor('Los Angeles Sparks').href;creditNode.textContent='Team artwork';}
+      }else img.remove();
+    });el.querySelector('.culture-initials')?.remove();el.prepend(img);
     if(creditUrl){const a=document.createElement('a');a.className='culture-photo-credit';a.href=creditUrl;a.target='_blank';a.rel='noopener';a.textContent=credit||'Photo source';el.appendChild(a);}
   }
   function hydrateMedia(){document.querySelectorAll('[data-media-name]').forEach(loadOne);}

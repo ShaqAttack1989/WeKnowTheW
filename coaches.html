@@ -7,7 +7,7 @@
   <meta name="description" content="Meet every current WNBA head coach and former players who moved from court to clipboard.">
   <link rel="stylesheet" href="/styles.css">
   <link rel="stylesheet" href="/landing.css">
-  <link rel="stylesheet" href="/courtside-culture.css?v=20261013-coach-split-v1">
+  <link rel="stylesheet" href="/courtside-culture.css?v=20261013-coach-peer-grade-v2">
 </head>
 <body class="section-page culture-page" data-culture-page="coaches">
   <header class="subhero">
@@ -41,19 +41,19 @@
             <div>
               <p class="eyebrow">INTERACTIVE COACH DASHBOARD</p>
               <h2 id="coach-dashboard-title">The bench boss scorecard</h2>
-              <p>Compare each coach’s career résumé and current season separately with two absolute 0–100 scores: Career Legacy and 2026 Form.</p>
+              <p>Compare career WNBA performance and 2026 season form using the same 55–99 peer-grade scale as Playerpedia. Career accomplishments stay visible alongside the grades.</p>
             </div>
             <div class="coach-dashboard-date"><span>DATA THROUGH</span><strong>Oct. 12, 2026</strong><small>Regular season complete · Finals begin Oct. 17</small></div>
           </div>
           <details class="coach-rating-method">
-            <summary>How Career Legacy and 2026 Form are calculated</summary>
+            <summary>How the career and 2026 W Grades are calculated</summary>
             <div class="coach-rating-method-body">
-              <p>Both scores use a fixed 0–100 editorial scale; neither is a percentile or rank against the current coach pool.</p>
+              <p>Both grades use a 55–99 peer-percentile scale, like Playerpedia. The comparison pool is the 15 current/recent coaches in this directory; it is not a full all-time WNBA coach ranking.</p>
               <ul>
-                <li><strong>Career Legacy (through 2025):</strong> career regular-season win percentage × 10; career playoff win percentage × 10; 13⅓ points per WNBA title as head coach, capped at 40; 4 points per Finals appearance, capped at 20; 3 points per Coach of the Year award, capped at 10; and up to 10 for reaching a first Finals quickly.</li>
-                <li><strong>2026 Form:</strong> 2026 regular-season win percentage × 30; playoff finish worth 40 for champion, 35 for a Finals appearance, 25 for a semifinal exit, 15 for a quarterfinal exit, or 0 if the team missed the playoffs; up to 10 for team win-rate improvement, 10 for documented program or culture impact, 5 for 2026 Coach of the Year, and 5 for a first-ever Finals appearance in 2026.</li>
+                <li><strong>Career W Grade (through 2025):</strong> peer percentiles for WNBA regular-season win rate (45%), playoff win rate (25%, when the coach has at least eight playoff games), title conversion among Finals trips (20%), and time to a first Finals (10%). We reweight only the metrics with enough evidence. Fewer than 88 prior WNBA regular-season games or fewer than eight playoff games is marked provisional; a coach with no prior WNBA season is NR instead of receiving a zero. Titles, Finals trips, Coach of the Year awards, and total wins remain visible as résumé facts rather than points for longevity.</li>
+                <li><strong>2026 Form:</strong> peer percentiles for regular-season win rate (35%), playoff stage (30%), team win-rate change (15%), documented culture/program impact (10%), 2026 Coach of the Year (5%), and a first-ever Finals trip in 2026 (5%). If a culture-impact source has not been coded for a coach, that component is omitted and the remaining weights are rebalanced.</li>
               </ul>
-              <p>Finals pace awards 10 points for a first trip in seasons 1–2, 8 in seasons 3–4, 6 in seasons 5–6, 4 in seasons 7–10 and 2 after season 10. Career Legacy excludes 2026 results; they appear only in 2026 Form. Team improvement compares full 2025 and 2026 team records; expansion teams without a 2025 record receive no trend points. Program and culture points are an editorial signal, with evidence shown in each spotlight. These scores describe different time frames, not the full historical WNBA coach pool, and are not official WNBA statistics.</p>
+              <p>Percentiles use mid-ranks for ties and convert to 55–99. Missing or ineligible career data is not treated as poor performance. The Career W Grade is WNBA-only; college and other professional coaching records are not mixed into WNBA win rates. Current-season impact and turnaround appear in 2026 Form, while historical titles and awards remain beside the grade. These are editorial comparisons, not official WNBA statistics or a full historical coach pool ranking.</p>
             </div>
           </details>
           <div class="coach-dashboard-kpis" id="coachDashboardKpis" aria-label="Coach dashboard totals"></div>
@@ -65,7 +65,7 @@
             <div class="coach-dashboard-control">
               <label for="coachDashboardSort">Sort coaches by</label>
               <select id="coachDashboardSort">
-                <option value="legacy">Career Legacy score</option>
+                <option value="legacy">Career W Grade</option>
                 <option value="form">2026 Form score</option>
                 <option value="careerWins">Career regular-season wins</option>
                 <option value="seasonWins">2026 regular-season wins</option>
@@ -85,13 +85,13 @@
           <div class="coach-dashboard-table-wrap" role="region" aria-label="Sortable WNBA coach records" tabindex="0">
             <table class="coach-dashboard-table">
               <thead>
-                <tr><th scope="col">Coach / team</th><th scope="col">Career Legacy</th><th scope="col">2026 Form</th><th scope="col">2026 regular</th><th scope="col">2026 playoffs</th><th scope="col">Career regular</th><th scope="col">Career playoffs</th><th scope="col">Finals / first trip</th><th scope="col">WNBA titles</th><th scope="col">Coach of Year</th></tr>
+                <tr><th scope="col">Coach / team</th><th scope="col">Career W Grade</th><th scope="col">2026 Form</th><th scope="col">2026 regular</th><th scope="col">2026 playoffs</th><th scope="col">Career regular</th><th scope="col">Career playoffs</th><th scope="col">Finals / first trip</th><th scope="col">WNBA titles</th><th scope="col">Coach of Year</th></tr>
               </thead>
               <tbody id="coachDashboardTable"></tbody>
             </table>
           </div>
           <div class="coach-dashboard-sources">
-            <p>Career regular-season totals include games through 2026. Career playoff totals include games through Oct. 9; the 2026 Finals begin Oct. 17. Career Legacy uses history through 2025; 2026 Finals progress is scored in 2026 Form. Lynne Roberts’ line remains for her completed 2026 season; Los Angeles has since announced a vacancy.</p>
+            <p>Career regular-season totals include games through 2026. Career playoff totals include games through Oct. 9; the 2026 Finals begin Oct. 17. Career W Grade uses eligible WNBA history through 2025; limited samples are provisional and no prior WNBA record is NR. 2026 Finals progress is scored in 2026 Form. Lynne Roberts’ line remains for her completed 2026 season; Los Angeles has since announced a vacancy.</p>
             <a href="https://www.wnba.com/standings" target="_blank" rel="noopener">Official 2026 standings ↗</a>
             <a href="https://www.wnba.com/playoffs/2026" target="_blank" rel="noopener">Official 2026 playoff bracket ↗</a>
             <a href="https://www.basketball-reference.com/wnba/years/2025_standings.html" target="_blank" rel="noopener">2025 standings ↗</a>
@@ -111,7 +111,7 @@
   </main>
   <script src="/site.js?v=20261009-operations-v1"></script>
   <script src="/coach-dashboard-data.js?v=20261013-coach-split-v1"></script>
-  <script src="/courtside-page.js?v=20261013-coach-split-v1"></script>
+  <script src="/courtside-page.js?v=20261013-coach-peer-grade-v2"></script>
   <script src="/coach-photo-fix.js?v=20261012-coach-photos-locked-v5"></script>
 </body>
 </html>

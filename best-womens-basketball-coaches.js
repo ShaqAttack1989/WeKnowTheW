@@ -222,7 +222,7 @@
   function gradeCard(label, grade) {
     var score = grade.total;
     var shown = score === null ? "—" : score;
-    var status = score === null ? "NR · no prior sample" : grade.letter + (grade.provisional ? " · PROV" : "");
+    var status = score === null ? "NR · no prior sample" : grade.letter + (grade.provisional ? " · PROVISIONAL · " + grade.sampleGames + " prior WNBA games" : "");
     return '<div class="finalist-grade-card">' +
       '<div class="finalist-scoreline"><span>' + escapeHtml(label) + '</span><strong>' + shown + '</strong></div>' +
       '<div class="score-meter" role="img" aria-label="' + escapeHtml(label + " " + (score === null ? "not scored" : score + " out of 99")) + '"><span style="width:' + (score === null ? 0 : score) + '%"></span></div>' +

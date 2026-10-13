@@ -7,7 +7,7 @@
   <meta name="description" content="Meet every current WNBA head coach and former players who moved from court to clipboard.">
   <link rel="stylesheet" href="/styles.css">
   <link rel="stylesheet" href="/landing.css">
-  <link rel="stylesheet" href="/courtside-culture.css?v=20261011-coach-rating-v4">
+  <link rel="stylesheet" href="/courtside-culture.css?v=20261013-coach-score-v1">
 </head>
 <body class="section-page culture-page" data-culture-page="coaches">
   <header class="subhero">
@@ -43,20 +43,22 @@
               <h2 id="coach-dashboard-title">The bench boss scorecard</h2>
               <p>Compare every coach with the We Know the W Rating, alongside regular-season records, playoff runs and honors.</p>
             </div>
-            <div class="coach-dashboard-date"><span>DATA THROUGH</span><strong>Oct. 11, 2026</strong><small>2026 regular season complete · playoffs through Oct. 9</small></div>
+            <div class="coach-dashboard-date"><span>DATA THROUGH</span><strong>Oct. 12, 2026</strong><small>Regular season complete · Finals begin Oct. 17</small></div>
           </div>
           <details class="coach-rating-method">
             <summary>How the We Know the W Rating is calculated</summary>
             <div class="coach-rating-method-body">
-              <p>The We Know the W Rating is a 0–100 editorial score built around three goals: a winning regular season, winning in the playoffs and winning a WNBA championship. Returning coaches earn up to 60 points from their WNBA career, 20 from 2026 results and 20 from titles.</p>
+              <p>The We Know the W Rating is a 0–100 editorial score that balances career results, 2026 performance, Finals history and documented program impact.</p>
               <ul>
-                <li>Pre-2026 WNBA career regular-season win percentage × 30</li>
-                <li>2026 regular-season win percentage × 10</li>
-                <li>Pre-2026 WNBA career playoff win percentage × 30</li>
-                <li>2026 playoff win percentage × 10</li>
-                <li>5 points per WNBA title as head coach, capped at 20</li>
+                <li>Career regular-season win percentage through 2025 × 10</li>
+                <li>2026 regular-season win percentage × 15</li>
+                <li>Career playoff win percentage through 2025 × 10</li>
+                <li>2026 playoff finish: champion 35, Finals participant 30, semifinal exit 22, first-round exit 14, missed playoffs 0</li>
+                <li>2.5 points per WNBA title as head coach, capped at 10; prior Finals appearances add up to 5</li>
+                <li>Time to first WNBA Finals: 10 points in seasons 1–2, 8 in seasons 3–4, 6 in seasons 5–6, 4 in seasons 7–10, 2 after season 10; no Finals trip earns 0</li>
+                <li>Program impact adds up to 5: up to 2.5 for the team’s 2025–26 win-rate improvement and up to 2.5 for documented culture or franchise milestones</li>
               </ul>
-              <p>For a first-year WNBA head coach with no prior WNBA head-coaching record, the 2026 regular-season and playoff win rates each carry up to 40 points. Career components stop before 2026 so this season is not counted twice. Missing game samples earn zero for that component. Coach of the Year honors remain visible but do not affect the score. The total rounds to the nearest whole point. This is an editorial comparison, not an official WNBA statistic.</p>
+              <p>For a first WNBA head-coaching season, career points move into the current-season components: up to 25 for the regular season and 45 for the playoff finish. Finals pace counts WNBA head-coaching seasons, including the current season. Program impact compares full team records and is an editorial signal, not proof of a single coach’s causal effect; its evidence appears in each coach spotlight. Expansion teams without a 2025 record receive no year-over-year trend points. 2026 Finals participants are scored for reaching the Finals, while 2026 title points wait until the series is complete. Coach of the Year honors remain visible as context. Totals round to the nearest whole point; this is not an official WNBA statistic.</p>
             </div>
           </details>
           <div class="coach-dashboard-kpis" id="coachDashboardKpis" aria-label="Coach dashboard totals"></div>
@@ -73,6 +75,7 @@
                 <option value="seasonWins">2026 regular-season wins</option>
                 <option value="playoffWins">Career playoff wins</option>
                 <option value="titles">WNBA championships</option>
+                <option value="finals">WNBA Finals appearances</option>
                 <option value="coty">Coach of the Year awards</option>
               </select>
             </div>
@@ -86,13 +89,16 @@
           <div class="coach-dashboard-table-wrap" role="region" aria-label="Sortable WNBA coach records" tabindex="0">
             <table class="coach-dashboard-table">
               <thead>
-                <tr><th scope="col">Coach / team</th><th scope="col">W Rating</th><th scope="col">2026 regular</th><th scope="col">2026 playoffs</th><th scope="col">Career regular</th><th scope="col">Career playoffs</th><th scope="col">WNBA titles</th><th scope="col">Coach of Year</th></tr>
+                <tr><th scope="col">Coach / team</th><th scope="col">W Rating</th><th scope="col">2026 regular</th><th scope="col">2026 playoffs</th><th scope="col">Career regular</th><th scope="col">Career playoffs</th><th scope="col">Finals / first trip</th><th scope="col">WNBA titles</th><th scope="col">Coach of Year</th></tr>
               </thead>
               <tbody id="coachDashboardTable"></tbody>
             </table>
           </div>
           <div class="coach-dashboard-sources">
-            <p>Career regular-season totals include games through the 2026 regular season. Playoff totals include games through Oct. 9, 2026. Lynne Roberts’ line is retained for her completed 2026 season; Los Angeles has since announced a vacancy.</p>
+            <p>Career regular-season totals include games through 2026. Career playoff totals include games through Oct. 9; the 2026 Finals begin Oct. 17. The Finals column includes the 2026 berth, while its completed result is not in the rating yet. Lynne Roberts’ line remains for her completed 2026 season; Los Angeles has since announced a vacancy.</p>
+            <a href="https://www.wnba.com/standings" target="_blank" rel="noopener">Official 2026 standings ↗</a>
+            <a href="https://www.wnba.com/playoffs/2026" target="_blank" rel="noopener">Official 2026 playoff bracket ↗</a>
+            <a href="https://www.basketball-reference.com/wnba/years/2025_standings.html" target="_blank" rel="noopener">2025 standings ↗</a>
             <a href="https://www.basketball-reference.com/wnba/years/2026_coaches.html" target="_blank" rel="noopener">Full coach records ↗</a>
             <a href="https://www.wnba.com/history-coach-of-the-year" target="_blank" rel="noopener">Official Coach of the Year history ↗</a>
           </div>
@@ -108,8 +114,8 @@
     </section>
   </main>
   <script src="/site.js?v=20261009-operations-v1"></script>
-  <script src="/coach-dashboard-data.js?v=20261011-career-score-v1"></script>
-  <script src="/courtside-page.js?v=20261012-coach-photos-locked-v6"></script>
+  <script src="/coach-dashboard-data.js?v=20261013-coach-score-v1"></script>
+  <script src="/courtside-page.js?v=20261013-coach-score-v1"></script>
   <script src="/coach-photo-fix.js?v=20261012-coach-photos-locked-v5"></script>
 </body>
 </html>

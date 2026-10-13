@@ -74,12 +74,12 @@
 .coach-rating-breakdown>div{display:flex;justify-content:space-between;align-items:center;gap:.3rem;padding:.55rem .62rem;border:1px solid #51465a;border-radius:11px;background:rgba(15,12,18,.45);min-width:0}
 .coach-rating-breakdown span{color:#d4c8db;font-size:.64rem;font-weight:800}
 .coach-rating-breakdown strong{color:var(--culture-lime);font-size:.68rem;white-space:nowrap}
-.coach-spotlight-metrics{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:.55rem;padding:0 1.1rem 1rem}
+.coach-spotlight-metrics{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:.55rem;padding:0 1.1rem 1rem}
 .coach-spotlight-metrics>div{display:flex;flex-direction:column;gap:.25rem;padding:.72rem .75rem;border:1px solid #403645;border-radius:14px;background:rgba(15,12,18,.42);min-width:0}
 .coach-spotlight-metrics span{color:#cfc4d6;font-size:.65rem;font-weight:850;text-transform:uppercase;letter-spacing:.035em}
 .coach-spotlight-metrics strong{font-size:1.18rem;line-height:1.1;color:#fff;white-space:nowrap}
 .coach-spotlight-metrics small{color:#bcb1c5;font-size:.65rem}
-.coach-trophy-shelf{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;padding:.8rem 1.2rem;border-top:1px solid #403645;background:rgba(12,10,15,.3)}
+.coach-trophy-shelf{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.8rem;padding:.8rem 1.2rem;border-top:1px solid #403645;background:rgba(12,10,15,.3)}
 .coach-trophy-shelf>div{display:grid;gap:.42rem}
 .coach-trophy-shelf strong,.coach-recognition strong{font-size:.72rem;color:#fff;text-transform:uppercase;letter-spacing:.07em}
 .coach-year-list{display:flex;flex-wrap:wrap;align-items:center;gap:.38rem}
@@ -91,7 +91,7 @@
 .coach-spotlight-links a,.coach-dashboard-sources a{color:var(--culture-lime);font-size:.74rem;font-weight:850;text-decoration:none}
 .coach-spotlight-links a:hover,.coach-dashboard-sources a:hover{text-decoration:underline}
 .coach-dashboard-table-wrap{overflow:auto;border:1px solid #473d4e;border-radius:16px;background:#211b27}
-.coach-dashboard-table{width:100%;min-width:1020px;border-collapse:collapse;text-align:left}
+.coach-dashboard-table{width:100%;min-width:1160px;border-collapse:collapse;text-align:left}
 .coach-dashboard-table thead{background:#302837}
 .coach-dashboard-table th,.coach-dashboard-table td{padding:.68rem .72rem;border-bottom:1px solid #403645;vertical-align:middle}
 .coach-dashboard-table th{color:#d4c8db;font-size:.64rem;font-weight:950;text-transform:uppercase;letter-spacing:.045em}

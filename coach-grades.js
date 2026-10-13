@@ -62,11 +62,13 @@
     const career=careerProfile(item);
     const pctLabel=value=>Number.isFinite(value)?(value*100).toFixed(1)+'%':'no eligible sample';
     const careerGrade=makeGrade([
-      {label:'Career WNBA regular-season win rate · through 2025',value:career.regularRate,valueText:pctLabel(career.regularRate),values:profiles.filter(row=>row.profile.regularGames>=44).map(row=>row.profile.regularRate),weight:.45,enabled:career.regularGames>=44,missingReason:career.regularGames<44?'Fewer than 44 prior WNBA games':'Not eligible'},
-      {label:'Career WNBA playoff win rate · through 2025',value:career.playoffRate,valueText:pctLabel(career.playoffRate),values:profiles.filter(row=>row.profile.playoffGames>=8).map(row=>row.profile.playoffRate),weight:.25,enabled:career.playoffGames>=8,missingReason:'Requires at least 8 prior WNBA playoff games'},
+      {label:'Career WNBA regular-season win rate · through 2025',value:career.regularRate,valueText:pctLabel(career.regularRate)+(career.regularGames?' · '+career.regularGames+' games':''),values:profiles.filter(row=>row.profile.regularGames>=44).map(row=>row.profile.regularRate),weight:.45,enabled:career.regularGames>=44,missingReason:career.regularGames<44?'Fewer than 44 prior WNBA games':'Not eligible'},
+      {label:'Career WNBA playoff win rate · through 2025',value:career.playoffRate,valueText:pctLabel(career.playoffRate)+(career.playoffGames?' · '+career.playoffGames+' playoff games':''),values:profiles.filter(row=>row.profile.playoffGames>=8).map(row=>row.profile.playoffRate),weight:.25,enabled:career.playoffGames>=8,missingReason:'Requires at least 8 prior WNBA playoff games'},
       {label:'WNBA title conversion among Finals trips',value:career.titleConversion,valueText:career.finalsCount?Math.round(career.titleConversion*100)+'% · '+career.finalsCount+' Finals trip'+(career.finalsCount===1?'':'s'):'no prior Finals',values:profiles.filter(row=>row.profile.finalsCount>0).map(row=>row.profile.titleConversion),weight:.20,enabled:career.finalsCount>0,missingReason:'No WNBA Finals sample through 2025'},
       {label:'Time to first WNBA Finals',value:career.finalsPace,valueText:career.finalsPace?'season '+career.finalsPace:'no prior Finals',values:profiles.filter(row=>row.profile.finalsCount>0&&Number.isFinite(row.profile.finalsPace)).map(row=>row.profile.finalsPace),weight:.10,higher:false,enabled:career.finalsCount>0,missingReason:'No WNBA Finals sample through 2025'}
     ],career.regularGames>0&&(career.regularGames<88||career.playoffGames<8));
+    careerGrade.sampleGames=career.regularGames;
+    careerGrade.playoffSampleGames=career.playoffGames;
     const stagePoints={missed:0,quarterfinal:1,semifinal:2,finalist:3,champion:4};
     const formProfile=coach=>{
       const currentTeam=coach.team2026,priorTeam=coach.team2025;

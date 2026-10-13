@@ -320,6 +320,45 @@
   padding: 1.15rem;
 }
 
+.finalist-grade-grid {
+  display: grid;
+  gap: .6rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-bottom: 1rem;
+}
+
+.finalist-grade-card {
+  background: #faf9fc;
+  border: 1px solid #eeeaf4;
+  border-radius: 13px;
+  padding: .65rem .7rem .6rem;
+}
+
+.finalist-grade-card .finalist-scoreline {
+  margin-bottom: .5rem;
+}
+
+.finalist-grade-card .finalist-scoreline span {
+  font-size: .59rem;
+  letter-spacing: .07em;
+}
+
+.finalist-grade-card .finalist-scoreline strong {
+  font-size: 2rem;
+}
+
+.finalist-grade-card .score-meter {
+  height: 6px;
+  margin-bottom: .45rem;
+}
+
+.finalist-grade-card small {
+  color: var(--legacy-muted);
+  display: block;
+  font-size: .66rem;
+  font-weight: 800;
+}
+
 .finalist-scoreline {
   align-items: end;
   display: flex;
@@ -1091,4 +1130,8 @@
   font-size: .56rem;
   letter-spacing: .02em;
   white-space: nowrap;
+}
+
+@media (max-width: 540px) {
+  .finalist-grade-grid { grid-template-columns: 1fr; }
 }

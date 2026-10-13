@@ -1,6 +1,10 @@
 (function () {
   "use strict";
 
+  var coachGradeLetter = window.WKNBCoachGrades.coachGradeLetter;
+  var calculateCoachScores = window.WKNBCoachGrades.calculateCoachScores;
+  var peerGrade = window.WKNBCoachGrades.peerGrade;
+
   var wnbaCoaches = [
     { name: "Becky Hammon", teams: "Las Vegas Aces", wins: 148, losses: 56, playoffWins: 32, playoffLosses: 17, titles: 3, titleYears: "2022, 2023, 2025", href: "https://www.basketball-reference.com/wnba/coaches/hammobe01w.html" },
     { name: "Cheryl Reeve", teams: "Minnesota Lynx", wins: 397, losses: 201, playoffWins: 52, playoffLosses: 37, titles: 4, titleYears: "2011, 2013, 2015, 2017", href: "https://www.basketball-reference.com/wnba/coaches/reevech99w.html" },
@@ -38,7 +42,6 @@
       seasonPlayoff: "5–0",
       careerReg: "60–28",
       careerPlayoff: "6–2",
-      rating: 47,
       context: "2025 Coach of the Year runner-up. Before Atlanta, he won 672 games in 26 seasons as a college head coach."
     },
     {
@@ -50,7 +53,6 @@
       seasonPlayoff: "5–1",
       careerReg: "55–33",
       careerPlayoff: "5–3",
-      rating: 31,
       context: "2025 Coach of the Year. Her first-year expansion team finished 23–21 and became the first expansion club to reach the playoffs in year one."
     }
   ];
@@ -67,11 +69,15 @@
     coach.score = Math.round(coach.rawScore);
   });
 
+  assignPeerGrades(wnbaCoaches);
+
   collegeCoaches.forEach(function (coach) {
     coach.regularPct = pct(coach.wins, coach.losses);
     coach.rawScore = (coach.regularPct * 35) + (Math.min(coach.titles, 4) * 8) + (Math.min(coach.wins / 1300, 1) * 33);
     coach.score = Math.round(coach.rawScore);
   });
+
+  assignPeerGrades(collegeCoaches);
 
   function escapeHtml(value) {
     return String(value).replace(/[&<>"]/g, function (character) {
@@ -87,9 +93,14 @@
     return (value * 100).toFixed(1) + "%";
   }
 
+  function assignPeerGrades(data) {
+    var values = data.map(function (coach) { return coach.rawScore; }).filter(Number.isFinite);
+    data.forEach(function (coach) { coach.score = peerGrade(coach.rawScore, values); });
+  }
+
   function scoreMarkup(score) {
     var safeScore = Math.max(0, Math.min(100, score));
-    return '<span class="score-cell"><strong>' + score + '</strong><span class="score-track" aria-hidden="true"><span class="score-fill" style="width:' + safeScore + '%"></span></span></span>';
+    return '<span class="score-cell"><strong>' + score + '</strong><span class="coach-sub">/99 · ' + coachGradeLetter(score) + '</span><span class="score-track" aria-hidden="true"><span class="score-fill" style="width:' + safeScore + '%"></span></span></span>';
   }
 
   function tableRender(kind, data, config) {
@@ -111,7 +122,7 @@
       if (key === "picks") return coach.firstRoundPicks || 0;
       if (key === "regular") return coach.regularPct;
       if (key === "playoff") return coach.playoffPct || 0;
-      if (key === "rank" || key === "score") return coach.rawScore;
+      if (key === "rank" || key === "score") return coach.score;
       return coach.rawScore;
     }
 
@@ -208,20 +219,35 @@
     render();
   }
 
+  function gradeCard(label, grade) {
+    var score = grade.total;
+    var shown = score === null ? "—" : score;
+    var status = score === null ? "NR · no prior sample" : grade.letter + (grade.provisional ? " · PROV" : "");
+    return '<div class="finalist-grade-card">' +
+      '<div class="finalist-scoreline"><span>' + escapeHtml(label) + '</span><strong>' + shown + '</strong></div>' +
+      '<div class="score-meter" role="img" aria-label="' + escapeHtml(label + " " + (score === null ? "not scored" : score + " out of 99")) + '"><span style="width:' + (score === null ? 0 : score) + '%"></span></div>' +
+      '<small>' + escapeHtml(status) + ' · peer grade /99</small>' +
+      '</div>';
+  }
+
   function finalistMarkup(coach, mode) {
     var seasonMode = mode === "season";
     var regular = seasonMode ? coach.seasonReg : coach.careerReg;
     var playoff = seasonMode ? coach.seasonPlayoff : coach.careerPlayoff;
     var regularLabel = seasonMode ? "2026 regular season" : "Career regular season";
     var playoffLabel = seasonMode ? "2026 playoffs" : "Career playoffs";
+    var coachRecord = COURTSIDE_COACH_STATS.find(function (item) { return item.name === coach.name; });
+    var grades = calculateCoachScores(coachRecord);
     return '<article class="finalist-card">' +
       '<div class="finalist-card-top">' +
       '<img src="' + escapeHtml(coach.image) + '" alt="' + escapeHtml(coach.alt) + '" loading="lazy" width="108" height="94">' +
       '<div><p>' + escapeHtml(coach.team) + '</p><h3>' + escapeHtml(coach.name) + '</h3><span>Finals head coach</span></div>' +
       '</div>' +
       '<div class="finalist-card-body">' +
-      '<div class="finalist-scoreline"><span>We Know the W Rating</span><strong>' + coach.rating + '</strong></div>' +
-      '<div class="score-meter" role="img" aria-label="W Rating ' + coach.rating + ' out of 100"><span style="width:' + coach.rating + '%"></span></div>' +
+      '<div class="finalist-grade-grid">' +
+      gradeCard("Career W Grade · through 2025", grades.legacy) +
+      gradeCard("2026 Form", grades.form) +
+      '</div>' +
       '<dl class="finalist-stats">' +
       '<div><dt>' + regularLabel + '</dt><dd>' + regular + '</dd></div>' +
       '<div><dt>' + playoffLabel + '</dt><dd>' + playoff + '</dd></div>' +

@@ -16,9 +16,17 @@
     "announcedDate": "2026-08-19",
     "retiredYear": 2026,
     "effectiveDate": "2026-09-24",
-    "summary": "Retired from the WNBA following the 2026 season after 15 seasons. Her final regular-season game was Sept. 24, 2026.",
+    "summary": "Retired following the 2026 season after 15 WNBA seasons. Her final regular-season game was Sept. 24. Won a record fifth Kim Perrot Sportsmanship Award on Oct. 13, 2026.",
     "source": "https://www.wnba.com/news/wnba-statement-nneka-ogwumike-retirement",
-    "sourceLabel": "WNBA retirement statement"
+    "sourceLabel": "WNBA retirement statement",
+    "sportsmanshipAwards": [
+      2019,
+      2020,
+      2021,
+      2025,
+      2026
+    ],
+    "awardSource": "https://www.wnba.com/news/nneka-ogwumike-2026-kim-perrot-sportsmanship-award-recipient"
   },
   "Jordan Harrison": {
     "status": "retired",

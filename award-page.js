@@ -75,8 +75,8 @@
   const historyLead = document.getElementById('awardHistoryLead');
   const history = document.getElementById('awardHistory');
   if (award.history) {
-    historyTitle.textContent = 'Recent winners';
-    historyLead.textContent = 'The last ten completed seasons show how the honor has moved across players, teams and eras.';
+    historyTitle.textContent = award.historyTitle || 'Recent winners';
+    historyLead.textContent = award.historyLead || 'The last ten completed seasons show how the honor has moved across players, teams and eras.';
     history.className = 'award-history-list';
     history.innerHTML = award.history.map(([year,name,team]) => `<article class="award-history-row">${winnerInsets(name,team)}<b>${year}</b><strong>${name}</strong><span>${team}</span></article>`).join('');
   } else if (award.cupHistory) {

@@ -2,6 +2,53 @@
   "site": "Snack Shak",
   "posts": [
     {
+      "slug": "nneka-five-sportsmanship-awards-2026",
+      "type": "byte",
+      "priority": 6500,
+      "published": "2026-10-13",
+      "updated": "2026-10-13",
+      "seriesLabel": "SNACK SHAK BYTE · LEGACY",
+      "title": "Five for Nneka: Class Has Its Own Trophy Case",
+      "dek": "Nneka Ogwumike closes her WNBA career with a record fifth Kim Perrot Sportsmanship Award. The Trophy Room now includes every recipient of the honor.",
+      "dashboardUrl": "/snack-shak-bytes.html?post=nneka-five-sportsmanship-awards-2026#story",
+      "image": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/203014.png",
+      "storyImage": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/203014.png",
+      "imageAlt": "Nneka Ogwumike, official WNBA portrait",
+      "imageFit": "contain",
+      "storyImageCaption": "Nneka Ogwumike. Official WNBA headshot.",
+      "storyImageSourceUrl": "https://www.wnba.com/news/nneka-ogwumike-2026-kim-perrot-sportsmanship-award-recipient",
+      "teams": [
+        "Los Angeles Sparks"
+      ],
+      "players": [
+        "Nneka Ogwumike"
+      ],
+      "sections": [
+        {
+          "title": "Class is part of the résumé",
+          "paragraphs": [
+            "Nneka Ogwumike has another piece of hardware for the goodbye shelf. The WNBA announced her fifth Kim Perrot Sportsmanship Award on October 13, extending her league record. Her wins span 2019–21 and 2025–26.",
+            "The award recognizes integrity, fair play and ethical conduct. That is a different kind of dominance: earning respect while competing to beat the same people giving you that respect.",
+            "Our Trophy Room now records Nneka’s latest win, the complete sportsmanship history, and Cheryl Reeve’s newly announced Executive of the Year honor. A career deserves its whole résumé, including the character column."
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "label": "WNBA · 2026 Kim Perrot Sportsmanship Award",
+          "url": "https://www.wnba.com/news/nneka-ogwumike-2026-kim-perrot-sportsmanship-award-recipient"
+        },
+        {
+          "label": "Trophy Room · Every sportsmanship recipient",
+          "url": "https://www.weknowthew.com/award-sportsmanship.html"
+        },
+        {
+          "label": "WNBA · 2026 Basketball Executive of the Year",
+          "url": "https://www.wnba.com/news/cheryl-reeve-wins-2026-basketball-executive-of-the-year"
+        }
+      ]
+    },
+    {
       "slug": "preseason-rankings-2026-27-hype-homework",
       "type": "feature",
       "priority": 6000,

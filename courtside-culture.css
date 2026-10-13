@@ -48,7 +48,7 @@
 .coach-dashboard-date span,.coach-dashboard-date small{color:#bdb2c7;font-size:.7rem;font-weight:800;letter-spacing:.06em}
 .coach-dashboard-date strong{color:#fff;font-size:1rem}
 .coach-dashboard-date small{letter-spacing:0;font-weight:600}
-.coach-dashboard-kpis{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:.7rem;margin:1rem 0 1.2rem}
+.coach-dashboard-kpis{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:.7rem;margin:1rem 0 1.2rem}
 .coach-kpi{padding:.85rem 1rem;border:1px solid #453b4c;border-radius:16px;background:#211b27;display:flex;flex-direction:column;gap:.18rem}
 .coach-kpi strong{font-size:clamp(1.35rem,2.5vw,2rem);line-height:1;color:var(--culture-lime);font-weight:950}
 .coach-kpi span{color:#e1d9e7;font-size:.76rem;font-weight:750}
@@ -70,6 +70,12 @@
 .coach-spotlight-trophy small{font-weight:800;font-size:.63rem}
 .coach-spotlight-rating{min-width:154px}
 .coach-spotlight-rating strong{font-size:2.5rem;letter-spacing:-.06em}
+.coach-spotlight-ratings{display:flex;align-items:stretch;gap:.5rem;flex-shrink:0}
+.coach-form-badge{background:#d9c5ff}
+.coach-rating-panels{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.75rem;padding:0 1.1rem 1rem}
+.coach-rating-panel{min-width:0;border:1px solid #51465a;border-radius:15px;background:rgba(15,12,18,.25);padding-top:.65rem}
+.coach-rating-panel h4{margin:0;padding:0 .75rem .55rem;color:#fff;font-size:.72rem;font-weight:950;text-transform:uppercase;letter-spacing:.055em}
+.coach-rating-panel .coach-rating-breakdown{grid-template-columns:1fr;padding:0 .55rem .6rem}
 .coach-rating-breakdown{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:.5rem;padding:0 1.1rem 1rem}
 .coach-rating-breakdown>div{display:flex;justify-content:space-between;align-items:center;gap:.3rem;padding:.55rem .62rem;border:1px solid #51465a;border-radius:11px;background:rgba(15,12,18,.45);min-width:0}
 .coach-rating-breakdown span{color:#d4c8db;font-size:.64rem;font-weight:800}
@@ -91,7 +97,7 @@
 .coach-spotlight-links a,.coach-dashboard-sources a{color:var(--culture-lime);font-size:.74rem;font-weight:850;text-decoration:none}
 .coach-spotlight-links a:hover,.coach-dashboard-sources a:hover{text-decoration:underline}
 .coach-dashboard-table-wrap{overflow:auto;border:1px solid #473d4e;border-radius:16px;background:#211b27}
-.coach-dashboard-table{width:100%;min-width:1160px;border-collapse:collapse;text-align:left}
+.coach-dashboard-table{width:100%;min-width:1280px;border-collapse:collapse;text-align:left}
 .coach-dashboard-table thead{background:#302837}
 .coach-dashboard-table th,.coach-dashboard-table td{padding:.68rem .72rem;border-bottom:1px solid #403645;vertical-align:middle}
 .coach-dashboard-table th{color:#d4c8db;font-size:.64rem;font-weight:950;text-transform:uppercase;letter-spacing:.045em}
@@ -110,6 +116,7 @@
 .coach-rating-mini{display:flex;align-items:baseline;gap:.25rem;color:#30243a}
 .coach-rating-mini b{font-size:.64rem}
 .coach-rating-mini strong{color:#4c248a;font-size:1rem}
+.coach-form-cell strong{background:#d9c5ff!important}
 .coach-rating-mini small{font-size:.61rem;font-weight:800}
 .coach-empty-row{text-align:center!important;color:#d9d0df!important;padding:1.5rem!important}
 .coach-dashboard-sources{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem 1rem;margin-top:.8rem}
@@ -132,9 +139,12 @@
  .coach-dashboard-kpis{grid-template-columns:repeat(2,minmax(0,1fr))}
  .coach-dashboard-controls{grid-template-columns:1fr}
  .coach-dashboard-count{grid-column:auto}
- .coach-spotlight-heading{align-items:flex-start}
+ .coach-spotlight-heading{align-items:flex-start;flex-direction:column}
+ .coach-spotlight-ratings{width:100%}
+ .coach-spotlight-ratings .coach-spotlight-rating{flex:1;min-width:0}
  .coach-spotlight-trophy{min-width:85px}
- .coach-spotlight-rating{min-width:116px}
+ .coach-spotlight-rating{min-width:108px}
+ .coach-rating-panels{grid-template-columns:1fr}
  .coach-spotlight-rating strong{font-size:2rem}
  .coach-spotlight-metrics{grid-template-columns:repeat(2,minmax(0,1fr));padding:0 .75rem .75rem}
  .coach-rating-breakdown{grid-template-columns:1fr;padding:0 .75rem .75rem}

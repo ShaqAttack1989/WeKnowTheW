@@ -4,7 +4,7 @@
   const escape=value=>String(value??'').replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
   const safeHttps=value=>{const raw=String(value??'').trim();if(!raw)return'';try{const parsed=new URL(raw,location.origin);return parsed.protocol==='https:'||parsed.origin===location.origin?parsed.toString():''}catch{return''}};
   const teamFor=name=>COURTSIDE_TEAMS.find(team=>team.name===name)||{slug:'wnba',name,primary:'#5b2bbf',secondary:'#d7ff42',href:'/around-the-w.html'};
-  const calculateCoachRating=item=>{
+  const calculateCoachScores=item=>{
     const games=record=>(record?.wins||0)+(record?.losses||0);
     const winRate=record=>games(record)?record.wins/games(record):0;
     const beforeSeason=(career,season)=>({
@@ -13,35 +13,36 @@
     });
     const priorRegular=beforeSeason(item.careerRegular,item.season2026);
     const priorPlayoffs=beforeSeason(item.careerPlayoffs,item.seasonPlayoffs2026);
-    const firstYear=games(priorRegular)===0&&games(priorPlayoffs)===0;
     const priorFinals=(item.finalsYears||[]).filter(year=>year<2026);
-    const seasonsToFinal=item.seasonsToFirstFinal||0;
-    const pacePoints=seasonsToFinal?(seasonsToFinal<=2?10:seasonsToFinal<=4?8:seasonsToFinal<=6?6:seasonsToFinal<=10?4:2):0;
-    const stages={missed:0,quarterfinal:14,semifinal:22,finalist:30,champion:35};
-    const stagePoints=stages[item.playoffStage2026]||0;
+    const priorCoty=(item.coyYears||[]).filter(year=>year<2026);
+    const historyPaceSeasons=priorFinals.length?(item.seasonsToFirstFinal||0):0;
+    const legacyPace=historyPaceSeasons?(historyPaceSeasons<=2?10:historyPaceSeasons<=4?8:historyPaceSeasons<=6?6:historyPaceSeasons<=10?4:2):0;
+    const legacyPoints=[
+      {label:'Career regular-season win percentage · through 2025',points:winRate(priorRegular)*10,max:10},
+      {label:'Career playoff win percentage · through 2025',points:winRate(priorPlayoffs)*10,max:10},
+      {label:'WNBA titles as head coach · through 2025',points:Math.min((item.titles||[]).length*40/3,40),max:40},
+      {label:'Finals appearances · through 2025',points:Math.min(priorFinals.length*4,20),max:20},
+      {label:'Coach of the Year awards · through 2025',points:Math.min(priorCoty.length*3,10),max:10},
+      {label:'Time to first WNBA Finals · through 2025',points:legacyPace,max:10}
+    ];
+    const playoffStagePoints={missed:0,quarterfinal:15,semifinal:25,finalist:35,champion:40};
+    const currentStage=playoffStagePoints[item.playoffStage2026]||0;
     const priorTeam=item.team2025;
     const currentTeam=item.team2026;
     const trendDelta=priorTeam&&currentTeam?winRate(currentTeam)-winRate(priorTeam):0;
-    const trendPoints=Math.min(2.5,Math.max(0,trendDelta*10));
-    const impactPoints=Math.min(2.5,Math.max(0,item.impactPoints||0));
-    const points=firstYear?[
-      {label:'2026 regular season · first WNBA head-coaching year',points:winRate(item.season2026)*25,max:25},
-      {label:'2026 playoff finish · first WNBA head-coaching year',points:stagePoints*45/35,max:45}
-    ]:[
-      {label:'Career regular season · through 2025',points:winRate(priorRegular)*10,max:10},
-      {label:'2026 regular season',points:winRate(item.season2026)*15,max:15},
-      {label:'Career playoffs · through 2025',points:winRate(priorPlayoffs)*10,max:10},
-      {label:'2026 playoff finish',points:stagePoints,max:35}
+    const trendPoints=Math.min(10,Math.max(0,trendDelta*40));
+    const documentedImpact=Math.min(10,Math.max(0,item.impactPoints||0)*4);
+    const firstFinalsThisSeason=(item.finalsYears||[]).includes(2026)&&priorFinals.length===0?5:0;
+    const formPoints=[
+      {label:'2026 regular-season win percentage',points:winRate(item.season2026)*30,max:30},
+      {label:'2026 playoff finish',points:currentStage,max:40},
+      {label:'2025–26 team win-rate improvement',points:trendPoints,max:10},
+      {label:'Documented program and culture impact',points:documentedImpact,max:10},
+      {label:'2026 Coach of the Year',points:(item.coyYears||[]).includes(2026)?5:0,max:5},
+      {label:'First WNBA Finals appearance in 2026',points:firstFinalsThisSeason,max:5}
     ];
-    points.push(
-      {label:'WNBA titles as head coach · through 2025',points:Math.min((item.titles||[]).length*2.5,10),max:10},
-      {label:'Finals appearances · through 2025',points:Math.min(priorFinals.length*1.25,5),max:5},
-      {label:'Time to first WNBA Finals',points:pacePoints,max:10},
-      {label:'2025–26 team win-rate improvement',points:trendPoints,max:2.5},
-      {label:'Documented program and culture impact',points:impactPoints,max:2.5}
-    );
-    const total=points.reduce((sum,component)=>sum+component.points,0);
-    return {total:Math.round(total),points,firstYear,finalsCount:(item.finalsYears||[]).length};
+    const total=points=>Math.round(points.reduce((sum,component)=>sum+component.points,0));
+    return {legacy:{total:total(legacyPoints),points:legacyPoints},form:{total:total(formPoints),points:formPoints}};
   };
   const initials=name=>String(name).split(/\s+|&/).filter(Boolean).slice(0,2).map(word=>word[0]).join('').toUpperCase();
   const clipboardNames=new Set((window.COURT_TO_CLIPBOARD||COURT_TO_CLIPBOARD||[]).map(item=>item.name));
@@ -72,8 +73,8 @@
     const stats=type==='coach'&&typeof COURTSIDE_COACH_STATS!=='undefined'?COURTSIDE_COACH_STATS.find(item=>item.name===name&&item.team===teamName):null;
     const links=[source?'<a href="'+escape(source)+'" target="_blank" rel="noopener">Coaching source ↗</a>':'<a href="'+team.href+'">Team page →</a>'];
     if(linkedPlayer)links.push('<a class="culture-playerpedia-link" href="'+escape(playerpediaHref(name))+'">Playerpedia playing career →</a>');
-    const rating=stats?calculateCoachRating(stats):null;
-    const mini=stats?'<div class="coach-mini-dashboard"><span class="coach-rating-mini"><b>W Rating</b> <strong>'+rating.total+'</strong><small>/100</small></span><span><b>2026</b> '+stats.season2026.wins+'–'+stats.season2026.losses+'</span><span><b>🏆 '+stats.titles.length+'</b> titles · <b>'+stats.coyYears.length+'</b> COY</span><button type="button" data-coach-focus="'+escape(stats.name)+'">Open dashboard →</button></div>':'';
+    const scores=stats?calculateCoachScores(stats):null;
+    const mini=stats?'<div class="coach-mini-dashboard"><span class="coach-rating-mini"><b>Career Legacy</b> <strong>'+scores.legacy.total+'</strong><small>/100</small></span><span class="coach-rating-mini"><b>2026 Form</b> <strong>'+scores.form.total+'</strong><small>/100</small></span><span><b>2026</b> '+stats.season2026.wins+'–'+stats.season2026.losses+'</span><span><b>🏆 '+stats.titles.length+'</b> titles · <b>'+stats.coyYears.length+'</b> COY</span><button type="button" data-coach-focus="'+escape(stats.name)+'">Open dashboard →</button></div>':'';
     return '<article class="culture-card" style="--team:'+team.primary+';--team2:'+team.secondary+'">'+photo(name,type,team,source)+'<div class="culture-card-body"><span class="culture-kicker">'+escape(kicker)+'</span><h3>'+escape(name)+'</h3><p>'+escape(summary||path||'')+'</p>'+mini+'<div class="culture-card-links">'+links.join('')+'</div></div></article>';
   }
   async function loadOne(el){
@@ -127,9 +128,11 @@
     const titleTotal=data.reduce((sum,item)=>sum+item.titles.length,0);
     const awardTotal=data.reduce((sum,item)=>sum+item.coyYears.length,0);
     const playoffCoaches=data.filter(item=>item.seasonPlayoffs2026.wins+item.seasonPlayoffs2026.losses>0).length;
-    const ratingLeader=data.slice().sort((a,b)=>calculateCoachRating(b).total-calculateCoachRating(a).total||a.name.localeCompare(b.name))[0];
+    const legacyLeader=data.slice().sort((a,b)=>calculateCoachScores(b).legacy.total-calculateCoachScores(a).legacy.total||a.name.localeCompare(b.name))[0];
+    const formLeader=data.slice().sort((a,b)=>calculateCoachScores(b).form.total-calculateCoachScores(a).form.total||a.name.localeCompare(b.name))[0];
     kpis.innerHTML=
-      '<div class="coach-kpi"><strong>'+calculateCoachRating(ratingLeader).total+'</strong><span>Top W Rating · '+escape(ratingLeader.name)+'</span></div>'+
+      '<div class="coach-kpi"><strong>'+calculateCoachScores(legacyLeader).legacy.total+'</strong><span>Top Career Legacy · '+escape(legacyLeader.name)+'</span></div>'+
+      '<div class="coach-kpi"><strong>'+calculateCoachScores(formLeader).form.total+'</strong><span>Top 2026 Form · '+escape(formLeader.name)+'</span></div>'+
       '<div class="coach-kpi"><strong>'+data.length+'</strong><span>2026 season coaches tracked</span></div>'+
       '<div class="coach-kpi"><strong>'+titleTotal+'</strong><span>WNBA titles as head coach</span></div>'+
       '<div class="coach-kpi"><strong>'+awardTotal+'</strong><span>Coach of the Year awards</span></div>'+
@@ -147,15 +150,13 @@
       const impactContext=item.impactNote?'<div class="coach-recognition"><strong>Program impact context</strong><span>'+escape(item.impactNote)+'</span></div>':'';
       const finals=item.finalsYears||[];
       const badge=item.isCurrent?'CURRENT HEAD COACH':'2026 SEASON COACH · ROLE VACANT';
-      const rating=calculateCoachRating(item);
-      const ratingBreakdown=
-        '<div class="coach-rating-breakdown" aria-label="We Know the W Rating points by component">'+
-          rating.points.map(component=>'<div><span>'+escape(component.label)+'</span><strong>'+displayPoints(component.points)+' / '+component.max+'</strong></div>').join('')+
-        '</div>';
+      const scores=calculateCoachScores(item);
+      const breakdown=(points,label,total)=>'<section class="coach-rating-panel"><h4>'+escape(label)+' · '+total+' / 100</h4><div class="coach-rating-breakdown">'+points.map(component=>'<div><span>'+escape(component.label)+'</span><strong>'+displayPoints(component.points)+' / '+component.max+'</strong></div>').join('')+'</div></section>';
+      const scorePanels='<div class="coach-rating-panels">'+breakdown(scores.legacy.points,'Career Legacy · through 2025',scores.legacy.total)+breakdown(scores.form.points,'2026 Form',scores.form.total)+'</div>';
       spotlight.innerHTML=
         '<article class="coach-spotlight-card" style="--team:'+team.primary+';--team2:'+team.secondary+'">'+
           '<div class="coach-spotlight-heading"><div><span class="coach-spotlight-kicker">'+escape(item.team)+' · '+badge+'</span><h3>'+escape(item.name)+'</h3><p>'+escape(summary)+'</p></div>'+
-          '<div class="coach-spotlight-trophy coach-spotlight-rating"><span>We Know the W Rating</span><strong>'+rating.total+'</strong><small>out of 100 · editorial score</small></div></div>'+
+          '<div class="coach-spotlight-ratings"><div class="coach-spotlight-trophy coach-spotlight-rating"><span>Career Legacy</span><strong>'+scores.legacy.total+'</strong><small>through 2025 · /100</small></div><div class="coach-spotlight-trophy coach-spotlight-rating coach-form-badge"><span>2026 Form</span><strong>'+scores.form.total+'</strong><small>2026 season · /100</small></div></div></div>'+
           '<div class="coach-spotlight-metrics">'+
             '<div><span>2026 regular season</span><strong>'+formatRecord(item.season2026)+'</strong><small>'+percent(item.season2026)+' wins</small></div>'+
             '<div><span>Career regular season</span><strong>'+formatRecord(item.careerRegular)+'</strong><small>'+percent(item.careerRegular)+' wins · through 2026</small></div>'+
@@ -165,7 +166,7 @@
             '<div><span>WNBA Finals</span><strong>'+finals.length+'</strong><small>'+(item.seasonsToFirstFinal?'First trip in season '+item.seasonsToFirstFinal:'No Finals appearance yet')+'</small></div>'+
             '<div><span>Coach of the Year</span><strong>'+item.coyYears.length+'</strong><small>honors as head coach</small></div>'+
           '</div>'+
-          ratingBreakdown+
+          scorePanels+
           '<div class="coach-trophy-shelf"><div><strong>Championship seasons</strong><div class="coach-year-list">'+titles+'</div></div><div><strong>WNBA Finals seasons</strong><div class="coach-year-list">'+(finals.length?finals.map(year=>'<span class="coach-year-chip">'+year+'</span>').join(''):'<span class="coach-no-awards">No Finals appearance yet</span>')+'</div></div><div><strong>Coach of the Year</strong><div class="coach-year-list">'+coty+'</div></div></div>'+
           recognition+
           impactContext+
@@ -180,7 +181,8 @@
       const term=search.value.trim().toLowerCase();
       const key=sort.value;
       const value=item=>{
-        if(key==='rating')return calculateCoachRating(item).total;
+        if(key==='legacy')return calculateCoachScores(item).legacy.total;
+        if(key==='form')return calculateCoachScores(item).form.total;
         if(key==='seasonWins')return item.season2026.wins;
         if(key==='playoffWins')return item.careerPlayoffs.wins;
         if(key==='titles')return item.titles.length;
@@ -197,7 +199,8 @@
         const status=item.isCurrent?'Head coach':'2026 coach · role vacant';
         return '<tr class="'+(select.value===item.name?'is-selected':'')+'">'+
           '<th scope="row"><button class="coach-table-name" type="button" data-coach-spotlight="'+escape(item.name)+'">'+escape(item.name)+'</button><span>'+escape(item.team)+'</span><small>'+status+'</small></th>'+
-          '<td class="coach-rating-cell"><strong>'+calculateCoachRating(item).total+'</strong><small>/100</small></td>'+
+          '<td class="coach-rating-cell"><strong>'+calculateCoachScores(item).legacy.total+'</strong><small>/100</small></td>'+
+          '<td class="coach-rating-cell coach-form-cell"><strong>'+calculateCoachScores(item).form.total+'</strong><small>/100</small></td>'+
           '<td><strong>'+formatRecord(item.season2026)+'</strong><small>'+percent(item.season2026)+'</small></td>'+
           '<td><strong>'+formatRecord(item.seasonPlayoffs2026)+'</strong><small>'+(currentPlayoffGames?'through Oct. 9':'—')+'</small></td>'+
           '<td><strong>'+formatRecord(item.careerRegular)+'</strong><small>'+percent(item.careerRegular)+'</small></td>'+
@@ -205,7 +208,7 @@
           '<td><strong>'+item.finalsYears.length+'</strong><small>'+(item.seasonsToFirstFinal?'First in season '+item.seasonsToFirstFinal:'No Finals trip')+'</small></td>'+
           '<td><strong class="coach-honor-number">'+item.titles.length+'</strong><small>'+titles+'</small></td>'+
           '<td><strong class="coach-honor-number">'+item.coyYears.length+'</strong><small>'+coty+'</small></td></tr>';
-      }).join(''):'<tr><td class="coach-empty-row" colspan="9">No coach matches that search.</td></tr>';
+      }).join(''):'<tr><td class="coach-empty-row" colspan="10">No coach matches that search.</td></tr>';
       count.textContent='Showing '+rows.length+' of '+data.length+' coach records';
     }
     function chooseCoach(name){

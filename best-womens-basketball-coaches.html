@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="/styles.css">
   <link rel="stylesheet" href="/landing.css">
   <link rel="stylesheet" href="/snack-shaq.css?v=20261011-coaches-feature-v1">
-  <link rel="stylesheet" href="/best-womens-basketball-coaches.css?v=20261011-responsive-draft-count-v4">
+  <link rel="stylesheet" href="/best-womens-basketball-coaches.css?v=20261013-unified-coach-grades-v1">
 </head>
 <body class="snack-page coach-legacy-page">
   <header class="snack-hero legacy-hero">
@@ -43,12 +43,12 @@
         <p class="eyebrow">THE COACHING DEBATE</p>
         <h2>There is no single kind of greatness.</h2>
         <p>Winning a title is the loudest credential. It is not the whole résumé. Some coaches build dynasties; some change a franchise’s ceiling; some turn a first-year expansion team into a playoff team. We score those stories separately, and keep regular-season records, playoff records and championships visible beside every number.</p>
-        <p>The WNBA and college boards use different career scorecards. They are designed for debate inside their own leagues, not as a claim that a college title and a WNBA title are interchangeable.</p>
+        <p>All grades use a shared 55–99 peer scale, with a separate comparison pool and career inputs for each board. The WNBA grade compares the selected WNBA coaches; the college grade compares the selected Division I coaches. They are not cross-league equivalents.</p>
       </div>
       <aside class="legacy-callout" aria-label="The scorecard promise">
         <span class="callout-label">OUR RULE</span>
         <strong>Show the math.<br>Keep the context.</strong>
-        <span>Editorial W Scores are comparison tools, not official league statistics.</span>
+        <span>Editorial W Grades are peer-relative comparison tools, not official league statistics.</span>
       </aside>
     </section>
 
@@ -67,7 +67,7 @@
         <button type="button" data-finalist-mode="career" aria-pressed="false">WNBA career so far</button>
       </div>
       <div class="finalist-grid" id="finalistGrid" aria-live="polite"></div>
-      <p class="dashboard-note"><strong>Current We Know the W Rating:</strong> returning-coach career regular-season win rate × 30, 2026 regular-season win rate × 10, pre-2026 career playoff win rate × 30, 2026 playoff win rate × 10, plus five points per WNBA title (maximum 20). Coach of the Year honors are shown as context and do not affect this score. See the <a href="/coaches.html#coach-dashboard">full current-coach dashboard</a> for the complete method.</p>
+      <p class="dashboard-note"><strong>How to read the finalist grades:</strong> Career W Grade (through 2025) and 2026 Form use the same 55–99 peer-percentile scale as the full Coaches dashboard, comparing the 15 coaches tracked there. PROV marks a shorter career sample; missing career dimensions are omitted and remaining weights are rebalanced, so lack of Finals opportunity is not scored as zero. The historical WNBA and college boards below use that scale within their own selected pools, with their league-specific career inputs. Grades are relative to those pools, not absolute or cross-league quality rankings. See the <a href="/coaches.html#coach-dashboard">full current-coach dashboard</a> for the complete method.</p>
     </section>
 
     <section class="legacy-section" id="wnba-legacy" aria-labelledby="wnba-legacy-title">
@@ -75,7 +75,7 @@
         <div>
           <p class="eyebrow">THE PRO GAME · CAREER RESUMÉS</p>
           <h2 id="wnba-legacy-title">The WNBA legacy board</h2>
-          <p>A selected group of title winners and career leaders. Sort by W Score, wins, titles or either win percentage; search a coach’s name to find a résumé quickly.</p>
+          <p>A selected group of title winners and career leaders. Sort by W Grade, wins, titles or either win percentage; search a coach’s name to find a résumé quickly.</p>
         </div>
         <span class="snapshot-pill">THROUGH OCT. 9, 2026</span>
       </div>
@@ -93,7 +93,7 @@
           </label>
           <label>Sort by
             <select id="wnbaSort">
-              <option value="score">W Score</option>
+              <option value="score">W Grade</option>
               <option value="wins">Regular-season wins</option>
               <option value="titles">WNBA titles</option>
               <option value="regular">Regular-season win %</option>
@@ -108,19 +108,19 @@
               <col style="width:6%"><col style="width:21%"><col style="width:16%">
               <col style="width:16%"><col style="width:14%"><col style="width:27%">
             </colgroup>
-            <caption>Selected WNBA coaching legacies and editorial W Scores</caption>
+            <caption>Selected WNBA coaching legacies and peer-relative W Grades</caption>
             <thead><tr>
               <th scope="col"><button type="button" data-sort="rank">Rank</button></th>
               <th scope="col"><button type="button" data-sort="name">Coach</button></th>
               <th scope="col"><button type="button" data-sort="regular">Regular season</button></th>
               <th scope="col"><button type="button" data-sort="playoff">Playoffs</button></th>
               <th scope="col"><button type="button" data-sort="titles">WNBA titles</button></th>
-              <th scope="col" aria-sort="descending"><button type="button" data-sort="score">Legacy W Score</button></th>
+              <th scope="col" aria-sort="descending"><button type="button" data-sort="score">Legacy W Grade · /99</button></th>
             </tr></thead>
             <tbody id="wnbaRows"></tbody>
           </table>
         </div>
-        <p class="dashboard-note">Legacy W Score = career regular-season win percentage × 40 + playoff win percentage × 40 + 5 points per WNBA title, capped at 20. The board focuses on coaches with at least 100 regular-season games; shorter WNBA résumés, including Smesko’s, are featured separately above. Records include 2026 results where applicable.</p>
+        <p class="dashboard-note">WNBA legacy base score = career regular-season win percentage × 40 + playoff win percentage × 40 + 5 points per WNBA title, capped at 20. The published W Grade converts that base score to a 55–99 mid-rank percentile within the 10 coaches shown. This is a selected historical group, not the full all-time WNBA coaching pool. The board focuses on coaches with at least 100 regular-season games; shorter résumés, including Smesko’s and Nakase’s, are featured above with provisional Career W Grades. Records include 2026 results where applicable.</p>
       </div>
     </section>
 
@@ -167,7 +167,7 @@
               <col style="width:6%"><col style="width:19%"><col style="width:12%">
               <col style="width:9%"><col style="width:12%"><col style="width:18%"><col style="width:25%">
             </colgroup>
-            <caption>Selected NCAA Division I coaching legacies, WNBA first-round picks and editorial W Scores</caption>
+            <caption>Selected NCAA Division I coaching legacies, WNBA first-round picks and peer-relative W Grades</caption>
             <thead><tr>
               <th scope="col"><button type="button" data-sort="rank">Rank</button></th>
               <th scope="col"><button type="button" data-sort="name">Coach · signature school</button></th>
@@ -180,7 +180,7 @@
             <tbody id="collegeRows"></tbody>
           </table>
         </div>
-        <p class="dashboard-note">College Legacy W Score = career win percentage × 35 + 8 points per NCAA Division I title (maximum 32) + career wins ÷ 1,300 × 33 (maximum 33). Records are through the completed 2025–26 season; career totals follow the cited college coaching records, while titles count NCAA Division I championships. First-round picks count unique players each coach coached as a head coach who were later selected in the WNBA first round, across career programs; a transfer may count for each coach who coached her. Includes the 1997 WNBA Elite Draft first round and selections through 2026. Draft totals are résumé context and do not affect the W Score.</p>
+        <p class="dashboard-note">College legacy base score = career win percentage × 35 + 8 points per NCAA Division I title (maximum 32) + career wins ÷ 1,300 × 33 (maximum 33). The published W Grade converts that base score to a 55–99 mid-rank percentile within the 11 coaches shown. This grade is relative to the selected Division I group and is not directly comparable with a WNBA grade. Records are through the completed 2025–26 season; career totals follow the cited college coaching records, while titles count NCAA Division I championships. First-round picks count unique players each coach coached as a head coach who were later selected in the WNBA first round, across career programs; a transfer may count for each coach who coached her. Includes the 1997 WNBA Elite Draft first round and selections through 2026. Draft totals are résumé context and do not affect the W Grade.</p>
       </div>
       <p class="source-line">Draft-count references: <a href="https://www.wnba.com/wnbadraft/all-time" target="_blank" rel="noopener">WNBA all-time draft archive</a> · <a href="https://www.wnba.com/news/college-draft-pick-history-2026" target="_blank" rel="noopener">WNBA first-round school counts through 2026</a>. Coaching records: <a href="https://fs.ncaa.org.s3.amazonaws.com/Docs/stats/w_basketball_RB/Coaches.pdf" target="_blank" rel="noopener">NCAA women’s basketball coaching records</a> · <a href="https://www.ncaa.com/history/basketball-women/d1" target="_blank" rel="noopener">NCAA Division I championship history</a> · <a href="https://texaslonghorns.com/staff-directory/jody-conradt/1648" target="_blank" rel="noopener">Texas record for Jody Conradt</a>.</p>
     </section>
@@ -235,6 +235,8 @@
   <footer class="legacy-footer shell"><a href="/food-for-thought.html">← Back to Food for Thought</a><a href="/coaches.html">Current WNBA coach dashboard →</a></footer>
 
   <script src="/site.js?v=20261009-operations-v1"></script>
-  <script src="/best-womens-basketball-coaches.js?v=20261011-draft-count-v1"></script>
+  <script src="/coach-dashboard-data.js?v=20261013-coach-split-v1"></script>
+  <script src="/coach-grades.js?v=20261013-unified-v1"></script>
+  <script src="/best-womens-basketball-coaches.js?v=20261013-unified-coach-grades-v1"></script>
 </body>
 </html>

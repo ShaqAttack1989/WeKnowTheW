@@ -57,7 +57,7 @@
         <div>
           <p class="eyebrow">2026 WNBA FINALS · ATLANTA vs. GOLDEN STATE</p>
           <h2 id="finalists-title">Two benches. Two very different paths.</h2>
-          <p>Atlanta’s Karl Smesko meets Golden State’s Natalie Nakase. The snapshot below is through Oct. 9, before the Finals; a championship point has not been added to either coach’s W Rating.</p>
+          <p>Atlanta’s Karl Smesko meets Golden State’s Natalie Nakase. The snapshot below is through Oct. 9, before the Finals; the 2026 Form grade includes the Finals trip but no championship result.</p>
         </div>
         <a class="text-link" href="https://www.wnba.com/playoffs/2026" target="_blank" rel="noopener">2026 playoff bracket <span aria-hidden="true">↗</span></a>
       </div>
@@ -67,7 +67,7 @@
         <button type="button" data-finalist-mode="career" aria-pressed="false">WNBA career so far</button>
       </div>
       <div class="finalist-grid" id="finalistGrid" aria-live="polite"></div>
-      <p class="dashboard-note"><strong>How to read the finalist grades:</strong> Career W Grade (through 2025) and 2026 Form use the same 55–99 peer-percentile scale as the full Coaches dashboard, comparing the 15 coaches tracked there. PROV marks a shorter career sample; missing career dimensions are omitted and remaining weights are rebalanced, so lack of Finals opportunity is not scored as zero. The historical WNBA and college boards below use that scale within their own selected pools, with their league-specific career inputs. Grades are relative to those pools, not absolute or cross-league quality rankings. See the <a href="/coaches.html#coach-dashboard">full current-coach dashboard</a> for the complete method.</p>
+      <p class="dashboard-note"><strong>How to read the finalist grades:</strong> Career W Grade (through 2025) and 2026 Form use the same 55–99 peer-percentile scale as the full Coaches dashboard, comparing the 15 coaches tracked there. PROV indicates fewer than two prior 44-game WNBA regular seasons or a small playoff sample; the pre-2026 game count appears with the grade. Missing career dimensions are omitted and remaining weights are rebalanced, so lack of Finals opportunity is not scored as zero. The historical WNBA and college boards below use that scale within their own selected pools, with their league-specific career inputs. Grades are relative to those pools, not absolute or cross-league quality rankings. See the <a href="/coaches.html#coach-dashboard">full current-coach dashboard</a> for the complete method.</p>
     </section>
 
     <section class="legacy-section" id="wnba-legacy" aria-labelledby="wnba-legacy-title">
@@ -136,7 +136,7 @@
       <div class="college-champ-highlight">
         <span>2026 NCAA CHAMPION</span>
         <strong>Cori Close · UCLA</strong>
-        <p>UCLA finished 37–1 and won the program’s first NCAA title. Her score reflects a shorter career sample; it does not diminish the season that just ended.</p>
+        <p>UCLA finished 37–1 and won the program’s first NCAA title. Her College Legacy Grade includes accumulated career wins; it is not a grade of UCLA’s championship season.</p>
       </div>
       <div class="legacy-dashboard" data-dashboard="college">
         <div class="dashboard-controls">
@@ -152,7 +152,7 @@
           </label>
           <label>Sort by
             <select id="collegeSort">
-              <option value="score">W Score</option>
+              <option value="score">W Grade</option>
               <option value="wins">Career wins</option>
               <option value="titles">NCAA titles</option>
               <option value="picks">WNBA first-round picks</option>
@@ -175,7 +175,7 @@
               <th scope="col"><button type="button" data-sort="regular">Win %</button></th>
               <th scope="col"><button type="button" data-sort="titles">NCAA titles</button></th>
               <th scope="col"><button type="button" data-sort="picks">WNBA first-round picks</button></th>
-              <th scope="col" aria-sort="descending"><button type="button" data-sort="score">Legacy W Score</button></th>
+              <th scope="col" aria-sort="descending"><button type="button" data-sort="score">Legacy W Grade · /99</button></th>
             </tr></thead>
             <tbody id="collegeRows"></tbody>
           </table>

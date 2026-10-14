@@ -295,11 +295,81 @@
       ballotPanels.forEach(panel=>{panel.hidden=panel.dataset.apBallotPanel!==key;});
     }));
   }
+  function rookieSeasonDashboardMarkup(board={}){
+    const players=Array.isArray(board.players)?board.players:[];
+    if(!players.length)return'';
+    const measures=[['points','Scoring','PPG'],['assists','Creation','APG'],['three','3-point','3P%']];
+    const photo=player=>player.id?`https://cdn.wnba.com/headshots/wnba/latest/260x190/${encodeURIComponent(player.id)}.png`:'';
+    const cards=players.map(player=>{
+      const headshot=photo(player),fallback=player.id?`https://cdn.wnba.com/headshots/wnba/latest/1040x760/${encodeURIComponent(player.id)}.png`:'';
+      return `<article class="rookie-season-card" data-player="${safe(player.name)}" data-points="${safe(player.points)}" data-assists="${safe(player.assists)}" data-three="${safe(player.three)}" style="--rookie-accent:${safe(player.accent||'#d8ff4f')}"><div class="rookie-season-photo">${headshot?`<img src="${safe(headshot)}" alt="Official WNBA headshot of ${safe(player.name)}" loading="lazy" decoding="async"${imageRecovery(fallback)}>`:''}</div><div class="rookie-season-copy"><span class="rookie-season-team">${safe(player.team)}</span><h4>${safe(player.name)}</h4><div class="rookie-season-rank"><span data-rookie-season-rank></span><strong data-rookie-season-lead></strong></div><div class="rookie-season-meter" aria-hidden="true"><span data-rookie-season-meter></span></div><dl><div><dt>PPG</dt><dd>${safe(player.points)}</dd></div><div><dt>APG</dt><dd>${safe(player.assists)}</dd></div><div><dt>3P%</dt><dd>${safe(player.three)}%</dd></div></dl><p>${safe(player.note||'')}</p></div></article>`;
+    }).join('');
+    const graphic=board.graphic?`<figure class="rookie-supplied-graphic"><div><img src="${safe(board.graphic)}" alt="2026 WNBA All-Rookie team graphic showing Pauline Astier, Azzi Fudd, Flau’jae Johnson, Olivia Miles, Kiki Rice and Sydney Taylor" loading="lazy" decoding="async"></div><figcaption>${safe(board.graphicCaption||'Supplied team graphic. The phone interface is cropped by the page layout.')}</figcaption></figure>`:'';
+    return `<section class="snack-section rookie-season-dashboard" data-rookie-season-dashboard><header class="rookie-board-head"><div><span>2026 ROOKIE CLASS · SORTABLE COMPARISON</span><h3>${safe(board.title||'Six names, five spots, one tie')}</h3><p>${safe(board.intro||'')}</p></div><aside><strong>${safe(board.asOf||'FINAL REGULAR SEASON')}</strong><span>${safe(board.panel||'AP All-Rookie selections')}</span></aside></header>${graphic}<div class="rookie-board-summary"><div><strong>${safe(board.selectionCount||6)}</strong><span>players selected</span></div><div><strong>${safe(board.spotCount||5)}</strong><span>nominal spots</span></div><div><strong>${safe(board.recordPoints||790)}</strong><span>rookie points · Miles</span></div></div><div class="rookie-sort-head"><div><span>THE CLASS, BY THE RECEIPTS</span><strong data-rookie-season-status aria-live="polite">Sorted by scoring average.</strong></div><div class="rookie-sort-controls" role="group" aria-label="Sort the 2026 All-Rookie class">${measures.map(([key,label],index)=>`<button type="button" data-rookie-season-sort="${key}" aria-pressed="${index===0?'true':'false'}">${label}</button>`).join('')}</div></div><div class="rookie-season-grid" data-rookie-season-grid>${cards}</div><p class="rookie-board-method">${safe(board.methodology||'Stats are final regular-season per-game averages. Selection is the Associated Press team; the AP panel added a sixth honoree because of a tie for fifth.')}</p></section>`;
+  }
+  function wireRookieSeasonDashboard(story){
+    const board=story?.querySelector('[data-rookie-season-dashboard]');
+    if(!board||board.dataset.ready==='1')return;
+    board.dataset.ready='1';
+    const buttons=[...board.querySelectorAll('[data-rookie-season-sort]')],grid=board.querySelector('[data-rookie-season-grid]'),status=board.querySelector('[data-rookie-season-status]');
+    const names={points:'scoring average',assists:'assists per game',three:'three-point percentage'};
+    const labels={points:'PPG',assists:'APG',three:'3P%'};
+    function sortBy(metric){
+      buttons.forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.rookieSeasonSort===metric)));
+      const cards=[...grid.querySelectorAll('.rookie-season-card')].sort((a,b)=>Number(b.dataset[metric])-Number(a.dataset[metric]));
+      const max=Math.max(...cards.map(card=>Number(card.dataset[metric])),1);
+      cards.forEach((card,index)=>{
+        const value=Number(card.dataset[metric]);
+        card.querySelector('[data-rookie-season-rank]').textContent=`#${index+1}`;
+        card.querySelector('[data-rookie-season-lead]').textContent=`${value}${metric==='three'?'%':''} ${labels[metric]}`;
+        card.querySelector('[data-rookie-season-meter]').style.width=`${Math.max(5,Math.round(value/max*100))}%`;
+        grid.appendChild(card);
+      });
+      board.dataset.sort=metric;
+      if(status)status.textContent=`Sorted by ${names[metric]}.`;
+    }
+    buttons.forEach(button=>button.addEventListener('click',()=>sortBy(button.dataset.rookieSeasonSort)));
+    sortBy('points');
+  }
+  function rookieHistoryDashboardMarkup(board={}){
+    const classes=Array.isArray(board.classes)?board.classes:[];
+    if(!classes.length)return'';
+    const modes=[['overall','Overall'],['peak','Peak star'],['depth','Class depth']];
+    const cards=classes.map(team=>`<article class="rookie-history-card" data-year="${safe(team.year)}" data-overall="${safe(team.overallRank)}" data-peak="${safe(team.peakRank)}" data-depth="${safe(team.depthRank)}"><header><span data-rookie-history-rank>${String(team.overallRank).padStart(2,'0')}</span><div><small>ALL-ROOKIE · ${safe(team.year)}</small><h4>${safe(team.stars)}</h4></div></header><p>${safe(team.case)}</p><div class="rookie-history-roster"><strong>THE TEAM</strong><span>${(team.players||[]).map(safe).join(' · ')}</span></div></article>`).join('');
+    return `<section class="snack-section rookie-history-dashboard" data-rookie-history-dashboard><header class="rookie-history-head"><div><span>THE CAREER HINDSIGHT BOARD</span><h3>${safe(board.title||'The 10 strongest All-Rookie classes')}</h3><p>${safe(board.intro||'')}</p></div><aside>${safe(board.asOf||'CAREER RECEIPTS THROUGH 2026')}</aside></header><div class="rookie-history-summary"><div><strong>10</strong><span>classes ranked</span></div><div><strong>3</strong><span>ranking lenses</span></div><div><strong>2005–19</strong><span>career runway</span></div></div><div class="rookie-history-controls"><div class="rookie-ranking-tabs" role="group" aria-label="Rank All-Rookie classes by">${modes.map(([key,label],index)=>`<button type="button" data-rookie-history-mode="${key}" aria-pressed="${index===0?'true':'false'}">${label}</button>`).join('')}</div><div class="rookie-decade-tabs" role="group" aria-label="Filter All-Rookie classes by decade"><button type="button" data-rookie-decade="all" aria-pressed="true">All years</button><button type="button" data-rookie-decade="2000" aria-pressed="false">2000s</button><button type="button" data-rookie-decade="2010" aria-pressed="false">2010s</button></div></div><p class="rookie-history-status" data-rookie-history-status aria-live="polite">Overall ranking · 10 classes shown.</p><div class="rookie-history-grid" data-rookie-history-grid>${cards}</div><aside class="rookie-history-method"><strong>How to read this ranking</strong><p>${safe(board.methodology||'')}</p></aside></section>`;
+  }
+  function wireRookieHistoryDashboard(story){
+    const board=story?.querySelector('[data-rookie-history-dashboard]');
+    if(!board||board.dataset.ready==='1')return;
+    board.dataset.ready='1';
+    const grid=board.querySelector('[data-rookie-history-grid]'),status=board.querySelector('[data-rookie-history-status]');
+    const modeButtons=[...board.querySelectorAll('[data-rookie-history-mode]')],decadeButtons=[...board.querySelectorAll('[data-rookie-decade]')];
+    let mode='overall',decade='all';
+    function redraw(){
+      modeButtons.forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.rookieHistoryMode===mode)));
+      decadeButtons.forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.rookieDecade===decade)));
+      const cards=[...grid.querySelectorAll('.rookie-history-card')];
+      cards.forEach(card=>{const year=Number(card.dataset.year);card.hidden=decade!=='all'&&Math.floor(year/10)*10!==Number(decade);});
+      cards.filter(card=>!card.hidden).sort((a,b)=>Number(a.dataset[mode])-Number(b.dataset[mode])).forEach(card=>{card.querySelector('[data-rookie-history-rank]').textContent=String(card.dataset[mode]).padStart(2,'0');grid.appendChild(card);});
+      const visible=cards.filter(card=>!card.hidden).length;
+      if(status)status.textContent=`${mode==='overall'?'Overall':mode==='peak'?'Peak star':'Class depth'} ranking · ${visible} class${visible===1?'':'es'} shown.`;
+    }
+    modeButtons.forEach(button=>button.addEventListener('click',()=>{mode=button.dataset.rookieHistoryMode;redraw();}));
+    decadeButtons.forEach(button=>button.addEventListener('click',()=>{decade=button.dataset.rookieDecade;redraw();}));
+    redraw();
+  }
+  function rookieSnubsMarkup(board={}){
+    const players=Array.isArray(board.players)?board.players:[];
+    if(!players.length)return'';
+    const cards=players.map(player=>`<article class="rookie-snub-card"><div class="rookie-snub-photo"><img src="${safe(player.photo||'')}" alt="Official WNBA headshot of ${safe(player.name)}" loading="lazy" decoding="async"${imageRecovery(player.fallback||'')}></div><div><span>${safe(player.rookieYear)} ROOKIE · NO ALL-ROOKIE SELECTION</span><h4>${safe(player.name)}</h4><strong>${safe(player.accolade)}</strong><p>${safe(player.note)}</p></div></article>`).join('');
+    return `<section class="snack-section rookie-snubs-dashboard"><header><span>${safe(board.eyebrow||'THE SNUB FILE')}</span><h3>${safe(board.title||'The rookies the ballot missed')}</h3><p>${safe(board.intro||'')}</p></header><div class="rookie-snubs-grid">${cards}</div><p class="rookie-snubs-method">${safe(board.note||'')}</p></section>`;
+  }
   function sectionsMarkup(sections=[]){return sections.map(section=>`<section class="snack-section"><h3>${safe(section.title)}</h3>${(section.paragraphs||[]).map(paragraph=>`<p>${safe(paragraph)}</p>`).join('')}</section>`).join('');}
+  function storyLeadMarkup(post={}){const paragraphs=Array.isArray(post.storyLead)?post.storyLead:[];return paragraphs.length?`<div class="rookie-story-lead">${paragraphs.map(paragraph=>`<p>${safe(paragraph)}</p>`).join('')}</div>`:'';}
   function debatesMarkup(items=[]){return items.length?`<section class="snack-debate-board"><h3>Spicy debate board</h3><ul>${items.map(item=>`<li>${safe(item)}</li>`).join('')}</ul></section>`:'';}
   function foodMarkup(food={}){return food.title||food.script?`<section class="food-segment"><span class="segment-label">FROM THE KITCHEN</span><h3>${safe(food.title||'This week’s segment')}</h3>${food.script?`<blockquote>${safe(food.script)}</blockquote>`:''}</section>`:'';}
   function sourcesMarkup(sources=[]){return sources.length?`<section class="source-list"><strong>Receipts</strong><p>${sources.map(source=>`<a href="${safe(source.url)}" target="_blank" rel="noopener noreferrer">${safe(source.label||'Source')}</a>`).join(' · ')}</p></section>`:'';}
-  function storyMarkup(post){return `<a class="snack-story-back" href="${pagePath}">← Back to all ${mode==='feature'?'Food for Thought articles':'Snack Shak Bytes'}</a><article class="snack-post"><header class="snack-post-header ${mode==='feature'?'feature-header':''}"><span class="snack-series-label">${safe(label(post))}</span><div class="meta"><span>${safe(format(post.published))}</span>${post.week?`<span>•</span><span>${safe(post.week)}</span>`:''}</div><h2>${safe(post.title)}</h2><p class="dek">${safe(post.dek||'')}</p></header>${storyImageMarkup(post)}${playoffGameOneMarkup(post.playoffGameOne)}${playoffDraftBoardMarkup(post.playoffDraftBoard)}${playoffGalleryMarkup(post.finalsGraphic)}${playoffGalleryMarkup(post.gameGallery)}${playoffBoardMarkup(post)}${playoffWatchMarkup(post.playoffWatch)}${playoffAwardFalloutMarkup(post.awardFallout)}${rankingsMarkup(post.rankings)}${tableMarkup(post.storyTable)}${trioDashboardMarkup(post.trioDashboard)}${apAwardsDashboardMarkup(post.apAwardsDashboard)}${sectionsMarkup(post.sections)}${debatesMarkup(post.debates)}${foodMarkup(post.foodSegment)}${sourcesMarkup(post.sources)}</article>`;}
+  function storyMarkup(post){return `<a class="snack-story-back" href="${pagePath}">← Back to all ${mode==='feature'?'Food for Thought articles':'Snack Shak Bytes'}</a><article class="snack-post"><header class="snack-post-header ${mode==='feature'?'feature-header':''}"><span class="snack-series-label">${safe(label(post))}</span><div class="meta"><span>${safe(format(post.published))}</span>${post.week?`<span>•</span><span>${safe(post.week)}</span>`:''}</div><h2>${safe(post.title)}</h2><p class="dek">${safe(post.dek||'')}</p></header>${storyImageMarkup(post)}${storyLeadMarkup(post)}${playoffGameOneMarkup(post.playoffGameOne)}${playoffDraftBoardMarkup(post.playoffDraftBoard)}${playoffGalleryMarkup(post.finalsGraphic)}${playoffGalleryMarkup(post.gameGallery)}${playoffBoardMarkup(post)}${playoffWatchMarkup(post.playoffWatch)}${playoffAwardFalloutMarkup(post.awardFallout)}${rankingsMarkup(post.rankings)}${tableMarkup(post.storyTable)}${trioDashboardMarkup(post.trioDashboard)}${apAwardsDashboardMarkup(post.apAwardsDashboard)}${rookieSeasonDashboardMarkup(post.rookieSeasonDashboard)}${rookieHistoryDashboardMarkup(post.rookieHistoryDashboard)}${rookieSnubsMarkup(post.rookieSnubs)}${sectionsMarkup(post.sections)}${debatesMarkup(post.debates)}${foodMarkup(post.foodSegment)}${sourcesMarkup(post.sources)}</article>`;}
 
   function setCollectionArchiveMode(activeSlug=''){
     const list=document.getElementById('snackCollectionGrid');
@@ -326,6 +396,8 @@
     wirePlayoffWatch(story);
     wireTrioDashboard(story);
     wireApAwardsDashboard(story);
+    wireRookieSeasonDashboard(story);
+    wireRookieHistoryDashboard(story);
     document.title=`${post.title} | ${mode==='feature'?'Food for Thought':'Snack Shak Bytes'}`;
     if(updateUrl){const destination=href(post);history.pushState({story:post.slug},'',destination);}
     if(scroll)requestAnimationFrame(()=>story.scrollIntoView({block:'start',behavior:'smooth'}));

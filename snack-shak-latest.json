@@ -2,6 +2,378 @@
   "site": "Snack Shak",
   "posts": [
     {
+      "slug": "six-rookies-five-spots-long-game",
+      "type": "feature",
+      "priority": 10000,
+      "seriesLabel": "FOOD FOR THOUGHT · THE ROOKIE FILE",
+      "title": "Six Rookies, Five Spots, and the Long Game",
+      "published": "2026-10-14",
+      "updated": "2026-10-14",
+      "dek": "A tied fifth place made six 2026 AP All-Rookie honorees. Put their season in context, then rank the most accomplished All-Rookie classes and find the future stars the ballot missed.",
+      "image": "https://cdn.wnba.com/sites/4/2026/09/GettyImages-2279700819-scaled.jpg",
+      "storyImage": "https://cdn.wnba.com/sites/4/2026/09/GettyImages-2279700819-scaled.jpg",
+      "imageAlt": "Pauline Astier of the New York Liberty during a WNBA game",
+      "imageFit": "contain",
+      "storyImageCaption": "Pauline Astier of the New York Liberty. Photo: Getty Images / WNBA.",
+      "storyImageSourceUrl": "https://www.wnba.com/news/2026-eos-awards-lookahead-all-rookie-team",
+      "teams": [
+        "New York Liberty",
+        "Dallas Wings",
+        "Seattle Storm",
+        "Minnesota Lynx",
+        "Toronto Tempo",
+        "Chicago Sky"
+      ],
+      "players": [
+        "Pauline Astier",
+        "Azzi Fudd",
+        "Flau’jae Johnson",
+        "Olivia Miles",
+        "Kiki Rice",
+        "Sydney Taylor"
+      ],
+      "storyLead": [
+        "The supplied 2026 team graphic shows six names because the fifth place vote was tied: Pauline Astier, Azzi Fudd, Flau’jae Johnson, Olivia Miles, Kiki Rice and Sydney Taylor. The AP named Miles its unanimous Rookie of the Year; her 790 points set a WNBA rookie scoring record. One team, six very different routes to recognition.",
+        "A rookie team is a snapshot of a season. A historical ranking is a look backward at what careers became. Keep those questions separate: the first dashboard compares this class on its rookie-year production, while the history board ranks older teams on the careers that followed."
+      ],
+      "rookieSeasonDashboard": {
+        "title": "Six names, five spots, one tie",
+        "intro": "Change the sort to see what led each player’s case. Miles owned the scoring and creation columns; the rest of the group brought distinct mixes of shot-making, playmaking and opportunity.",
+        "asOf": "FINAL REGULAR SEASON",
+        "panel": "Associated Press selections",
+        "selectionCount": 6,
+        "spotCount": 5,
+        "recordPoints": 790,
+        "graphic": "/assets/images/snack-shak/2026-ap-all-rookie-team-shaq.jpg",
+        "graphicCaption": "The supplied team graphic, cropped in-page to remove the phone interface.",
+        "methodology": "Final regular-season per-game figures from the AP voter’s end-of-season review. Buttons reorder the six selections by points, assists or three-point percentage. AP’s five-place team lists six players because of a tie for fifth.",
+        "players": [
+          {
+            "name": "Olivia Miles",
+            "team": "Minnesota Lynx",
+            "id": "1643426",
+            "points": 19.8,
+            "assists": 6.0,
+            "three": 38.8,
+            "accent": "#78be20",
+            "note": "Unanimous AP Rookie of the Year; 790 points set the rookie scoring record."
+          },
+          {
+            "name": "Azzi Fudd",
+            "team": "Dallas Wings",
+            "id": "1643425",
+            "points": 13.1,
+            "assists": 1.8,
+            "three": 39.7,
+            "accent": "#0050a4",
+            "note": "The group’s best three-point percentage; a high-value shooting role."
+          },
+          {
+            "name": "Flau’jae Johnson",
+            "team": "Seattle Storm",
+            "id": "1643428",
+            "points": 14.9,
+            "assists": 2.9,
+            "three": 29.6,
+            "accent": "#2c5234",
+            "note": "Added 4.8 rebounds a game alongside 14.9 points and 2.9 assists."
+          },
+          {
+            "name": "Sydney Taylor",
+            "team": "Chicago Sky",
+            "id": "1642321",
+            "points": 13.6,
+            "assists": 1.9,
+            "three": 32.9,
+            "accent": "#5ba1d8",
+            "note": "Two late game-winners helped make an undrafted rookie’s case visible."
+          },
+          {
+            "name": "Pauline Astier",
+            "team": "New York Liberty",
+            "id": "1631136",
+            "points": 9.3,
+            "assists": 3.3,
+            "three": 33.3,
+            "accent": "#6eceb2",
+            "note": "Efficient scoring and 3.3 assists per game supported her final-place case."
+          },
+          {
+            "name": "Kiki Rice",
+            "team": "Toronto Tempo",
+            "id": "1643445",
+            "points": 12.9,
+            "assists": 3.5,
+            "three": 35.3,
+            "accent": "#da3b64",
+            "note": "A two-way guard profile, with 3.5 assists and 35.3% from three."
+          }
+        ]
+      },
+      "rookieHistoryDashboard": {
+        "title": "The 10 strongest All-Rookie classes",
+        "intro": "These are WKTW career-hindsight rankings, not league awards. Tap a lens to change the order, then filter by decade to see which cohorts move when star power or class depth gets the louder voice.",
+        "asOf": "CAREER RECEIPTS THROUGH 2026",
+        "methodology": "Overall blends peak achievement (40%), depth of lasting All-Star / All-WNBA-level careers (35%), and postseason impact plus longevity (25%). “Peak star” isolates the highest career ceiling; “Class depth” gives more weight to how many selections became major contributors. Recent classes from 2020 onward are left in a watchlist rather than ranked against careers with more runway. Official team names are transcribed from the WNBA’s All-Rookie history; ranks and weights are editorial.",
+        "classes": [
+          {
+            "year": 2008,
+            "overallRank": 1,
+            "peakRank": 2,
+            "depthRank": 4,
+            "stars": "Candace Parker · Sylvia Fowles",
+            "case": "Two generational centers, each with an MVP-level career, give this class an extraordinary top end.",
+            "players": [
+              "Candace Parker",
+              "Candice Wiggins",
+              "Sylvia Fowles",
+              "Nicky Anosike",
+              "Matee Ajavon",
+              "Amber Holt"
+            ]
+          },
+          {
+            "year": 2018,
+            "overallRank": 2,
+            "peakRank": 1,
+            "depthRank": 10,
+            "stars": "A’ja Wilson · Ariel Atkins",
+            "case": "Wilson gives the class the strongest single-player peak in this ranking; Atkins and the rest make it a credible five.",
+            "players": [
+              "A’ja Wilson",
+              "Ariel Atkins",
+              "Diamond DeShields",
+              "Azura Stevens",
+              "Kelsey Mitchell"
+            ]
+          },
+          {
+            "year": 2013,
+            "overallRank": 3,
+            "peakRank": 3,
+            "depthRank": 6,
+            "stars": "Brittney Griner · Elena Delle Donne · Skylar Diggins-Smith",
+            "case": "MVP and All-WNBA ceilings at the top, with multiple long-running perimeter stars behind them.",
+            "players": [
+              "Elena Delle Donne",
+              "Skylar Diggins-Smith",
+              "Alex Bentley",
+              "Brittney Griner",
+              "Kelsey Bone"
+            ]
+          },
+          {
+            "year": 2006,
+            "overallRank": 4,
+            "peakRank": 4,
+            "depthRank": 1,
+            "stars": "Seimone Augustus · Cappie Pondexter · Candice Dupree",
+            "case": "The depth pick: several durable stars and an unusually strong concentration of long careers across the five.",
+            "players": [
+              "Seimone Augustus",
+              "Cappie Pondexter",
+              "Candice Dupree",
+              "Sophia Young",
+              "Monique Currie"
+            ]
+          },
+          {
+            "year": 2019,
+            "overallRank": 5,
+            "peakRank": 7,
+            "depthRank": 2,
+            "stars": "Napheesa Collier · Arike Ogunbowale · Jackie Young",
+            "case": "Three All-Star-level pillars make this one of the most balanced classes in the group.",
+            "players": [
+              "Napheesa Collier",
+              "Teaira McCowan",
+              "Arike Ogunbowale",
+              "Brianna Turner",
+              "Jackie Young"
+            ]
+          },
+          {
+            "year": 2011,
+            "overallRank": 6,
+            "peakRank": 8,
+            "depthRank": 5,
+            "stars": "Maya Moore · Courtney Vandersloot · Liz Cambage",
+            "case": "A championship centerpiece, an elite lead guard and a high-impact international center give this team range.",
+            "players": [
+              "Maya Moore",
+              "Danielle Robinson",
+              "Courtney Vandersloot",
+              "Danielle Adams",
+              "Liz Cambage"
+            ]
+          },
+          {
+            "year": 2014,
+            "overallRank": 7,
+            "peakRank": 9,
+            "depthRank": 3,
+            "stars": "Alyssa Thomas · Kayla McBride · Chiney Ogwumike",
+            "case": "A deep group whose most prominent careers grew in different roles: creator, scorer and frontcourt anchor.",
+            "players": [
+              "Chiney Ogwumike",
+              "Odyssey Sims",
+              "Alyssa Thomas",
+              "Bria Hartley",
+              "Kayla McBride"
+            ]
+          },
+          {
+            "year": 2016,
+            "overallRank": 8,
+            "peakRank": 6,
+            "depthRank": 8,
+            "stars": "Breanna Stewart · Moriah Jefferson · Aerial Powers",
+            "case": "Stewart’s ceiling lifts the class, while two later MVP / Finals MVP snubs make this year’s story even richer.",
+            "players": [
+              "Moriah Jefferson",
+              "Aerial Powers",
+              "Breanna Stewart",
+              "Imani Boyette",
+              "Tiffany Mitchell"
+            ]
+          },
+          {
+            "year": 2015,
+            "overallRank": 9,
+            "peakRank": 5,
+            "depthRank": 9,
+            "stars": "Jewell Loyd · Dearica Hamby · Kiah Stokes",
+            "case": "Loyd’s MVP and Finals MVP ceiling is the anchor; Hamby and Stokes add meaningful postseason and defensive value.",
+            "players": [
+              "Jewell Loyd",
+              "Kiah Stokes",
+              "Elizabeth Williams",
+              "Dearica Hamby",
+              "Amanda Zahui B."
+            ]
+          },
+          {
+            "year": 2010,
+            "overallRank": 10,
+            "peakRank": 10,
+            "depthRank": 7,
+            "stars": "Tina Charles · Epiphanny Prince · Monica Wright",
+            "case": "A Rookie of the Year / MVP centerpiece, plus productive guards, makes the last place a close call.",
+            "players": [
+              "Tina Charles",
+              "Monica Wright",
+              "Epiphanny Prince",
+              "Kalana Greene",
+              "Kelsey Griffin"
+            ]
+          }
+        ]
+      },
+      "rookieSnubs": {
+        "eyebrow": "THE SNUB FILE · HINDSIGHT ONLY",
+        "title": "The rookies the ballot missed",
+        "intro": "All-Rookie voting predicts who stood out now; it cannot see the player who will be built by later minutes, roles and seasons. The 2016 list is the cleanest reminder.",
+        "note": "“Missed” means not listed on the official WNBA All-Rookie Team for that rookie season. The later awards are the evidence; the claim is not that voters could have known what came next.",
+        "players": [
+          {
+            "name": "Jonquel Jones",
+            "rookieYear": 2016,
+            "photo": "https://cdn.wnba.com/headshots/wnba/latest/260x190/1627673.png",
+            "fallback": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1627673.png",
+            "accolade": "2021 WNBA MVP · 2024 Finals MVP",
+            "note": "Not on the 2016 All-Rookie list. She later won the league MVP, a Finals MVP, Most Improved Player, Sixth Player of the Year and six All-Star selections."
+          },
+          {
+            "name": "Kahleah Copper",
+            "rookieYear": 2016,
+            "photo": "https://cdn.wnba.com/headshots/wnba/latest/260x190/1627674.png",
+            "fallback": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1627674.png",
+            "accolade": "2021 WNBA Finals MVP",
+            "note": "Also absent from the 2016 team. Five years later she led Chicago to its first title and was named Finals MVP."
+          },
+          {
+            "name": "Natasha Howard",
+            "rookieYear": 2014,
+            "photo": "https://cdn.wnba.com/headshots/wnba/latest/260x190/203827.png",
+            "fallback": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/203827.png",
+            "accolade": "2019 Defensive Player of the Year · All-WNBA First Team",
+            "note": "A 2014 rookie who later became one of the league’s best defenders and helped Seattle win championships."
+          }
+        ]
+      },
+      "sections": [
+        {
+          "title": "One class, six different jobs",
+          "paragraphs": [
+            "The AP’s sixth selection is not a second-tier footnote. A tie for fifth expands a five-place honor to six. It also shows the voting problem: rookies do not enter identical situations. A guard asked to create every night has a different statistical profile from a shooter, a reserve organizer or a wing learning a veteran team’s system.",
+            "Miles’ 19.8 points and 6.0 assists make the highest-volume case. Fudd’s 39.7% from three is the cleanest spacing signal in this group. Johnson pairs 14.9 points with 4.8 rebounds. Taylor’s 13.6 points and two late game-winners say something about her shot creation and timing. Astier’s 3.3 assists and efficient scoring fit a different kind of need. Rice’s 12.9 points, 3.5 rebounds and 3.5 assists show why a short season can still leave a mark.",
+            "Those numbers do not settle who has the best career ahead. They describe the work each player did in this season, in this role. A useful rookie award can honor that without pretending to be a draft redo."
+          ]
+        },
+        {
+          "title": "How the historical top ten got its shape",
+          "paragraphs": [
+            "The board is deliberately retrospective. The 2008 team gets the top spot on the strength of Parker and Fowles together. The 2018 class owns the highest peak because of Wilson. The 2006 five rises when the question is depth; its three headliners carried long, decorated careers. Press “Peak star” or “Class depth” and those trade-offs become visible instead of hiding inside one number.",
+            "2019 and 2014 rank well because their strength is spread across several proven careers. 2013 is a top-three peak class. 2016 is more complicated: Stewart makes the official five exceptional, but the absent Jonquel Jones and Kahleah Copper eventually won league MVP and Finals MVP awards. The snub file puts that counterfactual in view without quietly changing the official team.",
+            "This is an editorial ranking with a defined window, not a claim that older players are better. Classes from 2020 onward get a watchlist treatment because their career records are still being written. Time is part of the comparison."
+          ]
+        },
+        {
+          "title": "The Food for Thought question",
+          "paragraphs": [
+            "If you could replay the rookie ballot with only that season’s evidence, which borderline choice would you change? Now ask the harder version: if you knew the whole career, would your answer change? The first question is about judging a season fairly. The second is about how poorly one early label can measure the distance a player still has to travel.",
+            "Jonquel Jones and Kahleah Copper make the 2016 question almost unfair in hindsight. Their rookie years were quiet; their later peaks were not. All-Rookie is a strong note on the opening chapter. It is not the ending."
+          ]
+        }
+      ],
+      "foodSegment": {
+        "title": "One vote is a snapshot",
+        "script": "The 2026 rookie class gave us six honest cases for five spots. Career hindsight gives us another lesson: a rookie list can tell you who stood out first. It cannot tell you how far the player will go."
+      },
+      "sources": [
+        {
+          "label": "AP · 2026 awards and All-Rookie selections",
+          "url": "https://apnews.com/article/ap-wnba-awards-wilson-miles-clark-c21ff7df22f226b0826adb3594f53808"
+        },
+        {
+          "label": "WNBA · Official All-Rookie Team history",
+          "url": "https://www.wnba.com/history-all-rookie-teams"
+        },
+        {
+          "label": "WNBA · 2026 All-Rookie candidates and official player photo",
+          "url": "https://www.wnba.com/news/2026-eos-awards-lookahead-all-rookie-team"
+        },
+        {
+          "label": "AP voter · Final rookie stats and selection context",
+          "url": "https://www.theoffside.com/wnba/1128751/wnba-all-rookie-team-olivia-miles-azzi-fudd"
+        },
+        {
+          "label": "WNBA · Jonquel Jones MVP and career bio",
+          "url": "https://www.wnba.com/player/1627673/jonquel-jones/bio"
+        },
+        {
+          "label": "WNBA · Kahleah Copper career and Finals MVP",
+          "url": "https://www.wnba.com/player/1627674/kahleah-copper"
+        },
+        {
+          "label": "WNBA · Natasha Howard career bio",
+          "url": "https://www.wnba.com/player/203827/natasha-howard/bio"
+        },
+        {
+          "label": "WNBA · Natasha Howard named 2019 Defensive Player of the Year",
+          "url": "https://www.wnba.com/news/seattles-natasha-howard-named-2019-wnba-defensive-player-of-the-year"
+        },
+        {
+          "label": "WNBA · All-time MVP history",
+          "url": "https://www.wnba.com/history-mvp"
+        },
+        {
+          "label": "WNBA · Finals MVP history",
+          "url": "https://www.wnba.com/history-wnba-finals-mvp"
+        }
+      ]
+    },
+    {
       "slug": "nneka-five-sportsmanship-awards-2026",
       "type": "byte",
       "priority": 6500,

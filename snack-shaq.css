@@ -493,3 +493,77 @@
 @media(max-width:680px){
   .playoff-game-gallery>div{grid-template-columns:1fr}
 }
+
+/* Oct. 14, 2026 All-Rookie story dashboards */
+.rookie-story-lead{max-width:850px;margin:0 auto 20px;padding:0 12px;color:#30253b}
+.rookie-story-lead p{font-size:1.03rem;line-height:1.72}
+.rookie-story-lead p:first-child{font-size:1.12rem;font-weight:650}
+.rookie-season-dashboard,.rookie-history-dashboard,.rookie-snubs-dashboard{margin:40px -14px 0;padding:clamp(22px,4vw,38px);overflow:hidden;border-radius:30px;background:radial-gradient(circle at 92% 2%,rgba(216,255,79,.18),transparent 25%),linear-gradient(145deg,#120824,#271047 58%,#43177e);color:#fff;box-shadow:0 26px 58px rgba(20,10,47,.24)}
+.rookie-board-head,.rookie-history-head{display:grid;grid-template-columns:minmax(0,1fr) 190px;gap:24px;align-items:end}
+.rookie-board-head>div>span,.rookie-history-head>div>span,.rookie-snubs-dashboard>header>span{display:block;margin-bottom:8px;color:#d8ff4f;font-size:.76rem;font-weight:950;letter-spacing:.12em;text-transform:uppercase}
+.rookie-season-dashboard .rookie-board-head h3,.rookie-history-dashboard .rookie-history-head h3{margin:0;color:#fff;font-size:clamp(2rem,4.5vw,3.25rem);line-height:.98}
+.rookie-season-dashboard .rookie-board-head p,.rookie-history-dashboard .rookie-history-head p{max-width:780px;margin:14px 0 0;color:rgba(255,255,255,.76);font-size:1rem;line-height:1.62}
+.rookie-board-head aside,.rookie-history-head aside{padding:15px;border:1px solid rgba(255,255,255,.18);border-radius:17px;background:rgba(255,255,255,.07);color:#d8ff4f;font-size:.79rem;font-weight:900;letter-spacing:.06em;line-height:1.45;text-align:center;text-transform:uppercase}
+.rookie-board-head aside span{display:block;margin-top:5px;color:rgba(255,255,255,.7);font-size:.68rem}
+.rookie-supplied-graphic{max-width:500px;margin:24px auto 0;overflow:hidden;border:1px solid rgba(255,255,255,.24);border-radius:22px;background:#ef3c08;box-shadow:0 20px 45px rgba(0,0,0,.22)}
+.rookie-supplied-graphic>div{height:clamp(470px,78vw,690px);overflow:hidden}
+.rookie-supplied-graphic img{display:block;width:100%;height:100%;object-fit:cover;object-position:center 34%}
+.rookie-supplied-graphic figcaption{padding:10px 14px;background:rgba(16,7,29,.9);color:rgba(255,255,255,.74);font-size:.78rem;line-height:1.45}
+.rookie-board-summary,.rookie-history-summary{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:22px 0 18px}
+.rookie-board-summary>div,.rookie-history-summary>div{display:flex;align-items:baseline;gap:9px;padding:13px 15px;border:1px solid rgba(255,255,255,.12);border-radius:15px;background:rgba(255,255,255,.08)}
+.rookie-board-summary strong,.rookie-history-summary strong{color:#d8ff4f;font-size:1.45rem;line-height:1}
+.rookie-board-summary span,.rookie-history-summary span{font-size:.73rem;font-weight:850;letter-spacing:.05em;text-transform:uppercase}
+.rookie-sort-head,.rookie-history-controls{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-top:20px;border-top:1px solid rgba(255,255,255,.15)}
+.rookie-sort-head>div:first-child>span{display:block;color:#6eceb2;font-size:.7rem;font-weight:950;letter-spacing:.11em}
+.rookie-sort-head>div:first-child>strong{display:block;margin-top:4px;color:rgba(255,255,255,.75);font-size:.86rem}
+.rookie-sort-controls,.rookie-ranking-tabs,.rookie-decade-tabs{display:flex;flex-wrap:wrap;gap:8px}
+.rookie-sort-controls button,.rookie-ranking-tabs button,.rookie-decade-tabs button{min-height:42px;padding:9px 13px;border:1px solid rgba(255,255,255,.22);border-radius:999px;background:rgba(255,255,255,.07);color:#fff;font:inherit;font-size:.82rem;font-weight:900;cursor:pointer}
+.rookie-sort-controls button:hover,.rookie-ranking-tabs button:hover,.rookie-decade-tabs button:hover,.rookie-sort-controls button:focus-visible,.rookie-ranking-tabs button:focus-visible,.rookie-decade-tabs button:focus-visible{border-color:#d8ff4f;outline:0}
+.rookie-sort-controls button[aria-pressed="true"],.rookie-ranking-tabs button[aria-pressed="true"],.rookie-decade-tabs button[aria-pressed="true"]{border-color:#d8ff4f;background:#d8ff4f;color:#160b30}
+.rookie-season-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:14px}
+.rookie-season-card{display:grid;grid-template-columns:118px minmax(0,1fr);min-height:250px;overflow:hidden;border:1px solid rgba(255,255,255,.16);border-radius:19px;background:rgba(255,255,255,.08)}
+.rookie-season-photo{min-height:100%;background:linear-gradient(165deg,var(--rookie-accent),#190d31 72%)}
+.rookie-season-photo img{display:block;width:100%;height:100%;min-height:250px;object-fit:cover;object-position:center top}
+.rookie-season-copy{padding:16px 15px}
+.rookie-season-team{color:var(--rookie-accent);font-size:.68rem;font-weight:900;letter-spacing:.06em;text-transform:uppercase}
+.rookie-season-copy h4{margin:4px 0 9px;color:#fff;font-size:1.28rem;line-height:1.05}
+.rookie-season-rank{display:flex;justify-content:space-between;gap:8px;color:rgba(255,255,255,.66);font-size:.73rem;font-weight:850}
+.rookie-season-rank strong{color:#d8ff4f}
+.rookie-season-meter{height:6px;margin:7px 0 12px;overflow:hidden;border-radius:999px;background:rgba(255,255,255,.16)}
+.rookie-season-meter span{display:block;width:0;height:100%;border-radius:inherit;background:linear-gradient(90deg,#6eceb2,#d8ff4f);transition:width .35s ease}
+.rookie-season-copy dl{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin:0}
+.rookie-season-copy dl div{padding:7px 6px;border-radius:9px;background:rgba(0,0,0,.16)}
+.rookie-season-copy dt{color:rgba(255,255,255,.62);font-size:.6rem;font-weight:950;letter-spacing:.06em}
+.rookie-season-copy dd{margin:2px 0 0;color:#fff;font-size:.9rem;font-weight:950}
+.rookie-season-copy>p{margin:10px 0 0;color:rgba(255,255,255,.7);font-size:.78rem;line-height:1.45}
+.rookie-board-method,.rookie-history-method,.rookie-snubs-method{margin:15px 0 0;color:rgba(255,255,255,.67);font-size:.82rem;line-height:1.55}
+.rookie-history-controls{align-items:flex-start;flex-direction:column}
+.rookie-history-status{margin:11px 0;color:rgba(255,255,255,.69);font-size:.8rem}
+.rookie-history-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}
+.rookie-history-card{padding:17px;border:1px solid rgba(255,255,255,.15);border-radius:17px;background:rgba(255,255,255,.08)}
+.rookie-history-card[hidden]{display:none}
+.rookie-history-card>header{display:grid;grid-template-columns:48px minmax(0,1fr);gap:10px;align-items:start}
+.rookie-history-card>header>span{display:grid;place-items:center;min-height:44px;border-radius:13px;background:#d8ff4f;color:#160b30;font-size:1rem;font-weight:1000}
+.rookie-history-card small{color:#6eceb2;font-size:.66rem;font-weight:950;letter-spacing:.1em}
+.rookie-history-card h4{margin:4px 0 0;color:#fff;font-size:1.1rem;line-height:1.1}
+.rookie-history-card>p{margin:12px 0;color:rgba(255,255,255,.76);font-size:.85rem;line-height:1.5}
+.rookie-history-roster{padding-top:10px;border-top:1px solid rgba(255,255,255,.14)}
+.rookie-history-roster strong{display:block;margin-bottom:5px;color:#d8ff4f;font-size:.63rem;letter-spacing:.1em}
+.rookie-history-roster span{color:rgba(255,255,255,.66);font-size:.74rem;line-height:1.5}
+.rookie-history-method{padding:13px 15px;border-radius:13px;background:rgba(216,255,79,.09)}
+.rookie-history-method strong{color:#d8ff4f}
+.rookie-history-method p{margin:4px 0 0}
+.rookie-snubs-dashboard>header h3{margin:0;color:#fff;font-size:clamp(1.8rem,3.5vw,2.6rem);line-height:1}
+.rookie-snubs-dashboard>header p{max-width:760px;margin:12px 0 20px;color:rgba(255,255,255,.75);font-size:.96rem;line-height:1.6}
+.rookie-snubs-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:11px}
+.rookie-snub-card{overflow:hidden;border:1px solid rgba(255,255,255,.15);border-radius:17px;background:rgba(255,255,255,.08)}
+.rookie-snub-photo{height:190px;background:linear-gradient(155deg,#6b2ad9,#160b30)}
+.rookie-snub-photo img{display:block;width:100%;height:100%;object-fit:cover;object-position:center 18%}
+.rookie-snub-card>div:last-child{padding:15px}
+.rookie-snub-card>div:last-child>span{color:#6eceb2;font-size:.66rem;font-weight:950;letter-spacing:.06em}
+.rookie-snub-card h4{margin:6px 0;color:#fff;font-size:1.18rem}
+.rookie-snub-card strong{display:block;color:#d8ff4f;font-size:.85rem;line-height:1.35}
+.rookie-snub-card p{margin:8px 0 0;color:rgba(255,255,255,.71);font-size:.8rem;line-height:1.48}
+@media(max-width:900px){.rookie-board-head,.rookie-history-head{grid-template-columns:1fr}.rookie-board-head aside,.rookie-history-head aside{max-width:275px}.rookie-snubs-grid{grid-template-columns:1fr}.rookie-snub-card{display:grid;grid-template-columns:135px minmax(0,1fr)}.rookie-snub-photo{height:100%;min-height:205px}}
+@media(max-width:680px){.rookie-season-grid,.rookie-history-grid{grid-template-columns:1fr}.rookie-sort-head{align-items:flex-start;flex-direction:column}.rookie-season-card{grid-template-columns:105px minmax(0,1fr)}.rookie-season-copy{padding:14px 12px}.rookie-season-copy h4{font-size:1.16rem}.rookie-season-copy>p{font-size:.74rem}}
+@media(max-width:620px){.rookie-season-dashboard,.rookie-history-dashboard,.rookie-snubs-dashboard{margin-right:-13px;margin-left:-13px;padding:21px 15px;border-radius:22px}.rookie-board-summary,.rookie-history-summary{grid-template-columns:1fr}.rookie-board-summary>div,.rookie-history-summary>div{justify-content:center}.rookie-sort-controls,.rookie-ranking-tabs,.rookie-decade-tabs{display:grid;width:100%;grid-template-columns:repeat(2,minmax(0,1fr))}.rookie-sort-controls button,.rookie-ranking-tabs button,.rookie-decade-tabs button{width:100%;padding-inline:9px}.rookie-supplied-graphic>div{height:570px}.rookie-supplied-graphic img{object-position:center 33%}.rookie-snub-card{grid-template-columns:110px minmax(0,1fr)}.rookie-snub-photo{min-height:220px}.rookie-snub-card>div:last-child{padding:13px 11px}}

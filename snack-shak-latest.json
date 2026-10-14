@@ -66,7 +66,9 @@
               2005
             ],
             "accent": "#c52233",
-            "note": "The first player to reach three MVPs, all with the Houston Comets."
+            "note": "The first player to reach three MVPs, all with the Houston Comets.",
+            "photo": "https://cdn.wnba.com/sites/4/2016/05/open_night_gal.jpg",
+            "photoAlt": "Sheryl Swoopes rises for a shot in a Houston Comets uniform during the WNBA’s inaugural season"
           },
           {
             "name": "Lisa Leslie",
@@ -81,7 +83,9 @@
               2006
             ],
             "accent": "#6b2bd9",
-            "note": "Three MVP seasons with the Los Angeles Sparks."
+            "note": "Three MVP seasons with the Los Angeles Sparks.",
+            "photo": "https://cdn.wnba.com/sites/1611661320/2021/03/Lisa-Double-Double.png",
+            "photoAlt": "Lisa Leslie elevates for a jump shot against a defender in a Los Angeles Sparks uniform"
           },
           {
             "name": "Lauren Jackson",
@@ -96,7 +100,9 @@
               2010
             ],
             "accent": "#1e704d",
-            "note": "Three MVPs across eight seasons with the Seattle Storm."
+            "note": "Three MVPs across eight seasons with the Seattle Storm.",
+            "photo": "https://cdn.wnba.com/sites/4/2017/09/2004PS.jpg",
+            "photoAlt": "Lauren Jackson controls the ball against a Minnesota Lynx defender in a Seattle Storm uniform"
           },
           {
             "name": "Cynthia Cooper",
@@ -110,7 +116,9 @@
               1998
             ],
             "accent": "#c52233",
-            "note": "The league’s first back-to-back MVP, winning in its first two seasons."
+            "note": "The league’s first back-to-back MVP, winning in its first two seasons.",
+            "photo": "https://cdn.wnba.com/sites/4/2025/10/GettyImages-1139076163.jpg",
+            "photoAlt": "Cynthia Cooper drives past Los Angeles Sparks defenders in a Houston Comets uniform"
           },
           {
             "name": "Candace Parker",
@@ -193,6 +201,22 @@
         {
           "label": "WNBA · Elena Delle Donne wins her second MVP",
           "url": "https://www.wnba.com/news/washingtons-elena-delle-donne-named-2019-wnba-basketball-most-valuable-player"
+        },
+        {
+          "label": "WNBA · Sheryl Swoopes in the inaugural Comets season",
+          "url": "https://www.wnba.com/news/photo-gallery-look-back-wnbas-inaugural-champion"
+        },
+        {
+          "label": "Los Angeles Sparks · Lisa Leslie action photo and milestone",
+          "url": "https://sparks.wnba.com/historical-timeline"
+        },
+        {
+          "label": "WNBA · Lauren Jackson 2004 season photo",
+          "url": "https://www.wnba.com/awards2004"
+        },
+        {
+          "label": "WNBA · Cynthia Cooper Finals MVP photo gallery",
+          "url": "https://www.wnba.com/news/photo-gallery-finals-mvps"
         }
       ],
       "imageFit": "top-cover"

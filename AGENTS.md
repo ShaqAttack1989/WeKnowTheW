@@ -8,3 +8,10 @@
 - If a suitable real image cannot be verified, use the supplied real image, a real headshot, or a text-based treatment. Do not generate a replacement.
 
 This is a standing user requirement for every website and every site page or asset. It takes priority over image-generation defaults in all projects.
+
+## No backstage material on public pages
+
+- Never publish working screenshots, phone screenshots or interface chrome, private review graphics, draft notes, internal instructions, or crop/editing explanations.
+- Treat user screenshots as reference material unless the user explicitly identifies an image as final, publish-ready artwork. Never crop a screenshot to hide its interface and publish the remainder as an article graphic.
+- Use verified official media or a clean site-native layout for public presentation.
+- Before publishing, inspect the rendered page, its captions and alt text, linked thumbnails, data feeds, and image assets for backstage material or explanations of the production process.

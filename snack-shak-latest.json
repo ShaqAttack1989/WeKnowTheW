@@ -2,6 +2,202 @@
   "site": "Snack Shak",
   "posts": [
     {
+      "slug": "fifth-place-four-mvp-tie-2026",
+      "type": "byte",
+      "priority": 7200,
+      "seriesLabel": "SNACK SHAK BYTE · MVP HISTORY",
+      "title": "The Fifth Spot Has Four Names",
+      "published": "2026-10-14",
+      "updated": "2026-10-14",
+      "dek": "The all-time graphic stops after A’ja Wilson and the three-time winners. The next place is a four-way tie, with Candace Parker among the names to add.",
+      "dashboardUrl": "/snack-shak-bytes.html?post=fifth-place-four-mvp-tie-2026#story",
+      "image": "https://cdn.wnba.com/sites/4/2026/02/GettyImages-83115632-2-scaled.jpg",
+      "storyImage": "https://cdn.wnba.com/sites/4/2026/02/GettyImages-83115632-2-scaled.jpg",
+      "imageAlt": "Candace Parker poses with the WNBA MVP and Rookie of the Year awards before the 2008 Finals",
+      "storyImageCaption": "Candace Parker with the 2008 WNBA MVP and Rookie of the Year awards before Game Two of the Finals. Photo: Getty Images / WNBA.",
+      "storyImageSourceUrl": "https://www.wnba.com/webview/news/black-history-month-player-spotlight-candace-parker",
+      "players": [
+        "A’ja Wilson",
+        "Sheryl Swoopes",
+        "Lisa Leslie",
+        "Lauren Jackson",
+        "Cynthia Cooper",
+        "Candace Parker",
+        "Elena Delle Donne",
+        "Breanna Stewart"
+      ],
+      "storyLead": [
+        "A’ja Wilson’s fifth regular-season MVP, announced October 8, puts her alone atop the WNBA count. The graphic names Wilson and the three-time winners Sheryl Swoopes, Lisa Leslie and Lauren Jackson. Add the next place and the board needs four names: Cynthia Cooper, Candace Parker, Elena Delle Donne and Breanna Stewart each won twice.",
+        "Candace is a natural fifth face to add to a four-person graphic, but she is not the only player in fifth place. In standard ranking, the three-time winners tie for second and the four two-time winners tie for fifth. The sortable board below keeps that tie visible."
+      ],
+      "mvpLeadersDashboard": {
+        "eyebrow": "WNBA REGULAR-SEASON MVP HISTORY",
+        "title": "One record, three legends, four tied at fifth",
+        "intro": "Sort the eight multi-time MVPs by award count or by when their first and latest wins arrived. Filter to the shared fifth-place group to see every name in the tie.",
+        "asOf": "THROUGH 2026",
+        "players": [
+          {
+            "name": "A’ja Wilson",
+            "id": "1628932",
+            "awards": 5,
+            "rank": 1,
+            "first": 2020,
+            "latest": 2026,
+            "years": [
+              2020,
+              2022,
+              2024,
+              2025,
+              2026
+            ],
+            "accent": "#c8102e",
+            "note": "The league’s only five-time MVP; the 2024–26 run is the first three-peat."
+          },
+          {
+            "name": "Sheryl Swoopes",
+            "id": "100072",
+            "awards": 3,
+            "rank": 2,
+            "first": 2000,
+            "latest": 2005,
+            "years": [
+              2000,
+              2002,
+              2005
+            ],
+            "accent": "#c52233",
+            "note": "The first player to reach three MVPs, all with the Houston Comets."
+          },
+          {
+            "name": "Lisa Leslie",
+            "id": "100003",
+            "awards": 3,
+            "rank": 2,
+            "first": 2001,
+            "latest": 2006,
+            "years": [
+              2001,
+              2004,
+              2006
+            ],
+            "accent": "#6b2bd9",
+            "note": "Three MVP seasons with the Los Angeles Sparks."
+          },
+          {
+            "name": "Lauren Jackson",
+            "id": "100682",
+            "awards": 3,
+            "rank": 2,
+            "first": 2003,
+            "latest": 2010,
+            "years": [
+              2003,
+              2007,
+              2010
+            ],
+            "accent": "#1e704d",
+            "note": "Three MVPs across eight seasons with the Seattle Storm."
+          },
+          {
+            "name": "Cynthia Cooper",
+            "id": "100073",
+            "awards": 2,
+            "rank": 5,
+            "first": 1997,
+            "latest": 1998,
+            "years": [
+              1997,
+              1998
+            ],
+            "accent": "#c52233",
+            "note": "The league’s first back-to-back MVP, winning in its first two seasons."
+          },
+          {
+            "name": "Candace Parker",
+            "id": "201496",
+            "awards": 2,
+            "rank": 5,
+            "first": 2008,
+            "latest": 2013,
+            "years": [
+              2008,
+              2013
+            ],
+            "accent": "#f2b400",
+            "note": "The first player to win both Rookie of the Year and MVP in the same WNBA season."
+          },
+          {
+            "name": "Elena Delle Donne",
+            "id": "203399",
+            "awards": 2,
+            "rank": 5,
+            "first": 2015,
+            "latest": 2019,
+            "years": [
+              2015,
+              2019
+            ],
+            "accent": "#c8102e",
+            "note": "Her two MVPs came with different teams: Chicago in 2015 and Washington in 2019."
+          },
+          {
+            "name": "Breanna Stewart",
+            "id": "1627668",
+            "awards": 2,
+            "rank": 5,
+            "first": 2018,
+            "latest": 2023,
+            "years": [
+              2018,
+              2023
+            ],
+            "accent": "#6eceb2",
+            "note": "A five-season gap separates her Seattle MVP from her New York MVP."
+          }
+        ],
+        "methodology": "Regular-season MVP totals only. A’ja Wilson leads with five; three players share second place with three awards each; four players share fifth place with two apiece. This does not rank championships, Finals MVPs or overall careers."
+      },
+      "sections": [
+        {
+          "title": "The tie changes the fifth slot",
+          "paragraphs": [
+            "The WNBA’s official season-by-season list confirms five for Wilson; three apiece for Swoopes, Leslie and Jackson; and two each for Cooper, Parker, Delle Donne and Stewart. That creates a four-player tie for fifth by award count. A fifth portrait can start the next row, but a complete history needs all four.",
+            "Parker’s résumé makes her an especially fitting addition. She earned MVP and Rookie of the Year in 2008, then added her second MVP in 2013. Cooper’s two came in consecutive seasons at the league’s start; Delle Donne won with Chicago and Washington; Stewart’s came with Seattle and New York."
+          ]
+        },
+        {
+          "title": "MVP count is one lens, not a GOAT ballot",
+          "paragraphs": [
+            "This board counts regular-season MVP awards. It does not add Finals MVPs, titles, All-WNBA selections or career totals. Those are different questions, and combining them would turn a clean record into a subjective score.",
+            "The useful takeaway is the shape of the record: Wilson has separated at five, the three-time tier remains a shared piece of league history, and the two-time tier is four-deep. Candace Parker belongs in the added row—alongside three co-fifth MVPs."
+          ]
+        }
+      ],
+      "foodSegment": {
+        "title": "Add the row, keep the tie",
+        "script": "Candace Parker is a fifth face. The footnote is four names: Cooper, Parker, Delle Donne and Stewart all share fifth place with two MVPs."
+      },
+      "sources": [
+        {
+          "label": "WNBA · 2026 MVP announcement and complete season-by-season winner list",
+          "url": "https://www.wnba.com/news/wilson-named-2026-most-valuable-player"
+        },
+        {
+          "label": "WNBA · Official MVP history",
+          "url": "https://www.wnba.com/history-mvp"
+        },
+        {
+          "label": "WNBA · Candace Parker with the 2008 MVP and Rookie of the Year awards",
+          "url": "https://www.wnba.com/webview/news/black-history-month-player-spotlight-candace-parker"
+        },
+        {
+          "label": "WNBA · Elena Delle Donne wins her second MVP",
+          "url": "https://www.wnba.com/news/washingtons-elena-delle-donne-named-2019-wnba-basketball-most-valuable-player"
+        }
+      ],
+      "imageFit": "top-cover"
+    },
+    {
       "slug": "six-rookies-five-spots-long-game",
       "type": "feature",
       "priority": 10000,
@@ -52,7 +248,7 @@
             "team": "Minnesota Lynx",
             "id": "1643426",
             "points": 19.8,
-            "assists": 6.0,
+            "assists": 6,
             "three": 38.8,
             "accent": "#78be20",
             "note": "Unanimous AP Rookie of the Year; 790 points set the rookie scoring record."

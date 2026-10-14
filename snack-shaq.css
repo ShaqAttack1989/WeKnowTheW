@@ -566,3 +566,45 @@
 @media(max-width:900px){.rookie-board-head,.rookie-history-head{grid-template-columns:1fr}.rookie-board-head aside,.rookie-history-head aside{max-width:275px}.rookie-snubs-grid{grid-template-columns:1fr}.rookie-snub-card{display:grid;grid-template-columns:135px minmax(0,1fr)}.rookie-snub-photo{height:100%;min-height:205px}}
 @media(max-width:680px){.rookie-season-grid,.rookie-history-grid{grid-template-columns:1fr}.rookie-sort-head{align-items:flex-start;flex-direction:column}.rookie-season-card{grid-template-columns:105px minmax(0,1fr)}.rookie-season-copy{padding:14px 12px}.rookie-season-copy h4{font-size:1.16rem}.rookie-season-copy>p{font-size:.74rem}}
 @media(max-width:620px){.rookie-season-dashboard,.rookie-history-dashboard,.rookie-snubs-dashboard{margin-right:-13px;margin-left:-13px;padding:21px 15px;border-radius:22px}.rookie-board-summary,.rookie-history-summary{grid-template-columns:1fr}.rookie-board-summary>div,.rookie-history-summary>div{justify-content:center}.rookie-sort-controls,.rookie-ranking-tabs,.rookie-decade-tabs{display:grid;width:100%;grid-template-columns:repeat(2,minmax(0,1fr))}.rookie-sort-controls button,.rookie-ranking-tabs button,.rookie-decade-tabs button{width:100%;padding-inline:9px}.rookie-team-graphic>div{height:570px}.rookie-team-graphic img{object-position:center 33%}.rookie-snub-card{grid-template-columns:110px minmax(0,1fr)}.rookie-snub-photo{min-height:220px}.rookie-snub-card>div:last-child{padding:13px 11px}}
+
+/* Oct. 14, 2026 WNBA MVP leaderboard */
+.mvp-leaders-dashboard{margin:40px -14px 0;padding:clamp(22px,4vw,38px);overflow:hidden;border-radius:30px;background:radial-gradient(circle at 92% 3%,rgba(216,255,79,.17),transparent 26%),linear-gradient(145deg,#120824,#271047 58%,#43177e);color:#fff;box-shadow:0 26px 58px rgba(20,10,47,.24)}
+.mvp-leaders-head{display:grid;grid-template-columns:minmax(0,1fr) 170px;gap:24px;align-items:end}
+.mvp-leaders-head>div>span{display:block;margin-bottom:8px;color:#d8ff4f;font-size:.76rem;font-weight:950;letter-spacing:.12em;text-transform:uppercase}
+.mvp-leaders-head h3{margin:0;color:#fff;font-size:clamp(2rem,4.5vw,3.25rem);line-height:.98}
+.mvp-leaders-head p{max-width:780px;margin:14px 0 0;color:rgba(255,255,255,.76);font-size:1rem;line-height:1.62}
+.mvp-leaders-head aside{padding:15px;border:1px solid rgba(255,255,255,.18);border-radius:17px;background:rgba(255,255,255,.07);color:#d8ff4f;font-size:.79rem;font-weight:900;letter-spacing:.06em;line-height:1.45;text-align:center;text-transform:uppercase}
+.mvp-leaders-head aside span{display:block;margin-top:5px;color:rgba(255,255,255,.7);font-size:.68rem}
+.mvp-leaders-summary{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:22px 0 18px}
+.mvp-leaders-summary>div{display:flex;align-items:baseline;gap:9px;padding:13px 15px;border:1px solid rgba(255,255,255,.12);border-radius:15px;background:rgba(255,255,255,.08)}
+.mvp-leaders-summary strong{color:#d8ff4f;font-size:1.45rem;line-height:1}
+.mvp-leaders-summary span{font-size:.73rem;font-weight:850;letter-spacing:.05em;text-transform:uppercase}
+.mvp-leaders-controls{display:flex;justify-content:space-between;gap:18px;padding-top:20px;border-top:1px solid rgba(255,255,255,.15)}
+.mvp-leaders-controls>div>span{display:block;margin-bottom:8px;color:#6eceb2;font-size:.7rem;font-weight:950;letter-spacing:.11em}
+.mvp-leaders-controls>div>div{display:flex;flex-wrap:wrap;gap:8px}
+.mvp-leaders-controls button{min-height:42px;padding:9px 13px;border:1px solid rgba(255,255,255,.22);border-radius:999px;background:rgba(255,255,255,.07);color:#fff;font:inherit;font-size:.82rem;font-weight:900;cursor:pointer}
+.mvp-leaders-controls button:hover,.mvp-leaders-controls button:focus-visible{border-color:#d8ff4f;outline:0}
+.mvp-leaders-controls button[aria-pressed="true"]{border-color:#d8ff4f;background:#d8ff4f;color:#160b30}
+.mvp-leaders-status{margin:11px 0;color:rgba(255,255,255,.69);font-size:.8rem}
+.mvp-leaders-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.mvp-leader-card{display:grid;grid-template-columns:118px minmax(0,1fr);min-height:248px;overflow:hidden;border:1px solid rgba(255,255,255,.16);border-radius:19px;background:rgba(255,255,255,.08)}
+.mvp-leader-card[hidden]{display:none}
+.mvp-leader-photo{min-height:100%;background:linear-gradient(165deg,var(--mvp-accent),#190d31 72%)}
+.mvp-leader-photo img{display:block;width:100%;height:100%;min-height:248px;object-fit:cover;object-position:center top}
+.mvp-leader-copy{min-width:0;padding:15px 15px 14px}
+.mvp-leader-topline{display:flex;justify-content:space-between;align-items:center;gap:8px;color:var(--mvp-accent);font-size:.64rem;font-weight:950;letter-spacing:.08em}
+.mvp-leader-topline strong{display:grid;place-items:center;min-width:30px;height:30px;border-radius:50%;background:#d8ff4f;color:#160b30;font-size:.9rem;letter-spacing:0}
+.mvp-leader-copy h4{margin:7px 0 10px;color:#fff;font-size:1.2rem;line-height:1.05}
+.mvp-leader-count{display:flex;align-items:baseline;gap:7px}
+.mvp-leader-count strong{color:#d8ff4f;font-size:1.65rem;line-height:1}
+.mvp-leader-count span{color:rgba(255,255,255,.72);font-size:.74rem;font-weight:850;text-transform:uppercase}
+.mvp-leader-years{margin-top:11px;padding-top:9px;border-top:1px solid rgba(255,255,255,.14)}
+.mvp-leader-years span,.mvp-leader-years b{display:block}
+.mvp-leader-years span{margin-bottom:4px;color:#6eceb2;font-size:.61rem;font-weight:950;letter-spacing:.1em}
+.mvp-leader-years b{color:#fff;font-size:.74rem;line-height:1.45}
+.mvp-leader-meter{height:5px;margin-top:9px;overflow:hidden;border-radius:999px;background:rgba(255,255,255,.15)}
+.mvp-leader-meter span{display:block;height:100%;border-radius:inherit;background:linear-gradient(90deg,#6eceb2,#d8ff4f)}
+.mvp-leader-copy p{margin:9px 0 0;color:rgba(255,255,255,.7);font-size:.75rem;line-height:1.42}
+.mvp-leaders-method{margin:15px 0 0;color:rgba(255,255,255,.67);font-size:.82rem;line-height:1.55}
+@media(max-width:900px){.mvp-leaders-head{grid-template-columns:1fr}.mvp-leaders-head aside{max-width:230px}}
+@media(max-width:680px){.mvp-leaders-dashboard{margin-right:-13px;margin-left:-13px;padding:21px 15px;border-radius:22px}.mvp-leaders-summary{grid-template-columns:1fr}.mvp-leaders-summary>div{justify-content:center}.mvp-leaders-controls{flex-direction:column}.mvp-leaders-controls>div>div{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}.mvp-leaders-controls button{width:100%;padding-inline:8px}.mvp-leaders-grid{grid-template-columns:1fr}.mvp-leader-card{grid-template-columns:100px minmax(0,1fr)}.mvp-leader-copy{padding:13px 11px}.mvp-leader-copy h4{font-size:1.12rem}}

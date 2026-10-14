@@ -307,6 +307,42 @@
     const graphic=board.graphic?`<figure class="rookie-team-graphic"><div><img src="${safe(board.graphic)}" alt="2026 WNBA All-Rookie team graphic showing Pauline Astier, Azzi Fudd, Flau’jae Johnson, Olivia Miles, Kiki Rice and Sydney Taylor" loading="lazy" decoding="async"></div></figure>`:'';
     return `<section class="snack-section rookie-season-dashboard" data-rookie-season-dashboard><header class="rookie-board-head"><div><span>2026 ROOKIE CLASS · SORTABLE COMPARISON</span><h3>${safe(board.title||'Six names, five spots, one tie')}</h3><p>${safe(board.intro||'')}</p></div><aside><strong>${safe(board.asOf||'FINAL REGULAR SEASON')}</strong><span>${safe(board.panel||'AP All-Rookie selections')}</span></aside></header>${graphic}<div class="rookie-board-summary"><div><strong>${safe(board.selectionCount||6)}</strong><span>players selected</span></div><div><strong>${safe(board.spotCount||5)}</strong><span>nominal spots</span></div><div><strong>${safe(board.recordPoints||790)}</strong><span>rookie points · Miles</span></div></div><div class="rookie-sort-head"><div><span>THE CLASS, BY THE RECEIPTS</span><strong data-rookie-season-status aria-live="polite">Sorted by scoring average.</strong></div><div class="rookie-sort-controls" role="group" aria-label="Sort the 2026 All-Rookie class">${measures.map(([key,label],index)=>`<button type="button" data-rookie-season-sort="${key}" aria-pressed="${index===0?'true':'false'}">${label}</button>`).join('')}</div></div><div class="rookie-season-grid" data-rookie-season-grid>${cards}</div><p class="rookie-board-method">${safe(board.methodology||'Stats are final regular-season per-game averages. Selection is the Associated Press team; the AP panel added a sixth honoree because of a tie for fifth.')}</p></section>`;
   }
+  function mvpLeadersDashboardMarkup(board={}){
+    const players=Array.isArray(board.players)?board.players:[];
+    if(!players.length)return'';
+    const cards=players.map(player=>{
+      const id=encodeURIComponent(player.id||'');
+      const photo=id?`https://cdn.wnba.com/headshots/wnba/latest/260x190/${id}.png`:'';
+      const fallback=id?`https://cdn.wnba.com/headshots/wnba/latest/1040x760/${id}.png`:'';
+      const place=Number(player.rank);
+      const placeLabel=place===1?'RECORD HOLDER':`TIED ${place===2?'2ND':'5TH'}`;
+      return `<article class="mvp-leader-card" data-mvp-leader data-mvps="${safe(player.awards)}" data-first="${safe(player.first)}" data-latest="${safe(player.latest)}" data-rank="${safe(player.rank)}" style="--mvp-accent:${safe(player.accent||'#d8ff4f')}"><div class="mvp-leader-photo">${photo?`<img src="${safe(photo)}" alt="Official WNBA headshot of ${safe(player.name)}" loading="lazy" decoding="async"${imageRecovery(fallback)}>`:''}</div><div class="mvp-leader-copy"><div class="mvp-leader-topline"><span>${placeLabel}</span><strong data-mvp-place>${safe(player.rank)}</strong></div><h4>${safe(player.name)}</h4><div class="mvp-leader-count"><strong>${safe(player.awards)}×</strong><span>regular-season MVP</span></div><div class="mvp-leader-years"><span>MVP SEASONS</span><b>${safe((player.years||[]).join(' · '))}</b></div><div class="mvp-leader-meter" aria-hidden="true"><span style="width:${Math.max(8,Math.round(Number(player.awards)/5*100))}%"></span></div><p>${safe(player.note||'')}</p></div></article>`;
+    }).join('');
+    const filters=[['all','All 8'],['5','5 MVPs'],['3','3 MVPs'],['2','2 MVPs']];
+    const sorts=[['count','MVP count'],['first','First MVP'],['latest','Latest MVP']];
+    return `<section class="snack-section mvp-leaders-dashboard" data-mvp-leaders-dashboard><header class="mvp-leaders-head"><div><span>${safe(board.eyebrow||'WNBA REGULAR-SEASON MVP HISTORY')}</span><h3>${safe(board.title||'One record, three legends, four tied at fifth')}</h3><p>${safe(board.intro||'')}</p></div><aside><strong>${safe(board.asOf||'THROUGH 2026')}</strong><span>Official award seasons</span></aside></header><div class="mvp-leaders-summary"><div><strong>5</strong><span>Wilson’s record</span></div><div><strong>3</strong><span>three-time winners</span></div><div><strong>4</strong><span>tied for fifth</span></div></div><div class="mvp-leaders-controls"><div><span>SHOW</span><div role="group" aria-label="Filter MVP leaders by award count">${filters.map(([key,label],index)=>`<button type="button" data-mvp-filter="${key}" aria-pressed="${index===0?'true':'false'}">${label}</button>`).join('')}</div></div><div><span>SORT</span><div role="group" aria-label="Sort MVP leaders">${sorts.map(([key,label],index)=>`<button type="button" data-mvp-sort="${key}" aria-pressed="${index===0?'true':'false'}">${label}</button>`).join('')}</div></div></div><p class="mvp-leaders-status" data-mvp-status aria-live="polite">Showing all ${players.length} leaders · sorted by MVP count.</p><div class="mvp-leaders-grid" data-mvp-grid>${cards}</div><p class="mvp-leaders-method">Ranking uses regular-season MVP totals only. A’ja Wilson is first with five; the three players with three awards occupy the next three places; four two-time winners share fifth. The list does not rank championships, Finals MVPs or overall careers.</p></section>`;
+  }
+  function wireMvpLeadersDashboard(story){
+    const board=story?.querySelector('[data-mvp-leaders-dashboard]');
+    if(!board||board.dataset.ready==='1')return;
+    board.dataset.ready='1';
+    const cards=[...board.querySelectorAll('[data-mvp-leader]')],grid=board.querySelector('[data-mvp-grid]'),status=board.querySelector('[data-mvp-status]');
+    const sortButtons=[...board.querySelectorAll('[data-mvp-sort]')],filterButtons=[...board.querySelectorAll('[data-mvp-filter]')];
+    const sortNames={count:'MVP count',first:'first MVP season',latest:'most recent MVP season'};
+    let sort='count',filter='all';
+    function redraw(){
+      sortButtons.forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.mvpSort===sort)));
+      filterButtons.forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.mvpFilter===filter)));
+      const visible=cards.filter(card=>filter==='all'||card.dataset.mvps===filter);
+      cards.forEach(card=>{card.hidden=!visible.includes(card);});
+      visible.sort((a,b)=>sort==='count'?Number(b.dataset.mvps)-Number(a.dataset.mvps)||Number(a.dataset.first)-Number(b.dataset.first):sort==='first'?Number(a.dataset.first)-Number(b.dataset.first):Number(b.dataset.latest)-Number(a.dataset.latest));
+      visible.forEach(card=>grid.appendChild(card));
+      if(status)status.textContent=`Showing ${visible.length} ${visible.length===1?'leader':'leaders'} · sorted by ${sortNames[sort]}.`;
+    }
+    sortButtons.forEach(button=>button.addEventListener('click',()=>{sort=button.dataset.mvpSort;redraw();}));
+    filterButtons.forEach(button=>button.addEventListener('click',()=>{filter=button.dataset.mvpFilter;redraw();}));
+    redraw();
+  }
   function wireRookieSeasonDashboard(story){
     const board=story?.querySelector('[data-rookie-season-dashboard]');
     if(!board||board.dataset.ready==='1')return;
@@ -369,7 +405,7 @@
   function debatesMarkup(items=[]){return items.length?`<section class="snack-debate-board"><h3>Spicy debate board</h3><ul>${items.map(item=>`<li>${safe(item)}</li>`).join('')}</ul></section>`:'';}
   function foodMarkup(food={}){return food.title||food.script?`<section class="food-segment"><span class="segment-label">FROM THE KITCHEN</span><h3>${safe(food.title||'This week’s segment')}</h3>${food.script?`<blockquote>${safe(food.script)}</blockquote>`:''}</section>`:'';}
   function sourcesMarkup(sources=[]){return sources.length?`<section class="source-list"><strong>Receipts</strong><p>${sources.map(source=>`<a href="${safe(source.url)}" target="_blank" rel="noopener noreferrer">${safe(source.label||'Source')}</a>`).join(' · ')}</p></section>`:'';}
-  function storyMarkup(post){return `<a class="snack-story-back" href="${pagePath}">← Back to all ${mode==='feature'?'Food for Thought articles':'Snack Shak Bytes'}</a><article class="snack-post"><header class="snack-post-header ${mode==='feature'?'feature-header':''}"><span class="snack-series-label">${safe(label(post))}</span><div class="meta"><span>${safe(format(post.published))}</span>${post.week?`<span>•</span><span>${safe(post.week)}</span>`:''}</div><h2>${safe(post.title)}</h2><p class="dek">${safe(post.dek||'')}</p></header>${storyImageMarkup(post)}${storyLeadMarkup(post)}${playoffGameOneMarkup(post.playoffGameOne)}${playoffDraftBoardMarkup(post.playoffDraftBoard)}${playoffGalleryMarkup(post.finalsGraphic)}${playoffGalleryMarkup(post.gameGallery)}${playoffBoardMarkup(post)}${playoffWatchMarkup(post.playoffWatch)}${playoffAwardFalloutMarkup(post.awardFallout)}${rankingsMarkup(post.rankings)}${tableMarkup(post.storyTable)}${trioDashboardMarkup(post.trioDashboard)}${apAwardsDashboardMarkup(post.apAwardsDashboard)}${rookieSeasonDashboardMarkup(post.rookieSeasonDashboard)}${rookieHistoryDashboardMarkup(post.rookieHistoryDashboard)}${rookieSnubsMarkup(post.rookieSnubs)}${sectionsMarkup(post.sections)}${debatesMarkup(post.debates)}${foodMarkup(post.foodSegment)}${sourcesMarkup(post.sources)}</article>`;}
+  function storyMarkup(post){return `<a class="snack-story-back" href="${pagePath}">← Back to all ${mode==='feature'?'Food for Thought articles':'Snack Shak Bytes'}</a><article class="snack-post"><header class="snack-post-header ${mode==='feature'?'feature-header':''}"><span class="snack-series-label">${safe(label(post))}</span><div class="meta"><span>${safe(format(post.published))}</span>${post.week?`<span>•</span><span>${safe(post.week)}</span>`:''}</div><h2>${safe(post.title)}</h2><p class="dek">${safe(post.dek||'')}</p></header>${storyImageMarkup(post)}${storyLeadMarkup(post)}${playoffGameOneMarkup(post.playoffGameOne)}${playoffDraftBoardMarkup(post.playoffDraftBoard)}${playoffGalleryMarkup(post.finalsGraphic)}${playoffGalleryMarkup(post.gameGallery)}${playoffBoardMarkup(post)}${playoffWatchMarkup(post.playoffWatch)}${playoffAwardFalloutMarkup(post.awardFallout)}${rankingsMarkup(post.rankings)}${tableMarkup(post.storyTable)}${trioDashboardMarkup(post.trioDashboard)}${apAwardsDashboardMarkup(post.apAwardsDashboard)}${mvpLeadersDashboardMarkup(post.mvpLeadersDashboard)}${rookieSeasonDashboardMarkup(post.rookieSeasonDashboard)}${rookieHistoryDashboardMarkup(post.rookieHistoryDashboard)}${rookieSnubsMarkup(post.rookieSnubs)}${sectionsMarkup(post.sections)}${debatesMarkup(post.debates)}${foodMarkup(post.foodSegment)}${sourcesMarkup(post.sources)}</article>`;}
 
   function setCollectionArchiveMode(activeSlug=''){
     const list=document.getElementById('snackCollectionGrid');
@@ -396,6 +432,7 @@
     wirePlayoffWatch(story);
     wireTrioDashboard(story);
     wireApAwardsDashboard(story);
+    wireMvpLeadersDashboard(story);
     wireRookieSeasonDashboard(story);
     wireRookieHistoryDashboard(story);
     document.title=`${post.title} | ${mode==='feature'?'Food for Thought':'Snack Shak Bytes'}`;

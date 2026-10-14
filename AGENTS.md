@@ -12,6 +12,7 @@ This is a standing user requirement for every website and every site page or ass
 ## No backstage material on public pages
 
 - Never publish working screenshots, phone screenshots or interface chrome, private review graphics, draft notes, internal instructions, or crop/editing explanations.
-- Treat user screenshots as reference material unless the user explicitly identifies an image as final, publish-ready artwork. Never crop a screenshot to hide its interface and publish the remainder as an article graphic.
+- Treat user screenshots as reference material unless the user explicitly directs that a supplied image or graphic be retained. In that case, preserve the requested graphic and presentation, and remove only any process notes the user flags; do not remove the image itself.
+- Crop to the artwork when that is the user's requested presentation. Never publish commentary that explains the crop or image-editing process.
 - Use verified official media or a clean site-native layout for public presentation.
 - Before publishing, inspect the rendered page, its captions and alt text, linked thumbnails, data feeds, and image assets for backstage material or explanations of the production process.

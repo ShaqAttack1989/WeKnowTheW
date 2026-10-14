@@ -33,7 +33,7 @@
         "Sydney Taylor"
       ],
       "storyLead": [
-        "The supplied 2026 team graphic shows six names because the fifth place vote was tied: Pauline Astier, Azzi Fudd, Flau’jae Johnson, Olivia Miles, Kiki Rice and Sydney Taylor. The AP named Miles its unanimous Rookie of the Year; her 790 points set a WNBA rookie scoring record. One team, six very different routes to recognition.",
+        "A tie for fifth expanded the 2026 AP All-Rookie Team to six honorees: Pauline Astier, Azzi Fudd, Flau’jae Johnson, Olivia Miles, Kiki Rice and Sydney Taylor. Miles was the unanimous Rookie of the Year, and her 790 points set a WNBA rookie scoring record. One team, six different paths to recognition.",
         "A rookie team is a snapshot of a season. A historical ranking is a look backward at what careers became. Keep those questions separate: the first dashboard compares this class on its rookie-year production, while the history board ranks older teams on the careers that followed."
       ],
       "rookieSeasonDashboard": {
@@ -44,8 +44,6 @@
         "selectionCount": 6,
         "spotCount": 5,
         "recordPoints": 790,
-        "graphic": "/assets/images/snack-shak/2026-ap-all-rookie-team-shaq.jpg",
-        "graphicCaption": "The supplied team graphic, cropped in-page to remove the phone interface.",
         "methodology": "Final regular-season per-game figures from the AP voter’s end-of-season review. Buttons reorder the six selections by points, assists or three-point percentage. AP’s five-place team lists six players because of a tie for fifth.",
         "players": [
           {

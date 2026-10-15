@@ -34,4 +34,11 @@ test('2026 Finals schedule matches the latest WNBA schedule in every shared sour
  assert.ok(fs.existsSync(scheduleGraphic.image),'uploaded schedule image exists at article path');
  assert.ok(guide.sources.some(s=>s.url==='https://www.wnba.com/news/wnba-finals-games3-and-4-to-be-played-at-state-farm-arena'));
  assert.equal(fs.readFileSync('snack-shak-latest.json','utf8'),fs.readFileSync('site/snack-shak-latest.json','utf8'));
+ const dashboardVersion='20261015-finals-schedule-v2';
+ const siteSource=fs.readFileSync('site.js','utf8');
+ assert.ok(siteSource.includes(`global-scoreboard.js?v=${dashboardVersion}`),'global scoreboard asset is cache-busted');
+ for(const page of ['index.html','games.html','live-stats.html']){
+  assert.ok(fs.readFileSync(page,'utf8').includes(`/site.js?v=${dashboardVersion}`),`${page} refreshes the shared game dashboard loader`);
+ }
+ assert.ok(fs.readFileSync('index.html','utf8').includes(`/playoff-bracket.js?v=${dashboardVersion}`),'homepage bracket asset is cache-busted');
 });

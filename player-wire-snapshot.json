@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-15T15:01:33.025Z",
+  "generatedAt": "2026-10-15T19:07:30.953Z",
   "movement": {
     "latestTransactionDate": "2026-09-28",
     "transactions": [
@@ -1441,6 +1441,20 @@
     "reportLabel": "10/10/2026 12:00 AM ET",
     "officialPdf": "https://ak-static.cms.nba.com/referee/wnba_injury/Injury-Report_2026-10-10_12_00AM.pdf",
     "injuries": [
+      {
+        "player": "Aliyah Boston",
+        "team": "Indiana Fever",
+        "status": "OUT",
+        "reason": "Knee · out",
+        "updated": "2026-10-15",
+        "returnDate": "2027-05-01",
+        "matchup": "",
+        "gameTime": "",
+        "source": "ESPN via WeHoop-compatible endpoint",
+        "sourceUrl": null,
+        "officialCurrentReport": false,
+        "crossCheckOnly": true
+      },
       {
         "player": "Allisha Gray",
         "team": "Atlanta Dream",

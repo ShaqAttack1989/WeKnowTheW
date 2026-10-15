@@ -10,6 +10,17 @@
   }
 })();
 
+// Vercel Speed Insights: sitewide Core Web Vitals tracking.
+(()=>{
+  window.si=window.si||function(){(window.siq=window.siq||[]).push(arguments);};
+  if(!document.querySelector('script[src="/_vercel/speed-insights/script.js"]')){
+    const script=document.createElement('script');
+    script.src='/_vercel/speed-insights/script.js';
+    script.defer=true;
+    document.head.appendChild(script);
+  }
+})();
+
 const UI_FIXES_HREF='/ui-fixes.css?v=20260930-dashboard-spacing-v4';
 if(!document.querySelector('link[data-ui-fixes]')){const link=document.createElement('link');link.rel='stylesheet';link.href=UI_FIXES_HREF;link.dataset.uiFixes='true';document.head.appendChild(link);}
 const NAVIGATION_HREF='/site-navigation.css?v=20260930-wide-collision-v4';

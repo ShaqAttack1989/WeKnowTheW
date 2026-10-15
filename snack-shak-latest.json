@@ -2309,7 +2309,7 @@
       "seriesLabel": "FOOD FOR THOUGHT · PLAYOFF WATCH GUIDE",
       "title": "Two Sweeps, One New Champion: Dream–Valkyries Finals Are Set",
       "published": "2026-10-02",
-      "updated": "2026-10-11",
+      "updated": "2026-10-15",
       "week": "Finals · Golden State vs. Atlanta · Begins Oct. 17",
       "image": "https://i.guim.co.uk/img/media/53109b8f7bdd419a65d3abb786964fac24ab093b/0_0_4506_3005/master/4506.jpg?width=1920&quality=85&auto=format&fit=max&s=92e194d3c36e859bc2e846bd89813fed",
       "imageFit": "contain",
@@ -2401,7 +2401,7 @@
           "title": "A first title is guaranteed. The winner is not.",
           "paragraphs": [
             "The best-of-seven Finals begin October 17 at 3:30 p.m. ET at Chase Center on NBC and Peacock. Golden State is the No. 2 seed; Atlanta is No. 4. Both franchises seek their first WNBA championship.",
-            "The canceled semifinal Games 4 and 5 no longer belong on the upcoming slate. Game 1’s 3:30 p.m. ET tip on NBC and Peacock is confirmed; the remaining games are listed above.",
+            "The WNBA moved Game 3 from Thursday, Oct. 22, to Wednesday, Oct. 21, at 8 p.m. ET, and shifted Game 4 on Saturday, Oct. 24, from 3:30 p.m. to 1 p.m. ET. Games 3 and 4—the first two Finals games in Atlanta—will be played at State Farm Arena.",
             "Analysis: Canada’s organization and Reese’s interior work meet a Golden State team that keeps finding a different scorer. The matchup rewards the team that can protect possessions without surrendering its pace."
           ]
         },
@@ -2415,10 +2415,10 @@
         {
           "title": "The Finals watch schedule",
           "paragraphs": [
-            "All times Eastern. Golden State hosts Games 1, 2, 5 and 7; Atlanta hosts Games 3, 4 and 6.",
-            "Game 1: Sat., Oct. 17, 3:30 p.m. · NBC / Peacock. Game 2: Mon., Oct. 19, 8 p.m. · USA / Peacock.",
-            "Game 3: Thu., Oct. 22, 8 p.m. · USA / Peacock. Game 4: Sat., Oct. 24, 3:30 p.m. · NBC / Peacock.",
-            "If necessary: Game 5, Mon., Oct. 26; Game 6, Thu., Oct. 29; Game 7, Sat., Oct. 31. Each tips at 8 p.m. on USA and Peacock."
+            "All tip times are Eastern. Golden State hosts Games 1, 2, 5 and 7 at Chase Center in San Francisco; Atlanta hosts Games 3 and 4 at State Farm Arena. Game 6 is an Atlanta home game, with its venue still listed as TBD. Games 5–7 are if necessary.",
+            "Game 1: Sat., Oct. 17, 3:30 p.m. · NBC / Peacock. Game 2: Mon., Oct. 19, 8 p.m. · USA / Peacock / CNBC.",
+            "Game 3: Wed., Oct. 21, 8 p.m. · USA / Peacock / CNBC. Game 4: Sat., Oct. 24, 1 p.m. · NBC / Peacock.",
+            "If necessary: Game 5, Mon., Oct. 26; Game 6, Thu., Oct. 29; Game 7, Sat., Oct. 31. Each tips at 8 p.m. ET on USA / Peacock / CNBC."
           ]
         }
       ],
@@ -2440,8 +2440,8 @@
           "url": "https://aces.wnba.com/news/semis-game-3-gallery-aces-vs-valkyries-10-9-2026"
         },
         {
-          "label": "WNBA · Official Finals times and broadcasts",
-          "url": "https://www.wnba.com/news/2026-wnba-postseason-faq"
+          "label": "WNBA · Official Finals schedule update",
+          "url": "https://www.wnba.com/news/wnba-finals-games3-and-4-to-be-played-at-state-farm-arena"
         },
         {
           "label": "Atlanta Dream · Renee Montgomery official profile",
@@ -2462,6 +2462,10 @@
         {
           "label": "WNBA · Azzi Fudd season-ending injury update",
           "url": "https://www.wnba.com/news/dallas-wings-azzi-fudd-to-undergo-season-ending-knee-surgery"
+        },
+        {
+          "label": "WNBA · 2026 Finals schedule, broadcasts and series preview",
+          "url": "https://www.wnba.com/news/game-preview-2026-wnba-finals"
         }
       ],
       "dashboardUrl": "/food-for-thought.html?post=the-playoff-watch-party-2026#story",
@@ -2471,7 +2475,7 @@
       "playoffWatch": {
         "title": "DREAM × VALKYRIES. THE FINALS ARE SET.",
         "subtitle": "Both swept 3–0 on October 9. A first championship awaits one franchise.",
-        "asOf": "GAME 3 FINALS · OCT. 9",
+        "asOf": "FINALS SCHEDULE · OCT. 15",
         "summary": [
           {
             "value": "3–0",
@@ -2650,9 +2654,9 @@
       "storyImageFallback": "https://cdn.wnba.com/logos/wnba/1611661330/primary/L/logo.svg",
       "imageFocus": "65% 40%",
       "finalsGraphic": {
-        "eyebrow": "2026 WNBA FINALS · MATCHUP GRAPHIC",
+        "eyebrow": "2026 WNBA FINALS · MATCHUP & SCHEDULE",
         "title": "Dream meets Valkyries",
-        "dek": "Two finalists. One first-time champion.",
+        "dek": "Two finalists. One first-time champion. Dates, venues and broadcasts.",
         "items": [
           {
             "image": "assets/photos/dream-valkyries-finals-jws-2026.jpg",
@@ -2662,6 +2666,16 @@
             "caption": "Atlanta and Golden State take their title chase to the Finals.",
             "credit": "Graphic: Just Women’s Sports (JWS)",
             "sourceUrl": "https://www.instagram.com/justwomenssports/",
+            "imageFit": "contain"
+          },
+          {
+            "image": "assets/photos/wnba-finals-schedule-2026.jpg",
+            "alt": "2026 WNBA Finals schedule graphic for the Atlanta Dream and Golden State Valkyries, showing Games 1 through 7",
+            "kicker": "2026 WNBA FINALS · FULL SCHEDULE",
+            "title": "Seven possible games, two cities",
+            "caption": "Game 3 moved to Wednesday, Oct. 21; Game 4 now tips at 1 p.m. ET on Oct. 24. Game 6 is an Atlanta home game, with venue still TBD.",
+            "credit": "Graphic supplied by WeKnowTheW; schedule checked against WNBA.com",
+            "sourceUrl": "https://www.wnba.com/news/game-preview-2026-wnba-finals",
             "imageFit": "contain"
           }
         ]

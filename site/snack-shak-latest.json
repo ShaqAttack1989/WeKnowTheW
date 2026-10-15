@@ -2,6 +2,770 @@
   "site": "Snack Shak",
   "posts": [
     {
+      "slug": "fifth-place-four-mvp-tie-2026",
+      "type": "byte",
+      "priority": 7200,
+      "seriesLabel": "SNACK SHAK BYTE · MVP HISTORY",
+      "title": "The Fifth Spot Has Four Names",
+      "published": "2026-10-14",
+      "updated": "2026-10-14",
+      "dek": "The all-time graphic stops after A’ja Wilson and the three-time winners. The next place is a four-way tie, with Candace Parker among the names to add.",
+      "dashboardUrl": "/snack-shak-bytes.html?post=fifth-place-four-mvp-tie-2026#story",
+      "image": "https://cdn.wnba.com/sites/4/2026/02/GettyImages-83115632-2-scaled.jpg",
+      "storyImage": "https://cdn.wnba.com/sites/4/2026/02/GettyImages-83115632-2-scaled.jpg",
+      "imageAlt": "Candace Parker poses with the WNBA MVP and Rookie of the Year awards before the 2008 Finals",
+      "storyImageCaption": "Candace Parker with the 2008 WNBA MVP and Rookie of the Year awards before Game Two of the Finals. Photo: Getty Images / WNBA.",
+      "storyImageSourceUrl": "https://www.wnba.com/webview/news/black-history-month-player-spotlight-candace-parker",
+      "players": [
+        "A’ja Wilson",
+        "Sheryl Swoopes",
+        "Lisa Leslie",
+        "Lauren Jackson",
+        "Cynthia Cooper",
+        "Candace Parker",
+        "Elena Delle Donne",
+        "Breanna Stewart"
+      ],
+      "storyLead": [
+        "A’ja Wilson’s fifth regular-season MVP, announced October 8, puts her alone atop the WNBA count. The graphic names Wilson and the three-time winners Sheryl Swoopes, Lisa Leslie and Lauren Jackson. Add the next place and the board needs four names: Cynthia Cooper, Candace Parker, Elena Delle Donne and Breanna Stewart each won twice.",
+        "Candace is a natural fifth face to add to a four-person graphic, but she is not the only player in fifth place. In standard ranking, the three-time winners tie for second and the four two-time winners tie for fifth. The sortable board below keeps that tie visible."
+      ],
+      "mvpLeadersDashboard": {
+        "eyebrow": "WNBA REGULAR-SEASON MVP HISTORY",
+        "title": "One record, three legends, four tied at fifth",
+        "intro": "Sort the eight multi-time MVPs by award count or by when their first and latest wins arrived. Filter to the shared fifth-place group to see every name in the tie.",
+        "asOf": "THROUGH 2026",
+        "players": [
+          {
+            "name": "A’ja Wilson",
+            "id": "1628932",
+            "awards": 5,
+            "rank": 1,
+            "first": 2020,
+            "latest": 2026,
+            "years": [
+              2020,
+              2022,
+              2024,
+              2025,
+              2026
+            ],
+            "accent": "#c8102e",
+            "note": "The league’s only five-time MVP; the 2024–26 run is the first three-peat."
+          },
+          {
+            "name": "Sheryl Swoopes",
+            "id": "100072",
+            "awards": 3,
+            "rank": 2,
+            "first": 2000,
+            "latest": 2005,
+            "years": [
+              2000,
+              2002,
+              2005
+            ],
+            "accent": "#c52233",
+            "note": "The first player to reach three MVPs, all with the Houston Comets.",
+            "photo": "https://cdn.wnba.com/sites/4/2016/05/open_night_gal.jpg",
+            "photoAlt": "Sheryl Swoopes rises for a shot in a Houston Comets uniform during the WNBA’s inaugural season"
+          },
+          {
+            "name": "Lisa Leslie",
+            "id": "100003",
+            "awards": 3,
+            "rank": 2,
+            "first": 2001,
+            "latest": 2006,
+            "years": [
+              2001,
+              2004,
+              2006
+            ],
+            "accent": "#6b2bd9",
+            "note": "Three MVP seasons with the Los Angeles Sparks.",
+            "photo": "https://cdn.wnba.com/sites/1611661320/2021/03/Lisa-Double-Double.png",
+            "photoAlt": "Lisa Leslie elevates for a jump shot against a defender in a Los Angeles Sparks uniform"
+          },
+          {
+            "name": "Lauren Jackson",
+            "id": "100682",
+            "awards": 3,
+            "rank": 2,
+            "first": 2003,
+            "latest": 2010,
+            "years": [
+              2003,
+              2007,
+              2010
+            ],
+            "accent": "#1e704d",
+            "note": "Three MVPs across eight seasons with the Seattle Storm.",
+            "photo": "https://cdn.wnba.com/sites/4/2017/09/2004PS.jpg",
+            "photoAlt": "Lauren Jackson controls the ball against a Minnesota Lynx defender in a Seattle Storm uniform"
+          },
+          {
+            "name": "Cynthia Cooper",
+            "id": "100073",
+            "awards": 2,
+            "rank": 5,
+            "first": 1997,
+            "latest": 1998,
+            "years": [
+              1997,
+              1998
+            ],
+            "accent": "#c52233",
+            "note": "The league’s first back-to-back MVP, winning in its first two seasons.",
+            "photo": "https://cdn.wnba.com/sites/4/2025/10/GettyImages-1139076163.jpg",
+            "photoAlt": "Cynthia Cooper drives past Los Angeles Sparks defenders in a Houston Comets uniform"
+          },
+          {
+            "name": "Candace Parker",
+            "id": "201496",
+            "awards": 2,
+            "rank": 5,
+            "first": 2008,
+            "latest": 2013,
+            "years": [
+              2008,
+              2013
+            ],
+            "accent": "#f2b400",
+            "note": "The first player to win both Rookie of the Year and MVP in the same WNBA season."
+          },
+          {
+            "name": "Elena Delle Donne",
+            "id": "203399",
+            "awards": 2,
+            "rank": 5,
+            "first": 2015,
+            "latest": 2019,
+            "years": [
+              2015,
+              2019
+            ],
+            "accent": "#c8102e",
+            "note": "Her two MVPs came with different teams: Chicago in 2015 and Washington in 2019."
+          },
+          {
+            "name": "Breanna Stewart",
+            "id": "1627668",
+            "awards": 2,
+            "rank": 5,
+            "first": 2018,
+            "latest": 2023,
+            "years": [
+              2018,
+              2023
+            ],
+            "accent": "#6eceb2",
+            "note": "A five-season gap separates her Seattle MVP from her New York MVP."
+          }
+        ],
+        "methodology": "Regular-season MVP totals only. A’ja Wilson leads with five; three players share second place with three awards each; four players share fifth place with two apiece. This does not rank championships, Finals MVPs or overall careers."
+      },
+      "sections": [
+        {
+          "title": "The tie changes the fifth slot",
+          "paragraphs": [
+            "The WNBA’s official season-by-season list confirms five for Wilson; three apiece for Swoopes, Leslie and Jackson; and two each for Cooper, Parker, Delle Donne and Stewart. That creates a four-player tie for fifth by award count. A fifth portrait can start the next row, but a complete history needs all four.",
+            "Parker’s résumé makes her an especially fitting addition. She earned MVP and Rookie of the Year in 2008, then added her second MVP in 2013. Cooper’s two came in consecutive seasons at the league’s start; Delle Donne won with Chicago and Washington; Stewart’s came with Seattle and New York."
+          ]
+        },
+        {
+          "title": "MVP count is one lens, not a GOAT ballot",
+          "paragraphs": [
+            "This board counts regular-season MVP awards. It does not add Finals MVPs, titles, All-WNBA selections or career totals. Those are different questions, and combining them would turn a clean record into a subjective score.",
+            "The useful takeaway is the shape of the record: Wilson has separated at five, the three-time tier remains a shared piece of league history, and the two-time tier is four-deep. Candace Parker belongs in the added row—alongside three co-fifth MVPs."
+          ]
+        }
+      ],
+      "foodSegment": {
+        "title": "Add the row, keep the tie",
+        "script": "Candace Parker is a fifth face. The footnote is four names: Cooper, Parker, Delle Donne and Stewart all share fifth place with two MVPs."
+      },
+      "sources": [
+        {
+          "label": "WNBA · 2026 MVP announcement and complete season-by-season winner list",
+          "url": "https://www.wnba.com/news/wilson-named-2026-most-valuable-player"
+        },
+        {
+          "label": "WNBA · Official MVP history",
+          "url": "https://www.wnba.com/history-mvp"
+        },
+        {
+          "label": "WNBA · Candace Parker with the 2008 MVP and Rookie of the Year awards",
+          "url": "https://www.wnba.com/webview/news/black-history-month-player-spotlight-candace-parker"
+        },
+        {
+          "label": "WNBA · Elena Delle Donne wins her second MVP",
+          "url": "https://www.wnba.com/news/washingtons-elena-delle-donne-named-2019-wnba-basketball-most-valuable-player"
+        },
+        {
+          "label": "WNBA · Sheryl Swoopes in the inaugural Comets season",
+          "url": "https://www.wnba.com/news/photo-gallery-look-back-wnbas-inaugural-champion"
+        },
+        {
+          "label": "Los Angeles Sparks · Lisa Leslie action photo and milestone",
+          "url": "https://sparks.wnba.com/historical-timeline"
+        },
+        {
+          "label": "WNBA · Lauren Jackson 2004 season photo",
+          "url": "https://www.wnba.com/awards2004"
+        },
+        {
+          "label": "WNBA · Cynthia Cooper Finals MVP photo gallery",
+          "url": "https://www.wnba.com/news/photo-gallery-finals-mvps"
+        }
+      ],
+      "imageFit": "top-cover"
+    },
+    {
+      "slug": "six-rookies-five-spots-long-game",
+      "type": "feature",
+      "priority": 10000,
+      "seriesLabel": "FOOD FOR THOUGHT · THE ROOKIE FILE",
+      "title": "Six Rookies, Five Spots, and the Long Game",
+      "published": "2026-10-14",
+      "updated": "2026-10-14",
+      "dek": "A tied fifth place made six 2026 AP All-Rookie honorees. Put their season in context, then rank the most accomplished All-Rookie classes and find the future stars the ballot missed.",
+      "image": "https://cdn.wnba.com/sites/4/2026/07/GettyImages-2287270587-scaled.jpg",
+      "storyImage": "https://cdn.wnba.com/sites/4/2026/07/GettyImages-2287270587-scaled.jpg",
+      "imageAlt": "Olivia Miles of the Minnesota Lynx handling the ball during a game",
+      "imageFit": "contain",
+      "storyImageCaption": "Olivia Miles of the Minnesota Lynx in action. Photo: Getty Images / WNBA.",
+      "storyImageSourceUrl": "https://www.wnba.com/news/season-30-stretch-run-one-thing-to-watch",
+      "teams": [
+        "New York Liberty",
+        "Dallas Wings",
+        "Seattle Storm",
+        "Minnesota Lynx",
+        "Toronto Tempo",
+        "Chicago Sky"
+      ],
+      "players": [
+        "Pauline Astier",
+        "Azzi Fudd",
+        "Flau’jae Johnson",
+        "Olivia Miles",
+        "Kiki Rice",
+        "Sydney Taylor"
+      ],
+      "storyLead": [
+        "A tie for fifth expanded the 2026 AP All-Rookie Team to six honorees: Pauline Astier, Azzi Fudd, Flau’jae Johnson, Olivia Miles, Kiki Rice and Sydney Taylor. Miles was the unanimous Rookie of the Year, and her 790 points set a WNBA rookie scoring record. One team, six different paths to recognition.",
+        "A rookie team is a snapshot of a season. A historical ranking is a look backward at what careers became. Keep those questions separate: the first dashboard compares this class on its rookie-year production, while the history board ranks older teams on the careers that followed."
+      ],
+      "rookieSeasonDashboard": {
+        "title": "Six names, five spots, one tie",
+        "intro": "Change the sort to see what led each player’s case. Miles owned the scoring and creation columns; the rest of the group brought distinct mixes of shot-making, playmaking and opportunity.",
+        "asOf": "FINAL REGULAR SEASON",
+        "panel": "Associated Press selections",
+        "selectionCount": 6,
+        "spotCount": 5,
+        "recordPoints": 790,
+        "graphic": "/assets/images/snack-shak/2026-ap-all-rookie-team-shaq.jpg",
+        "methodology": "Final regular-season per-game figures from the AP voter’s end-of-season review. Buttons reorder the six selections by points, assists or three-point percentage. AP’s five-place team lists six players because of a tie for fifth.",
+        "players": [
+          {
+            "name": "Olivia Miles",
+            "team": "Minnesota Lynx",
+            "id": "1643426",
+            "points": 19.8,
+            "assists": 6,
+            "three": 38.8,
+            "accent": "#78be20",
+            "note": "Unanimous AP Rookie of the Year; 790 points set the rookie scoring record."
+          },
+          {
+            "name": "Azzi Fudd",
+            "team": "Dallas Wings",
+            "id": "1643425",
+            "points": 13.1,
+            "assists": 1.8,
+            "three": 39.7,
+            "accent": "#0050a4",
+            "note": "The group’s best three-point percentage; a high-value shooting role."
+          },
+          {
+            "name": "Flau’jae Johnson",
+            "team": "Seattle Storm",
+            "id": "1643428",
+            "points": 14.9,
+            "assists": 2.9,
+            "three": 29.6,
+            "accent": "#2c5234",
+            "note": "Added 4.8 rebounds a game alongside 14.9 points and 2.9 assists."
+          },
+          {
+            "name": "Sydney Taylor",
+            "team": "Chicago Sky",
+            "id": "1642321",
+            "points": 13.6,
+            "assists": 1.9,
+            "three": 32.9,
+            "accent": "#5ba1d8",
+            "note": "Two late game-winners helped make an undrafted rookie’s case visible."
+          },
+          {
+            "name": "Pauline Astier",
+            "team": "New York Liberty",
+            "id": "1631136",
+            "points": 9.3,
+            "assists": 3.3,
+            "three": 33.3,
+            "accent": "#6eceb2",
+            "note": "Efficient scoring and 3.3 assists per game supported her final-place case."
+          },
+          {
+            "name": "Kiki Rice",
+            "team": "Toronto Tempo",
+            "id": "1643445",
+            "points": 12.9,
+            "assists": 3.5,
+            "three": 35.3,
+            "accent": "#da3b64",
+            "note": "A two-way guard profile, with 3.5 assists and 35.3% from three."
+          }
+        ]
+      },
+      "rookieHistoryDashboard": {
+        "title": "The 10 strongest All-Rookie classes",
+        "intro": "These are WKTW career-hindsight rankings, not league awards. Tap a lens to change the order, then filter by decade to see which cohorts move when star power or class depth gets the louder voice.",
+        "asOf": "CAREER RECEIPTS THROUGH 2026",
+        "methodology": "Overall blends peak achievement (40%), depth of lasting All-Star / All-WNBA-level careers (35%), and postseason impact plus longevity (25%). “Peak star” isolates the highest career ceiling; “Class depth” gives more weight to how many selections became major contributors. Recent classes from 2020 onward are left in a watchlist rather than ranked against careers with more runway. Official team names are transcribed from the WNBA’s All-Rookie history; ranks and weights are editorial.",
+        "classes": [
+          {
+            "year": 2008,
+            "overallRank": 1,
+            "peakRank": 2,
+            "depthRank": 4,
+            "stars": "Candace Parker · Sylvia Fowles",
+            "case": "Two generational centers, each with an MVP-level career, give this class an extraordinary top end.",
+            "players": [
+              "Candace Parker",
+              "Candice Wiggins",
+              "Sylvia Fowles",
+              "Nicky Anosike",
+              "Matee Ajavon",
+              "Amber Holt"
+            ]
+          },
+          {
+            "year": 2018,
+            "overallRank": 2,
+            "peakRank": 1,
+            "depthRank": 10,
+            "stars": "A’ja Wilson · Ariel Atkins",
+            "case": "Wilson gives the class the strongest single-player peak in this ranking; Atkins and the rest make it a credible five.",
+            "players": [
+              "A’ja Wilson",
+              "Ariel Atkins",
+              "Diamond DeShields",
+              "Azura Stevens",
+              "Kelsey Mitchell"
+            ]
+          },
+          {
+            "year": 2013,
+            "overallRank": 3,
+            "peakRank": 3,
+            "depthRank": 6,
+            "stars": "Brittney Griner · Elena Delle Donne · Skylar Diggins-Smith",
+            "case": "MVP and All-WNBA ceilings at the top, with multiple long-running perimeter stars behind them.",
+            "players": [
+              "Elena Delle Donne",
+              "Skylar Diggins-Smith",
+              "Alex Bentley",
+              "Brittney Griner",
+              "Kelsey Bone"
+            ]
+          },
+          {
+            "year": 2006,
+            "overallRank": 4,
+            "peakRank": 4,
+            "depthRank": 1,
+            "stars": "Seimone Augustus · Cappie Pondexter · Candice Dupree",
+            "case": "The depth pick: several durable stars and an unusually strong concentration of long careers across the five.",
+            "players": [
+              "Seimone Augustus",
+              "Cappie Pondexter",
+              "Candice Dupree",
+              "Sophia Young",
+              "Monique Currie"
+            ]
+          },
+          {
+            "year": 2019,
+            "overallRank": 5,
+            "peakRank": 7,
+            "depthRank": 2,
+            "stars": "Napheesa Collier · Arike Ogunbowale · Jackie Young",
+            "case": "Three All-Star-level pillars make this one of the most balanced classes in the group.",
+            "players": [
+              "Napheesa Collier",
+              "Teaira McCowan",
+              "Arike Ogunbowale",
+              "Brianna Turner",
+              "Jackie Young"
+            ]
+          },
+          {
+            "year": 2011,
+            "overallRank": 6,
+            "peakRank": 8,
+            "depthRank": 5,
+            "stars": "Maya Moore · Courtney Vandersloot · Liz Cambage",
+            "case": "A championship centerpiece, an elite lead guard and a high-impact international center give this team range.",
+            "players": [
+              "Maya Moore",
+              "Danielle Robinson",
+              "Courtney Vandersloot",
+              "Danielle Adams",
+              "Liz Cambage"
+            ]
+          },
+          {
+            "year": 2014,
+            "overallRank": 7,
+            "peakRank": 9,
+            "depthRank": 3,
+            "stars": "Alyssa Thomas · Kayla McBride · Chiney Ogwumike",
+            "case": "A deep group whose most prominent careers grew in different roles: creator, scorer and frontcourt anchor.",
+            "players": [
+              "Chiney Ogwumike",
+              "Odyssey Sims",
+              "Alyssa Thomas",
+              "Bria Hartley",
+              "Kayla McBride"
+            ]
+          },
+          {
+            "year": 2016,
+            "overallRank": 8,
+            "peakRank": 6,
+            "depthRank": 8,
+            "stars": "Breanna Stewart · Moriah Jefferson · Aerial Powers",
+            "case": "Stewart’s ceiling lifts the class, while two later MVP / Finals MVP snubs make this year’s story even richer.",
+            "players": [
+              "Moriah Jefferson",
+              "Aerial Powers",
+              "Breanna Stewart",
+              "Imani Boyette",
+              "Tiffany Mitchell"
+            ]
+          },
+          {
+            "year": 2015,
+            "overallRank": 9,
+            "peakRank": 5,
+            "depthRank": 9,
+            "stars": "Jewell Loyd · Dearica Hamby · Kiah Stokes",
+            "case": "Loyd’s MVP and Finals MVP ceiling is the anchor; Hamby and Stokes add meaningful postseason and defensive value.",
+            "players": [
+              "Jewell Loyd",
+              "Kiah Stokes",
+              "Elizabeth Williams",
+              "Dearica Hamby",
+              "Amanda Zahui B."
+            ]
+          },
+          {
+            "year": 2010,
+            "overallRank": 10,
+            "peakRank": 10,
+            "depthRank": 7,
+            "stars": "Tina Charles · Epiphanny Prince · Monica Wright",
+            "case": "A Rookie of the Year / MVP centerpiece, plus productive guards, makes the last place a close call.",
+            "players": [
+              "Tina Charles",
+              "Monica Wright",
+              "Epiphanny Prince",
+              "Kalana Greene",
+              "Kelsey Griffin"
+            ]
+          }
+        ]
+      },
+      "rookieSnubs": {
+        "eyebrow": "THE SNUB FILE · HINDSIGHT ONLY",
+        "title": "The rookies the ballot missed",
+        "intro": "All-Rookie voting predicts who stood out now; it cannot see the player who will be built by later minutes, roles and seasons. The 2016 list is the cleanest reminder.",
+        "note": "“Missed” means not listed on the official WNBA All-Rookie Team for that rookie season. The later awards are the evidence; the claim is not that voters could have known what came next.",
+        "players": [
+          {
+            "name": "Jonquel Jones",
+            "rookieYear": 2016,
+            "photo": "https://cdn.wnba.com/headshots/wnba/latest/260x190/1627673.png",
+            "fallback": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1627673.png",
+            "accolade": "2021 WNBA MVP · 2024 Finals MVP",
+            "note": "Not on the 2016 All-Rookie list. She later won the league MVP, a Finals MVP, Most Improved Player, Sixth Player of the Year and six All-Star selections."
+          },
+          {
+            "name": "Kahleah Copper",
+            "rookieYear": 2016,
+            "photo": "https://cdn.wnba.com/headshots/wnba/latest/260x190/1627674.png",
+            "fallback": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1627674.png",
+            "accolade": "2021 WNBA Finals MVP",
+            "note": "Also absent from the 2016 team. Five years later she led Chicago to its first title and was named Finals MVP."
+          },
+          {
+            "name": "Natasha Howard",
+            "rookieYear": 2014,
+            "photo": "https://cdn.wnba.com/headshots/wnba/latest/260x190/203827.png",
+            "fallback": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/203827.png",
+            "accolade": "2019 Defensive Player of the Year · All-WNBA First Team",
+            "note": "A 2014 rookie who later became one of the league’s best defenders and helped Seattle win championships."
+          }
+        ]
+      },
+      "sections": [
+        {
+          "title": "One class, six different jobs",
+          "paragraphs": [
+            "The AP’s sixth selection is not a second-tier footnote. A tie for fifth expands a five-place honor to six. It also shows the voting problem: rookies do not enter identical situations. A guard asked to create every night has a different statistical profile from a shooter, a reserve organizer or a wing learning a veteran team’s system.",
+            "Miles’ 19.8 points and 6.0 assists make the highest-volume case. Fudd’s 39.7% from three is the cleanest spacing signal in this group. Johnson pairs 14.9 points with 4.8 rebounds. Taylor’s 13.6 points and two late game-winners say something about her shot creation and timing. Astier’s 3.3 assists and efficient scoring fit a different kind of need. Rice’s 12.9 points, 3.5 rebounds and 3.5 assists show why a short season can still leave a mark.",
+            "Those numbers do not settle who has the best career ahead. They describe the work each player did in this season, in this role. A useful rookie award can honor that without pretending to be a draft redo."
+          ]
+        },
+        {
+          "title": "How the historical top ten got its shape",
+          "paragraphs": [
+            "The board is deliberately retrospective. The 2008 team gets the top spot on the strength of Parker and Fowles together. The 2018 class owns the highest peak because of Wilson. The 2006 five rises when the question is depth; its three headliners carried long, decorated careers. Press “Peak star” or “Class depth” and those trade-offs become visible instead of hiding inside one number.",
+            "2019 and 2014 rank well because their strength is spread across several proven careers. 2013 is a top-three peak class. 2016 is more complicated: Stewart makes the official five exceptional, but the absent Jonquel Jones and Kahleah Copper eventually won league MVP and Finals MVP awards. The snub file puts that counterfactual in view without quietly changing the official team.",
+            "This is an editorial ranking with a defined window, not a claim that older players are better. Classes from 2020 onward get a watchlist treatment because their career records are still being written. Time is part of the comparison."
+          ]
+        },
+        {
+          "title": "The Food for Thought question",
+          "paragraphs": [
+            "If you could replay the rookie ballot with only that season’s evidence, which borderline choice would you change? Now ask the harder version: if you knew the whole career, would your answer change? The first question is about judging a season fairly. The second is about how poorly one early label can measure the distance a player still has to travel.",
+            "Jonquel Jones and Kahleah Copper make the 2016 question almost unfair in hindsight. Their rookie years were quiet; their later peaks were not. All-Rookie is a strong note on the opening chapter. It is not the ending."
+          ]
+        }
+      ],
+      "foodSegment": {
+        "title": "One vote is a snapshot",
+        "script": "The 2026 rookie class gave us six honest cases for five spots. Career hindsight gives us another lesson: a rookie list can tell you who stood out first. It cannot tell you how far the player will go."
+      },
+      "sources": [
+        {
+          "label": "AP · 2026 awards and All-Rookie selections",
+          "url": "https://apnews.com/article/ap-wnba-awards-wilson-miles-clark-c21ff7df22f226b0826adb3594f53808"
+        },
+        {
+          "label": "WNBA · Official All-Rookie Team history",
+          "url": "https://www.wnba.com/history-all-rookie-teams"
+        },
+        {
+          "label": "WNBA · 2026 All-Rookie candidates and official player photo",
+          "url": "https://www.wnba.com/news/2026-eos-awards-lookahead-all-rookie-team"
+        },
+        {
+          "label": "AP voter · Final rookie stats and selection context",
+          "url": "https://www.theoffside.com/wnba/1128751/wnba-all-rookie-team-olivia-miles-azzi-fudd"
+        },
+        {
+          "label": "WNBA · Jonquel Jones MVP and career bio",
+          "url": "https://www.wnba.com/player/1627673/jonquel-jones/bio"
+        },
+        {
+          "label": "WNBA · Kahleah Copper career and Finals MVP",
+          "url": "https://www.wnba.com/player/1627674/kahleah-copper"
+        },
+        {
+          "label": "WNBA · Natasha Howard career bio",
+          "url": "https://www.wnba.com/player/203827/natasha-howard/bio"
+        },
+        {
+          "label": "WNBA · Natasha Howard named 2019 Defensive Player of the Year",
+          "url": "https://www.wnba.com/news/seattles-natasha-howard-named-2019-wnba-defensive-player-of-the-year"
+        },
+        {
+          "label": "WNBA · All-time MVP history",
+          "url": "https://www.wnba.com/history-mvp"
+        },
+        {
+          "label": "WNBA · Finals MVP history",
+          "url": "https://www.wnba.com/history-wnba-finals-mvp"
+        }
+      ]
+    },
+    {
+      "slug": "nneka-five-sportsmanship-awards-2026",
+      "type": "byte",
+      "priority": 6500,
+      "published": "2026-10-13",
+      "updated": "2026-10-13",
+      "seriesLabel": "SNACK SHAK BYTE · LEGACY",
+      "title": "Five for Nneka: Class Has Its Own Trophy Case",
+      "dek": "Nneka Ogwumike closes her WNBA career with a record fifth Kim Perrot Sportsmanship Award. The Trophy Room now includes every recipient of the honor.",
+      "dashboardUrl": "/snack-shak-bytes.html?post=nneka-five-sportsmanship-awards-2026#story",
+      "image": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/203014.png",
+      "storyImage": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/203014.png",
+      "imageAlt": "Nneka Ogwumike, official WNBA portrait",
+      "imageFit": "contain",
+      "storyImageCaption": "Nneka Ogwumike. Official WNBA headshot.",
+      "storyImageSourceUrl": "https://www.wnba.com/news/nneka-ogwumike-2026-kim-perrot-sportsmanship-award-recipient",
+      "teams": [
+        "Los Angeles Sparks"
+      ],
+      "players": [
+        "Nneka Ogwumike"
+      ],
+      "sections": [
+        {
+          "title": "Class is part of the résumé",
+          "paragraphs": [
+            "Nneka Ogwumike has another piece of hardware for the goodbye shelf. The WNBA announced her fifth Kim Perrot Sportsmanship Award on October 13, extending her league record. Her wins span 2019–21 and 2025–26.",
+            "The award recognizes integrity, fair play and ethical conduct. That is a different kind of dominance: earning respect while competing to beat the same people giving you that respect.",
+            "Our Trophy Room now records Nneka’s latest win, the complete sportsmanship history, and Cheryl Reeve’s newly announced Executive of the Year honor. A career deserves its whole résumé, including the character column."
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "label": "WNBA · 2026 Kim Perrot Sportsmanship Award",
+          "url": "https://www.wnba.com/news/nneka-ogwumike-2026-kim-perrot-sportsmanship-award-recipient"
+        },
+        {
+          "label": "Trophy Room · Every sportsmanship recipient",
+          "url": "https://www.weknowthew.com/award-sportsmanship.html"
+        },
+        {
+          "label": "WNBA · 2026 Basketball Executive of the Year",
+          "url": "https://www.wnba.com/news/cheryl-reeve-wins-2026-basketball-executive-of-the-year"
+        }
+      ]
+    },
+    {
+      "slug": "preseason-rankings-2026-27-hype-homework",
+      "type": "feature",
+      "priority": 6000,
+      "seriesLabel": "FOOD FOR THOUGHT · COLLEGE BASKETBALL",
+      "title": "Preseason Hype Has Homework: Who Really Looks Ready for 2026–27?",
+      "published": "2026-10-13",
+      "updated": "2026-10-13",
+      "dashboardUrl": "/preseason-rankings-2026-27-hype-homework.html",
+      "dek": "South Carolina leads ESPN’s Top 25, JuJu returns to USC, and UCLA starts at No. 13. The real debate is what each contender still has to prove.",
+      "image": "/assets/images/preseason-2026-27.jpg",
+      "storyImage": "/assets/images/preseason-2026-27.jpg",
+      "imageAlt": "Joyce Edwards drives against Sarah Strong",
+      "imageFit": "contain",
+      "players": [
+        "JuJu Watkins",
+        "Sarah Strong",
+        "Jazzy Davidson",
+        "Joyce Edwards"
+      ],
+      "teams": [
+        "South Carolina",
+        "UConn",
+        "USC",
+        "Duke",
+        "Michigan",
+        "Louisville",
+        "Iowa",
+        "LSU",
+        "Texas",
+        "North Carolina",
+        "Vanderbilt",
+        "Washington",
+        "UCLA",
+        "Notre Dame",
+        "Kentucky",
+        "Minnesota",
+        "Ohio State",
+        "Maryland",
+        "TCU",
+        "Illinois",
+        "Oklahoma State",
+        "Arizona State",
+        "Oklahoma",
+        "Ole Miss",
+        "West Virginia"
+      ],
+      "sections": [
+        {
+          "title": "October crowns do not come with nets",
+          "paragraphs": [
+            "Preseason rankings are basketball’s seating chart. They tell us who gets the good table before anybody has served the food. ESPN’s October 13 list puts South Carolina, UConn and USC in the first three seats. That is a useful starting point. It is also an invitation to ask what would make those choices look smart in March.",
+            "Our question is simple: are we ranking a program’s reputation, a roster’s ceiling, or the team we expect to trust when a close game turns ugly? Those can be three different answers. A roster can win the introduction and still need months to learn how to win the possession.",
+            "The ranks below belong to ESPN, not an AP poll and not a We Know the W score. The watch questions and verdicts are our editorial analysis. Nobody has earned a 2026–27 regular-season résumé yet."
+          ]
+        },
+        {
+          "title": "South Carolina: being the favorite means showing your work",
+          "paragraphs": [
+            "South Carolina at No. 1 is defensible. It should also invite the toughest examination. Our test for Dawn Staley’s team is the quality of its half-court possessions: who organizes the offense, who gets the ball to the right spot, and who creates a good shot after the first option disappears?",
+            "A favorite does not need to look flawless in November. It needs workable answers. Watch late-clock decisions, spacing around the paint, and whether the same action can produce multiple reads instead of one predictable finish. Defensive pressure can create easy points; a championship opponent will try to take those away.",
+            "The W verdict: keep South Carolina in the first tier. Make it earn separation through possession quality. The logo is an introduction; the execution is the argument."
+          ]
+        },
+        {
+          "title": "UConn: Sarah Strong is the foundation, not the entire building",
+          "paragraphs": [
+            "UConn enters with Sarah Strong, the reigning national player of the year and unanimous BIG EAST preseason player of the year. KK Arnold and Blanca Quiñonez also earned unanimous preseason all-conference selections. Those are real reasons to expect a contender, confirmed by the program’s October 1 announcement.",
+            "Our film question is what happens when opponents load up on Strong. Can the next receiver attack the advantage before the defense resets? Can a second creator rescue a possession without turning it into a difficult solo shot? The supporting cast matters most when an opponent has spent a week designing a plan for the star.",
+            "For WNBA scouting, Strong’s value is not confined to scoring. Track the speed of her reads, defensive coverage changes, and decisions against help. A prospect who makes the right play when the easiest play is unavailable is telling us something useful."
+          ]
+        },
+        {
+          "title": "USC: JuJu is back. The chemistry still has to arrive",
+          "paragraphs": [
+            "USC confirms JuJu Watkins is returning after missing 2025–26 through injury. Both conference coaches and media named her Big Ten preseason player of the year. Jazzy Davidson joins her on the preseason all-conference teams after leading USC in points, rebounds, assists, steals and blocks last season.",
+            "That makes No. 3 understandable. It does not make cohesion automatic. A returning star and an established young creator need shared timing: when to initiate, when to cut, when to clear a side, and when to turn a touch into an advantage for somebody else.",
+            "We should judge Watkins’ return through basketball evidence rather than demanding a highlight reel immediately. Watch how the offense functions across multiple games, how responsibilities are distributed, and how the group responds to physical defense. A preseason honor is recognition, not a medical clearance or a guarantee about workload.",
+            "The W verdict: USC has an exciting ceiling. The first useful question is whether its talented players can make one another easier to guard less often. Talent gathers attention. Connected talent gathers wins."
+          ]
+        },
+        {
+          "title": "UCLA at 13: disrespect, or a different roster?",
+          "paragraphs": [
+            "The defending champion starting at No. 13 is the obvious debate starter. UCLA’s own draft announcement supplies important context: six Bruins were selected in April, including five in the first round. That is a record-setting professional pipeline and a substantial amount of college production walking out the door.",
+            "Our read: the championship deserves full credit, while the new team deserves its own evaluation. It is reasonable to forecast uncertainty after that kind of departure. It is also reasonable to expect the coaching staff’s habits to carry over. Neither point settles what the next roster can accomplish.",
+            "Watch rebounding responsibilities, communication in transition, and which combinations remain functional when starters sit. Those details will tell us whether the Bruins are rebuilding continuity quickly. Calling every lower ranking disrespect skips the roster question; treating the title as irrelevant skips the coaching question."
+          ]
+        },
+        {
+          "title": "The rest of the table can change the conversation",
+          "paragraphs": [
+            "Duke and Michigan complete ESPN’s top five. Louisville and Iowa sit sixth and seventh, ahead of LSU and Texas. North Carolina closes the top ten. Our challenge to that group is the same: identify the lineup you trust against a quality opponent, then show why it works.",
+            "The lower half deserves more than a drive-by. A team ranked in the teens can become a serious threat if its complementary pieces fit faster than expected. Conversely, a top-ten roster can spend the winter working through a problem everyone politely ignored in October.",
+            "For fans, the most useful early result is not always the biggest win. Watch what happens after a team’s preferred style gets disrupted. Can it defend without fouling, survive a cold shooting stretch, and finish a possession with a rebound? That is where preseason optimism starts becoming evidence."
+          ]
+        },
+        {
+          "title": "Who Got Next? Scout the job, not just the name",
+          "paragraphs": [
+            "This season is also a new chapter in the WNBA pipeline. Watkins and Strong deserve attention, but scouting should not become a contest to see who can repeat the most famous names. Every prospect has to show skills that fit a professional role.",
+            "For a lead guard, watch decisions against pressure and the ability to manipulate help. For a wing, watch shooting preparation, closeout attacks and defensive assignments. For a big, watch screening angles, defensive positioning, finishing windows and passing when the paint is crowded.",
+            "College ranking, individual awards and draft position answer different questions. A freshman can reshape a contender without being part of the next draft. A veteran can be a compelling prospect on a team outside the top ten. Draft eligibility and declarations should be verified separately; being on our radar is not a declaration.",
+            "The Food for Thought takeaway: keep the rankings, keep the debate, and ask for the film. October gives us the hypothesis. The season gets to grade the homework."
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "label": "ESPN · Charlie Creme’s Oct. 13 preseason Top 25",
+          "url": "https://www.espn.com/womens-college-basketball/story/_/id/50170109/womens-college-basketball-2026-27-preseason-top-25-rankings"
+        },
+        {
+          "label": "USC · Watkins and Davidson preseason honors",
+          "url": "https://usctrojans.com/news/2026/10/1/usc-womens-basketballs-juju-watkins-named-big-ten-preseason-player-of-the-year"
+        },
+        {
+          "label": "UConn · 2026–27 preseason conference honors",
+          "url": "https://uconnhuskies.com/news/2026/10/1/womens-basketball-uconn-picked-to-win-big-east-huskies-earn-preseason-league-honors"
+        },
+        {
+          "label": "UCLA · Record six-player WNBA draft class",
+          "url": "https://uclabruins.com/news/2026/04/13/bruins-complete-historic-wnba-draft-night-with-six-draftees"
+        }
+      ]
+    },
+    {
       "slug": "renee-montgomery-player-owner-finals-2026",
       "type": "byte",
       "priority": 5600,
@@ -614,7 +1378,7 @@
       "seriesLabel": "FOOD FOR THOUGHT · 2026 AP AWARDS",
       "title": "Four for A'ja, Firsts Everywhere Else: What the 2026 AP Awards Say About the W",
       "published": "2026-09-27",
-      "week": "AP awards announced · Sept. 27, 2026",
+      "week": "Updated Oct. 15 · Official WNBA All-Defensive Team",
       "image": "/assets/images/aja-wilson-2026-ap-player-of-year-las-vegas-aces.jpg?v=20260927",
       "storyImage": "/assets/images/aja-wilson-2026-ap-player-of-year-las-vegas-aces.jpg?v=20260927",
       "storyImageSourceUrl": "https://aces.wnba.com/",
@@ -652,7 +1416,7 @@
         "Pauline Astier",
         "Kiki Rice"
       ],
-      "dek": "A'ja Wilson now owns the AP record, Angel Reese interrupted a defensive dynasty, and a rookie, a comeback, a reserve and a coach all changed the history board. The ballot is new. The patterns behind it are not.",
+      "dek": "A’ja Wilson owns the AP record, Angel Reese interrupted a defensive dynasty, and the official WNBA All-Defensive First Team adds a separate league honor to the 2026 awards picture.",
       "apAwardsDashboard": {
         "title": "The ballot, the backstory and every repeat winner",
         "intro": "Filter the seven individual winners, move through every AP award season since 2016, and open the three 2026 teams. The history panel counts its leaders directly from the season ledger, including the 2023 Comeback Player co-winners.",
@@ -1420,6 +2184,17 @@
             "Wilson, Clark, Miles, Kelsey Mitchell and Stewart made the first team. Reese, Rhyne Howard, Paige Bueckers, Jackie Young and Gabby Williams made the second. The selections reward the season's best work; they are not a promise that the five names fit neatly into traditional positions.",
             "The six-player All-Rookie team came from a ballot tie: Miles, Azzi Fudd, Sydney Taylor, Flau'jae Johnson, Pauline Astier and Kiki Rice. It is a good problem for an awards list to have. The 2026 class did not need the ballot to shrink so its impact would look tidy."
           ]
+        },
+        {
+          "title": "The WNBA’s All-Defensive First Team is a separate honor",
+          "paragraphs": [
+            "Update · Oct. 15, 2026: The WNBA’s official All-Defensive First Team is Shakira Austin of the Washington Mystics, Rhyne Howard and Angel Reese of the Atlanta Dream, Gabby Williams of the Golden State Valkyries, and A’ja Wilson of the Las Vegas Aces. This is the league’s team selection; the awards and All-AP teams above are Associated Press honors.",
+            "Reese’s first Kia Defensive Player of the Year award adds context to her First Team selection. She received 46 votes from the 74-member national panel, ahead of Williams (20) and Wilson (4). Reese also led the league with 12.1 rebounds per game and set single-season records with 521 total rebounds and 206 offensive rebounds. Atlanta finished third in defensive rating at 103.5.",
+            "The overlap is striking: all four leading finishers in the league’s Defensive Player of the Year vote—Reese, Williams, Wilson and Austin—made this First Team, and Howard joined them. Atlanta is the only team with two selections. The official league team and the AP ballot remain distinct honors."
+          ],
+          "image": "/assets/images/snack-shak/2026-wnba-all-defensive-first-team.jpg",
+          "imageAlt": "Orange WNBA graphic naming Shakira Austin, Rhyne Howard, Angel Reese, Gabby Williams and A’ja Wilson to the 2026 All-Defensive First Team",
+          "imageCaption": "The official 2026 WNBA All-Defensive First Team. Graphic: WNBA."
         }
       ],
       "debates": [
@@ -1451,8 +2226,17 @@
         {
           "url": "https://valkyries.wnba.com/news/salaun-williams-earn-ap-awards-20260927",
           "label": "Golden State Valkyries · Salaün and Williams"
+        },
+        {
+          "url": "https://www.facebook.com/wnba/posts/2026-wnba-all-defensive-first-team-shakira-austin-of-the-washington-mystics-rhyn/1647117493437049/",
+          "label": "WNBA · 2026 All-Defensive First Team"
+        },
+        {
+          "url": "https://www.wnba.com/news/reese-named-2026-defensive-player-of-the-year",
+          "label": "WNBA · Angel Reese DPOY voting and season records"
         }
-      ]
+      ],
+      "updated": "2026-10-15"
     },
     {
       "imageFocus": "50% 38%",
@@ -1525,7 +2309,7 @@
       "seriesLabel": "FOOD FOR THOUGHT · PLAYOFF WATCH GUIDE",
       "title": "Two Sweeps, One New Champion: Dream–Valkyries Finals Are Set",
       "published": "2026-10-02",
-      "updated": "2026-10-11",
+      "updated": "2026-10-15",
       "week": "Finals · Golden State vs. Atlanta · Begins Oct. 17",
       "image": "https://i.guim.co.uk/img/media/53109b8f7bdd419a65d3abb786964fac24ab093b/0_0_4506_3005/master/4506.jpg?width=1920&quality=85&auto=format&fit=max&s=92e194d3c36e859bc2e846bd89813fed",
       "imageFit": "contain",
@@ -1617,7 +2401,7 @@
           "title": "A first title is guaranteed. The winner is not.",
           "paragraphs": [
             "The best-of-seven Finals begin October 17 at 3:30 p.m. ET at Chase Center on NBC and Peacock. Golden State is the No. 2 seed; Atlanta is No. 4. Both franchises seek their first WNBA championship.",
-            "The canceled semifinal Games 4 and 5 no longer belong on the upcoming slate. Game 1’s 3:30 p.m. ET tip on NBC and Peacock is confirmed; the remaining games are listed above.",
+            "The WNBA moved Game 3 from Thursday, Oct. 22, to Wednesday, Oct. 21, at 8 p.m. ET, and shifted Game 4 on Saturday, Oct. 24, from 3:30 p.m. to 1 p.m. ET. Games 3 and 4—the first two Finals games in Atlanta—will be played at State Farm Arena.",
             "Analysis: Canada’s organization and Reese’s interior work meet a Golden State team that keeps finding a different scorer. The matchup rewards the team that can protect possessions without surrendering its pace."
           ]
         },
@@ -1631,10 +2415,10 @@
         {
           "title": "The Finals watch schedule",
           "paragraphs": [
-            "All times Eastern. Golden State hosts Games 1, 2, 5 and 7; Atlanta hosts Games 3, 4 and 6.",
-            "Game 1: Sat., Oct. 17, 3:30 p.m. · NBC / Peacock. Game 2: Mon., Oct. 19, 8 p.m. · USA / Peacock.",
-            "Game 3: Thu., Oct. 22, 8 p.m. · USA / Peacock. Game 4: Sat., Oct. 24, 3:30 p.m. · NBC / Peacock.",
-            "If necessary: Game 5, Mon., Oct. 26; Game 6, Thu., Oct. 29; Game 7, Sat., Oct. 31. Each tips at 8 p.m. on USA and Peacock."
+            "All tip times are Eastern. Golden State hosts Games 1, 2, 5 and 7 at Chase Center in San Francisco; Atlanta hosts Games 3 and 4 at State Farm Arena. Game 6 is an Atlanta home game, with its venue still listed as TBD. Games 5–7 are if necessary.",
+            "Game 1: Sat., Oct. 17, 3:30 p.m. · NBC / Peacock. Game 2: Mon., Oct. 19, 8 p.m. · USA / Peacock / CNBC.",
+            "Game 3: Wed., Oct. 21, 8 p.m. · USA / Peacock / CNBC. Game 4: Sat., Oct. 24, 1 p.m. · NBC / Peacock.",
+            "If necessary: Game 5, Mon., Oct. 26; Game 6, Thu., Oct. 29; Game 7, Sat., Oct. 31. Each tips at 8 p.m. ET on USA / Peacock / CNBC."
           ]
         }
       ],
@@ -1656,8 +2440,8 @@
           "url": "https://aces.wnba.com/news/semis-game-3-gallery-aces-vs-valkyries-10-9-2026"
         },
         {
-          "label": "WNBA · Official Finals times and broadcasts",
-          "url": "https://www.wnba.com/news/2026-wnba-postseason-faq"
+          "label": "WNBA · Official Finals schedule update",
+          "url": "https://www.wnba.com/news/wnba-finals-games3-and-4-to-be-played-at-state-farm-arena"
         },
         {
           "label": "Atlanta Dream · Renee Montgomery official profile",
@@ -1678,6 +2462,10 @@
         {
           "label": "WNBA · Azzi Fudd season-ending injury update",
           "url": "https://www.wnba.com/news/dallas-wings-azzi-fudd-to-undergo-season-ending-knee-surgery"
+        },
+        {
+          "label": "WNBA · 2026 Finals schedule, broadcasts and series preview",
+          "url": "https://www.wnba.com/news/game-preview-2026-wnba-finals"
         }
       ],
       "dashboardUrl": "/food-for-thought.html?post=the-playoff-watch-party-2026#story",
@@ -1687,7 +2475,7 @@
       "playoffWatch": {
         "title": "DREAM × VALKYRIES. THE FINALS ARE SET.",
         "subtitle": "Both swept 3–0 on October 9. A first championship awaits one franchise.",
-        "asOf": "GAME 3 FINALS · OCT. 9",
+        "asOf": "FINALS SCHEDULE · OCT. 15",
         "summary": [
           {
             "value": "3–0",
@@ -1866,9 +2654,9 @@
       "storyImageFallback": "https://cdn.wnba.com/logos/wnba/1611661330/primary/L/logo.svg",
       "imageFocus": "65% 40%",
       "finalsGraphic": {
-        "eyebrow": "2026 WNBA FINALS · MATCHUP GRAPHIC",
+        "eyebrow": "2026 WNBA FINALS · MATCHUP & SCHEDULE",
         "title": "Dream meets Valkyries",
-        "dek": "Two finalists. One first-time champion.",
+        "dek": "Two finalists. One first-time champion. Dates, venues and broadcasts.",
         "items": [
           {
             "image": "assets/photos/dream-valkyries-finals-jws-2026.jpg",
@@ -1878,6 +2666,16 @@
             "caption": "Atlanta and Golden State take their title chase to the Finals.",
             "credit": "Graphic: Just Women’s Sports (JWS)",
             "sourceUrl": "https://www.instagram.com/justwomenssports/",
+            "imageFit": "contain"
+          },
+          {
+            "image": "assets/photos/wnba-finals-schedule-2026.jpg",
+            "alt": "2026 WNBA Finals schedule graphic for the Atlanta Dream and Golden State Valkyries, showing Games 1 through 7",
+            "kicker": "2026 WNBA FINALS · FULL SCHEDULE",
+            "title": "Seven possible games, two cities",
+            "caption": "Game 3 moved to Wednesday, Oct. 21; Game 4 now tips at 1 p.m. ET on Oct. 24. Game 6 is an Atlanta home game, with venue still TBD.",
+            "credit": "Graphic supplied by WeKnowTheW; schedule checked against WNBA.com",
+            "sourceUrl": "https://www.wnba.com/news/game-preview-2026-wnba-finals",
             "imageFit": "contain"
           }
         ]

@@ -4,7 +4,7 @@ const fs=require('node:fs');
 const read=p=>fs.readFileSync(require('node:path').join(__dirname,'..',p),'utf8');
 const guide=JSON.parse(read('snack-shak-latest.json')).posts.find(p=>p.slug==='the-playoff-watch-party-2026');
 test('both closeouts feed a zero-win Finals matchup without carrying semifinal wins',()=>{
- assert.equal(guide.updated,'2026-10-10');
+ assert.equal(guide.updated,'2026-10-15');
  const rows=guide.playoffWatch.matchups;
  assert.equal(rows.find(r=>r.roundKey==='Finals').series,'0-0');
  assert.deepEqual(rows.filter(r=>r.roundKey==='Semifinals').map(r=>r.series),['3-0','3-0']);

@@ -1378,7 +1378,7 @@
       "seriesLabel": "FOOD FOR THOUGHT · 2026 AP AWARDS",
       "title": "Four for A'ja, Firsts Everywhere Else: What the 2026 AP Awards Say About the W",
       "published": "2026-09-27",
-      "week": "AP awards announced · Sept. 27, 2026",
+      "week": "Updated Oct. 15 · Official WNBA All-Defensive Team",
       "image": "/assets/images/aja-wilson-2026-ap-player-of-year-las-vegas-aces.jpg?v=20260927",
       "storyImage": "/assets/images/aja-wilson-2026-ap-player-of-year-las-vegas-aces.jpg?v=20260927",
       "storyImageSourceUrl": "https://aces.wnba.com/",
@@ -1416,7 +1416,7 @@
         "Pauline Astier",
         "Kiki Rice"
       ],
-      "dek": "A'ja Wilson now owns the AP record, Angel Reese interrupted a defensive dynasty, and a rookie, a comeback, a reserve and a coach all changed the history board. The ballot is new. The patterns behind it are not.",
+      "dek": "A’ja Wilson owns the AP record, Angel Reese interrupted a defensive dynasty, and the official WNBA All-Defensive First Team adds a separate league honor to the 2026 awards picture.",
       "apAwardsDashboard": {
         "title": "The ballot, the backstory and every repeat winner",
         "intro": "Filter the seven individual winners, move through every AP award season since 2016, and open the three 2026 teams. The history panel counts its leaders directly from the season ledger, including the 2023 Comeback Player co-winners.",
@@ -2184,6 +2184,17 @@
             "Wilson, Clark, Miles, Kelsey Mitchell and Stewart made the first team. Reese, Rhyne Howard, Paige Bueckers, Jackie Young and Gabby Williams made the second. The selections reward the season's best work; they are not a promise that the five names fit neatly into traditional positions.",
             "The six-player All-Rookie team came from a ballot tie: Miles, Azzi Fudd, Sydney Taylor, Flau'jae Johnson, Pauline Astier and Kiki Rice. It is a good problem for an awards list to have. The 2026 class did not need the ballot to shrink so its impact would look tidy."
           ]
+        },
+        {
+          "title": "The WNBA’s All-Defensive First Team is a separate honor",
+          "paragraphs": [
+            "Update · Oct. 15, 2026: The WNBA’s official All-Defensive First Team is Shakira Austin of the Washington Mystics, Rhyne Howard and Angel Reese of the Atlanta Dream, Gabby Williams of the Golden State Valkyries, and A’ja Wilson of the Las Vegas Aces. This is the league’s team selection; the awards and All-AP teams above are Associated Press honors.",
+            "Reese’s first Kia Defensive Player of the Year award adds context to her First Team selection. She received 46 votes from the 74-member national panel, ahead of Williams (20) and Wilson (4). Reese also led the league with 12.1 rebounds per game and set single-season records with 521 total rebounds and 206 offensive rebounds. Atlanta finished third in defensive rating at 103.5.",
+            "The overlap is striking: all four leading finishers in the league’s Defensive Player of the Year vote—Reese, Williams, Wilson and Austin—made this First Team, and Howard joined them. Atlanta is the only team with two selections. The official league team and the AP ballot remain distinct honors."
+          ],
+          "image": "/assets/images/snack-shak/2026-wnba-all-defensive-first-team.jpg",
+          "imageAlt": "Orange WNBA graphic naming Shakira Austin, Rhyne Howard, Angel Reese, Gabby Williams and A’ja Wilson to the 2026 All-Defensive First Team",
+          "imageCaption": "The official 2026 WNBA All-Defensive First Team. Graphic: WNBA."
         }
       ],
       "debates": [
@@ -2215,8 +2226,17 @@
         {
           "url": "https://valkyries.wnba.com/news/salaun-williams-earn-ap-awards-20260927",
           "label": "Golden State Valkyries · Salaün and Williams"
+        },
+        {
+          "url": "https://www.facebook.com/wnba/posts/2026-wnba-all-defensive-first-team-shakira-austin-of-the-washington-mystics-rhyn/1647117493437049/",
+          "label": "WNBA · 2026 All-Defensive First Team"
+        },
+        {
+          "url": "https://www.wnba.com/news/reese-named-2026-defensive-player-of-the-year",
+          "label": "WNBA · Angel Reese DPOY voting and season records"
         }
-      ]
+      ],
+      "updated": "2026-10-15"
     },
     {
       "imageFocus": "50% 38%",

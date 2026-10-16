@@ -25,6 +25,13 @@
     {pick:15,player:'Khamil Pierre',team:teams.minnesota,school:school('NC State',152,'NCSU'),photo:espnPlayer('5174309'),position:'F · 6\'2"',role:'post',stats:'16.7 PPG · 11.9 RPG · 1.0 SPG',fit:'Relentless rebounding and interior production for Minnesota’s connected frontcourt.',watch:'Floor spacing and scoring against length.'}
   ];
   const firstOut={player:'Addy Brown',school:school('UCLA',26,'UCLA'),photo:espnPlayer('5175490'),position:'F · 6\'2"',stats:'11.9 PPG · 8.8 RPG · 5.3 APG',watch:'Scoring aggression, perimeter defense and how her playmaking translates without high usage.'};
+  const returnOptions=new Set(['JuJu Watkins','Hannah Hidalgo','Madison Booker',"S'Mya Nichols",'MiLaysia Fulwiley','Mikaylah Williams','Clara Strack','Tessa Johnson']);
+  prospects.forEach(item=>{
+    if(returnOptions.has(item.player)) item.status='2027 decision pending · college return option reported';
+    if(item.player==='Tessa Johnson') item.status+=' · riser watch';
+    if(item.player==='Ashlyn Watkins') item.status='Lottery watch · health evaluation pending';
+    if(item.player==='Zhang Ziyu') item.status='High-variance international evaluation';
+  });
   const lottery=prospects.slice(0,7);
   const safe=value=>String(value??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[ch]));
   const logo=(team,extra='')=>`<span class="mock-team-chip ${extra}"><img src="${safe(team.logo)}" alt="${safe(team.name)} logo" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('logo-error')"><b>${safe(team.abbr)}</b></span>`;

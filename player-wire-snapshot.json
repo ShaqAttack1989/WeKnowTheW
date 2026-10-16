@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-16T01:20:59.384Z",
+  "generatedAt": "2026-10-16T07:09:49.317Z",
   "movement": {
     "latestTransactionDate": "2026-09-28",
     "transactions": [
@@ -1437,9 +1437,9 @@
     ]
   },
   "availability": {
-    "latestReportDate": "2026-10-10",
-    "reportLabel": "10/10/2026 12:00 AM ET",
-    "officialPdf": "https://ak-static.cms.nba.com/referee/wnba_injury/Injury-Report_2026-10-10_12_00AM.pdf",
+    "latestReportDate": "2026-10-16",
+    "reportLabel": "10/16/2026 03:00 AM ET",
+    "officialPdf": "https://ak-static.cms.nba.com/referee/wnba_injury/Injury-Report_2026-10-16_03_00AM.pdf",
     "injuries": [
       {
         "player": "Aliyah Boston",
@@ -1448,20 +1448,6 @@
         "reason": "Knee · out",
         "updated": "2026-10-15",
         "returnDate": "2027-05-01",
-        "matchup": "",
-        "gameTime": "",
-        "source": "ESPN via WeHoop-compatible endpoint",
-        "sourceUrl": null,
-        "officialCurrentReport": false,
-        "crossCheckOnly": true
-      },
-      {
-        "player": "Allisha Gray",
-        "team": "Atlanta Dream",
-        "status": "OUT",
-        "reason": "Hand · Gray (hand) participated in Thursday's practice, Annie Costabile of The Athletic reports.",
-        "updated": "2026-10-15",
-        "returnDate": "2026-10-17",
         "matchup": "",
         "gameTime": "",
         "source": "ESPN via WeHoop-compatible endpoint",
@@ -1736,20 +1722,6 @@
         "crossCheckOnly": true
       },
       {
-        "player": "Matilde Villa",
-        "team": "Atlanta Dream",
-        "status": "OUT",
-        "reason": "Coach's Decision · Villa (coach's decision) has been ruled out for Wednesday's game against New York.",
-        "updated": "2026-09-23",
-        "returnDate": "2027-05-01",
-        "matchup": "",
-        "gameTime": "",
-        "source": "ESPN via WeHoop-compatible endpoint",
-        "sourceUrl": null,
-        "officialCurrentReport": false,
-        "crossCheckOnly": true
-      },
-      {
         "player": "Natasha Cloud",
         "team": "Chicago Sky",
         "status": "OUT",
@@ -1853,20 +1825,6 @@
         "status": "OUT",
         "reason": "Knee · Oblak (knee) has been ruled out for Tuesday's game against the Valkyries.",
         "updated": "2026-09-21",
-        "returnDate": "2027-05-01",
-        "matchup": "",
-        "gameTime": "",
-        "source": "ESPN via WeHoop-compatible endpoint",
-        "sourceUrl": null,
-        "officialCurrentReport": false,
-        "crossCheckOnly": true
-      },
-      {
-        "player": "Brionna Jones",
-        "team": "Atlanta Dream",
-        "status": "OUT",
-        "reason": "Leg · Jones will miss the remainder of the season after sustaining a left leg injury against the Sun on Aug. 13, Annie Costabile of The Athletic reports.",
-        "updated": "2026-09-17",
         "returnDate": "2027-05-01",
         "matchup": "",
         "gameTime": "",
@@ -2122,6 +2080,17 @@
         "crossCheckOnly": true
       },
       {
+        "player": "Iliana Rupert",
+        "team": "Golden State Valkyries",
+        "status": "OUT FOR SEASON",
+        "reason": "Pregnancy",
+        "updated": "2026-05-28",
+        "source": "WNBA Injury Report",
+        "officialCurrentReport": false,
+        "trackedCarryover": true,
+        "seasonLongCarryover": true
+      },
+      {
         "player": "Rickea Jackson",
         "team": "Chicago Sky",
         "status": "OUT",
@@ -2145,38 +2114,24 @@
         "officialCurrentReport": false,
         "trackedCarryover": true,
         "seasonLongCarryover": true
-      },
-      {
-        "player": "Iliana Rupert",
-        "team": "Golden State Valkyries",
-        "status": "OUT",
-        "reason": "Not Injury Related · Rupert is pregnant, and the Valkyries have filed for a replacement contract ahead of the 2026 season, Alexa Philippou of ESPN.com reports Thursday.",
-        "updated": "2026-05-07",
-        "returnDate": "2027-05-01",
-        "matchup": "",
-        "gameTime": "",
-        "source": "ESPN via WeHoop-compatible endpoint",
-        "sourceUrl": null,
-        "officialCurrentReport": false,
-        "crossCheckOnly": true
       }
     ],
     "teamStatuses": [
       {
-        "team": "Golden State Valkyries",
+        "team": "Atlanta Dream",
         "status": "NOT YET SUBMITTED",
-        "gameDate": "10/11/2026",
+        "gameDate": "10/17/2026",
         "gameTime": "03:30 (ET)",
-        "matchup": "GSV@LVA",
-        "updated": "2026-10-11"
+        "matchup": "ATL@GSV",
+        "updated": "2026-10-17"
       },
       {
-        "team": "Las Vegas Aces",
+        "team": "Golden State Valkyries",
         "status": "NOT YET SUBMITTED",
-        "gameDate": "10/11/2026",
+        "gameDate": "10/17/2026",
         "gameTime": "03:30 (ET)",
-        "matchup": "GSV@LVA",
-        "updated": "2026-10-11"
+        "matchup": "ATL@GSV",
+        "updated": "2026-10-17"
       }
     ]
   },

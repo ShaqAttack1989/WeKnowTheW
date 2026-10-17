@@ -9,7 +9,7 @@
       "title": "What’s in a Name? The W Has Stories to Tell",
       "published": "2026-10-17",
       "dashboardUrl": "/wnba-team-name-stories.html",
-      "dek": "Civil rights, mythology, city pride and reinvention: explore the stories behind WNBA names, then follow every logo into its team hub.",
+      "dek": "Civil rights, mythology, city pride and Houston’s Comets return: explore WNBA naming stories, then follow every logo into its team hub.",
       "image": "https://a.espncdn.com/i/teamlogos/wnba/500/atl.png",
       "storyImage": "https://a.espncdn.com/i/teamlogos/wnba/500/atl.png",
       "imageAlt": "Atlanta Dream official team logo",
@@ -30,7 +30,8 @@
         "Portland Fire",
         "Seattle Storm",
         "Toronto Tempo",
-        "Washington Mystics"
+        "Washington Mystics",
+        "Houston Comets"
       ],
       "sections": [
         {
@@ -45,7 +46,8 @@
           "label": "WNBA brand history",
           "url": "https://www.wnba.com/news/meet-the-toronto-tempo"
         }
-      ]
+      ],
+      "updated": "2026-10-17"
     },
     {
       "slug": "best-womens-basketball-coaches",

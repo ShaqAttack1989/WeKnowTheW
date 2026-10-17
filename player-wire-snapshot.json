@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-16T23:37:38.828Z",
+  "generatedAt": "2026-10-17T04:26:00.031Z",
   "movement": {
     "latestTransactionDate": "2026-09-28",
     "transactions": [
@@ -1437,10 +1437,36 @@
     ]
   },
   "availability": {
-    "latestReportDate": "2026-10-16",
-    "reportLabel": "10/16/2026 07:30 PM ET",
-    "officialPdf": "https://ak-static.cms.nba.com/referee/wnba_injury/Injury-Report_2026-10-16_07_30PM.pdf",
+    "latestReportDate": "2026-10-17",
+    "reportLabel": "10/17/2026 12:15 AM ET",
+    "officialPdf": "https://ak-static.cms.nba.com/referee/wnba_injury/Injury-Report_2026-10-17_12_15AM.pdf",
     "injuries": [
+      {
+        "player": "Allisha Gray",
+        "team": "Atlanta Dream",
+        "status": "QUESTIONABLE",
+        "reason": "Injury/Illness - Left Hand; N/A",
+        "gameDate": "10/17/2026",
+        "gameTime": "03:30 (ET)",
+        "matchup": "ATL@GSV",
+        "updated": "2026-10-17",
+        "source": "Official WNBA Injury Report PDF",
+        "officialCurrentReport": true,
+        "crossCheckOnly": false
+      },
+      {
+        "player": "Brionna Jones",
+        "team": "Atlanta Dream",
+        "status": "OUT",
+        "reason": "Injury/Illness - Left Leg; N/A",
+        "gameDate": "10/17/2026",
+        "gameTime": "03:30 (ET)",
+        "matchup": "ATL@GSV",
+        "updated": "2026-10-17",
+        "source": "Official WNBA Injury Report PDF",
+        "officialCurrentReport": true,
+        "crossCheckOnly": false
+      },
       {
         "player": "Aliyah Boston",
         "team": "Indiana Fever",
@@ -2116,24 +2142,7 @@
         "seasonLongCarryover": true
       }
     ],
-    "teamStatuses": [
-      {
-        "team": "Atlanta Dream",
-        "status": "NOT YET SUBMITTED",
-        "gameDate": "10/17/2026",
-        "gameTime": "03:30 (ET)",
-        "matchup": "ATL@GSV",
-        "updated": "2026-10-17"
-      },
-      {
-        "team": "Golden State Valkyries",
-        "status": "NOT YET SUBMITTED",
-        "gameDate": "10/17/2026",
-        "gameTime": "03:30 (ET)",
-        "matchup": "ATL@GSV",
-        "updated": "2026-10-17"
-      }
-    ]
+    "teamStatuses": []
   },
   "errors": []
 }

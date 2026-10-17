@@ -401,12 +401,56 @@
     const cards=players.map(player=>`<article class="rookie-snub-card"><div class="rookie-snub-photo"><img src="${safe(player.photo||'')}" alt="Official WNBA headshot of ${safe(player.name)}" loading="lazy" decoding="async"${imageRecovery(player.fallback||'')}></div><div><span>${safe(player.rookieYear)} ROOKIE · NO ALL-ROOKIE SELECTION</span><h4>${safe(player.name)}</h4><strong>${safe(player.accolade)}</strong><p>${safe(player.note)}</p></div></article>`).join('');
     return `<section class="snack-section rookie-snubs-dashboard"><header><span>${safe(board.eyebrow||'THE SNUB FILE')}</span><h3>${safe(board.title||'The rookies the ballot missed')}</h3><p>${safe(board.intro||'')}</p></header><div class="rookie-snubs-grid">${cards}</div><p class="rookie-snubs-method">${safe(board.note||'')}</p></section>`;
   }
+function payHistoryDashboardMarkup(board={}){
+  const points=Array.isArray(board.points)?board.points:[];
+  if(!points.length)return"";
+  const maximum=Math.max(1,Number(board.maximum)||300000);
+  const cash=value=>"$"+Math.round(Number(value)||0).toLocaleString("en-US");
+  const selected=points[points.length-1];
+  const rows=points.map((point,index)=>{
+    const amount=Math.max(0,Math.min(maximum,Number(point.value)||0));
+    const width=Math.min(100,Math.max(2,amount/maximum*100));
+    const active=index===points.length-1;
+    const display=point.display||cash(amount);
+    return `<button type="button" class="pay-history-row${active?" is-selected":""}" data-pay-history-point data-year="${safe(point.year)}" data-title="${safe(point.title||point.label||point.year)}" data-copy="${safe(point.note||"")}" data-value="${safe(display)}" aria-pressed="${active?"true":"false"}" aria-label="${safe(point.year)}: ${safe(display)}. ${safe(point.label||"salary minimum")}"><span class="pay-history-milestone"><strong>${safe(point.year)}</strong><small>${safe(point.label||"Minimum")}</small></span><span class="pay-history-track" aria-hidden="true"><i style="width:${width.toFixed(2)}%"></i></span><b class="pay-history-value">${safe(display)}</b></button>`;
+  }).join("");
+  const selectedValue=selected.display||cash(selected.value);
+  const growth=(Array.isArray(board.growth)?board.growth:[]).map(item=>`<article class="pay-growth-card"><strong>${safe(item.value)}</strong><span>${safe(item.label)}</span><small>${safe(item.note||"")}</small></article>`).join("");
+  const bonusRows=(Array.isArray(board.bonuses)?board.bonuses:[]).map(item=>{
+    const prior=Math.max(0,Number(item.prior)||0),current=Math.max(0,Number(item.current)||0),scale=Math.max(1,current);
+    const priorWidth=Math.min(100,prior/scale*100),currentWidth=Math.min(100,current/scale*100);
+    return `<article class="pay-bonus-row"><strong>${safe(item.label)}</strong><div class="pay-bonus-bars"><div><span>2025 · ${cash(prior)}</span><i class="prior" style="width:${priorWidth.toFixed(2)}%"></i></div><div><span>2026 · ${cash(current)}</span><i class="current" style="width:${currentWidth.toFixed(2)}%"></i></div></div></article>`;
+  }).join("");
+  return `<section class="pay-history-dashboard" data-pay-history-dashboard aria-label="WNBA minimum salary history and growth graphics"><header class="pay-history-head"><span>${safe(board.eyebrow||"WNBA BASE-SALARY HISTORY")}</span><h3>${safe(board.title||"How the minimum changed")}</h3><p>${safe(board.intro||"")}</p></header><div class="pay-history-highlight"><strong>${safe(board.summaryValue||"")}</strong><span>${safe(board.summaryLabel||"")}</span><small>${safe(board.summaryNote||"")}</small></div><div class="pay-history-chart" role="group" aria-label="Select a salary milestone. Bar scale runs from zero to ${cash(maximum)}."><div class="pay-history-axis"><span>YEAR · LOWEST TIER</span><span>$0</span><span>${cash(maximum)}</span></div><div class="pay-history-rows">${rows}</div><p class="pay-history-method">${safe(board.methodology||"")}</p></div><aside class="pay-history-detail" aria-live="polite"><span>SELECTED MILESTONE · <b data-pay-history-selected-year>${safe(selected.year||"")}</b></span><strong data-pay-history-selected-title>${safe(selected.title||selected.label||"")}</strong><p data-pay-history-selected-copy>${safe(selected.note||"")}</p><b class="pay-history-detail-value" data-pay-history-selected-value>${safe(selectedValue)}</b></aside>${growth?`<div class="pay-growth-block"><div><span>THE LEAGUE AROUND THE PAY STORY</span><h4>Fans and attention reached new highs</h4></div><div class="pay-growth-grid">${growth}</div></div>`:""}${bonusRows?`<div class="pay-bonus-block"><div class="pay-bonus-head"><div><span>POSTSEASON BONUSES · PER PLAYER</span><h4>The prize money rose too</h4></div><div class="pay-bonus-legend"><span><i class="prior"></i>2025</span><span><i class="current"></i>2026</span></div></div><div class="pay-bonus-list">${bonusRows}</div><p>Separate from annual base salary.</p></div>`:""}</section>`;
+}
+function wirePayHistoryDashboard(root){
+  root?.querySelectorAll("[data-pay-history-dashboard]").forEach(board=>{
+    if(board.dataset.payHistoryReady==="1")return;
+    board.dataset.payHistoryReady="1";
+    const buttons=[...board.querySelectorAll("[data-pay-history-point]")];
+    const year=board.querySelector("[data-pay-history-selected-year]");
+    const title=board.querySelector("[data-pay-history-selected-title]");
+    const copy=board.querySelector("[data-pay-history-selected-copy]");
+    const value=board.querySelector("[data-pay-history-selected-value]");
+    buttons.forEach(button=>button.addEventListener("click",()=>{
+      buttons.forEach(item=>{
+        const active=item===button;
+        item.classList.toggle("is-selected",active);
+        item.setAttribute("aria-pressed",String(active));
+      });
+      if(year)year.textContent=button.dataset.year||"";
+      if(title)title.textContent=button.dataset.title||"";
+      if(copy)copy.textContent=button.dataset.copy||"";
+      if(value)value.textContent=button.dataset.value||"";
+    }));
+  });
+}
   function sectionsMarkup(sections=[]){return sections.map(section=>{const graphic=section.image?storyImageMarkup({storyImage:section.image,imageAlt:section.imageAlt||section.title,storyImageCaption:section.imageCaption}):'';const paragraphs=(section.paragraphs||[]).map(paragraph=>`<p>${safe(paragraph)}</p>`).join('');return `<section class="snack-section"><h3>${safe(section.title)}</h3>${graphic}${paragraphs}</section>`;}).join('');}
   function storyLeadMarkup(post={}){const paragraphs=Array.isArray(post.storyLead)?post.storyLead:[];return paragraphs.length?`<div class="rookie-story-lead">${paragraphs.map(paragraph=>`<p>${safe(paragraph)}</p>`).join('')}</div>`:'';}
   function debatesMarkup(items=[]){return items.length?`<section class="snack-debate-board"><h3>Spicy debate board</h3><ul>${items.map(item=>`<li>${safe(item)}</li>`).join('')}</ul></section>`:'';}
   function foodMarkup(food={}){return food.title||food.script?`<section class="food-segment"><span class="segment-label">FROM THE KITCHEN</span><h3>${safe(food.title||'This week’s segment')}</h3>${food.script?`<blockquote>${safe(food.script)}</blockquote>`:''}</section>`:'';}
   function sourcesMarkup(sources=[]){return sources.length?`<section class="source-list"><strong>Receipts</strong><p>${sources.map(source=>`<a href="${safe(source.url)}" target="_blank" rel="noopener noreferrer">${safe(source.label||'Source')}</a>`).join(' · ')}</p></section>`:'';}
-  function storyMarkup(post){return `<a class="snack-story-back" href="${pagePath}">← Back to all ${mode==='feature'?'Food for Thought articles':'Snack Shak Bytes'}</a><article class="snack-post"><header class="snack-post-header ${mode==='feature'?'feature-header':''}"><span class="snack-series-label">${safe(label(post))}</span><div class="meta"><span>${safe(format(post.published))}</span>${post.week?`<span>•</span><span>${safe(post.week)}</span>`:''}</div><h2>${safe(post.title)}</h2><p class="dek">${safe(post.dek||'')}</p></header>${storyImageMarkup(post)}${storyLeadMarkup(post)}${playoffGameOneMarkup(post.playoffGameOne)}${playoffDraftBoardMarkup(post.playoffDraftBoard)}${playoffGalleryMarkup(post.finalsGraphic)}${playoffGalleryMarkup(post.gameGallery)}${playoffBoardMarkup(post)}${playoffWatchMarkup(post.playoffWatch)}${playoffAwardFalloutMarkup(post.awardFallout)}${rankingsMarkup(post.rankings)}${tableMarkup(post.storyTable)}${trioDashboardMarkup(post.trioDashboard)}${apAwardsDashboardMarkup(post.apAwardsDashboard)}${mvpLeadersDashboardMarkup(post.mvpLeadersDashboard)}${rookieSeasonDashboardMarkup(post.rookieSeasonDashboard)}${rookieHistoryDashboardMarkup(post.rookieHistoryDashboard)}${rookieSnubsMarkup(post.rookieSnubs)}${sectionsMarkup(post.sections)}${debatesMarkup(post.debates)}${foodMarkup(post.foodSegment)}${sourcesMarkup(post.sources)}</article>`;}
+  function storyMarkup(post){return `<a class="snack-story-back" href="${pagePath}">← Back to all ${mode==='feature'?'Food for Thought articles':'Snack Shak Bytes'}</a><article class="snack-post"><header class="snack-post-header ${mode==='feature'?'feature-header':''}"><span class="snack-series-label">${safe(label(post))}</span><div class="meta"><span>${safe(format(post.published))}</span>${post.week?`<span>•</span><span>${safe(post.week)}</span>`:''}</div><h2>${safe(post.title)}</h2><p class="dek">${safe(post.dek||'')}</p></header>${storyImageMarkup(post)}${storyLeadMarkup(post)}${payHistoryDashboardMarkup(post.payHistoryDashboard)}${playoffGameOneMarkup(post.playoffGameOne)}${playoffDraftBoardMarkup(post.playoffDraftBoard)}${playoffGalleryMarkup(post.finalsGraphic)}${playoffGalleryMarkup(post.gameGallery)}${playoffBoardMarkup(post)}${playoffWatchMarkup(post.playoffWatch)}${playoffAwardFalloutMarkup(post.awardFallout)}${rankingsMarkup(post.rankings)}${tableMarkup(post.storyTable)}${trioDashboardMarkup(post.trioDashboard)}${apAwardsDashboardMarkup(post.apAwardsDashboard)}${mvpLeadersDashboardMarkup(post.mvpLeadersDashboard)}${rookieSeasonDashboardMarkup(post.rookieSeasonDashboard)}${rookieHistoryDashboardMarkup(post.rookieHistoryDashboard)}${rookieSnubsMarkup(post.rookieSnubs)}${sectionsMarkup(post.sections)}${debatesMarkup(post.debates)}${foodMarkup(post.foodSegment)}${sourcesMarkup(post.sources)}</article>`;}
 
   function setCollectionArchiveMode(activeSlug=''){
     const list=document.getElementById('snackCollectionGrid');
@@ -427,6 +471,7 @@
     if(!post||!story)return false;
     story.hidden=false;
     story.innerHTML=storyMarkup(post);
+    wirePayHistoryDashboard(story);
     window.WKTWPlayoffBracket?.init(story);
     setCollectionArchiveMode(post.slug||'');
     if(post.slug==='the-playoff-watch-party-2026')updatePlayoffBoard();

@@ -2,6 +2,203 @@
   "site": "Snack Shak",
   "posts": [
     {
+      "slug": "wnba-minimum-salary-history-2026",
+      "type": "byte",
+      "priority": 9900,
+      "seriesLabel": "SNACK SHAK BYTE · WNBA PAY HISTORY",
+      "title": "From $15K to $270K: WNBA Minimum Pay Through the Years",
+      "published": "2026-10-17",
+      "updated": "2026-10-17",
+      "dek": "The lowest standard full-season minimum was $15,000. Trace the pay milestones, the 2026 CBA jump and the league growth behind the new numbers.",
+      "storyLead": [
+        "The WNBA’s lowest standard full-season minimum base salary was $15,000 in its early seasons. For 2026, the new collective bargaining agreement sets the minimum between $270,000 and $300,000, depending on service time. That is an 18-fold rise at the low end, in dollars of the day.",
+        "The climb came in labor-deal steps, not one smooth annual curve. The timeline tracks the lowest salary tier and keeps base pay separate from the Finals bonuses shown below."
+      ],
+      "payHistoryDashboard": {
+        "eyebrow": "WNBA MINIMUM BASE SALARY · NOMINAL DOLLARS",
+        "title": "A $15,000 floor became $270,000",
+        "intro": "Select a milestone to see what changed. Bars share a $0–$300,000 scale and track the lowest standard salary tier.",
+        "maximum": 300000,
+        "summaryValue": "18×",
+        "summaryLabel": "the early WNBA floor by 2026",
+        "summaryNote": "Nominal dollars; no inflation adjustment.",
+        "points": [
+          {
+            "year": "1997–98",
+            "value": 15000,
+            "display": "$15,000",
+            "label": "Early WNBA floor",
+            "title": "The starting point",
+            "note": "Contemporary reporting on the league’s first player labor deal identifies $15,000 as the previous minimum for both rookies and veterans."
+          },
+          {
+            "year": "1999",
+            "value": 25000,
+            "display": "$25,000",
+            "label": "Rookie minimum",
+            "title": "The first player CBA",
+            "note": "The 1999 agreement raised the rookie minimum to $25,000 and the veteran minimum to $30,000."
+          },
+          {
+            "year": "2008",
+            "value": 34500,
+            "display": "$34,500",
+            "label": "Rookie minimum",
+            "title": "A new six-year scale",
+            "note": "The 2008 agreement set the rookie minimum at $34,500 in its first season."
+          },
+          {
+            "year": "2013",
+            "value": 37950,
+            "display": "$37,950",
+            "label": "Rookie minimum",
+            "title": "End of the 2008 scale",
+            "note": "The rookie minimum climbed to $37,950 by the sixth and final year of the 2008 agreement."
+          },
+          {
+            "year": "2019",
+            "value": 41965,
+            "display": "$41,965",
+            "label": "0–2 years of service",
+            "title": "The last year before the 2020 deal",
+            "note": "Under the old scale, the minimum was $41,965 for players with up to two years of service and $56,375 for more experienced players."
+          },
+          {
+            "year": "2020",
+            "value": 57000,
+            "display": "$57,000",
+            "label": "0–2 years of service",
+            "title": "The 2020 CBA takes effect",
+            "note": "The new scale started at $57,000 for players with fewer than three years of service and $68,000 for experienced players."
+          },
+          {
+            "year": "2025",
+            "value": 66079,
+            "display": "$66,079",
+            "label": "0–2 years of service",
+            "title": "The final season of the old scale",
+            "note": "The 2025 minimum was $66,079 for players with zero to two years of service and $78,831 for players with three or more."
+          },
+          {
+            "year": "2026",
+            "value": 270000,
+            "display": "$270K–$300K",
+            "label": "By years of service",
+            "title": "The new CBA reset",
+            "note": "The 2026 minimum ranges from $270,000 to $300,000, based on years of service. The higher figure is a service-time tier, not the floor."
+          }
+        ],
+        "growth": [
+          {
+            "value": "3.8M",
+            "label": "fans in 2026",
+            "note": "Record attendance across 330 regular-season games."
+          },
+          {
+            "value": "11,474",
+            "label": "fans per game",
+            "note": "Average attendance, 21% above the previous record set in 2025."
+          },
+          {
+            "value": "90M+",
+            "label": "unique viewers",
+            "note": "A WNBA regular-season record in 2026."
+          },
+          {
+            "value": "4B",
+            "label": "social views",
+            "note": "Record WNBA social views, up 28% from 2025."
+          }
+        ],
+        "bonuses": [
+          {
+            "label": "Champions · each player",
+            "prior": 22908,
+            "current": 60000
+          },
+          {
+            "label": "Runner-up · each player",
+            "prior": 8521,
+            "current": 20000
+          },
+          {
+            "label": "Finals MVP",
+            "prior": 5000,
+            "current": 30000
+          }
+        ],
+        "methodology": "Standard full-season base-salary minimums, shown in nominal dollars. The lowest tier depends on years of service; where the salary schedule had multiple tiers, notes show the relevant higher minimum. Bonuses, endorsements, offseason pay and prorated partial-season contracts are separate."
+      },
+      "sections": [
+        {
+          "title": "The least was $15,000",
+          "paragraphs": [
+            "That is the league’s early standard minimum base salary—not an estimate of what every player earned. The first player labor agreement raised the minimum in 1999 to $25,000 for rookies and $30,000 for veterans. Years of service have shaped the minimum ever since.",
+            "The timeline shows selected salary floors, not every season. It also uses nominal dollars: $15,000 in 1997 did not buy what $15,000 buys today."
+          ]
+        },
+        {
+          "title": "The steepest jump arrived with a new labor deal",
+          "paragraphs": [
+            "The 2020 agreement moved the inexperienced-player minimum to $57,000 and the experienced-player minimum to $68,000. By 2025, the lower tier had reached $66,079, with the veteran tier at $78,831.",
+            "Then the 2026 agreement reset the scale. Its $270,000 low-end minimum is about 4.1 times the 2025 low end—a roughly 309% increase in one season. The $300,000 figure applies to higher service tiers."
+          ]
+        },
+        {
+          "title": "The league is growing around the pay scale",
+          "paragraphs": [
+            "The 2026 season drew a record 3.8 million fans across 330 regular-season games. Average attendance was 11,474 per game, 21% above the previous record; the league also reported more than 90 million unique viewers and 4 billion social views, up 28% from 2025.",
+            "The new CBA lifted the team salary cap from $1.5 million in 2025 to $7 million in 2026 and added a comprehensive revenue-sharing model. The league says future caps will adjust with team and league revenue growth. That is a negotiated way for player compensation to move with the business—not an automatic one-for-one link between every new fan and a player’s paycheck."
+          ]
+        },
+        {
+          "title": "Finals bonuses are a separate win",
+          "paragraphs": [
+            "Finals bonuses climbed sharply too: a player on the 2025 championship team received $22,908, compared with $60,000 under the 2026 schedule. The Finals MVP bonus rose from $5,000 to $30,000, while the runner-up bonus moved from $8,521 to $20,000.",
+            "These are per-player postseason bonuses, on top of base salary. They should not be read as annual pay."
+          ]
+        }
+      ],
+      "foodSegment": {
+        "title": "The floor changed; the fight built the ladder",
+        "script": "From $15K at the start to a $270K minimum in 2026: a dramatic 18× jump in nominal dollars, with the next chapter tied to how the league’s revenue grows."
+      },
+      "sources": [
+        {
+          "label": "The Washington Post · 1999 first WNBA player CBA and minimums",
+          "url": "https://www.washingtonpost.com/archive/sports/1999/04/30/wnba-players-union-reach-agreement/a3c713c4-7415-497b-8a64-d65d5905d026/"
+        },
+        {
+          "label": "Sports Business Journal · 2008 WNBA labor deal and rookie salary scale",
+          "url": "https://www.sportsbusinessjournal.com/Journal/Issues/2008/01/28/This-Weeks-News/WNBA-Union-Reach-Deal-On-New-CBA.aspx"
+        },
+        {
+          "label": "ESPN · WNBA salary history by collective bargaining agreement",
+          "url": "https://www.espn.com/wnba/story/_/id/47813218/wnba-cba-collective-bargaining-agreement-negotiations-salary-cap"
+        },
+        {
+          "label": "WNBPA · 2020 WNBA–WNBPA Collective Bargaining Agreement",
+          "url": "https://wnbpa.com/wp-content/uploads/2020/01/WNBA-WNBPA-CBA-2020-2027.pdf"
+        },
+        {
+          "label": "Her Hoop Stats · 2025 salary cap summary",
+          "url": "https://herhoopstats.com/salary-cap-sheet/wnba/summary/2025/"
+        },
+        {
+          "label": "WNBA · 2026 CBA salary and revenue-sharing details",
+          "url": "https://www.wnba.com/news/wnba-wnbpa-tentative-cba-deal-2026"
+        },
+        {
+          "label": "WNBA · 2026 attendance, viewership and social records",
+          "url": "https://www.wnba.com/news/wnba-season-30-record-growth"
+        },
+        {
+          "label": "Reuters · 2026 Finals bonus schedule and 2025 comparison",
+          "url": "https://www.reuters.com/sports/wnba-board-governors-unanimously-ratifies-new-cba--flm-2026-03-24/"
+        }
+      ]
+    },
+    {
       "slug": "fifth-place-four-mvp-tie-2026",
       "type": "byte",
       "priority": 7200,

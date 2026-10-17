@@ -304,3 +304,14 @@ body.team-page{background:#fffaf0;color:#17131f;}
 .team-playoff-pulse.is-eliminated{border-left-color:#b62a3a;background:linear-gradient(135deg,#fbf7f8,#f2ecee)}
 .team-playoff-pulse.is-eliminated>div:first-child>strong{color:#9b2030}
 @media(max-width:760px){.team-playoff-pulse{grid-template-columns:1fr}.team-playoff-pulse-score{border-left:0;border-top:1px solid #e5dce9;padding:12px 0}.team-playoff-pulse nav{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* Franchise naming history */
+#teamNameOrigin{scroll-margin-top:150px}
+.team-name-origin-card{display:grid;grid-template-columns:170px minmax(0,1fr);gap:24px;padding:24px;border:1px solid var(--line,#d9dce3);border-left:6px solid var(--team-primary,#6d35a8);border-radius:20px;background:var(--panel,#fff)}
+.team-name-origin-year{display:block;font-size:3rem;line-height:1.15;margin-top:12px}
+.team-name-origin-card p{margin:0 0 16px;line-height:1.7;font-size:1rem}
+.team-name-origin-card a{font-weight:800;text-underline-offset:3px}
+.team-name-lineage{padding-top:14px;border-top:1px solid var(--line,#d9dce3)}
+@media(max-width:600px){.team-name-origin-card{grid-template-columns:1fr;gap:16px;padding:20px}.team-name-origin-year{font-size:2.3rem}}
+
+.team-name-origin-logo{display:block;width:140px;height:140px;object-fit:contain;margin:0 auto 20px;padding:8px;background:#fff;border-radius:16px}

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-17T17:10:40.172Z",
+  "generatedAt": "2026-10-17T19:27:09.063Z",
   "movement": {
     "latestTransactionDate": "2026-09-28",
     "transactions": [
@@ -1438,22 +1438,9 @@
   },
   "availability": {
     "latestReportDate": "2026-10-17",
-    "reportLabel": "10/17/2026 01:00 PM ET",
-    "officialPdf": "https://ak-static.cms.nba.com/referee/wnba_injury/Injury-Report_2026-10-17_01_00PM.pdf",
+    "reportLabel": "10/17/2026 03:15 PM ET",
+    "officialPdf": "https://ak-static.cms.nba.com/referee/wnba_injury/Injury-Report_2026-10-17_03_15PM.pdf",
     "injuries": [
-      {
-        "player": "Allisha Gray",
-        "team": "Atlanta Dream",
-        "status": "QUESTIONABLE",
-        "reason": "Injury/Illness - Left Hand; N/A",
-        "gameDate": "10/17/2026",
-        "gameTime": "03:30 (ET)",
-        "matchup": "ATL@GSV",
-        "updated": "2026-10-17",
-        "source": "Official WNBA Injury Report PDF",
-        "officialCurrentReport": true,
-        "crossCheckOnly": false
-      },
       {
         "player": "Brionna Jones",
         "team": "Atlanta Dream",

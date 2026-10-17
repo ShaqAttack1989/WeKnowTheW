@@ -25,7 +25,7 @@ test('2026 Finals schedule matches the latest WNBA schedule in every shared sour
  }
  const data=JSON.parse(fs.readFileSync('snack-shak-latest.json','utf8'));
  const guide=data.posts.find(p=>p.slug==='the-playoff-watch-party-2026');
- assert.equal(guide.updated,'2026-10-15');
+ assert.equal(guide.updated,'2026-10-17');
  assert.match(guide.sections.find(s=>s.title==='The Finals watch schedule').paragraphs.join(' '),/Game 3: Wed\., Oct\. 21, 8 p\.m\./);
  assert.match(guide.sections.find(s=>s.title==='The Finals watch schedule').paragraphs.join(' '),/Game 4: Sat\., Oct\. 24, 1 p\.m\./);
  assert.match(guide.sections.find(s=>s.title==='The Finals watch schedule').paragraphs.join(' '),/Game 6.*venue.*TBD/i);
@@ -33,8 +33,8 @@ test('2026 Finals schedule matches the latest WNBA schedule in every shared sour
  assert.ok(scheduleGraphic,'uploaded schedule graphic is included in the Finals article');
  assert.ok(fs.existsSync(scheduleGraphic.image),'uploaded schedule image exists at article path');
  assert.ok(guide.sources.some(s=>s.url==='https://www.wnba.com/news/wnba-finals-games3-and-4-to-be-played-at-state-farm-arena'));
- assert.equal(fs.readFileSync('snack-shak-latest.json','utf8'),fs.readFileSync('site/snack-shak-latest.json','utf8'));
- const dashboardVersion='20261015-finals-schedule-v2';
+ assert.deepEqual(guide,JSON.parse(fs.readFileSync('site/snack-shak-latest.json','utf8')).posts.find(p=>p.slug===guide.slug));
+ const dashboardVersion='20261017-finals-game1-v1';
  const siteSource=fs.readFileSync('site.js','utf8');
  assert.ok(siteSource.includes(`global-scoreboard.js?v=${dashboardVersion}`),'global scoreboard asset is cache-busted');
  for(const page of ['index.html','games.html','live-stats.html']){

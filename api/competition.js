@@ -98,7 +98,7 @@ const PLAYOFF_2026_SCHEDULE=[
   {id:'1042600212',date:'2026-10-07',startTimeUtc:'2026-10-07T21:30:00-04:00',homeTeam:'Golden State Valkyries',awayTeam:'Las Vegas Aces',homeScore:83,awayScore:81,broadcasts:['Peacock','NBC Sports Network'],status:'Final',state:'post',completed:true},
   {id:'1042600203',date:'2026-10-09',startTimeUtc:'2026-10-09T19:30:00-04:00',homeTeam:'New York Liberty',awayTeam:'Atlanta Dream',homeScore:83,awayScore:85,broadcasts:['ESPN2'],status:'Final',state:'post',completed:true},
   {id:'1042600213',date:'2026-10-09',startTimeUtc:'2026-10-09T21:30:00-04:00',homeTeam:'Las Vegas Aces',awayTeam:'Golden State Valkyries',homeScore:77,awayScore:87,broadcasts:['Peacock','NBC Sports Network'],status:'Final/OT',state:'post',completed:true},
-    {id:'2026-gsv-atl-finals-g1',date:'2026-10-17',startTimeUtc:'2026-10-17T15:30:00-04:00',homeTeam:'Golden State Valkyries',awayTeam:'Atlanta Dream',homeScore:null,awayScore:null,broadcasts:['NBC','Peacock'],status:'Finals Game 1',state:'pre',completed:false,round:'Finals',gameNumber:1,ifNecessary:false},
+    {id:'2026-gsv-atl-finals-g1',date:'2026-10-17',startTimeUtc:'2026-10-17T15:30:00-04:00',homeTeam:'Golden State Valkyries',awayTeam:'Atlanta Dream',homeScore:68,awayScore:64,broadcasts:['NBC','Peacock'],status:'Final',state:'post',completed:true,round:'Finals',gameNumber:1,ifNecessary:false},
     {id:'2026-gsv-atl-finals-g2',date:'2026-10-19',startTimeUtc:'2026-10-19T20:00:00-04:00',homeTeam:'Golden State Valkyries',awayTeam:'Atlanta Dream',homeScore:null,awayScore:null,broadcasts:['USA','Peacock','CNBC'],status:'Finals Game 2',state:'pre',completed:false,round:'Finals',gameNumber:2,ifNecessary:false},
     {id:'2026-gsv-atl-finals-g3',date:'2026-10-21',startTimeUtc:'2026-10-21T20:00:00-04:00',homeTeam:'Atlanta Dream',awayTeam:'Golden State Valkyries',homeScore:null,awayScore:null,broadcasts:['USA','Peacock','CNBC'],status:'Finals Game 3',state:'pre',completed:false,round:'Finals',gameNumber:3,ifNecessary:false},
     {id:'2026-gsv-atl-finals-g4',date:'2026-10-24',startTimeUtc:'2026-10-24T13:00:00-04:00',homeTeam:'Atlanta Dream',awayTeam:'Golden State Valkyries',homeScore:null,awayScore:null,broadcasts:['NBC','Peacock'],status:'Finals Game 4',state:'pre',completed:false,round:'Finals',gameNumber:4,ifNecessary:false},
@@ -168,6 +168,6 @@ module.exports=async function handler(req,res){
     playoffs:{games:postseason,series:series(postseason),starts:'2026-09-27',started:Date.now()>=Date.parse('2026-09-27T00:00:00-04:00')},
     sources:{cup:'https://www.wnba.com/commissioners-cup/2026/about-the-cup',cupResults:'https://www.wnba.com/news/category/2026-commissioners-cup',cupFinal:'https://www.wnba.com/commissioners-cup/2026/leaderboard',playoffs:'https://www.wnba.com/playoffs/2026'},
     providerErrors,
-    sourceVersion:'20261010-semifinal-sweeps-finals-v1'
+    sourceVersion:'20261017-finals-game1-v1'
   });
 };

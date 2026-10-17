@@ -4,9 +4,9 @@ const fs=require('node:fs');
 const read=p=>fs.readFileSync(require('node:path').join(__dirname,'..',p),'utf8');
 const guide=JSON.parse(read('snack-shak-latest.json')).posts.find(p=>p.slug==='the-playoff-watch-party-2026');
 test('both closeouts feed a zero-win Finals matchup without carrying semifinal wins',()=>{
- assert.equal(guide.updated,'2026-10-15');
+ assert.equal(guide.updated,'2026-10-17');
  const rows=guide.playoffWatch.matchups;
- assert.equal(rows.find(r=>r.roundKey==='Finals').series,'0-0');
+ assert.equal(rows.find(r=>r.roundKey==='Finals').series,'1-0');
  assert.deepEqual(rows.filter(r=>r.roundKey==='Semifinals').map(r=>r.series),['3-0','3-0']);
  for(const file of ['api/competition.js','playoff-bracket.js','global-scoreboard.js']){
   const s=read(file);
@@ -18,10 +18,10 @@ test('both closeouts feed a zero-win Finals matchup without carrying semifinal w
 });
 test('main and homepage use verified Game 3 action with credit and official source',()=>{
  assert.equal(guide.image,guide.storyImage);
- assert.match(guide.image,/53109b8f7bdd419a65d3abb786964fac24ab093b/);
- assert.match(guide.storyImageCaption,/Ishika Samant\/Getty Images/);
- assert.match(guide.storyImageSourceUrl,/theguardian\.com.*2026\/oct\/09/);
- assert.match(guide.imageAlt,/October 9, 2026/);
+ assert.match(guide.image,/feat-image-in-game-gabby-20261017/);
+ assert.match(guide.storyImageCaption,/Golden State Valkyries\/WNBA/);
+ assert.match(guide.storyImageSourceUrl,/valkyries\.wnba\.com.*20261017/);
+ assert.match(guide.imageAlt,/October 17, 2026/);
  assert.match(JSON.stringify(guide.sections),/500 career playoff points/);
  assert.match(read('homepage-fresh-stories.js'),/image/);
 });
@@ -35,8 +35,8 @@ test('finalist audit keeps eliminated roster receipts but counts only surviving 
 
 test('homepage spotlight reflects the Finals and removes semifinal closeout callouts',()=>{
  const s=read('index.html');
- assert.match(s,/Finals are set/);
- assert.match(s,/Dream–Valkyries Finals begin October 17/);
+ assert.match(s,/Golden State leads 1–0/);
+ assert.match(s,/Golden State beat Atlanta 68–64/);
  assert.doesNotMatch(s,/Two 2–0 semifinal leads|Friday brings closeout games/);
 });
 
@@ -57,7 +57,7 @@ test('shared bracket renders both sweeps and the Finals without a DOM error',()=
 test('finalist action photos are distinct within the article',()=>{
  const photos=[guide.storyImage,...guide.gameGallery.items.map(item=>item.image)];
  assert.equal(new Set(photos).size,photos.length);
- assert.match(guide.imageAlt,/Angel Reese/);
+ assert.match(guide.imageAlt,/Gabby Williams/);
  assert.match(guide.gameGallery.items[0].alt,/Jordin Canada/);
  assert.match(guide.gameGallery.items[1].alt,/Tiffany Hayes/);
  for(const item of guide.gameGallery.items){assert.ok(item.credit);assert.ok(item.sourceUrl);assert.match(item.alt,/October 9, 2026/);}

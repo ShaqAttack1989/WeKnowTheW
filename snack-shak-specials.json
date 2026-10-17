@@ -2,6 +2,52 @@
   "site": "Snack Shak",
   "posts": [
     {
+      "slug": "wnba-team-name-stories",
+      "type": "feature",
+      "priority": 125,
+      "seriesLabel": "FOOD FOR THOUGHT",
+      "title": "What’s in a Name? The W Has Stories to Tell",
+      "published": "2026-10-17",
+      "dashboardUrl": "/wnba-team-name-stories.html",
+      "dek": "Civil rights, mythology, city pride and reinvention: explore the stories behind WNBA names, then follow every logo into its team hub.",
+      "image": "https://a.espncdn.com/i/teamlogos/wnba/500/atl.png",
+      "storyImage": "https://a.espncdn.com/i/teamlogos/wnba/500/atl.png",
+      "imageAlt": "Atlanta Dream official team logo",
+      "imageFit": "contain",
+      "teams": [
+        "Cleveland Sirens",
+        "Atlanta Dream",
+        "Chicago Sky",
+        "Connecticut Sun",
+        "Dallas Wings",
+        "Golden State Valkyries",
+        "Indiana Fever",
+        "Las Vegas Aces",
+        "Los Angeles Sparks",
+        "Minnesota Lynx",
+        "New York Liberty",
+        "Phoenix Mercury",
+        "Portland Fire",
+        "Seattle Storm",
+        "Toronto Tempo",
+        "Washington Mystics"
+      ],
+      "sections": [
+        {
+          "title": "The name before the numbers",
+          "paragraphs": [
+            "Explore the full feature and searchable guide to every team name."
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "label": "WNBA brand history",
+          "url": "https://www.wnba.com/news/meet-the-toronto-tempo"
+        }
+      ]
+    },
+    {
       "slug": "best-womens-basketball-coaches",
       "type": "feature",
       "priority": 120,

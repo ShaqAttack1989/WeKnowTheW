@@ -1,7 +1,53 @@
 {
-  "updatedAt": "2026-10-05T10:05:00-04:00",
+  "updatedAt": "2026-10-18T19:40:00-04:00",
   "timezone": "America/New_York",
   "startingFive": [
+    {
+      "week": "2026-10-19",
+      "edition": "WNBA FINALS",
+      "picks": [
+        {
+          "name": "Jordin Canada",
+          "label": "1 · PG",
+          "role": "Point Guard",
+          "statLine": "8 PTS · 7 AST · 5 REB · Finals Game 1",
+          "copy": "Canada gives the five its organizer, combining pace control and passing with the pressure defense needed in a tight Finals matchup.",
+          "photo": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1628886.png"
+        },
+        {
+          "name": "Allisha Gray",
+          "label": "2 · SG",
+          "role": "Shooting Guard",
+          "statLine": "19 PTS · Finals Game 1",
+          "copy": "Gray returns to the two after leading Atlanta in scoring in the opener, adding the shooting pressure and creation the offense needs.",
+          "photo": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1628277.png"
+        },
+        {
+          "name": "Gabby Williams",
+          "label": "3 · SF",
+          "role": "Small Forward",
+          "statLine": "26 PTS · Finals Game 1",
+          "copy": "Williams carries the wing after taking over the opener with scoring, defensive activity and decisive late free throws.",
+          "photo": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1628931.png"
+        },
+        {
+          "name": "Angel Reese",
+          "label": "4 · PF",
+          "role": "Power Forward",
+          "statLine": "14 PTS · 12 REB · Finals Game 1",
+          "copy": "Reese anchors the frontcourt with rebounding and interior pressure, creating extra possessions in a series defined by defense.",
+          "photo": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1642291.png"
+        },
+        {
+          "name": "Kiah Stokes",
+          "label": "5 · C",
+          "role": "Center",
+          "statLine": "4 BLK · Finals Game 1",
+          "copy": "Stokes takes the five with rim protection and physical interior defense, giving the lineup a specialist who can change shots without needing touches.",
+          "photo": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/204329.png"
+        }
+      ]
+    },
     {
       "week": "2026-10-05",
       "edition": "WNBA PLAYOFFS",
@@ -308,6 +354,60 @@
     }
   ],
   "benchMob": [
+    {
+      "week": "2026-10-19",
+      "edition": "WNBA FINALS",
+      "picks": [
+        {
+          "role": "Sixth Woman",
+          "roleId": "sixth-woman",
+          "name": "Tiffany Hayes",
+          "statLine": "9.0 PPG · 2.5 APG · Regular season",
+          "why": "Hayes brings veteran scoring and secondary creation, giving the second unit a trusted source of downhill pressure and playoff experience.",
+          "photo": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/203026.png"
+        },
+        {
+          "role": "Microwave Scorer",
+          "roleId": "microwave",
+          "name": "DeWanna Bonner",
+          "statLine": "10.4 PPG · 6.0 RPG · Regular season",
+          "why": "Bonner supplies scoring flexibility and veteran composure, finding points inside or outside while adding valuable rebounding.",
+          "photo": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/201886.png"
+        },
+        {
+          "role": "3 & D Wing",
+          "roleId": "three-d",
+          "name": "Kayla Thornton",
+          "statLine": "Wing defense · Floor spacing",
+          "why": "Thornton brings physical perimeter defense, timely shooting and the versatility to complement the group's primary creators.",
+          "photo": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/203866.png"
+        },
+        {
+          "role": "Glue Player · Floor General",
+          "roleId": "glue",
+          "name": "Veronica Burton",
+          "statLine": "12.2 PPG · 5.7 APG · Regular season",
+          "why": "Burton stabilizes the group with defensive organization, ball pressure and the passing needed to keep possessions connected.",
+          "photo": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1631007.png"
+        },
+        {
+          "role": "Backup Floor General",
+          "roleId": "backup-pg",
+          "name": "Kaitlyn Chen",
+          "statLine": "Five straight points during an early Finals Game 1 run",
+          "why": "Chen supplies another ball handler and an immediate energy lift, keeping the offense moving when the second unit takes over.",
+          "photo": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1642822.png"
+        },
+        {
+          "role": "Energy Big",
+          "roleId": "energy-big",
+          "name": "Kaila Charles",
+          "statLine": "10 REB · Playoff career high · Finals Game 1",
+          "why": "Listed as a guard-forward, Charles fills this board's rebounding role with activity, physicality and possession-winning effort.",
+          "photo": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1630097.png"
+        }
+      ]
+    },
     {
       "week": "2026-10-05",
       "edition": "WNBA PLAYOFFS",

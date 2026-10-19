@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-19T10:46:39.644Z",
+  "generatedAt": "2026-10-19T17:28:38.532Z",
   "movement": {
     "latestTransactionDate": "2026-09-28",
     "transactions": [
@@ -1438,8 +1438,8 @@
   },
   "availability": {
     "latestReportDate": "2026-10-19",
-    "reportLabel": "10/19/2026 06:45 AM ET",
-    "officialPdf": "https://ak-static.cms.nba.com/referee/wnba_injury/Injury-Report_2026-10-19_06_45AM.pdf",
+    "reportLabel": "10/19/2026 01:15 PM ET",
+    "officialPdf": "https://ak-static.cms.nba.com/referee/wnba_injury/Injury-Report_2026-10-19_01_15PM.pdf",
     "injuries": [
       {
         "player": "Brionna Jones",

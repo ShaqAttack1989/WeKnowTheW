@@ -19,9 +19,9 @@ test('both closeouts feed a zero-win Finals matchup without carrying semifinal w
 });
 test('main and homepage use verified Game 3 action with credit and official source',()=>{
  assert.equal(guide.image,guide.storyImage);
- assert.match(guide.image,/Feature/);
- assert.match(guide.storyImageCaption,/Golden State Valkyries\/WNBA/);
- assert.match(guide.storyImageSourceUrl,/valkyries\.wnba\.com.*20261019/);
+ assert.match(guide.image,/Angel_Reese_WNBA_Finals_Game_2/);
+ assert.match(guide.storyImageCaption,/Ezra Shaw\/Getty Images via AFP/);
+ assert.match(guide.storyImageSourceUrl,/gmanetwork\.com/);
  assert.match(guide.imageAlt,/October 19, 2026/);
  assert.match(JSON.stringify(guide.sections),/500 career playoff points/);
  assert.match(read('homepage-fresh-stories.js'),/image/);
@@ -58,7 +58,7 @@ test('shared bracket renders both sweeps and the Finals without a DOM error',()=
 test('finalist action photos are distinct within the article',()=>{
  const photos=[guide.storyImage,...guide.gameGallery.items.map(item=>item.image)];
  assert.equal(new Set(photos).size,photos.length);
- assert.match(guide.imageAlt,/Kaila Charles/);
+ assert.match(guide.imageAlt,/Angel Reese.*Kaitlyn Chen/);
  assert.match(guide.gameGallery.items[0].alt,/Jordin Canada/);
  assert.match(guide.gameGallery.items[1].alt,/Tiffany Hayes/);
  for(const item of guide.gameGallery.items){assert.ok(item.credit);assert.ok(item.sourceUrl);assert.match(item.alt,/October 9, 2026/);}

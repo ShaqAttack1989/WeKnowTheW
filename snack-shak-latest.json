@@ -2508,9 +2508,9 @@
       "published": "2026-10-02",
       "updated": "2026-10-19",
       "week": "Finals · Atlanta and Golden State tied 1–1",
-      "image": "https://cdn.wnba.com/sites/1611661331/2026/10/Feature.png",
+      "image": "https://images.gmanews.tv/webpics/2026/10/Angel_Reese_WNBA_Finals_Game_2_2026_10_20_12_16_12.jpg",
       "imageFit": "contain",
-      "imageAlt": "Kaila Charles drives against Allisha Gray in Finals Game 2 at Chase Center, October 19, 2026",
+      "imageAlt": "Angel Reese dribbles against Kaitlyn Chen during the second quarter of Finals Game 2 at Chase Center, October 19, 2026",
       "dek": "Atlanta won Game 2, 79–65, on October 19. Angel Reese’s 30 points and 16 rebounds helped send the Finals to Atlanta tied 1–1.",
       "playoffGameOne": {
         "ariaLabel": "Finals Game 2 result",
@@ -2573,10 +2573,26 @@
         {
           "title": "Game 2: the Dream brings the answer home",
           "paragraphs": [
-            "Atlanta won 79–65 at Chase Center on October 19, earning the franchise’s first Finals victory and tying the best-of-seven series 1–1. A 29–8 burst broke a 40–40 tie and took the lead as high as 21.",
-            "The official WNBA box score credits Angel Reese with 30 points and 16 rebounds. Allisha Gray added 18 points and Jordin Canada 13. Atlanta turned Golden State’s 19 turnovers into 24 points.",
-            "Golden State’s bench won its scoring matchup 33–11, but Gabby Williams was the only starting Valkyrie in double figures, with 14. Kiah Stokes supplied 11 rebounds and four blocks; Kaila Charles made three triples.",
-            "Analysis: Golden State needs cleaner initiation and more scoring support around Williams. Atlanta’s interior pressure and points off mistakes changed the balance; bench depth alone could not offset that gap. Game 3 is October 21 at 8 p.m. ET in Atlanta."
+            "Atlanta won 79–65 at Chase Center on October 19, tying the Finals 1–1 and taking the franchise’s first victory on this stage. The third quarter delivered the decisive separation: Atlanta 21, Golden State 9. A two-point halftime gap became 14 entering the fourth, and the teams traded 19 points apiece from there.",
+            "Angel Reese finished with 30 points, 16 rebounds and three assists. Allisha Gray supplied 18 points; Jordin Canada paired 13 points with 10 assists and seven rebounds. Rhyne Howard scored only five, but her six steals show why scoring alone misses Atlanta’s most disruptive work.",
+            "Golden State had 14 points from Gabby Williams, 11 rebounds and four blocks from Kiah Stokes, and three made threes from Kaila Charles. The bench outscored Atlanta 33–11. That depth kept producing, but it did not fix a starting unit with only one double-figure scorer."
+          ]
+        },
+        {
+          "title": "The arithmetic behind the answer",
+          "paragraphs": [
+            "Both teams made 21 field goals and seven three-pointers. Atlanta’s 14-point winning margin therefore matches its advantage at the free-throw line exactly: 30 makes to Golden State’s 16. The Dream attempted 35 free throws; the Valkyries attempted 19. Those totals describe the difference in the box score; they do not establish whether any particular whistle was correct.",
+            "Atlanta also won the possession exchanges. Golden State committed 19 turnovers to Atlanta’s 14, while the Dream scored 24 points off turnovers against 13 for the Valkyries. Atlanta’s 17–7 edge in second-chance points added another route to scoring without needing a better shooting percentage.",
+            "Analysis: a nearly identical field-goal output can disguise very different offensive nights. Atlanta generated enough trips to the line and extra-possession scoring to win comfortably despite shooting 33.9 percent from the floor. Golden State’s 34.4 percent was scarcely better; the ball security and foul-line gaps made that shared struggle much more expensive for the home side."
+          ]
+        },
+        {
+          "title": "Who changed the series, and what Game 3 asks",
+          "paragraphs": [
+            "Reese moved from 14 points and 12 rebounds in Game 1 to 30 and 16 in Game 2. Analysis: Golden State must make her catches and follow-up chances harder while keeping enough help available for Gray. Simply sending more bodies carries a cost when Canada is organizing the offense and finding teammates.",
+            "Canada’s 10 assists matter alongside her 13 points: Atlanta did not depend on one scorer solving every possession. Howard’s six steals and Bonner’s four helped turn defense into offense. Analysis: Golden State’s first adjustment should be more reliable passing angles and support when its ball handler is pressured.",
+            "For the Valkyries, a 33-point bench night is a resource to build on. Analysis: the harder question is how to involve that production without sacrificing defensive rebounding or leaving Williams responsible for too much difficult creation. Compare the game selector and player board above to see which changes are real across two nights.",
+            "The series moves to State Farm Arena for Game 3 on October 21 at 8 p.m. ET and Game 4 on October 24 at 1 p.m. ET. Both teams need three more wins. Game 5 at Chase Center on October 26 is guaranteed; neither a champion nor an elimination has been decided."
           ]
         },
         {
@@ -2639,6 +2655,10 @@
       ],
       "sources": [
         {
+          "label": "Official WNBA Finals Game 1 box score",
+          "url": "https://cdn.wnba.com/static/json/liveData/boxscore/boxscore_1042600301.json"
+        },
+        {
           "label": "Official WNBA Finals Game 2 box score · October 19",
           "url": "https://cdn.wnba.com/static/json/liveData/boxscore/boxscore_1042600302.json"
         },
@@ -2696,9 +2716,9 @@
         }
       ],
       "dashboardUrl": "/food-for-thought.html?post=the-playoff-watch-party-2026#story",
-      "storyImage": "https://cdn.wnba.com/sites/1611661331/2026/10/Feature.png",
-      "storyImageCaption": "Kaila Charles and Allisha Gray · Finals Game 2 · October 19, 2026. Photo: Golden State Valkyries/WNBA. Photographer not identified by the official source.",
-      "storyImageSourceUrl": "https://valkyries.wnba.com/news/gameday-recap-20261019",
+      "storyImage": "https://images.gmanews.tv/webpics/2026/10/Angel_Reese_WNBA_Finals_Game_2_2026_10_20_12_16_12.jpg",
+      "storyImageCaption": "Angel Reese attacks against Kaitlyn Chen · Finals Game 2 · October 19, 2026. Photo: Ezra Shaw/Getty Images via AFP.",
+      "storyImageSourceUrl": "https://www.gmanetwork.com/news/sports/basketball/1006498/wnba-angel-reese-s-30-points-16-boards-lead-dream-to-finals-tying-win/story/",
       "playoffWatch": {
         "title": "THE DREAM ANSWERS.",
         "subtitle": "Dream 79, Valkyries 65 · Finals Game 2 · October 19",

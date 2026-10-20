@@ -2307,40 +2307,40 @@
       "priority": 7600,
       "homepageSeason": "wnba-playoffs",
       "seriesLabel": "FOOD FOR THOUGHT · PLAYOFF WATCH GUIDE",
-      "title": "Ballhalla Holds: Williams Carries Golden State to a 1–0 Finals Lead",
+      "title": "Dream Answers: Reese Levels the Finals at 1–1",
       "published": "2026-10-02",
-      "updated": "2026-10-17",
-      "week": "Finals · Golden State leads Atlanta 1–0",
-      "image": "https://cdn.wnba.com/sites/1611661331/2026/10/feat-image-in-game-gabby-20261017.png",
+      "updated": "2026-10-19",
+      "week": "Finals · Atlanta and Golden State tied 1–1",
+      "image": "https://cdn.wnba.com/sites/1611661331/2026/10/Feature.png",
       "imageFit": "contain",
-      "imageAlt": "Gabby Williams on court in Finals Game 1 against Atlanta at Chase Center, October 17, 2026",
-      "dek": "Golden State beat Atlanta 68–64 on October 17. Gabby Williams scored 26, and a closing 7–0 run put the Valkyries three wins from their first championship.",
+      "imageAlt": "Kaila Charles drives against Allisha Gray in Finals Game 2 at Chase Center, October 19, 2026",
+      "dek": "Atlanta won Game 2, 79–65, on October 19. Angel Reese’s 30 points and 16 rebounds helped send the Finals to Atlanta tied 1–1.",
       "playoffGameOne": {
-        "ariaLabel": "Finals Game 1 result",
-        "eyebrow": "FINALS GAME 1 · FINAL",
-        "title": "Seven unanswered points. One Finals lead.",
-        "dek": "Golden State beat Atlanta 68–64 on October 17. Gabby Williams scored 26, and a closing 7–0 run put the Valkyries three wins from their first championship.",
-        "asOf": "UPDATED · OCT. 17, 2026",
+        "ariaLabel": "Finals Game 2 result",
+        "eyebrow": "FINALS GAME 2 · FINAL",
+        "title": "Atlanta answers. The Finals reset.",
+        "dek": "Atlanta won Game 2, 79–65, on October 19. Angel Reese’s 30 points and 16 rebounds helped send the Finals to Atlanta tied 1–1.",
+        "asOf": "UPDATED · OCT. 19, 2026",
         "receipts": [
           {
-            "value": "68–64",
-            "label": "Golden State wins Game 1",
-            "note": "October 17 · Chase Center"
+            "value": "79–65",
+            "label": "Atlanta wins Game 2",
+            "note": "October 19 · Chase Center"
           },
           {
-            "value": "1–0",
-            "label": "Valkyries lead the Finals",
+            "value": "1–1",
+            "label": "Finals series tied",
             "note": "First to four wins"
           },
           {
-            "value": "26",
-            "label": "Gabby Williams points",
-            "note": "Game-high scoring total"
+            "value": "30 / 16",
+            "label": "Angel Reese points / rebounds",
+            "note": "Official WNBA box score"
           },
           {
-            "value": "OCT 19",
-            "label": "Game 2 · 8 p.m. ET",
-            "note": "USA / Peacock / CNBC"
+            "value": "OCT 21",
+            "label": "Game 3 · 8 p.m. ET",
+            "note": "State Farm Arena · USA / Peacock / CNBC"
           }
         ],
         "highlights": []
@@ -2374,12 +2374,21 @@
       },
       "sections": [
         {
+          "title": "Game 2: the Dream brings the answer home",
+          "paragraphs": [
+            "Atlanta won 79–65 at Chase Center on October 19, earning the franchise’s first Finals victory and tying the best-of-seven series 1–1. A 29–8 burst broke a 40–40 tie and took the lead as high as 21.",
+            "The official WNBA box score credits Angel Reese with 30 points and 16 rebounds. Allisha Gray added 18 points and Jordin Canada 13. Atlanta turned Golden State’s 19 turnovers into 24 points.",
+            "Golden State’s bench won its scoring matchup 33–11, but Gabby Williams was the only starting Valkyrie in double figures, with 14. Kiah Stokes supplied 11 rebounds and four blocks; Kaila Charles made three triples.",
+            "Analysis: Golden State needs cleaner initiation and more scoring support around Williams. Atlanta’s interior pressure and points off mistakes changed the balance; bench depth alone could not offset that gap. Game 3 is October 21 at 8 p.m. ET in Atlanta."
+          ]
+        },
+        {
           "title": "Game 1: Williams finishes the job",
           "paragraphs": [
-            "Golden State won 68–64 at Chase Center on October 17 and leads the best-of-seven Finals 1–0. The Valkyries scored the last seven points; Gabby Williams supplied six at the foul line.",
+            "Golden State won 68–64 at Chase Center on October 17 and took a 1–0 Finals lead. The Valkyries scored the last seven points; Gabby Williams supplied six at the foul line.",
             "Williams finished with 26 points. Kiah Stokes blocked four shots, matching her playoff career high, and Kaila Charles grabbed a playoff career-high 10 rebounds. Golden State won the boards 41–35.",
             "Allisha Gray led Atlanta with 19 points on 5-for-19 shooting; Rhyne Howard scored 12 on 3-for-14. Angel Reese had 14 points and 12 rebounds. Analysis: Atlanta’s Game 2 adjustment starts with creating more efficient perimeter attempts without losing Reese’s interior pressure.",
-            "The team recap records Williams’ 16-point second quarter as tied for third-most in a WNBA Finals quarter. Both franchises still seek their first championship. Game 2 is Monday, October 19, at 8 p.m. ET on USA, Peacock and CNBC."
+            "The team recap records Williams’ 16-point second quarter as tied for third-most in a WNBA Finals quarter. Both franchises still seek their first championship. Atlanta subsequently won Game 2 to tie the series 1–1."
           ]
         },
         {
@@ -2409,7 +2418,7 @@
         {
           "title": "A first title is guaranteed. The winner is not.",
           "paragraphs": [
-            "Golden State leads the best-of-seven Finals 1–0 after winning Game 1, 68–64, on October 17. Golden State is the No. 2 seed; Atlanta is No. 4. Both franchises seek their first WNBA championship.",
+            "The best-of-seven Finals are tied 1–1 after Golden State’s 68–64 Game 1 win and Atlanta’s 79–65 Game 2 response. Golden State is the No. 2 seed; Atlanta is No. 4. Both franchises seek their first WNBA championship.",
             "The WNBA moved Game 3 from Thursday, Oct. 22, to Wednesday, Oct. 21, at 8 p.m. ET, and shifted Game 4 on Saturday, Oct. 24, from 3:30 p.m. to 1 p.m. ET. Games 3 and 4—the first two Finals games in Atlanta—will be played at State Farm Arena.",
             "Analysis: Canada’s organization and Reese’s interior work meet a Golden State team that keeps finding a different scorer. The matchup rewards the team that can protect possessions without surrendering its pace."
           ]
@@ -2424,14 +2433,22 @@
         {
           "title": "The Finals watch schedule",
           "paragraphs": [
-            "All tip times are Eastern. Golden State hosts Games 1, 2, 5 and 7 at Chase Center in San Francisco; Atlanta hosts Games 3 and 4 at State Farm Arena. Game 6 is an Atlanta home game, with its venue still listed as TBD. Games 5–7 are if necessary.",
-            "Game 1 final: Golden State 68, Atlanta 64 · Oct. 17. Game 2: Mon., Oct. 19, 8 p.m. · USA / Peacock / CNBC.",
+            "All tip times are Eastern. Golden State hosts Games 1, 2, 5 and 7 at Chase Center in San Francisco; Atlanta hosts Games 3 and 4 at State Farm Arena. Game 6 is an Atlanta home game, with its venue still listed as TBD. Game 5 is guaranteed; Games 6–7 are if necessary.",
+            "Game 1 final: Golden State 68, Atlanta 64 · Oct. 17. Game 2 final: Atlanta 79, Golden State 65 · Oct. 19.",
             "Game 3: Wed., Oct. 21, 8 p.m. · USA / Peacock / CNBC. Game 4: Sat., Oct. 24, 1 p.m. · NBC / Peacock.",
-            "If necessary: Game 5, Mon., Oct. 26; Game 6, Thu., Oct. 29; Game 7, Sat., Oct. 31. Each tips at 8 p.m. ET on USA / Peacock / CNBC."
+            "Game 5: Mon., Oct. 26. If necessary: Game 6, Thu., Oct. 29; Game 7, Sat., Oct. 31. Each tips at 8 p.m. ET on USA / Peacock / CNBC."
           ]
         }
       ],
       "sources": [
+        {
+          "label": "Official WNBA Finals Game 2 box score · October 19",
+          "url": "https://cdn.wnba.com/static/json/liveData/boxscore/boxscore_1042600302.json"
+        },
+        {
+          "label": "Official Valkyries Finals Game 2 recap · October 19",
+          "url": "https://valkyries.wnba.com/news/gameday-recap-20261019"
+        },
         {
           "label": "Official Valkyries Finals Game 1 recap · October 17",
           "url": "https://valkyries.wnba.com/news/gameday-recap-20261017"
@@ -2482,25 +2499,25 @@
         }
       ],
       "dashboardUrl": "/food-for-thought.html?post=the-playoff-watch-party-2026#story",
-      "storyImage": "https://cdn.wnba.com/sites/1611661331/2026/10/feat-image-in-game-gabby-20261017.png",
-      "storyImageCaption": "Gabby Williams · Finals Game 1 · October 17, 2026. Photo: Golden State Valkyries/WNBA. Photographer not identified by the official source.",
-      "storyImageSourceUrl": "https://valkyries.wnba.com/news/gameday-recap-20261017",
+      "storyImage": "https://cdn.wnba.com/sites/1611661331/2026/10/Feature.png",
+      "storyImageCaption": "Kaila Charles and Allisha Gray · Finals Game 2 · October 19, 2026. Photo: Golden State Valkyries/WNBA. Photographer not identified by the official source.",
+      "storyImageSourceUrl": "https://valkyries.wnba.com/news/gameday-recap-20261019",
       "playoffWatch": {
-        "title": "GOLDEN STATE STRIKES FIRST.",
-        "subtitle": "Valkyries 68, Dream 64 · Finals Game 1 · October 17",
-        "asOf": "GAME 1 FINAL · OCT. 17",
+        "title": "THE DREAM ANSWERS.",
+        "subtitle": "Dream 79, Valkyries 65 · Finals Game 2 · October 19",
+        "asOf": "GAME 2 FINAL · OCT. 19",
         "summary": [
           {
-            "value": "1–0",
-            "label": "Golden State leads Atlanta"
+            "value": "1–1",
+            "label": "Finals series tied"
           },
           {
-            "value": "68–64",
-            "label": "Game 1 final"
+            "value": "79–65",
+            "label": "Atlanta wins Game 2"
           },
           {
-            "value": "OCT 19",
-            "label": "Game 2 · 8 p.m. ET"
+            "value": "OCT 21",
+            "label": "Game 3 · 8 p.m. ET"
           },
           {
             "value": "11",
@@ -2519,9 +2536,9 @@
             "lowTeam": "Atlanta Dream",
             "lowRecord": "30-14",
             "regularSeries": "Regular-season context remains separate from Finals wins",
-            "series": "1-0",
-            "seriesNote": "GOLDEN STATE LEADS 1–0 · FIRST TO FOUR",
-            "nextGame": "Mon, Oct. 19 · 8 PM ET · Chase Center · USA / Peacock / CNBC",
+            "series": "1-1",
+            "seriesNote": "SERIES TIED 1–1 · FIRST TO FOUR",
+            "nextGame": "Wed, Oct. 21 · 8 PM ET · State Farm Arena · USA / Peacock / CNBC",
             "stars": [
               "Gabby Williams",
               "Angel Reese"
@@ -2530,12 +2547,12 @@
               "https://cdn.wnba.com/headshots/wnba/latest/260x190/1628931.png",
               "https://cdn.wnba.com/headshots/wnba/latest/260x190/1642291.png"
             ],
-            "hot": "Williams scored 26; Golden State closed on a 7–0 run.",
-            "bench": "Kaila Charles collected a playoff career-high 10 rebounds.",
-            "availability": "Both finalists remain alive. Check official reports before Game 2.",
-            "beat": "Analysis: Golden State’s 41–35 rebounding edge helped offset its limited scoring depth.",
+            "hot": "Reese: 30 points, 16 rebounds. Gray: 18 points. Canada: 13 points.",
+            "bench": "Golden State’s bench outscored Atlanta 33–11.",
+            "availability": "Both finalists remain alive. Check official reports before Game 3.",
+            "beat": "Analysis: Atlanta converted 19 Golden State turnovers into 24 points.",
             "break": "Analysis: turnovers can feed both teams’ transition attacks.",
-            "must": "Atlanta seeks a split; Golden State can take a 2–0 lead.",
+            "must": "Game 3 breaks a 1–1 tie; Game 5 is now guaranteed.",
             "highCode": "GSV",
             "lowCode": "ATL",
             "highWScore": 77,
@@ -2601,7 +2618,7 @@
             "availability": "Las Vegas eliminated October 9.",
             "beat": "Golden State outscored Las Vegas 16–6 in overtime.",
             "break": "The defending champions could not hold off the second-half rallies.",
-            "must": "Golden State leads Atlanta 1–0 in the Finals.",
+            "must": "Golden State and Atlanta are tied 1–1 in the Finals.",
             "highCode": "GSV",
             "lowCode": "LVA",
             "highWScore": 77,
@@ -2704,9 +2721,9 @@
             "note": "11 top-10 picks across the finalists. Rhyne Howard is the only No. 1 overall pick between them."
           },
           {
-            "label": "FINALS GAME 1",
-            "value": "GSV 68–64",
-            "note": "Golden State leads 1–0; both finalists survive, so draft counts remain unchanged."
+            "label": "FINALS GAME 2",
+            "value": "ATL 79–65",
+            "note": "Series tied 1–1; both finalists survive, so draft counts remain unchanged."
           }
         ],
         "note": "Pick numbers are overall selections and follow the player, even if another team drafted them. Counts use 2026 team rosters. Dallas includes Azzi Fudd (No. 1, 2026), who is out for the season.",

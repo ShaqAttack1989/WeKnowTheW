@@ -1,0 +1,320 @@
+/* Food for Thought editorial type standard — desktop and mobile
+   Purpose: body copy 18–20px; section heads 27–36px; supporting labels
+   and tables at least 16px. Scope avoids changing other W pages. */
+.snack-collection-page[data-snack-collection="feature"] .snack-post{
+  --story-copy:clamp(1.125rem,1.01rem + .43vw,1.25rem);
+  --story-label:1rem;
+  font-size:var(--story-copy);
+  line-height:1.72;
+  overflow-wrap:break-word;
+}
+.snack-collection-page[data-snack-collection="feature"] .snack-post .dek{
+  font-size:clamp(1.1875rem,1.03rem + .6vw,1.375rem);
+  line-height:1.62;
+  color:#50465a;
+}
+.snack-collection-page[data-snack-collection="feature"] .snack-post > section.snack-section[class="snack-section"]{
+  margin-top:clamp(2rem,3.5vw,3rem);
+}
+.snack-collection-page[data-snack-collection="feature"] .snack-post > section.snack-section[class="snack-section"] h3{
+  font-size:clamp(1.7rem,1.3rem + 1.15vw,2.25rem);
+  line-height:1.22;
+  margin-bottom:1rem;
+  overflow-wrap:anywhere;
+}
+.snack-collection-page[data-snack-collection="feature"] .snack-post > section.snack-section[class="snack-section"] p{
+  max-width:74ch;
+  font-size:var(--story-copy);
+  line-height:1.75;
+  margin-bottom:1.2rem;
+  color:#332b3a;
+}
+.snack-collection-page[data-snack-collection="feature"] .snack-post .snack-debate-board li,
+.snack-collection-page[data-snack-collection="feature"] .snack-post .food-segment blockquote,
+.snack-collection-page[data-snack-collection="feature"] .snack-post .source-list,
+.snack-collection-page[data-snack-collection="feature"] .snack-post .source-list p,
+.snack-collection-page[data-snack-collection="feature"] .snack-post .source-list a{
+  font-size:var(--story-copy);
+  line-height:1.7;
+}
+.snack-collection-page[data-snack-collection="feature"] .snack-story-back,
+.snack-collection-page[data-snack-collection="feature"] .snack-post .snack-post-header .meta,
+.snack-collection-page[data-snack-collection="feature"] .snack-post .snack-series-label{
+  font-size:1rem;
+  line-height:1.45;
+}
+.snack-collection-page[data-snack-collection="feature"] .snack-post .snack-story-graphic figcaption,
+.snack-collection-page[data-snack-collection="feature"] .snack-post .playoff-game-gallery figcaption small,
+.snack-collection-page[data-snack-collection="feature"] .snack-post .playoff-game-gallery figcaption span{
+  font-size:1rem!important;
+  line-height:1.5;
+}
+.snack-collection-page[data-snack-collection="feature"] .snack-post .playoff-game-gallery > header p,
+.snack-collection-page[data-snack-collection="feature"] .snack-post .playoff-game-gallery figcaption p,
+.snack-collection-page[data-snack-collection="feature"] .snack-post .playoff-game-gallery figcaption strong{
+  font-size:1.0625rem!important;
+  line-height:1.5!important;
+}
+
+/* Both Finals recaps: more room for the score, label and date. */
+.snack-collection-page[data-snack-collection="feature"] .snack-post .playoff-game-one{
+  margin-block:2rem;
+  min-width:0;
+}
+.snack-collection-page[data-snack-collection="feature"] .snack-post .playoff-game-one > header span,
+.snack-collection-page[data-snack-collection="feature"] .snack-post .playoff-game-one > header small{
+  font-size:1rem;
+  line-height:1.35;
+  letter-spacing:.055em;
+  white-space:normal;
+}
+.snack-collection-page[data-snack-collection="feature"] .snack-post .playoff-game-one > header h3{
+  font-size:clamp(1.85rem,1.25rem + 2vw,3rem);
+  line-height:1.14;
+}
+.snack-collection-page[data-snack-collection="feature"] .snack-post .playoff-game-one > header p{
+  font-size:var(--story-copy)!important;
+  line-height:1.67!important;
+}
+.snack-collection-page[data-snack-collection="feature"] .snack-post .playoff-record-grid{
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:1rem;
+}
+.snack-collection-page[data-snack-collection="feature"] .snack-post .playoff-record-grid article{
+  min-width:0;
+  padding:1.1rem;
+}
+.snack-collection-page[data-snack-collection="feature"] .snack-post .playoff-record-grid strong{
+  font-size:clamp(1.65rem,1.35rem + .9vw,2.15rem);
+  line-height:1.16;
+}
+.snack-collection-page[data-snack-collection="feature"] .snack-post .playoff-record-grid span,
+.snack-collection-page[data-snack-collection="feature"] .snack-post .playoff-record-grid p,
+.snack-collection-page[data-snack-collection="feature"] .snack-post .playoff-highlight-grid article>div>span,
+.snack-collection-page[data-snack-collection="feature"] .snack-post .playoff-highlight-grid article>div>p{
+  font-size:1rem!important;
+  line-height:1.5!important;
+}
+.snack-collection-page[data-snack-collection="feature"] .snack-post .playoff-highlight-grid figcaption{
+  position:static;
+  font-size:1rem;
+  line-height:1.4;
+}
+
+/* Finals interactive statistics: no 9/11/12px data or captions. */
+.snack-collection-page[data-snack-collection="feature"] .finals-game-dashboard{
+  min-width:0;
+  overflow-wrap:anywhere;
+}
+.snack-collection-page[data-snack-collection="feature"] .finals-game-dashboard > header p,
+.snack-collection-page[data-snack-collection="feature"] .finals-game-dashboard .fgd-note{
+  font-size:1rem!important;
+  line-height:1.65!important;
+}
+.snack-collection-page[data-snack-collection="feature"] .finals-game-dashboard .fgd-kicker,
+.snack-collection-page[data-snack-collection="feature"] .finals-game-dashboard .fgd-controls label,
+.snack-collection-page[data-snack-collection="feature"] .finals-game-dashboard .fgd-final > span,
+.snack-collection-page[data-snack-collection="feature"] .finals-game-dashboard .fgd-final small,
+.snack-collection-page[data-snack-collection="feature"] .finals-game-dashboard .fgd-quarters small,
+.snack-collection-page[data-snack-collection="feature"] .finals-game-dashboard .fgd-compare,
+.snack-collection-page[data-snack-collection="feature"] .finals-game-dashboard h4 small,
+.snack-collection-page[data-snack-collection="feature"] .finals-game-dashboard .fgd-scroll small{
+  font-size:1rem!important;
+  line-height:1.42;
+}
+.snack-collection-page[data-snack-collection="feature"] .finals-game-dashboard h4{
+  font-size:clamp(1.35rem,1.2rem + .55vw,1.75rem);
+  line-height:1.3;
+}
+.snack-collection-page[data-snack-collection="feature"] .finals-game-dashboard .fgd-controls select{
+  min-height:48px;
+  font-size:1rem;
+}
+.snack-collection-page[data-snack-collection="feature"] .finals-game-dashboard .fgd-scroll{
+  overflow-x:auto;
+  -webkit-overflow-scrolling:touch;
+}
+.snack-collection-page[data-snack-collection="feature"] .finals-game-dashboard .fgd-scroll table{
+  min-width:780px;
+  font-size:1rem;
+  line-height:1.5;
+}
+.snack-collection-page[data-snack-collection="feature"] .finals-game-dashboard .fgd-scroll caption,
+.snack-collection-page[data-snack-collection="feature"] .finals-game-dashboard .fgd-scroll th,
+.snack-collection-page[data-snack-collection="feature"] .finals-game-dashboard .fgd-scroll td{
+  font-size:1rem;
+  padding:12px 14px;
+}
+.snack-collection-page[data-snack-collection="feature"] .finals-game-dashboard .fgd-compare{
+  grid-template-columns:54px minmax(0,1fr) 54px;
+  gap:8px;
+}
+
+/* Playoff bracket: stack the rounds rather than squeeze a three-column
+   desktop bracket into narrow story cards with microscopic labels. */
+.snack-collection-page[data-snack-collection="feature"] .wktw-bracket.is-story .wktw-bracket-grid{
+  grid-template-columns:minmax(0,1fr);
+}
+.snack-collection-page[data-snack-collection="feature"] .wktw-bracket.is-story .wktw-bracket-round>div{
+  grid-template-columns:repeat(2,minmax(0,1fr));
+}
+.snack-collection-page[data-snack-collection="feature"] .wktw-bracket.is-story .wktw-bracket-dashboard{
+  grid-template-columns:repeat(2,minmax(0,1fr));
+}
+.snack-collection-page[data-snack-collection="feature"] .wktw-bracket.is-story .wktw-bracket-head>div>span,
+.snack-collection-page[data-snack-collection="feature"] .wktw-bracket.is-story .wktw-bracket-head p,
+.snack-collection-page[data-snack-collection="feature"] .wktw-bracket.is-story .wktw-bracket-head aside strong,
+.snack-collection-page[data-snack-collection="feature"] .wktw-bracket.is-story .wktw-bracket-head aside small,
+.snack-collection-page[data-snack-collection="feature"] .wktw-bracket.is-story .wktw-bracket-dashboard span,
+.snack-collection-page[data-snack-collection="feature"] .wktw-bracket.is-story .wktw-bracket-dashboard small,
+.snack-collection-page[data-snack-collection="feature"] .wktw-bracket.is-story .wktw-bracket-round>header span,
+.snack-collection-page[data-snack-collection="feature"] .wktw-bracket.is-story .wktw-bracket-round>header small,
+.snack-collection-page[data-snack-collection="feature"] .wktw-bracket.is-story .wktw-bracket-card-top span,
+.snack-collection-page[data-snack-collection="feature"] .wktw-bracket.is-story .wktw-bracket-card-top b,
+.snack-collection-page[data-snack-collection="feature"] .wktw-bracket.is-story .wktw-bracket-team small,
+.snack-collection-page[data-snack-collection="feature"] .wktw-bracket.is-story .wktw-bracket-team strong,
+.snack-collection-page[data-snack-collection="feature"] .wktw-bracket.is-story .wktw-bracket-team >em,
+.snack-collection-page[data-snack-collection="feature"] .wktw-bracket.is-story .wktw-bracket-game,
+.snack-collection-page[data-snack-collection="feature"] .wktw-bracket.is-story >footer{
+  font-size:1rem;
+  line-height:1.45;
+}
+.snack-collection-page[data-snack-collection="feature"] .wktw-bracket.is-story .wktw-bracket-team{
+  grid-template-columns:42px minmax(0,1fr) auto auto;
+  gap:8px;
+}
+.snack-collection-page[data-snack-collection="feature"] .wktw-bracket.is-story .wktw-bracket-team strong{
+  white-space:normal;
+  overflow:visible;
+}
+.snack-collection-page[data-snack-collection="feature"] .wktw-bracket.is-story .wktw-bracket-card-top,
+.snack-collection-page[data-snack-collection="feature"] .wktw-bracket.is-story .wktw-bracket-team{
+  padding:12px 14px;
+}
+.snack-collection-page[data-snack-collection="feature"] .wktw-bracket.is-story .wktw-bracket-mark{
+  width:40px;
+  height:40px;
+}
+.snack-collection-page[data-snack-collection="feature"] .wktw-bracket.is-story .wktw-bracket-mark b{
+  font-size:.875rem;
+}
+
+/* Draft, playoff and award analysis: minimum readable labels and
+   fewer columns so larger text has physical room. */
+.snack-collection-page[data-snack-collection="feature"] .playoff-draft-grid,
+.snack-collection-page[data-snack-collection="feature"] .playoff-implication-grid{
+  grid-template-columns:repeat(2,minmax(0,1fr));
+}
+.snack-collection-page[data-snack-collection="feature"] .playoff-draft-team{padding:18px}
+.snack-collection-page[data-snack-collection="feature"] .playoff-draft-team-id h4{font-size:1.25rem;line-height:1.25}
+.snack-collection-page[data-snack-collection="feature"] .playoff-draft-team-id>div>span,
+.snack-collection-page[data-snack-collection="feature"] .playoff-draft-count span,
+.snack-collection-page[data-snack-collection="feature"] .playoff-draft-run span,
+.snack-collection-page[data-snack-collection="feature"] .playoff-draft-run p,
+.snack-collection-page[data-snack-collection="feature"] .playoff-draft-pick-slot,
+.snack-collection-page[data-snack-collection="feature"] .playoff-draft-pick-name,
+.snack-collection-page[data-snack-collection="feature"] .playoff-draft-picks li small,
+.snack-collection-page[data-snack-collection="feature"] .playoff-draft-team-note,
+.snack-collection-page[data-snack-collection="feature"] .playoff-draft-roster-link,
+.snack-collection-page[data-snack-collection="feature"] .playoff-draft-method,
+.snack-collection-page[data-snack-collection="feature"] .playoff-draft-heading>div>span,
+.snack-collection-page[data-snack-collection="feature"] .playoff-draft-heading>small,
+.snack-collection-page[data-snack-collection="feature"] .playoff-draft-highlights span,
+.snack-collection-page[data-snack-collection="feature"] .playoff-draft-highlights small,
+.snack-collection-page[data-snack-collection="feature"] .playoff-draft-heading p,
+.snack-collection-page[data-snack-collection="feature"] .playoff-award-fallout >header p,
+.snack-collection-page[data-snack-collection="feature"] .playoff-award-fallout >header span,
+.snack-collection-page[data-snack-collection="feature"] .playoff-award-fallout >header>strong,
+.snack-collection-page[data-snack-collection="feature"] .playoff-award-people article>div>span,
+.snack-collection-page[data-snack-collection="feature"] .playoff-award-people article>div>strong,
+.snack-collection-page[data-snack-collection="feature"] .playoff-award-people article>div>p,
+.snack-collection-page[data-snack-collection="feature"] .playoff-implication-grid h4,
+.snack-collection-page[data-snack-collection="feature"] .playoff-implication-grid p,
+.snack-collection-page[data-snack-collection="feature"] .playoff-award-note{
+  font-size:1rem!important;
+  line-height:1.5!important;
+}
+.snack-collection-page[data-snack-collection="feature"] .playoff-draft-picks li{
+  grid-template-columns:38px minmax(0,1fr);
+  gap:8px;
+  padding:10px 0;
+}
+.snack-collection-page[data-snack-collection="feature"] .playoff-watch-dashboard.fiba-inspired .playoff-watch-head h3{
+  line-height:1.12;
+}
+
+/* Mobile and zoom-friendly layout. Horizontal scrolling is reserved for data tables. */
+@media(max-width:760px){
+  .snack-collection-page[data-snack-collection="feature"] .snack-post{
+    padding:clamp(16px,4.5vw,24px);
+  }
+  .snack-collection-page[data-snack-collection="feature"] .snack-post > section.snack-section[class="snack-section"] p{
+    font-size:1.125rem;
+    line-height:1.72;
+  }
+  .snack-collection-page[data-snack-collection="feature"] .snack-post .playoff-record-grid,
+  .snack-collection-page[data-snack-collection="feature"] .playoff-draft-grid,
+  .snack-collection-page[data-snack-collection="feature"] .playoff-implication-grid,
+  .snack-collection-page[data-snack-collection="feature"] .wktw-bracket.is-story .wktw-bracket-round>div{
+    grid-template-columns:minmax(0,1fr);
+  }
+  .snack-collection-page[data-snack-collection="feature"] .snack-post .playoff-record-grid article:last-child{grid-column:auto}
+  .snack-collection-page[data-snack-collection="feature"] .snack-post .playoff-game-one>header{
+    grid-template-columns:minmax(0,1fr);
+  }
+  .snack-collection-page[data-snack-collection="feature"] .finals-game-dashboard .fgd-final{
+    display:grid;
+    grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+    align-items:center;
+    text-align:center;
+    padding:14px 10px;
+  }
+  .snack-collection-page[data-snack-collection="feature"] .finals-game-dashboard .fgd-final>span{
+    grid-column:1 / -1;
+    grid-row:1;
+  }
+  .snack-collection-page[data-snack-collection="feature"] .finals-game-dashboard .fgd-final>b{
+    font-size:clamp(1.45rem,5vw,2rem);
+  }
+  .snack-collection-page[data-snack-collection="feature"] .finals-game-dashboard .fgd-metrics{
+    grid-template-columns:minmax(0,1fr);
+    gap:14px;
+  }
+  .snack-collection-page[data-snack-collection="feature"] .finals-game-dashboard .fgd-controls{
+    display:grid;
+    grid-template-columns:minmax(0,1fr);
+  }
+  .snack-collection-page[data-snack-collection="feature"] .wktw-bracket.is-story .wktw-bracket-dashboard{
+    grid-template-columns:minmax(0,1fr);
+  }
+  .snack-collection-page[data-snack-collection="feature"] .wktw-bracket.is-story .wktw-bracket-head{
+    grid-template-columns:minmax(0,1fr);
+  }
+  .snack-collection-page[data-snack-collection="feature"] .wktw-bracket.is-story .wktw-bracket-team{
+    grid-template-columns:40px minmax(0,1fr) auto;
+  }
+  .snack-collection-page[data-snack-collection="feature"] .wktw-bracket.is-story .wktw-bracket-team>em{
+    grid-column:2;
+    grid-row:2;
+    justify-self:start;
+  }
+  .snack-collection-page[data-snack-collection="feature"] .wktw-bracket.is-story .wktw-bracket-team>b{
+    grid-column:3;
+    grid-row:1 / span 2;
+  }
+  .snack-collection-page[data-snack-collection="feature"] .playoff-watch-dashboard.fiba-inspired .playoff-watch-summary{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+}
+@media(max-width:380px){
+  .snack-collection-page[data-snack-collection="feature"] .finals-game-dashboard{
+    padding:16px 12px;
+  }
+  .snack-collection-page[data-snack-collection="feature"] .playoff-game-one{
+    padding:18px 12px;
+  }
+  .snack-collection-page[data-snack-collection="feature"] .playoff-highlight-grid article,
+  .snack-collection-page[data-snack-collection="feature"] .playoff-award-people article{
+    grid-template-columns:minmax(0,1fr);
+  }
+}

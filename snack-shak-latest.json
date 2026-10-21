@@ -2506,7 +2506,7 @@
       "seriesLabel": "FOOD FOR THOUGHT · PLAYOFF WATCH GUIDE",
       "title": "Dream Answers: Reese Levels the Finals at 1–1",
       "published": "2026-10-02",
-      "updated": "2026-10-19",
+      "updated": "2026-10-20",
       "week": "Finals · Atlanta and Golden State tied 1–1",
       "image": "https://images.gmanews.tv/webpics/2026/10/Angel_Reese_WNBA_Finals_Game_2_2026_10_20_12_16_12.jpg",
       "imageFit": "contain",
@@ -2573,10 +2573,20 @@
         "highlights": []
       },
       "gameGallery": {
-        "eyebrow": "OCT. 9 · THE FINALISTS IN ACTION",
-        "title": "Two roads to the Finals",
-        "dek": "Atlanta in Brooklyn. Golden State in Las Vegas. Different games, the same destination.",
+        "eyebrow": "2026 FINALS · ON THE FLOOR",
+        "title": "The Finals in motion",
+        "dek": "Atlanta and Golden State are tied 1–1. From the floor at Chase Center to the semifinal road that brought both teams here.",
         "items": [
+          {
+            "image": "https://cdn.shopify.com/s/files/1/0803/0050/7409/files/we-know-the-w-atlanta-dream-allisha-gray-finals-2026.jpg?v=1792547248",
+            "alt": "Atlanta Dream number 15 leaps with the basketball along the baseline in front of the Golden State Valkyries bench during the 2026 WNBA Finals",
+            "title": "Gray takes flight",
+            "kicker": "ATLANTA · FINALS · CHASE CENTER",
+            "caption": "Allisha Gray goes airborne along the baseline against Golden State.",
+            "credit": "Photograph provided to We Know the W",
+            "sourceUrl": "https://cdn.shopify.com/s/files/1/0803/0050/7409/files/we-know-the-w-atlanta-dream-allisha-gray-finals-2026.jpg?v=1792547248",
+            "imageFit": "contain"
+          },
           {
             "image": "https://i.guim.co.uk/img/media/6816dad18c9c802e07b1f94c54a57384cecfced1/0_0_5609_3739/master/5609.jpg?width=1920&quality=85&auto=format&fit=max&s=88fed48c65dd0692b41ed0ba2f3226d1",
             "alt": "Jordin Canada during semifinal Game 3, October 9, 2026",

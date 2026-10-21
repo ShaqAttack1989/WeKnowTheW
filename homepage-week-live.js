@@ -6,7 +6,7 @@
   const slugify=value=>norm(value).replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
   const dateValue=item=>[item?.published,item?.date,item?.updatedAt,item?.updated].filter(Boolean).sort().pop()||item?.week||'';
   const timeValue=value=>{const parsed=Date.parse(String(value||''));return Number.isFinite(parsed)?parsed:0;};
-  const localDate=value=>{const raw=String(value||'').trim();const parsed=new Date(/^\d{4}-\d{2}-\d{2}$/.test(raw)?`${raw}T12:00:00`:raw);return parsed;};
+  const localDate=value=>{if(typeof value==='number')return new Date(value);const raw=String(value||'').trim();const parsed=new Date(/^\d{4}-\d{2}-\d{2}$/.test(raw)?`${raw}T12:00:00`:raw);return parsed;};
   const fmtDate=value=>{const parsed=localDate(value);return Number.isNaN(parsed.getTime())?text(value):parsed.toLocaleDateString([],{month:'short',day:'numeric',year:'numeric'});};
   const fmtShortDate=value=>{const parsed=localDate(value);return Number.isNaN(parsed.getTime())?text(value):parsed.toLocaleDateString([],{month:'short',day:'numeric'});};
   const sitePhoto=value=>/^(?:\/|https?:\/\/)/i.test(String(value||'').trim())?String(value).trim():'';
@@ -142,32 +142,17 @@
     return true;
   }
 
-  function collectStories(value,source,output=[],seen=new Set()){
-    if(Array.isArray(value)){value.forEach(item=>collectStories(item,source,output,seen));return output;}
-    if(!value||typeof value!=='object')return output;
-    if(value.title&&typeof value.title==='string'){
-      const signature=`${text(value.slug||value.title)}|${text(dateValue(value))}`;
-      if(!seen.has(signature)){seen.add(signature);output.push({...value,_source:source});}
-    }
-    Object.values(value).forEach(item=>{if(item&&typeof item==='object')collectStories(item,source,output,seen);});
-    return output;
-  }
   function storyText(story={}){
     if(story.dek||story.summary||story.excerpt||story.copy)return short(story.dek||story.summary||story.excerpt||story.copy,205);
     const first=(story.sections||[]).flatMap(section=>section?.paragraphs||[]).find(Boolean);
     return short(first||'Open the full piece for Shak’s complete read.',205);
   }
-  function storyHref(story={},kind='byte'){
-    const direct=story.dashboardUrl||story.href||story.path||story.internalUrl;
-    if(direct&&String(direct).startsWith('/'))return direct;
-    if(story.slug)return kind==='food'?`/food-for-thought.html?post=${encodeURIComponent(story.slug)}#story`:`/snack-shak-bytes.html?post=${encodeURIComponent(story.slug)}#story`;
-    return kind==='food'?'/food-for-thought.html':'/snack-shak-bytes.html';
-  }
+  const storyHref=story=>window.WHomeStories.href(story);
   function storyLabel(story={}){return text(story.seriesLabel||story.series||story.category||story.type||'Snack Shak');}
   function classificationText(story={}){return norm([story.type,story.kind,story.category,story.seriesLabel,story.series,story.slug,story.title,story._source].filter(Boolean).join(' '));}
   function isByte(story={}){return /\bbyte\b|snack\s*shak\s*byte/.test(classificationText(story));}
-  function isFood(story={}){return /food\s*for\s*thought|food.*thought|long\s*form|longform|deep\s*dive|analysis/.test(classificationText(story));}
-  function freshest(stories=[],predicate=()=>true){return stories.filter(predicate).sort((a,b)=>timeValue(dateValue(b))-timeValue(dateValue(a))||Number(b.priority||0)-Number(a.priority||0))[0]||null;}
+  function isFood(story={}){return story.type==='feature'||/food\s*for\s*thought|food.*thought|long\s*form|longform|deep\s*dive|analysis/.test(classificationText(story));}
+  function freshest(stories=[],predicate=()=>true){return stories.find(predicate)||null;}
 
   function editorialMedia(story,kind){
     const image=explicitStoryImage(story||{});
@@ -188,7 +173,7 @@
       wireMediaFallback(host);
       return;
     }
-    host.innerHTML=`${editorialMedia(story,kind)}<div class="week-editorial-body"><div class="week-editorial-top"><span class="week-card-kicker">${kind==='food'?'FOOD FOR THOUGHT':'SNACK SHAK BYTE'}</span><span class="week-card-date">${safe(fmtDate(dateValue(story)))}</span></div><span class="week-story-series">${safe(storyLabel(story))}</span><h3>${safe(story.title)}</h3><p>${safe(storyText(story))}</p><a href="${safe(destination)}">${kind==='food'?'Read the full thought':'Grab the Byte'} →</a></div>`;
+    host.innerHTML=`${editorialMedia(story,kind)}<div class="week-editorial-body"><div class="week-editorial-top"><span class="week-card-kicker">${kind==='food'?'FOOD FOR THOUGHT':'SNACK SHAK BYTE'}</span><span class="week-card-date">${safe(fmtDate(window.WHomeStories.updated(story)))}</span></div><span class="week-story-series">${safe(storyLabel(story))}</span><h3>${safe(story.title)}</h3><p>${safe(storyText(story))}</p><a href="${safe(destination)}">${kind==='food'?'Read the full thought':'Grab the Byte'} →</a></div>`;
     wireMediaFallback(host);
   }
 
@@ -218,15 +203,12 @@
   }
 
   async function loadEditorial(){
-    const feeds=['/snack-shak-love-and-basketball.json','/snack-shak-latest.json','/snack-shak-breaking.json','/snack-shak-specials.json','/snack-shaq-posts.json'];
-    const results=await Promise.allSettled(feeds.map(fetchJson));
-    const stories=[];
-    results.forEach((result,index)=>{if(result.status==='fulfilled')collectStories(result.value,feeds[index],stories);});
+    const stories=await window.WHomeStories.load();
     const latestFood=freshest(stories,isFood)||freshest(stories,story=>!isByte(story));
     const latestByte=freshest(stories,isByte);
     renderEditorial(document.getElementById('weekHubFood'),latestFood,'food');
     renderEditorial(document.getElementById('weekHubByte'),latestByte,'byte');
-    return Math.max(timeValue(dateValue(latestFood)),timeValue(dateValue(latestByte)));
+    return Math.max(window.WHomeStories.updated(latestFood),window.WHomeStories.updated(latestByte));
   }
 
   function usefulPageCopy(html=''){
@@ -377,6 +359,7 @@
   function init(){
     if(!buildShell())return;
     wireTileNavigation();
+    window.addEventListener('w:stories-ready',loadEditorial);
     loadHub();
     setInterval(()=>{if(!document.hidden)loadHub();},300000);
     window.addEventListener('focus',loadHub);

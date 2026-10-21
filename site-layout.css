@@ -1,0 +1,33 @@
+/* Shared banner sizing. Page-specific colors and artwork remain in their own CSS. */
+:root{--w-banner-space:clamp(1.5rem,3vw,2.5rem);--w-banner-title:clamp(2.2rem,4vw,4.25rem)}
+.section-page .subhero{padding-bottom:0}
+.section-page .subhero-inner,.snack-hero-inner,.legacy-hero-inner{
+  box-sizing:border-box;
+  padding-top:var(--w-banner-space);
+  padding-bottom:var(--w-banner-space);
+  min-width:0;
+}
+.section-page .subhero h1,.snack-hero h1,.legacy-hero h1{
+  margin:.5rem 0 1rem;
+  font-size:var(--w-banner-title);
+  line-height:1.04;
+  overflow-wrap:break-word;
+  text-wrap:balance;
+}
+.section-page .subhero p:not(.eyebrow),.snack-hero .snack-deck,.legacy-dek{
+  font-size:1.05rem;
+  line-height:1.55;
+  max-width:48rem;
+}
+.legacy-hero{overflow:visible}
+.culture-card,.culture-card-body,.coach-dashboard-heading>div{min-width:0}
+.culture-card-body p{font-size:1rem;line-height:1.55}
+.culture-photo-credit{max-width:calc(100% - 1.5rem);overflow-wrap:anywhere}
+@media(max-width:640px){
+  :root{--w-banner-space:1.5rem;--w-banner-title:clamp(2rem,8vw,2.75rem)}
+  .section-page .subhero-inner{padding-inline:1rem}
+  .site-navigation .brand-mark{flex-shrink:0}
+}
+.source-banner>*{min-width:0;max-width:100%}
+.source-banner a{white-space:normal;overflow-wrap:anywhere}
+.culture-intro h2{font-size:clamp(1.65rem,2.5vw,2.35rem);line-height:1.1}

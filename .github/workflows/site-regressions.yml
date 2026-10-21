@@ -1,0 +1,37 @@
+name: Site regression checks
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+    paths:
+      - '*.html'
+      - '*.css'
+      - '*.js'
+      - 'api/media.js'
+      - 'scripts/verify-site-regressions.cjs'
+      - 'scripts/sync-site-mirror.cjs'
+      - 'tests/site-repairs.test.js'
+      - '.github/workflows/site-regressions.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm install --no-save playwright@1.62.1
+      - run: npx playwright install --with-deps chromium
+      - name: Check selection, safe portraits, navigation and mirror parity
+        run: |
+          node --test tests/site-repairs.test.js tests/homepage-fresh-stories.test.js tests/navigation-smoke.test.js
+          node scripts/sync-site-mirror.cjs
+      - name: Check real pages at mobile, tablet and desktop sizes
+        run: node scripts/verify-site-regressions.cjs

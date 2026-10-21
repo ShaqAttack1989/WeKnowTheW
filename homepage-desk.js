@@ -4,8 +4,8 @@
   const norm=value=>text(value).normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
   const sitePhoto=value=>/^(?:\/|https?:\/\/)/i.test(String(value||'').trim())?String(value).trim():'';
   const timeValue=value=>{const t=Date.parse(String(value||''));return Number.isFinite(t)?t:0;};
-  const storyDate=item=>item?.published||item?.date||item?.updatedAt||item?.updated||'';
-  const fmtShort=value=>{const raw=String(value||'').trim();const d=new Date(/^\d{4}-\d{2}-\d{2}$/.test(raw)?`${raw}T12:00:00`:raw);return Number.isNaN(d.getTime())?'':d.toLocaleDateString([],{month:'short',day:'numeric'});};
+  const storyDate=item=>window.WHomeStories.updated(item);
+  const fmtShort=value=>{if(typeof value==='number')return new Date(value).toLocaleDateString([],{month:'short',day:'numeric'});const raw=String(value||'').trim();const d=new Date(/^\d{4}-\d{2}-\d{2}$/.test(raw)?`${raw}T12:00:00`:raw);return Number.isNaN(d.getTime())?'':d.toLocaleDateString([],{month:'short',day:'numeric'});};
   const teamCode=name=>text(name).split(/\s+/).filter(Boolean).map(part=>part[0]).join('').slice(0,3).toUpperCase()||'W';
   const EASTERN='America/New_York';
 
@@ -186,43 +186,19 @@
     return true;
   }
 
-  function collectStories(value,source,output=[],seen=new Set()){
-    if(Array.isArray(value)){value.forEach(item=>collectStories(item,source,output,seen));return output;}
-    if(!value||typeof value!=='object')return output;
-    if(value.title&&typeof value.title==='string'){
-      const signature=`${text(value.slug||value.title)}|${text(storyDate(value))}`;
-      if(!seen.has(signature)){seen.add(signature);output.push({...value,_source:source});}
-    }
-    Object.values(value).forEach(item=>{if(item&&typeof item==='object')collectStories(item,source,output,seen);});
-    return output;
-  }
   function storyKind(story={}){
     const value=norm([story.type,story.kind,story.category,story.seriesLabel,story.series,story.slug,story._source].filter(Boolean).join(' '));
     if(/byte/.test(value))return 'BYTE';
     if(/food|feature|analysis|long/.test(value))return 'FOOD FOR THOUGHT';
     return 'AROUND THE W';
   }
-  function storyHref(story={}){
-    const direct=story.dashboardUrl||story.href||story.path||story.internalUrl;
-    if(direct&&String(direct).startsWith('/'))return direct;
-    const kind=storyKind(story);
-    if(story.slug)return kind==='BYTE'?`/snack-shak-bytes.html?post=${encodeURIComponent(story.slug)}#story`:`/food-for-thought.html?post=${encodeURIComponent(story.slug)}#story`;
-    return kind==='BYTE'?'/snack-shak-bytes.html':'/food-for-thought.html';
-  }
+  const storyHref=story=>window.WHomeStories.href(story);
 
   async function loadHeadlines(){
     const host=document.getElementById('wDeskHeadlines');
     if(!host)return;
-    const feeds=['/snack-shak-love-and-basketball.json','/snack-shak-latest.json','/snack-shak-breaking.json','/snack-shak-specials.json','/snack-shaq-posts.json'];
     try{
-      const results=await Promise.allSettled(feeds.map(fetchJson));
-      const stories=[];
-      results.forEach((result,index)=>{if(result.status==='fulfilled')collectStories(result.value,feeds[index],stories);});
-      const fresh=stories
-        .filter(story=>text(story.title))
-        .sort((a,b)=>timeValue(storyDate(b))-timeValue(storyDate(a))||Number(b.priority||0)-Number(a.priority||0));
-      const seen=new Set(),unique=[];
-      fresh.forEach(story=>{const key=norm(story.title);if(!seen.has(key)){seen.add(key);unique.push(story);}});
+      const unique=await window.WHomeStories.load();
       host.innerHTML=unique.slice(0,7).map(story=>`<a class="w-headline" href="${safe(storyHref(story))}"><span>${safe(storyKind(story))}${storyDate(story)?` · ${safe(fmtShort(storyDate(story)))}`:''}</span><strong>${safe(story.title)}</strong></a>`).join('')||'<a class="w-headline" href="/snack-shak.html"><span>SNACK SHAK</span><strong>Open the latest stories from around the W.</strong></a>';
     }catch{
       host.innerHTML='<a class="w-headline" href="/snack-shak.html"><span>SNACK SHAK</span><strong>Headlines are reconnecting. The full story desk is still open.</strong></a>';
@@ -231,6 +207,7 @@
 
   function start(){
     document.body.classList.add('home-page');
+    window.addEventListener('w:stories-ready',loadHeadlines);
     const ready=upgradeDeskLayout();
     if(!ready){
       let tries=0;

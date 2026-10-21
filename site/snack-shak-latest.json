@@ -2,6 +2,203 @@
   "site": "Snack Shak",
   "posts": [
     {
+      "slug": "wnba-minimum-salary-history-2026",
+      "type": "byte",
+      "priority": 9900,
+      "seriesLabel": "SNACK SHAK BYTE · WNBA PAY HISTORY",
+      "title": "From $15K to $270K: WNBA Minimum Pay Through the Years",
+      "published": "2026-10-17",
+      "updated": "2026-10-17",
+      "dek": "The lowest standard full-season minimum was $15,000. Trace the pay milestones, the 2026 CBA jump and the league growth behind the new numbers.",
+      "storyLead": [
+        "The WNBA’s lowest standard full-season minimum base salary was $15,000 in its early seasons. For 2026, the new collective bargaining agreement sets the minimum between $270,000 and $300,000, depending on service time. That is an 18-fold rise at the low end, in dollars of the day.",
+        "The climb came in labor-deal steps, not one smooth annual curve. The timeline tracks the lowest salary tier and keeps base pay separate from the Finals bonuses shown below."
+      ],
+      "payHistoryDashboard": {
+        "eyebrow": "WNBA MINIMUM BASE SALARY · NOMINAL DOLLARS",
+        "title": "A $15,000 floor became $270,000",
+        "intro": "Select a milestone to see what changed. Bars share a $0–$300,000 scale and track the lowest standard salary tier.",
+        "maximum": 300000,
+        "summaryValue": "18×",
+        "summaryLabel": "the early WNBA floor by 2026",
+        "summaryNote": "Nominal dollars; no inflation adjustment.",
+        "points": [
+          {
+            "year": "1997–98",
+            "value": 15000,
+            "display": "$15,000",
+            "label": "Early WNBA floor",
+            "title": "The starting point",
+            "note": "Contemporary reporting on the league’s first player labor deal identifies $15,000 as the previous minimum for both rookies and veterans."
+          },
+          {
+            "year": "1999",
+            "value": 25000,
+            "display": "$25,000",
+            "label": "Rookie minimum",
+            "title": "The first player CBA",
+            "note": "The 1999 agreement raised the rookie minimum to $25,000 and the veteran minimum to $30,000."
+          },
+          {
+            "year": "2008",
+            "value": 34500,
+            "display": "$34,500",
+            "label": "Rookie minimum",
+            "title": "A new six-year scale",
+            "note": "The 2008 agreement set the rookie minimum at $34,500 in its first season."
+          },
+          {
+            "year": "2013",
+            "value": 37950,
+            "display": "$37,950",
+            "label": "Rookie minimum",
+            "title": "End of the 2008 scale",
+            "note": "The rookie minimum climbed to $37,950 by the sixth and final year of the 2008 agreement."
+          },
+          {
+            "year": "2019",
+            "value": 41965,
+            "display": "$41,965",
+            "label": "0–2 years of service",
+            "title": "The last year before the 2020 deal",
+            "note": "Under the old scale, the minimum was $41,965 for players with up to two years of service and $56,375 for more experienced players."
+          },
+          {
+            "year": "2020",
+            "value": 57000,
+            "display": "$57,000",
+            "label": "0–2 years of service",
+            "title": "The 2020 CBA takes effect",
+            "note": "The new scale started at $57,000 for players with fewer than three years of service and $68,000 for experienced players."
+          },
+          {
+            "year": "2025",
+            "value": 66079,
+            "display": "$66,079",
+            "label": "0–2 years of service",
+            "title": "The final season of the old scale",
+            "note": "The 2025 minimum was $66,079 for players with zero to two years of service and $78,831 for players with three or more."
+          },
+          {
+            "year": "2026",
+            "value": 270000,
+            "display": "$270K–$300K",
+            "label": "By years of service",
+            "title": "The new CBA reset",
+            "note": "The 2026 minimum ranges from $270,000 to $300,000, based on years of service. The higher figure is a service-time tier, not the floor."
+          }
+        ],
+        "growth": [
+          {
+            "value": "3.8M",
+            "label": "fans in 2026",
+            "note": "Record attendance across 330 regular-season games."
+          },
+          {
+            "value": "11,474",
+            "label": "fans per game",
+            "note": "Average attendance, 21% above the previous record set in 2025."
+          },
+          {
+            "value": "90M+",
+            "label": "unique viewers",
+            "note": "A WNBA regular-season record in 2026."
+          },
+          {
+            "value": "4B",
+            "label": "social views",
+            "note": "Record WNBA social views, up 28% from 2025."
+          }
+        ],
+        "bonuses": [
+          {
+            "label": "Champions · each player",
+            "prior": 22908,
+            "current": 60000
+          },
+          {
+            "label": "Runner-up · each player",
+            "prior": 8521,
+            "current": 20000
+          },
+          {
+            "label": "Finals MVP",
+            "prior": 5000,
+            "current": 30000
+          }
+        ],
+        "methodology": "Standard full-season base-salary minimums, shown in nominal dollars. The lowest tier depends on years of service; where the salary schedule had multiple tiers, notes show the relevant higher minimum. Bonuses, endorsements, offseason pay and prorated partial-season contracts are separate."
+      },
+      "sections": [
+        {
+          "title": "The least was $15,000",
+          "paragraphs": [
+            "That is the league’s early standard minimum base salary. It is not an estimate of what every player earned. The first player labor agreement raised the minimum in 1999 to $25,000 for rookies and $30,000 for veterans. Years of service have shaped the minimum ever since.",
+            "The timeline shows selected salary floors, not every season. It also uses nominal dollars: $15,000 in 1997 did not buy what $15,000 buys today."
+          ]
+        },
+        {
+          "title": "The steepest jump arrived with a new labor deal",
+          "paragraphs": [
+            "The 2020 agreement moved the inexperienced-player minimum to $57,000 and the experienced-player minimum to $68,000. By 2025, the lower tier had reached $66,079, with the veteran tier at $78,831.",
+            "Then the 2026 agreement reset the scale. Its $270,000 low-end minimum is about 4.1 times the 2025 low end, a roughly 309% increase in one season. The $300,000 figure applies to higher service tiers."
+          ]
+        },
+        {
+          "title": "The league is growing around the pay scale",
+          "paragraphs": [
+            "The 2026 season drew a record 3.8 million fans across 330 regular-season games. Average attendance was 11,474 per game, 21% above the previous record; the league also reported more than 90 million unique viewers and 4 billion social views, up 28% from 2025.",
+            "The new CBA lifted the team salary cap from $1.5 million in 2025 to $7 million in 2026 and added a comprehensive revenue-sharing model. The league says future caps will adjust with team and league revenue growth. That is a negotiated way for player compensation to move with the business. That does not mean every new fan automatically increases a player’s paycheck."
+          ]
+        },
+        {
+          "title": "Finals bonuses are a separate win",
+          "paragraphs": [
+            "Finals bonuses climbed sharply too: a player on the 2025 championship team received $22,908, compared with $60,000 under the 2026 schedule. The Finals MVP bonus rose from $5,000 to $30,000, while the runner-up bonus moved from $8,521 to $20,000.",
+            "These are per-player postseason bonuses, on top of base salary. They should not be read as annual pay."
+          ]
+        }
+      ],
+      "foodSegment": {
+        "title": "The floor changed; the fight built the ladder",
+        "script": "From $15K at the start to a $270K minimum in 2026: a dramatic 18× jump in nominal dollars, with the next chapter tied to how the league’s revenue grows."
+      },
+      "sources": [
+        {
+          "label": "The Washington Post · 1999 first WNBA player CBA and minimums",
+          "url": "https://www.washingtonpost.com/archive/sports/1999/04/30/wnba-players-union-reach-agreement/a3c713c4-7415-497b-8a64-d65d5905d026/"
+        },
+        {
+          "label": "Sports Business Journal · 2008 WNBA labor deal and rookie salary scale",
+          "url": "https://www.sportsbusinessjournal.com/Journal/Issues/2008/01/28/This-Weeks-News/WNBA-Union-Reach-Deal-On-New-CBA.aspx"
+        },
+        {
+          "label": "ESPN · WNBA salary history by collective bargaining agreement",
+          "url": "https://www.espn.com/wnba/story/_/id/47813218/wnba-cba-collective-bargaining-agreement-negotiations-salary-cap"
+        },
+        {
+          "label": "WNBPA · 2020 WNBA–WNBPA Collective Bargaining Agreement",
+          "url": "https://wnbpa.com/wp-content/uploads/2020/01/WNBA-WNBPA-CBA-2020-2027.pdf"
+        },
+        {
+          "label": "Her Hoop Stats · 2025 salary cap summary",
+          "url": "https://herhoopstats.com/salary-cap-sheet/wnba/summary/2025/"
+        },
+        {
+          "label": "WNBA · 2026 CBA salary and revenue-sharing details",
+          "url": "https://www.wnba.com/news/wnba-wnbpa-tentative-cba-deal-2026"
+        },
+        {
+          "label": "WNBA · 2026 attendance, viewership and social records",
+          "url": "https://www.wnba.com/news/wnba-season-30-record-growth"
+        },
+        {
+          "label": "Reuters · 2026 Finals bonus schedule and 2025 comparison",
+          "url": "https://www.reuters.com/sports/wnba-board-governors-unanimously-ratifies-new-cba--flm-2026-03-24/"
+        }
+      ]
+    },
+    {
       "slug": "fifth-place-four-mvp-tie-2026",
       "type": "byte",
       "priority": 7200,
@@ -2309,7 +2506,7 @@
       "seriesLabel": "FOOD FOR THOUGHT · PLAYOFF WATCH GUIDE",
       "title": "Dream Answers: Reese Levels the Finals at 1–1",
       "published": "2026-10-02",
-      "updated": "2026-10-19",
+      "updated": "2026-10-20",
       "week": "Finals · Atlanta and Golden State tied 1–1",
       "image": "https://images.gmanews.tv/webpics/2026/10/Angel_Reese_WNBA_Finals_Game_2_2026_10_20_12_16_12.jpg",
       "imageFit": "contain",
@@ -2345,11 +2542,51 @@
         ],
         "highlights": []
       },
+      "finalsGameOneSummary": {
+        "ariaLabel": "Finals Game 1 result",
+        "eyebrow": "FINALS GAME 1 · FINAL · OCT. 17",
+        "title": "Golden State takes the opener",
+        "dek": "Golden State beat Atlanta 68–64 at Chase Center on October 17. Gabby Williams scored 26, including the closing free throws, as the Valkyries finished on a 7–0 run. Atlanta answered in Game 2, so the series is now tied 1–1.",
+        "asOf": "GAME 1 RECAP · OCT. 17, 2026",
+        "receipts": [
+          {
+            "value": "68–64",
+            "label": "Golden State wins Game 1",
+            "note": "October 17 · Chase Center"
+          },
+          {
+            "value": "26 PTS",
+            "label": "Gabby Williams",
+            "note": "16 in the second quarter"
+          },
+          {
+            "value": "14 / 12",
+            "label": "Angel Reese points / rebounds",
+            "note": "Atlanta Dream"
+          },
+          {
+            "value": "17–8",
+            "label": "Valkyries win fourth quarter",
+            "note": "Final seven points unanswered"
+          }
+        ],
+        "highlights": []
+      },
       "gameGallery": {
-        "eyebrow": "OCT. 9 · THE FINALISTS IN ACTION",
-        "title": "Two roads to the Finals",
-        "dek": "Atlanta in Brooklyn. Golden State in Las Vegas. Different games, the same destination.",
+        "eyebrow": "2026 FINALS · ON THE FLOOR",
+        "title": "The Finals in motion",
+        "dek": "Atlanta and Golden State are tied 1–1. From the floor at Chase Center to the semifinal road that brought both teams here.",
         "items": [
+          {
+            "image": "https://cdn.shopify.com/s/files/1/0803/0050/7409/files/we-know-the-w-atlanta-dream-allisha-gray-finals-2026.jpg?v=1792547248",
+            "alt": "Atlanta Dream number 15 leaps with the basketball along the baseline in front of the Golden State Valkyries bench during the 2026 WNBA Finals",
+            "title": "Atlanta takes flight",
+            "kicker": "ATLANTA · FINALS · CHASE CENTER",
+            "caption": "A Dream player goes airborne along the baseline as Atlanta and Golden State battle at Chase Center.",
+            "credit": "Photograph provided to We Know the W",
+            "sourceUrl": "https://cdn.shopify.com/s/files/1/0803/0050/7409/files/we-know-the-w-atlanta-dream-allisha-gray-finals-2026.jpg?v=1792547248",
+            "imageFit": "contain"
+          },
           {
             "image": "https://i.guim.co.uk/img/media/6816dad18c9c802e07b1f94c54a57384cecfced1/0_0_5609_3739/master/5609.jpg?width=1920&quality=85&auto=format&fit=max&s=88fed48c65dd0692b41ed0ba2f3226d1",
             "alt": "Jordin Canada during semifinal Game 3, October 9, 2026",
@@ -2382,6 +2619,15 @@
           ]
         },
         {
+          "title": "Game 1: Williams finishes the job",
+          "paragraphs": [
+            "Golden State won 68–64 on October 17. Atlanta led 22–14 after one quarter; Golden State answered 28–17 in the second. Atlanta regained a 56–51 edge entering the fourth before the Valkyries won that period 17–8.",
+            "Gabby Williams supplied 26 points, including 16 in the second quarter, a total the official team recap places tied third in Finals quarter history. Golden State scored the final seven points, with Williams making six free throws. Kiah Stokes added nine points, seven rebounds and four blocks.",
+            "The support came through possession work: Kaila Charles had 10 rebounds, Tiffany Hayes six rebounds and four assists, and Laeticia Amihere five points and five rebounds. Golden State won player rebounds 41–35 and bench scoring 20–6. Its 17 points off turnovers more than doubled Atlanta’s eight.",
+            "Allisha Gray scored 19, Angel Reese 14 with 12 rebounds, and Rhyne Howard 12. Gray and Howard combined to shoot 8-for-33. Analysis: Golden State survived limited scoring breadth by extending possessions, protecting the rim and closing with Williams. Atlanta’s response required more reliable late offense; Game 2 brought the series to 1–1."
+          ]
+        },
+        {
           "title": "The arithmetic behind the answer",
           "paragraphs": [
             "Both teams made 21 field goals and seven three-pointers. Atlanta’s 14-point winning margin therefore matches its advantage at the free-throw line exactly: 30 makes to Golden State’s 16. The Dream attempted 35 free throws; the Valkyries attempted 19. Those totals describe the difference in the box score; they do not establish whether any particular whistle was correct.",
@@ -2396,15 +2642,6 @@
             "Canada’s 10 assists matter alongside her 13 points: Atlanta did not depend on one scorer solving every possession. Howard’s six steals and Bonner’s four helped turn defense into offense. Analysis: Golden State’s first adjustment should be more reliable passing angles and support when its ball handler is pressured.",
             "For the Valkyries, a 33-point bench night is a resource to build on. Analysis: the harder question is how to involve that production without sacrificing defensive rebounding or leaving Williams responsible for too much difficult creation. Compare the game selector and player board above to see which changes are real across two nights.",
             "The series moves to State Farm Arena for Game 3 on October 21 at 8 p.m. ET and Game 4 on October 24 at 1 p.m. ET. Both teams need three more wins. Game 5 at Chase Center on October 26 is guaranteed; neither a champion nor an elimination has been decided."
-          ]
-        },
-        {
-          "title": "Game 1: Williams finishes the job",
-          "paragraphs": [
-            "Golden State won 68–64 on October 17. Atlanta led 22–14 after one quarter; Golden State answered 28–17 in the second. Atlanta regained a 56–51 edge entering the fourth before the Valkyries won that period 17–8.",
-            "Gabby Williams supplied 26 points, including 16 in the second quarter, a total the official team recap places tied third in Finals quarter history. Golden State scored the final seven points, with Williams making six free throws. Kiah Stokes added nine points, seven rebounds and four blocks.",
-            "The support came through possession work: Kaila Charles had 10 rebounds, Tiffany Hayes six rebounds and four assists, and Laeticia Amihere five points and five rebounds. Golden State won player rebounds 41–35 and bench scoring 20–6. Its 17 points off turnovers more than doubled Atlanta’s eight.",
-            "Allisha Gray scored 19, Angel Reese 14 with 12 rebounds, and Rhyne Howard 12. Gray and Howard combined to shoot 8-for-33. Analysis: Golden State survived limited scoring breadth by extending possessions, protecting the rim and closing with Williams. Atlanta’s response required more reliable late offense; Game 2 brought the series to 1–1."
           ]
         },
         {

@@ -8,6 +8,10 @@
   <link rel="stylesheet" href="/styles.css">
   <link rel="stylesheet" href="/landing.css">
   <link rel="stylesheet" href="/courtside-culture.css?v=20261013-coach-peer-grade-v2">
+
+  <link rel="stylesheet" href="/ui-fixes.css?v=20261021-shared-v1" data-ui-fixes>
+  <link rel="stylesheet" href="/site-navigation.css?v=20261021-readable-v1" data-site-navigation>
+  <link rel="stylesheet" href="/site-layout.css?v=20261021-layout-v1" data-site-layout>
 </head>
 <body class="section-page culture-page" data-culture-page="coaches">
   <header class="subhero">
@@ -43,7 +47,7 @@
               <h2 id="coach-dashboard-title">The bench boss scorecard</h2>
               <p>Compare career WNBA performance and 2026 season form using the same 55–99 peer-grade scale as Playerpedia. Career accomplishments stay visible alongside the grades.</p>
             </div>
-            <div class="coach-dashboard-date"><span>DATA THROUGH</span><strong>Oct. 12, 2026</strong><small>Regular season complete · Finals begin Oct. 17</small></div>
+            <div class="coach-dashboard-date"><span>DATA THROUGH</span><strong data-coach-snapshot-date>Oct. 12, 2026</strong><small>Record snapshot · Playoffs through <span data-coach-playoff-date>Oct. 9, 2026</span></small></div>
           </div>
           <details class="coach-rating-method">
             <summary>How the career and 2026 W Grades are calculated</summary>
@@ -91,7 +95,7 @@
             </table>
           </div>
           <div class="coach-dashboard-sources">
-            <p>Career regular-season totals include games through 2026. Career playoff totals include games through Oct. 9; the 2026 Finals begin Oct. 17. Career W Grade uses eligible WNBA history through 2025; limited samples are provisional and no prior WNBA record is NR. 2026 Finals progress is scored in 2026 Form. Lynne Roberts’ line remains for her completed 2026 season; Los Angeles has since announced a vacancy.</p>
+            <p>Career regular-season totals include games through 2026. Career playoff totals use the <span data-coach-playoff-date>Oct. 9, 2026</span> snapshot. Career W Grade uses eligible WNBA history through 2025; limited samples are provisional and no prior WNBA record is NR. 2026 Finals progress is scored in 2026 Form. Lynne Roberts’ line remains for her completed 2026 season; Los Angeles has since announced a vacancy.</p>
             <a href="https://www.wnba.com/standings" target="_blank" rel="noopener">Official 2026 standings ↗</a>
             <a href="https://www.wnba.com/playoffs/2026" target="_blank" rel="noopener">Official 2026 playoff bracket ↗</a>
             <a href="https://www.basketball-reference.com/wnba/years/2025_standings.html" target="_blank" rel="noopener">2025 standings ↗</a>
@@ -112,7 +116,7 @@
   <script src="/site.js?v=20261009-operations-v1"></script>
   <script src="/coach-dashboard-data.js?v=20261013-coach-split-v1"></script>
   <script src="/coach-grades.js?v=20261013-unified-v2"></script>
-  <script src="/courtside-page.js?v=20261013-unified-coach-grades-v2"></script>
-  <script src="/coach-photo-fix.js?v=20261012-coach-photos-locked-v5"></script>
+  <script src="/coach-photos.js?v=20261021-portraits-v1"></script>
+  <script src="/courtside-page.js?v=20261021-photo-registry-v1"></script>
 </body>
 </html>

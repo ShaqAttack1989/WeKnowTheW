@@ -1,4 +1,5 @@
 const mediaLibrary = require('../media-library.json');
+const coachPhotos = require('../coach-photos.js');
 
 const WIKIPEDIA_API = 'https://en.wikipedia.org/w/api.php';
 const WIKIDATA_API = 'https://www.wikidata.org/w/api.php';
@@ -333,7 +334,16 @@ module.exports = async function handler(req, res) {
 
   res.setHeader('Cache-Control', 's-maxage=86400, stale-while-revalidate=604800');
 
-  const item = await resolvePlayerMedia(name, type);
+  // Name search can return an unrelated person or a group image. Coaches fail
+  // closed to an explicitly reviewed identity instead of using search results.
+  const portrait = type === 'coach' ? coachPhotos.get(name) : null;
+  const candidate = portrait?.candidates[0];
+  const item = type === 'coach'
+    ? (candidate ? { type, subject: portrait.name, image: candidate.image,
+        sourceUrl: candidate.sourceUrl, creator: candidate.credit,
+        license: candidate.license || '', licenseUrl: candidate.licenseUrl || '',
+        caption: candidate.caption || portrait.name + ' coaching portrait' } : null)
+    : await resolvePlayerMedia(name, type);
   return res.status(200).json({
     found: Boolean(item),
     item,

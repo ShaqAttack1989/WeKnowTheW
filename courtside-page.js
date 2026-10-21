@@ -4,27 +4,62 @@
   const escape=value=>String(value??'').replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
   const safeHttps=value=>{const raw=String(value??'').trim();if(!raw)return'';try{const parsed=new URL(raw,location.origin);return parsed.protocol==='https:'||parsed.origin===location.origin?parsed.toString():''}catch{return''}};
   const teamFor=name=>COURTSIDE_TEAMS.find(team=>team.name===name)||{slug:'wnba',name,primary:'#5b2bbf',secondary:'#d7ff42',href:'/around-the-w.html'};
-  const {coachGradeLetter,calculateCoachScores}=window.WKNBCoachGrades;
+  const coachGradeLetter=(...args)=>window.WKNBCoachGrades.coachGradeLetter(...args);
+  const calculateCoachScores=(...args)=>window.WKNBCoachGrades.calculateCoachScores(...args);
   const initials=name=>String(name).split(/\s+|&/).filter(Boolean).slice(0,2).map(word=>word[0]).join('').toUpperCase();
   const clipboardNames=new Set((window.COURT_TO_CLIPBOARD||COURT_TO_CLIPBOARD||[]).map(item=>item.name));
   const playerpediaHref=name=>`/playerpedia.html?view=retired&search=${encodeURIComponent(name)}#playerpedia-directory`;
   const posterBySlug={
     'atlanta-dream':'17989.png','chicago-sky':'17990.png','connecticut-sun':'17991.png','dallas-wings':'17992.png','golden-state-valkyries':'17993.png','indiana-fever':'17994.png','las-vegas-aces':'17995.png','los-angeles-sparks':'17998.png','minnesota-lynx':'17997.png','new-york-liberty':'17996.png','phoenix-mercury':'17999.png','portland-fire':'18000.png','seattle-storm':'18001.png','toronto-tempo':'18174.jpg','washington-mystics':'18172.jpg'
   };
-  // Identity-checked single-subject photos. These cards must NEVER use name-search,
-  // generic article OG images or team-logo artwork as automatic replacements.
-  const officialCoachPhotos={
-    "Karl Smesko": {image: "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/13/Karl_Smesko%2C_head_coach_Florida_Gulf_Coast.jpg/500px-Karl_Smesko%2C_head_coach_Florida_Gulf_Coast.jpg", credit: "Sphilbrick · CC BY-SA 3.0", sourceUrl: "https://commons.wikimedia.org/wiki/File:Karl_Smesko,_head_coach_Florida_Gulf_Coast.jpg"},
-    "Tyler Marsh": {image: "https://cst.brightspotcdn.com/dims4/default/6d498cd/2147483647/strip/false/crop/5842x3897%2B0%2B0/resize/1486x991%21/quality/90/?url=https%3A%2F%2Fchorus-production-cst-web.s3.us-east-1.amazonaws.com%2Fbrightspot%2F50%2F87%2F97c428ce476380e63902e20aac78%2Fsky-111324-17.jpg", credit: "Ashlee Rezin · Chicago Sun-Times", sourceUrl: "https://chicago.suntimes.com/chicago-sky/2025/04/27/coach-tyler-marsh-begins-work-on-getting-sky-to-compete-and-commit"},
-    "José Fernández": {image: "https://images2.minutemediacdn.com/image/upload/c_fill%2Cw_1200%2Car_1%3A1%2Cf_auto%2Cq_auto%2Cg_auto/images/GettyImages/mmsport/403/01k9fbycft3yq8sqh50c.jpg", credit: "José Fernández portrait · High Post Hoops", sourceUrl: "https://highposthoops.com/jose-fernandez-immediately-starts-wings-tenure-by-setting-completely-new-tone"},
-    "Becky Hammon": {image: "https://upload.wikimedia.org/wikipedia/commons/3/36/240529_Lynx_Aces_JohnMc039_%28cropped%29.jpg", credit: "John Mac · CC BY-SA 2.0", sourceUrl: "https://commons.wikimedia.org/wiki/File:240529_Lynx_Aces_JohnMc039_(cropped).jpg"},
-    "Stephanie White": {image: "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ea/Stephanie_White_2024_%28cropped%29.jpg/500px-Stephanie_White_2024_%28cropped%29.jpg", credit: "John Mac · CC BY-SA 2.0", sourceUrl: "https://commons.wikimedia.org/wiki/File:Stephanie_White_2024_(cropped).jpg"},
-    "Sonia Raman": {image: "https://static.wixstatic.com/media/ab43c9_64875ba5f6444eb6ae95f2d28c4405ec~mv2.png/v1/fill/w_940%2Ch_705%2Cal_c%2Cq_90/ab43c9_64875ba5f6444eb6ae95f2d28c4405ec~mv2.png", credit: "Seattle Storm portrait · Abound", sourceUrl: "https://blog.joinabound.com/post/raman-makes-wnba-history-as-the-first-person-of-indian-descent-to-be-a-head-coach"},
-    "Lynne Roberts": {image: "https://hermes.media.static.aol.com/media/2026/04/30/db65fad1-4f41-31ff-ab91-d8a9d14db273/bebc289f-8659-4fb4-9d60-29a9487654e0.jpg", credit: "Sparks media-day photograph", sourceUrl: "https://www.aol.com/articles/sparks-head-coach-explains-player-211824000.html"}
-  };
+  // Coach identity is resolved only through the reviewed registry.
+  const officialCoachPhotos=window.WCoachPhotos;
+  const portraitLoads=new Map();
+  function loadPortrait(src){
+    if(!portraitLoads.has(src))portraitLoads.set(src,new Promise(resolve=>{
+      const img=new Image();
+      const timeout=setTimeout(()=>finish(null),8000);
+      const finish=value=>{clearTimeout(timeout);img.onload=null;img.onerror=null;resolve(value);};
+      img.onload=()=>finish(src);
+      img.onerror=()=>finish(null);
+      img.src=src;
+    }));
+    return portraitLoads.get(src);
+  }
+  async function loadCoachPhoto(el,name){
+    const record=officialCoachPhotos?.get(name);
+    if(!record)return;
+    for(const candidate of record.candidates){
+      if(!await loadPortrait(candidate.image))continue;
+      if(!el.isConnected)return;
+      const img=document.createElement('img');
+      img.src=candidate.image;
+      img.alt=record.name+' coaching portrait';
+      img.className='culture-verified-portrait';
+      img.decoding='async';
+      try{await img.decode();}catch{continue;}
+      if(!el.isConnected)return;
+      const credit=document.createElement('a');
+      credit.className='culture-photo-credit';
+      credit.href=candidate.sourceUrl;
+      credit.target='_blank';credit.rel='noopener noreferrer';
+      credit.textContent=candidate.credit;
+      const clear=()=>{
+        el.querySelectorAll('img,.culture-photo-credit').forEach(node=>node.remove());
+        if(!el.querySelector('.culture-initials')){
+          const label=document.createElement('div');label.className='culture-initials';
+          label.textContent=initials(name);el.prepend(label);
+        }
+      };
+      img.addEventListener('error',clear,{once:true});
+      el.querySelectorAll('img,.culture-initials,.culture-photo-credit').forEach(node=>node.remove());
+      el.prepend(img);el.append(credit);
+      return;
+    }
+  }
   function photo(name,type,team,source){
     const colors=`--team:${team.primary};--team2:${team.secondary}`;
-    const pinned=type==='coach'&&Boolean(officialCoachPhotos[name]);
+    const pinned=type==='coach';
     return `<div class="culture-photo" style="${colors}" data-media-name="${escape(name)}" data-media-type="${type}" data-media-source="${escape(source||'')}" data-coach-photo-pinned="${pinned?'true':'false'}" data-fallback="${escape(pinned?'':posterBySlug[team.slug]?`/assets/images/${posterBySlug[team.slug]}`:'')}"><div class="culture-initials">${initials(name)}</div></div>`;
   }
   function card({name,team:teamName,summary,source,label,role,path},type){
@@ -34,32 +69,24 @@
     const stats=type==='coach'&&typeof COURTSIDE_COACH_STATS!=='undefined'?COURTSIDE_COACH_STATS.find(item=>item.name===name&&item.team===teamName):null;
     const links=[source?'<a href="'+escape(source)+'" target="_blank" rel="noopener">Coaching source ↗</a>':'<a href="'+team.href+'">Team page →</a>'];
     if(linkedPlayer)links.push('<a class="culture-playerpedia-link" href="'+escape(playerpediaHref(name))+'">Playerpedia playing career →</a>');
-    const scores=stats?calculateCoachScores(stats):null;
-    const mini=stats?'<div class="coach-mini-dashboard"><span class="coach-rating-mini"><b>Career W Grade</b> <strong>'+(scores.legacy.total===null?'—':scores.legacy.total)+'</strong><small>'+(scores.legacy.total===null?'NR':scores.legacy.letter+(scores.legacy.provisional?' · PROV · '+scores.legacy.sampleGames+'G':' · /99'))+'</small></span><span class="coach-rating-mini"><b>2026 Form</b> <strong>'+scores.form.total+'</strong><small>'+scores.form.letter+' · /99</small></span><span><b>2026</b> '+stats.season2026.wins+'–'+stats.season2026.losses+'</span><span><b>🏆 '+stats.titles.length+'</b> titles · <b>'+stats.coyYears.length+'</b> COY</span><button type="button" data-coach-focus="'+escape(stats.name)+'">Open dashboard →</button></div>':'';
+    const scores=stats&&window.WKNBCoachGrades?calculateCoachScores(stats):null;
+    const mini=scores?'<div class="coach-mini-dashboard"><span class="coach-rating-mini"><b>Career W Grade</b> <strong>'+(scores.legacy.total===null?'—':scores.legacy.total)+'</strong><small>'+(scores.legacy.total===null?'NR':scores.legacy.letter+(scores.legacy.provisional?' · PROV · '+scores.legacy.sampleGames+'G':' · /99'))+'</small></span><span class="coach-rating-mini"><b>2026 Form</b> <strong>'+scores.form.total+'</strong><small>'+scores.form.letter+' · /99</small></span><span><b>2026</b> '+stats.season2026.wins+'–'+stats.season2026.losses+'</span><span><b>🏆 '+stats.titles.length+'</b> titles · <b>'+stats.coyYears.length+'</b> COY</span><button type="button" data-coach-focus="'+escape(stats.name)+'">Open dashboard →</button></div>':'';
     return '<article class="culture-card" style="--team:'+team.primary+';--team2:'+team.secondary+'">'+photo(name,type,team,source)+'<div class="culture-card-body"><span class="culture-kicker">'+escape(kicker)+'</span><h3>'+escape(name)+'</h3><p>'+escape(summary||path||'')+'</p>'+mini+'<div class="culture-card-links">'+links.join('')+'</div></div></article>';
   }
   async function loadOne(el){
+    if(el.dataset.mediaLoading==='true')return;
+    el.dataset.mediaLoading='true';
     const name=el.dataset.mediaName,type=el.dataset.mediaType,source=el.dataset.mediaSource;
+    if(type==='coach'){await loadCoachPhoto(el,name);return;}
     let payload=null,image='',credit='',creditUrl=source;
-    if(type==='coach'&&officialCoachPhotos[name]){const official=officialCoachPhotos[name];image=official.image;credit=official.credit;creditUrl=official.sourceUrl;}
     if(!image&&source&&(type==='mascot'||type==='celebrity')){try{const response=await fetch(`/api/culture-image?url=${encodeURIComponent(source)}`);const preview=await response.json();if(preview?.found){image=preview.image;credit=type==='mascot'?'Official team image':'Courtside photo source';creditUrl=preview.sourceUrl;}}catch{}}
     if(!image){try{const response=await fetch(`/api/media?type=${encodeURIComponent(type)}&name=${encodeURIComponent(name)}`);payload=await response.json();}catch{}if(payload?.found){image=payload.item?.image||'';credit=payload.item?.creator||'';creditUrl=payload.item?.sourceUrl||source;}}
     if(!image&&source){try{const response=await fetch(`/api/culture-image?url=${encodeURIComponent(source)}`);const preview=await response.json();if(preview?.found){image=preview.image;credit='Official/source image';creditUrl=preview.sourceUrl;}}catch{}}
     if(!image&&el.dataset.fallback){image=el.dataset.fallback;credit='Team artwork';creditUrl=teamFor(el.closest('.culture-card')?.querySelector('.culture-kicker')?.textContent||'').href;}
     if(!image)return;
-    const img=document.createElement('img');img.src=image;img.alt=`${name} — ${type}`;img.loading='lazy';img.decoding='async';if(!payload?.found&&!(type==='coach'&&officialCoachPhotos[name]))img.className='is-fallback';
+    const img=document.createElement('img');img.src=image;img.alt=`${name} — ${type}`;img.loading='lazy';img.decoding='async';if(!payload?.found)img.className='is-fallback';
     img.addEventListener('error',()=>{
-      // Identity-verified coach photos must fail closed, not become team logos or wrong people.
-      if(type==='coach'&&officialCoachPhotos[name]){
-        img.remove();
-        if(!el.querySelector('.culture-initials')){
-          const monogram=document.createElement('div');
-          monogram.className='culture-initials';
-          monogram.textContent=initials(name);
-          el.prepend(monogram);
-        }
-        return;
-      }
+      el.querySelector('.culture-photo-credit')?.remove();
       img.remove();
     },{once:true});
     el.querySelector('.culture-initials')?.remove();
@@ -71,8 +98,14 @@
 
   function renderCoachDashboard(){
     const dashboard=$('#coach-dashboard');
-    if(!dashboard||typeof COURTSIDE_COACH_STATS==='undefined')return;
+    if(!dashboard||!window.WKNBCoachGrades||typeof COURTSIDE_COACH_STATS==='undefined')return;
     const data=COURTSIDE_COACH_STATS.slice();
+    const snapshot=typeof W_COACH_SNAPSHOT==='undefined'?null:W_COACH_SNAPSHOT;
+    if(snapshot){
+      const date=value=>new Date(value+'T12:00:00Z').toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric',timeZone:'UTC'});
+      document.querySelectorAll('[data-coach-snapshot-date]').forEach(node=>node.textContent=date(snapshot.compiledAt));
+      document.querySelectorAll('[data-coach-playoff-date]').forEach(node=>node.textContent=date(snapshot.playoffThrough));
+    }
     const table=$('#coachDashboardTable');
     const search=$('#coachDashboardSearch');
     const sort=$('#coachDashboardSort');

@@ -2,21 +2,21 @@
   'use strict';
   const feeds = ['/snack-shak-love-and-basketball.json', '/snack-shak-all-time.json', '/snack-shaq-posts.json', '/snack-shak-specials.json', '/snack-shak-breaking.json', '/snack-shak-final.json', '/snack-shak-latest.json'];
   const time = value => { const n = Date.parse(value || ''); return Number.isFinite(n) ? n : 0; };
-  const updated = post => Math.max(time(post.published), time(post.updated));
+  const updated = (post, now = Date.now()) => Math.max(time(post?.published), time(post?.updated) <= now ? time(post?.updated) : 0);
   function selectStories(groups, now = Date.now()) {
     const unique = new Map();
     groups.flat().forEach(post => {
       if (!post || !post.slug || !post.title || !post.published || !time(post.published) || time(post.published) > now || post.type === 'intro' || post.draft || post.status === 'draft' || post.status === 'scheduled' || post.homepageHidden) return;
       const previous = unique.get(post.slug);
-      if (!previous || updated(post) >= updated(previous)) unique.set(post.slug, post);
+      if (!previous || updated(post, now) >= updated(previous, now)) unique.set(post.slug, post);
     });
-    return [...unique.values()].sort((a, b) => updated(b) - updated(a) || time(b.published) - time(a.published) || Number(b.priority || 0) - Number(a.priority || 0) || a.slug.localeCompare(b.slug));
+    return [...unique.values()].sort((a, b) => updated(b, now) - updated(a, now) || time(b.published) - time(a.published) || Number(b.priority || 0) - Number(a.priority || 0) || a.slug.localeCompare(b.slug));
   }
-  if (typeof module !== 'undefined' && module.exports) module.exports = { selectStories };
-  if (!root.document) return;
-  const safe = value => String(value ?? '').replace(/[&<>"']/g, ch => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' }[ch]));
   const safeUrl = value => /^(\/[^/]|https:\/\/)/.test(String(value || '')) ? value : '';
   const href = post => safeUrl(post.dashboardUrl) || `/${post.type === 'feature' ? 'food-for-thought' : 'snack-shak-bytes'}.html?post=${encodeURIComponent(post.slug)}#story`;
+  if (typeof module !== 'undefined' && module.exports) module.exports = { selectStories, feeds, updated, href };
+  if (!root.document) return;
+  const safe = value => String(value ?? '').replace(/[&<>"']/g, ch => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' }[ch]));
   const date = post => new Date(updated(post)).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric', timeZone: 'UTC' });
   function card(post, index) {
     const image = safeUrl(post.storyImage || post.image || post.imageUrl || post.photo || post.thumbnail);
@@ -26,8 +26,10 @@
   }
   const snapshots = new Map();
   let pending = null;
+  let loadedAt = 0;
+  let currentStories = [];
   function render(stories) {
-    if (!stories.length) return;
+    if (!stories.length && !snapshots.size) return;
     const zones = [['#freshTopStories', 3], ['#freshNextStory', 1], ['#freshMoreStories', 3]];
     let cursor = 0;
     zones.forEach(([selector, count]) => {
@@ -42,19 +44,28 @@
       host.hidden = !chosen.length;
     });
   }
-  function refresh() {
+  function load({ force = false } = {}) {
     if (pending) return pending;
+    if (!force && loadedAt && Date.now() - loadedAt < 60000) return Promise.resolve(currentStories);
     pending = Promise.allSettled(feeds.map(async url => {
       const response = await fetch(url, { cache: 'no-store', headers: { Accept: 'application/json' } });
       if (!response.ok) throw new Error('Article feed unavailable');
       const payload = await response.json();
       if (!Array.isArray(payload.posts)) throw new Error('Invalid article feed');
       snapshots.set(url, payload.posts);
-    })).then(() => render(selectStories([...snapshots.values()]))).finally(() => { pending = null; });
+    })).then(() => {
+      // Failed requests leave their last successful snapshot intact.
+      currentStories = selectStories([...snapshots.values()]);
+      loadedAt = Date.now();
+      render(currentStories);
+      root.dispatchEvent(new CustomEvent('w:stories-ready', { detail: currentStories }));
+      return currentStories;
+    }).finally(() => { pending = null; });
     return pending;
   }
-  refresh();
-  setInterval(() => { if (!document.hidden) refresh(); }, 60000);
-  root.addEventListener('focus', refresh);
-  document.addEventListener('visibilitychange', () => { if (!document.hidden) refresh(); });
+  root.WHomeStories = { feeds, selectStories, updated, href, load };
+  load();
+  setInterval(() => { if (!document.hidden) load({ force: true }); }, 60000);
+  root.addEventListener('focus', () => load());
+  document.addEventListener('visibilitychange', () => { if (!document.hidden) load(); });
 })(typeof window !== 'undefined' ? window : globalThis);

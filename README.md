@@ -13,3 +13,22 @@ The live layer uses official WNBA statistics for standings and qualified player 
 - The site does not calculate standings from TheSportsDB's limited free development sample.
 
 TheSportsDB should be credited as the live data source. Logos and other trademarked visual assets are not pulled into this implementation.
+
+## Source layout and regression checks
+
+Root files are the canonical website source. The legacy `site/` subtree contains
+partial mirrors, not a standalone build. Keep existing copies synchronized with
+`node scripts/sync-site-mirror.cjs --write`; CI checks parity without changing files.
+
+Homepage story slots, weekly editorials, and headlines consume the same seven
+feeds through `WHomeStories`. Published dates control eligibility; the most recent
+non-future publication/update controls order. Feed failures preserve the last
+successful snapshot during the visit.
+
+Coach portraits are explicitly reviewed in `coach-photos.js`, including spelling
+aliases, source credits, and backup photographs. Do not restore automatic person
+name searches or article-preview fallbacks for coaches.
+
+Run `node --test tests/site-repairs.test.js tests/homepage-fresh-stories.test.js
+ tests/navigation-smoke.test.js` for focused checks. With Playwright and Chromium
+installed, run `node scripts/verify-site-regressions.cjs` for rendered browser checks.

@@ -1,65 +1,37 @@
-name: Homepage stories refresh
+name: Homepage stories validation
 
 on:
   push:
     branches: [main]
     paths:
       - '.github/workflows/homepage-stories.yml'
-      - 'homepage-specials.js'
-      - 'homepage-week-live.js'
-      - 'homepage-week-live.css'
-      - 'snack-shak-latest.json'
-      - 'snack-shak-breaking.json'
-      - 'snack-shak-specials.json'
+      - 'homepage-*.js'
+      - 'homepage-*.css'
+      - 'snack-shak-*.json'
       - 'snack-shaq-posts.json'
+      - 'index.html'
+      - 'tests/homepage-*.test.js'
+      - 'tests/site-repairs.test.js'
+  pull_request:
   workflow_dispatch:
 
 permissions:
-  contents: write
-
-concurrency:
-  group: homepage-stories-refresh
-  cancel-in-progress: false
+  contents: read
 
 jobs:
-  refresh:
+  validate:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - name: Validate homepage story feeds and weekly hub
+      - name: Validate all homepage feeds and selection rules
         run: |
+          node --check homepage-fresh-stories.js
           node --check homepage-specials.js
           node --check homepage-week-live.js
-          node -e "JSON.parse(require('fs').readFileSync('snack-shak-latest.json','utf8')); JSON.parse(require('fs').readFileSync('snack-shaq-posts.json','utf8')); console.log('Homepage story feeds are valid JSON')"
-      - name: Bust homepage weekly hub cache
-        run: |
-          node <<'NODE'
-          const fs = require('fs');
-          const path = 'index.html';
-          let html = fs.readFileSync(path, 'utf8');
-          const day = new Date().toISOString().slice(0,10).replaceAll('-','');
-          const revision = (process.env.GITHUB_SHA || String(Date.now())).slice(0,8);
-          const stamp = `${day}-${revision}`;
-          html = html
-            .replace(/homepage-week-live\.css\?v=[^"']+/, `homepage-week-live.css?v=${stamp}-weekly-hub`)
-            .replace(/homepage-week-live\.js\?v=[^"']+/, `homepage-week-live.js?v=${stamp}-weekly-hub`)
-            .replace(/homepage-specials\.js\?v=[^"']+/, `homepage-specials.js?v=${stamp}-fresh-stories`);
-          fs.writeFileSync(path, html);
-          NODE
-      - name: Publish refreshed homepage when needed
-        run: |
-          if git diff --quiet; then
-            echo "Homepage weekly hub cache is already current."
-            exit 0
-          fi
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add index.html
-          git commit -m "Refresh This Week in the W cache"
-          git pull --rebase origin main
-          git push
+          node --check homepage-desk.js
+          node -e "const fs=require('fs'); for(const url of require('./homepage-fresh-stories').feeds){const feed=JSON.parse(fs.readFileSync('.'+url,'utf8'));if(!Array.isArray(feed.posts))throw Error('Missing posts: '+url)}"
+          node --test tests/homepage-fresh-stories.test.js tests/site-repairs.test.js tests/navigation-smoke.test.js
+          node scripts/sync-site-mirror.cjs

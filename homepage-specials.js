@@ -11,35 +11,18 @@
   const norm=value=>String(value||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,' ').trim();
   const short=(value='',limit=180)=>{const text=String(value||'').replace(/\s+/g,' ').trim();return text.length<=limit?text:`${text.slice(0,limit).replace(/\s+\S*$/,'').trim()}…`;};
   const fmtDate=value=>{const date=new Date(`${String(value||'').slice(0,10)}T12:00:00`);return Number.isNaN(date.getTime())?String(value||''):date.toLocaleDateString([],{month:'short',day:'numeric'});};
-  const dateKey=post=>String(post?.updated||post?.published||'');
+  const dateKey=post=>new Date(window.WHomeStories.updated(post)).toISOString();
   const dateLabel=post=>`${post?.updated&&String(post.updated)>String(post.published||'')?'UPDATED ':' '}${fmtDate(dateKey(post))}`.trim();
 
   let posts=[];
-  let loadedAt=0;
-  let loadPromise=null;
   let observer=null;
 
-  function sortPosts(items=[]){return [...items].sort((a,b)=>dateKey(b).localeCompare(dateKey(a))||Number(b.priority||0)-Number(a.priority||0));}
-  async function fetchPosts(url){const payload=window.WHomeData?.get?await window.WHomeData.get(url,{ttl:60000}):await fetch(`${url}?cb=${Date.now()}`,{headers:{Accept:'application/json','Cache-Control':'no-cache'},cache:'no-store'}).then(async response=>response.ok?response.json():({})).catch(()=>({}));return Array.isArray(payload.posts)?payload.posts:[];}
-  async function loadSpecials(force=false){
-    if(!force&&posts.length&&Date.now()-loadedAt<300000)return posts;
-    if(loadPromise&&!force)return loadPromise;
-    const feeds=['/snack-shak-love-and-basketball.json','/snack-shak-all-time.json','/snack-shaq-posts.json','/snack-shak-specials.json','/snack-shak-breaking.json','/snack-shak-latest.json','/snack-shak-final.json'];
-    loadPromise=Promise.allSettled(feeds.map(fetchPosts)).then(results=>{
-      const bySlug=new Map();
-      results.forEach(result=>{if(result.status==='fulfilled')result.value.forEach(post=>{if(post?.slug)bySlug.set(post.slug,post);});});
-      posts=sortPosts([...bySlug.values()]);
-      loadedAt=Date.now();
-      return posts;
-    }).catch(()=>posts).finally(()=>{loadPromise=null;});
-    return loadPromise;
+  async function loadSpecials(){
+    posts=await window.WHomeStories.load();
+    return posts;
   }
 
-  function featureHref(post){
-    if(post?.dashboardUrl)return post.dashboardUrl;
-    const slug=encodeURIComponent(post?.slug||'');
-    return post?.type==='feature'?`/food-for-thought.html?post=${slug}#story`:`/snack-shak-bytes.html?post=${slug}#story`;
-  }
+  const featureHref=post=>window.WHomeStories.href(post);
 
   function isByte(post={}){return post.type==='byte'||norm(post.seriesLabel).includes('snack shak byte')||norm(post.seriesLabel).includes('byte');}
   function isFood(post={}){const label=norm(`${post.type||''} ${post.seriesLabel||''}`);return post.type==='feature'&&(label.includes('food for thought')||!label.includes('milestone'));}
@@ -208,6 +191,7 @@
 
   keepPlayoffSpotlight();
   wireSearch();
+  window.addEventListener('w:stories-ready',()=>refresh());
   refresh();
   setInterval(()=>{if(!document.hidden)refresh(true);},60000);
   window.addEventListener('focus',()=>refresh(true));

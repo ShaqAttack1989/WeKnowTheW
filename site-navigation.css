@@ -225,7 +225,7 @@ body>.w-utility-bar a{min-height:36px!important;font-size:13px;}
 .site-navigation .nav-mobile-utility{display:none;}
 .site-navigation .menu-button{margin-left:auto;}
 
-@media(max-width:1380px) and (min-width:1281px){
+@media(max-width:1380px) and (min-width:1461px){
   .site-navigation{gap:14px!important;padding-inline:14px!important;}
   .site-navigation .brand{font-size:.9rem;gap:8px;}
   .site-navigation .brand-mark{width:34px;height:34px;}
@@ -233,7 +233,7 @@ body>.w-utility-bar a{min-height:36px!important;font-size:13px;}
   .site-navigation .nav-search-button{padding-inline:10px;}
 }
 
-@media(max-width:1280px){
+@media(max-width:1460px){
   body>.w-utility-bar{display:none!important;}
   .site-navigation{
     min-height:70px!important;
@@ -370,7 +370,7 @@ body>.w-utility-bar a{min-height:36px!important;font-size:13px;}
 .site-navigation .nav-links{flex:1 1 auto;column-gap:4px!important}
 .site-navigation .nav-group{flex:0 0 auto;min-width:0}
 .site-navigation .nav-parent-label{display:block;word-break:normal;overflow-wrap:normal}
-@media(min-width:1281px){
+@media(min-width:1461px){
   .site-navigation .nav-parent{font-size:clamp(.84rem,1.05vw,.95rem)!important}
   .site-navigation .nav-search-button{font-size:.86rem!important}
   .site-navigation .brand{font-size:.88rem!important}
@@ -397,7 +397,7 @@ body>.w-utility-bar a{min-height:36px!important;font-size:13px;}
 .site-navigation .nav-search-button{
   text-wrap:nowrap;
 }
-@media(min-width:1281px) and (max-width:1760px){
+@media(min-width:1461px) and (max-width:1760px){
   .site-navigation{
     padding-inline:12px!important;
     gap:8px!important;
@@ -430,8 +430,18 @@ body>.w-utility-bar a{min-height:36px!important;font-size:13px;}
     font-size:.79rem!important;
   }
 }
-@media(min-width:1281px) and (max-width:1460px){
+@media(min-width:1461px) and (max-width:1460px){
   .site-navigation .brand{font-size:.76rem!important}
   .site-navigation .nav-parent{padding-inline:5px!important;font-size:.75rem!important}
   .site-navigation .nav-search-button{font-size:.75rem!important}
+}
+
+/* Readable labels; use the accordion before desktop navigation becomes crowded. */
+@media(min-width:1461px){
+  .site-navigation .nav-parent{font-size:.9rem!important;padding-inline:7px!important}
+  .site-navigation .brand{font-size:.88rem!important}
+  .site-navigation .nav-search-button{font-size:.9rem!important}
+}
+@media(max-width:1460px){
+  .site-navigation .nav-parent,.site-navigation .nav-menu-section>a{font-size:1rem!important}
 }

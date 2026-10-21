@@ -87,7 +87,8 @@ test('tour story remains in the Food for Thought feed and is searchable',()=>{
   assert.ok(tour);
   assert.equal(tour.dashboardUrl,'/unrivaled-on-tour-2027.html');
   assert.match(tour.image,/unrivaled\.basketball\/roster-reveal\/headshots/);
-  assert.match(read('homepage-week-live.js'),/snack-shak-latest\.json/);
+  assert.match(read('homepage-week-live.js'),/WHomeStories\.load/);
+  assert.ok(require('../homepage-fresh-stories').feeds.includes('/snack-shak-latest.json'));
   assert.match(read('index.html'),/homepage-week-live\.js/);
 
   const site=read('site.js');

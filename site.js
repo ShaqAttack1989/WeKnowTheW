@@ -21,11 +21,13 @@
   }
 })();
 
-const UI_FIXES_HREF='/ui-fixes.css?v=20260930-dashboard-spacing-v4';
+const UI_FIXES_HREF='/ui-fixes.css?v=20261021-shared-v1';
 if(!document.querySelector('link[data-ui-fixes]')){const link=document.createElement('link');link.rel='stylesheet';link.href=UI_FIXES_HREF;link.dataset.uiFixes='true';document.head.appendChild(link);}
-const NAVIGATION_HREF='/site-navigation.css?v=20260930-wide-collision-v4';
+const NAVIGATION_HREF='/site-navigation.css?v=20261021-readable-v1';
 if(!document.querySelector('link[data-site-navigation]')){const link=document.createElement('link');link.rel='stylesheet';link.href=NAVIGATION_HREF;link.dataset.siteNavigation='true';document.head.appendChild(link);}
-const GLOBAL_SCOREBOARD_HREF='/global-scoreboard.css?v=20261003-readable-ribbon-v5';
+const LAYOUT_HREF='/site-layout.css?v=20261021-layout-v1';
+if(!document.querySelector('link[data-site-layout]')){const link=document.createElement('link');link.rel='stylesheet';link.href=LAYOUT_HREF;link.dataset.siteLayout='true';document.head.appendChild(link);}
+const GLOBAL_SCOREBOARD_HREF='/global-scoreboard.css?v=20261021-nav-breakpoint-v1';
 if(!document.querySelector('link[data-global-scoreboard]')){const link=document.createElement('link');link.rel='stylesheet';link.href=GLOBAL_SCOREBOARD_HREF;link.dataset.globalScoreboard='true';document.head.appendChild(link);}
 if(!document.querySelector('script[data-global-scoreboard]')){const script=document.createElement('script');script.src='/global-scoreboard.js?v=20261019-finals-game2-v1';script.dataset.globalScoreboard='true';script.defer=true;document.head.appendChild(script);}
 if(!document.querySelector('script[data-dashboard-keys]')){const script=document.createElement('script');script.src='/dashboard-keys.js?v=20260828-v1';script.dataset.dashboardKeys='true';script.async=true;document.head.appendChild(script);}
@@ -57,7 +59,7 @@ if(futureMenu&&!futureMenu.querySelector('a[href="/wpba.html"]')){
   if(expansionLink)expansionLink.before(wpbaLink);else futureMenu.appendChild(wpbaLink);
 }
 
-const mobileNav=window.matchMedia('(max-width:1280px)');
+const mobileNav=window.matchMedia('(max-width:1460px)');
 const isMobileNav=()=>mobileNav.matches;
 function closeNavGroups(except=null){document.querySelectorAll('.nav-group.submenu-open').forEach(group=>{if(group===except)return;group.classList.remove('submenu-open');group.querySelector('.nav-parent')?.setAttribute('aria-expanded','false');});}
 function setMobileMenuState(open){navLinks?.classList.toggle('open',Boolean(open));menuButton?.setAttribute('aria-expanded',String(Boolean(open)));if(menuButton)menuButton.textContent=open?'Close':'Menu';document.body.classList.toggle('mobile-nav-open',Boolean(open));if(!open)closeNavGroups();}

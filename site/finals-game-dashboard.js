@@ -151,6 +151,15 @@
         const next=focusId?document.getElementById(focusId):mount.querySelector('[data-fgd="'+key+'"]');
         if(next)next.focus();
       });
+      article.querySelectorAll('a[href*="#finals-game-dashboard"]').forEach(function(link){
+        if(link.dataset.fgdJumpBound==='true')return;
+        link.dataset.fgdJumpBound='true';
+        link.addEventListener('click',function(event){
+          event.preventDefault();
+          history.pushState(null,'',link.href);
+          mount.scrollIntoView({behavior:'smooth',block:'start'});
+        });
+      });
       render();
       mount.dataset.loaded='true';
       delete mount.dataset.loading;

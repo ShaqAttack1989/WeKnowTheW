@@ -37,7 +37,7 @@
     {id:'1042600213',date:'2026-10-09',startTimeUtc:'2026-10-09T21:30:00-04:00',homeTeam:'Las Vegas Aces',awayTeam:'Golden State Valkyries',homeScore:77,awayScore:87,broadcasts:['Peacock','NBC Sports Network'],status:'Final/OT',state:'post',completed:true,round:'Semifinals',gameNumber:3},
     {id:'2026-gsv-atl-finals-g1',date:'2026-10-17',startTimeUtc:'2026-10-17T15:30:00-04:00',homeTeam:'Golden State Valkyries',awayTeam:'Atlanta Dream',homeScore:68,awayScore:64,broadcasts:['NBC','Peacock'],status:'Final',state:'post',completed:true,round:'Finals',gameNumber:1,ifNecessary:false},
     {id:'2026-gsv-atl-finals-g2',date:'2026-10-19',startTimeUtc:'2026-10-19T20:00:00-04:00',homeTeam:'Golden State Valkyries',awayTeam:'Atlanta Dream',homeScore:65,awayScore:79,broadcasts:['USA','Peacock','CNBC'],status:'Final',state:'post',completed:true,round:'Finals',gameNumber:2,ifNecessary:false},
-    {id:'2026-gsv-atl-finals-g3',date:'2026-10-21',startTimeUtc:'2026-10-21T20:00:00-04:00',homeTeam:'Atlanta Dream',awayTeam:'Golden State Valkyries',homeScore:null,awayScore:null,broadcasts:['USA','Peacock','CNBC'],status:'Finals Game 3',state:'pre',completed:false,round:'Finals',gameNumber:3,ifNecessary:false},
+    {id:'1042600303',date:'2026-10-21',startTimeUtc:'2026-10-21T20:00:00-04:00',homeTeam:'Atlanta Dream',awayTeam:'Golden State Valkyries',homeScore:97,awayScore:71,broadcasts:['USA','Peacock','CNBC'],status:'Final',state:'post',completed:true,round:'Finals',gameNumber:3,ifNecessary:false},
     {id:'2026-gsv-atl-finals-g4',date:'2026-10-24',startTimeUtc:'2026-10-24T13:00:00-04:00',homeTeam:'Atlanta Dream',awayTeam:'Golden State Valkyries',homeScore:null,awayScore:null,broadcasts:['NBC','Peacock'],status:'Finals Game 4',state:'pre',completed:false,round:'Finals',gameNumber:4,ifNecessary:false},
     {id:'2026-gsv-atl-finals-g5',date:'2026-10-26',startTimeUtc:'2026-10-26T20:00:00-04:00',homeTeam:'Golden State Valkyries',awayTeam:'Atlanta Dream',homeScore:null,awayScore:null,broadcasts:['USA','Peacock','CNBC'],status:'Finals Game 5',state:'pre',completed:false,round:'Finals',gameNumber:5,ifNecessary:false},
     {id:'2026-gsv-atl-finals-g6',date:'2026-10-29',startTimeUtc:'2026-10-29T20:00:00-04:00',homeTeam:'Atlanta Dream',awayTeam:'Golden State Valkyries',homeScore:null,awayScore:null,broadcasts:['USA','Peacock','CNBC'],status:'Finals Game 6 · If necessary',state:'pre',completed:false,round:'Finals',gameNumber:6,ifNecessary:true},
@@ -112,13 +112,14 @@
     let aWins=0,bWins=0;
     list.forEach(game=>{const winner=winnerName(game);if(winner===a)aWins++;if(winner===b)bWins++;});
     const snapshot=seriesSnapshots.get(seriesKey(round,a,b));
-    if(snapshot){
+    const verifiedFinalsPair=round==='Finals'&&pairKey(a,b)===pairKey('Atlanta Dream','Golden State Valkyries');
+    if(snapshot&&!verifiedFinalsPair){
       if(norm(snapshot.teamA)===norm(a)){aWins=Number(snapshot.winsA)||0;bWins=Number(snapshot.winsB)||0;}
       else{aWins=Number(snapshot.winsB)||0;bWins=Number(snapshot.winsA)||0;}
     }
     const completed=list.filter(isFinal),live=list.find(isLive),next=list.find(game=>!isFinal(game)&&!isLive(game));
-    const winner=snapshot?.winner||(aWins>=target?a:bWins>=target?b:'');
-    return{aWins,bWins,winner,games:list,latest:live||completed.at(-1)||null,next:live||next||null,target,complete:Boolean(snapshot?.complete||winner)};
+    const winner=(!verifiedFinalsPair?snapshot?.winner:'')||(aWins>=target?a:bWins>=target?b:'');
+    return{aWins,bWins,winner,games:list,latest:live||completed.at(-1)||null,next:live||next||null,target,complete:verifiedFinalsPair?Boolean(winner):Boolean(snapshot?.complete||winner)};
   }
   function timeLabel(game){
     const raw=String(game?.startTimeUtc||game?.timestamp||'').trim();
@@ -153,7 +154,10 @@
     const state=seriesState(match.a.name,match.b.name,round,target),placeholder=isPlaceholder(match.a.name)||isPlaceholder(match.b.name);
     const active=state.next,latest=state.latest;
     let detail='Series matchup pending';
-    if(active){detail=isLive(active)?`LIVE · ${latestScore(active)} · ${active.status||'In progress'}`:`Next · Game ${active.gameNumber||state.games.filter(isFinal).length+1} · ${timeLabel(active)}`;}
+    if(active){
+      detail=isLive(active)?`LIVE · ${latestScore(active)} · ${active.status||'In progress'}`:`Next · Game ${active.gameNumber||state.games.filter(isFinal).length+1} · ${timeLabel(active)}`;
+      if(round==='Finals'&&!isLive(active)&&latest&&isFinal(latest))detail+=` · Last result: Game ${latest.gameNumber||state.games.filter(isFinal).length} final · ${latestScore(latest)}`;
+    }
     else if(latest){detail=`Game ${latest.gameNumber||state.games.filter(isFinal).length} final · ${latestScore(latest)}`;}
     else if(!placeholder){detail='Schedule loading from the WNBA feed';}
     const label=placeholder?'Matchup pending':seriesLabel(match.a.name,match.b.name,state);

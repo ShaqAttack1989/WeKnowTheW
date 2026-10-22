@@ -2508,10 +2508,10 @@
       "published": "2026-10-21",
       "updated": "2026-10-22",
       "week": "FINALS RECAP",
-      "image": "/assets/photos/angel-reese-finals-game-3-kevin-c-cox-getty-2026.jpg",
+      "image": "/assets/photos/2026-wnba-game3-angel-reese-three-point-streak.jpg",
       "imageFit": "contain",
-      "imageAlt": "Angel Reese reacts during the first quarter of WNBA Finals Game 3 at State Farm Arena on October 21, 2026",
-      "dek": "Atlanta’s 97–71 Game 3 surge turned a tied Finals into a 2–1 Dream lead, with Angel Reese setting the tone on both ends.",
+      "imageAlt": "Official WNBA pregame graphic featuring Angel Reese and the Atlanta Dream, noting the team’s record when Reese makes a three-pointer.",
+      "dek": "Atlanta’s 97–71 Game 3 surge shifted the Finals, with Angel Reese setting the tone on both ends.",
       "playoffGameOne": {
         "ariaLabel": "Finals Game 3 result",
         "eyebrow": "FINALS GAME 3 · FINAL",
@@ -2616,7 +2616,7 @@
         {
           "title": "Game 3: dreams to nightmares in Atlanta",
           "paragraphs": [
-            "Atlanta beat Golden State 97–71 at State Farm Arena on October 21 and took a 2–1 Finals lead. The Dream led 23–15 after one quarter and 46–40 at halftime, then answered Golden State’s third-quarter push with an 8–0 run over the final 2:11. Atlanta closed with a 26–14 fourth quarter, turning a competitive middle stretch into the largest win of the series.",
+            "Atlanta beat Golden State 97–71 at State Farm Arena on October 21. The Dream led 23–15 after one quarter and 46–40 at halftime, then answered Golden State’s third-quarter push with an 8–0 run over the final 2:11. Atlanta closed with a 26–14 fourth quarter, turning a competitive middle stretch into the largest win of the series.",
             "Angel Reese finished with 21 points, 12 rebounds, three assists and two steals, recording a double-double in each of her first three Finals games. Rhyne Howard added 16 points, five steals and four assists; Naz Hillmon scored 15. The final official box score lists Howard at 16, resolving an early live-blog line that reported 18.",
             "Golden State got 15 points from Gabby Williams, 14 from Tiffany Hayes and 13 apiece from Cecilia Zandalasini and Janelle Salaün. Kiah Stokes blocked four shots. The Valkyries’ bench won 38–27, but Atlanta’s starting group supplied 70 points and controlled the decisive stretches."
           ]
@@ -2632,7 +2632,7 @@
         {
           "title": "What Game 4 asks from both sides",
           "paragraphs": [
-            "Atlanta’s next adjustment is restraint: keep using Reese as a transition trigger and interior target without letting a 2–1 lead turn into rushed offense. Howard’s five steals and zero turnovers were a two-way hinge; repeating that pressure while keeping the ball moving would force Golden State to defend the full floor again.",
+            "Atlanta’s next adjustment is restraint: keep using Reese as a transition trigger and interior target without rushing into early-clock shots. Howard’s five steals and zero turnovers were a two-way hinge; repeating that pressure while keeping the ball moving would force Golden State to defend the full floor again.",
             "Golden State must shorten the distance between its strong three-point shooting and its interior production. Better entry angles, earlier paint touches and safer outlets can reduce the live-ball turnovers that fueled Atlanta. The Valkyries’ 38 bench points are a real resource, but Game 4 also needs more efficient starter creation and stronger defensive finishing.",
             "Reese is averaging 21.7 points and 13.3 rebounds through three Finals games. Atlanta can take a 3–1 lead in Game 4 on October 24 at 1 p.m. ET; Golden State can level the series and reclaim home-court control."
           ]
@@ -2719,8 +2719,8 @@
           "url": "https://www.wnba.com/news/live-updates-2026-wnba-finals-game-3"
         },
         {
-          "label": "Getty Images · Kevin C. Cox · Finals Game 3 photo",
-          "url": "https://www.gettyimages.com/detail/news-photo/angel-reese-of-the-atlanta-dream-reacts-during-the-first-news-photo/2301393462"
+          "label": "WNBA · Official pregame graphic · Angel Reese three-point streak",
+          "url": "https://www.facebook.com/WNBA/"
         },
         {
           "label": "Official WNBA Finals Game 1 box score",
@@ -2789,16 +2789,12 @@
         {
           "label": "Game 3 play-by-play",
           "url": "https://www.foxsports.com/wnba/wnba-finals-game-3-golden-state-valkyries-vs-atlanta-dream-oct-21-2026-game-boxscore-2589"
-        },
-        {
-          "label": "WNBA official pregame graphic · Angel Reese three-point streak",
-          "url": "https://www.facebook.com/WNBA/"
         }
       ],
       "dashboardUrl": "/food-for-thought.html?post=the-playoff-watch-party-2026#story",
-      "storyImage": "/assets/photos/angel-reese-finals-game-3-kevin-c-cox-getty-2026.jpg",
-      "storyImageCaption": "Angel Reese reacts during the first quarter · Finals Game 3 · October 21, 2026. Photo: Kevin C. Cox/Getty Images.",
-      "storyImageSourceUrl": "https://www.wnba.com/news/live-updates-2026-wnba-finals-game-3",
+      "storyImage": "/assets/photos/2026-wnba-game3-angel-reese-three-point-streak.jpg",
+      "storyImageCaption": "WNBA’s pregame graphic showed Atlanta at 14–0 when Angel Reese made a three-pointer: 9–0 in the regular season and 5–0 in the playoffs. Reese made two threes in Game 3, extending the Dream’s mark to 15–0 (9–0 regular season, 6–0 playoffs). Graphic: WNBA.",
+      "storyImageSourceUrl": "https://www.facebook.com/WNBA/",
       "playoffWatch": {
         "title": "DREAMS TO NIGHTMARES.",
         "subtitle": "Dream 97, Valkyries 71 · Finals Game 3 · October 21",
@@ -2977,8 +2973,6 @@
         "Can Atlanta control the possession count against Golden State’s pressure?",
         "Which bench can keep producing when the opponent changes coverage?"
       ],
-      "imageFallback": "/assets/photos/angel-reese-finals-game-3-kevin-c-cox-getty-2026.jpg",
-      "storyImageFallback": "/assets/photos/angel-reese-finals-game-3-kevin-c-cox-getty-2026.jpg",
       "imageFocus": "50% 50%",
       "finalsGraphic": {
         "eyebrow": "2026 WNBA FINALS · MATCHUP & SCHEDULE",

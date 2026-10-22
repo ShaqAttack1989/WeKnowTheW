@@ -455,17 +455,20 @@ function wirePayHistoryDashboard(root){
   function sourcesMarkup(sources=[]){return sources.length?`<section class="source-list"><strong>Receipts</strong><p>${sources.map(source=>`<a href="${safe(source.url)}" target="_blank" rel="noopener noreferrer">${safe(source.label||'Source')}</a>`).join(' · ')}</p></section>`:'';}
   function finalsWatchStoryMarkup(post){
     const sections=Array.isArray(post.sections)?post.sections:[];
-    const current=sections[0]?Object.assign({},sections[0],{id:'finals-game-3-result'}):null;
-    const game2=sections[1]?Object.assign({},sections[1],{id:'finals-game-2'}):null;
-    const game1=sections[2]?Object.assign({},sections[2],{id:'finals-game-1'}):null;
-    const game2Math=sections[3];
-    if(game2&&game2Math)game2.paragraphs=[...(game2.paragraphs||[]),...(game2Math.paragraphs||[])];
-    const game4=sections[4]?Object.assign({},sections[4],{id:'finals-game-4-outlook'}):null;
-    const schedule=sections[10]?Object.assign({},sections[10],{id:'finals-next-game'}):null;
-    const archive=[5,6,7,9].map(i=>sections[i]).filter(Boolean);
+    const get=(title,id)=>{const found=sections.find(section=>section.title===title);return found?Object.assign({},found,{id}):null;};
+    const current=get('Game 3: dreams to nightmares in Atlanta','finals-game-3-result');
+    const game3Notes=get('The possession math behind the 26-point gap','finals-game-3-possession-notes');
+    const game2=get('Game 2: Atlanta answers at Chase Center','finals-game-2');
+    const game2Notes=sections.find(section=>section.title==='Game 2: the arithmetic behind Atlanta’s answer');
+    if(game2&&game2Notes)game2.paragraphs=[...(game2.paragraphs||[]),...(game2Notes.paragraphs||[])];
+    const game1=get('Game 1: Williams finishes the job','finals-game-1');
+    const game4=get('What Game 4 asks from both sides','finals-game-4-outlook');
+    const schedule=get('What’s next in the Finals','finals-next-game');
+    const used=new Set([current?.title,game3Notes?.title,game2?.title,game2Notes?.title,game1?.title,game4?.title,schedule?.title]);
+    const archive=sections.filter(section=>!used.has(section.title));
     const nav='<nav class="playoff-article-nav" aria-label="Finals article navigation"><a href="#finals-game-3-result">Latest game</a><a href="#finals-game-dashboard">Game dashboard</a><a href="#finals-game-2">Game 2 recap</a><a href="#finals-game-1">Game 1 recap</a><a href="#finals-in-motion">Photo gallery</a><a href="https://www.wnba.com/playoffs/2026" target="_blank" rel="noopener noreferrer">Official bracket ↗</a></nav>';
     const dashboard='<section class="finals-game-dashboard snack-section" id="finals-game-dashboard" aria-label="Finals game statistics dashboard"><p>Loading the official game stats…</p></section>';
-    return '<a class="snack-story-back" href="'+pagePath+'">← Back to all '+(mode==='feature'?'Food for Thought articles':'Snack Shak Bytes')+'</a><article class="snack-post finals-watch-story"><header class="snack-post-header '+(mode==='feature'?'feature-header':'')+'"><span class="snack-series-label">'+safe(label(post))+'</span><div class="meta"><span>'+safe(format(post.published))+'</span>'+(post.week?'<span>•</span><span>'+safe(post.week)+'</span>':'')+'</div><h2>'+safe(post.title)+'</h2><p class="dek">'+safe(post.dek||'')+'</p></header>'+storyImageMarkup(post)+nav+sectionsMarkup(current?[current]:[])+'<div id="finals-game3-score-anchor"></div>'+dashboard+'<section class="snack-section finals-past-games" aria-labelledby="finals-past-games-title"><h3 id="finals-past-games-title">Past Finals games</h3>'+sectionsMarkup([game2,game1].filter(Boolean))+'</section>'+sectionsMarkup([game4,schedule].filter(Boolean))+playoffGalleryMarkup(post.gameGallery)+sectionsMarkup(archive)+playoffAwardFalloutMarkup(post.awardFallout)+debatesMarkup(post.debates)+foodMarkup(post.foodSegment)+sourcesMarkup(post.sources)+'</article>';
+    return '<a class="snack-story-back" href="'+pagePath+'">← Back to all '+(mode==='feature'?'Food for Thought articles':'Snack Shak Bytes')+'</a><article class="snack-post finals-watch-story"><header class="snack-post-header '+(mode==='feature'?'feature-header':'')+'"><span class="snack-series-label">'+safe(label(post))+'</span><div class="meta"><span>'+safe(format(post.published))+'</span>'+(post.week?'<span>•</span><span>'+safe(post.week)+'</span>':'')+'</div><h2>'+safe(post.title)+'</h2><p class="dek">'+safe(post.dek||'')+'</p></header>'+storyImageMarkup(post)+nav+sectionsMarkup([current,game3Notes].filter(Boolean))+'<div id="finals-game3-score-anchor"></div>'+dashboard+'<section class="snack-section finals-past-games" aria-labelledby="finals-past-games-title"><h3 id="finals-past-games-title">Past Finals games</h3>'+sectionsMarkup([game2,game1].filter(Boolean))+'</section>'+sectionsMarkup([game4,schedule].filter(Boolean))+playoffGalleryMarkup(post.gameGallery)+sectionsMarkup(archive)+playoffAwardFalloutMarkup(post.awardFallout)+debatesMarkup(post.debates)+foodMarkup(post.foodSegment)+sourcesMarkup(post.sources)+'</article>';
   }
   function storyMarkup(post){
     if(post.slug==='the-playoff-watch-party-2026')return finalsWatchStoryMarkup(post);

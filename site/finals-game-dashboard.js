@@ -4,12 +4,10 @@
     ['fieldGoalsPercentage','FG %','pct'],
     ['threePointersPercentage','3PT %','pct'],
     ['pointsInThePaint','Paint points'],
-    ['reboundsTotal','Rebounds'],
-    ['assists','Assists'],
-    ['turnoversTotal','Turnovers','low']
+    ['reboundsTotal','Rebounds']
   ];
   const extraMetrics=[
-    ['freeThrowsMade','Free throws made'],
+    ['assists','Assists'],['turnoversTotal','Turnovers','low'],['freeThrowsMade','Free throws made'],
     ['pointsFromTurnovers','Points off turnovers'],
     ['pointsSecondChance','Second-chance points'],
     ['steals','Steals'],
@@ -58,7 +56,7 @@
     const rows=[];
     teams.forEach(function(t){game[t].players.forEach(function(player){rows.push({team:t,player:player})})});
     rows.sort(function(a,b){return (Number(b.player[sort])||0)-(Number(a.player[sort])||0)||(Number(b.player.points)||0)-(Number(a.player.points)||0)});
-    return rows.slice(0,5).map(function(row,index){
+    return rows.slice(0,4).map(function(row,index){
       const p=row.player;
       return '<article class="fgd-player-card"><span class="fgd-player-rank">0'+(index+1)+'</span><div class="fgd-player-main"><div class="fgd-player-name"><strong>'+esc(p.name)+'</strong><small>'+esc(row.team)+'</small></div><b class="fgd-player-lead">'+esc(fmt(p[sort],sort==='plusMinusPoints'?'low':''))+'<small>'+esc(sortOptions.find(function(x){return x[0]===sort})[1])+'</small></b><p>'+p.points+' PTS · '+p.reboundsTotal+' REB · '+p.assists+' AST</p></div></article>';
     }).join('');
@@ -97,7 +95,7 @@
     if(mount.dataset.loaded==='true'||mount.dataset.loading==='true')return;
     mount.dataset.loading='true';
     try{
-      const response=await fetch('/finals-game-dashboard.json?v=20261022-compact-finals-dashboard-v1');
+      const response=await fetch('/finals-game-dashboard.json?v=20261022-compact-finals-dashboard-v2');
       if(!response.ok)throw Error('Dashboard data unavailable');
       const data=await response.json();
       let gameNumber=data.games[data.games.length-1].number;
@@ -115,7 +113,7 @@
         const overviewPanel='<div class="fgd-panel" id="fgd-panel-overview" role="tabpanel" aria-labelledby="fgd-tab-overview" '+(view==='overview'?'':'hidden')+'>'+gameControl('fgd-overview-game')+scorebar(game)+'<h4 class="fgd-section-title">Quarter scores <small>ATL · GSV</small></h4>'+quarters(game)+'<h4 class="fgd-section-title">Team comparison <small>ATL in red · GSV in violet</small></h4><div class="fgd-stat-grid">'+statCards(game,overviewMetrics)+'</div><details class="fgd-details fgd-extra-stats"><summary>More team stats</summary><div class="fgd-stat-grid">'+statCards(game,extraMetrics)+'</div></details><p class="fgd-note"><a href="'+esc(game.source)+'" target="_blank" rel="noopener noreferrer">Official Game '+game.number+' box score ↗</a></p></div>';
         const playerControls='<div class="fgd-controls">'+gameControl('fgd-player-game')+selectControl('Player team','team',[['ALL','Both teams'],['ATL','Atlanta'],['GSV','Golden State']],team,'fgd-team-select')+selectControl('Rank by','sort',sortOptions,sort,'fgd-sort-select')+'</div>';
         const visibleCount=(team==='ALL'||team==='ATL'?game.ATL.players.length:0)+(team==='ALL'||team==='GSV'?game.GSV.players.length:0);
-        const playerPanel='<div class="fgd-panel" id="fgd-panel-players" role="tabpanel" aria-labelledby="fgd-tab-players" '+(view==='players'?'':'hidden')+'>'+playerControls+'<p class="fgd-panel-note">Top five players by '+esc(sortOptions.find(function(x){return x[0]===sort})[1])+'.</p><div class="fgd-player-leaders">'+playerList(game,team,sort)+'</div><details class="fgd-details fgd-full-box"><summary>Full player box scores · '+visibleCount+' players</summary>'+fullBox(game,team,sort)+'<p class="fgd-note">MIN: minutes · PTS: points · REB: rebounds · AST: assists · STL: steals · BLK: blocks · TO: turnovers. FG / 3PT / FT are made–attempted; +/− is the on-court scoring margin.</p></details></div>';
+        const playerPanel='<div class="fgd-panel" id="fgd-panel-players" role="tabpanel" aria-labelledby="fgd-tab-players" '+(view==='players'?'':'hidden')+'>'+playerControls+'<p class="fgd-panel-note">Top four players by '+esc(sortOptions.find(function(x){return x[0]===sort})[1])+'.</p><div class="fgd-player-leaders">'+playerList(game,team,sort)+'</div><details class="fgd-details fgd-full-box"><summary>Full player box scores · '+visibleCount+' players</summary>'+fullBox(game,team,sort)+'<p class="fgd-note">MIN: minutes · PTS: points · REB: rebounds · AST: assists · STL: steals · BLK: blocks · TO: turnovers. FG / 3PT / FT are made–attempted; +/− is the on-court scoring margin.</p></details></div>';
         const seriesPanel='<div class="fgd-panel" id="fgd-panel-series" role="tabpanel" aria-labelledby="fgd-tab-series" '+(view==='series'?'':'hidden')+'><div class="fgd-series-control">'+selectControl('Compare across games','seriesMetric',seriesOptions,seriesMetric,'fgd-series-select')+'</div><div class="fgd-series-grid">'+seriesCards(data.games,seriesMetric)+'</div><p class="fgd-note">Official WNBA final box scores. Latest game first.</p></div>';
         mount.innerHTML='<header class="fgd-header"><p class="fgd-kicker">THE FINALS · INSIDE THE BOX SCORE</p><h3>Game '+game.number+' dashboard</h3><p>Final score, key stats and player leaders in one compact view.</p></header><div class="fgd-tabs" role="tablist" aria-label="Finals dashboard views">'+tabMarkup+'</div>'+overviewPanel+playerPanel+seriesPanel;
         mount.dataset.activeView=view;

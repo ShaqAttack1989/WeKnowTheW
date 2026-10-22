@@ -134,3 +134,36 @@
  .fgd-series-card>p{font-size:.72rem!important}
  .fgd-note,.fgd-panel-note{font-size:.95rem!important}
 }
+
+/* Fit the overview panel in a single viewport at common laptop and phone sizes. */
+.finals-game-dashboard{padding:clamp(12px,1.7vw,20px);scroll-margin-top:220px}
+.fgd-header h3{font-size:clamp(1.45rem,2.6vw,2rem);margin:2px 0 4px}
+.fgd-header>p:last-child{font-size:.95rem;line-height:1.35}
+.fgd-tabs{margin:10px 0;padding:4px}
+.fgd-tab{min-height:38px}
+.fgd-section-title{margin:10px 0 6px!important}
+.fgd-scorebar{padding:9px 12px}
+.fgd-score-team strong{font-size:clamp(1.9rem,4vw,2.6rem)}
+.fgd-stat-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:7px}
+.fgd-stat-card{padding:7px 9px}
+.fgd-stat-label{margin-bottom:3px}
+.fgd-stat-card .fgd-track{margin-top:4px}
+.fgd-player-leaders{grid-template-columns:repeat(4,minmax(0,1fr))}
+@media(max-width:760px){
+ .fgd-stat-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .fgd-player-leaders{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:520px){
+ .finals-game-dashboard{padding:11px}
+ .fgd-header h3{font-size:1.4rem}
+ .fgd-header>p:last-child{font-size:.9rem}
+ .fgd-tabs{margin:8px 0}
+ .fgd-game-control{margin-bottom:7px}
+ .fgd-scorebar{padding:8px 6px}
+ .fgd-score-team strong{font-size:1.85rem}
+ .fgd-quarter-strip{grid-template-columns:repeat(4,minmax(0,1fr));gap:4px}
+ .fgd-quarter-strip article{flex-direction:column;justify-content:center;gap:1px;padding:5px 2px}
+ .fgd-quarter-strip article>span{font-size:.75rem}
+ .fgd-quarter-strip strong{gap:2px;font-size:.88rem}
+ .fgd-section-title{margin:8px 0 5px!important}
+}

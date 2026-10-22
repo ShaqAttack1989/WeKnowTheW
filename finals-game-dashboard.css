@@ -21,3 +21,116 @@
 .fgd-live-links{display:flex;flex-wrap:wrap;gap:12px;margin-top:14px;font-weight:800}
 .fgd-live-links a{color:#49207d}
 @media(max-width:520px){.fgd-live-head{display:block}.fgd-live-status{display:inline-block;margin-top:12px}.fgd-live-middle{min-width:64px;font-size:12px}.fgd-live-scoreline{gap:6px;padding:12px}.fgd-live-team strong{font-size:36px}.fgd-live-meta{font-size:12px}}
+
+
+/* Compact, tabbed Finals dashboard: the default view fits without dashboard-level scrolling. */
+.finals-game-dashboard{margin:20px 0;padding:clamp(14px,2.2vw,24px);border-radius:22px}
+.fgd-header h3{font-size:clamp(1.55rem,3vw,2.25rem);margin:3px 0 6px}
+.fgd-header>p:last-child{margin:0;color:#62536f;line-height:1.45}
+.fgd-kicker{margin:0 0 5px!important;font-size:.85rem!important;color:#6f25e8}
+.fgd-tabs{display:flex;gap:8px;margin:14px 0 12px;padding:5px;border-radius:14px;background:#e9def8}
+.fgd-tab{flex:1;min-height:42px;border:0;border-radius:10px;background:transparent;color:#382052;font:inherit;font-size:1rem;font-weight:850;cursor:pointer}
+.fgd-tab[aria-selected=true]{background:#231139;color:#d8ff4f;box-shadow:0 2px 8px rgba(20,10,47,.18)}
+.fgd-tab:focus-visible,.fgd-details summary:focus-visible,.fgd-controls select:focus-visible{outline:3px solid #6f25e8;outline-offset:2px}
+.fgd-panel[hidden]{display:none}
+.fgd-game-control{display:flex;justify-content:flex-end;margin:0 0 10px}
+.fgd-controls{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;margin:0 0 10px}
+.fgd-controls label,.fgd-game-control label,.fgd-series-control label{display:grid;gap:4px;min-width:0;font-size:.9rem;font-weight:800;color:#45305a}
+.fgd-controls select,.fgd-game-control select,.fgd-series-control select{width:100%;min-height:42px;padding:8px 10px;border:1px solid #bda8d4;border-radius:10px;background:#fff;color:#231139;font:inherit;font-size:.95rem}
+.fgd-game-control label{grid-template-columns:auto minmax(155px,220px);align-items:center}
+.fgd-scorebar{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;gap:12px;padding:12px 16px;border-radius:15px;background:#fff}
+.fgd-score-team{display:grid;gap:2px;text-align:center}
+.fgd-score-team span{font-size:.8rem;font-weight:900;letter-spacing:.08em}
+.fgd-score-team strong{font-size:clamp(2rem,5vw,3rem);line-height:1}
+.fgd-score-status{text-align:center;font-size:.85rem;font-weight:950;letter-spacing:.06em}
+.fgd-score-status small{display:block;margin-top:3px;color:#665777;font-size:.75rem;font-weight:650;letter-spacing:0}
+.fgd-section-title{display:flex;align-items:baseline;gap:8px;margin:15px 0 8px!important;font-size:1.05rem!important}
+.fgd-section-title small{color:#6b5a7b;font-size:.8rem;font-weight:700}
+.fgd-quarter-strip{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:7px}
+.fgd-quarter-strip article{display:flex;align-items:center;justify-content:space-between;gap:5px;padding:8px 10px;border:1px solid #e9def4;border-radius:11px;background:#fff}
+.fgd-quarter-strip article>span{color:#715d84;font-size:.84rem;font-weight:850}
+.fgd-quarter-strip strong{display:flex;gap:4px;align-items:center;font-size:1rem}
+.fgd-quarter-strip em{font-style:normal}
+.fgd-quarter-strip i{color:#93859f;font-size:.75rem;font-style:normal}
+.fgd-stat-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.fgd-stat-card{min-width:0;padding:9px 10px;border:1px solid #e6dced;border-radius:12px;background:#fff}
+.fgd-stat-label{display:block;margin-bottom:5px;color:#59486c;font-size:.9rem;font-weight:850}
+.fgd-stat-pair{display:grid;grid-template-columns:1fr 1fr;gap:4px}
+.fgd-stat-pair>span{display:flex;align-items:baseline;gap:5px}
+.fgd-stat-pair strong{font-size:1rem}
+.fgd-stat-pair small{color:#80728e;font-size:.78rem;font-weight:850}
+.fgd-stat-card .fgd-track{height:5px;margin-top:6px}
+.fgd-details{margin-top:10px;border:1px solid #d8c9e7;border-radius:12px;background:#fff}
+.fgd-details summary{min-height:42px;padding:10px 13px;color:#49207d;font-weight:850;cursor:pointer}
+.fgd-details[open] summary{border-bottom:1px solid #eee4f5}
+.fgd-extra-stats .fgd-stat-grid{padding:10px}
+.fgd-note,.fgd-panel-note{margin:9px 0 0!important;font-size:1rem!important;line-height:1.45!important;color:#62536f}
+.fgd-note a{color:#49207d;font-weight:850}
+.fgd-panel-note{margin:0 0 8px!important}
+.fgd-player-leaders{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.fgd-player-card{display:grid;grid-template-columns:30px minmax(0,1fr);gap:9px;align-items:start;padding:10px;border:1px solid #e6dced;border-radius:12px;background:#fff}
+.fgd-player-rank{display:grid;place-items:center;width:28px;height:28px;border-radius:9px;background:#231139;color:#d8ff4f;font-size:.75rem;font-weight:950}
+.fgd-player-main{min-width:0}
+.fgd-player-name{display:flex;justify-content:space-between;align-items:start;gap:5px}
+.fgd-player-name strong{font-size:.96rem;line-height:1.15}
+.fgd-player-name small{flex:0 0 auto;color:#6f25e8;font-size:.8rem;font-weight:900}
+.fgd-player-lead{display:flex;align-items:baseline;gap:5px;margin-top:4px;color:#231139;font-size:1.2rem;line-height:1}
+.fgd-player-lead small{color:#715d84;font-size:.72rem;font-weight:750}
+.fgd-player-main>p{margin:5px 0 0!important;color:#645670;font-size:.82rem!important;line-height:1.25!important}
+.fgd-full-box{margin-top:12px}
+.fgd-team-box{padding:10px 10px 0}
+.fgd-team-box h5{margin:0 0 7px;font-size:.95rem}
+.fgd-team-box .fgd-scroll{max-width:100%;overflow-x:auto}
+.fgd-series-control{max-width:320px;margin-bottom:10px}
+.fgd-series-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.fgd-series-card{min-width:0;padding:11px 9px;border:1px solid #e6dced;border-radius:13px;background:#fff;text-align:center}
+.fgd-series-game{display:block;color:#6f25e8;font-size:.82rem;font-weight:950;letter-spacing:.06em}
+.fgd-series-card>small{display:block;margin-top:2px;color:#766983;font-size:.8rem}
+.fgd-series-pair{display:flex;justify-content:center;align-items:center;gap:6px;margin:11px 0 7px}
+.fgd-series-pair>b{min-width:0;font-size:clamp(1rem,2vw,1.35rem);line-height:1}
+.fgd-series-pair>b small{display:block;margin-top:4px;font-size:.75rem;letter-spacing:.04em}
+.fgd-series-pair>i{color:#92849f;font-style:normal}
+.fgd-series-card>p{margin:0!important;color:#665777;font-size:.82rem!important;font-weight:750}
+.fgd-scroll{max-width:100%}
+@media(max-width:760px){
+ .fgd-stat-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .fgd-controls{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:520px){
+ .finals-game-dashboard{padding:13px;border-radius:18px}
+ .fgd-tabs{gap:4px;margin:12px 0 10px}
+ .fgd-tab{min-height:40px;padding:6px 4px;font-size:.92rem}
+ .fgd-game-control label{grid-template-columns:1fr;width:100%}
+ .fgd-game-control{width:100%}
+ .fgd-controls{grid-template-columns:1fr 1fr}
+ .fgd-controls label:first-child{grid-column:1/-1}
+ .fgd-scorebar{gap:4px;padding:10px 7px}
+ .fgd-score-team span{font-size:.73rem;letter-spacing:.04em}
+ .fgd-score-team strong{font-size:2rem}
+ .fgd-score-status{font-size:.72rem;letter-spacing:.02em}
+ .fgd-score-status small{font-size:.65rem}
+ .fgd-quarter-strip{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .fgd-quarter-strip article{padding:7px 8px}
+ .fgd-stat-grid{gap:6px}
+ .fgd-stat-card{padding:8px}
+ .fgd-stat-pair{gap:2px}
+ .fgd-stat-pair>span{gap:3px}
+ .fgd-stat-pair strong{font-size:.93rem}
+ .fgd-player-leaders{grid-template-columns:1fr 1fr}
+ .fgd-player-card{grid-template-columns:24px minmax(0,1fr);gap:6px;padding:8px}
+ .fgd-player-rank{width:23px;height:23px;font-size:.68rem}
+ .fgd-player-name{display:block}
+ .fgd-player-name strong{font-size:.85rem}
+ .fgd-player-name small{margin-left:5px;font-size:.75rem}
+ .fgd-player-lead{font-size:1.05rem}
+ .fgd-player-main>p{font-size:.75rem!important}
+ .fgd-series-grid{gap:5px}
+ .fgd-series-card{padding:9px 4px}
+ .fgd-series-game{font-size:.75rem}
+ .fgd-series-card>small{font-size:.72rem}
+ .fgd-series-pair{gap:3px;margin:9px 0 6px}
+ .fgd-series-pair>b{font-size:1rem}
+ .fgd-series-pair>b small{font-size:.68rem}
+ .fgd-series-card>p{font-size:.72rem!important}
+ .fgd-note,.fgd-panel-note{font-size:.95rem!important}
+}

@@ -1,17 +1,167 @@
-(()=>{
- const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
- const metrics=[['points','Points'],['fieldGoalsPercentage','FG %','pct'],['threePointersPercentage','3PT %','pct'],['freeThrowsMade','Free throws made'],['reboundsPersonal','Player rebounds'],['assists','Assists'],['turnoversTotal','Turnovers','low'],['pointsFromTurnovers','Points off turnovers'],['pointsSecondChance','Second-chance points'],['steals','Steals'],['blocks','Blocks'],['benchPoints','Bench points']];
- const val=(v,t)=>t==='pct'?(100*v).toFixed(1)+'%':v;
- function comparison(g){return metrics.map(([k,label,t])=>{const a=g.ATL.stats[k],b=g.GSV.stats[k],sum=a+b||1;return `<div class="fgd-compare"><span class="fgd-atl">${val(a,t)}</span><b>${label}</b><span class="fgd-gsv">${val(b,t)}</span><div class="fgd-track" aria-hidden="true"><i style="width:${100*a/sum}%"></i></div></div>`}).join('')}
- function box(g,team,sort){return ['ATL','GSV'].filter(t=>team==='ALL'||team===t).map(t=>`<h4>${t==='ATL'?'Atlanta Dream':'Golden State Valkyries'}</h4><div class="fgd-scroll" tabindex="0" role="region" aria-label="${t} player box score"><table><caption>Game ${g.number} · ${t} players who played · sorted by ${esc(sort)}</caption><thead><tr>${['Player','MIN','PTS','REB','AST','STL','BLK','TO','FG','3PT','FT','+/−'].map(x=>`<th scope="col">${x}</th>`).join('')}</tr></thead><tbody>${[...g[t].players].sort((a,b)=>b[sort]-a[sort]||b.points-a.points).map(p=>`<tr><th scope="row">${esc(p.name)}${p.starter?' <small>STARTER</small>':''}</th><td>${esc(p.minutes)}</td>${['points','reboundsTotal','assists','steals','blocks','turnovers'].map(k=>`<td>${p[k]}</td>`).join('')}<td>${p.fg}</td><td>${p.three}</td><td>${p.ft}</td><td>${p.plusMinusPoints>0?'+':''}${p.plusMinusPoints}</td></tr>`).join('')}</tbody></table></div>`).join('')}
- function quarters(g){let a=0,b=0;return `<div class="fgd-quarters">${g.ATL.quarters.map((n,i)=>{a+=n;b+=g.GSV.quarters[i];return `<article><span>Q${i+1}</span><strong><em class="fgd-atl">${n}</em> – <em class="fgd-gsv">${g.GSV.quarters[i]}</em></strong><small>Cumulative: ATL ${a} · GSV ${b}</small></article>`}).join('')}</div>`}
- function swing(games){return `<div class="fgd-scroll" tabindex="0" role="region" aria-label="Finals game comparison"><table><caption>The series so far · game totals</caption><thead><tr><th>Measure</th>${games.map(g=>`<th>Game ${g.number} · ${g.date}</th>`).join('')}</tr></thead><tbody>${[['Reese points / rebounds',g=>{let p=g.ATL.players.find(p=>p.name==='Angel Reese');return `${p.points} / ${p.reboundsTotal}`}],['Atlanta points off turnovers',g=>g.ATL.stats.pointsFromTurnovers],['Golden State turnovers',g=>g.GSV.stats.turnoversTotal],['Atlanta free throws made / attempted',g=>`${g.ATL.stats.freeThrowsMade} / ${g.ATL.stats.freeThrowsAttempted}`],['Golden State free throws made / attempted',g=>`${g.GSV.stats.freeThrowsMade} / ${g.GSV.stats.freeThrowsAttempted}`],['Golden State bench points',g=>g.GSV.stats.benchPoints]].map(([label,f])=>`<tr><th scope="row">${label}</th>${games.map(g=>`<td>${f(g)}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`}
- async function init(){const article=document.querySelector('.snack-post');if(!article||new URLSearchParams(location.search).get('post')!=='the-playoff-watch-party-2026')return;
-  let mount=article.querySelector('#finals-game-dashboard');if(!mount){if(article.querySelector('.finals-game-dashboard'))return;mount=document.createElement('section');mount.className='finals-game-dashboard snack-section';mount.id='finals-game-dashboard';mount.setAttribute('aria-label','Finals game statistics dashboard');mount.innerHTML='<p>Loading Finals game statistics…</p>';const anchors=article.querySelectorAll('.playoff-game-one');const anchor=anchors[anchors.length-1];if(anchor)anchor.after(mount);else article.append(mount);}if(mount.dataset.loaded==='true'||mount.dataset.loading==='true')return;mount.dataset.loading='true';
-  try{const r=await fetch('/finals-game-dashboard.json?v=20261022-game3-story-order-photo-v2');if(!r.ok)throw Error();const data=await r.json();let game=data.games.at(-1).number,team='ALL',sort='points';
-   function render(){const g=data.games.find(g=>g.number===game);mount.innerHTML=`<header><p class="fgd-kicker">THE FINALS · INSIDE THE BOX SCORE</p><h3>Where Game ${g.number} was won</h3><p>Official WNBA final box scores. Select a game, filter the player board and change the stat used to rank players.</p></header><div class="fgd-controls"><label>Game<select data-fgd="game">${data.games.map(x=>`<option value="${x.number}" ${x.number===game?'selected':''}>Game ${x.number} · ${x.date}</option>`).join('')}</select></label><label>Player team<select data-fgd="team">${[['ALL','Both teams'],['ATL','Atlanta'],['GSV','Golden State']].map(([v,l])=>`<option value="${v}" ${v===team?'selected':''}>${l}</option>`).join('')}</select></label><label>Rank players by<select data-fgd="sort">${[['points','Points'],['reboundsTotal','Rebounds'],['assists','Assists'],['steals','Steals'],['blocks','Blocks'],['plusMinusPoints','Plus/minus']].map(([v,l])=>`<option value="${v}" ${v===sort?'selected':''}>${l}</option>`).join('')}</select></label></div><div class="fgd-final" aria-live="polite"><b class="fgd-atl">ATL ${g.ATL.stats.points}</b><span>FINAL · GAME ${g.number}<small>${g.date} · ${g.number===3?'State Farm Arena':'Chase Center'}</small></span><b class="fgd-gsv">GSV ${g.GSV.stats.points}</b></div><h4>Quarter by quarter</h4>${quarters(g)}<h4>Team comparison <small>ATL in red · GSV in violet</small></h4><div class="fgd-metrics">${comparison(g)}</div><h4>Player box scores</h4>${box(g,team,sort)}<p class="fgd-note">MIN: minutes · REB: total rebounds · TO: turnovers · FG / 3PT / FT: made–attempted · +/−: scoring margin while on court. Team rebounds above are the sum of player rebounds; uncredited team rebounds are excluded. Plus/minus describes this game, not individual value.</p><h4>What changed between games?</h4>${swing(data.games)}<p class="fgd-note">Final box scores verified October 21, 2026. <a href="${g.source}" target="_blank" rel="noopener noreferrer">Official Game ${g.number} box score ↗</a></p>`}
-   mount.addEventListener('change',e=>{const key=e.target.dataset.fgd;if(key==='game')game=Number(e.target.value);if(key==='team')team=e.target.value;if(key==='sort')sort=e.target.value;render();mount.querySelector(`[data-fgd="${key}"]`)?.focus()});render();mount.dataset.loaded='true';delete mount.dataset.loading;
-  }catch{mount.innerHTML='<h3>Finals game statistics</h3><p>The statistics board is reconnecting. <a href="https://www.wnba.com/game/gsv-vs-atl-1042600303/box-score">Open the official Game 3 final box score ↗</a></p>';mount.dataset.loaded='true';delete mount.dataset.loading;}
- }
- new MutationObserver(()=>init()).observe(document.body,{childList:true,subtree:true});init();
+(function(){
+  const esc=function(value){return String(value==null?'':value).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})};
+  const overviewMetrics=[
+    ['fieldGoalsPercentage','FG %','pct'],
+    ['threePointersPercentage','3PT %','pct'],
+    ['pointsInThePaint','Paint points'],
+    ['reboundsTotal','Rebounds'],
+    ['assists','Assists'],
+    ['turnoversTotal','Turnovers','low']
+  ];
+  const extraMetrics=[
+    ['freeThrowsMade','Free throws made'],
+    ['pointsFromTurnovers','Points off turnovers'],
+    ['pointsSecondChance','Second-chance points'],
+    ['steals','Steals'],
+    ['blocks','Blocks'],
+    ['benchPoints','Bench points']
+  ];
+  const sortOptions=[
+    ['points','Points'],['reboundsTotal','Rebounds'],['assists','Assists'],
+    ['steals','Steals'],['blocks','Blocks'],['plusMinusPoints','Plus/minus']
+  ];
+  const seriesOptions=[
+    ['points','Points'],['fieldGoalsPercentage','FG %','pct'],
+    ['threePointersPercentage','3PT %','pct'],['pointsInThePaint','Paint points'],
+    ['reboundsTotal','Rebounds'],['turnoversTotal','Turnovers'],['benchPoints','Bench points']
+  ];
+  const fmt=function(value,type){
+    if(type==='pct')return (Number(value)*100).toFixed(1)+'%';
+    if(type==='low')return String(value);
+    return String(value==null?0:value);
+  };
+  const teamName=function(team){return team==='ATL'?'Atlanta Dream':'Golden State Valkyries'};
+  function statCards(game,defs){
+    return defs.map(function(def){
+      const key=def[0],label=def[1],type=def[2];
+      const atl=game.ATL.stats[key]||0,gsv=game.GSV.stats[key]||0,total=atl+gsv||1;
+      const a=fmt(atl,type),b=fmt(gsv,type);
+      const aria=label+': Atlanta '+a+', Golden State '+b;
+      return '<article class="fgd-stat-card" role="group" aria-label="'+esc(aria)+'"><span class="fgd-stat-label">'+esc(label)+'</span><div class="fgd-stat-pair"><span><strong class="fgd-atl">'+a+'</strong><small>ATL</small></span><span><strong class="fgd-gsv">'+b+'</strong><small>GSV</small></span></div><div class="fgd-track" aria-hidden="true"><i style="width:'+Math.max(0,Math.min(100,100*atl/total))+'%"></i></div></article>';
+    }).join('');
+  }
+  function quarters(game){
+    return '<div class="fgd-quarter-strip" aria-label="Quarter scores">'+game.ATL.quarters.map(function(points,index){
+      return '<article><span>Q'+(index+1)+'</span><strong><em class="fgd-atl">'+points+'</em><i aria-hidden="true">–</i><em class="fgd-gsv">'+game.GSV.quarters[index]+'</em></strong></article>';
+    }).join('')+'</div>';
+  }
+  function scorebar(game){
+    return '<div class="fgd-scorebar" aria-live="polite"><div class="fgd-score-team"><span>GOLDEN STATE</span><strong class="fgd-gsv">'+game.GSV.stats.points+'</strong></div><div class="fgd-score-status">FINAL<small>GAME '+game.number+' · '+esc(game.date)+'</small></div><div class="fgd-score-team"><span>ATLANTA</span><strong class="fgd-atl">'+game.ATL.stats.points+'</strong></div></div>';
+  }
+  function selectControl(label,key,options,current,id){
+    return '<label for="'+id+'">'+label+'<select id="'+id+'" data-fgd="'+key+'">'+options.map(function(option){
+      return '<option value="'+esc(option[0])+'" '+(String(option[0])===String(current)?'selected':'')+'>'+esc(option[1])+'</option>';
+    }).join('')+'</select></label>';
+  }
+  function playerList(game,team,sort){
+    const teams=['ATL','GSV'].filter(function(t){return team==='ALL'||team===t});
+    const rows=[];
+    teams.forEach(function(t){game[t].players.forEach(function(player){rows.push({team:t,player:player})})});
+    rows.sort(function(a,b){return (Number(b.player[sort])||0)-(Number(a.player[sort])||0)||(Number(b.player.points)||0)-(Number(a.player.points)||0)});
+    return rows.slice(0,5).map(function(row,index){
+      const p=row.player;
+      return '<article class="fgd-player-card"><span class="fgd-player-rank">0'+(index+1)+'</span><div class="fgd-player-main"><div class="fgd-player-name"><strong>'+esc(p.name)+'</strong><small>'+esc(row.team)+'</small></div><b class="fgd-player-lead">'+esc(fmt(p[sort],sort==='plusMinusPoints'?'low':''))+'<small>'+esc(sortOptions.find(function(x){return x[0]===sort})[1])+'</small></b><p>'+p.points+' PTS · '+p.reboundsTotal+' REB · '+p.assists+' AST</p></div></article>';
+    }).join('');
+  }
+  function fullBox(game,team,sort){
+    return ['ATL','GSV'].filter(function(t){return team==='ALL'||team===t}).map(function(t){
+      const rows=game[t].players.slice().sort(function(a,b){return (Number(b[sort])||0)-(Number(a[sort])||0)||(Number(b.points)||0)-(Number(a.points)||0)});
+      return '<section class="fgd-team-box"><h5>'+teamName(t)+'</h5><div class="fgd-scroll" tabindex="0" role="region" aria-label="'+t+' full player box score"><table><caption>Game '+game.number+' · sorted by '+esc(sortOptions.find(function(x){return x[0]===sort})[1])+'</caption><thead><tr>'+['Player','MIN','PTS','REB','AST','STL','BLK','TO','FG','3PT','FT','+/−'].map(function(x){return '<th scope="col">'+x+'</th>'}).join('')+'</tr></thead><tbody>'+rows.map(function(p){
+        return '<tr><th scope="row">'+esc(p.name)+(p.starter?' <small>STARTER</small>':'')+'</th><td>'+esc(p.minutes)+'</td>'+['points','reboundsTotal','assists','steals','blocks','turnovers'].map(function(k){return '<td>'+p[k]+'</td>'}).join('')+'<td>'+esc(p.fg)+'</td><td>'+esc(p.three)+'</td><td>'+esc(p.ft)+'</td><td>'+(p.plusMinusPoints>0?'+':'')+p.plusMinusPoints+'</td></tr>';
+      }).join('')+'</tbody></table></div></section>';
+    }).join('');
+  }
+  function seriesValue(game,team,metric){
+    const def=seriesOptions.find(function(option){return option[0]===metric})||seriesOptions[0];
+    return fmt(game[team].stats[def[0]],def[2]);
+  }
+  function seriesCards(games,metric){
+    return games.slice().sort(function(a,b){return b.number-a.number}).map(function(game){
+      return '<article class="fgd-series-card"><span class="fgd-series-game">GAME '+game.number+'</span><small>'+esc(game.date)+'</small><div class="fgd-series-pair"><b class="fgd-atl">'+seriesValue(game,'ATL',metric)+'<small>ATL</small></b><i aria-hidden="true">·</i><b class="fgd-gsv">'+seriesValue(game,'GSV',metric)+'<small>GSV</small></b></div><p>Final: '+game.ATL.stats.points+'–'+game.GSV.stats.points+'</p></article>';
+    }).join('');
+  }
+  async function init(){
+    const article=document.querySelector('.snack-post');
+    const slug=new URLSearchParams(location.search).get('post')||'';
+    if(!article||slug.indexOf('the-playoff-watch-party-2026')===-1)return;
+    let mount=article.querySelector('#finals-game-dashboard')||article.querySelector('.finals-game-dashboard');
+    if(!mount){
+      mount=document.createElement('section');
+      mount.className='finals-game-dashboard snack-section';
+      mount.id='finals-game-dashboard';
+      mount.setAttribute('aria-label','Finals game statistics dashboard');
+      const anchors=article.querySelectorAll('.playoff-game-one');
+      const anchor=anchors[anchors.length-1];
+      if(anchor)anchor.after(mount);else article.append(mount);
+    }
+    if(mount.dataset.loaded==='true'||mount.dataset.loading==='true')return;
+    mount.dataset.loading='true';
+    try{
+      const response=await fetch('/finals-game-dashboard.json?v=20261022-compact-finals-dashboard-v1');
+      if(!response.ok)throw Error('Dashboard data unavailable');
+      const data=await response.json();
+      let gameNumber=data.games[data.games.length-1].number;
+      let team='ALL',sort='points',view='overview',seriesMetric='points';
+      function render(){
+        const game=data.games.find(function(item){return item.number===gameNumber})||data.games[data.games.length-1];
+        const tabs=[['overview','Overview'],['players','Players'],['series','Series']];
+        const tabMarkup=tabs.map(function(tab){
+          return '<button class="fgd-tab" type="button" role="tab" id="fgd-tab-'+tab[0]+'" aria-controls="fgd-panel-'+tab[0]+'" aria-selected="'+(view===tab[0])+'" tabindex="'+(view===tab[0]?'0':'-1')+'" data-fgd-tab="'+tab[0]+'">'+tab[1]+'</button>';
+        }).join('');
+        const gameOptions=data.games.slice().sort(function(a,b){return b.number-a.number}).map(function(item){
+          return [item.number,'Game '+item.number+' · '+item.date];
+        });
+        function gameControl(id){return '<div class="fgd-game-control">'+selectControl('Final game','game',gameOptions,gameNumber,id)+'</div>'}
+        const overviewPanel='<div class="fgd-panel" id="fgd-panel-overview" role="tabpanel" aria-labelledby="fgd-tab-overview" '+(view==='overview'?'':'hidden')+'>'+gameControl('fgd-overview-game')+scorebar(game)+'<h4 class="fgd-section-title">Quarter scores <small>ATL · GSV</small></h4>'+quarters(game)+'<h4 class="fgd-section-title">Team comparison <small>ATL in red · GSV in violet</small></h4><div class="fgd-stat-grid">'+statCards(game,overviewMetrics)+'</div><details class="fgd-details fgd-extra-stats"><summary>More team stats</summary><div class="fgd-stat-grid">'+statCards(game,extraMetrics)+'</div></details><p class="fgd-note"><a href="'+esc(game.source)+'" target="_blank" rel="noopener noreferrer">Official Game '+game.number+' box score ↗</a></p></div>';
+        const playerControls='<div class="fgd-controls">'+gameControl('fgd-player-game')+selectControl('Player team','team',[['ALL','Both teams'],['ATL','Atlanta'],['GSV','Golden State']],team,'fgd-team-select')+selectControl('Rank by','sort',sortOptions,sort,'fgd-sort-select')+'</div>';
+        const visibleCount=(team==='ALL'||team==='ATL'?game.ATL.players.length:0)+(team==='ALL'||team==='GSV'?game.GSV.players.length:0);
+        const playerPanel='<div class="fgd-panel" id="fgd-panel-players" role="tabpanel" aria-labelledby="fgd-tab-players" '+(view==='players'?'':'hidden')+'>'+playerControls+'<p class="fgd-panel-note">Top five players by '+esc(sortOptions.find(function(x){return x[0]===sort})[1])+'.</p><div class="fgd-player-leaders">'+playerList(game,team,sort)+'</div><details class="fgd-details fgd-full-box"><summary>Full player box scores · '+visibleCount+' players</summary>'+fullBox(game,team,sort)+'<p class="fgd-note">MIN: minutes · PTS: points · REB: rebounds · AST: assists · STL: steals · BLK: blocks · TO: turnovers. FG / 3PT / FT are made–attempted; +/− is the on-court scoring margin.</p></details></div>';
+        const seriesPanel='<div class="fgd-panel" id="fgd-panel-series" role="tabpanel" aria-labelledby="fgd-tab-series" '+(view==='series'?'':'hidden')+'><div class="fgd-series-control">'+selectControl('Compare across games','seriesMetric',seriesOptions,seriesMetric,'fgd-series-select')+'</div><div class="fgd-series-grid">'+seriesCards(data.games,seriesMetric)+'</div><p class="fgd-note">Official WNBA final box scores. Latest game first.</p></div>';
+        mount.innerHTML='<header class="fgd-header"><p class="fgd-kicker">THE FINALS · INSIDE THE BOX SCORE</p><h3>Game '+game.number+' dashboard</h3><p>Final score, key stats and player leaders in one compact view.</p></header><div class="fgd-tabs" role="tablist" aria-label="Finals dashboard views">'+tabMarkup+'</div>'+overviewPanel+playerPanel+seriesPanel;
+        mount.dataset.activeView=view;
+      }
+      mount.addEventListener('click',function(event){
+        const tab=event.target.closest('[data-fgd-tab]');
+        if(!tab)return;
+        view=tab.dataset.fgdTab;
+        render();
+        mount.querySelector('[data-fgd-tab="'+view+'"]').focus();
+      });
+      mount.addEventListener('keydown',function(event){
+        const tab=event.target.closest('[data-fgd-tab]');
+        if(!tab)return;
+        const views=['overview','players','series'];
+        let index=views.indexOf(view);
+        if(event.key==='ArrowRight')index=(index+1)%views.length;
+        else if(event.key==='ArrowLeft')index=(index+views.length-1)%views.length;
+        else if(event.key==='Home')index=0;
+        else if(event.key==='End')index=views.length-1;
+        else return;
+        event.preventDefault();
+        view=views[index];
+        render();
+        mount.querySelector('[data-fgd-tab="'+view+'"]').focus();
+      });
+      mount.addEventListener('change',function(event){
+        const key=event.target.dataset.fgd,focusId=event.target.id;
+        if(key==='game')gameNumber=Number(event.target.value);
+        else if(key==='team')team=event.target.value;
+        else if(key==='sort')sort=event.target.value;
+        else if(key==='seriesMetric')seriesMetric=event.target.value;
+        else return;
+        render();
+        const next=focusId?document.getElementById(focusId):mount.querySelector('[data-fgd="'+key+'"]');
+        if(next)next.focus();
+      });
+      render();
+      mount.dataset.loaded='true';
+      delete mount.dataset.loading;
+    }catch(error){
+      mount.innerHTML='<h3>Finals game statistics</h3><p>The statistics board is reconnecting. <a href="https://www.wnba.com/game/gsv-vs-atl-1042600303/box-score">Open the official Game 3 final box score ↗</a></p>';
+      mount.dataset.loaded='true';
+      delete mount.dataset.loading;
+    }
+  }
+  new MutationObserver(function(){init()}).observe(document.body,{childList:true,subtree:true});
+  init();
 })();

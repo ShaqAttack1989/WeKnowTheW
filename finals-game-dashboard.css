@@ -1,1 +1,23 @@
 .finals-game-dashboard{border:2px solid #6f25e8;border-radius:24px;padding:clamp(18px,3vw,34px);background:linear-gradient(135deg,#f7f0ff,#fff8ed);color:#231139;margin:28px 0}.finals-game-dashboard h3{font-size:clamp(26px,4vw,42px);margin:5px 0 12px}.finals-game-dashboard h4{font-size:21px;margin:24px 0 12px}.fgd-kicker{font-size:12px!important;letter-spacing:.1em;font-weight:900;color:#6f25e8}.fgd-controls{display:flex;flex-wrap:wrap;gap:12px;margin:22px 0}.fgd-controls label{display:grid;gap:5px;font-size:13px;font-weight:800;flex:1;min-width:145px}.fgd-controls select{width:100%;padding:12px;border:1px solid #bda8d4;border-radius:10px;background:white;color:#231139;font:inherit}.fgd-final{display:flex;align-items:center;justify-content:space-between;gap:12px;background:#fff;border-radius:16px;padding:20px}.fgd-final>b{font-size:clamp(23px,4vw,38px)}.fgd-final>span{text-align:center;font-weight:900;font-size:13px}.fgd-final small{display:block;font-weight:500;margin-top:6px}.fgd-atl{color:#bd1639}.fgd-gsv{color:#6f25e8}.fgd-quarters{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.fgd-quarters article{padding:14px;background:#fff;border-radius:12px;display:grid;gap:7px}.fgd-quarters strong{font-size:22px}.fgd-quarters em{font-style:normal}.fgd-quarters small{font-size:11px}.fgd-metrics{display:grid;grid-template-columns:1fr 1fr;gap:18px 25px}.fgd-compare{display:grid;grid-template-columns:45px 1fr 45px;text-align:center;gap:5px;font-size:14px}.fgd-compare>span{font-weight:900}.fgd-track{grid-column:1/-1;height:7px;background:#6f25e8;border-radius:6px;overflow:hidden}.fgd-track i{display:block;height:100%;background:#bd1639}.fgd-scroll{overflow:auto;max-width:100%;border-radius:12px;border:1px solid #d8c9e7;background:white}.fgd-scroll table{border-collapse:collapse;width:100%;min-width:640px;font-size:13px;white-space:nowrap}.fgd-scroll caption{text-align:left;padding:12px;font-weight:700;background:#e9def8}.fgd-scroll th,.fgd-scroll td{padding:11px 12px;text-align:right;border-bottom:1px solid #eee4f5}.fgd-scroll th:first-child{text-align:left}.fgd-scroll thead{background:#231139;color:white}.fgd-scroll tbody tr:nth-child(even){background:#f7f2fc}.fgd-scroll small{display:block;font-size:9px;color:#715d84}.fgd-note{font-size:12px!important;line-height:1.6!important}.finals-game-dashboard h4 small{font-size:12px;font-weight:500}select:focus-visible,.fgd-scroll:focus-visible{outline:3px solid #6f25e8;outline-offset:3px}@media(max-width:600px){.fgd-metrics{grid-template-columns:1fr}.fgd-quarters{grid-template-columns:1fr 1fr}.fgd-final{padding:12px;gap:6px}.fgd-final>span{font-size:10px}}
+
+/* Game 3 live scoreboard */
+.fgd-live{border:2px solid #bd1639;border-radius:20px;padding:clamp(16px,2.5vw,26px);margin:0 0 28px;background:linear-gradient(135deg,#fff7f8,#f5efff);color:#231139}
+.fgd-live-head{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;margin-bottom:18px}
+.fgd-live-head h3{font-size:clamp(24px,3.5vw,36px);margin:4px 0 8px}
+.fgd-live-head p{margin:0;line-height:1.55}
+.fgd-live-kicker{font-size:12px!important;letter-spacing:.1em;font-weight:900;color:#bd1639}
+.fgd-live-status{flex:0 0 auto;padding:8px 11px;border-radius:999px;background:#bd1639;color:#fff;font-size:12px;font-weight:900;letter-spacing:.08em}
+.fgd-live-status.is-final{background:#231139}
+.fgd-live-scoreline{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:12px;background:#fff;border-radius:16px;padding:clamp(14px,2vw,22px)}
+.fgd-live-team{text-align:center;display:grid;gap:6px}
+.fgd-live-team span{font-weight:900;letter-spacing:.08em}
+.fgd-live-team strong{font-size:clamp(38px,7vw,60px);line-height:1}
+.fgd-live-team.is-gsv strong{color:#6f25e8}
+.fgd-live-team.is-atl strong{color:#bd1639}
+.fgd-live-middle{text-align:center;font-weight:900;min-width:95px}
+.fgd-live-middle small{display:block;margin-top:6px;font-weight:600;color:#705d83}
+.fgd-live-meta{display:flex;flex-wrap:wrap;gap:8px 18px;margin:14px 0;color:#58456c;font-size:13px}
+.fgd-live-series{padding:12px 14px;border-radius:12px;background:#eee6f8;font-weight:800;line-height:1.5}
+.fgd-live-links{display:flex;flex-wrap:wrap;gap:12px;margin-top:14px;font-weight:800}
+.fgd-live-links a{color:#49207d}
+@media(max-width:520px){.fgd-live-head{display:block}.fgd-live-status{display:inline-block;margin-top:12px}.fgd-live-middle{min-width:64px;font-size:12px}.fgd-live-scoreline{gap:6px;padding:12px}.fgd-live-team strong{font-size:36px}.fgd-live-meta{font-size:12px}}

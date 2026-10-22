@@ -2503,41 +2503,41 @@
       "type": "feature",
       "priority": 7600,
       "homepageSeason": "wnba-playoffs",
-      "seriesLabel": "FOOD FOR THOUGHT · PLAYOFF WATCH GUIDE",
-      "title": "Dream Answers: Reese Levels the Finals at 1–1",
-      "published": "2026-10-02",
-      "updated": "2026-10-20",
-      "week": "Finals · Atlanta and Golden State tied 1–1",
+      "seriesLabel": "FOOD FOR THOUGHT · LIVE FINALS WATCH",
+      "title": "Dreams to Nightmares? Game 3 Is Live in Atlanta",
+      "published": "2026-10-21",
+      "updated": "2026-10-21",
+      "week": "Finals · Game 3 · Atlanta and Golden State",
       "image": "https://images.gmanews.tv/webpics/2026/10/Angel_Reese_WNBA_Finals_Game_2_2026_10_20_12_16_12.jpg",
       "imageFit": "contain",
       "imageAlt": "Angel Reese dribbles against Kaitlyn Chen during the second quarter of Finals Game 2 at Chase Center, October 19, 2026",
-      "dek": "Atlanta won Game 2, 79–65, on October 19. Angel Reese’s 30 points and 16 rebounds helped send the Finals to Atlanta tied 1–1.",
+      "dek": "The Finals are tied 1–1, and Game 3 is live in Atlanta. Track the score as it changes, revisit the first two box scores, and follow the 14–0 Angel Reese three-point streak that entered tonight on the line.",
       "playoffGameOne": {
-        "ariaLabel": "Finals Game 2 result",
-        "eyebrow": "FINALS GAME 2 · FINAL",
-        "title": "Atlanta answers. The Finals reset.",
-        "dek": "Atlanta won Game 2, 79–65, on October 19. Angel Reese’s 30 points and 16 rebounds helped send the Finals to Atlanta tied 1–1.",
-        "asOf": "UPDATED · OCT. 19, 2026",
+        "ariaLabel": "Finals Game 3 live status",
+        "eyebrow": "FINALS GAME 3 · LIVE",
+        "title": "The series takes the floor in Atlanta",
+        "dek": "The Finals entered Game 3 tied 1–1. The live scoreboard below refreshes from the official WNBA feed.",
+        "asOf": "LIVE · OCT. 21, 2026",
         "receipts": [
           {
-            "value": "79–65",
-            "label": "Atlanta wins Game 2",
-            "note": "October 19 · Chase Center"
+            "value": "LIVE",
+            "label": "Game 3 underway",
+            "note": "State Farm Arena · Atlanta"
           },
           {
             "value": "1–1",
-            "label": "Finals series tied",
-            "note": "First to four wins"
+            "label": "Series entering Game 3",
+            "note": "Best-of-seven Finals"
           },
           {
-            "value": "30 / 16",
-            "label": "Angel Reese points / rebounds",
-            "note": "Official WNBA box score"
+            "value": "14–0",
+            "label": "Dream record when Reese makes a three",
+            "note": "Pregame note · 9–0 regular season · 5–0 playoffs"
           },
           {
-            "value": "OCT 21",
-            "label": "Game 3 · 8 p.m. ET",
-            "note": "State Farm Arena · USA / Peacock / CNBC"
+            "value": "GAME 4",
+            "label": "Next · Saturday, Oct. 24",
+            "note": "1 p.m. ET · NBC and Peacock"
           }
         ],
         "highlights": []
@@ -2573,9 +2573,9 @@
         "highlights": []
       },
       "gameGallery": {
-        "eyebrow": "2026 FINALS · ON THE FLOOR",
+        "eyebrow": "2026 FINALS · IN-GAME ACTION",
         "title": "The Finals in motion",
-        "dek": "Atlanta and Golden State are tied 1–1. From the floor at Chase Center to the semifinal road that brought both teams here.",
+        "dek": "Real in-game photographs from the Finals and Atlanta’s playoff run, alongside the WNBA’s pregame graphic that put the 14–0 Reese three-point record in focus.",
         "items": [
           {
             "image": "https://cdn.shopify.com/s/files/1/0803/0050/7409/files/we-know-the-w-atlanta-dream-allisha-gray-finals-2026.jpg?v=1792547248",
@@ -2606,10 +2606,28 @@
             "credit": "Ian Maule/AP",
             "sourceUrl": "https://www.theguardian.com/sport/2026/oct/10/golden-state-valkyries-las-vegas-aces-wnba-finals-sweep-gabby-williams",
             "imageFit": "contain"
+          },
+          {
+            "image": "/assets/photos/2026-wnba-game3-angel-reese-three-point-streak.jpg",
+            "alt": "Official WNBA graphic featuring Angel Reese and noting Atlanta’s pregame 14–0 record when she makes a three-pointer.",
+            "title": "The 14–0 Reese three-point streak",
+            "kicker": "PREGAME NOTE · ANGEL REESE",
+            "caption": "The WNBA’s pregame graphic noted Atlanta’s 14–0 record in games when Reese made a three: 9–0 in the regular season and 5–0 in the playoffs. Game 3 gives the streak its next test.",
+            "credit": "WNBA official social graphic",
+            "sourceUrl": "https://www.facebook.com/WNBA/",
+            "imageFit": "contain"
           }
         ]
       },
       "sections": [
+        {
+          "title": "Dreams to Nightmares: the streak is live",
+          "paragraphs": [
+            "The WNBA’s pregame graphic put a 14–0 Atlanta record on the line: the Dream had won all nine regular-season games and all five playoff games in which Angel Reese made a three. Reese connected from deep in the third quarter, turning a fun pregame note into a live Game 3 subplot. The result is still pending.",
+            "The Finals entered the night tied 1–1. The winner of Game 3 takes a 2–1 lead, with the championship still requiring four wins. The live scoreboard updates from the WNBA feed; the interactive box-score dashboard below keeps Games 1 and 2 available for comparison.",
+            "Game 1 turned on Golden State’s late defense. Atlanta answered in Game 2 with a 79–65 win powered by Reese’s 30 points and 16 rebounds. Watch turnovers, free throws, second-chance points, bench scoring and the defensive work that rarely fits in a headline as this game unfolds."
+          ]
+        },
         {
           "title": "Game 2: the Dream brings the answer home",
           "paragraphs": [
@@ -2753,6 +2771,18 @@
         {
           "label": "WNBA · 2026 Finals schedule, broadcasts and series preview",
           "url": "https://www.wnba.com/news/game-preview-2026-wnba-finals"
+        },
+        {
+          "label": "Official WNBA Game 3 live score and box score",
+          "url": "https://www.wnba.com/game/gsv-vs-atl-1042600303"
+        },
+        {
+          "label": "Official WNBA Game 3 live blog",
+          "url": "https://www.wnba.com/news/live-updates-2026-wnba-finals-game-3"
+        },
+        {
+          "label": "Game 3 play-by-play",
+          "url": "https://www.foxsports.com/wnba/wnba-finals-game-3-golden-state-valkyries-vs-atlanta-dream-oct-21-2026-game-boxscore-2589"
         }
       ],
       "dashboardUrl": "/food-for-thought.html?post=the-playoff-watch-party-2026#story",

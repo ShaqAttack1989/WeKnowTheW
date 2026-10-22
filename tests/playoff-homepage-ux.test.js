@@ -26,7 +26,7 @@ test('Homepage scoreboard trusts a published tip time over a stale TBD status',(
 
 test('Global scoreboard is installed by the shared site shell and refreshes the full slate',()=>{
   const site=read('site.js'),scoreboard=read('global-scoreboard.js');
-  assert.match(site,/global-scoreboard\.js\?v=20261008-gsv-g2-v1/);
+  assert.match(site,/global-scoreboard\.js\?v=20261022-game3-final-v1/);
   assert.match(site,/global-scoreboard\.css\?v=20261003-readable-ribbon-v5/);
   assert.match(scoreboard,/livePayload\.todayGames\|\|livePayload\.games/);
   assert.match(scoreboard,/setInterval\(\(\)=>\{if\(!document\.hidden\)refreshLive\(\);\},10000\)/);
@@ -62,8 +62,8 @@ test('Homepage keeps the playoff context and automatically fills story slots bef
   const stories=html.indexOf('id="freshTopStories"');
   const more=html.indexOf('id="freshMoreStories"');
   assert.ok(stories>0&&more>stories&&bracket>more);
-  assert.match(html,/Two sweeps/);
-  assert.match(html,/The Dream and Valkyries meet for the title/);
+  assert.match(html,/Dreams to nightmares/);
+  assert.match(html,/Atlanta beat Golden State 97–71/);
   assert.match(html,/homepage-fresh-stories\.js/);
   assert.match(html,/href="\/wnba-draft-class-rankings.html"/);
 });

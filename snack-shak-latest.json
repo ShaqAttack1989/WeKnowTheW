@@ -2504,20 +2504,20 @@
       "priority": 7600,
       "homepageSeason": "wnba-playoffs",
       "seriesLabel": "FOOD FOR THOUGHT · FINALS GAME 3 RECAP",
-      "title": "Dreams to Nightmares: Atlanta Takes Game 3",
+      "title": "Dreams to Nightmares: Atlanta Takes Command of the Finals",
       "published": "2026-10-21",
       "updated": "2026-10-22",
       "week": "FINALS RECAP",
-      "image": "/assets/photos/2026-wnba-game3-angel-reese-three-point-streak.jpg",
+      "image": "/assets/photos/angel-reese-finals-game-3-kevin-c-cox-getty-2026.jpg",
       "imageFit": "contain",
-      "imageAlt": "WNBA pregame graphic featuring Angel Reese and Atlanta Dream players, noting the team’s 14–0 record in games where Reese makes a three.",
-      "dek": "Atlanta built a six-point halftime edge into a 26-point win, with Angel Reese finishing Game 3 with 21 points and 12 rebounds.",
+      "imageAlt": "Angel Reese reacts during the first quarter of WNBA Finals Game 3 at State Farm Arena on October 21, 2026",
+      "dek": "Atlanta’s 97–71 Game 3 surge turned a tied Finals into a 2–1 Dream lead, with Angel Reese setting the tone on both ends.",
       "playoffGameOne": {
-        "ariaLabel": "Finals Game 3 final result",
-        "eyebrow": "FINALS GAME 3 · FINAL · OCT. 21",
-        "title": "Atlanta owns the second half",
-        "dek": "The Dream beat the Valkyries 97–71 at State Farm Arena after building on a 46–40 halftime lead.",
-        "asOf": "GAME 3 FINAL · OCT. 21, 2026",
+        "ariaLabel": "Finals Game 3 result",
+        "eyebrow": "FINALS GAME 3 · FINAL",
+        "title": "Dreams to nightmares. Atlanta owns the night.",
+        "dek": "Atlanta beat Golden State 97–71 on October 21, taking a 2–1 Finals lead behind Angel Reese’s 21 points and 12 rebounds.",
+        "asOf": "UPDATED · OCT. 21, 2026",
         "receipts": [
           {
             "value": "97–71",
@@ -2525,14 +2525,19 @@
             "note": "October 21 · State Farm Arena"
           },
           {
-            "value": "21 / 12",
-            "label": "Angel Reese points / rebounds",
-            "note": "Two of two from three"
+            "value": "2–1",
+            "label": "Atlanta leads the Finals",
+            "note": "First to four wins"
           },
           {
-            "value": "15–0",
-            "label": "Dream record when Reese makes a three",
-            "note": "9–0 regular season · 6–0 playoffs"
+            "value": "21 / 12",
+            "label": "Angel Reese points / rebounds",
+            "note": "Third straight Finals double-double"
+          },
+          {
+            "value": "OCT 24",
+            "label": "Game 4 · 1 p.m. ET",
+            "note": "State Farm Arena · NBC / Peacock"
           }
         ],
         "highlights": []
@@ -2609,11 +2614,27 @@
       },
       "sections": [
         {
-          "title": "Atlanta’s defense turns a close half into a rout",
+          "title": "Game 3: dreams to nightmares in Atlanta",
           "paragraphs": [
-            "Atlanta turned a six-point halftime lead into a 97–71 win by outscoring Golden State 51–31 after the break. Angel Reese went 2-for-2 from three, finishing with 21 points and 12 rebounds as the Dream extended their three-point-triggered winning streak to 15–0: nine in the regular season and six in the playoffs.",
-            "The Dream won the third quarter 25–17 and the fourth 26–14. Atlanta shot 49.3% from the field and scored 44 points in the paint; Golden State made 12 threes to Atlanta’s nine but finished at 34.8% overall.",
-            "Rhyne Howard added 16 points and five steals, Naz Hillmon scored 15, and Jordin Canada had 10 points and eight assists. Gabby Williams led Golden State with 15 points and eight assists; Cecilia Zandalasini and Janelle Salaun scored 13 apiece."
+            "Atlanta beat Golden State 97–71 at State Farm Arena on October 21 and took a 2–1 Finals lead. The Dream led 23–15 after one quarter and 46–40 at halftime, then answered Golden State’s third-quarter push with an 8–0 run over the final 2:11. Atlanta closed with a 26–14 fourth quarter, turning a competitive middle stretch into the largest win of the series.",
+            "Angel Reese finished with 21 points, 12 rebounds, three assists and two steals, recording a double-double in each of her first three Finals games. Rhyne Howard added 16 points, five steals and four assists; Naz Hillmon scored 15. The final official box score lists Howard at 16, resolving an early live-blog line that reported 18.",
+            "Golden State got 15 points from Gabby Williams, 14 from Tiffany Hayes and 13 apiece from Cecilia Zandalasini and Janelle Salaün. Kiah Stokes blocked four shots. The Valkyries’ bench won 38–27, but Atlanta’s starting group supplied 70 points and controlled the decisive stretches."
+          ]
+        },
+        {
+          "title": "The possession math behind the 26-point gap",
+          "paragraphs": [
+            "Atlanta shot 34-for-69 from the floor (49.3 percent) and 9-for-22 from three (40.9 percent). Golden State finished 24-for-69 (34.8 percent) and 12-for-30 from three (40.0 percent). The Valkyries matched Atlanta’s perimeter accuracy, but Atlanta made 22 two-point baskets to Golden State’s 12 and won the paint 44–20.",
+            "The free-throw margin mattered without carrying the whole result: Atlanta went 20-for-29, Golden State 11-for-17. Ball security created the sharper divide. The Dream committed 10 total turnovers and scored 22 points off Golden State’s 17; the Valkyries scored seven points off Atlanta’s miscues. Atlanta also assisted on 26 of 34 field goals.",
+            "Golden State owned the offensive glass 9–6, second-chance scoring 10–4 and bench scoring 38–27. Atlanta still won total rebounds 51–44 because it finished possessions with 31 defensive rebounds and kept converting stops into organized offense. Those counters explain why the visitors’ useful advantages never became scoreboard pressure."
+          ]
+        },
+        {
+          "title": "What Game 4 asks from both sides",
+          "paragraphs": [
+            "Atlanta’s next adjustment is restraint: keep using Reese as a transition trigger and interior target without letting a 2–1 lead turn into rushed offense. Howard’s five steals and zero turnovers were a two-way hinge; repeating that pressure while keeping the ball moving would force Golden State to defend the full floor again.",
+            "Golden State must shorten the distance between its strong three-point shooting and its interior production. Better entry angles, earlier paint touches and safer outlets can reduce the live-ball turnovers that fueled Atlanta. The Valkyries’ 38 bench points are a real resource, but Game 4 also needs more efficient starter creation and stronger defensive finishing.",
+            "Reese is averaging 21.7 points and 13.3 rebounds through three Finals games. Atlanta can take a 3–1 lead in Game 4 on October 24 at 1 p.m. ET; Golden State can level the series and reclaim home-court control."
           ]
         },
         {
@@ -2639,14 +2660,6 @@
             "Both teams made 21 field goals and seven three-pointers. Atlanta’s 14-point winning margin therefore matches its advantage at the free-throw line exactly: 30 makes to Golden State’s 16. The Dream attempted 35 free throws; the Valkyries attempted 19. Those totals describe the difference in the box score; they do not establish whether any particular whistle was correct.",
             "Atlanta also won the possession exchanges. Golden State committed 19 turnovers to Atlanta’s 14, while the Dream scored 24 points off turnovers against 13 for the Valkyries. Atlanta’s 17–7 edge in second-chance points added another route to scoring without needing a better shooting percentage.",
             "Analysis: a nearly identical field-goal output can disguise very different offensive nights. Atlanta generated enough trips to the line and extra-possession scoring to win comfortably despite shooting 33.9 percent from the floor. Golden State’s 34.4 percent was scarcely better; the ball security and foul-line gaps made that shared struggle much more expensive for the home side."
-          ]
-        },
-        {
-          "title": "What Game 4 asks",
-          "paragraphs": [
-            "Reese’s 21 points, 12 rebounds and 2-for-2 shooting from three gave Atlanta a dependable scoring base. The Dream finished with a 44–20 edge in points in the paint. Analysis: Golden State needs to make Reese work farther from the rim without giving Atlanta’s shooters clean looks.",
-            "Howard added 16 points and five steals, while Canada paired 10 points with eight assists and Hillmon made three threes. Golden State had 38 bench points and shot 40% from three, but made only 24 of 69 field goals and committed 17 turnovers. Analysis: the Valkyries’ next step is to turn their perimeter and bench production into more efficient possessions.",
-            "Both franchises are chasing their first WNBA championship. Golden State needs cleaner possessions against Atlanta’s paint scoring, while the Dream must keep the Valkyries’ perimeter and bench production from turning into efficient offense."
           ]
         },
         {
@@ -2698,8 +2711,16 @@
       ],
       "sources": [
         {
-          "label": "Official WNBA Finals Game 3 final box score · October 21",
+          "label": "Official WNBA Finals Game 3 box score · October 21",
           "url": "https://cdn.wnba.com/static/json/liveData/boxscore/boxscore_1042600303.json"
+        },
+        {
+          "label": "WNBA · Official Finals Game 3 live recap",
+          "url": "https://www.wnba.com/news/live-updates-2026-wnba-finals-game-3"
+        },
+        {
+          "label": "Getty Images · Kevin C. Cox · Finals Game 3 photo",
+          "url": "https://www.gettyimages.com/detail/news-photo/angel-reese-of-the-atlanta-dream-reacts-during-the-first-news-photo/2301393462"
         },
         {
           "label": "Official WNBA Finals Game 1 box score",
@@ -2718,11 +2739,11 @@
           "url": "https://valkyries.wnba.com/news/gameday-recap-20261017"
         },
         {
-          "label": "Official Golden State Game 3 recap",
+          "label": "Official Golden State semifinal Game 3 recap",
           "url": "https://valkyries.wnba.com/news/gameday-recap-20261009"
         },
         {
-          "label": "Official Atlanta Game 3 recap",
+          "label": "Official Atlanta semifinal Game 3 recap",
           "url": "https://dream.wnba.com/news/dream-heads-to-wnba-finals-after-sweeping-liberty"
         },
         {
@@ -2775,9 +2796,9 @@
         }
       ],
       "dashboardUrl": "/food-for-thought.html?post=the-playoff-watch-party-2026#story",
-      "storyImage": "/assets/photos/2026-wnba-game3-angel-reese-three-point-streak.jpg",
-      "storyImageCaption": "WNBA’s official pregame graphic: Atlanta was 14–0 when Angel Reese made a three before Game 3. Atlanta’s win made the streak 15–0. Graphic: WNBA.",
-      "storyImageSourceUrl": "https://www.facebook.com/WNBA/",
+      "storyImage": "/assets/photos/angel-reese-finals-game-3-kevin-c-cox-getty-2026.jpg",
+      "storyImageCaption": "Angel Reese reacts during the first quarter · Finals Game 3 · October 21, 2026. Photo: Kevin C. Cox/Getty Images.",
+      "storyImageSourceUrl": "https://www.wnba.com/news/live-updates-2026-wnba-finals-game-3",
       "playoffWatch": {
         "title": "DREAMS TO NIGHTMARES.",
         "subtitle": "Dream 97, Valkyries 71 · Finals Game 3 · October 21",
@@ -2785,7 +2806,7 @@
         "summary": [
           {
             "value": "2–1",
-            "label": "Atlanta leads Finals"
+            "label": "Atlanta leads the Finals"
           },
           {
             "value": "97–71",
@@ -2796,8 +2817,8 @@
             "label": "Game 4 · 1 p.m. ET"
           },
           {
-            "value": "15–0",
-            "label": "Dream record when Reese makes a three"
+            "value": "11",
+            "label": "Finalists’ top-10 picks"
           }
         ],
         "matchups": [
@@ -2823,12 +2844,12 @@
               "https://cdn.wnba.com/headshots/wnba/latest/260x190/1628931.png",
               "https://cdn.wnba.com/headshots/wnba/latest/260x190/1642291.png"
             ],
-            "hot": "Reese: 21 points, 12 rebounds, 2-for-2 from three. Howard: 16 points and five steals.",
-            "bench": "Atlanta had 27 bench points; Golden State had 38.",
-            "availability": "Atlanta leads 2–1; Game 4 is Saturday at State Farm Arena.",
-            "beat": "Atlanta won points in the paint 44–20 and shot 49.3% from the field.",
-            "break": "Golden State made 12 threes but finished with 17 turnovers.",
-            "must": "Game 4 is Saturday, Oct. 24, at 1 p.m. ET; Game 5 is guaranteed.",
+            "hot": "Reese: 21 points, 12 rebounds. Howard: 16 points, five steals. Hillmon: 15 points.",
+            "bench": "Golden State’s bench won 38–27, but Atlanta’s starters won the game-opening and closing stretches.",
+            "availability": "Both finalists remain alive. Check official reports before Game 4.",
+            "beat": "Atlanta shot 49.3 percent, assisted on 26 of 34 makes and scored 22 points off 17 Golden State turnovers.",
+            "break": "Golden State made 12 threes but only 12 two-point field goals and was outscored 44–20 in the paint.",
+            "must": "Atlanta can take a 3–1 lead at home; Golden State must protect the ball and keep Reese away from early rhythm.",
             "highCode": "GSV",
             "lowCode": "ATL",
             "highWScore": 77,
@@ -2956,8 +2977,8 @@
         "Can Atlanta control the possession count against Golden State’s pressure?",
         "Which bench can keep producing when the opponent changes coverage?"
       ],
-      "imageFallback": "",
-      "storyImageFallback": "",
+      "imageFallback": "/assets/photos/angel-reese-finals-game-3-kevin-c-cox-getty-2026.jpg",
+      "storyImageFallback": "/assets/photos/angel-reese-finals-game-3-kevin-c-cox-getty-2026.jpg",
       "imageFocus": "50% 50%",
       "finalsGraphic": {
         "eyebrow": "2026 WNBA FINALS · MATCHUP & SCHEDULE",

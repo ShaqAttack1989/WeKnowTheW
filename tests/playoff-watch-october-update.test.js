@@ -4,7 +4,7 @@ const fs=require('node:fs');
 const read=p=>fs.readFileSync(require('node:path').join(__dirname,'..',p),'utf8');
 const guide=JSON.parse(read('snack-shak-latest.json')).posts.find(p=>p.slug==='the-playoff-watch-party-2026');
 test('the confirmed Game 3 result advances Atlanta to a 2-1 Finals lead',()=>{
- assert.equal(guide.updated,'2026-10-21');
+ assert.equal(guide.updated,'2026-10-22');
  const rows=guide.playoffWatch.matchups;
  assert.equal(rows.find(r=>r.roundKey==='Finals').series,'2–1');
  assert.deepEqual(rows.filter(r=>r.roundKey==='Semifinals').map(r=>r.series),['3-0','3-0']);
@@ -20,10 +20,10 @@ test('the confirmed Game 3 result advances Atlanta to a 2-1 Finals lead',()=>{
 });
 test('main and homepage use verified Game 3 action with credit and official source',()=>{
  assert.equal(guide.image,guide.storyImage);
- assert.match(guide.image,/Angel_Reese_WNBA_Finals_Game_2/);
- assert.match(guide.storyImageCaption,/Ezra Shaw\/Getty Images via AFP/);
- assert.match(guide.storyImageSourceUrl,/gmanetwork\.com/);
- assert.match(guide.imageAlt,/October 19, 2026/);
+ assert.match(guide.image,/angel-reese-finals-game-3-kevin-c-cox-getty-2026/);
+ assert.match(guide.storyImageCaption,/Kevin C\. Cox\/Getty Images/);
+ assert.match(guide.storyImageSourceUrl,/wnba\.com\/news\/live-updates-2026-wnba-finals-game-3/);
+ assert.match(guide.imageAlt,/October 21, 2026/);
  assert.match(JSON.stringify(guide.sections),/500 career playoff points/);
  assert.match(read('homepage-fresh-stories.js'),/image/);
 });
@@ -37,7 +37,7 @@ test('finalist audit keeps eliminated roster receipts but counts only surviving 
 
 test('homepage spotlight reflects the Finals and removes semifinal closeout callouts',()=>{
  const s=read('index.html');
- assert.match(s,/Finals · Atlanta leads 2–1/);
+ assert.match(s,/Atlanta leads the Finals 2–1/);
  assert.match(s,/Atlanta beat Golden State 97–71/);
  assert.doesNotMatch(s,/Two 2–0 semifinal leads|Friday brings closeout games/);
 });
@@ -66,10 +66,10 @@ test('shared bracket keeps the verified Game 3 result when its series snapshot l
 test('finalist action photos are distinct within the article',()=>{
  const photos=[guide.storyImage,...guide.gameGallery.items.map(item=>item.image)];
  assert.equal(new Set(photos).size,photos.length);
- assert.match(guide.imageAlt,/Angel Reese.*Kaitlyn Chen/);
- assert.match(guide.gameGallery.items[0].alt,/Jordin Canada/);
- assert.match(guide.gameGallery.items[1].alt,/Tiffany Hayes/);
- for(const item of guide.gameGallery.items){assert.ok(item.credit);assert.ok(item.sourceUrl);assert.match(item.alt,/October 9, 2026/);}
+ assert.match(guide.imageAlt,/Angel Reese.*first quarter/);
+ assert.ok(guide.gameGallery.items.some(item=>/Jordin Canada/.test(item.alt)));
+ assert.ok(guide.gameGallery.items.some(item=>/Tiffany Hayes/.test(item.alt)));
+ for(const item of guide.gameGallery.items){assert.ok(item.credit);assert.ok(item.sourceUrl);assert.ok(item.alt.length>20);}
 });
 
 

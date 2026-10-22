@@ -14,7 +14,7 @@ test('2026 Finals schedule matches the latest WNBA schedule in every shared sour
  ];
  for(const file of ['playoff-bracket.js','site/playoff-bracket.js','api/competition.js','global-scoreboard.js']){
   const source=fs.readFileSync(file,'utf8');
-  const rows=source.match(/\{id:'2026-gsv-atl-finals-g\d'[^\n]+?\}/g);
+  const rows=source.match(/\{id:'(?:2026-gsv-atl-finals-g\d|1042600303)'[^\n]+?\}/g);
   assert.equal(rows.length,7,file);
   rows.forEach((row,i)=>{
    assert.ok(row.includes(`date:'${expected[i].date}'`),`${file} game ${i+1} date`);
@@ -25,16 +25,16 @@ test('2026 Finals schedule matches the latest WNBA schedule in every shared sour
  }
  const data=JSON.parse(fs.readFileSync('snack-shak-latest.json','utf8'));
  const guide=data.posts.find(p=>p.slug==='the-playoff-watch-party-2026');
- assert.equal(guide.updated,'2026-10-19');
- assert.match(guide.sections.find(s=>s.title==='The Finals watch schedule').paragraphs.join(' '),/Game 3: Wed\., Oct\. 21, 8 p\.m\./);
- assert.match(guide.sections.find(s=>s.title==='The Finals watch schedule').paragraphs.join(' '),/Game 4: Sat\., Oct\. 24, 1 p\.m\./);
- assert.match(guide.sections.find(s=>s.title==='The Finals watch schedule').paragraphs.join(' '),/Game 6.*venue.*TBD/i);
+ assert.equal(guide.updated,'2026-10-22');
+ const next=guide.sections.find(s=>s.title==='What’s next in the Finals').paragraphs.join(' ');
+ assert.match(next,/Game 4: Saturday, October 24, at 1 p\.m\. ET/);
+ assert.match(next,/Game 6 is Thursday, October 29/);
  const scheduleGraphic=guide.finalsGraphic.items.find(item=>item.image==='assets/photos/wnba-finals-schedule-2026.jpg');
  assert.ok(scheduleGraphic,'uploaded schedule graphic is included in the Finals article');
  assert.ok(fs.existsSync(scheduleGraphic.image),'uploaded schedule image exists at article path');
  assert.ok(guide.sources.some(s=>s.url==='https://www.wnba.com/news/wnba-finals-games3-and-4-to-be-played-at-state-farm-arena'));
  assert.deepEqual(guide,JSON.parse(fs.readFileSync('site/snack-shak-latest.json','utf8')).posts.find(p=>p.slug===guide.slug));
- const dashboardVersion='20261019-finals-game2-v1';
+ const dashboardVersion='20261022-game3-final-v1';
  const siteSource=fs.readFileSync('site.js','utf8');
  assert.ok(siteSource.includes(`global-scoreboard.js?v=${dashboardVersion}`),'global scoreboard asset is cache-busted');
  for(const page of ['index.html','games.html','live-stats.html']){

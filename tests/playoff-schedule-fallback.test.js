@@ -73,7 +73,7 @@ test('published 2026 fallback closes Round 1 and carries both semifinal Game 2 f
     const gsvSeries=semifinals.find(row=>row.teamA==='Golden State Valkyries');
     assert.equal(gsvSeries.winsA,3);
     assert.equal(gsvSeries.winsB,0);
-    assert.equal(payload.sourceVersion,'20261010-semifinal-sweeps-finals-v1');
+    assert.equal(payload.sourceVersion,'20261022-game3-final-v1');
   }finally{
     global.fetch=originalFetch;
   }

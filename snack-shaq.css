@@ -665,3 +665,17 @@
 .pay-bonus-block>p{margin:9px 2px 0;color:rgba(255,255,255,.55);font-size:.69rem}
 @media(max-width:850px){.pay-growth-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:600px){.pay-history-dashboard{margin-right:-12px;margin-left:-12px;padding:20px 14px;border-radius:23px}.pay-history-chart{padding:13px 9px}.pay-history-axis{grid-template-columns:minmax(86px,1fr) minmax(24px,1.5fr) auto;gap:7px;font-size:.5rem}.pay-history-row{grid-template-columns:minmax(86px,1fr) minmax(45px,1.5fr) minmax(82px,auto);gap:7px;padding:9px 5px}.pay-history-milestone strong{font-size:.77rem}.pay-history-milestone small{font-size:.58rem}.pay-history-value{font-size:.69rem}.pay-history-detail{padding:15px 14px 15px 17px}.pay-growth-grid{gap:7px}.pay-growth-card{min-height:106px;padding:12px 10px}.pay-growth-card small{font-size:.62rem}.pay-bonus-row{grid-template-columns:1fr;gap:8px;padding:12px}.pay-bonus-bars>div{grid-template-columns:110px minmax(30px,1fr);gap:8px}}
+
+
+/* Finals article: clear jump links and game-first reading order */
+.playoff-article-nav{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 24px;padding:12px;border:1px solid #e4d7f2;border-radius:16px;background:#f8f3fc}
+.playoff-article-nav a{display:inline-flex;align-items:center;padding:8px 11px;border-radius:999px;background:#fff;color:#3b1a63;font-size:.82rem;font-weight:850;text-decoration:none}
+.playoff-article-nav a:hover,.playoff-article-nav a:focus-visible{background:#d8ff4f;color:#231139;outline:2px solid #231139;outline-offset:2px}
+.finals-watch-story [id]{scroll-margin-top:112px}
+.finals-watch-story #finals-game3-score-anchor:empty{display:none}
+.finals-watch-story .finals-past-games{margin-top:38px}
+.finals-watch-story .finals-past-games>.snack-section{margin-top:20px}
+.playoff-game-gallery .playoff-gallery-dashboard-link{margin:12px 0 0}
+.playoff-game-gallery .playoff-gallery-dashboard-link a{display:inline-flex;padding:10px 14px;border-radius:999px;background:#d8ff4f;color:#231139;font-weight:900;text-decoration:none;box-shadow:0 6px 18px rgba(35,17,57,.22)}
+.playoff-game-gallery .playoff-gallery-dashboard-link a:hover,.playoff-game-gallery .playoff-gallery-dashboard-link a:focus-visible{background:#fff;outline:2px solid #231139;outline-offset:2px}
+@media(max-width:520px){.playoff-article-nav{gap:6px;padding:10px}.playoff-article-nav a{font-size:.76rem;padding:8px 10px}}

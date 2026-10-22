@@ -82,6 +82,17 @@
     const article=document.querySelector('.snack-post');
     const slug=new URLSearchParams(location.search).get('post')||'';
     if(!article||slug.indexOf('the-playoff-watch-party-2026')===-1)return;
+    if(document.documentElement.dataset.fgdJumpHandlerBound!=='true'){
+      document.documentElement.dataset.fgdJumpHandlerBound='true';
+      document.addEventListener('click',function(event){
+        const link=event.target.closest('a[href*="#finals-game-dashboard"]');
+        const target=document.querySelector('.snack-post #finals-game-dashboard');
+        if(!link||!link.closest('.snack-post')||!target)return;
+        event.preventDefault();
+        history.pushState(null,'',link.href);
+        target.scrollIntoView({behavior:'smooth',block:'start'});
+      });
+    }
     let mount=article.querySelector('#finals-game-dashboard')||article.querySelector('.finals-game-dashboard');
     if(!mount){
       mount=document.createElement('section');

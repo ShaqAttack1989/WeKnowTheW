@@ -90,7 +90,9 @@
         if(!link||!link.closest('.snack-post')||!target)return;
         event.preventDefault();
         history.pushState(null,'',link.href);
-        target.scrollIntoView({behavior:'smooth',block:'start'});
+        const top=window.scrollY+target.getBoundingClientRect().top;
+          const behavior=window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth';
+          window.scrollTo({top:Math.max(0,top-230),behavior:behavior});
       });
     }
     let mount=article.querySelector('#finals-game-dashboard')||article.querySelector('.finals-game-dashboard');

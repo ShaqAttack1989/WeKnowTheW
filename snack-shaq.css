@@ -679,3 +679,77 @@
 .playoff-game-gallery .playoff-gallery-dashboard-link a{display:inline-flex;padding:10px 14px;border-radius:999px;background:#d8ff4f;color:#231139;font-weight:900;text-decoration:none;box-shadow:0 6px 18px rgba(35,17,57,.22)}
 .playoff-game-gallery .playoff-gallery-dashboard-link a:hover,.playoff-game-gallery .playoff-gallery-dashboard-link a:focus-visible{background:#fff;outline:2px solid #231139;outline-offset:2px}
 @media(max-width:520px){.playoff-article-nav{gap:6px;padding:10px}.playoff-article-nav a{font-size:.76rem;padding:8px 10px}}
+
+/* Indiana Fever leadership forecast board */
+.fever-forecast-board{
+  margin:clamp(24px,4vw,42px) 0;
+  padding:clamp(18px,3vw,30px);
+  border:1px solid rgba(255,255,255,.16);
+  border-radius:24px;
+  background:
+    radial-gradient(circle at 92% 0%,rgba(253,187,48,.18),transparent 34%),
+    linear-gradient(135deg,#17102f 0%,#23104a 58%,#10233d 100%);
+  color:#fff;
+  overflow:hidden;
+}
+.fever-forecast-head{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:18px;
+  margin-bottom:18px;
+}
+.fever-forecast-head>div{min-width:0;max-width:760px}
+.fever-forecast-head>div>span{
+  display:inline-block;
+  margin-bottom:8px;
+  color:#fdbb30;
+  font-size:.78rem;
+  font-weight:900;
+  letter-spacing:.11em;
+}
+.fever-forecast-head h3{margin:0 0 8px;color:#fff}
+.fever-forecast-head p{margin:0;color:rgba(255,255,255,.82);line-height:1.55}
+.fever-forecast-head>small{
+  flex:0 0 auto;
+  color:#fdbb30;
+  font-size:.72rem;
+  font-weight:850;
+  letter-spacing:.08em;
+  text-align:right;
+}
+.fever-forecast-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:14px;
+}
+.fever-forecast-card{
+  min-width:0;
+  padding:18px;
+  border:1px solid rgba(255,255,255,.16);
+  border-radius:18px;
+  background:rgba(255,255,255,.075);
+}
+.fever-forecast-card-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+  color:rgba(255,255,255,.75);
+  font-size:.74rem;
+  font-weight:900;
+  letter-spacing:.08em;
+}
+.fever-forecast-card-top b{color:#fdbb30;font-size:.82rem}
+.fever-forecast-card h4{margin:10px 0 6px;color:#fff;font-size:1.2rem;line-height:1.2}
+.fever-forecast-status{display:block;margin-bottom:8px;color:#fdbb30;line-height:1.35}
+.fever-forecast-card p{margin:0 0 12px;color:rgba(255,255,255,.88);font-size:1rem;line-height:1.55}
+.fever-forecast-card>small{color:rgba(255,255,255,.68);font-size:.72rem;font-weight:850;letter-spacing:.07em}
+.fever-forecast-note{margin:16px 0 0;color:rgba(255,255,255,.72);font-size:.9rem;line-height:1.5}
+@media(max-width:680px){
+  .fever-forecast-head{display:block}
+  .fever-forecast-head>small{display:block;margin-top:12px;text-align:left}
+  .fever-forecast-grid{grid-template-columns:1fr}
+  .fever-forecast-card{padding:16px}
+}
+

@@ -67,16 +67,16 @@ test('normalizes provider player totals to the dashboard format', () => {
 
 test('aggregates completed ESPN playoff boxscores and skips regular-season and scheduled games', async () => {
   const requested=[];
-  const event=(id,headline,date='2026-10-17T19:30:00Z',completed=true,teams=['Atlanta Dream','Golden State Valkyries'])=>({
-    id,date,status:{type:{state:completed?'post':'pre',completed,shortDetail:completed?'Final':'Scheduled'}},
+  const event=(id,headline,date,teams=['Atlanta Dream','Golden State Valkyries'])=>({
+    id,date,status:{type:{state:'post',completed:true,shortDetail:'Final'}},
     competitions:[{notes:[{headline}],competitors:teams.map(displayName=>({team:{displayName}}))}]
   });
-  const scoreboard={events:[
-    event('401918305','WNBA Finals - Game 1'),
-    event('401918306','WNBA Finals - Game 2'),
-    event('401918307','WNBA Finals - Game 3','2026-10-22T00:00:00Z',false),
-    event('401918199','Regular Season','2026-09-25T00:00:00Z',true)
-  ]};
+  const competition={playoffs:{games:[
+    {date:'2026-10-17',homeTeam:'Atlanta Dream',awayTeam:'Golden State Valkyries',completed:true,state:'post'},
+    {date:'2026-10-19',homeTeam:'Golden State Valkyries',awayTeam:'Atlanta Dream',completed:true,state:'post'},
+    {date:'2026-10-21',homeTeam:'Atlanta Dream',awayTeam:'Golden State Valkyries',completed:false,state:'pre'},
+    {date:'2026-10-09',homeTeam:'Las Vegas Aces',awayTeam:'Golden State Valkyries',completed:true,state:'post'}
+  ]}};
   const keys=['minutes','points','fieldGoalsMade-fieldGoalsAttempted','threePointFieldGoalsMade-threePointFieldGoalsAttempted','freeThrowsMade-freeThrowsAttempted','rebounds','assists','turnovers','steals','blocks','plusMinus'];
   const player=(name,id,points,minutes='20.5')=>({athlete:{id,displayName:name},stats:[minutes,String(points),'4-8','2-4','2-3','4','3','1','2','1','5']});
   const summary=(atlPlayers,gsvPlayers)=>({boxscore:{players:[
@@ -89,7 +89,9 @@ test('aggregates completed ESPN playoff boxscores and skips regular-season and s
   };
   const payload=await fetchPlayoffTotals(async url=>{
     requested.push(url);
-    if(url.includes('/scoreboard?'))return{ok:true,json:async()=>scoreboard};
+    if(url.includes('/api/competition?'))return{ok:true,json:async()=>competition};
+    if(url.includes('dates=20261017'))return{ok:true,json:async()=>({events:[event('401918305','WNBA Finals - Game 1','2026-10-17T19:30:00Z')]})};
+    if(url.includes('dates=20261019'))return{ok:true,json:async()=>({events:[event('401918306','WNBA Finals - Game 2','2026-10-20T00:00:00Z')]})};
     const id=url.match(/summary\?event=(\d+)$/)?.[1];
     return{ok:true,json:async()=>boxscores[id]};
   },50,2026,'ATL');
@@ -97,8 +99,9 @@ test('aggregates completed ESPN playoff boxscores and skips regular-season and s
   assert.equal(payload.seasonType,'Playoffs');
   assert.equal(payload.source,'ESPN boxscores');
   assert.equal(payload.gamesIncluded,2);
-  assert.match(requested[0],/dates=2026/);
-  assert.deepEqual(requested.slice(1).map(url=>url.match(/summary\?event=(\d+)$/)?.[1]),['401918305','401918306']);
+  assert.match(requested[0],/api\/competition\?season=2026/);
+  assert.deepEqual(requested.filter(url=>url.includes('/scoreboard?')).map(url=>url.match(/dates=(\d+)/)?.[1]),['20261017','20261019']);
+  assert.deepEqual(requested.filter(url=>url.includes('/summary?')).map(url=>url.match(/summary\?event=(\d+)$/)?.[1]),['401918305','401918306']);
   const rhy=payload.players.find(row=>row.name==='Rhyne Howard');
   assert.equal(rhy.team,'ATL');
   assert.equal(rhy.g,2);
@@ -114,33 +117,32 @@ test('does not include postseason games from a different year', async () => {
   const requested=[];
   const payload=await fetchPlayoffTotals(async url=>{
     requested.push(url);
-    return{ok:true,json:async()=>({events:[{
-      id:'401918305',date:'2026-10-17T19:30:00Z',status:{type:{state:'post',completed:true,shortDetail:'Final'}},
-      competitions:[{notes:[{headline:'WNBA Finals - Game 1'}],competitors:[{team:{displayName:'Atlanta Dream'}},{team:{displayName:'Golden State Valkyries'}}]}]
-    }]})};
+    return{ok:true,json:async()=>({playoffs:{games:[{date:'2026-10-17',homeTeam:'Atlanta Dream',awayTeam:'Golden State Valkyries',completed:true,state:'post'}]}})};
   },50,2025,'ATL');
 
   assert.equal(payload.gamesIncluded,0);
   assert.deepEqual(requested.length,1);
-  assert.match(requested[0],/dates=2025/);
+  assert.match(requested[0],/season=2025/);
 });
 
 test('requests boxscores only for the selected team to keep the dashboard feed small', async () => {
   const requested=[];
   const event=(id,headline,teams)=>({id,date:'2026-10-17T19:30:00Z',status:{type:{state:'post',completed:true,shortDetail:'Final'}},competitions:[{notes:[{headline}],competitors:teams.map(displayName=>({team:{displayName}}))}]});
-  const scoreboard={events:[
-    event('401918305','WNBA Finals - Game 1',['Atlanta Dream','Golden State Valkyries']),
-    event('401918299','WNBA Semifinals - Game 3',['New York Liberty','Atlanta Dream']),
-    event('401918300','WNBA Semifinals - Game 3',['Golden State Valkyries','Las Vegas Aces'])
-  ]};
+  const competition={playoffs:{games:[
+    {date:'2026-10-17',homeTeam:'Atlanta Dream',awayTeam:'Golden State Valkyries',completed:true,state:'post'},
+    {date:'2026-10-09',homeTeam:'New York Liberty',awayTeam:'Atlanta Dream',completed:true,state:'post'},
+    {date:'2026-10-09',homeTeam:'Golden State Valkyries',awayTeam:'Las Vegas Aces',completed:true,state:'post'}
+  ]}};
   const payload=await fetchPlayoffTotals(async url=>{
     requested.push(url);
-    if(url.includes('/scoreboard?'))return{ok:true,json:async()=>scoreboard};
+    if(url.includes('/api/competition?'))return{ok:true,json:async()=>competition};
+    if(url.includes('dates=20261017'))return{ok:true,json:async()=>({events:[event('401918305','WNBA Finals - Game 1',['Atlanta Dream','Golden State Valkyries'])]})};
+    if(url.includes('dates=20261009'))return{ok:true,json:async()=>({events:[event('401918299','WNBA Semifinals - Game 3',['New York Liberty','Atlanta Dream']),event('401918300','WNBA Semifinals - Game 3',['Golden State Valkyries','Las Vegas Aces'])]})};
     return{ok:true,json:async()=>({boxscore:{players:[]}})};
   },50,2026,'atl');
 
   assert.equal(payload.gamesIncluded,2);
-  assert.deepEqual(requested.slice(1).map(url=>url.match(/summary\?event=(\d+)$/)?.[1]),['401918305','401918299']);
+  assert.deepEqual(requested.filter(url=>url.includes('/summary?')).map(url=>url.match(/summary\?event=(\d+)$/)?.[1]),['401918305','401918299']);
 });
 
 function dashboardClient({ delayRegular = false } = {}) {

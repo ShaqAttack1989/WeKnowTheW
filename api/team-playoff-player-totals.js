@@ -1,9 +1,9 @@
 const { fetchPlayoffTotals } = require('../lib/team-player-totals');
 const REFRESH_MS = 30 * 60 * 1000;
 const RETRY_MS = 5 * 60 * 1000;
-const latestBySeason = new Map();
-const inFlightBySeason = new Map();
-const retryAfterBySeason = new Map();
+const latestByRequest = new Map();
+const inFlightByRequest = new Map();
+const retryAfterByRequest = new Map();
 
 function teamPlayerTotals(row = {}) {
   return {
@@ -27,32 +27,33 @@ function teamPlayerTotals(row = {}) {
   };
 }
 
-async function load(season) {
+async function load(season, team) {
+  const requestKey = `${season}:${team}`;
   const now = Date.now();
-  const cached = latestBySeason.get(season);
+  const cached = latestByRequest.get(requestKey);
   if (cached && now - Date.parse(cached.checkedAt) < REFRESH_MS) return cached;
-  if (now < (retryAfterBySeason.get(season) || 0)) {
+  if (now < (retryAfterByRequest.get(requestKey) || 0)) {
     if (cached) return { ...cached, stale: true };
     throw new Error('Playoff statistics are temporarily unavailable.');
   }
-  if (inFlightBySeason.has(season)) return inFlightBySeason.get(season);
+  if (inFlightByRequest.has(requestKey)) return inFlightByRequest.get(requestKey);
 
-  const pending = fetchPlayoffTotals(fetch, 15000, season).then(sourcePayload => {
+  const pending = fetchPlayoffTotals(fetch, 15000, season, team).then(sourcePayload => {
     const payload = {
       ...sourcePayload,
       seasonType: 'Playoffs',
       stale: false,
       players: sourcePayload.players.map(teamPlayerTotals).filter(player => player.name && player.team && Number(player.g) > 0)
     };
-    latestBySeason.set(season, payload);
-    retryAfterBySeason.delete(season);
+    latestByRequest.set(requestKey, payload);
+    retryAfterByRequest.delete(requestKey);
     return payload;
   }).catch(error => {
-    retryAfterBySeason.set(season, Date.now() + RETRY_MS);
+    retryAfterByRequest.set(requestKey, Date.now() + RETRY_MS);
     if (cached) return { ...cached, stale: true };
     throw error;
-  }).finally(() => inFlightBySeason.delete(season));
-  inFlightBySeason.set(season, pending);
+  }).finally(() => inFlightByRequest.delete(requestKey));
+  inFlightByRequest.set(requestKey, pending);
   return pending;
 }
 
@@ -65,8 +66,13 @@ module.exports = async function handler(req, res) {
   if (!Number.isInteger(requested) || requested < 1997 || requested > new Date().getFullYear()) {
     return res.status(400).json({ error: 'Choose a WNBA season from 1997 through the current season.' });
   }
+  const requestedTeam = String(req.query?.team || '').trim().toUpperCase();
+  if (requestedTeam && !/^(ATL|CHI|CON|DAL|GSV|IND|LVA|LAS|MIN|NYL|PHO|PHX|POR|SEA|TOR|WAS)$/.test(requestedTeam)) {
+    return res.status(400).json({ error: 'Choose a current WNBA team code.' });
+  }
+  const team = requestedTeam === 'PHX' ? 'PHO' : requestedTeam;
   try {
-    const payload = await load(requested);
+    const payload = await load(requested, team);
     res.setHeader('Cache-Control', payload.stale
       ? 'public, max-age=0, s-maxage=300'
       : 'public, max-age=0, s-maxage=1800, stale-while-revalidate=300');

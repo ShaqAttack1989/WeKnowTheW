@@ -113,6 +113,23 @@ test('does not mislabel a different season as current official playoff statistic
   }),50,2025),/does not include the requested season/);
 });
 
+test('requests boxscores only for the selected team to keep the dashboard feed small', async () => {
+  const requested=[];
+  const schedule={leagueSchedule:{seasonYear:'2026',gameDates:[{games:[
+    {gameId:'1042600301',gameLabel:'WNBA Finals',gameStatus:3,homeTeam:{teamTricode:'ATL'},awayTeam:{teamTricode:'GSV'}},
+    {gameId:'1042600203',gameLabel:'Semifinals',gameStatus:3,homeTeam:{teamTricode:'NYL'},awayTeam:{teamTricode:'ATL'}},
+    {gameId:'1042600213',gameLabel:'Semifinals',gameStatus:3,homeTeam:{teamTricode:'GSV'},awayTeam:{teamTricode:'LVA'}}
+  ]}]}};
+  const payload=await fetchPlayoffTotals(async url=>{
+    requested.push(url);
+    if(url.endsWith('scheduleLeagueV2_10.json'))return{ok:true,json:async()=>schedule};
+    return{ok:true,json:async()=>({game:{homeTeam:{teamTricode:'ATL',players:[]},awayTeam:{teamTricode:'GSV',players:[]}}})};
+  },50,2026,'atl');
+
+  assert.equal(payload.gamesIncluded,2);
+  assert.deepEqual(requested.slice(1).map(url=>url.match(/boxscore_(\d+)\.json$/)?.[1]),['1042600301','1042600203']);
+});
+
 function dashboardClient({ delayRegular = false } = {}) {
   const nodes = {}, fetchCalls = [], timers = [];
   const element = id => nodes[id] || (nodes[id] = {
@@ -168,6 +185,7 @@ test('team page switches between regular-season and playoff totals, sorts and se
   assert.match(client.nodes.tpdRows.innerHTML, /Loading player stats/);
   await client.settle();
   assert.match(client.fetchCalls[1], /team-playoff-player-totals\?season=2026/);
+  assert.match(client.fetchCalls[1], /team=ATL/);
   assert.ok(client.nodes.tpdRows.innerHTML.indexOf('Allisha Gray') < client.nodes.tpdRows.innerHTML.indexOf('Rhyne Howard'));
 
   client.nodes.tpdMode.value = 'totals';
@@ -189,5 +207,6 @@ test('changing the selected season while a feed is loading fetches the newly sel
   await client.settle();
   assert.equal(client.fetchCalls.length, 2);
   assert.match(client.fetchCalls[1], /team-playoff-player-totals\?season=2026/);
+  assert.match(client.fetchCalls[1], /team=ATL/);
   assert.match(client.nodes.tpdRows.innerHTML, /Allisha Gray/);
 });

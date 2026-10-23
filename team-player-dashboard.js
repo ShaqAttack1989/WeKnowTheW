@@ -147,7 +147,8 @@
         document.getElementById('tpdSummary').innerHTML='';
       }
       try{
-        const payload=await request(PERIODS[requestedPeriod].url,force);
+        const feedUrl=requestedPeriod==='playoffs'?`${PERIODS[requestedPeriod].url}&team=${encodeURIComponent(code)}`:PERIODS[requestedPeriod].url;
+        const payload=await request(feedUrl,force);
         if(!Array.isArray(payload.players))throw new Error('Incomplete statistics feed.');
         cache[requestedPeriod]=payload;
         if(period===requestedPeriod)render(payload);

@@ -150,6 +150,7 @@ body.section-page { background:#fffaf0; color:#17131f; }
 .schedule-score{grid-column:1/-1;justify-self:stretch;margin-top:8px;padding:7px 10px;border-radius:10px;background:#f0ebf3;color:#201729;font-size:1.25rem;text-align:center}
 .schedule-score.winner{background:#140a2f;color:#d8ff4f}
 .schedule-series-context{display:grid;grid-template-columns:1fr 1fr;gap:1px;border-top:1px solid #e7deec;background:#e7deec}
+.schedule-series-context.is-solo-series{grid-template-columns:1fr}
 .schedule-series-context>div{min-width:0;padding:12px 15px;background:#f8f4fb}
 .schedule-series-context>div>span{display:block;color:#6b2bd9;font-size:.62rem;font-weight:950;letter-spacing:.08em}
 .schedule-series-context>div>strong{display:block;margin-top:4px;color:#24152f;font-size:.92rem;line-height:1.2}

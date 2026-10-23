@@ -11,7 +11,7 @@
   const SEASON=2026;
   const PERIODS={
     regular:{label:'Regular season',url:`/api/team-player-totals?season=${SEASON}`,source:'Basketball-Reference',sourceUrl:`https://www.basketball-reference.com/wnba/years/${SEASON}_totals.html`},
-    playoffs:{label:'Playoffs',url:'/api/team-playoff-player-totals?season='+SEASON,source:'Basketball-Reference',sourceUrl:'https://www.basketball-reference.com/wnba/playoffs/'+SEASON+'_totals.html'}
+    playoffs:{label:'Playoffs',url:'/api/team-playoff-player-totals?season='+SEASON,source:'Official WNBA boxscores',sourceUrl:'https://www.wnba.com/stats/players/traditional'}
   };
   function dateLabel(value){
     const date=new Date(value);

@@ -45,7 +45,7 @@ test('sorts and filters the current team rows without changing the source array'
   assert.deepEqual(players.map(player => player.name), ['Player A', 'Player B']);
 });
 
-test('normalizes WNBA and Basketball-Reference playoff totals to the dashboard format', () => {
+test('normalizes provider player totals to the dashboard format', () => {
   assert.deepEqual(teamPlayerTotals({
     name: 'A’ja Wilson', team: 'LVA', games: 6, minutes: 219.9, pts: 165, trb: 56,
     ast: 8, stl: 8, blk: 9, tov: 11, fgm: 54, fga: 104, fg3m: 5, fg3a: 13,
@@ -65,29 +65,52 @@ test('normalizes WNBA and Basketball-Reference playoff totals to the dashboard f
   });
 });
 
-test('fetches the dedicated playoff totals table and rejects an access page', async () => {
-  let requested;
-  const stats = { g: 4, mp: 140, pts: 72, trb: 20, ast: 12, stl: 4, blk: 2, fg: 26, fga: 60, fg3: 12, fg3a: 30, ft: 8, fta: 10 };
-  const sourceRow = (name, team) => '<tr><th data-stat="player"><a>' + name + '</a></th>' +
-    '<td data-stat="team">' + team + '</td>' +
-    Object.entries(stats).map(([field, value]) => '<td data-stat="' + field + '">' + value + '</td>').join('') +
-    '</tr>';
-  const html = '<table id="totals_stats">' + sourceRow('Rhyne Howard', 'ATL') +
-    sourceRow('Combined row', '2TM') + sourceRow('Gabby Williams', 'GSV') + '</table>';
-  const payload = await fetchPlayoffTotals(async url => {
-    requested = url;
-    return { ok: true, text: async () => html };
-  }, 50, 2026);
+test('aggregates official completed playoff boxscores and skips regular-season and scheduled games', async () => {
+  const requested=[];
+  const schedule={leagueSchedule:{seasonYear:'2026',gameDates:[{games:[
+    {gameId:'1042600301',gameLabel:'WNBA Finals',gameStatus:3},
+    {gameId:'1042600302',gameLabel:'WNBA Finals',gameStatus:3},
+    {gameId:'1042600303',gameLabel:'WNBA Finals',gameStatus:1},
+    {gameId:'1042600199',gameLabel:'',gameStatus:3}
+  ]}]}};
+  const player=(name,personId,points,minutes='PT20M30.00S')=>({
+    name,personId,played:'1',statistics:{
+      minutes,points,reboundsTotal:4,assists:3,steals:2,blocks:1,turnovers:1,
+      fieldGoalsMade:4,fieldGoalsAttempted:8,threePointersMade:2,threePointersAttempted:4,
+      freeThrowsMade:2,freeThrowsAttempted:3,plusMinusPoints:5
+    }
+  });
+  const boxscores={
+    '1042600301':{game:{homeTeam:{teamTricode:'ATL',players:[player('Rhyne Howard',1631009,12),{...player('DNP Player',101,0,'PT00M00.00S'),played:'0'}]},awayTeam:{teamTricode:'GSV',players:[player('Player Valkyrie',202,9)]}}},
+    '1042600302':{game:{homeTeam:{teamTricode:'GSV',players:[player('Player Valkyrie',202,11)]},awayTeam:{teamTricode:'ATL',players:[player('Rhyne Howard',1631009,15),player('Allisha Gray',1628277,7)]}}}
+  };
+  const payload=await fetchPlayoffTotals(async url=>{
+    requested.push(url);
+    if(url.endsWith('scheduleLeagueV2_10.json'))return{ok:true,json:async()=>schedule};
+    const id=url.match(/boxscore_(\d+)\.json$/)?.[1];
+    return{ok:true,json:async()=>boxscores[id]};
+  },50,2026);
 
-  assert.equal(requested, 'https://www.basketball-reference.com/wnba/playoffs/2026_totals.html');
-  assert.equal(payload.seasonType, 'Playoffs');
-  assert.equal(payload.source, 'Basketball-Reference');
-  assert.deepEqual(payload.players.map(player => player.team), ['ATL', 'GSV']);
-  assert.equal(payload.players[0].pts, 72);
-  await assert.rejects(fetchPlayoffTotals(async () => ({
-    ok: true,
-    text: async () => '<html>Please contact the site owner for access.</html>'
-  }), 50, 2026), /playoff totals table/);
+  assert.equal(payload.seasonType,'Playoffs');
+  assert.equal(payload.source,'Official WNBA boxscores');
+  assert.equal(payload.gamesIncluded,2);
+  assert.deepEqual(requested.slice(1).map(url=>url.match(/boxscore_(\d+)\.json$/)?.[1]),['1042600301','1042600302']);
+  const rhy=payload.players.find(row=>row.name==='Rhyne Howard');
+  assert.equal(rhy.team,'ATL');
+  assert.equal(rhy.g,2);
+  assert.equal(rhy.mp,41);
+  assert.equal(rhy.pts,27);
+  assert.equal(rhy.fg,8);
+  assert.equal(rhy.fg3,4);
+  assert.equal(payload.players.find(row=>row.name==='Player Valkyrie').g,2);
+  assert.equal(payload.players.find(row=>row.name==='Allisha Gray').g,1);
+  assert.equal(payload.players.some(row=>row.name==='DNP Player'),false);
+});
+
+test('does not mislabel a different season as current official playoff statistics', async () => {
+  await assert.rejects(fetchPlayoffTotals(async()=>({
+    ok:true,json:async()=>({leagueSchedule:{seasonYear:'2026',gameDates:[]}})
+  }),50,2025),/does not include the requested season/);
 });
 
 function dashboardClient({ delayRegular = false } = {}) {

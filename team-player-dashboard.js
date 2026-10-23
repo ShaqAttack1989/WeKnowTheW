@@ -18,7 +18,7 @@
     return Number.isNaN(date.getTime())?'':new Intl.DateTimeFormat('en-US',{timeZone:'America/New_York',month:'short',day:'numeric',hour:'numeric',minute:'2-digit',timeZoneName:'short'}).format(date);
   }
   function request(url,refresh=false){
-    const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),16000);
+    const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),18000);
     return fetch(url,{headers:{Accept:'application/json'},cache:refresh?'no-store':'default',signal:controller.signal})
       .then(async response=>{const payload=await response.json().catch(()=>({}));if(!response.ok)throw new Error(payload.error||'Statistics are temporarily unavailable.');return payload;})
       .finally(()=>clearTimeout(timer));

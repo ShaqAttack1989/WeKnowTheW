@@ -37,7 +37,7 @@ async function load(season) {
   }
   if (inFlightBySeason.has(season)) return inFlightBySeason.get(season);
 
-  const pending = fetchPlayoffTotals(fetch, 6500, season).then(sourcePayload => {
+  const pending = fetchPlayoffTotals(fetch, 15000, season).then(sourcePayload => {
     const payload = {
       ...sourcePayload,
       seasonType: 'Playoffs',

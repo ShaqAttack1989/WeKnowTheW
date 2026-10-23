@@ -7,6 +7,9 @@
     '/snack-shak-love-and-basketball.json'
   ];
   const CURATED={
+    'indiana-fever':[
+      {date:'2026-10-23',category:'story',kind:'STORY',title:'The Fever’s Front-Office Reset: What Comes Next for Cox, White and Kelsey?',detail:'Kelly Krauskopf’s step-down is official. The Athletic reports the Fever will part ways with COO and GM Amber Cox, though the team has not confirmed that report. No successors have been named.',href:'/food-for-thought.html?post=the-fever-next-chapter-krauskopf-cox-white-mitchell-2026#story',priority:12000}
+    ],
     'atlanta-dream':[
       {date:'2026-09-25',category:'story',kind:'PLAYER OF THE WEEK',title:'Angel Reese',detail:'Named Eastern Conference Player of the Week for the third consecutive week after averaging 19.3 points, 9.0 rebounds, 3.0 assists, 1.3 steals and 1.5 blocks while Atlanta went 4-0 to close the regular season.',href:'https://dream.wnba.com/news/angel-reese-named-wnba-eastern-conference-player-of-the-week-for-third-consecutive-week',priority:13},
       {date:'2026-09-01',category:'story',kind:'WNBA RECORD',title:'Angel Reese',detail:'Reese set a new WNBA single-season record with her 29th double-double, adding to her single-game and single-season rebounding records.',href:'https://dream.wnba.com/news/angel-reese-named-wnba-eastern-conference-player-of-the-week-for-second-consecutive-week',priority:10},

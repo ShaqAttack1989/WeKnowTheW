@@ -334,10 +334,14 @@ if(!team){
   const playerpediaHref=`/playerpedia.html?team=${encodeURIComponent(team.name)}`;
   document.getElementById('teamPlayerpediaLink').href=playerpediaHref;document.getElementById('rosterPlayerpediaLink').href=playerpediaHref;document.getElementById('rosterPlayerpediaLink').textContent=`Open ${team.name} in Playerpedia →`;
   teamCompetitionPromise.then(()=>{
-    if(!hasFranchiseHub||guide.expansion||!window.WTeamPlayoffTeams?.includes(tNorm(team.name)))return;
+    const playoffBoardLink=document.querySelector('#relatedDashboardRoutes a[href="/playoff-player-rankings.html"]');
+    const madePlayoffs=hasFranchiseHub&&!guide.expansion&&window.WTeamPlayoffTeams?.includes(tNorm(team.name));
+    if(!madePlayoffs){playoffBoardLink?.remove();return;}
     const link=document.createElement('a');link.id='teamPlayoffRankingsLink';link.className='dream-heading-link';link.href='/playoff-player-rankings.html?team='+encodeURIComponent(team.name)+'#rankings';link.textContent='Playoff player rankings →';
     document.getElementById('rosterPlayerpediaLink').parentElement.appendChild(link);
-  }).catch(()=>{});
+  }).catch(()=>{
+    document.querySelector('#relatedDashboardRoutes a[href="/playoff-player-rankings.html"]')?.remove();
+  });
   if(hasFranchiseHub){activateFranchiseHub();loadTeamPage();}
   else{document.getElementById('genericTeamOverview').hidden=false;loadTeamPage();}
 }

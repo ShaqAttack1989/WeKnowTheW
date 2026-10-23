@@ -67,7 +67,7 @@ module.exports = async function handler(req, res) {
     return res.status(400).json({ error: 'Choose a WNBA season from 1997 through the current season.' });
   }
   const requestedTeam = String(req.query?.team || '').trim().toUpperCase();
-  if (requestedTeam && !/^(ATL|CHI|CON|DAL|GSV|IND|LVA|LAS|MIN|NYL|PHO|PHX|POR|SEA|TOR|WAS)$/.test(requestedTeam)) {
+  if (!/^(ATL|CHI|CON|DAL|GSV|IND|LVA|LAS|MIN|NYL|PHO|PHX|POR|SEA|TOR|WAS)$/.test(requestedTeam)) {
     return res.status(400).json({ error: 'Choose a current WNBA team code.' });
   }
   const team = requestedTeam === 'PHX' ? 'PHO' : requestedTeam;

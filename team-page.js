@@ -138,7 +138,9 @@ function activateFranchiseHub(){
 
 function teamPlayoffGameRank(game={}){
   const state=String(game.state||'').toLowerCase();
-  return game.completed||state==='post'||/final/i.test(String(game.status||''))?3:state==='in'?2:1;
+  const status=String(game.status||'').trim();
+  const finalStatus=/^(?:final(?:\\/.*)?|ft|aet|aot|match finished)$/i.test(status);
+  return game.completed===true||state==='post'||finalStatus?3:state==='in'?2:1;
 }
 function teamPlayoffInstant(game={}){
   const time=Date.parse(game.startTimeUtc||`${game.date||''}T23:59:59-04:00`);
@@ -214,11 +216,24 @@ function renderTeamSeason(payload={},competition={}){
   const playoffPast=playoffGames.filter(game=>teamPlayoffGameRank(game)===3).sort((a,b)=>teamPlayoffInstant(b)-teamPlayoffInstant(a));
   const upcoming=(playoffStarted?playoffUpcoming:gamesForTeam(Array.isArray(payload.upcomingGames)?payload.upcomingGames:[])).slice(0,3);
   const past=(playoffStarted?playoffPast:gamesForTeam(Array.isArray(payload.pastGames)?payload.pastGames:Array.isArray(payload.recentResults)?payload.recentResults:[])).slice(0,3);
+  const activeSeries=playoffStarted?teamPlayoffState(competition):null;
+  let playoffSeriesLabel='Series score unavailable';
+  if(activeSeries){
+    const {wins,losses,opponent}=activeSeries,total=wins+losses;
+    if(total===0)playoffSeriesLabel=activeSeries.games.some(game=>teamPlayoffGameRank(game)===3)?'Series score unavailable':'Tied 0-0';
+    else if(wins===losses)playoffSeriesLabel=`Tied ${wins}-${losses}`;
+    else{
+      const leader=wins>losses?team.name:opponent;
+      const leaderTag=(typeof teamByName==='function'?teamByName(leader)?.tag:null)||(tNorm(leader)===tNorm(team.name)?team.tag:leader);
+      playoffSeriesLabel=`${leaderTag} leads ${Math.max(wins,losses)}-${Math.min(wins,losses)}`;
+    }
+  }
+  const labelSeries=items=>items.map(game=>({...game,playoffSeriesLabel,seriesTargetWins:activeSeries?.target||undefined}));
   renderTeamPlayoffPulse(competition);
   const renderGames=()=>{
     if(!window.WGameCards)return;
-    document.getElementById('dreamUpcomingGames').innerHTML=WGameCards.render(upcoming,'upcoming',{limit:3,standings});
-    document.getElementById('dreamRecentGames').innerHTML=WGameCards.render(past,'past',{limit:3,standings});
+    document.getElementById('dreamUpcomingGames').innerHTML=WGameCards.render(labelSeries(upcoming),'upcoming',{limit:3,standings});
+    document.getElementById('dreamRecentGames').innerHTML=WGameCards.render(labelSeries(past),'past',{limit:3,standings});
   };
   renderGames();window.WGameCards?.loadArtwork().then(renderGames);
   const updated=payload.updatedAt?new Date(payload.updatedAt):null;

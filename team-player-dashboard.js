@@ -83,7 +83,16 @@
     const cache={regular:null,playoffs:null};
     let period='regular',loading=false,lastAttempt=0;
     title.textContent=`${club.name} player stats`;
-    intro.textContent=`Follow each ${club.name} player’s ${SEASON} regular-season and playoff production.`;
+    intro.textContent=`Follow each ${club.name} player’s ${SEASON} regular-season production.`;
+    playoffs.remove();
+    const normalizeTeam=name=>String(name||'').toLowerCase().replace(/[^a-z0-9]/g,'');
+    const configurePlayoffControl=names=>{
+      const eligible=Array.isArray(names)&&names.includes(normalizeTeam(club.name));
+      if(eligible){regular.insertAdjacentElement('afterend',playoffs);intro.textContent=`Follow each ${club.name} player’s ${SEASON} regular-season and playoff production.`;}
+      else playoffs.remove();
+    };
+    if(Array.isArray(window.WTeamPlayoffTeams))configurePlayoffControl(window.WTeamPlayoffTeams);
+    else if(window.WTeamCompetitionPromise)window.WTeamCompetitionPromise.then(()=>configurePlayoffControl(window.WTeamPlayoffTeams||[])).catch(()=>configurePlayoffControl([]));
     function setSource(payload=cache[period]){
       const fallback=PERIODS[period],sourceName=payload?.source||fallback.source,sourceUrl=payload?.sourceUrl||fallback.sourceUrl;
       document.getElementById('tpdSource').innerHTML='Statistics: <a href="'+safe(sourceUrl)+'" target="_blank" rel="noopener noreferrer">'+safe(sourceName)+'</a>';

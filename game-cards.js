@@ -57,7 +57,9 @@
     const venue=game.venue||(isFinal?'Completed game':'Venue to be announced');
     const details=[...(Array.isArray(game.broadcasts)?game.broadcasts.slice(0,2):[]),venue].filter(Boolean).join(' · ');
     const round=String(game.round||'First Round').toUpperCase(),seriesTarget=Number(game.seriesTargetWins)||(round.includes('FINAL')&&!round.includes('SEMI')?4:round.includes('SEMI')?3:2);
-    const seriesContext=playoff?`<div class="schedule-series-context"><div><span>REGULAR-SEASON HEAD-TO-HEAD</span><strong>${safe(game.regularSeasonSeries||'No games')}</strong><small>context only · does not carry over</small></div><div class="is-playoff-series"><span>PLAYOFF SERIES</span><strong>${safe(game.playoffSeriesLabel||'Series score unavailable')}</strong><small>first to ${seriesTarget} wins advances</small></div></div>`:'';
+    const regularSeasonSeries=String(game.regularSeasonSeries||'').trim(),hasRegularSeasonSeries=/\\d/.test(regularSeasonSeries);
+    const headToHead=hasRegularSeasonSeries?`<div><span>REGULAR-SEASON HEAD-TO-HEAD</span><strong>${safe(regularSeasonSeries)}</strong><small>context only · does not carry over</small></div>`:'';
+    const seriesContext=playoff?`<div class="schedule-series-context ${hasRegularSeasonSeries?'':'is-solo-series'}">${headToHead}<div class="is-playoff-series"><span>PLAYOFF SERIES</span><strong>${safe(game.playoffSeriesLabel||'Series score unavailable')}</strong><small>first to ${seriesTarget} wins advances</small></div></div>`:'';
     return `<article class="schedule-game-card ${isFinal?'is-final':isLive?'is-live':'is-upcoming'}" style="--away-color:${safe(away.primary)};--away-accent:${safe(away.secondary)};--home-color:${safe(home.primary)};--home-accent:${safe(home.secondary)}">
       <div class="schedule-game-top"><span>${playoff?`PLAYOFFS · ${safe(round)} · G${gameNo}`:(isFinal?'FINAL':isLive?'LIVE':'UPCOMING')}</span><time datetime="${safe(dateKey(game))}">${safe(shortDate(game))}</time><strong>${isFinal?'Final':isLive?status:safe(timeLabel(game))}</strong></div>
       <div class="schedule-matchup">

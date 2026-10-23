@@ -101,6 +101,7 @@ test('aggregates completed ESPN playoff boxscores and skips regular-season and s
   assert.equal(payload.gamesIncluded,2);
   assert.match(requested[0],/api\/competition\?season=2026/);
   assert.deepEqual(requested.filter(url=>url.includes('/scoreboard?')).map(url=>url.match(/dates=(\d+)/)?.[1]),['20261017','20261019']);
+  assert.ok(requested.filter(url=>url.includes('/scoreboard?')).every(url=>url.includes('seasontype=2')));
   assert.deepEqual(requested.filter(url=>url.includes('/summary?')).map(url=>url.match(/summary\?event=(\d+)$/)?.[1]),['401918305','401918306']);
   const rhy=payload.players.find(row=>row.name==='Rhyne Howard');
   assert.equal(rhy.team,'ATL');

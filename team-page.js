@@ -307,11 +307,11 @@ async function loadTeamPage(){
       const photo=rosterPhoto(player);const cutout=Boolean(player.officialHeadshot||player.photoCutout);
       return `<a class="team-roster-card" href="/playerpedia.html?search=${encodeURIComponent(player.name)}"><span class="team-roster-media"><span class="team-roster-number">${tSafe(player.number?`#${player.number}`:'W')}</span>${photo?`<img class="team-roster-photo${cutout?' player-cutout':''}" src="${tSafe(photo)}" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.remove()">`:''}</span><span><strong>${tSafe(player.name)}</strong><span>${tSafe(player.position||'Player')}</span></span></a>`;
     }).join(''):'<div class="team-error">Current roster details are temporarily unavailable. Playerpedia remains accessible.</div>';
-    renderTeamRosterUpdates(playersResult.value);
+    // The combined update desk is rendered by team-availability.js; keep roster loading separate.
   }else{
     rosterStatus.textContent='Current roster temporarily unavailable.';
     roster.innerHTML='<div class="team-error">The roster feed could not load right now. Try Playerpedia or return later.</div>';
-    document.getElementById('dreamTeamUpdates').innerHTML='<div class="team-error">The roster and availability feed is temporarily unavailable.</div>';
+    // The combined update desk handles its own partial-feed and error states.
   }
 }
 

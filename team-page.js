@@ -333,15 +333,25 @@ if(!team){
   document.getElementById('rosterHeading').textContent=`${team.name} roster`;
   const playerpediaHref=`/playerpedia.html?team=${encodeURIComponent(team.name)}`;
   document.getElementById('teamPlayerpediaLink').href=playerpediaHref;document.getElementById('rosterPlayerpediaLink').href=playerpediaHref;document.getElementById('rosterPlayerpediaLink').textContent=`Open ${team.name} in Playerpedia →`;
+  const hideRelatedPlayoffBoard=()=>{
+    const board=document.querySelector('#relatedDashboardRoutes a[href="/playoff-player-rankings.html"]');
+    if(!board)return false;
+    board.remove();return true;
+  };
+  const hideRelatedPlayoffBoardWhenAdded=()=>{
+    if(hideRelatedPlayoffBoard()||!document.body)return;
+    const observer=new MutationObserver(()=>{
+      if(hideRelatedPlayoffBoard())observer.disconnect();
+    });
+    observer.observe(document.body,{childList:true,subtree:true});
+    window.setTimeout(()=>observer.disconnect(),10000);
+  };
   teamCompetitionPromise.then(()=>{
-    const playoffBoardLink=document.querySelector('#relatedDashboardRoutes a[href="/playoff-player-rankings.html"]');
     const madePlayoffs=hasFranchiseHub&&!guide.expansion&&window.WTeamPlayoffTeams?.includes(tNorm(team.name));
-    if(!madePlayoffs){playoffBoardLink?.remove();return;}
+    if(!madePlayoffs){hideRelatedPlayoffBoardWhenAdded();return;}
     const link=document.createElement('a');link.id='teamPlayoffRankingsLink';link.className='dream-heading-link';link.href='/playoff-player-rankings.html?team='+encodeURIComponent(team.name)+'#rankings';link.textContent='Playoff player rankings →';
     document.getElementById('rosterPlayerpediaLink').parentElement.appendChild(link);
-  }).catch(()=>{
-    document.querySelector('#relatedDashboardRoutes a[href="/playoff-player-rankings.html"]')?.remove();
-  });
+  }).catch(hideRelatedPlayoffBoardWhenAdded);
   if(hasFranchiseHub){activateFranchiseHub();loadTeamPage();}
   else{document.getElementById('genericTeamOverview').hidden=false;loadTeamPage();}
 }

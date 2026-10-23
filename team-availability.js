@@ -35,6 +35,14 @@
     try{
       const result=await WTeamUpdates.loadTeamUpdates(teamName,slug);
       const updates=result.dashboard||[];
+      if(slug==='indiana-fever'&&!updates.some(item=>item.href?.includes('the-fever-next-chapter-krauskopf-cox-white-mitchell-2026'))){
+        updates.unshift({
+          date:'2026-10-23',category:'story',kind:'FOOD FOR THOUGHT',
+          title:'The Fever’s Front-Office Reset: What Comes Next for Cox, White and Kelsey?',
+          detail:'Kelly Krauskopf’s step-down is official. The Athletic reports Indiana plans to part ways with GM Amber Cox, though the Fever has not confirmed the report. No successors have been named.',
+          href:'/food-for-thought.html?post=the-fever-next-chapter-krauskopf-cox-white-mitchell-2026#story'
+        });
+      }
       root.innerHTML=updates.length?updates.map(card).join(''):`<div class="dream-wire-clear"><span aria-hidden="true">✓</span><div><strong>No current ${esc(teamName)} updates are loaded.</strong><p>Use the full report to review the 2026 season archive.</p></div></div>`;
       const oldSource=root.parentElement?.querySelector('.team-availability-source');
       if(oldSource)oldSource.remove();

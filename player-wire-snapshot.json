@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-23T13:27:00.299Z",
+  "generatedAt": "2026-10-23T18:21:43.914Z",
   "movement": {
     "latestTransactionDate": "2026-09-28",
     "transactions": [
@@ -1438,8 +1438,8 @@
   },
   "availability": {
     "latestReportDate": "2026-10-23",
-    "reportLabel": "10/23/2026 09:15 AM ET",
-    "officialPdf": "https://ak-static.cms.nba.com/referee/wnba_injury/Injury-Report_2026-10-23_09_15AM.pdf",
+    "reportLabel": "10/23/2026 02:15 PM ET",
+    "officialPdf": "https://ak-static.cms.nba.com/referee/wnba_injury/Injury-Report_2026-10-23_02_15PM.pdf",
     "injuries": [
       {
         "player": "Aliyah Boston",

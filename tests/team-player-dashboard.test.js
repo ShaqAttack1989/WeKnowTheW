@@ -5,6 +5,7 @@ const path = require('node:path');
 const vm = require('node:vm');
 const model = require('../team-player-dashboard-model');
 const { teamPlayerTotals } = require('../api/team-playoff-player-totals')._test;
+const { fetchPlayoffTotals } = require('../lib/team-player-totals');
 const root = path.resolve(__dirname, '..');
 
 test('resolves team names and official abbreviations to the same dashboard code', () => {
@@ -44,7 +45,7 @@ test('sorts and filters the current team rows without changing the source array'
   assert.deepEqual(players.map(player => player.name), ['Player A', 'Player B']);
 });
 
-test('normalizes the official WNBA playoff totals response to the dashboard format', () => {
+test('normalizes WNBA and Basketball-Reference playoff totals to the dashboard format', () => {
   assert.deepEqual(teamPlayerTotals({
     name: 'A’ja Wilson', team: 'LVA', games: 6, minutes: 219.9, pts: 165, trb: 56,
     ast: 8, stl: 8, blk: 9, tov: 11, fgm: 54, fga: 104, fg3m: 5, fg3a: 13,
@@ -54,6 +55,39 @@ test('normalizes the official WNBA playoff totals response to the dashboard form
     stl: 8, blk: 9, tov: 11, fg: 54, fga: 104, fg3: 5, fg3a: 13,
     ft: 52, fta: 63, plusMinus: 7
   });
+  assert.deepEqual(teamPlayerTotals({
+    name: 'Rhyne Howard', team: 'ATL', g: 4, mp: 140, pts: 72, trb: 20,
+    ast: 12, stl: 4, blk: 2, fg: 26, fga: 60, fg3: 12, fg3a: 30, ft: 8, fta: 10
+  }), {
+    name: 'Rhyne Howard', team: 'ATL', g: 4, mp: 140, pts: 72, trb: 20,
+    ast: 12, stl: 4, blk: 2, tov: undefined, fg: 26, fga: 60, fg3: 12,
+    fg3a: 30, ft: 8, fta: 10, plusMinus: undefined
+  });
+});
+
+test('fetches the dedicated playoff totals table and rejects an access page', async () => {
+  let requested;
+  const stats = { g: 4, mp: 140, pts: 72, trb: 20, ast: 12, stl: 4, blk: 2, fg: 26, fga: 60, fg3: 12, fg3a: 30, ft: 8, fta: 10 };
+  const sourceRow = (name, team) => '<tr><th data-stat="player"><a>' + name + '</a></th>' +
+    '<td data-stat="team">' + team + '</td>' +
+    Object.entries(stats).map(([field, value]) => '<td data-stat="' + field + '">' + value + '</td>').join('') +
+    '</tr>';
+  const html = '<table id="totals_stats">' + sourceRow('Rhyne Howard', 'ATL') +
+    sourceRow('Combined row', '2TM') + sourceRow('Gabby Williams', 'GSV') + '</table>';
+  const payload = await fetchPlayoffTotals(async url => {
+    requested = url;
+    return { ok: true, text: async () => html };
+  }, 50, 2026);
+
+  assert.equal(requested, 'https://www.basketball-reference.com/wnba/playoffs/2026_totals.html');
+  assert.equal(payload.seasonType, 'Playoffs');
+  assert.equal(payload.source, 'Basketball-Reference');
+  assert.deepEqual(payload.players.map(player => player.team), ['ATL', 'GSV']);
+  assert.equal(payload.players[0].pts, 72);
+  await assert.rejects(fetchPlayoffTotals(async () => ({
+    ok: true,
+    text: async () => '<html>Please contact the site owner for access.</html>'
+  }), 50, 2026), /playoff totals table/);
 });
 
 function dashboardClient({ delayRegular = false } = {}) {
@@ -107,6 +141,8 @@ test('team page switches between regular-season and playoff totals, sorts and se
   assert.match(client.nodes.tpdRows.innerHTML, /19\.0/);
 
   client.nodes.tpdPlayoffs.handlers.click();
+  assert.match(client.nodes.tpdStatus.textContent, /Loading playoffs player statistics/);
+  assert.match(client.nodes.tpdRows.innerHTML, /Loading player stats/);
   await client.settle();
   assert.match(client.fetchCalls[1], /team-playoff-player-totals\?season=2026/);
   assert.ok(client.nodes.tpdRows.innerHTML.indexOf('Allisha Gray') < client.nodes.tpdRows.innerHTML.indexOf('Rhyne Howard'));

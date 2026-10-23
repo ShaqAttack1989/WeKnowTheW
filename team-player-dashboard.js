@@ -11,7 +11,7 @@
   const SEASON=2026;
   const PERIODS={
     regular:{label:'Regular season',url:`/api/team-player-totals?season=${SEASON}`,source:'Basketball-Reference',sourceUrl:`https://www.basketball-reference.com/wnba/years/${SEASON}_totals.html`},
-    playoffs:{label:'Playoffs',url:`/api/team-playoff-player-totals?season=${SEASON}`,source:'Official WNBA statistics',sourceUrl:`https://stats.wnba.com/players/traditional/?Season=${SEASON}&SeasonType=Playoffs`}
+    playoffs:{label:'Playoffs',url:'/api/team-playoff-player-totals?season='+SEASON,source:'Basketball-Reference',sourceUrl:'https://www.basketball-reference.com/wnba/playoffs/'+SEASON+'_totals.html'}
   };
   function dateLabel(value){
     const date=new Date(value);
@@ -81,12 +81,12 @@
     const sortControl=document.getElementById('tpdSort');
     const searchControl=document.getElementById('tpdSearch');
     const cache={regular:null,playoffs:null};
-    let period='regular',loading=false,lastAttempt=0,lastSuccessful=false;
+    let period='regular',loading=false,lastAttempt=0;
     title.textContent=`${club.name} player stats`;
     intro.textContent=`Follow each ${club.name} player’s ${SEASON} regular-season and playoff production.`;
-    function setSource(){
-      const source=PERIODS[period];
-      document.getElementById('tpdSource').innerHTML=`Statistics: <a href="${source.sourceUrl}" target="_blank" rel="noopener noreferrer">${source.source}</a>`;
+    function setSource(payload=cache[period]){
+      const fallback=PERIODS[period],sourceName=payload?.source||fallback.source,sourceUrl=payload?.sourceUrl||fallback.sourceUrl;
+      document.getElementById('tpdSource').innerHTML='Statistics: <a href="'+safe(sourceUrl)+'" target="_blank" rel="noopener noreferrer">'+safe(sourceName)+'</a>';
     }
     function setHeadings(){
       const mode=modeControl.value;
@@ -113,12 +113,11 @@
       section.classList.toggle('is-empty',built.players.length===0||ordered.length===0);
       empty.hidden=built.players.length>0&&ordered.length>0;
       setHeadings();
-      setSource();
+      setSource(payload);
       document.getElementById('tpdUpdated').textContent=stale?'Last confirmed feed shown.':'Refreshes automatically every 30 minutes.';
       if(!built.players.length){
         showMessage(period==='playoffs'?`No ${SEASON} playoff statistics for the ${club.name} yet.`:`No ${SEASON} regular-season statistics for the ${club.name} are available.`,'Players and team totals update from the selected season feed.');
         status.textContent=`${PERIODS[period].label} · no player lines returned${checked?` · checked ${checked}`:''}${stale?' · showing the last saved feed while refresh is unavailable':''}`;
-        lastSuccessful=true;
         return;
       }
       if(!ordered.length){
@@ -130,7 +129,6 @@
       cardsHost.innerHTML=cards(ordered,modeControl.value);
       document.getElementById('tpdSummary').innerHTML=summary(ordered,modeControl.value);
       status.textContent=`Showing ${ordered.length} of ${built.players.length} players · ${PERIODS[period].label}${checked?` · checked ${checked}`:''}${stale?' · showing the last saved feed while refresh is unavailable':''}`;
-      lastSuccessful=true;
     }
     async function load(force=false){
       if(loading)return;
@@ -140,7 +138,14 @@
       if(cache[requestedPeriod]&&!force){render(cache[requestedPeriod]);return;}
       const hadCurrentCache=Boolean(cache[requestedPeriod]);
       loading=true;lastAttempt=Date.now();refresh.disabled=true;section.setAttribute('aria-busy','true');
-      status.textContent=lastSuccessful?'Refreshing player statistics…':`Loading ${PERIODS[requestedPeriod].label.toLowerCase()} player statistics…`;
+      status.textContent=hadCurrentCache?'Refreshing '+PERIODS[requestedPeriod].label.toLowerCase()+' player statistics…':'Loading '+PERIODS[requestedPeriod].label.toLowerCase()+' player statistics…';
+      if(!hadCurrentCache){
+        section.classList.toggle('is-empty',false);
+        empty.hidden=true;
+        rows.innerHTML='<tr><td colspan="11">Loading player stats…</td></tr>';
+        cardsHost.innerHTML='';
+        document.getElementById('tpdSummary').innerHTML='';
+      }
       try{
         const payload=await request(PERIODS[requestedPeriod].url,force);
         if(!Array.isArray(payload.players))throw new Error('Incomplete statistics feed.');
@@ -160,7 +165,15 @@
     function setPeriod(next){
       if(next===period)return;
       period=next;regular.setAttribute('aria-pressed',String(period==='regular'));playoffs.setAttribute('aria-pressed',String(period==='playoffs'));
-      setHeadings();setSource();
+      setHeadings();setSource(cache[period]);
+      if(!cache[period]){
+        status.textContent='Loading '+PERIODS[period].label.toLowerCase()+' player statistics…';
+        section.classList.toggle('is-empty',false);
+        empty.hidden=true;
+        rows.innerHTML='<tr><td colspan="11">Loading player stats…</td></tr>';
+        cardsHost.innerHTML='';
+        document.getElementById('tpdSummary').innerHTML='';
+      }
       load();
     }
     regular.addEventListener('click',()=>setPeriod('regular'));

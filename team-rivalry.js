@@ -17,19 +17,19 @@
 
   function addCss(href,key){if(document.querySelector(`link[data-${key}]`))return;const link=document.createElement('link');link.rel='stylesheet';link.href=href;link.dataset[key]='true';document.head.appendChild(link);}
   addCss('/rivalry.css?v=20260823-v8','rivalryCss');
-  addCss(`/team-dna.css?v=20260823-v7&cb=${Date.now()}`,'teamDnaCss');
+  addCss('/team-dna.css?v=20260823-v7','teamDnaCss');
 
   function addDnaNav(){
     const nav=document.querySelector('#teamLocalNav .team-local-nav-inner');if(!nav)return null;
     let link=nav.querySelector('a[href="#team-dna"],[data-team-dna-link]');
-    if(!link){link=document.createElement('a');link.href='#team-dna';link.textContent='Team DNA';link.dataset.teamDnaLink='true';const now=nav.querySelector('a[href="#whats-happening"]');now?now.insertAdjacentElement('afterend',link):nav.prepend(link);}
+    if(!link){link=document.createElement('a');link.href='#team-dna';link.textContent='Team DNA';link.dataset.teamDnaLink='true';const dashboard=nav.querySelector('a[href="#team-player-dashboard"]')||nav.querySelector('a[href="#team-stat-leaders"]')||nav.querySelector('a[href="#whats-happening"]');dashboard?dashboard.insertAdjacentElement('afterend',link):nav.prepend(link);}
     link.href='#team-dna';link.dataset.teamDnaLink='true';return link;
   }
 
   function ensureDnaSection(){
     const live=document.getElementById('whats-happening');if(!live)return null;
     let section=document.getElementById('team-dna')||document.getElementById('team-dna-bootstrap');
-    if(!section){section=document.createElement('section');live.insertAdjacentElement('afterend',section);}
+    if(!section){section=document.createElement('section');const dashboard=document.getElementById('team-player-dashboard')||document.getElementById('team-stat-leaders');(dashboard||live).insertAdjacentElement('afterend',section);}
     section.id='team-dna';section.className='team-content team-dna-section';
     section.innerHTML='<div class="team-section-heading dream-heading-row"><div><p class="kicker">THE TEAM DNA</p><h2>How they win, where they hurt you, and where they’re vulnerable.</h2><p>Possession-based ratings, efficiency, style and situational context for the 2026 season.</p></div><p class="dna-feed-status" id="teamDnaStatus"><span aria-hidden="true"></span> Building the profile…</p></div><div id="teamDnaBody"><div class="dna-loading">Reading the numbers behind the record…</div></div>';
     addDnaNav();return section;
@@ -71,12 +71,25 @@
     if(!currentTeam||teamSlug==='cleveland-sirens'||!dnaSection)return;
     try{
       const [dnaResult,statsResult]=await Promise.allSettled([
-        fetch(`/api/team-dna?season=2026&direct=1&v=20260823-v8&cb=${Date.now()}`,{headers:{Accept:'application/json','Cache-Control':'no-cache'},cache:'no-store'}).then(async r=>{const data=await r.json().catch(()=>({}));if(!r.ok)throw new Error(data.error||data.detail||`Team DNA API returned ${r.status}`);return data;}),
-        fetch(`/api/stats?season=2026&teamDna=1&cb=${Date.now()}`,{headers:{Accept:'application/json','Cache-Control':'no-cache'},cache:'no-store'}).then(async r=>{const data=await r.json().catch(()=>({}));if(!r.ok)throw new Error(data.error||`Standings API returned ${r.status}`);return data;})
+        fetch('/api/team-dna?season=2026',{headers:{Accept:'application/json'}}).then(async r=>{const data=await r.json().catch(()=>({}));if(!r.ok)throw new Error(data.error||data.detail||`Team DNA API returned ${r.status}`);return data;}),
+        fetch('/api/stats?season=2026&teamDna=1',{headers:{Accept:'application/json'}}).then(async r=>{const data=await r.json().catch(()=>({}));if(!r.ok)throw new Error(data.error||`Standings API returned ${r.status}`);return data;})
       ]);
-      if(dnaResult.status!=='fulfilled')throw dnaResult.reason;
-      const dna=dnaResult.value,row=(dna.teams||[]).find(item=>norm(item.name)===norm(currentTeam.name));if(!row)throw new Error(`No Team DNA row matched ${currentTeam.name}.`);
-      const standings=statsResult.status==='fulfilled'?(statsResult.value.standings||[]):[],standing=standings.find(item=>norm(item.team?.full_name)===norm(currentTeam.name))||null;renderDna(row,standing,dna);
+      const standings=statsResult.status==='fulfilled'?(statsResult.value.standings||[]):[];
+      if(dnaResult.status==='fulfilled'){
+        const dna=dnaResult.value,row=(dna.teams||[]).find(item=>norm(item.name)===norm(currentTeam.name));if(!row)throw new Error(`No Team DNA row matched ${currentTeam.name}.`);
+        const standing=standings.find(item=>norm(item.team?.full_name)===norm(currentTeam.name))||null;renderDna(row,standing,dna);
+        try{localStorage.setItem('wk-team-dna-2026',JSON.stringify({dna,standings,savedAt:dna.updatedAt||new Date().toISOString()}));}catch{}
+        return;
+      }
+      let saved=null;try{saved=JSON.parse(localStorage.getItem('wk-team-dna-2026')||'null');}catch{}
+      const cachedRow=(saved?.dna?.teams||[]).find(item=>norm(item.name)===norm(currentTeam.name));
+      if(cachedRow){
+        const standing=(saved.standings||[]).find(item=>norm(item.team?.full_name)===norm(currentTeam.name))||null;renderDna(cachedRow,standing,saved.dna);
+        const checked=saved.savedAt?new Intl.DateTimeFormat('en-US',{timeZone:'America/New_York',month:'short',day:'numeric',hour:'numeric',minute:'2-digit',timeZoneName:'short'}).format(new Date(saved.savedAt)):'previously';
+        document.getElementById('teamDnaStatus').textContent=`Showing saved profile · last updated ${checked}`;
+        return;
+      }
+      throw dnaResult.reason||new Error('Team DNA feed is temporarily unavailable.');
     }catch(error){document.getElementById('teamDnaBody').innerHTML=`<div class="dna-empty"><strong>Team DNA is attached, but the stat feed could not finish.</strong><p>${esc(error?.message||'The analytics source is reconnecting.')}</p></div>`;document.getElementById('teamDnaStatus').textContent='Analytics feed temporarily unavailable';}
   }
   loadDna();

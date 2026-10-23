@@ -56,13 +56,13 @@ const TEAM_GUIDES = {
     official:'https://www.wnba.com/team/1611661331/golden-state-valkyries'
   },
   'indiana-fever': {
-    established:'2000', arena:'Gainbridge Fieldhouse', owner:'Herbert Simon', gm:'Amber Cox', coach:'Stephanie White',
+    established:'2000', arena:'Gainbridge Fieldhouse', owner:'Herbert Simon', gm:'Amber Cox · exit report pending', coach:'Stephanie White',
     intro:'Indianapolis · championship history, a new generation and one of the league’s loudest home courts.',
     history:[['2000','The Fever arrive','Indiana joined the WNBA and built its identity in Indianapolis.'],['2002–16','The Catchings era','Tamika Catchings became the defining player in franchise history and one of the greatest two-way players ever.'],['2012','WNBA champions','Indiana defeated Minnesota to win its first championship.'],['2025','Commissioner’s Cup champions','The Fever added their first Commissioner’s Cup title.']],
     honors:[['1','WNBA championship','The 2012 title remains the franchise’s crowning achievement.'],['2025','Commissioner’s Cup','Indiana won the in-season championship.'],['2011','League MVP','Tamika Catchings earned MVP.'],['5×','Defensive Player of the Year','Catchings set the standard for Fever defense.']],
     uniforms:[['original','Navy and red','Indiana’s foundational palette links the Fever to the state’s professional basketball family.'],['city','Gold racing accents','Gold and speed-inspired details nod to Indianapolis racing culture.'],['rebel','Pinstripes and pace','Modern alternates combine basketball tradition with a faster new era.']],
     retired:{value:'1',title:'No. 24 Tamika Catchings',text:'The Fever retired the franchise legend’s number in 2017.'},
-    people:[['OWNER','Herbert Simon','The longtime owner of the Fever and Pacers.'],['GENERAL MANAGER','Amber Cox','Leads Indiana basketball operations.'],['HEAD COACH','Stephanie White','A former Fever player and championship assistant who returned as head coach.'],['HOME COURT','Gainbridge Fieldhouse','The center of Indiana’s basketball culture.']],
+    people:[['OWNER','Herbert Simon','The longtime owner of the Fever and Pacers.'],['GENERAL MANAGER','Amber Cox · exit reported','The Athletic reports Indiana plans to part ways with its COO and GM. The Fever has not confirmed the report; no successor has been announced.'],['HEAD COACH','Stephanie White','A former Fever player and championship assistant who returned as head coach.'],['HOME COURT','Gainbridge Fieldhouse','The center of Indiana’s basketball culture.']],
     official:'https://www.wnba.com/team/1611661325/indiana-fever'
   },
   'las-vegas-aces': {

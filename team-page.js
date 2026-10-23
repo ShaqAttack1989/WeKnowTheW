@@ -47,6 +47,10 @@ const slug=params.get('team')||'';
 const team=teamBySlug(slug);
 const guide=typeof teamGuideBySlug==='function'?teamGuideBySlug(slug):null;
 const hasFranchiseHub=Boolean(team&&guide);
+function playoffTeamNames(payload={}){return [...new Set((payload.playoffs?.games||[]).flatMap(game=>[game.homeTeam,game.awayTeam]).filter(Boolean).map(tNorm))];}
+const teamCompetitionPromise=fetch('/api/competition?season=2026&cb='+Date.now(),{headers:{Accept:'application/json','Cache-Control':'no-cache'},cache:'no-store'}).then(async response=>{const payload=await response.json().catch(()=>({}));if(!response.ok)throw new Error(payload.error||'Playoff feed unavailable');return payload;}).then(payload=>{window.WTeamPlayoffTeams=playoffTeamNames(payload);return payload;});
+window.WTeamCompetitionPromise=teamCompetitionPromise;
+teamCompetitionPromise.catch(()=>{window.WTeamPlayoffTeams=[];});
 
 function applyHeaderBackdrop(){
   const backdrop=document.getElementById('teamHeaderBackdrop');
@@ -286,7 +290,7 @@ async function loadTeamPage(){
     fetch('/api/stats?season=2026',{headers:{Accept:'application/json'}}).then(async response=>{const payload=await response.json().catch(()=>({}));if(!response.ok)throw new Error(payload.error||'Stats unavailable');return payload;}),
     rosterRequest,
     fetch('/api/teams?currentLogos=20260925',{headers:{Accept:'application/json'}}).then(async response=>{const payload=await response.json().catch(()=>({}));if(!response.ok)throw new Error(payload.error||'Team artwork unavailable');return payload;}),
-    fetch(`/api/competition?season=2026&cb=${Date.now()}`,{headers:{Accept:'application/json','Cache-Control':'no-cache'},cache:'no-store'}).then(async response=>{const payload=await response.json().catch(()=>({}));if(!response.ok)throw new Error(payload.error||'Playoff feed unavailable');return payload;})
+    teamCompetitionPromise
   ]);
   if(teamsResult.status==='fulfilled'){
     const assets=Array.isArray(teamsResult.value.teams)?teamsResult.value.teams:[];
@@ -329,11 +333,11 @@ if(!team){
   document.getElementById('rosterHeading').textContent=`${team.name} roster`;
   const playerpediaHref=`/playerpedia.html?team=${encodeURIComponent(team.name)}`;
   document.getElementById('teamPlayerpediaLink').href=playerpediaHref;document.getElementById('rosterPlayerpediaLink').href=playerpediaHref;document.getElementById('rosterPlayerpediaLink').textContent=`Open ${team.name} in Playerpedia →`;
-  const playoffClubs = ['Minnesota Lynx','Golden State Valkyries','Las Vegas Aces','Atlanta Dream','Indiana Fever','New York Liberty','Washington Mystics','Dallas Wings'];
-  if(playoffClubs.includes(team.name)){
-    const link=document.createElement('a');link.className='dream-heading-link';link.href=`/playoff-player-rankings.html?team=${encodeURIComponent(team.name)}#rankings`;link.textContent='Playoff player rankings →';
+  teamCompetitionPromise.then(()=>{
+    if(!hasFranchiseHub||guide.expansion||!window.WTeamPlayoffTeams?.includes(tNorm(team.name)))return;
+    const link=document.createElement('a');link.id='teamPlayoffRankingsLink';link.className='dream-heading-link';link.href='/playoff-player-rankings.html?team='+encodeURIComponent(team.name)+'#rankings';link.textContent='Playoff player rankings →';
     document.getElementById('rosterPlayerpediaLink').parentElement.appendChild(link);
-  }
+  }).catch(()=>{});
   if(hasFranchiseHub){activateFranchiseHub();loadTeamPage();}
   else{document.getElementById('genericTeamOverview').hidden=false;loadTeamPage();}
 }

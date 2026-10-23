@@ -139,7 +139,7 @@ function activateFranchiseHub(){
 function teamPlayoffGameRank(game={}){
   const state=String(game.state||'').toLowerCase();
   const status=String(game.status||'').trim();
-  const finalStatus=/^(?:final(?:\\/.*)?|ft|aet|aot|match finished)$/i.test(status);
+  const finalStatus=/^(?:final(?:\/.*)?|ft|aet|aot|match finished)$/i.test(status);
   return game.completed===true||state==='post'||finalStatus?3:state==='in'?2:1;
 }
 function teamPlayoffInstant(game={}){

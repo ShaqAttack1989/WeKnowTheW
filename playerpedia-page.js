@@ -83,12 +83,13 @@ function playerMatchesTeam(player={},selected=''){
   const selectedKey=playerKey(selectedTeam?.name||selected);
   return [player.teamId,player.team,player.lastTeam].some(value=>playerKey(value)===selectedKey);
 }
-function filtered(){const q=normalizeText(playerSearch.value),qKey=playerKey(playerSearch.value),team=playerTeamFilter.value;return allPlayers.filter(p=>{const aliases=Array.isArray(p.aliases)?p.aliases.join(' '):'';const haystack=`${p.name} ${p.displayName||''} ${aliases} ${p.team} ${p.position}`;return (!letter||playerSurname(p).toUpperCase().startsWith(letter))&&playerMatchesTeam(p,team)&&(!q||normalizeText(haystack).includes(q)||playerKey(haystack).includes(qKey));});}
+function allWnbaSelection(playerName=''){const key=playerKey(playerName),selections=window.WKTW_SELECTION_TEAMS_2026?.allWnba||{};for(const [group,label] of [['first','First Team'],['second','Second Team']]){const found=(selections[group]||[]).find(player=>playerKey(player.name)===key);if(found)return {label,team:found.team};}return null;}
+function filtered(){const q=normalizeText(playerSearch.value),qKey=playerKey(playerSearch.value),team=playerTeamFilter.value;return allPlayers.filter(p=>{const aliases=Array.isArray(p.aliases)?p.aliases.join(' '):'',selection=allWnbaSelection(p.name);const haystack=`${p.name} ${p.displayName||''} ${aliases} ${p.team} ${p.position} ${selection?`2026 All-WNBA ${selection.label}`:''}`;return (!letter||playerSurname(p).toUpperCase().startsWith(letter))&&playerMatchesTeam(p,team)&&(!q||normalizeText(haystack).includes(q)||playerKey(haystack).includes(qKey));});}
 
 function render(){
   const list=filtered();
   playerCount.textContent=`${list.length} ${list.length===1?'player':'players'} shown`;
-  playerGrid.innerHTML=list.length?list.map(p=>`<button class="player-card" type="button" data-player-id="${pSafe(p.id)}">${avatarMarkup(p)}<span class="player-card-copy"><span class="player-card-topline">${pSafe(p.position||'Player')}${p.number?` · #${pSafe(p.number)}`:''}</span><strong>${pSafe(p.name)}</strong><span>${pSafe(p.team||(p.historicalPlayerpedia?'WNBA History':'Current roster'))}</span></span><span class="player-card-arrow">→</span></button>`).join(''):'<div class="player-empty"><strong>No players match those filters.</strong><span>Try another letter, team or search.</span></div>';
+  playerGrid.innerHTML=list.length?list.map(p=>{const selection=allWnbaSelection(p.name);return `<button class="player-card" type="button" data-player-id="${pSafe(p.id)}">${avatarMarkup(p)}<span class="player-card-copy"><span class="player-card-topline">${pSafe(p.position||'Player')}${p.number?` · #${pSafe(p.number)}`:''}</span><strong>${pSafe(p.name)}</strong>${selection?`<span class="player-card-award-badge">2026 All-WNBA ${pSafe(selection.label)}</span>`:''}<span>${pSafe(p.team||(p.historicalPlayerpedia?'WNBA History':'Current roster'))}</span></span><span class="player-card-arrow">→</span></button>`;}).join(''):'<div class="player-empty"><strong>No players match those filters.</strong><span>Try another letter, team or search.</span></div>';
 }
 
 function fillTeams(){playerTeamFilter.innerHTML=['<option value="">All current teams</option>',...teams.map(t=>`<option value="${pSafe(t.id)}">${pSafe(t.name)}</option>`)].join('');}
@@ -258,7 +259,7 @@ async function openProfile(id){
   if(roster?.photo&&!p.photo)p.photo=roster.photo;
   if(roster?.photoThumb&&!p.photoThumb)p.photoThumb=roster.photoThumb;
   const name=p.name||roster?.name||'Player';
-  const honors=(payload.honours||[]).map(itemText).filter(Boolean).slice(0,12);
+  const selection=allWnbaSelection(name);const honors=[...new Set([...(selection?[`2026 All-WNBA ${selection.label}`]:[]),...(payload.honours||[]).map(itemText).filter(Boolean)])].slice(0,12);
   const liveNote=roster?.liveNote?`<section class="profile-subsection live-profile-note"><h4>Current roster note</h4><p>${pSafe(roster.liveNote)}</p></section>`:'';
   const fact=amazingFact(payload,p,name,honors);
   const detailsNote=detailUnavailable?'<p class="profile-data-note">Some biographical details are still loading; current roster and season information remain available.</p>':'';
@@ -270,7 +271,7 @@ async function openProfile(id){
   const currentMetrics=p.historicalPlayerpedia?'':metricsMarkup(name);
   const careerMetrics=careerMetricsMarkup(p);
 
-  modalBody.innerHTML=`<div class="profile-hero">${avatarMarkup({...p,name},true)}<div><p class="kicker">PLAYERPEDIA</p><h3 id="playerModalTitle">${pSafe(name)}</h3><p class="profile-teamline">${pSafe([p.team||roster?.team,p.position||roster?.position].filter(Boolean).join(' · '))}</p></div></div><div class="profile-facts">${facts(p)}</div>${careerMetrics}${liveNote}${p.description?`<section class="profile-subsection"><h4>Quick bio</h4><p>${pSafe(p.description)}</p></section>`:''}${honors.length?`<section class="profile-subsection"><h4>Honors & awards</h4><div class="profile-tags">${honors.map(h=>`<span>${pSafe(h)}</span>`).join('')}</div></section>`:''}<section class="why-we-know-her"><span>WHY WE KNOW HER</span><strong>${pSafe(name)} · the numbers + the story.</strong>${currentMetrics}<div class="amazing-fact"><span>AMAZING FACT</span><p>${pSafe(fact)}</p></div>${statNote}</section>${detailsNote}`;
+  modalBody.innerHTML=`<div class="profile-hero">${avatarMarkup({...p,name},true)}<div><p class="kicker">PLAYERPEDIA</p><h3 id="playerModalTitle">${pSafe(name)}</h3><p class="profile-teamline">${pSafe([p.team||roster?.team,p.position||roster?.position].filter(Boolean).join(' · '))}</p></div></div><div class="profile-facts">${facts(p)}</div>${careerMetrics}${liveNote}${p.description?`<section class="profile-subsection"><h4>Quick bio</h4><p>${pSafe(p.description)}</p></section>`:''}${honors.length?`<section class="profile-subsection"><h4>Honors & awards</h4><div class="profile-tags">${honors.map(h=>`<span>${pSafe(h)}</span>`).join('')}</div>${selection?`<a class="profile-award-link" href="/all-wnba.html">View the 2026 All-WNBA teams →</a>`:''}</section>`:''}<section class="why-we-know-her"><span>WHY WE KNOW HER</span><strong>${pSafe(name)} · the numbers + the story.</strong>${currentMetrics}<div class="amazing-fact"><span>AMAZING FACT</span><p>${pSafe(fact)}</p></div>${statNote}</section>${detailsNote}`;
 }
 
 playerGrid.addEventListener('click',e=>{const card=e.target.closest('[data-player-id]');if(card)openProfile(card.dataset.playerId);});

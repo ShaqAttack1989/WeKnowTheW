@@ -1,5 +1,6 @@
 window.TROPHY_DATA = (() => {
   const headshot = id => `https://cdn.wnba.com/headshots/wnba/latest/1040x760/${id}.png`;
+  const selections = window.WKTW_SELECTION_TEAMS_2026 || {};
 
   const champions = [
     ['2025','Las Vegas Aces','Phoenix Mercury','3 to 1',"A'ja Wilson"],
@@ -145,28 +146,29 @@ window.TROPHY_DATA = (() => {
     },
     allWnba:{
       slug:'all-wnba.html',eyebrow:'ALL WNBA TEAMS',title:'The season’s top ten',short:'All WNBA',
-      description:'First and Second Team selections recognize the strongest complete regular season performances. Since 2022, voting has been positionless.',
-      current:{year:'2025',name:'First and Second Teams',team:'Ten players recognized',photos:[headshot('1628932'),headshot('1629483'),headshot('203826'),headshot('1628277'),headshot('1628909')],stat:'Positionless voting',note:'A’ja Wilson and Napheesa Collier were unanimous First Team selections.'},
-      teams:{first:["A'ja Wilson",'Napheesa Collier','Alyssa Thomas','Allisha Gray','Kelsey Mitchell'],second:['Nneka Ogwumike','Jackie Young','Sabrina Ionescu','Aliyah Boston','Paige Bueckers']},
+      description:'First and Second Team selections recognize the strongest complete regular-season performances. Since 2022, voting has been positionless.',
+      current:{year:'2026',name:'First and Second Teams',team:'Ten players recognized',photos:(selections.allWnba?.first||[]).slice(0,5).map(player=>headshot(player.id)),stat:'Same five as the MVP top five',note:'The First Team contains the five players who finished first through fifth in MVP voting.'},
+      teams:{first:(selections.allWnba?.first||[]).map(player=>player.name),second:(selections.allWnba?.second||[]).map(player=>player.name)},
       records:[['13','Diana Taurasi','All WNBA selections'],['12','Tamika Catchings','All WNBA selections'],['2022','Positionless era begins','Five best players per team']],
-      source:'https://www.wnba.com/history-all-wnba',currentSource:'https://www.wnba.com/news/2025-all-wnba-teams'
+      source:'https://www.wnba.com/history-all-wnba',currentSource:'https://uk.sports.yahoo.com/news/wnba-teams-announced-caitlin-clark-164604084.html',currentSourceLabel:'2026 team announcement · AP/Yahoo Sports'
     },
     allDefense:{
       slug:'all-defensive.html',eyebrow:'ALL DEFENSIVE TEAMS',title:'Ten defenders, every kind of disruption',short:'All Defensive',
       description:'First and Second Team honors recognize the guards, wings, forwards and centers who shape the league’s best defensive possessions.',
-      current:{year:'2025',name:'First and Second Teams',team:'Ten players recognized',photos:[headshot('1629483'),headshot('1629501'),headshot('203826'),headshot('1628931'),headshot('1628932')],stat:'First Team pictured',note:'The 2025 First Team paired the co DPOY winners with three versatile defensive stars.'},
-      teams:{first:['Napheesa Collier','Alanna Smith','Alyssa Thomas','Gabby Williams',"A'ja Wilson"],second:['Aliyah Boston','Veronica Burton','Rhyne Howard','Ezi Magbegor','Breanna Stewart']},
+      current:{year:'2026',name:'First and Second Teams',team:'Ten players recognized',photos:(selections.allDefense?.first||[]).slice(0,5).map(player=>headshot(player.id)),stat:'2026 All-Defensive Teams',note:'Three All-WNBA Second Team players also made the All-Defensive First Team.'},
+      teams:{first:(selections.allDefense?.first||[]).map(player=>player.name),second:(selections.allDefense?.second||[]).map(player=>player.name)},
       records:[['12','Tamika Catchings','All Defensive selections'],['11','Sylvia Fowles','All Defensive selections'],['2005','Teams introduced','First and Second Team recognition']],
-      source:'https://www.wnba.com/all-defensive-teams',currentSource:'https://valkyries.wnba.com/news/veronica-burton-selected-to-all-defensive-team-202510108'
+      source:'https://www.wnba.com/all-defensive-teams',currentSources:[{url:'https://www.wnba.com/watch/video/2026-wnba-all-defensive-first-team',label:'2026 First Team · WNBA'},{url:'https://www.wnba.com/watch/video/2026-wnba-all-defensive-second-team?collection=must-watch-videos',label:'2026 Second Team · WNBA'}],currentSource:'https://www.wnba.com/watch/video/2026-wnba-all-defensive-first-team',currentSourceLabel:'2026 team announcement · WNBA'
     },
     allRookie:{
-      slug:'all-rookie.html',eyebrow:'ALL ROOKIE TEAM',title:'Five names enter the record book',short:'All Rookie',
-      description:'The annual team recognizes five first year players whose opening seasons established immediate league impact.',
-      current:{year:'2025',name:'The 2025 class',team:'Five rookies recognized',photos:[headshot('1642784'),headshot('1642785'),headshot('1642792'),headshot('1642767'),headshot('1642798')],stat:'Two international firsts',note:'Janelle Salaün and Dominique Malonga became the first French born players selected.'},
-      teams:{first:['Paige Bueckers','Sonia Citron','Kiki Iriafen','Janelle Salaün','Dominique Malonga']},
-      records:[['2005','Team introduced','Five player annual team'],['2025','France makes history','Salaün and Malonga selected'],['5','Players each season','No First or Second Team split']],
-      source:'https://www.wnba.com/history-all-rookie-teams',currentSource:'https://valkyries.wnba.com/news/janelle-salaun-named-to-wnba-all-rookie-team-20250929'
+      slug:'all-rookie.html',eyebrow:'ALL ROOKIE TEAM',title:'Six names enter the record book',short:'All Rookie',
+      description:'The annual team recognizes the rookies whose first seasons made an immediate league impact. Six players were selected in 2026.',
+      current:{year:'2026',name:'The 2026 class',team:'Six rookies recognized',photos:(selections.allRookie?.first||[]).slice(0,5).map(player=>headshot(player.id)),stat:'Six players selected',note:'Olivia Miles, Flau’jae Johnson, Azzi Fudd, Sydney Taylor, Kiki Rice and Pauline Astier earned 2026 All-Rookie honors.'},
+      teams:{first:(selections.allRookie?.first||[]).map(player=>player.name)},
+      records:[['2005','Team introduced','Annual rookie selection'],['6','2026 honorees','All-Rookie Team selections'],['5','Regular format','A single team, no First or Second Team split']],
+      source:'https://www.wnba.com/history-all-rookie-teams',currentSource:'https://www.wnba.com/watch/video/2026-wnba-all-rookie-team',currentSourceLabel:'2026 team announcement · WNBA'
     }
+
   };
 
   const awardIndex = [
@@ -185,11 +187,11 @@ window.TROPHY_DATA = (() => {
     },
     {
       group:'Selection teams',
-      note:'The 2025 teams remain displayed until the WNBA announces the 2026 selections.',
+      note:'The 2026 All-WNBA, All-Defensive and All-Rookie selections are current.',
       items:[
-        ['All-WNBA Teams','2026 selections pending','/all-wnba.html'],
-        ['All-Defensive Teams','2026 selections pending','/all-defensive.html'],
-        ['All-Rookie Team','2026 selections pending','/all-rookie.html']
+        ['All-WNBA Teams','2026 · ten players','/all-wnba.html'],
+        ['All-Defensive Teams','2026 · ten players','/all-defensive.html'],
+        ['All-Rookie Team','2026 · six players','/all-rookie.html']
       ]
     },
     {

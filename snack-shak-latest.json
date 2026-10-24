@@ -2,6 +2,177 @@
   "site": "Snack Shak",
   "posts": [
     {
+      "slug": "the-first-team-mvp-race-second-team-value-2026",
+      "type": "feature",
+      "priority": 15000,
+      "seriesLabel": "FOOD FOR THOUGHT · 2026 ALL-WNBA",
+      "title": "The First Team Mirrors the MVP Race. What Does the Second Team Add?",
+      "published": "2026-10-24",
+      "updated": "2026-10-24",
+      "dek": "The five First Team names are the five highest finishers in MVP voting. The Second Team broadens the picture with playmaking, rebounding and three first-team All-Defensive selections.",
+      "image": "https://cdn.wnba.com/sites/4/2026/07/GettyImages-2287270587-scaled.jpg",
+      "storyImage": "https://cdn.wnba.com/sites/4/2026/07/GettyImages-2287270587-scaled.jpg",
+      "imageAlt": "Olivia Miles of the Minnesota Lynx handling the ball during a game.",
+      "storyImageCaption": "Olivia Miles in action for Minnesota. Photo: Getty Images / WNBA.",
+      "storyImageSourceUrl": "https://www.wnba.com/news/season-30-stretch-run-one-thing-to-watch",
+      "teams": [
+        "Minnesota Lynx",
+        "Indiana Fever",
+        "New York Liberty",
+        "Las Vegas Aces",
+        "Dallas Wings",
+        "Atlanta Dream",
+        "Washington Mystics",
+        "Golden State Valkyries",
+        "Chicago Sky"
+      ],
+      "players": [
+        "Olivia Miles",
+        "Caitlin Clark",
+        "Kelsey Mitchell",
+        "Breanna Stewart",
+        "A'ja Wilson",
+        "Paige Bueckers",
+        "Jackie Young",
+        "Rhyne Howard",
+        "Angel Reese",
+        "Shakira Austin"
+      ],
+      "storyLead": [
+        "The 2026 All-WNBA First Team is the same five-player group that finished first through fifth in the MVP vote: A’ja Wilson, Olivia Miles, Kelsey Mitchell, Caitlin Clark and Breanna Stewart. The order differs, but the membership is identical.",
+        "That overlap makes the top of the ballot unusually easy to read. The Second Team is where the lens widens: five more players whose seasons combined scoring and creation with standout rebounding or defense."
+      ],
+      "storyTable": {
+        "columns": [
+          "Player",
+          "Team",
+          "Selection",
+          "Season signal"
+        ],
+        "rows": [
+          [
+            "Olivia Miles",
+            "Minnesota Lynx",
+            "First Team",
+            "19.8 PPG, 6.0 APG; a rookie-record 790 points."
+          ],
+          [
+            "Caitlin Clark",
+            "Indiana Fever",
+            "First Team",
+            "22.3 PPG, 8.3 APG; top three in both categories."
+          ],
+          [
+            "Kelsey Mitchell",
+            "Indiana Fever",
+            "First Team",
+            "24.7 PPG; a league-record 1,086 points."
+          ],
+          [
+            "Breanna Stewart",
+            "New York Liberty",
+            "First Team",
+            "20.8 PPG, 8.3 RPG."
+          ],
+          [
+            "A’ja Wilson",
+            "Las Vegas Aces",
+            "First Team",
+            "26.2 PPG, 9.4 RPG; fifth MVP."
+          ],
+          [
+            "Paige Bueckers",
+            "Dallas Wings",
+            "Second Team",
+            "20.9 PPG, 5.9 APG."
+          ],
+          [
+            "Jackie Young",
+            "Las Vegas Aces",
+            "Second Team",
+            "18.9 PPG, 6.8 APG."
+          ],
+          [
+            "Rhyne Howard",
+            "Atlanta Dream",
+            "Second Team",
+            "17.7 PPG; league-leading 2.3 steals per game."
+          ],
+          [
+            "Angel Reese",
+            "Atlanta Dream",
+            "Second Team",
+            "16.4 PPG, 12.1 RPG; 32 double-doubles and DPOY."
+          ],
+          [
+            "Shakira Austin",
+            "Washington Mystics",
+            "Second Team",
+            "17.0 PPG, 9.5 RPG; 20 double-doubles."
+          ]
+        ]
+      },
+      "sections": [
+        {
+          "title": "The First Team and the MVP vote tell the same top-five story",
+          "paragraphs": [
+            "The MVP ballot finished Wilson (713 points), Miles (442), Mitchell (287), Clark (212) and Stewart (171). Those are the exact five names on the First Team, although the All-WNBA announcement lists them in a different order.",
+            "That match does not make the two honors interchangeable. The MVP ballot identifies one winner; All-WNBA recognizes ten players across two teams. But this year, both votes converged on the same top tier."
+          ]
+        },
+        {
+          "title": "The Second Team adds a different kind of evidence",
+          "paragraphs": [
+            "Three Second Team selections—Howard, Reese and Austin—also made the All-Defensive First Team. Wilson joined them there from the All-WNBA First Team. That gives four of the ten All-WNBA honorees a place on the league’s top defensive team.",
+            "The rest of the Second Team brings its own distinct cases: Bueckers paired 20.9 points with 5.9 assists, Young added 18.9 and 6.8, while Reese and Austin stood out as high-volume rebounders. The teams are a single honor split into two groups, not a complete ranking of how valuable every player was."
+          ]
+        },
+        {
+          "title": "The Finals add a team-level question",
+          "paragraphs": [
+            "Atlanta and Golden State reached the Finals without a First Team honoree. Atlanta placed Howard and Reese on the Second Team; Golden State had no All-WNBA selection. The eventual champion would be the first since Chicago in 2021 to win without a First Team player.",
+            "That is a useful reminder that the award recognizes regular-season individual performance, while a title depends on the full roster and what it does in the postseason. It also leaves a fair question for voters and fans: should team success change the way we read an individual honor?"
+          ]
+        },
+        {
+          "title": "Food for thought",
+          "paragraphs": [
+            "When the First Team repeats the MVP top five, does it sharpen the league’s picture of its best season-long performers—or confirm the same hierarchy twice? And should the Second Team be viewed as tier two, or as the place where more kinds of impact become visible?"
+          ]
+        }
+      ],
+      "foodSegment": {
+        "title": "One season, two award lenses",
+        "script": "The First Team confirms the MVP top five. The Second Team asks us to notice what the headline race can leave out."
+      },
+      "sources": [
+        {
+          "label": "2026 All-WNBA teams and Finals context · AP/Yahoo Sports",
+          "url": "https://uk.sports.yahoo.com/news/wnba-teams-announced-caitlin-clark-164604084.html"
+        },
+        {
+          "label": "WNBA · 2026 MVP results and vote points",
+          "url": "https://www.wnba.com/webview/news/wilson-named-2026-most-valuable-player"
+        },
+        {
+          "label": "WNBA · 2026 All-WNBA season statistics and player context",
+          "url": "https://www.wnba.com/news/2026-eos-awards-lookahead-all-wnba-first-team"
+        },
+        {
+          "label": "WNBA · 2026 All-Defensive First Team",
+          "url": "https://www.wnba.com/watch/video/2026-wnba-all-defensive-first-team"
+        },
+        {
+          "label": "WNBA · Olivia Miles named 2026 Rookie of the Year",
+          "url": "https://www.wnba.com/webview/news/miles-named-2026-rookie-of-the-year"
+        },
+        {
+          "label": "WNBA · All-WNBA historical record",
+          "url": "https://www.wnba.com/history-all-wnba"
+        }
+      ]
+    },
+    {
       "slug": "what-is-a-sparks-franchise-worth-now-2026",
       "type": "byte",
       "priority": 12020,

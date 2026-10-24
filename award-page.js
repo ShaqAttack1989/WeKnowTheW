@@ -13,7 +13,7 @@
     'DiJonai Carrington':'1630096','Satou Sabally':'1630173','Brionna Jones':'1627669','Betnijah Laney':'203202','Leilani Mitchell':'201507',
     'Elizabeth Williams':'203458','Naz Hillmon':'1631044','Tiffany Hayes':'203432','Alysha Clark':'202252','Kelsey Plum':'1628276',
     'Dearica Hamby':'203752','Sugar Rodgers':'203526','Jantel Lavender':'202250','Caitlin Clark':'1642286','Michaela Onyenwere':'1630188',
-    'Crystal Dangerfield':'1630176'
+    'Crystal Dangerfield':'1630176','Olivia Miles':'1643426','Angel Reese':'1642291','Shakira Austin':'1631022','Jordin Canada':'1628886','Kiah Stokes':'204329','Flau\'jae Johnson':'1643428','Azzi Fudd':'1643425','Sydney Taylor':'1642321','Kiki Rice':'1643445','Pauline Astier':'1631136'
   };
   const headshot = name => `https://cdn.wnba.com/headshots/wnba/latest/1040x760/${headshots[name]}.png`;
   const safeAttr = value => String(value ?? '').replaceAll('&','&amp;').replaceAll('"','&quot;').replaceAll('<','&lt;').replaceAll('>','&gt;');
@@ -101,7 +101,8 @@
   }
 
   const sources = document.getElementById('awardSources');
-  if (sources) sources.innerHTML = `<a href="${award.source}" target="_blank" rel="noopener">Official award history ↗</a><a href="${award.currentSource}" target="_blank" rel="noopener">Latest official record ↗</a>`;
+  const currentSources=Array.isArray(award.currentSources)?award.currentSources:[{url:award.currentSource,label:award.currentSourceLabel||'Latest official record'}];
+  if (sources) sources.innerHTML = `<a href="${award.source}" target="_blank" rel="noopener">Official award history ↗</a>` + currentSources.map(source=>`<a href="${source.url}" target="_blank" rel="noopener">${source.label} ↗</a>`).join('');
 
   const siblingNav = document.getElementById('awardSiblingNav');
   if (siblingNav) siblingNav.innerHTML = `<a class="parent" href="/trophy-case.html">← The Trophy Room</a>` + data.awardOrder.map(itemKey => {

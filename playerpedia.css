@@ -158,6 +158,9 @@
   font-size: 1.35rem;
 }
 .player-card-copy { min-width: 0; display: grid; gap: 3px; }
+.player-card-award-badge { justify-self: start; padding: 2px 7px; border-radius: 999px; background: #efe5ff; color: #311152; font-size: .65rem; font-weight: 900; line-height: 1.35; white-space: nowrap; }
+.profile-award-link { display: inline-block; margin-top: 12px; color: var(--purple); font-size: .86rem; font-weight: 850; text-decoration: none; }
+.profile-award-link:hover { text-decoration: underline; }
 .player-card-copy strong {
   font-size: 1.05rem;
   line-height: 1.15;

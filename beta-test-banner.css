@@ -1,0 +1,54 @@
+.beta-test-banner {
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  background: #d8ff4f;
+  color: #140a2f;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(20, 10, 47, .16);
+  position: relative;
+  z-index: 4;
+}
+.beta-test-banner:hover,
+.beta-test-banner:focus-visible {
+  color: #140a2f;
+  text-decoration: none;
+}
+.beta-test-banner:focus-visible {
+  outline: 3px solid #6b2bd9;
+  outline-offset: -3px;
+}
+.beta-test-banner__track {
+  display: flex;
+  width: max-content;
+  animation: beta-test-banner-scroll 34s linear infinite;
+}
+.beta-test-banner__message {
+  flex: 0 0 auto;
+  white-space: nowrap;
+  padding: .58rem 2.25rem;
+  font-size: .82rem;
+  font-weight: 950;
+  letter-spacing: .095em;
+  text-transform: uppercase;
+}
+.beta-test-banner:hover .beta-test-banner__track,
+.beta-test-banner:focus-visible .beta-test-banner__track {
+  animation-play-state: paused;
+}
+@keyframes beta-test-banner-scroll {
+  to { transform: translateX(-50%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .beta-test-banner__track {
+    width: fit-content;
+    margin-inline: auto;
+    animation: none;
+  }
+  .beta-test-banner__message[aria-hidden="true"] { display: none; }
+  .beta-test-banner__message {
+    white-space: normal;
+    text-align: center;
+    padding: .58rem 1rem;
+  }
+}

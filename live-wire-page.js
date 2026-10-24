@@ -63,8 +63,8 @@ function availabilityRow(item={},extraClass=''){
         .sort((a,b)=>wItemDate(b).localeCompare(wItemDate(a))||String(a.player||'').localeCompare(String(b.player||'')));
       const currentReportCount=Number(p.officialCurrentReportCount)||0;
       const reportDate=wShortDate(p.reportTimestamp||p.latestReportDate)||'—';
-      const reportLabel=p.officialPdfLive?`official report ${reportDate}`:`last official report ${reportDate}`;
-      if(updated)updated.textContent=`Checked ${wChecked(p.checkedAt)||'recently'} · ${reportLabel} · refreshes every 30 min`;
+      const reportTimeLabel=p.officialPdfLive?`official report ${reportDate}`:`last official report ${reportDate}`;
+      if(updated)updated.textContent=`Checked ${wChecked(p.checkedAt)||'recently'} · ${reportTimeLabel} · refreshes every 30 min`;
       list.innerHTML=items.length?items.map(item=>availabilityRow(item,item.seasonLongCarryover?'season-long-row':item.officialCurrentReport?'official-report-row':'additional-report-row')).join(''):'<div class="wire-empty"><strong>No current availability entries returned.</strong></div>';
       const reportHref=p.officialPdf||p.officialSource||'https://www.wnba.com/wnba-injury-report';
       const reportLabel=p.officialPdfLive?'latest official PDF ↗':'official WNBA Injury Report ↗';

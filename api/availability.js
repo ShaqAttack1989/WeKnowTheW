@@ -16,6 +16,16 @@ function isoDate(value = '') {
   return match ? `${match[3]}-${match[1]}-${match[2]}` : '';
 }
 
+function easternDate(value = new Date()) {
+  const parts = Object.fromEntries(new Intl.DateTimeFormat('en-US', {
+    timeZone: 'America/New_York',
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit'
+  }).formatToParts(value).filter(part => part.type !== 'literal').map(part => [part.type, part.value]));
+  return `${parts.year}-${parts.month}-${parts.day}`;
+}
+
 function availabilityDate(item = {}) {
   return isoDate(item.updated || item.gameDate || item.date || '');
 }
@@ -76,7 +86,7 @@ function addAvailability(combined, seen, item, extras = {}) {
   combined.push({ ...item, ...extras, updated: availabilityDate(item) || isoDate(item.updated || '') });
 }
 
-function mergeAvailability(officialReport = {}, provider = [], useSnapshot = false) {
+function mergeAvailability(officialReport = {}, provider = []) {
   const usingFallback = Boolean(officialReport.fallback);
   const official = usingFallback ? [] : (Array.isArray(officialReport.injuries) ? officialReport.injuries : []);
   const coveredTeams = usingFallback ? new Set() : new Set((officialReport.coveredTeams || []).map(key));
@@ -102,17 +112,18 @@ function mergeAvailability(officialReport = {}, provider = [], useSnapshot = fal
     });
   }
 
+  // Daily ESPN statuses expire quickly. Keep only entries dated for today or the
+  // date of the latest live official PDF, and let that PDF win for covered teams.
+  const freshProviderDates = new Set([easternDate()]);
+  const liveReportDate = usingFallback ? '' : isoDate(officialReport.reportTimestamp || officialReport.reportDate || '');
+  if (liveReportDate) freshProviderDates.add(liveReportDate);
+
   for (const raw of provider) {
     const item = normalizeProvider(raw);
+    const itemDate = availabilityDate(item);
+    if (!itemDate || !freshProviderDates.has(itemDate)) continue;
     if (coveredTeams.has(key(item.team))) continue;
     addAvailability(combined, seen, item);
-  }
-
-  if (useSnapshot) {
-    for (const item of snapshotInjuries()) {
-      if (seasonLong(item)) continue;
-      addAvailability(combined, seen, item, { snapshotCarryover: true });
-    }
   }
 
   for (const item of currentCuratedCarryovers()) {
@@ -174,8 +185,7 @@ module.exports = async function handler(req, res) {
     };
   }
 
-  const useSnapshot = Boolean(officialReport.fallback) || providerResult.status === 'rejected';
-  const injuries = mergeAvailability(officialReport, provider, useSnapshot).map(item => {
+  const injuries = mergeAvailability(officialReport, provider).map(item => {
     const headshot = officialHeadshot(item.player);
     return { ...item, wnbaId: headshot?.id || null, photo: headshot?.url || null };
   });
@@ -202,7 +212,7 @@ module.exports = async function handler(req, res) {
     reportTimestamp: latestReportDate,
     reportLabel,
     latestReportDate,
-    refreshCadence: 'live on request · hourly background sync',
+    refreshCadence: 'official report on request · CDN cache up to 30 min',
     officialSource: 'https://www.wnba.com/wnba-injury-report',
     officialPdf,
     officialPdfLive: !officialReport.fallback,

@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-09-24T10:30:00Z",
-  "note": "Current-player movement and availability layer. Player Movement is maintained from the official WNBA Transactions report; Availability is maintained from the official WNBA Injury Report, with WNBA team releases used to confirm longer-term statuses.",
+  "updatedAt": "2026-10-24T09:05:07Z",
+  "note": "Player Movement was checked against the live WNBA transaction feed on October 24, 2026; the latest recorded event in this timeline is September 28. Availability is read from the latest official WNBA Injury Report, while only confirmed season-ending absences are carried forward from team and league releases.",
   "rosterOverrides": [
     {
       "name": "Deja Kelly",

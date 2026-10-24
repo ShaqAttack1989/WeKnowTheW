@@ -61,16 +61,19 @@ function availabilityRow(item={},extraClass=''){
     if(mode==='availability'){
       const items=(Array.isArray(p.injuries)?p.injuries.filter(visibleInjury):[])
         .sort((a,b)=>wItemDate(b).localeCompare(wItemDate(a))||String(a.player||'').localeCompare(String(b.player||'')));
-      if(updated)updated.textContent=`Checked ${wChecked(p.checkedAt)||'recently'} · newest update ${wShortDate(items[0]?.updated||items[0]?.gameDate)||'—'} · every 30 min`;
+      const currentReportCount=Number(p.officialCurrentReportCount)||0;
+      const reportDate=wShortDate(p.reportTimestamp||p.latestReportDate)||'—';
+      const reportLabel=p.officialPdfLive?`official report ${reportDate}`:`last official report ${reportDate}`;
+      if(updated)updated.textContent=`Checked ${wChecked(p.checkedAt)||'recently'} · ${reportLabel} · refreshes every 30 min`;
       list.innerHTML=items.length?items.map(item=>availabilityRow(item,item.seasonLongCarryover?'season-long-row':item.officialCurrentReport?'official-report-row':'additional-report-row')).join(''):'<div class="wire-empty"><strong>No current availability entries returned.</strong></div>';
       const reportHref=p.officialPdf||p.officialSource||'https://www.wnba.com/wnba-injury-report';
       const reportLabel=p.officialPdfLive?'latest official PDF ↗':'official WNBA Injury Report ↗';
       const seasonLong=items.filter(item=>String(item.status||'').toUpperCase().includes('SEASON')).length;
-      if(status){status.hidden=false;status.innerHTML=`${items.length} tracked player availability updates · ${seasonLong} season-ending absences preserved · newest first · <a href="${wSafe(reportHref)}" target="_blank" rel="noopener noreferrer">${reportLabel}</a>`;}
+      if(status){const currentLabel=p.officialPdfLive?`${currentReportCount} current official update${currentReportCount===1?'':'s'}`:'No current official PDF found';status.hidden=false;status.innerHTML=`${currentLabel} · ${seasonLong} season-ending absences kept for context · ${items.length} total entries · <a href="${wSafe(reportHref)}" target="_blank" rel="noopener noreferrer">${reportLabel}</a>`;}
     }else{
       const items=(Array.isArray(p.transactions)?p.transactions:[])
         .sort((a,b)=>String(b.date||'').localeCompare(String(a.date||''))||String(a.player||'').localeCompare(String(b.player||'')));
-      if(updated)updated.textContent=`Checked ${wChecked(p.checkedAt)||'recently'} · newest move ${wShortDate(p.latestTransactionDate)||'—'}`;
+      if(updated)updated.textContent=`Checked ${wChecked(p.checkedAt)||'recently'} · latest recorded event ${wShortDate(p.latestTransactionDate)||'—'}`;
       list.innerHTML=items.length?items.map(item=>{
         const team=wTeam(item.team);
         const identity=[item.player||'Player',team].filter(Boolean).join(' · ');
@@ -84,7 +87,7 @@ function availabilityRow(item={},extraClass=''){
           </div>
         </article>`;
       }).join(''):'<div class="wire-empty"><strong>No recent player movement returned.</strong></div>';
-      if(status){status.hidden=false;status.innerHTML=`${items.length} recent transactions · newest transaction ${wSafe(wShortDate(p.latestTransactionDate)||'—')} · newest first · <a href="https://www.wnba.com/players/transactions?transaction=&team=all&month=0" target="_blank" rel="noopener noreferrer">official WNBA Transactions ↗</a>`;}
+      if(status){status.hidden=false;status.innerHTML=` ${items.length} tracked roster events · latest recorded update ${wSafe(wShortDate(p.latestTransactionDate)||'—')} · newest first · <a href="https://www.wnba.com/players/transactions?transaction=&team=all&month=0" target="_blank" rel="noopener noreferrer">official WNBA Transactions ↗</a>`;}
     }
   }catch(error){
     if(updated)updated.textContent='Refresh check failed';

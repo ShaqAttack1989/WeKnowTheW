@@ -89,7 +89,6 @@ function addAvailability(combined, seen, item, extras = {}) {
 function mergeAvailability(officialReport = {}, provider = []) {
   const usingFallback = Boolean(officialReport.fallback);
   const official = usingFallback ? [] : (Array.isArray(officialReport.injuries) ? officialReport.injuries : []);
-  const coveredTeams = usingFallback ? new Set() : new Set((officialReport.coveredTeams || []).map(key));
   const seen = new Set();
   const combined = [];
 
@@ -122,7 +121,8 @@ function mergeAvailability(officialReport = {}, provider = []) {
     const item = normalizeProvider(raw);
     const itemDate = availabilityDate(item);
     if (!itemDate || !freshProviderDates.has(itemDate)) continue;
-    if (coveredTeams.has(key(item.team))) continue;
+    // Keep same-day provider statuses even for official-report teams; deduplication
+    // above lets the official row win while retaining additional playoff absences.
     addAvailability(combined, seen, item);
   }
 

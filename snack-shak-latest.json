@@ -2,6 +2,104 @@
   "site": "Snack Shak",
   "posts": [
     {
+      "slug": "what-is-a-sparks-franchise-worth-now-2026",
+      "type": "byte",
+      "priority": 12020,
+      "seriesLabel": "SNACK SHAK BYTE · BUSINESS OF THE W",
+      "title": "The $700 Million Sparks Question: What Is the Team Actually Worth?",
+      "published": "2026-10-24",
+      "updated": "2026-10-24",
+      "dek": "A report says Mark Walter is seeking more than $700 million for the Sparks and their planned practice facility. That is an asking price for a package, not a confirmed valuation of the team alone.",
+      "teams": [
+        "Los Angeles Sparks"
+      ],
+      "storyLead": [
+        "More than $700 million is the number attached to the Los Angeles Sparks this week. Bloomberg reporting, carried by the Los Angeles Times, says controlling owner Mark Walter is seeking that amount for the franchise and its related practice facility.",
+        "That figure is not a completed sale, a confirmed offer, or a stand-alone price for the team. The package includes a major facility project, so the headline number needs a label before anyone calls it the Sparks’ valuation."
+      ],
+      "franchiseValueDashboard": {
+        "eyebrow": "THE REPORTED SPARKS PACKAGE · OCTOBER 23, 2026",
+        "title": "Three numbers. Three different measures.",
+        "intro": "An asking price, a third-party estimate and a completed transaction are not interchangeable.",
+        "summaryValue": ">$700M",
+        "summaryLabel": "reported ask for the Sparks + practice facility",
+        "summaryNote": "The report describes a sale effort, not a completed deal.",
+        "cards": [
+          {
+            "value": ">$700M",
+            "label": "Reported package asking price",
+            "note": "Sparks franchise plus its related El Segundo practice facility, according to Bloomberg reporting."
+          },
+          {
+            "value": "$400M",
+            "label": "Sportico franchise estimate",
+            "note": "A team-only estimate cited by the Los Angeles Times; published in April 2026."
+          },
+          {
+            "value": "$300M",
+            "label": "Reported Sun transaction",
+            "note": "The Connecticut Sun sale price, cited as the previous WNBA record."
+          }
+        ],
+        "methodology": "Different scope and timing: the reported $700M+ ask bundles the team and facility; $400M is an estimate of the franchise; $300M is a reported sale price. They are context, not direct comparables."
+      },
+      "sections": [
+        {
+          "title": "What the report actually says",
+          "paragraphs": [
+            "Bloomberg’s report says Walter is seeking more than $700 million for the Sparks and a related practice facility. The Los Angeles Times, which published the report, says the package would be the largest WNBA franchise sale to date if a deal reached that level.",
+            "No buyer or completed agreement is named in the report. A seller’s asking price can start a conversation; it does not tell us what a buyer will pay or what the league will approve."
+          ]
+        },
+        {
+          "title": "The facility is a real part of the package",
+          "paragraphs": [
+            "The Sparks announced a $150 million headquarters and practice facility in El Segundo, with an opening planned before the 2027 season. The project adds dedicated training and performance space to the assets being discussed.",
+            "Construction cost is not the same as market value. The published report does not break out how much of the asking price is attributed to the team, the facility, or other deal terms."
+          ]
+        },
+        {
+          "title": "The comparison needs a warning label",
+          "paragraphs": [
+            "The Los Angeles Times cites Sportico’s April 2026 estimate of $400 million for the Sparks franchise. It also cites the $300 million reported price for the Connecticut Sun as the previous WNBA sale record.",
+            "Those figures help explain why the report is striking, but they measure different things. The $700 million-plus figure includes the facility; the $400 million estimate is for the team; and the Sun number reflects a separate transaction. We should not present them as a clean three-team valuation chart."
+          ]
+        },
+        {
+          "title": "Why this matters beyond Los Angeles",
+          "paragraphs": [
+            "The Sparks are an original WNBA franchise in one of the country’s largest sports markets, and their new facility represents a substantial long-term investment. At the same time, the team has missed the playoffs for six straight seasons. A buyer would be weighing the brand and market against the work still needed on the court.",
+            "The league reported more than 90 million unique viewers across national networks during the 2026 regular season. That is meaningful growth context, but it is a league-wide audience figure, not proof of what the Sparks are worth."
+          ]
+        },
+        {
+          "title": "What would make the number real?",
+          "paragraphs": [
+            "The next receipts would be a named buyer, a reported or approved transaction price, and clarity about what the deal includes: the team, the facility, any retained ownership interests, and related obligations. Until then, $700 million-plus is a reported asking price for a package—not a confirmed sale price.",
+            "We will update the board if the Sparks, Walter, a buyer, or the WNBA confirms new terms."
+          ]
+        }
+      ],
+      "foodSegment": {
+        "title": "A headline has a number. A sale has terms.",
+        "script": "The $700M question is worth watching. The answer depends on what changes hands, who buys it, and what the league approves."
+      },
+      "sources": [
+        {
+          "label": "Los Angeles Times · Bloomberg report on the Sparks sale effort, October 23, 2026",
+          "url": "https://www.latimes.com/sports/sparks/story/2026-10-23/mark-walter-is-seeking-to-sell-wnbas-sparks-for-record-valuation"
+        },
+        {
+          "label": "Los Angeles Sparks · $150 million El Segundo practice facility announcement",
+          "url": "https://sparks.wnba.com/news/la-sparks-announce-a-150m-investment-in-state-of-the-art-practice-facility-to-open-in-time-for-the-2027-season"
+        },
+        {
+          "label": "WNBA · 2026 season attendance and viewership records",
+          "url": "https://www.wnba.com/news/wnba-season-30-record-growth"
+        }
+      ]
+    },
+    {
       "slug": "the-fever-next-chapter-krauskopf-cox-white-mitchell-2026",
       "type": "feature",
       "priority": 12000,

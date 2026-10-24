@@ -36,7 +36,8 @@ function availabilityRow(item={},extraClass=''){
   const identity=[item.player||'Player',team].filter(Boolean).join(' · ');
   const date=wShortDate(item.updated||item.gameDate||'');
   const expected=item.returnDate?` · expected ${wSafe(wShortDate(item.returnDate))}`:'';
-  const context=[date,item.matchup,item.gameTime].filter(Boolean).join(' · ');
+  const sourceLabel=item.officialCurrentReport?'Official WNBA report':item.seasonLongCarryover?'Season-ending update':item.crossCheckOnly?'Same-day cross-check':'';
+  const context=[date,item.matchup,item.gameTime,sourceLabel].filter(Boolean).join(' · ');
   return `<article class="wire-row availability-row ${extraClass}">
     <span class="wire-status ${wClass(item.status||'status')}">${wSafe(item.status||'STATUS')}</span>
     <div class="wire-copy">
@@ -53,7 +54,11 @@ function availabilityRow(item={},extraClass=''){
   const status=document.getElementById('wireStatus');
   const updated=document.getElementById('wireUpdated');
   const endpoint=mode==='availability'?'/api/availability':'/api/player-movement';
-  try{
+  let refreshing=false;
+  const refresh=async()=>{
+    if(refreshing)return;
+    refreshing=true;
+    try{
     const r=await fetch(endpoint,{headers:{Accept:'application/json'},cache:'no-store'});
     const p=await r.json().catch(()=>({}));
     if(!r.ok)throw new Error(p.error||'Live player feed unavailable');
@@ -93,5 +98,13 @@ function availabilityRow(item={},extraClass=''){
     if(updated)updated.textContent='Refresh check failed';
     list.innerHTML='<div class="wire-empty"><strong>Live player feed unavailable.</strong><p>Try again shortly.</p></div>';
     if(status){status.hidden=false;status.textContent='Live feed temporarily unavailable';}
+  }finally{
+    refreshing=false;
+  }
+  };
+  await refresh();
+  if(mode==='availability'){
+    window.setInterval(()=>{if(!document.hidden)refresh();},30*60*1000);
+    document.addEventListener('visibilitychange',()=>{if(!document.hidden)refresh();});
   }
 })();

@@ -48,6 +48,26 @@ ${navGroup('snack','Snack Shak','/snack-shak.html',menuSection('Commentary + ana
 <button class="nav-search-button" id="globalSearchButton" type="button" aria-haspopup="dialog"><span aria-hidden="true">⌕</span><span>Search</span></button>
 <div class="nav-mobile-utility"><a href="/about.html">About We Know the W</a><a href="/report-a-problem.html">Report a problem</a></div>`;
 if(navLinks)navLinks.innerHTML=structuredNav;
+const BETA_TEST_BANNER_URL='https://play.google.com/apps/internaltest/4701450280481564096';
+if(!document.querySelector('link[data-beta-test-banner]')){
+  const betaBannerStyles=document.createElement('link');
+  betaBannerStyles.rel='stylesheet';
+  betaBannerStyles.href='/beta-test-banner.css?v=20261024-android-beta';
+  betaBannerStyles.dataset.betaTestBanner='true';
+  document.head.appendChild(betaBannerStyles);
+}
+if(siteNavigation&&!document.querySelector('[data-beta-test-banner]')){
+  const betaBanner=document.createElement('a');
+  betaBanner.className='beta-test-banner';
+  betaBanner.href=BETA_TEST_BANNER_URL;
+  betaBanner.target='_blank';
+  betaBanner.rel='noopener noreferrer';
+  betaBanner.dataset.betaTestBanner='true';
+  betaBanner.setAttribute('aria-label','Join the We Know the W Android app beta test on Google Play');
+  betaBanner.innerHTML='<span class="beta-test-banner__track" aria-hidden="true"><span class="beta-test-banner__message">We Know The W Android app · Beta testers wanted · Join the Google Play internal test · Help us get ready for tipoff →</span><span class="beta-test-banner__message" aria-hidden="true">We Know The W Android app · Beta testers wanted · Join the Google Play internal test · Help us get ready for tipoff →</span></span>';
+  siteNavigation.insertAdjacentElement('afterend',betaBanner);
+}
+
 const futureMenu=navLinks?.querySelector('[data-nav-section="future"] .nav-menu-section');
 if(futureMenu&&!futureMenu.querySelector('a[href="/wpba.html"]')){
   const wpbaLink=document.createElement('a');

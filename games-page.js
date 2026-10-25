@@ -152,7 +152,7 @@ document.querySelectorAll('[data-games-competition]').forEach(button=>button.add
   document.querySelectorAll('[data-games-competition]').forEach(b=>{const on=b===button;b.classList.toggle('active',on);b.setAttribute('aria-pressed',String(on));});
   const note=document.getElementById('gamesCompetitionNote');
   if(gamesCompetition==='cup'){gamesMode='past';if(note)note.textContent='2026 Cup complete · New York Liberty champions · pool play June 1–17, championship June 30';}
-  else if(gamesCompetition==='playoffs'){gamesMode=bestPlayoffMode();if(note)note.textContent=gamesMode==='live'?'Playoffs live now · scores refresh automatically':gamesMode==='upcoming'?'Atlanta leads Finals 2–1 · Game 4 Oct. 24, 1 PM ET · NBC / Peacock':'Finals Game 3: ATL 97, GSV 71 · Atlanta leads 2–1';}
+  else if(gamesCompetition==='playoffs'){gamesMode=bestPlayoffMode();if(note)note.textContent=gamesMode==='live'?'Playoffs live now · scores refresh automatically':gamesMode==='upcoming'?'Finals Game 4: GSV 67, ATL 62 · Series tied 2–2 · Game 5 Oct. 26, 8 p.m. ET':'Finals Game 4: GSV 67, ATL 62 · Series tied 2–2 · Game 5 Oct. 26, 8 p.m. ET';}
   else if(note)note.textContent='Regular-season schedule · where to watch from WNBA.com';
   renderGames();
 }));
@@ -188,7 +188,7 @@ async function loadGames(initial=false){
       const hasLive=gamesMode==='live',hasUpcoming=gamesMode==='upcoming';
       document.querySelectorAll('[data-games-competition]').forEach(button=>{const on=button.dataset.gamesCompetition==='playoffs';button.classList.toggle('active',on);button.setAttribute('aria-pressed',String(on));});
       const note=document.getElementById('gamesCompetitionNote');
-      if(note)note.textContent=hasLive?'Playoffs live now · scores refresh automatically':hasUpcoming?'Atlanta leads Finals 2–1 · Game 4 Oct. 24, 1 PM ET · NBC / Peacock':'Finals Game 3: ATL 97, GSV 71 · Atlanta leads 2–1';
+      if(note)note.textContent=hasLive?'Playoffs live now · scores refresh automatically':hasUpcoming?'Finals Game 4: GSV 67, ATL 62 · Series tied 2–2 · Game 5 Oct. 26, 8 p.m. ET':'Finals Game 4: GSV 67, ATL 62 · Series tied 2–2 · Game 5 Oct. 26, 8 p.m. ET';
     }
     WGameCards.populateFilter(document.getElementById('gamesTeamFilter'),stats);
     renderGames();

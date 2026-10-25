@@ -1,0 +1,18 @@
+/* Homepage launch announcement: desktop browsers only. */
+.desktop-app-launch{display:none!important}
+@media(min-width:1100px) and (hover:hover) and (pointer:fine){
+ .desktop-app-launch{display:grid!important;grid-template-columns:minmax(0,1.2fr) minmax(350px,.8fr);gap:32px;align-items:center;width:calc(100% - 48px);max-width:1280px;box-sizing:border-box;margin:28px auto;padding:28px 32px;border:1px solid #9f6bfa;border-radius:24px;background:linear-gradient(115deg,#140a2f,#32105e);color:#fff;box-shadow:0 12px 32px #140a2f15}
+ .desktop-app-launch__eyebrow{margin:0 0 10px!important;font-size:12px!important;font-weight:900;letter-spacing:.12em;color:#d8ff4f}
+ .desktop-app-launch h2{font-size:clamp(28px,2.7vw,38px)!important;line-height:1.12!important;letter-spacing:-.03em;margin:0 0 12px!important;color:#fff!important}
+ .desktop-app-launch h2 em{color:#d8ff4f;font-style:normal}
+ .desktop-app-launch__copy>p:not(.desktop-app-launch__eyebrow){max-width:580px;margin:0 0 20px!important;font-size:18px!important;line-height:1.55!important;color:#e8dff8!important}
+ .desktop-app-launch__play{display:inline-flex;align-items:center;gap:16px;min-height:48px;padding:12px 20px;border-radius:999px;background:#d8ff4f;color:#140a2f!important;font-size:16px;font-weight:900;text-decoration:none}
+ .desktop-app-launch__play:hover{background:#e7ff95}
+ .desktop-app-launch__play:focus-visible{outline:3px solid #fff;outline-offset:5px}
+ .desktop-app-launch__apps{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 22px;justify-items:center;align-items:start}
+ .desktop-app-launch__logo{text-align:center;min-width:0}
+ .desktop-app-launch__logo img{display:block;width:132px;height:132px;max-width:100%;object-fit:contain;border-radius:20px;margin:0 auto 8px}
+ .desktop-app-launch__logo strong{font-size:16px;line-height:1.3}
+ .desktop-app-launch__store{grid-column:1/-1;margin:0!important;text-align:center;font-size:16px!important;line-height:1.5!important;color:#e8dff8}
+ .desktop-app-launch__store strong{color:#d8ff4f}
+}

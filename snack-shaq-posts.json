@@ -672,7 +672,12 @@
         "title": "The Seven-Layer Mystics Dip",
         "script": "The original short-form segment from this edition was The Seven-Layer Mystics Dip. The title stays in the archive with the ranking board rather than replacing the original script with a made-up reconstruction."
       },
-      "sources": []
+      "sources": [],
+      "image": "https://cdn.wnba.com/logos/wnba/1611661322/primary/L/logo.svg",
+      "imageAlt": "Washington Mystics team logo",
+      "imageSource": "WNBA",
+      "imageSourceUrl": "https://cdn.wnba.com/logos/wnba/1611661322/primary/L/logo.svg",
+      "imageFit": "contain"
     },
     {
       "slug": "snack-shak-w-reset-2026-07-18",
@@ -798,7 +803,12 @@
         "title": "The contender plate",
         "script": "If I’m cooking a contender plate today, Minnesota gets the main dish, Golden State gets the side that steals the show, Vegas gets the championship seasoning, and Dallas gets the ‘don’t say I didn’t warn you’ sauce."
       },
-      "sources": []
+      "sources": [],
+      "image": "https://cdn.wnba.com/logos/wnba/1611661324/primary/L/logo.svg",
+      "imageAlt": "Minnesota Lynx team logo, leaders of this midseason ranking",
+      "imageSource": "WNBA",
+      "imageSourceUrl": "https://cdn.wnba.com/logos/wnba/1611661324/primary/L/logo.svg",
+      "imageFit": "contain"
     },
     {
       "slug": "welcome-to-snack-shak",
@@ -832,7 +842,12 @@
         "title": "Setting the Table",
         "script": "Welcome to Snack Shak, where the food gets seasoned, the rankings get debated, and everybody gets served. Every week we’re checking the standings, the streaks, the stars, the role players and the teams somebody swore were cooked three games ago. Bring your receipts, because the rankings are hot and I am absolutely going to ask who needs more seasoning. Keep your takes spicy and your turnovers low."
       },
-      "sources": []
+      "sources": [],
+      "image": "/assets/branding/we-know-the-w-app-logo.webp",
+      "imageAlt": "We Know the W logo",
+      "imageSource": "We Know the W",
+      "imageSourceUrl": "/assets/branding/we-know-the-w-app-logo.webp",
+      "imageFit": "contain"
     }
   ]
 }

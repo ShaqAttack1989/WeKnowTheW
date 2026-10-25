@@ -626,7 +626,12 @@
           "label": "Reuters · 2026 Finals bonus schedule and 2025 comparison",
           "url": "https://www.reuters.com/sports/wnba-board-governors-unanimously-ratifies-new-cba--flm-2026-03-24/"
         }
-      ]
+      ],
+      "image": "/assets/images/snack-shak/wnba-minimum-pay-history.svg",
+      "imageAlt": "WNBA minimum base salary: $15,000 in 1997–98 and $270,000 in 2026, in nominal dollars",
+      "imageSource": "We Know the W · figures and sources in the article",
+      "imageSourceUrl": "/assets/images/snack-shak/wnba-minimum-pay-history.svg",
+      "imageFit": "contain"
     },
     {
       "slug": "fifth-place-four-mvp-tie-2026",
@@ -5943,7 +5948,8 @@
           "label": "Full Food for Thought feature",
           "url": "https://www.weknowthew.com/next-wnba-commissioner.html"
         }
-      ]
+      ],
+      "imageAlt": "The W Is Changing Hands: Scouting the Next WNBA Commissioner"
     },
     {
       "slug": "2027-wnba-mock-draft",
@@ -5997,7 +6003,12 @@
           "label": "Full mock draft dashboard",
           "url": "https://www.weknowthew.com/2027-wnba-mock-draft.html"
         }
-      ]
+      ],
+      "image": "https://a.espncdn.com/i/headshots/womens-college-basketball/players/full/5175946.png",
+      "imageAlt": "JuJu Watkins, the top prospect on the 2027 mock draft board",
+      "imageSource": "ESPN",
+      "imageSourceUrl": "https://a.espncdn.com/i/headshots/womens-college-basketball/players/full/5175946.png",
+      "imageFit": "contain"
     },
     {
       "imageFocus": "50% 38%",
@@ -6188,7 +6199,12 @@
           "label": "Full Food for Thought article",
           "url": "https://www.weknowthew.com/lynx-playoff-blueprint-update.html"
         }
-      ]
+      ],
+      "image": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1629483.png",
+      "imageAlt": "Napheesa Collier, Minnesota Lynx forward",
+      "imageSource": "WNBA",
+      "imageSourceUrl": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1629483.png",
+      "imageFit": "contain"
     },
     {
       "slug": "power-rankings-vs-standings-aug30",
@@ -6228,7 +6244,8 @@
           "label": "We Know the W August 31 power-ranking edition",
           "url": "https://www.weknowthew.com/snack-shak-bytes.html?post=snack-shak-byte-2026-08-31#story"
         }
-      ]
+      ],
+      "imageAlt": "Standings Show the Record. Power Rankings Show the Temperature."
     },
     {
       "slug": "dream-beats-lynx-pattern-problem",
@@ -6274,7 +6291,12 @@
           "label": "Miles August 19 ankle injury context",
           "url": "https://sports.yahoo.com/articles/olivia-miles-twists-ankle-exits-041607698.html"
         }
-      ]
+      ],
+      "image": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1628277.png",
+      "imageAlt": "Allisha Gray, Atlanta Dream guard",
+      "imageSource": "WNBA",
+      "imageSourceUrl": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1628277.png",
+      "imageFit": "contain"
     },
     {
       "slug": "kelsey-mitchell-1000-points",
@@ -6310,7 +6332,12 @@
           "label": "Reuters game report",
           "url": "https://www.reuters.com/sports/caitlin-clark-kelsey-mitchell-combine-68-fever-trounce-sun--flm-2026-08-29/"
         }
-      ]
+      ],
+      "image": "https://cdn.wnba.com/sites/1611661325/2026/08/GettyImages-2290260721.jpg",
+      "imageAlt": "Indiana Fever guard Kelsey Mitchell drives against Atlanta",
+      "imageSource": "WNBA",
+      "imageSourceUrl": "https://cdn.wnba.com/sites/1611661325/2026/08/GettyImages-2290260721.jpg",
+      "imageFit": "cover"
     },
     {
       "imageFocus": "50% 38%",
@@ -6393,7 +6420,12 @@
           "label": "Official Rickea Jackson Unrivaled bio",
           "url": "https://www.unrivaled.basketball/player/rickea-jackson-tuum4vu1htu2/bio"
         }
-      ]
+      ],
+      "image": "https://pub-ad8cc693759b4b55a181a76af041efa0.r2.dev/players/rickea-jackson/images/headshot.jpg",
+      "imageAlt": "Rickea Jackson, official Unrivaled player portrait",
+      "imageSource": "Unrivaled",
+      "imageSourceUrl": "https://pub-ad8cc693759b4b55a181a76af041efa0.r2.dev/players/rickea-jackson/images/headshot.jpg",
+      "imageFit": "contain"
     }
   ]
 }

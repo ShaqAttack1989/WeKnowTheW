@@ -236,7 +236,12 @@
           "label": "Qualified league leaders",
           "url": "https://www.basketball-reference.com/wnba/years/2026_leaders.html"
         }
-      ]
+      ],
+      "image": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1628932.png",
+      "imageAlt": "A’ja Wilson, the top-ranked player in this playoff board",
+      "imageSource": "WNBA",
+      "imageSourceUrl": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1628932.png",
+      "imageFit": "contain"
     },
     {
       "slug": "food-for-thought-title-is-the-lynxs-to-lose",
@@ -405,7 +410,12 @@
           "label": "Napheesa Collier injury update",
           "url": "https://lynx.wnba.com/news/napheesa-collier-injury-update-3"
         }
-      ]
+      ],
+      "image": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1629483.png",
+      "imageAlt": "Napheesa Collier, Minnesota Lynx forward",
+      "imageSource": "WNBA",
+      "imageSourceUrl": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1629483.png",
+      "imageFit": "contain"
     },
     {
       "imageFocus": "50% 38%",

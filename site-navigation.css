@@ -516,3 +516,7 @@ body>.w-utility-bar a{min-height:36px!important;font-size:13px;}
 .section-shortcuts a:hover,.section-shortcuts a:focus-visible,.section-shortcuts a[aria-current="page"]{background:#d8ff4f;border-color:#d8ff4f;color:#140a2f}
 .section-page .subhero h1.around-heading{white-space:nowrap;font-size:clamp(2rem,7.5vw,6rem);max-width:none;letter-spacing:-.055em}
 @media(max-width:640px){.section-shortcuts .section-shortcuts-inner,.section-shortcuts>.page-shell{flex-wrap:nowrap;width:max-content;min-width:100%;max-width:none}.section-shortcuts a{font-size:15px}}
+
+/* Section shortcuts always occupy a single horizontally scrollable row. */
+.section-shortcuts .section-shortcuts-inner,.section-shortcuts>.page-shell{flex-wrap:nowrap!important;width:max-content!important;min-width:min(1180px,100%)!important;max-width:none!important}
+.section-shortcuts a{flex:0 0 auto}

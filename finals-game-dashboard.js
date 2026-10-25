@@ -108,7 +108,7 @@
     if(mount.dataset.loaded==='true'||mount.dataset.loading==='true')return;
     mount.dataset.loading='true';
     try{
-      const response=await fetch('/finals-game-dashboard.json?v=20261022-compact-finals-dashboard-v3');
+      const response=await fetch('/finals-game-dashboard.json?v=20261025-game4-finals-dashboard-v1');
       if(!response.ok)throw Error('Dashboard data unavailable');
       const data=await response.json();
       let gameNumber=data.games[data.games.length-1].number;
@@ -177,7 +177,7 @@
       mount.dataset.loaded='true';
       delete mount.dataset.loading;
     }catch(error){
-      mount.innerHTML='<h3>Finals game statistics</h3><p>The statistics board is reconnecting. <a href="https://www.wnba.com/game/gsv-vs-atl-1042600303/box-score">Open the official Game 3 final box score ↗</a></p>';
+      mount.innerHTML='<h3>Finals game statistics</h3><p>The statistics board is reconnecting. <a href="https://www.wnba.com/game/gsv-vs-atl-1042600304/box-score">Open the official Game 4 final box score ↗</a></p>';
       mount.dataset.loaded='true';
       delete mount.dataset.loading;
     }

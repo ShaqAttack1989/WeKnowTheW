@@ -153,6 +153,30 @@ function dedupeHomeSchedule(items=[]){
     seen.add(key);return true;
   });
 }
+function homeTeamKey(name=''){return String(name||'').toLowerCase().replace(/[^a-z0-9]/g,'');}
+function homeSeriesPair(game={}){return [homeTeamKey(game.homeTeam||game.home?.name),homeTeamKey(game.awayTeam||game.away?.name)].sort().join('|');}
+function homeSeriesTeamCode(name=''){
+  const key=homeTeamKey(name),known={goldenstatevalkyries:'GSV',atlantadream:'ATL',minnesotalynx:'MIN',newyorkliberty:'NYL',dallaswings:'DAL',lasvegasaces:'LVA',indianafever:'IND',washingtonmystics:'WAS'};
+  return known[key]||String(name).split(/\s+/).map(word=>word[0]).join('').slice(0,3).toUpperCase();
+}
+function withHomePlayoffSeries(items=[],playoffGames=[]){
+  const series=new Map();
+  (playoffGames||[]).filter(game=>game.completed||String(game.state||'').toLowerCase()==='post'||/\bfinal\b/i.test(String(game.status||''))).forEach(game=>{
+    if(!Number.isFinite(Number(game.homeScore))||!Number.isFinite(Number(game.awayScore)))return;
+    const round=String(game.round||'First Round').toLowerCase(),key=`${round}|${homeSeriesPair(game)}`;
+    const row=series.get(key)||{wins:new Map()},winner=Number(game.homeScore)>Number(game.awayScore)?game.homeTeam:game.awayTeam,winnerKey=homeTeamKey(winner);
+    row.wins.set(winnerKey,(row.wins.get(winnerKey)||0)+1);series.set(key,row);
+  });
+  return items.map(game=>{
+    if(!game.round&&!game.playoff)return game;
+    const round=String(game.round||'First Round'),row=series.get(`${round.toLowerCase()}|${homeSeriesPair(game)}`),awayName=game.awayTeam||game.away?.name,homeName=game.homeTeam||game.home?.name;
+    const awayWins=row?.wins.get(homeTeamKey(awayName))||0,homeWins=row?.wins.get(homeTeamKey(homeName))||0;
+    let playoffSeriesLabel=`Tied ${awayWins}-${homeWins}`;
+    if(awayWins!==homeWins){const leader=awayWins>homeWins?awayName:homeName;playoffSeriesLabel=`${homeSeriesTeamCode(leader)} leads ${Math.max(awayWins,homeWins)}-${Math.min(awayWins,homeWins)}`;}
+    const roundKey=round.toLowerCase(),seriesTargetWins=roundKey.includes('final')&&!roundKey.includes('semi')?4:roundKey.includes('semi')?3:2;
+    return {...game,playoff:true,playoffSeriesLabel,seriesTargetWins};
+  });
+}
 async function loadHomeLive(initial=false){
   if(homeLiveRefreshActive)return;
   homeLiveRefreshActive=true;
@@ -175,8 +199,8 @@ async function loadHomeLive(initial=false){
     const competition=playoffResult.status==='fulfilled'?playoffResult.value:{};
     const playoffGames=competition.playoffs?.games||[];
     const upcomingPlayoffs=playoffGames.filter(game=>!game.completed&&String(game.state||'').toLowerCase()!=='in'&&String(game.date||'')>=today).sort((a,b)=>Date.parse(a.startTimeUtc||`${a.date}T23:59:59-04:00`)-Date.parse(b.startTimeUtc||`${b.date}T23:59:59-04:00`));
-    payload.upcomingGames=dedupeHomeSchedule([...(upcomingPlayoffs||[]),...(payload.upcomingGames||[])]);
-    payload.pastGames=dedupeHomeSchedule([...(playoffGames.filter(game=>game.completed||String(game.state||'').toLowerCase()==='post').sort((a,b)=>Date.parse(b.startTimeUtc||b.date)-Date.parse(a.startTimeUtc||a.date))),...(payload.pastGames||payload.recentResults||[])]);
+    payload.upcomingGames=withHomePlayoffSeries(dedupeHomeSchedule([...(upcomingPlayoffs||[]),...(payload.upcomingGames||[])]),playoffGames);
+    payload.pastGames=withHomePlayoffSeries(dedupeHomeSchedule([...(playoffGames.filter(game=>game.completed||String(game.state||'').toLowerCase()==='post').sort((a,b)=>Date.parse(b.startTimeUtc||b.date)-Date.parse(a.startTimeUtc||a.date))),...(payload.pastGames||payload.recentResults||[])]),playoffGames);
     payload.hasPlayoffs=Boolean(competition.playoffs?.started||playoffGames.length);
     livePayload=payload;
     if(initial&&gameMode==='live'&&!payload.liveGames.length)gameMode='upcoming';

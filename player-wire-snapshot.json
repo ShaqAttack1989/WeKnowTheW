@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-24T23:14:24.084Z",
+  "generatedAt": "2026-10-25T04:41:23.144Z",
   "movement": {
     "latestTransactionDate": "2026-09-28",
     "transactions": [
@@ -1437,23 +1437,10 @@
     ]
   },
   "availability": {
-    "latestReportDate": "2026-10-24",
-    "reportLabel": "10/24/2026 07:00 PM ET",
-    "officialPdf": "https://ak-static.cms.nba.com/referee/wnba_injury/Injury-Report_2026-10-24_07_00PM.pdf",
+    "latestReportDate": "2026-10-25",
+    "reportLabel": "10/25/2026 12:30 AM ET",
+    "officialPdf": "https://ak-static.cms.nba.com/referee/wnba_injury/Injury-Report_2026-10-25_12_30AM.pdf",
     "injuries": [
-      {
-        "player": "Brionna Jones",
-        "team": "Atlanta Dream",
-        "status": "OUT",
-        "reason": "Injury/Illness - Left Leg; N/A",
-        "gameDate": "10/24/2026",
-        "gameTime": "01:00 (ET)",
-        "matchup": "GSV@ATL",
-        "updated": "2026-10-24",
-        "source": "Official WNBA Injury Report PDF",
-        "officialCurrentReport": true,
-        "crossCheckOnly": false
-      },
       {
         "player": "Aliyah Boston",
         "team": "Indiana Fever",
@@ -2129,7 +2116,24 @@
         "seasonLongCarryover": true
       }
     ],
-    "teamStatuses": []
+    "teamStatuses": [
+      {
+        "team": "Atlanta Dream",
+        "status": "NOT YET SUBMITTED",
+        "gameDate": "10/26/2026",
+        "gameTime": "08:00 (ET)",
+        "matchup": "ATL@GSV",
+        "updated": "2026-10-26"
+      },
+      {
+        "team": "Golden State Valkyries",
+        "status": "NOT YET SUBMITTED",
+        "gameDate": "10/26/2026",
+        "gameTime": "08:00 (ET)",
+        "matchup": "ATL@GSV",
+        "updated": "2026-10-26"
+      }
+    ]
   },
   "errors": []
 }

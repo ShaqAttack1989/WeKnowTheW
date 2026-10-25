@@ -138,9 +138,11 @@ Object.entries(navSections).forEach(([section,paths])=>{if(paths.includes(locati
  const current=navLinks.querySelector('.nav-group.is-current');
  const isHome=['/','/index.html'].includes(location.pathname);
  const homeShortcuts=[['Playoff Watch Guide','#playoff-watch-guide'],['Live Playoff Tracker','#playoff-bracket'],['This Week in the W','#this-week'],['Live Desk','#live-desk'],['Overall Standings','#overall-standings','overallToggle'],['Live Games','#homepage-games','liveGamesToggle'],['Upcoming Games','#homepage-games','upcomingGamesToggle']];
- const candidates=isHome?homeShortcuts.map(([label,href,control])=>{const a=document.createElement('a');a.textContent=label;a.setAttribute('href',href);if(control)a.dataset.homeControl=control;return a;}):current?[...current.querySelectorAll('.nav-menu-section>a')]:[...navLinks.querySelectorAll('.nav-parent')];
+ const isRun=location.pathname==='/run-the-w.html';
+ const modeShortcuts=[...document.querySelectorAll('.run-modes .run-mode-card[id]')].map(card=>{const a=document.createElement('a');a.href='#'+card.id;a.textContent=card.querySelector('h3').textContent;return a;});
+ const candidates=isRun?modeShortcuts:isHome?homeShortcuts.map(([label,href,control])=>{const a=document.createElement('a');a.textContent=label;a.setAttribute('href',href);if(control)a.dataset.homeControl=control;return a;}):current?[...current.querySelectorAll('.nav-menu-section>a')]:[...navLinks.querySelectorAll('.nav-parent')];
  const subnav=document.createElement('nav');subnav.className='section-shortcuts';
- subnav.setAttribute('aria-label',isHome?'On this homepage':current?(current.querySelector('.nav-parent-label').textContent+' sections'):'Explore We Know the W');
+ subnav.setAttribute('aria-label',isRun?'Run the W game modes':isHome?'On this homepage':current?(current.querySelector('.nav-parent-label').textContent+' sections'):'Explore We Know the W');
  const inner=document.createElement('div');inner.className='section-shortcuts-inner';
  const seen=new Set();
  candidates.forEach(source=>{const href=source.getAttribute('href');const key=href+'|'+(source.dataset.homeControl||'');if(!href||seen.has(key))return;seen.add(key);const link=document.createElement('a');link.href=href;if(source.dataset.homeControl)link.addEventListener('click',()=>document.getElementById(source.dataset.homeControl)?.click());link.textContent=source.querySelector('.nav-parent-label')?.textContent||source.textContent;const url=new URL(link.href);if(url.origin===location.origin&&url.pathname===location.pathname&&!url.hash&&!url.search)link.setAttribute('aria-current','page');if(url.origin!==location.origin){link.target='_blank';link.rel='noopener';}inner.appendChild(link);});

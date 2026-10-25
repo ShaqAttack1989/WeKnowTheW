@@ -2933,7 +2933,7 @@
       "type": "feature",
       "priority": 7600,
       "homepageSeason": "wnba-playoffs",
-      "seriesLabel": "FOOD FOR THOUGHT · FINALS GAME 3 RECAP",
+      "seriesLabel": "FOOD FOR THOUGHT · FINALS GAME 4 RECAP",
       "title": "Even Again: Why Golden State’s Ball Security Changed Game 4",
       "published": "2026-10-24",
       "updated": "2026-10-25",
@@ -3370,7 +3370,7 @@
             "availability": "Las Vegas eliminated October 9.",
             "beat": "Golden State outscored Las Vegas 16–6 in overtime.",
             "break": "The defending champions could not hold off the second-half rallies.",
-            "must": "Golden State faces Atlanta in the Finals; the Dream leads 2–1 after Game 3.",
+            "must": "Golden State and Atlanta are tied 2–2 after Game 4; the Finals return to Chase Center Monday.",
             "highCode": "GSV",
             "lowCode": "LVA",
             "highWScore": 77,
@@ -3463,7 +3463,7 @@
       "playoffDraftBoard": {
         "title": "Top-10 draft picks, team by team",
         "subtitle": "A roster-based draft snapshot for all eight playoff clubs, paired with each team’s seed and postseason finish.",
-        "asOf": "OFFICIAL BRACKET · UPDATED OCT. 11, 2026",
+        "asOf": "OFFICIAL BRACKET · UPDATED OCT. 25, 2026",
         "highlights": [
           {
             "label": "FINALS MATCHUP",
@@ -3471,9 +3471,9 @@
             "note": "11 top-10 picks across the finalists. Rhyne Howard is the only No. 1 overall pick between them."
           },
           {
-            "label": "FINALS GAME 3",
-            "value": "ATL 97–71",
-            "note": "Atlanta leads the best-of-seven Finals 2–1; Game 4 is Saturday, October 24, at State Farm Arena."
+            "label": "FINALS GAME 4",
+            "value": "GSV 67–62",
+            "note": "Golden State tied the best-of-seven Finals 2–2 after a Game 4 win in Atlanta. Game 5 returns to Chase Center Monday, October 26."
           }
         ],
         "note": "Pick numbers are overall selections and follow the player, even if another team drafted them. Counts use 2026 team rosters. Dallas includes Azzi Fudd (No. 1, 2026), who is out for the season.",

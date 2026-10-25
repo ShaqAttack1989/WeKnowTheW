@@ -23,7 +23,7 @@
 
 const UI_FIXES_HREF='/ui-fixes.css?v=20260930-dashboard-spacing-v4';
 if(!document.querySelector('link[data-ui-fixes]')){const link=document.createElement('link');link.rel='stylesheet';link.href=UI_FIXES_HREF;link.dataset.uiFixes='true';document.head.appendChild(link);}
-const NAVIGATION_HREF='/site-navigation.css?v=20261025-single-row-subnav-v8';
+const NAVIGATION_HREF='/site-navigation.css?v=20261025-homepage-jumps-v9';
 if(!document.querySelector('link[data-site-navigation]')){const link=document.createElement('link');link.rel='stylesheet';link.href=NAVIGATION_HREF;link.dataset.siteNavigation='true';document.head.appendChild(link);}
 const GLOBAL_SCOREBOARD_HREF='/global-scoreboard.css?v=20261003-readable-ribbon-v5';
 if(!document.querySelector('link[data-global-scoreboard]')){const link=document.createElement('link');link.rel='stylesheet';link.href=GLOBAL_SCOREBOARD_HREF;link.dataset.globalScoreboard='true';document.head.appendChild(link);}
@@ -136,12 +136,14 @@ Object.entries(navSections).forEach(([section,paths])=>{if(paths.includes(locati
  const existing=document.querySelector('.culture-subnav');
  if(existing){existing.classList.add('section-shortcuts');return;}
  const current=navLinks.querySelector('.nav-group.is-current');
- const candidates=current?[...current.querySelectorAll('.nav-menu-section>a')]:[...navLinks.querySelectorAll('.nav-parent')];
+ const isHome=['/','/index.html'].includes(location.pathname);
+ const homeShortcuts=[['Playoff Watch Guide','#playoff-watch-guide'],['Live Playoff Tracker','#playoff-bracket'],['This Week in the W','#this-week'],['Live Desk','#live-desk'],['Overall Standings','#overall-standings','overallToggle'],['Live Games','#homepage-games','liveGamesToggle'],['Upcoming Games','#homepage-games','upcomingGamesToggle']];
+ const candidates=isHome?homeShortcuts.map(([label,href,control])=>{const a=document.createElement('a');a.textContent=label;a.setAttribute('href',href);if(control)a.dataset.homeControl=control;return a;}):current?[...current.querySelectorAll('.nav-menu-section>a')]:[...navLinks.querySelectorAll('.nav-parent')];
  const subnav=document.createElement('nav');subnav.className='section-shortcuts';
- subnav.setAttribute('aria-label',current?(current.querySelector('.nav-parent-label').textContent+' sections'):'Explore We Know the W');
+ subnav.setAttribute('aria-label',isHome?'On this homepage':current?(current.querySelector('.nav-parent-label').textContent+' sections'):'Explore We Know the W');
  const inner=document.createElement('div');inner.className='section-shortcuts-inner';
  const seen=new Set();
- candidates.forEach(source=>{const href=source.getAttribute('href');if(!href||seen.has(href))return;seen.add(href);const link=document.createElement('a');link.href=href;link.textContent=source.querySelector('.nav-parent-label')?.textContent||source.textContent;const url=new URL(link.href);if(url.origin===location.origin&&url.pathname===location.pathname&&!url.hash&&!url.search)link.setAttribute('aria-current','page');if(url.origin!==location.origin){link.target='_blank';link.rel='noopener';}inner.appendChild(link);});
+ candidates.forEach(source=>{const href=source.getAttribute('href');const key=href+'|'+(source.dataset.homeControl||'');if(!href||seen.has(key))return;seen.add(key);const link=document.createElement('a');link.href=href;if(source.dataset.homeControl)link.addEventListener('click',()=>document.getElementById(source.dataset.homeControl)?.click());link.textContent=source.querySelector('.nav-parent-label')?.textContent||source.textContent;const url=new URL(link.href);if(url.origin===location.origin&&url.pathname===location.pathname&&!url.hash&&!url.search)link.setAttribute('aria-current','page');if(url.origin!==location.origin){link.target='_blank';link.rel='noopener';}inner.appendChild(link);});
  if(!inner.children.length)return;
  subnav.appendChild(inner);banner.insertAdjacentElement('afterend',subnav);
 })();

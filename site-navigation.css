@@ -520,3 +520,6 @@ body>.w-utility-bar a{min-height:36px!important;font-size:13px;}
 /* Section shortcuts always occupy a single horizontally scrollable row. */
 .section-shortcuts .section-shortcuts-inner,.section-shortcuts>.page-shell{flex-wrap:nowrap!important;width:max-content!important;min-width:min(1180px,100%)!important;max-width:none!important}
 .section-shortcuts a{flex:0 0 auto}
+
+#playoff-watch-guide,#playoff-bracket,#this-week,#live-desk,#overall-standings,#homepage-games{scroll-margin-top:280px}
+@media(max-width:1280px){#playoff-watch-guide,#playoff-bracket,#this-week,#live-desk,#overall-standings,#homepage-games{scroll-margin-top:180px}}

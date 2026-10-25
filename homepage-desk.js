@@ -179,6 +179,7 @@
       </aside>`;
 
     const main=layout.querySelector('.w-desk-main');
+    divider.id='live-desk';
     divider.querySelector('span').textContent='LIVE DESK';
     main.append(editorial,divider,snapshots);
     shell.insertBefore(layout,foot);

@@ -459,7 +459,7 @@ body>.w-utility-bar a{min-height:36px!important;font-size:13px;}
  }
  .site-navigation.site-navigation #navLinks{
   display:flex!important;
-  flex-wrap:wrap!important;
+  flex-wrap:nowrap!important;
   justify-content:flex-end!important;
   align-items:center!important;
   width:100%!important;
@@ -495,4 +495,16 @@ body>.w-utility-bar a{min-height:36px!important;font-size:13px;}
  .site-navigation .nav-group[data-nav-section="run"]:focus-within>.nav-submenu{
   transform:translateY(0)!important;
  }
+}
+
+/* Keep all desktop sections together; reserve a full row when space is tight. */
+@media(min-width:1281px){
+ .site-navigation.site-navigation{padding-inline:max(20px,calc((100vw - 1600px)/2))!important}
+ .site-navigation.site-navigation #navLinks{flex-wrap:nowrap!important}
+}
+@media(min-width:1281px) and (max-width:1599px){
+ .site-navigation.site-navigation{grid-template-columns:minmax(0,1fr)!important;row-gap:6px!important;padding-inline:12px!important}
+ .site-navigation.site-navigation .brand{justify-self:start!important}
+ .site-navigation.site-navigation #navLinks{justify-content:space-between!important;gap:2px!important}
+ .site-navigation.site-navigation .nav-parent{padding-inline:6px!important}
 }

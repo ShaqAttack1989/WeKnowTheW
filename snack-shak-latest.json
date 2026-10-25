@@ -2938,9 +2938,9 @@
       "published": "2026-10-24",
       "updated": "2026-10-25",
       "week": "FINALS RECAP",
-      "image": "/assets/photos/2026-wnba-game3-angel-reese-three-point-streak.jpg",
-      "imageFit": "contain",
-      "imageAlt": "Official WNBA pregame graphic featuring Angel Reese and the Atlanta Dream, noting the team’s record when Reese makes a three-pointer.",
+      "image": "https://cdn.wnba.com/sites/1611661331/2026/10/featured.png",
+      "imageFit": "cover",
+      "imageAlt": "Two Golden State Valkyries teammates celebrate during Game 4 of the 2026 WNBA Finals against the Atlanta Dream.",
       "dek": "Golden State beat Atlanta 67–62 to tie the Finals 2–2. The five-point finish turned on the turnover margin, Kiah Stokes’ extra possessions and a late Atlanta push.",
       "playoffGameOne": {
         "ariaLabel": "Finals Game 4 result",
@@ -3251,9 +3251,9 @@
         }
       ],
       "dashboardUrl": "/food-for-thought.html?post=the-playoff-watch-party-2026#story",
-      "storyImage": "/assets/photos/2026-wnba-game3-angel-reese-three-point-streak.jpg",
-      "storyImageCaption": "WNBA’s pregame graphic showed Atlanta at 14–0 when Angel Reese made a three-pointer: 9–0 in the regular season and 5–0 in the playoffs. Reese made two threes in Game 3, extending the Dream’s mark to 15–0 (9–0 regular season, 6–0 playoffs). Graphic: WNBA.",
-      "storyImageSourceUrl": "https://www.facebook.com/WNBA/",
+      "storyImage": "https://cdn.wnba.com/sites/1611661331/2026/10/featured.png",
+      "storyImageCaption": "Golden State Valkyries teammates celebrate during Game 4 of the 2026 WNBA Finals. Photo: WNBA.",
+      "storyImageSourceUrl": "https://valkyries.wnba.com/news/gameday-recap-20261024",
       "playoffWatch": {
         "title": "EVEN AGAIN.",
         "subtitle": "Valkyries 67, Dream 62 · Finals Game 4 · October 24",

@@ -23,7 +23,7 @@
 
 const UI_FIXES_HREF='/ui-fixes.css?v=20260930-dashboard-spacing-v4';
 if(!document.querySelector('link[data-ui-fixes]')){const link=document.createElement('link');link.rel='stylesheet';link.href=UI_FIXES_HREF;link.dataset.uiFixes='true';document.head.appendChild(link);}
-const NAVIGATION_HREF='/site-navigation.css?v=20261025-aligned-navigation-v6';
+const NAVIGATION_HREF='/site-navigation.css?v=20261025-banner-subnav-v7';
 if(!document.querySelector('link[data-site-navigation]')){const link=document.createElement('link');link.rel='stylesheet';link.href=NAVIGATION_HREF;link.dataset.siteNavigation='true';document.head.appendChild(link);}
 const GLOBAL_SCOREBOARD_HREF='/global-scoreboard.css?v=20261003-readable-ribbon-v5';
 if(!document.querySelector('link[data-global-scoreboard]')){const link=document.createElement('link');link.rel='stylesheet';link.href=GLOBAL_SCOREBOARD_HREF;link.dataset.globalScoreboard='true';document.head.appendChild(link);}
@@ -128,6 +128,23 @@ navSections.snack.push('/next-wnba-commissioner.html');
 navSections.snack.push('/fiba-final-four-2026.html');
 navSections.snack.push('/top-seed-first-out-lynx-2026.html');
 Object.entries(navSections).forEach(([section,paths])=>{if(paths.includes(location.pathname)){const group=navLinks?.querySelector(`[data-nav-section="${section}"]`);group?.classList.add('is-current');group?.setAttribute('data-current-section','true');}});
+// Section shortcuts sit directly below each page banner.
+(()=>{
+ const banner=document.querySelector('h1')?.closest('header');
+ if(!banner||!navLinks)return;
+ if(location.pathname==='/around-the-w.html')banner.querySelector('h1')?.classList.add('around-heading');
+ const existing=document.querySelector('.culture-subnav');
+ if(existing){existing.classList.add('section-shortcuts');return;}
+ const current=navLinks.querySelector('.nav-group.is-current');
+ const candidates=current?[...current.querySelectorAll('.nav-menu-section>a')]:[...navLinks.querySelectorAll('.nav-parent')];
+ const subnav=document.createElement('nav');subnav.className='section-shortcuts';
+ subnav.setAttribute('aria-label',current?(current.querySelector('.nav-parent-label').textContent+' sections'):'Explore We Know the W');
+ const inner=document.createElement('div');inner.className='section-shortcuts-inner';
+ const seen=new Set();
+ candidates.forEach(source=>{const href=source.getAttribute('href');if(!href||seen.has(href))return;seen.add(href);const link=document.createElement('a');link.href=href;link.textContent=source.querySelector('.nav-parent-label')?.textContent||source.textContent;const url=new URL(link.href);if(url.origin===location.origin&&url.pathname===location.pathname&&!url.hash&&!url.search)link.setAttribute('aria-current','page');if(url.origin!==location.origin){link.target='_blank';link.rel='noopener';}inner.appendChild(link);});
+ if(!inner.children.length)return;
+ subnav.appendChild(inner);banner.insertAdjacentElement('afterend',subnav);
+})();
 navLinks?.querySelectorAll('a[href]').forEach(link=>{try{const url=new URL(link.href,location.origin);if(url.pathname===location.pathname&&!url.search&&link.closest('.nav-submenu'))link.setAttribute('aria-current','page');}catch{}});
 
 // One archive catalog supplies homepage and global player search.

@@ -5,11 +5,13 @@
       "slug": "the-first-team-mvp-race-second-team-value-2026",
       "type": "feature",
       "priority": 15000,
+      "homepageSeason": true,
       "seriesLabel": "FOOD FOR THOUGHT · 2026 ALL-WNBA",
-      "title": "The First Team Mirrors the MVP Race. What Does the Second Team Add?",
+      "title": "All-WNBA: One Angel Reese Swap, Two Valkyries Cases",
       "published": "2026-10-24",
-      "updated": "2026-10-24",
-      "dek": "The five First Team names are the five highest finishers in MVP voting. The Second Team broadens the picture with playmaking, rebounding and three first-team All-Defensive selections.",
+      "updated": "2026-10-26",
+      "week": "The 2026 All-WNBA teams",
+      "dek": "Angel Reese made Second Team, but her season belongs in the First Team debate. Golden State’s empty All-WNBA row leaves two more names worth talking about.",
       "image": "https://cdn.wnba.com/sites/4/2026/07/GettyImages-2287270587-scaled.jpg",
       "storyImage": "https://cdn.wnba.com/sites/4/2026/07/GettyImages-2287270587-scaled.jpg",
       "imageAlt": "Olivia Miles of the Minnesota Lynx handling the ball during a game.",
@@ -23,152 +25,243 @@
         "Dallas Wings",
         "Atlanta Dream",
         "Washington Mystics",
-        "Golden State Valkyries",
-        "Chicago Sky"
+        "Golden State Valkyries"
       ],
       "players": [
+        "A’ja Wilson",
         "Olivia Miles",
-        "Caitlin Clark",
         "Kelsey Mitchell",
+        "Caitlin Clark",
         "Breanna Stewart",
-        "A'ja Wilson",
         "Paige Bueckers",
         "Jackie Young",
         "Rhyne Howard",
         "Angel Reese",
-        "Shakira Austin"
+        "Shakira Austin",
+        "Gabby Williams",
+        "Veronica Burton"
       ],
       "storyLead": [
-        "The 2026 All-WNBA First Team is the same five-player group that finished first through fifth in the MVP vote: A’ja Wilson, Olivia Miles, Kelsey Mitchell, Caitlin Clark and Breanna Stewart. The order differs, but the membership is identical.",
-        "That overlap makes the top of the ballot unusually easy to read. The Second Team is where the lens widens: five more players whose seasons combined scoring and creation with standout rebounding or defense."
+        "Angel Reese made the 2026 All-WNBA Second Team. Calling her snubbed from All-WNBA misses the real question: after Defensive Player of the Year, a league-best 12.1 rebounds per game and a record 32 double-doubles, should she have been in the First Team five?",
+        "My answer is yes. I’d move Reese into the First Team and slide Breanna Stewart to the Second. I’d also give Golden State’s Gabby Williams the last Second Team spot. Veronica Burton makes a strong case right behind her."
       ],
+      "gameGallery": {
+        "eyebrow": "THE 2026 ALL-WNBA TEAMS",
+        "title": "Ten honorees, two Valkyries cases",
+        "dek": "Official WNBA headshots for every First and Second Team selection, plus Gabby Williams and Veronica Burton.",
+        "items": [
+          {
+            "image": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1628932.png",
+            "alt": "Official WNBA headshot of A’ja Wilson, Las Vegas Aces.",
+            "kicker": "FIRST TEAM",
+            "title": "A’ja Wilson",
+            "caption": "Las Vegas Aces. 26.2 PPG · 9.4 RPG · league-leading 9.43 win shares.",
+            "credit": "Photo: WNBA.com",
+            "sourceUrl": "https://www.wnba.com/news/2026-eos-awards-lookahead-all-wnba-first-team"
+          },
+          {
+            "image": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1643426.png",
+            "alt": "Official WNBA headshot of Olivia Miles, Minnesota Lynx.",
+            "kicker": "FIRST TEAM",
+            "title": "Olivia Miles",
+            "caption": "Minnesota Lynx. 19.8 PPG · 6.0 APG · unanimous Rookie of the Year.",
+            "credit": "Photo: WNBA.com",
+            "sourceUrl": "https://www.wnba.com/news/2026-eos-awards-lookahead-all-wnba-first-team"
+          },
+          {
+            "image": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1628909.png",
+            "alt": "Official WNBA headshot of Kelsey Mitchell, Indiana Fever.",
+            "kicker": "FIRST TEAM",
+            "title": "Kelsey Mitchell",
+            "caption": "Indiana Fever. 24.7 PPG · 1,086 points · WNBA single-season record.",
+            "credit": "Photo: WNBA.com",
+            "sourceUrl": "https://www.wnba.com/news/2026-eos-awards-lookahead-all-wnba-first-team"
+          },
+          {
+            "image": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1642286.png",
+            "alt": "Official WNBA headshot of Caitlin Clark, Indiana Fever.",
+            "kicker": "FIRST TEAM",
+            "title": "Caitlin Clark",
+            "caption": "Indiana Fever. 22.3 PPG · 8.3 APG · 41.2 points created per game.",
+            "credit": "Photo: WNBA.com",
+            "sourceUrl": "https://www.wnba.com/news/2026-eos-awards-lookahead-all-wnba-first-team"
+          },
+          {
+            "image": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1627668.png",
+            "alt": "Official WNBA headshot of Breanna Stewart, New York Liberty.",
+            "kicker": "FIRST TEAM",
+            "title": "Breanna Stewart",
+            "caption": "New York Liberty. 20.8 PPG · 8.3 RPG · fifth in win shares.",
+            "credit": "Photo: WNBA.com",
+            "sourceUrl": "https://www.wnba.com/news/2026-eos-awards-lookahead-all-wnba-first-team"
+          },
+          {
+            "image": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1642784.png",
+            "alt": "Official WNBA headshot of Paige Bueckers, Dallas Wings.",
+            "kicker": "SECOND TEAM",
+            "title": "Paige Bueckers",
+            "caption": "Dallas Wings. 20.9 PPG · 5.9 APG · 51/41/87 shooting splits.",
+            "credit": "Photo: WNBA.com",
+            "sourceUrl": "https://www.wnba.com/news/2026-eos-awards-lookahead-all-wnba-first-team"
+          },
+          {
+            "image": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1629498.png",
+            "alt": "Official WNBA headshot of Jackie Young, Las Vegas Aces.",
+            "kicker": "SECOND TEAM",
+            "title": "Jackie Young",
+            "caption": "Las Vegas Aces. 18.9 PPG · 6.8 APG · 92.8% from the line.",
+            "credit": "Photo: WNBA.com",
+            "sourceUrl": "https://www.wnba.com/news/2026-eos-awards-lookahead-all-wnba-first-team"
+          },
+          {
+            "image": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1631009.png",
+            "alt": "Official WNBA headshot of Rhyne Howard, Atlanta Dream.",
+            "kicker": "SECOND TEAM",
+            "title": "Rhyne Howard",
+            "caption": "Atlanta Dream. 17.7 PPG · 2.3 steals per game · league leader.",
+            "credit": "Photo: WNBA.com",
+            "sourceUrl": "https://www.wnba.com/news/2026-eos-awards-lookahead-all-wnba-first-team"
+          },
+          {
+            "image": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1642291.png",
+            "alt": "Official WNBA headshot of Angel Reese, Atlanta Dream.",
+            "kicker": "SECOND TEAM",
+            "title": "Angel Reese",
+            "caption": "Atlanta Dream. 16.4 PPG · 12.1 RPG · 32 double-doubles · Defensive Player of the Year.",
+            "credit": "Photo: WNBA.com",
+            "sourceUrl": "https://www.wnba.com/news/2026-eos-awards-lookahead-all-wnba-first-team"
+          },
+          {
+            "image": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1631022.png",
+            "alt": "Official WNBA headshot of Shakira Austin, Washington Mystics.",
+            "kicker": "SECOND TEAM",
+            "title": "Shakira Austin",
+            "caption": "Washington Mystics. 17.0 PPG · 9.5 RPG · 20 double-doubles.",
+            "credit": "Photo: WNBA.com",
+            "sourceUrl": "https://www.wnba.com/news/2026-eos-awards-lookahead-all-wnba-first-team"
+          },
+          {
+            "image": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1628931.png",
+            "alt": "Official WNBA headshot of Gabby Williams, Golden State Valkyries.",
+            "kicker": "VALKYRIES CASE",
+            "title": "Gabby Williams",
+            "caption": "Golden State Valkyries. 14.4 PPG · 1.6 steals · All-Defensive First Team and DPOY runner-up.",
+            "credit": "Photo: WNBA.com",
+            "sourceUrl": "https://www.wnba.com/news/2026-eos-awards-lookahead-all-wnba-first-team"
+          },
+          {
+            "image": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1631007.png",
+            "alt": "Official WNBA headshot of Veronica Burton, Golden State Valkyries.",
+            "kicker": "VALKYRIES CASE",
+            "title": "Veronica Burton",
+            "caption": "Golden State Valkyries. 12.2 PPG · 5.7 APG · 7.55 win shares, second only to A’ja.",
+            "credit": "Photo: WNBA.com",
+            "sourceUrl": "https://www.wnba.com/news/2026-eos-awards-lookahead-all-wnba-first-team"
+          }
+        ]
+      },
       "storyTable": {
         "columns": [
-          "Player",
-          "Team",
-          "Selection",
-          "Season signal"
+          "My ballot",
+          "Five players",
+          "The move"
         ],
         "rows": [
           [
-            "Olivia Miles",
-            "Minnesota Lynx",
             "First Team",
-            "19.8 PPG, 6.0 APG; a rookie-record 790 points."
+            "A’ja Wilson · Olivia Miles · Kelsey Mitchell · Caitlin Clark · Angel Reese",
+            "Reese moves up from Second Team."
           ],
           [
-            "Caitlin Clark",
-            "Indiana Fever",
-            "First Team",
-            "22.3 PPG, 8.3 APG; top three in both categories."
-          ],
-          [
-            "Kelsey Mitchell",
-            "Indiana Fever",
-            "First Team",
-            "24.7 PPG; a league-record 1,086 points."
-          ],
-          [
-            "Breanna Stewart",
-            "New York Liberty",
-            "First Team",
-            "20.8 PPG, 8.3 RPG."
-          ],
-          [
-            "A’ja Wilson",
-            "Las Vegas Aces",
-            "First Team",
-            "26.2 PPG, 9.4 RPG; fifth MVP."
-          ],
-          [
-            "Paige Bueckers",
-            "Dallas Wings",
             "Second Team",
-            "20.9 PPG, 5.9 APG."
-          ],
-          [
-            "Jackie Young",
-            "Las Vegas Aces",
-            "Second Team",
-            "18.9 PPG, 6.8 APG."
-          ],
-          [
-            "Rhyne Howard",
-            "Atlanta Dream",
-            "Second Team",
-            "17.7 PPG; league-leading 2.3 steals per game."
-          ],
-          [
-            "Angel Reese",
-            "Atlanta Dream",
-            "Second Team",
-            "16.4 PPG, 12.1 RPG; 32 double-doubles and DPOY."
-          ],
-          [
-            "Shakira Austin",
-            "Washington Mystics",
-            "Second Team",
-            "17.0 PPG, 9.5 RPG; 20 double-doubles."
+            "Paige Bueckers · Jackie Young · Rhyne Howard · Breanna Stewart · Gabby Williams",
+            "Stewart slides down; Williams gets my final spot."
           ]
         ]
       },
       "sections": [
         {
-          "title": "The First Team and the MVP vote tell the same top-five story",
+          "title": "The top five made sense. The debate starts after that.",
           "paragraphs": [
-            "The MVP ballot finished Wilson (713 points), Miles (442), Mitchell (287), Clark (212) and Stewart (171). Those are the exact five names on the First Team, although the All-WNBA announcement lists them in a different order.",
-            "That match does not make the two honors interchangeable. The MVP ballot identifies one winner; All-WNBA recognizes ten players across two teams. But this year, both votes converged on the same top tier."
+            "The official First Team—A’ja Wilson, Olivia Miles, Kelsey Mitchell, Caitlin Clark and Breanna Stewart—matches the five highest finishers in MVP voting. The ballot has a clear spine: Wilson’s fifth MVP, Miles’ unanimous Rookie of the Year season, Mitchell’s record scoring, Clark’s scoring and playmaking, and Stewart’s all-around production.",
+            "But All-WNBA is a second award with a second team. It can recognize a wider range of season-long impact than the MVP race. A neat match between the two ballots does not mean every difficult choice has been settled."
           ]
         },
         {
-          "title": "The Second Team adds a different kind of evidence",
+          "title": "Angel was selected. The question is where.",
           "paragraphs": [
-            "Three Second Team selections—Howard, Reese and Austin—also made the All-Defensive First Team. Wilson joined them there from the All-WNBA First Team. That gives four of the ten All-WNBA honorees a place on the league’s top defensive team.",
-            "The rest of the Second Team brings its own distinct cases: Bueckers paired 20.9 points with 5.9 assists, Young added 18.9 and 6.8, while Reese and Austin stood out as high-volume rebounders. The teams are a single honor split into two groups, not a complete ranking of how valuable every player was."
+            "Reese averaged 16.4 points, 12.1 rebounds, 2.8 assists and 1.8 steals. She led the league in rebounding, set the WNBA single-season double-double record with 32, passed 500 rebounds, and became the first player in Atlanta Dream history to win Defensive Player of the Year.",
+            "That is more than a specialist’s résumé. Reese carried a large share of Atlanta’s scoring, ended possessions on the glass and earned the league’s top defensive honor. The Second Team nod is deserved. The First Team case is real."
           ]
         },
         {
-          "title": "The Finals add a team-level question",
+          "title": "My move: Reese up, Stewart down one row",
           "paragraphs": [
-            "Atlanta and Golden State reached the Finals without a First Team honoree. Atlanta placed Howard and Reese on the Second Team; Golden State had no All-WNBA selection. The eventual champion would be the first since Chicago in 2021 to win without a First Team player.",
-            "That is a useful reminder that the award recognizes regular-season individual performance, while a title depends on the full roster and what it does in the postseason. It also leaves a fair question for voters and fans: should team success change the way we read an individual honor?"
+            "If I’m choosing five players for the biggest individual seasons, I put Reese ahead of Stewart. The difference is narrow, and Stewart has a strong counter: 20.8 points, 8.3 rebounds and 3.3 assists per game, a top-five finish in win shares, and a place in the top ten in scoring, rebounding and blocks. She was still one of the league’s best players.",
+            "But the First Team should leave room for a season that changed the math on both ends. Reese’s record rebounding, 32 double-doubles and Defensive Player of the Year honor are the kind of season that should break through the familiar scoring hierarchy. Stewart stays All-WNBA on my ballot—she just moves to Second."
           ]
         },
         {
-          "title": "Food for thought",
+          "title": "The other four stay put",
           "paragraphs": [
-            "When the First Team repeats the MVP top five, does it sharpen the league’s picture of its best season-long performers—or confirm the same hierarchy twice? And should the Second Team be viewed as tier two, or as the place where more kinds of impact become visible?"
+            "Wilson led the league with 26.2 points per game and 9.43 win shares. Mitchell scored 24.7 per game and set the single-season points record. Clark finished among the top three in both points and assists, creating 41.2 points per game. Miles averaged 19.8 points and 6.0 assists, won Rookie of the Year unanimously, and helped lead Minnesota to the league’s best record.",
+            "I can make an Angel Reese argument without pretending those seasons were ordinary. They weren’t."
+          ]
+        },
+        {
+          "title": "Second Team is not a consolation plate",
+          "paragraphs": [
+            "Paige Bueckers paired 20.9 points with 5.9 assists and shot 51.2 percent from the field, 41 percent from three and 87.1 percent at the line. Jackie Young posted 18.9 points and 6.8 assists while shooting nearly 49 percent. Rhyne Howard averaged 17.7 points, led the league in steals and finished second in three-pointers.",
+            "Shakira Austin brought 17 points, 9.5 rebounds and 20 double-doubles. She belongs in this conversation even though I’d give the last Second Team spot to Williams. The gap between those cases is small; the gap between either player and an ordinary season is not."
+          ]
+        },
+        {
+          "title": "Golden State has two names worth a second look",
+          "paragraphs": [
+            "The Valkyries went 32–12, finished second in the standings and reached the Finals without an All-WNBA selection. The Finals run cannot be used to rewrite a regular-season award, but that regular season deserves more than a shrug.",
+            "Williams is my Valkyries pick. She averaged 14.4 points and 1.6 steals, led Golden State in scoring, made the All-Defensive First Team and finished runner-up for Defensive Player of the Year. On my alternate ballot, I’d take her over Austin for the final Second Team spot. Austin’s 17 points and 9.5 rebounds make that a real cut, not an easy one.",
+            "Burton also deserves a mention. She averaged 12.2 points and 5.7 assists, made All-Defensive Second Team, and finished with 7.55 win shares—second in the league only to Wilson. Her scoring was lower than the other honorees, but her two-way value and effect on winning were hard to miss.",
+            "Angel Reese wasn’t left off the list. My snub call is about her placement. For the Valkyries, Williams is the clearest All-WNBA omission, with Burton close behind."
           ]
         }
       ],
+      "debates": [
+        "Would you put Angel Reese ahead of Breanna Stewart on the First Team?",
+        "Would Gabby Williams take Shakira Austin’s spot on your Second Team?",
+        "Which Valkyries case is stronger: Gabby Williams or Veronica Burton?"
+      ],
       "foodSegment": {
-        "title": "One season, two award lenses",
-        "script": "The First Team confirms the MVP top five. The Second Team asks us to notice what the headline race can leave out."
+        "title": "One Angel move, one Valkyries call",
+        "script": "My First Team is Wilson, Miles, Mitchell, Clark and Angel Reese. Stewie still makes All-WNBA; I just slide her to Second. For the last Second Team seat, I’m taking Gabby Williams over Shakira Austin by a narrow margin. Veronica Burton is right there. Where does your ballot break?"
       },
       "sources": [
         {
-          "label": "2026 All-WNBA teams and Finals context · AP/Yahoo Sports",
-          "url": "https://uk.sports.yahoo.com/news/wnba-teams-announced-caitlin-clark-164604084.html"
+          "label": "WNBA · 2026 First Team highlights",
+          "url": "https://www.wnba.com/watch/video/2026-all-wnba-first-team-highlights"
         },
         {
-          "label": "WNBA · 2026 MVP results and vote points",
-          "url": "https://www.wnba.com/webview/news/wilson-named-2026-most-valuable-player"
+          "label": "WNBA · 2026 Second Team highlights",
+          "url": "https://www.wnba.com/watch/video/2026-all-wnba-second-team-highlights"
         },
         {
-          "label": "WNBA · 2026 All-WNBA season statistics and player context",
+          "label": "WNBA · 2026 All-WNBA stats and player context",
           "url": "https://www.wnba.com/news/2026-eos-awards-lookahead-all-wnba-first-team"
         },
         {
-          "label": "WNBA · 2026 All-Defensive First Team",
-          "url": "https://www.wnba.com/watch/video/2026-wnba-all-defensive-first-team"
+          "label": "WNBA · 2026 MVP voting results",
+          "url": "https://www.wnba.com/news/wilson-named-2026-most-valuable-player"
         },
         {
-          "label": "WNBA · Olivia Miles named 2026 Rookie of the Year",
-          "url": "https://www.wnba.com/webview/news/miles-named-2026-rookie-of-the-year"
+          "label": "Atlanta Dream · Angel Reese named Defensive Player of the Year",
+          "url": "https://dream.wnba.com/news/angel-reese-named-2026-wnba-kia-defensive-player-of-the-year"
         },
         {
-          "label": "WNBA · All-WNBA historical record",
-          "url": "https://www.wnba.com/history-all-wnba"
+          "label": "Golden State Valkyries · 2026 All-Defensive honors for Williams and Burton",
+          "url": "https://valkyries.wnba.com/news/williams-named-to-wnba-all-defensive-first-team-burton-stokes-named-to-wnba-all-defensive-second-team-20261015"
+        },
+        {
+          "label": "WNBA · Golden State Valkyries 2026 team page and record",
+          "url": "https://www.wnba.com/team/1611661331/valkyries"
         }
       ]
     },

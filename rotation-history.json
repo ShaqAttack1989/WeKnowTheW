@@ -1,7 +1,53 @@
 {
-  "updatedAt": "2026-10-18T19:40:00-04:00",
+  "updatedAt": "2026-10-25T21:30:00-04:00",
   "timezone": "America/New_York",
   "startingFive": [
+    {
+      "week": "2026-10-26",
+      "edition": "WNBA FINALS",
+      "picks": [
+        {
+          "name": "Jordin Canada",
+          "label": "1 · PG",
+          "role": "Point Guard",
+          "statLine": "10 PTS · 8 AST · Finals Game 3",
+          "copy": "Canada organizes the five with pace control, passing and pressure defense.",
+          "photo": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1628886.png"
+        },
+        {
+          "name": "Rhyne Howard",
+          "label": "2 · SG",
+          "role": "Shooting Guard",
+          "statLine": "19 PTS · Finals Game 4",
+          "copy": "Howard takes the two with scoring and disruptive perimeter defense after consecutive Finals games with at least five steals.",
+          "photo": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1631009.png"
+        },
+        {
+          "name": "Gabby Williams",
+          "label": "3 · SF",
+          "role": "Small Forward",
+          "statLine": "17 PTS · 5 REB · 3 AST · 2 STL · Finals Game 4",
+          "copy": "Williams combines first-option scoring with versatile defense, leading Golden State's response to two straight losses.",
+          "photo": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1628931.png"
+        },
+        {
+          "name": "Angel Reese",
+          "label": "4 · PF",
+          "role": "Power Forward",
+          "statLine": "25.5 PPG · 14.0 RPG · Finals Games 2–3",
+          "copy": "Reese retains the four after dominant performances in Atlanta's two wins, bringing rebounding and paint pressure.",
+          "photo": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1642291.png"
+        },
+        {
+          "name": "Kiah Stokes",
+          "label": "5 · C",
+          "role": "Center",
+          "statLine": "16 REB · 3 BLK · Finals Game 4",
+          "copy": "Stokes anchors the middle with rim protection and possession-winning rebounding, setting a Finals series record with 14 blocks through four games.",
+          "photo": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/204329.png"
+        }
+      ]
+    },
     {
       "week": "2026-10-19",
       "edition": "WNBA FINALS",
@@ -354,6 +400,60 @@
     }
   ],
   "benchMob": [
+    {
+      "week": "2026-10-26",
+      "edition": "WNBA FINALS",
+      "picks": [
+        {
+          "role": "Sixth Woman",
+          "roleId": "sixth-woman",
+          "name": "Tiffany Hayes",
+          "statLine": "13 PTS · Finals Game 4",
+          "why": "Hayes supplies veteran scoring and creation, delivering all 13 points after halftime in Game 4. She fills the editorial Sixth Woman role despite starting that game.",
+          "photo": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/203026.png"
+        },
+        {
+          "role": "Microwave Scorer",
+          "roleId": "microwave",
+          "name": "DeWanna Bonner",
+          "statLine": "10.4 PPG · 6.0 RPG · Regular season",
+          "why": "Bonner supplies scoring flexibility and veteran composure, finding points inside or outside while adding valuable rebounding.",
+          "photo": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/201886.png"
+        },
+        {
+          "role": "3 & D Wing",
+          "roleId": "three-d",
+          "name": "Cecilia Zandalasini",
+          "statLine": "10 PTS · 3 STL · Finals Game 4",
+          "why": "Zandalasini earns the wing spot with efficient shooting and disruptive defense, supplying an immediate spark off the bench.",
+          "photo": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1628508.png"
+        },
+        {
+          "role": "Glue Player · Floor General",
+          "roleId": "glue",
+          "name": "Veronica Burton",
+          "statLine": "Clutch shooting · Defensive organization",
+          "why": "Burton steadies the group with playmaking and ball pressure, adding the late three that helped stop Atlanta's Game 4 comeback.",
+          "photo": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1631007.png"
+        },
+        {
+          "role": "Backup Floor General",
+          "roleId": "backup-pg",
+          "name": "Kaitlyn Chen",
+          "statLine": "Five straight points during an early Finals Game 1 run",
+          "why": "Chen supplies another ball handler and an immediate energy lift, keeping the offense moving when the second unit takes over.",
+          "photo": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1642822.png"
+        },
+        {
+          "role": "Energy Big",
+          "roleId": "energy-big",
+          "name": "Naz Hillmon",
+          "statLine": "15 PTS · Finals Game 3",
+          "why": "Hillmon brings a natural frontcourt presence with screening, defensive work and interior activity alongside timely scoring.",
+          "photo": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1631044.png"
+        }
+      ]
+    },
     {
       "week": "2026-10-19",
       "edition": "WNBA FINALS",

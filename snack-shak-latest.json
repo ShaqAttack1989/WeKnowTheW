@@ -12,11 +12,10 @@
       "updated": "2026-10-26",
       "week": "The 2026 All-WNBA teams",
       "dek": "I’d move Angel Reese and Gabby Williams into the First Team, with Breanna Stewart and Caitlin Clark on the Second. Golden State’s empty All-WNBA row deserves more than a shrug.",
-      "image": "https://cdn.wnba.com/sites/4/2026/07/GettyImages-2287270587-scaled.jpg",
-      "storyImage": "https://cdn.wnba.com/sites/4/2026/07/GettyImages-2287270587-scaled.jpg",
-      "imageAlt": "Olivia Miles of the Minnesota Lynx handling the ball during a game.",
-      "storyImageCaption": "Olivia Miles in action for Minnesota. Photo: Getty Images / WNBA.",
-      "storyImageSourceUrl": "https://www.wnba.com/news/season-30-stretch-run-one-thing-to-watch",
+      "image": "/assets/images/snack-shak/shaks-2026-all-wnba-ballot.webp",
+      "storyImage": "/assets/images/snack-shak/shaks-2026-all-wnba-ballot.webp",
+      "imageAlt": "Graphic of Shakeema Funchess’s 2026 All-WNBA First and Second Team ballot, featuring official WNBA headshots.",
+      "storyImageCaption": "Shakeema Funchess’s 2026 All-WNBA ballot. Player headshots: WNBA.com.",
       "teams": [
         "Minnesota Lynx",
         "Indiana Fever",
@@ -264,7 +263,8 @@
           "label": "WNBA · Golden State Valkyries 2026 team page and record",
           "url": "https://www.wnba.com/team/1611661331/valkyries"
         }
-      ]
+      ],
+      "imageFit": "contain"
     },
     {
       "slug": "what-is-a-sparks-franchise-worth-now-2026",

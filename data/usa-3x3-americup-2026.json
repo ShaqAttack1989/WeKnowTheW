@@ -137,5 +137,39 @@
     }
   ],
   "standings": [],
-  "notes": "No official 2026 results are available before the event. This dataset is a verified editorial schedule, not an automatic score feed. Updates to this file appear in the watch hub on refresh."
+  "notes": "No official 2026 results are available before the event. This dataset is a verified editorial schedule, not an automatic score feed. Updates to this file appear in the watch hub on refresh.",
+  "playerStats": [
+    {
+      "name": "Aziaha James",
+      "games": null,
+      "points": null,
+      "rebounds": null,
+      "assists": null,
+      "source": null
+    },
+    {
+      "name": "Flau'jae Johnson",
+      "games": null,
+      "points": null,
+      "rebounds": null,
+      "assists": null,
+      "source": null
+    },
+    {
+      "name": "Aerial Powers",
+      "games": null,
+      "points": null,
+      "rebounds": null,
+      "assists": null,
+      "source": null
+    },
+    {
+      "name": "Sydney Taylor",
+      "games": null,
+      "points": null,
+      "rebounds": null,
+      "assists": null,
+      "source": null
+    }
+  ]
 }

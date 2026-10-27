@@ -82,6 +82,7 @@
 </div></section>
 <section class="cup-block cup-white" id="cup-roster"><div class="cup-shell"><div class="cup-kicker">USA BASKETBALL · OCTOBER 23 ANNOUNCEMENT</div><h2>Four different résumés. One halfcourt assignment.</h2><p class="cup-desc">Experience matters. In 3x3, players must cover every possession, rotate through one substitute and adjust immediately after a made basket. Christina Batastini coaches this title defense.</p>
 <div class="cup-grid" id="cupPlayers" aria-live="polite"></div>
+<div class="cup-panel" id="cup-stats"><h3>3x3 Stat Kitchen · 2026 AmeriCup</h3><p>Official player totals only. Cells remain blank until FIBA or USA Basketball publishes verified tournament statistics.</p><div class="cup-table-wrap"><table class="cup-table"><thead><tr><th>Player</th><th>Games</th><th>Points</th><th>Rebounds</th><th>Assists</th></tr></thead><tbody id="cupPlayerStats"><tr><td colspan="5">Waiting for verified tournament box scores.</td></tr></tbody></table></div></div>
 <p class="cup-notice"><b>Player numbers:</b> This is the confirmed roster, not an invented AmeriCup stat line. The player game-by-game dashboard will show verified results as scores and official statistics become available.</p>
 <a class="cup-roster-link" href="https://www.usab.com/news/2026/10/2026-usa-basketball-3x3-americup-teams-announced" target="_blank" rel="noopener noreferrer">Read the official roster release ↗</a>
 </div></section>
@@ -132,6 +133,8 @@ const wins=finals.filter(g=>g.usaScore>g.opponentScore).length, losses=finals.fi
 el('cupRecord').textContent=wins+'–'+losses;el('cupRecordNote').textContent=finals.length?finals.length+' of 2 pool games final':'Pool play not started';
 el('cupStage').textContent=finals.length===2?'Pool finished':'Pool B';
 el('cupStageNote').textContent=finals.length===2?'See official bracket for placement':'Top two advance to quarterfinals';
+const playerStats=Array.isArray(state.playerStats)?state.playerStats:[];
+el('cupPlayerStats').innerHTML=state.roster.map(p=>{const s=playerStats.find(row=>row.name===p.name)||{};const score=x=>Number.isFinite(x)?x:'—';return '<tr><td><b>'+esc(p.name)+'</b></td><td>'+score(s.games)+'</td><td>'+score(s.points)+'</td><td>'+score(s.rebounds)+'</td><td>'+score(s.assists)+'</td></tr>';}).join('');
 const standings=Array.isArray(state.standings)?state.standings:[];
 el('cupStandingsWrap').hidden=!standings.length;
 if(standings.length){el('cupStandings').innerHTML=standings.map(s=>'<tr><td>'+esc(s.pool)+'</td><td>'+esc(s.team)+'</td><td>'+esc(s.wins)+'</td><td>'+esc(s.losses)+'</td><td>'+esc(s.for)+'</td><td>'+esc(s.against)+'</td></tr>').join('');el('cupStandingsNote').textContent='Verified pool standings from the latest published event data.';}

@@ -108,7 +108,7 @@
     if(mount.dataset.loaded==='true'||mount.dataset.loading==='true')return;
     mount.dataset.loading='true';
     try{
-      const response=await fetch('/finals-game-dashboard.json?v=20261025-game4-finals-dashboard-v1');
+      const response=await fetch('/finals-game-dashboard.json?v=20261028-game5-final-v1');
       if(!response.ok)throw Error('Dashboard data unavailable');
       const data=await response.json();
       let gameNumber=data.games[data.games.length-1].number;

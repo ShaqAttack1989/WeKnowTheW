@@ -77,3 +77,6 @@ renderAwards();
 loadPlayerPhotos();
 loadLeaders();
 loadComposite();
+
+setInterval(()=>{if(!document.hidden){loadLeaders();loadComposite();}},1800000);
+document.addEventListener('visibilitychange',()=>{if(!document.hidden){loadLeaders();loadComposite();}});

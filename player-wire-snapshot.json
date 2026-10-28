@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-27T23:47:03.842Z",
+  "generatedAt": "2026-10-28T05:42:18.806Z",
   "movement": {
     "latestTransactionDate": "2026-09-28",
     "transactions": [
@@ -1437,9 +1437,9 @@
     ]
   },
   "availability": {
-    "latestReportDate": "2026-10-26",
-    "reportLabel": "10/26/2026 11:45 PM ET",
-    "officialPdf": "https://ak-static.cms.nba.com/referee/wnba_injury/Injury-Report_2026-10-26_11_45PM.pdf",
+    "latestReportDate": "2026-10-28",
+    "reportLabel": "10/28/2026 01:30 AM ET",
+    "officialPdf": "https://ak-static.cms.nba.com/referee/wnba_injury/Injury-Report_2026-10-28_01_30AM.pdf",
     "injuries": [
       {
         "player": "Nyara Sabally",
@@ -1736,20 +1736,6 @@
         "crossCheckOnly": true
       },
       {
-        "player": "Matilde Villa",
-        "team": "Atlanta Dream",
-        "status": "OUT",
-        "reason": "Coach's Decision · Villa (coach's decision) has been ruled out for Wednesday's game against New York.",
-        "updated": "2026-09-23",
-        "returnDate": "2027-05-01",
-        "matchup": "",
-        "gameTime": "",
-        "source": "ESPN via WeHoop-compatible endpoint",
-        "sourceUrl": null,
-        "officialCurrentReport": false,
-        "crossCheckOnly": true
-      },
-      {
         "player": "Natasha Cloud",
         "team": "Chicago Sky",
         "status": "OUT",
@@ -1853,20 +1839,6 @@
         "status": "OUT",
         "reason": "Knee · Oblak (knee) has been ruled out for Tuesday's game against the Valkyries.",
         "updated": "2026-09-21",
-        "returnDate": "2027-05-01",
-        "matchup": "",
-        "gameTime": "",
-        "source": "ESPN via WeHoop-compatible endpoint",
-        "sourceUrl": null,
-        "officialCurrentReport": false,
-        "crossCheckOnly": true
-      },
-      {
-        "player": "Brionna Jones",
-        "team": "Atlanta Dream",
-        "status": "OUT",
-        "reason": "Leg · Jones will miss the remainder of the season after sustaining a left leg injury against the Sun on Aug. 13, Annie Costabile of The Athletic reports.",
-        "updated": "2026-09-17",
         "returnDate": "2027-05-01",
         "matchup": "",
         "gameTime": "",
@@ -2122,6 +2094,17 @@
         "crossCheckOnly": true
       },
       {
+        "player": "Iliana Rupert",
+        "team": "Golden State Valkyries",
+        "status": "OUT FOR SEASON",
+        "reason": "Pregnancy",
+        "updated": "2026-05-28",
+        "source": "WNBA Injury Report",
+        "officialCurrentReport": false,
+        "trackedCarryover": true,
+        "seasonLongCarryover": true
+      },
+      {
         "player": "Rickea Jackson",
         "team": "Chicago Sky",
         "status": "OUT",
@@ -2145,23 +2128,26 @@
         "officialCurrentReport": false,
         "trackedCarryover": true,
         "seasonLongCarryover": true
-      },
-      {
-        "player": "Iliana Rupert",
-        "team": "Golden State Valkyries",
-        "status": "OUT",
-        "reason": "Not Injury Related · Rupert is pregnant, and the Valkyries have filed for a replacement contract ahead of the 2026 season, Alexa Philippou of ESPN.com reports Thursday.",
-        "updated": "2026-05-07",
-        "returnDate": "2027-05-01",
-        "matchup": "",
-        "gameTime": "",
-        "source": "ESPN via WeHoop-compatible endpoint",
-        "sourceUrl": null,
-        "officialCurrentReport": false,
-        "crossCheckOnly": true
       }
     ],
-    "teamStatuses": []
+    "teamStatuses": [
+      {
+        "team": "Atlanta Dream",
+        "status": "NOT YET SUBMITTED",
+        "gameDate": "10/29/2026",
+        "gameTime": "12:30 (ET)",
+        "matchup": "GSV@ATL",
+        "updated": "2026-10-29"
+      },
+      {
+        "team": "Golden State Valkyries",
+        "status": "NOT YET SUBMITTED",
+        "gameDate": "10/29/2026",
+        "gameTime": "12:30 (ET)",
+        "matchup": "GSV@ATL",
+        "updated": "2026-10-29"
+      }
+    ]
   },
   "errors": []
 }

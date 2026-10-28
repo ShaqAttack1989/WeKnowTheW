@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-28T12:54:13.536Z",
+  "generatedAt": "2026-10-28T18:52:13.701Z",
   "movement": {
     "latestTransactionDate": "2026-09-28",
     "transactions": [
@@ -1438,15 +1438,15 @@
   },
   "availability": {
     "latestReportDate": "2026-10-28",
-    "reportLabel": "10/28/2026 08:45 AM ET",
-    "officialPdf": "https://ak-static.cms.nba.com/referee/wnba_injury/Injury-Report_2026-10-28_08_45AM.pdf",
+    "reportLabel": "10/28/2026 02:45 PM ET",
+    "officialPdf": "https://ak-static.cms.nba.com/referee/wnba_injury/Injury-Report_2026-10-28_02_45PM.pdf",
     "injuries": [
       {
-        "player": "Nyara Sabally",
-        "team": "Toronto Tempo",
+        "player": "Aliyah Boston",
+        "team": "Indiana Fever",
         "status": "OUT",
-        "reason": "Knee · Sabally recently underwent arthroscopic left knee surgery but is expected to make a full recovery ahead of the 2027 season, Ian Finlayson of Sportsnet.ca reports.",
-        "updated": "2026-10-27",
+        "reason": "Knee · out",
+        "updated": "2026-10-28",
         "returnDate": "2027-05-01",
         "matchup": "",
         "gameTime": "",
@@ -1456,11 +1456,11 @@
         "crossCheckOnly": true
       },
       {
-        "player": "Aliyah Boston",
-        "team": "Indiana Fever",
+        "player": "Nyara Sabally",
+        "team": "Toronto Tempo",
         "status": "OUT",
-        "reason": "Knee · out",
-        "updated": "2026-10-15",
+        "reason": "Knee · Sabally recently underwent arthroscopic left knee surgery but is expected to make a full recovery ahead of the 2027 season, Ian Finlayson of Sportsnet.ca reports.",
+        "updated": "2026-10-27",
         "returnDate": "2027-05-01",
         "matchup": "",
         "gameTime": "",

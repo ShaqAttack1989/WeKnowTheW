@@ -101,7 +101,7 @@
       const stamp=payload.updatedAt||payload.generatedAt;
       const updated=stamp?new Date(stamp):null;
       const when=updated&&!Number.isNaN(updated.getTime())?updated.toLocaleString([],{month:'short',day:'numeric',hour:'numeric',minute:'2-digit'}):'verified';
-      status.textContent=payload.stale?`Week ${displayWeek} · Verified snapshot · ${when}`:`Week ${displayWeek} · Live · Updated ${when}`;
+      status.textContent=Number(displayWeek)===15?'Final regular-season board · Sept. 17–24, 2026':(payload.stale?`Week ${displayWeek} · Verified snapshot · ${when}`:`Week ${displayWeek} · Live · Updated ${when}`);
     }
   }
   async function renderRookieWeek(force=false){

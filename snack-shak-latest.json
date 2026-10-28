@@ -36,7 +36,13 @@
           "label": "Unrivaled Coaches Dashboard",
           "url": "/unrivaled-coaches.html"
         }
-      ]
+      ],
+      "storyImage": "https://pub-ad8cc693759b4b55a181a76af041efa0.r2.dev/images/h9qdcwlm33bi/original.png",
+      "image": "https://pub-ad8cc693759b4b55a181a76af041efa0.r2.dev/images/h9qdcwlm33bi/original.png",
+      "imageFit": "contain",
+      "imageAlt": "Official Unrivaled Season 3 graphic with portraits of all eight 2027 club head coaches",
+      "storyImageCaption": "Unrivaled’s 2027 head coaches. Official announcement graphic: Unrivaled.",
+      "storyImageSourceUrl": "https://www.unrivaled.basketball/news/unrivaled-announces-head-coaches-for-leagues-third-season-epla8bm37e2u"
     },
     {
       "slug": "skylar-diggins-returns-notre-dame-special-advisor-2026",

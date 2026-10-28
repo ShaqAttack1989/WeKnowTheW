@@ -2,6 +2,37 @@
   "site": "Snack Shak",
   "posts": [
     {
+      "slug": "2027-wnba-lottery-date-confirmed",
+      "type": "byte",
+      "priority": 15600,
+      "homepageSeason": true,
+      "seriesLabel": "SNACK SHAK BYTE · DRAFT WATCH",
+      "title": "The JuJu Sweepstakes Has a TV Date",
+      "published": "2026-10-28",
+      "updated": "2026-10-28",
+      "dek": "November 15 on ESPN. The odds are official; the landing spot is still up for grabs.",
+      "sections": [
+        {
+          "title": "Circle the calendar, keep the pencil",
+          "paragraphs": [
+            "The lottery airs Sunday, November 15, from 7:30–8 p.m. ET on ESPN. The draft follows Monday, April 12, 2027.",
+            "Houston and Toronto each have an official 32.9% chance at No. 1. The WNBA has now confirmed the distribution previously reported by Her Hoop Stats. That upgrades the source status, not the certainty of a destination.",
+            "Our player board stays intact until the lottery or new scouting evidence changes the case. The ping-pong balls decide who gets the first conversation; they do not decide whether a prospect enters."
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "label": "Official WNBA lottery announcement",
+          "url": "https://www.wnba.com/news/wnba-draft-lottery-2027-sunday-november-15"
+        },
+        {
+          "label": "Updated mock and lottery dashboard",
+          "url": "/2027-wnba-mock-draft.html#lottery"
+        }
+      ]
+    },
+    {
       "slug": "unrivaled-2027-head-coaches-announced",
       "type": "byte",
       "priority": 15500,

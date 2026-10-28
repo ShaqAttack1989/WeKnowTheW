@@ -79,9 +79,9 @@
     }).join('');
   }
   async function init(){
-    const article=document.querySelector('.snack-post');
+    const article=document.querySelector('.snack-post')||(location.pathname==='/stat-kitchen.html'?document.querySelector('main'):null);
     const slug=new URLSearchParams(location.search).get('post')||'';
-    if(!article||slug.indexOf('the-playoff-watch-party-2026')===-1)return;
+    if(!article||(location.pathname!=='/stat-kitchen.html'&&slug.indexOf('the-playoff-watch-party-2026')===-1))return;
     if(document.documentElement.dataset.fgdJumpHandlerBound!=='true'){
       document.documentElement.dataset.fgdJumpHandlerBound='true';
       document.addEventListener('click',function(event){

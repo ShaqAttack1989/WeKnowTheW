@@ -2,6 +2,43 @@
   "site": "Snack Shak",
   "posts": [
     {
+      "slug": "unrivaled-2027-head-coaches-announced",
+      "type": "byte",
+      "priority": 15500,
+      "homepageSeason": true,
+      "seriesLabel": "SNACK SHAK BYTE · UNRIVALED",
+      "title": "Eight Benches, Three New Voices: Unrivaled Sets Its 2027 Coaches",
+      "published": "2026-10-28",
+      "updated": "2026-10-28",
+      "dek": "Christian, Turner and Chatman join five returning club coaches. The roster conversation now has eight people holding clipboards.",
+      "sections": [
+        {
+          "title": "The clipboard has entered the chat",
+          "paragraphs": [
+            "Unrivaled announced its 2027 head coaches October 28. Jarell Christian takes Breeze, Barb Turner takes Hive, and Pokey Chatman takes Lunar Owls. Five club coaches return; Sed Everett again leads the separate Player Pool.",
+            "The newcomers replace Noelle Quinn, Rena Wakama and DJ Sackmann. Continuity meets a fresh set of eyes."
+          ]
+        },
+        {
+          "title": "Same clubs, fresh questions",
+          "paragraphs": [
+            "A coaching announcement is a promise, not a standings update. The test is how quickly each coach turns elite individual talent into five people making the same read, even when only three can be on the floor.",
+            "Our new Unrivaled Coaching Desk keeps every season visible. Browse 2025, 2026 and the confirmed 2027 appointments, then inspect the records behind our composite scores. Newcomers get no imaginary wins or preseason grades."
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "label": "Official 2027 coach announcement",
+          "url": "https://www.unrivaled.basketball/news/unrivaled-announces-head-coaches-for-leagues-third-season-epla8bm37e2u"
+        },
+        {
+          "label": "Unrivaled Coaches Dashboard",
+          "url": "/unrivaled-coaches.html"
+        }
+      ]
+    },
+    {
       "slug": "skylar-diggins-returns-notre-dame-special-advisor-2026",
       "type": "feature",
       "priority": 14800,

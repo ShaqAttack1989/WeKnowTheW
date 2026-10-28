@@ -30,27 +30,36 @@
   <section class="league-season-window" aria-label="UPSHOT season window"><div class="page-shell"><div class="season-window-label"><span>SEASON WINDOW</span><strong>UPSHOT yearbooks</strong></div><div class="season-window-track"><a class="season-window-pill active" href="#championship"><span>Complete</span><strong>2026</strong></a><a class="season-window-pill next" href="#history"><span>Next season</span><strong>2027</strong></a></div></div></section>
   <nav class="upshot-jump-nav" aria-label="UPSHOT page sections">
     <div class="page-shell">
-      <a href="#championship">Championship</a><a href="#standings">Standings</a><a href="#player-dashboard">Player Dashboard</a><a href="#teams">All Six Teams</a><a href="#leadership">Leadership</a><a href="#stat-kitchen">Stat Kitchen</a><a href="#results">Results</a><a href="#honors">Honors</a><a href="#pipeline">Pipeline</a><a href="#how-it-works">How It Works</a><a href="#history">History</a>
+      <a href="#standings">Standings</a><a href="#player-dashboard">Player Dashboard</a><a href="#stat-kitchen">Stat Kitchen</a><a href="#teams">All Six Teams</a><a href="#results">Results</a><a href="#championship">Championship</a><a href="#honors">Honors</a><a href="#leadership">Leadership</a><a href="#pipeline">Pipeline</a><a href="#how-it-works">How It Works</a><a href="#history">History</a>
     </div>
   </nav>
-  <section class="page-section upshot-section" id="championship"><div class="page-shell">
-    <div class="upshot-callout upshot-championship-callout"><div><span>2026 CHAMPION · FINAL</span><strong id="upshotChampionshipTitle">Charlotte Crown 81 · Jacksonville Waves 76</strong><p id="upshotChampionshipMeta">Deja Kelly · Championship MVP · 29 points</p></div><div class="upshot-arrow crown-arrow" aria-hidden="true">♛</div></div>
-    <div class="page-heading leader-heading"><div><p class="kicker">LEAGUE PULSE</p><h2>The first UPSHOT season is officially in the books.</h2><p>UPSHOT is an independent professional women’s basketball league. This hub keeps its inaugural season as a complete record: Charlotte's title, the regular-season table, team context, final honors, the pipeline to the W and the six-franchise map for 2027.</p></div><span id="upshotStatus" class="upshot-data-status">Checking the final UPSHOT snapshot…</span></div>
-    <div id="upshotSnapshot" class="upshot-snapshot-grid" aria-live="polite"></div>
-  </div></section>
   <section class="page-section upshot-standings-section" id="standings"><div class="page-shell">
     <div class="page-heading leader-heading"><div><p class="kicker">LIVE STATS, UPSHOT EDITION</p><h2>Final 2026 Regular-Season Standings</h2><p>Full table treatment with record, splits, form, scoring and point differential.</p></div><span class="upshot-data-status">34 games per team</span></div>
     <div class="upshot-table-shell"><div id="upshotStandings" class="upshot-standings" aria-live="polite"></div></div><div class="upshot-legend"><span><b class="seed-dot championship"></b> Championship qualifier</span><span><b class="seed-dot season-complete"></b> Regular season complete</span></div>
-  </div></section>
-  <section class="page-section player-stat-section" id="player-dashboard"><div class="page-shell">
+  </div></section><section class="page-section player-stat-section" id="player-dashboard"><div class="page-shell">
     <div class="page-heading leader-heading"><div><p class="kicker">PLAYER STAT DASHBOARD · UPSHOT 2026</p><h2>The inaugural player board, with receipts attached.</h2><p>Search and compare verified player stat lines from the regular season, award announcements and WNBA call-up snapshots. Missing public figures stay blank instead of being estimated.</p></div><span class="upshot-data-status">Verified public stats</span></div>
     <div class="player-stat-dashboard" data-player-dashboard data-league="upshot" data-source="/data/upshot-player-stats-2026.json"></div>
-  </div></section>
-  <section class="page-section upshot-team-section" id="teams"><div class="page-shell">
+  </div></section><section class="page-section upshot-kitchen-section" id="stat-kitchen"><div class="page-shell">
+    <div class="page-heading leader-heading"><div><p class="kicker">THE STAT KITCHEN · UPSHOT</p><h2>Who was cooking?</h2><p>Switch the burner to rank all four teams by win percentage, scoring, defense, point differential or last-ten form.</p></div><span class="upshot-data-status">Team metrics · 2026</span></div>
+    <div id="upshotMetricTabs" class="upshot-metric-tabs" role="tablist" aria-label="UPSHOT Stat Kitchen categories"></div><div class="upshot-kitchen-layout"><div id="upshotMetricBoard" class="upshot-metric-board" aria-live="polite"></div><aside id="upshotKitchenTake" class="upshot-kitchen-take"></aside></div><p class="small-note">Team metrics come from the final regular-season standings. Lower opponent PPG is better; all other displayed categories rank high to low.</p>
+  </div></section><section class="page-section upshot-team-section" id="teams"><div class="page-shell">
     <div class="page-heading"><p class="kicker">THE COMPLETE LEAGUE MAP</p><h2>Four founding clubs. Two announced expansion franchises.</h2><p>Open each 2026 team room, then meet Baltimore and Nashville, the two announced franchises that grow UPSHOT to six teams in May 2027.</p></div>
     <div id="upshotTeamTabs" class="upshot-team-tabs" role="tablist" aria-label="UPSHOT teams"></div><div id="upshotTeamPanel" class="upshot-team-panel" aria-live="polite"></div>
     <div class="upshot-expansion-heading"><span>2027 EXPANSION</span><strong>All six announced franchises</strong></div><div id="upshotExpansionTeams" class="upshot-expansion-grid" aria-live="polite"></div>
+  </div></section><section class="page-section upshot-results-section" id="results"><div class="page-shell">
+    <div class="page-heading"><p class="kicker">SCOREBOARD</p><h2>The first title game is final.</h2><p>Charlotte's 81-76 championship comeback leads the completed scoreboard, followed by the games that closed the regular season.</p></div><div id="upshotNext" class="upshot-next"></div><div id="upshotResults" class="upshot-results-grid" aria-live="polite"></div>
+  </div></section><section class="page-section upshot-section" id="championship"><div class="page-shell">
+    <div class="upshot-callout upshot-championship-callout"><div><span>2026 CHAMPION · FINAL</span><strong id="upshotChampionshipTitle">Charlotte Crown 81 · Jacksonville Waves 76</strong><p id="upshotChampionshipMeta">Deja Kelly · Championship MVP · 29 points</p></div><div class="upshot-arrow crown-arrow" aria-hidden="true">♛</div></div>
+    <div class="page-heading leader-heading"><div><p class="kicker">LEAGUE PULSE</p><h2>The first UPSHOT season is officially in the books.</h2><p>UPSHOT is an independent professional women’s basketball league. This hub keeps its inaugural season as a complete record: Charlotte's title, the regular-season table, team context, final honors, the pipeline to the W and the six-franchise map for 2027.</p></div><span id="upshotStatus" class="upshot-data-status">Checking the final UPSHOT snapshot…</span></div>
+    <div id="upshotSnapshot" class="upshot-snapshot-grid" aria-live="polite"></div>
+  </div></section><section class="page-section upshot-honors-section" id="honors"><div class="page-shell">
+    <div class="page-heading leader-heading"><div><p class="kicker">INAUGURAL SEASON HONORS</p><h2>The first names in the UPSHOT award book.</h2><p>Ariel Hearn takes league MVP, Schaquilla Nunn anchors the defense, Taylor Soule owns the sixth-player lane and Deja Kelly adds Championship MVP to Charlotte's title.</p></div><span class="upshot-data-status honors-status">Announced Aug. 29, 2026</span></div>
+    <div id="upshotAwards" class="upshot-awards-grid" aria-live="polite"></div>
+    <div class="upshot-all-team-head"><span>FIRST ALL-UPSHOT TEAM</span><strong>Six players. All four founding clubs represented.</strong></div><div id="upshotAllTeam" class="upshot-all-team-grid" aria-live="polite"></div>
   </div></section>
+  
+  
+  
   <section class="page-section upshot-leadership-section" id="leadership"><div class="page-shell">
     <div class="page-heading leader-heading"><div><p class="kicker">OWNERSHIP + AMBASSADORSHIP</p><h2>Chamique Holdsclaw joins the table.</h2><p>UPSHOT announced on Sept. 21, 2026 that Holdsclaw joined the league as an investor, bringing a Hall of Fame player perspective into the ownership group as the league prepares for its six-team 2027 season.</p></div><span class="upshot-data-status">Announced Sept. 21, 2026</span></div>
     <div class="upshot-leadership-grid">
@@ -61,18 +70,9 @@
       <aside class="upshot-leadership-note"><span>WHY THIS MATTERS</span><strong>A player voice at the ownership table.</strong><p>UPSHOT says the investment is tied to its mission of creating more high-level professional opportunities for women. Holdsclaw joins as Baltimore and Nashville prepare to enter the league in 2027.</p><a href="/expansion-upshot.html">Follow 2027 expansion →</a></aside>
     </div>
   </div></section>
-  <section class="page-section upshot-kitchen-section" id="stat-kitchen"><div class="page-shell">
-    <div class="page-heading leader-heading"><div><p class="kicker">THE STAT KITCHEN · UPSHOT</p><h2>Who was cooking?</h2><p>Switch the burner to rank all four teams by win percentage, scoring, defense, point differential or last-ten form.</p></div><span class="upshot-data-status">Team metrics · 2026</span></div>
-    <div id="upshotMetricTabs" class="upshot-metric-tabs" role="tablist" aria-label="UPSHOT Stat Kitchen categories"></div><div class="upshot-kitchen-layout"><div id="upshotMetricBoard" class="upshot-metric-board" aria-live="polite"></div><aside id="upshotKitchenTake" class="upshot-kitchen-take"></aside></div><p class="small-note">Team metrics come from the final regular-season standings. Lower opponent PPG is better; all other displayed categories rank high to low.</p>
-  </div></section>
-  <section class="page-section upshot-results-section" id="results"><div class="page-shell">
-    <div class="page-heading"><p class="kicker">SCOREBOARD</p><h2>The first title game is final.</h2><p>Charlotte's 81-76 championship comeback leads the completed scoreboard, followed by the games that closed the regular season.</p></div><div id="upshotNext" class="upshot-next"></div><div id="upshotResults" class="upshot-results-grid" aria-live="polite"></div>
-  </div></section>
-  <section class="page-section upshot-honors-section" id="honors"><div class="page-shell">
-    <div class="page-heading leader-heading"><div><p class="kicker">INAUGURAL SEASON HONORS</p><h2>The first names in the UPSHOT award book.</h2><p>Ariel Hearn takes league MVP, Schaquilla Nunn anchors the defense, Taylor Soule owns the sixth-player lane and Deja Kelly adds Championship MVP to Charlotte's title.</p></div><span class="upshot-data-status honors-status">Announced Aug. 29, 2026</span></div>
-    <div id="upshotAwards" class="upshot-awards-grid" aria-live="polite"></div>
-    <div class="upshot-all-team-head"><span>FIRST ALL-UPSHOT TEAM</span><strong>Six players. All four founding clubs represented.</strong></div><div id="upshotAllTeam" class="upshot-all-team-grid" aria-live="polite"></div>
-  </div></section>
+  
+  
+  
   <section class="page-section upshot-pipeline-section" id="pipeline"><div class="page-shell">
     <div class="upshot-callout pipeline-callout"><div><span>WNBA PIPELINE</span><strong id="upshotCallupCount">Loading call-ups…</strong><p>Professional reps become fresh film, fresh film becomes another door.</p></div><div class="upshot-arrow" aria-hidden="true">UP ↑</div></div>
     <div class="college-stat-columns upshot-columns"><section><div class="section-heading"><p class="kicker">STAT WATCH</p><h3>Players who made noise</h3><p class="small-note">Publicly verified player snapshots are dated because UPSHOT player availability and rosters changed during the season.</p></div><div id="upshotLeaderGrid" class="college-leader-list"></div></section><section><div class="section-heading"><p class="kicker">MOVING UP</p><h3>UPSHOT → WNBA</h3></div><div id="upshotCallups" class="upshot-callups"></div></section></div>

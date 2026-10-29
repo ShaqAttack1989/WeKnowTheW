@@ -178,7 +178,7 @@
       mount.dataset.loaded='true';
       delete mount.dataset.loading;
     }catch(error){
-      mount.innerHTML='<h3>Finals game statistics</h3><p>The statistics board is reconnecting. <a href="https://www.wnba.com/game/gsv-vs-atl-1042600304/box-score">Open the official Game 4 final box score ↗</a></p>';
+      mount.innerHTML='<h3>Finals game statistics</h3><p>The statistics board is reconnecting. <a href="https://www.wnba.com/game/gsv-vs-atl-1042600306/box-score">Open the official Game 6 final box score ↗</a></p>';
       mount.dataset.loaded='true';
       delete mount.dataset.loading;
     }

@@ -3236,17 +3236,17 @@
     {
       "slug": "the-playoff-watch-party-2026",
       "type": "feature",
-      "priority": 15100,
+      "priority": 17000,
       "homepageSeason": "wnba-playoffs",
-      "seriesLabel": "FOOD FOR THOUGHT · FINALS GAME 5 RECAP",
-      "title": "One Win Away: Stokes and Burton Put Golden State on the Brink",
-      "published": "2026-10-26",
-      "updated": "2026-10-28",
+      "seriesLabel": "FOOD FOR THOUGHT · FINALS GAME 6 RECAP",
+      "title": "Atlanta Forces Game 7 with an 80–69 Game 6 Win",
+      "published": "2026-10-29",
+      "updated": "2026-10-29",
       "week": "FINALS RECAP",
-      "image": "/assets/photos/finals-game5-williams-hayes-2026.svg",
+      "image": "https://i.guim.co.uk/img/media/4c11278887a6437bb84d54b5580329fc03a2e200/0_0_3000_2000/master/3000.jpg?crop=none&dpr=1&s=none&width=1200",
       "imageFit": "cover",
-      "imageAlt": "Gabby Williams and Tiffany Hayes celebrate during Golden State’s Game 5 Finals win on October 26, 2026.",
-      "dek": "Golden State beat Atlanta 64–55 to lead the Finals 3–2. Stokes stretched the floor, Burton protected the rim, and the Dream’s turnover bill came due. Game 6 tips Thursday at 12:30 p.m. ET.",
+      "imageAlt": "Atlanta forward Angel Reese looks to shoot over Golden State center Kiah Stokes during Game 6 of the 2026 WNBA Finals.",
+      "dek": "Atlanta beat Golden State 80–69 to tie the Finals 3–3, opening with a 13–0 run and a 20-point halftime lead. The first Game 7 in WNBA Finals history is Saturday at Chase Center.",
       "playoffGameOne": {
         "ariaLabel": "Finals Game 4 result",
         "eyebrow": "FINALS GAME 4 · FINAL",
@@ -3348,6 +3348,20 @@
         "dashboardCta": "Open the Finals game dashboard ↓"
       },
       "sections": [
+        {
+          "title": "Game 6: Atlanta keeps its season alive",
+          "paragraphs": [
+            "Atlanta beat Golden State 80–69 at State Farm Arena on October 29, tying the best-of-seven Finals 3–3 and forcing Game 7. The Dream opened on a 13–0 run and made six of its first eight three-pointers. Rhyne Howard led Atlanta with 20 points; Gabby Williams scored 26 for the Valkyries.",
+            "The result sends the Finals to the first Game 7 in WNBA Finals history. Golden State will host the deciding game Saturday at Chase Center."
+          ]
+        },
+        {
+          "title": "Game 6: the opening run changed the math",
+          "paragraphs": [
+            "Atlanta led 32–15 after the first quarter and 46–26 at halftime. Golden State won the third quarter 21–17, but still trailed by 16 entering the fourth.",
+            "The Valkyries made a late push, but Atlanta kept its lead. Allisha Gray’s fifth three-pointer came with just over a minute left, restoring breathing room for the Dream."
+          ]
+        },
         {
           "title": "Game 5: one win away, every possession earned",
           "paragraphs": [
@@ -3457,15 +3471,34 @@
           ]
         },
         {
-          "title": "What’s next in the Finals",
+          "title": "Game 7 is Saturday in San Francisco",
           "paragraphs": [
-            "Game 5 final: Golden State 64, Atlanta 55. The Valkyries lead 3–2 and need one more win for their first championship.",
-            "Game 6: Thursday, October 29, at 12:30 p.m. ET at State Farm Arena in Atlanta, on USA Network and Peacock. The league moved the game from its original evening slot.",
-            "Game 7, if Atlanta forces it: Saturday, October 31, at 8 p.m. ET at Chase Center."
+            "Game 6 final: Atlanta 80, Golden State 69. The series is tied 3–3.",
+            "Game 7: Saturday, October 31, at 8 p.m. ET at Chase Center in San Francisco. The game airs on USA Network, Peacock and CNBC.",
+            "The winner will claim the first WNBA championship in franchise history for Atlanta or Golden State."
+          ]
+        },
+        {
+          "title": "Game 7: the championship comes down to one game",
+          "paragraphs": [
+            "Atlanta’s Game 6 win sets up the first Game 7 in WNBA Finals history. The Dream and Valkyries each need one win to claim the first championship in franchise history.",
+            "Golden State returns home after losing in Atlanta. The deciding game is Saturday at Chase Center."
           ]
         }
       ],
       "sources": [
+        {
+          "label": "Game 6 live report and final score · The Guardian",
+          "url": "https://www.theguardian.com/sport/live/2026/oct/29/golden-state-valkyries-v-atlanta-dream-wnba-finals-2026-game-6-live-buildup"
+        },
+        {
+          "label": "Official WNBA Game 6 live blog",
+          "url": "https://www.wnba.com/news/live-updates-2026-wnba-finals-game-6"
+        },
+        {
+          "label": "Official WNBA Game 7 schedule and game page",
+          "url": "https://www.wnba.com/game/atl-vs-gsv-1042600307"
+        },
         {
           "label": "Official Game 5 box score",
           "url": "https://cdn.wnba.com/static/json/liveData/boxscore/boxscore_1042600305.json"
@@ -3576,25 +3609,25 @@
         }
       ],
       "dashboardUrl": "/food-for-thought.html?post=the-playoff-watch-party-2026#story",
-      "storyImage": "/assets/photos/finals-game5-williams-hayes-2026.svg",
-      "storyImageCaption": "Gabby Williams and Tiffany Hayes during Game 5. Photo: Ezra Shaw/Getty Images.",
-      "storyImageSourceUrl": "https://www.theguardian.com/sport/2026/oct/26/wnba-finals-game-5-dream-valkyries-basketball",
+      "storyImage": "https://i.guim.co.uk/img/media/4c11278887a6437bb84d54b5580329fc03a2e200/0_0_3000_2000/master/3000.jpg?crop=none&dpr=1&s=none&width=1200",
+      "storyImageCaption": "Angel Reese looks to shoot over Kiah Stokes during Game 6. Photo: Kevin C. Cox/Getty Images via The Guardian.",
+      "storyImageSourceUrl": "https://www.theguardian.com/sport/live/2026/oct/29/golden-state-valkyries-v-atlanta-dream-wnba-finals-2026-game-6-live-buildup",
       "playoffWatch": {
-        "title": "ONE WIN AWAY.",
-        "subtitle": "Golden State 64, Atlanta 55 · Game 5 final",
-        "asOf": "GAME 5 FINAL · OCT. 26",
+        "title": "GAME 7 DECIDES THE TITLE.",
+        "subtitle": "Atlanta 80, Golden State 69 · Game 6 final",
+        "asOf": "GAME 6 FINAL · OCT. 29",
         "summary": [
           {
-            "value": "3–2",
-            "label": "Golden State leads"
+            "value": "3–3",
+            "label": "Finals series tied"
           },
           {
-            "value": "64–55",
-            "label": "Game 5 final"
+            "value": "80–69",
+            "label": "Atlanta wins Game 6"
           },
           {
-            "value": "OCT 29",
-            "label": "Game 6 · 12:30 p.m. ET"
+            "value": "OCT 31",
+            "label": "Game 7 · 8 p.m. ET"
           }
         ],
         "matchups": [
@@ -3609,9 +3642,9 @@
             "lowTeam": "Atlanta Dream",
             "lowRecord": "30-14",
             "regularSeries": "Regular-season context remains separate from Finals wins",
-            "series": "3–2",
-            "seriesNote": "GOLDEN STATE LEADS 3–2 · FIRST TO FOUR",
-            "nextGame": "Thu, Oct. 29 · 12:30 PM ET · State Farm Arena · USA / Peacock",
+            "series": "3–3",
+            "seriesNote": "TIED 3–3 · GAME 7 SATURDAY",
+            "nextGame": "Sat, Oct. 31 · 8 p.m. ET · Chase Center · USA / Peacock / CNBC",
             "stars": [
               "Gabby Williams",
               "Rhyne Howard"
@@ -3620,12 +3653,12 @@
               "https://cdn.wnba.com/headshots/wnba/latest/260x190/1628931.png",
               "https://cdn.wnba.com/headshots/wnba/latest/260x190/1642291.png"
             ],
-            "hot": "Stokes and Burton: 13 points, eight rebounds each; seven combined blocks.",
-            "bench": "Golden State bench 15, Atlanta bench 4.",
-            "availability": "Game 6 is Thursday afternoon in Atlanta.",
-            "beat": "Golden State won points off turnovers 21–6.",
-            "break": "Atlanta shot 29.2 percent.",
-            "must": "Atlanta must win to force Game 7.",
+            "hot": "Gabby Williams scored 26; Rhyne Howard led Atlanta with 20.",
+            "bench": "Atlanta hit six of its first eight threes in the opening quarter.",
+            "availability": "Both teams are one win from a first franchise championship.",
+            "beat": "Atlanta opened the game on a 13–0 run and led 46–26 at halftime.",
+            "break": "Golden State won the third quarter 21–17, but Atlanta still led by 16.",
+            "must": "The winner of Game 7 is the WNBA champion.",
             "highCode": "GSV",
             "lowCode": "ATL",
             "highWScore": 77,
@@ -3691,7 +3724,7 @@
             "availability": "Las Vegas eliminated October 9.",
             "beat": "Golden State outscored Las Vegas 16–6 in overtime.",
             "break": "The defending champions could not hold off the second-half rallies.",
-            "must": "Golden State and Atlanta are tied 2–2 after Game 4; the Finals return to Chase Center Monday.",
+            "must": "Golden State and Atlanta are tied 3–3 after Game 6; Game 7 is Saturday at Chase Center.",
             "highCode": "GSV",
             "lowCode": "LVA",
             "highWScore": 77,

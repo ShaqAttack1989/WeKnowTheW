@@ -1,2 +1,13 @@
 .w-countdown-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}.w-event-card{background:#16082f;color:#fff;border:2px solid #d8ff36;border-radius:20px;padding:clamp(18px,3vw,28px);min-width:0}.w-event-card h2{font-size:clamp(25px,3vw,38px);line-height:1.15;margin:10px 0}.w-event-timer{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0}.w-event-timer span{display:grid;min-width:58px;flex:1;padding:10px 6px;background:#2d1550;border-radius:12px;font-size:clamp(23px,3vw,34px);font-weight:900;text-align:center;color:#d8ff36}.w-event-timer small{font-size:12px;color:#fff}.w-event-card a{color:#d8ff36}@media(max-width:700px){.w-countdown-grid{grid-template-columns:1fr}}
 .w-countdown-grid>.w-event-card{display:flex;flex-direction:column;align-items:flex-start}.w-event-card .button.primary{background:var(--lime,#d8ff36);color:var(--deep,#16082f);text-decoration:none;display:inline-flex;align-items:center;justify-content:center;max-width:100%;box-sizing:border-box;line-height:1.35;white-space:normal;overflow-wrap:anywhere;margin-top:auto;min-height:44px}.w-event-card p{line-height:1.5}.w-event-card h2{overflow-wrap:break-word}.w-countdown-grid{align-items:stretch}@media(max-width:760px){.w-countdown-grid{grid-template-columns:1fr}.w-event-card .button{width:100%}}
+
+/* Paired event cards share one type scale and timer format. */
+.w-countdown-grid>.w-event-card{font-family:Inter,ui-sans-serif,system-ui,sans-serif;padding:clamp(18px,3vw,28px)}
+.w-countdown-grid>.w-event-card h2{font-family:inherit;font-size:clamp(26px,4vw,44px);font-weight:900;line-height:1.1;letter-spacing:-.035em;margin:10px 0}
+.w-countdown-grid>.w-event-card p{font-size:16px;font-weight:400;line-height:1.5}
+.w-countdown-grid>.w-event-card p:first-child{font-size:14px;font-weight:900;line-height:1.4}
+.w-countdown-grid>.w-event-card .button{font-family:inherit;font-size:16px;font-weight:900;padding:14px 20px}
+.w-countdown-grid .w-event-timer{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));width:100%;gap:8px;margin:16px 0}
+.w-countdown-grid .w-event-timer>span{display:grid!important;min-width:0!important;padding:10px 4px!important;border-radius:12px!important;background:#2d1550!important;color:#d8ff36!important;text-align:center!important;font-size:clamp(23px,3vw,34px);font-weight:900;line-height:1.2}
+.w-countdown-grid .w-event-timer small{font-family:inherit;font-size:12px!important;font-weight:700;line-height:1.5;color:#fff}
+@media(min-width:761px){.w-countdown-grid>.w-event-card h2{min-height:2.2em}.w-countdown-grid>.w-event-card h2+p{min-height:3em}}

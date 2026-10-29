@@ -3351,7 +3351,7 @@
         {
           "title": "Game 6: Atlanta keeps its season alive",
           "paragraphs": [
-            "Atlanta beat Golden State 80–69 at State Farm Arena on October 29, tying the best-of-seven Finals 3–3 and forcing Game 7. The Dream opened on a 13–0 run and made six of its first eight three-pointers. Rhyne Howard led Atlanta with 20 points; Gabby Williams scored 26 for the Valkyries.",
+            "Atlanta beat Golden State 80–69 at State Farm Arena on October 29, tying the best-of-seven Finals 3–3 and forcing Game 7. The Dream opened on a 13–0 run and made six of its first eight three-pointers. Allisha Gray led Atlanta with 23 points, Rhyne Howard added 21, and Gabby Williams led the Valkyries with 26.",
             "The result sends the Finals to the first Game 7 in WNBA Finals history. Golden State will host the deciding game Saturday at Chase Center."
           ]
         },
@@ -3487,6 +3487,10 @@
         }
       ],
       "sources": [
+        {
+          "label": "Official WNBA Game 6 final box score",
+          "url": "https://www.wnba.com/game/gsv-vs-atl-1042600306/box-score"
+        },
         {
           "label": "Game 6 live report and final score · The Guardian",
           "url": "https://www.theguardian.com/sport/live/2026/oct/29/golden-state-valkyries-v-atlanta-dream-wnba-finals-2026-game-6-live-buildup"
@@ -3653,7 +3657,7 @@
               "https://cdn.wnba.com/headshots/wnba/latest/260x190/1628931.png",
               "https://cdn.wnba.com/headshots/wnba/latest/260x190/1642291.png"
             ],
-            "hot": "Gabby Williams scored 26; Rhyne Howard led Atlanta with 20.",
+            "hot": "Allisha Gray led Atlanta with 23 points, Rhyne Howard added 21, and Gabby Williams scored 26.",
             "bench": "Atlanta hit six of its first eight threes in the opening quarter.",
             "availability": "Both teams are one win from a first franchise championship.",
             "beat": "Atlanta opened the game on a 13–0 run and led 46–26 at halftime.",

@@ -108,7 +108,7 @@
     if(mount.dataset.loaded==='true'||mount.dataset.loading==='true')return;
     mount.dataset.loading='true';
     try{
-      const response=await fetch('/api/finals-game-stats',{cache:'no-store'});
+      const response=await fetch('/api/finals-game-stats?v=20261029-game6-final-v2',{cache:'no-store'});
       if(!response.ok)throw Error('Dashboard data unavailable');
       let data=await response.json();
       let gameNumber=data.games[data.games.length-1].number;
@@ -174,7 +174,7 @@
         });
       });
       render();
-      setInterval(async()=>{if(document.hidden)return;try{const r=await fetch('/api/finals-game-stats',{cache:'no-store'});if(!r.ok)return;const next=await r.json();if(!next.games?.length)return;const latest=data.games[data.games.length-1].number;data=next;if(gameNumber===latest)gameNumber=data.games[data.games.length-1].number;render();}catch{}},300000);
+      setInterval(async()=>{if(document.hidden)return;try{const r=await fetch('/api/finals-game-stats?v=20261029-game6-final-v2',{cache:'no-store'});if(!r.ok)return;const next=await r.json();if(!next.games?.length)return;const latest=data.games[data.games.length-1].number;data=next;if(gameNumber===latest)gameNumber=data.games[data.games.length-1].number;render();}catch{}},300000);
       mount.dataset.loaded='true';
       delete mount.dataset.loading;
     }catch(error){

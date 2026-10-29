@@ -13,11 +13,11 @@ const season3Roster=[
 {seat:'02A',name:'Kayla Thornton'},{seat:'02B',name:'Marine Johannès'},{seat:'02C',name:'Bridget Carleton'},{seat:'02D',name:'Gabby Williams'},
 {seat:'03A',name:'Chelsea Gray'},{seat:'03B',name:'Marina Mabrey'},{seat:'03C',name:'Courtney Williams'},{seat:'03D',name:'Maddy Siegrist'},
 {seat:'04A',name:'Veronica Burton'},{seat:'04B',name:'Natasha Cloud'},{seat:'04C',name:'Paige Bueckers'},{seat:'04D',name:'Shakira Austin'},
-{seat:'05A',name:'Dearica Hamby'},{seat:'05B',name:'Breanna Stewart'},{seat:'05C',name:'Skylar Diggins'},{seat:'05D',name:'Isabelle Harrison'},
+{seat:'05A',name:'Dearica Hamby'},{seat:'05B',name:'Breanna Stewart'},{seat:'05C',name:'Skylar Diggins'},{seat:'NEW',name:'Isabelle Harrison'},
 {seat:'06A',name:'Aneesah Morrow'},{seat:'06B',name:'Rhyne Howard'},{seat:'06C',name:'Natisha Hiedeman'},{seat:'06D',name:'Lexie Hull'},
 {seat:'07A',name:'Kiki Rice'},{seat:'07B',name:'Tiffany Hayes'},{seat:'07C',name:'Cameron Brink'},{seat:'07D',name:'Kelsey Plum'},
 {seat:'08A',name:'Naz Hillmon'},{seat:'08B',name:'Kahleah Copper'},{seat:'08C',name:'Aziaha James'},{seat:'08D',name:'Rae Burrell'},
-{seat:'09A',name:'Jackie Young'},{seat:'09B',name:'Kaitlyn Chen'},{seat:'09C',name:'Aaliyah Edwards'},{seat:'09D',name:'Temi Fagbenle'},
+{seat:'09A',name:'Jackie Young'},{seat:'NEW',name:'Kaitlyn Chen'},{seat:'09C',name:'Aaliyah Edwards'},{seat:'09D',name:'Temi Fagbenle'},
 {seat:'10A',name:'Arike Ogunbowale'},{seat:'10B',name:'Napheesa Collier'},{seat:'10C',name:'Brittney Sykes'},{seat:'10D',name:'Dominique Malonga'},
 {seat:'11A',name:'Jordin Canada'},{seat:'11B',name:'Sonia Citron'},{seat:'11C',name:'Monique Billings'},{seat:'11D',name:'Allisha Gray'},
 {seat:'12A',name:'Li Yueru'},{seat:'12B',name:'DiJonai Carrington'},{seat:'12C',name:'Sydney Taylor'},{seat:'12D',name:'Satou Sabally'}

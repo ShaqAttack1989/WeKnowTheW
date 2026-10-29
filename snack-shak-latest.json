@@ -9,7 +9,7 @@
       "seriesLabel": "SNACK SHAK BYTE · DRAFT WATCH",
       "title": "The JuJu Sweepstakes Has a TV Date",
       "published": "2026-10-28",
-      "updated": "2026-10-28",
+      "updated": "2026-10-29",
       "dek": "November 15 on ESPN. The odds are official; the landing spot is still up for grabs.",
       "sections": [
         {
@@ -30,7 +30,13 @@
           "label": "Updated mock and lottery dashboard",
           "url": "/2027-wnba-mock-draft.html#lottery"
         }
-      ]
+      ],
+      "image": "/assets/photos/wnba-draft-lottery-2027-official.svg",
+      "storyImage": "/assets/photos/wnba-draft-lottery-2027-official.svg",
+      "imageFit": "contain",
+      "imageAlt": "Official WNBA Draft Lottery logo presented by State Street Investment Management SPY",
+      "storyImageCaption": "Official 2027 draft lottery announcement graphic. Credit: WNBA.",
+      "storyImageSourceUrl": "https://www.wnba.com/news/wnba-draft-lottery-2027-sunday-november-15"
     },
     {
       "slug": "unrivaled-2027-head-coaches-announced",

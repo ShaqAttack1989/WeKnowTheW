@@ -1,11 +1,11 @@
 {
   "event": "2026 FIBA 3x3 AmeriCup — Women",
-  "venue": "Plaza Merliot, Santa Tecla, El Salvador",
+  "venue": "Plaza Merliot, San Salvador, El Salvador",
   "start": "2026-10-28",
   "end": "2026-11-01",
-  "verified": "2026-10-26",
-  "source": "https://www.usab.com/news/2026/10/usa-look-to-defend-fiba-3x3-americup-gold-medals",
-  "fibaSource": "https://www.fiba.basketball/en/news/pools-confirmed-for-fiba-3x3-americup-2026",
+  "verified": "2026-10-29",
+  "source": "https://www.usab.com/news/2026/10/2026-usa-basketball-3x3-americup-teams-announced",
+  "fibaSource": "https://www.fiba.basketball/en/news/fiba-3x3-americup-2026-day-1-recap",
   "stream": "https://www.youtube.com/fiba3x3",
   "coach": "Christina Batastini",
   "roster": [
@@ -44,7 +44,7 @@
       "teams": [
         "United States",
         "Cayman Islands",
-        "Qualifier A winner (Brazil / Uruguay / Colombia)"
+        "Colombia"
       ]
     },
     {
@@ -60,7 +60,7 @@
       "teams": [
         "Puerto Rico",
         "Argentina",
-        "Qualifier C winner"
+        "Paraguay"
       ]
     }
   ],
@@ -70,7 +70,7 @@
       "date": "2026-10-31T17:50:00-04:00",
       "phase": "Pool B",
       "side": "USA",
-      "opponent": "Qualifier A winner",
+      "opponent": "Colombia",
       "status": "scheduled",
       "usaScore": null,
       "opponentScore": null,
@@ -137,7 +137,7 @@
     }
   ],
   "standings": [],
-  "notes": "No official 2026 results are available before the event. This dataset is a verified editorial schedule, not an automatic score feed. Updates to this file appear in the watch hub on refresh.",
+  "notes": "Colombia (Qualifying Draw A) and Paraguay (Qualifying Draw C) have advanced to the women's main draw. Qualifying Draw B is scheduled to conclude Oct. 29. USA begins Pool B on Oct. 31; no USA tournament scores or player statistics are available before its first game. This is a verified editorial schedule, not an automatic score feed.",
   "playerStats": [
     {
       "name": "Aziaha James",
@@ -170,6 +170,35 @@
       "rebounds": null,
       "assists": null,
       "source": null
+    }
+  ],
+  "qualifierResults": [
+    {
+      "draw": "Qualifying Draw A",
+      "pool": "B",
+      "status": "FINAL · MAIN DRAW",
+      "winner": "Colombia",
+      "result": "Colombia 18–16 Brazil; Colombia also beat Uruguay 19–11.",
+      "detail": "Colombia claims the Pool B place and becomes USA's first opponent.",
+      "source": "https://www.fiba.basketball/en/news/fiba-3x3-americup-2026-day-1-recap"
+    },
+    {
+      "draw": "Qualifying Draw B",
+      "pool": "C",
+      "status": "IN PROGRESS · OCT. 29",
+      "winner": null,
+      "result": "The final qualifying games are scheduled for Oct. 29.",
+      "detail": "The winner will complete Pool C alongside Chile and Mexico.",
+      "source": "https://www.fiba.basketball/en/news/all-you-need-to-know-before-fiba-3x3-americup-2026"
+    },
+    {
+      "draw": "Qualifying Draw C",
+      "pool": "D",
+      "status": "FINAL · MAIN DRAW",
+      "winner": "Paraguay",
+      "result": "Paraguay swept its pool: 21–8 Nicaragua, 21–3 Jamaica, 21–8 Honduras.",
+      "detail": "Paraguay claims the Pool D place with Puerto Rico and Argentina.",
+      "source": "https://www.fiba.basketball/en/news/fiba-3x3-americup-2026-day-1-recap"
     }
   ]
 }

@@ -237,3 +237,10 @@ h2 { font-size: clamp(2.2rem, 4.2vw, 4rem); line-height: 1; letter-spacing: -.04
   }
   .playoff-marker svg { width: 15px !important; height: 15px !important; }
 }
+
+/* Shared navigation controls: readable labels across screen sizes. */
+.button{box-sizing:border-box;max-width:100%;min-height:44px;align-items:center;justify-content:center;gap:8px;line-height:1.35;white-space:normal;text-align:center;overflow-wrap:break-word;flex-shrink:0}
+.hero-actions,.page-footer-nav,.coach-links{flex-wrap:wrap;gap:12px}
+.hero-actions>*{min-width:0;max-width:100%}
+[class$="-jump-nav"] a,.culture-subnav a,.stat-jump-nav a{line-height:1.4;flex-shrink:0}
+@media(max-width:600px){.hero-actions{align-items:stretch}.hero-actions .button{max-width:100%;padding:12px 16px}}

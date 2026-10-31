@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-30T22:58:30.000Z",
+  "generatedAt": "2026-10-31T02:23:21.541Z",
   "movement": {
     "latestTransactionDate": "2026-09-28",
     "transactions": [
@@ -1438,9 +1438,35 @@
   },
   "availability": {
     "latestReportDate": "2026-10-30",
-    "reportLabel": "10/30/2026 06:45 PM ET",
-    "officialPdf": "https://ak-static.cms.nba.com/referee/wnba_injury/Injury-Report_2026-10-30_06_45PM.pdf",
+    "reportLabel": "10/30/2026 10:15 PM ET",
+    "officialPdf": "https://ak-static.cms.nba.com/referee/wnba_injury/Injury-Report_2026-10-30_10_15PM.pdf",
     "injuries": [
+      {
+        "player": "Brionna Jones",
+        "team": "Atlanta Dream",
+        "status": "OUT",
+        "reason": "Injury/Illness - Left Leg; N/A",
+        "gameDate": "10/31/2026",
+        "gameTime": "08:00 (ET)",
+        "matchup": "ATL@GSV",
+        "updated": "2026-10-31",
+        "source": "Official WNBA Injury Report PDF",
+        "officialCurrentReport": true,
+        "crossCheckOnly": false
+      },
+      {
+        "player": "Te- Hina Paopao",
+        "team": "Atlanta Dream",
+        "status": "QUESTIONABLE",
+        "reason": "Injury/Illness - Left Leg; N/A",
+        "gameDate": "10/31/2026",
+        "gameTime": "08:00 (ET)",
+        "matchup": "ATL@GSV",
+        "updated": "2026-10-31",
+        "source": "Official WNBA Injury Report PDF",
+        "officialCurrentReport": true,
+        "crossCheckOnly": false
+      },
       {
         "player": "Aliyah Boston",
         "team": "Indiana Fever",
@@ -2130,24 +2156,7 @@
         "seasonLongCarryover": true
       }
     ],
-    "teamStatuses": [
-      {
-        "team": "Atlanta Dream",
-        "status": "NOT YET SUBMITTED",
-        "gameDate": "10/31/2026",
-        "gameTime": "08:00 (ET)",
-        "matchup": "ATL@GSV",
-        "updated": "2026-10-31"
-      },
-      {
-        "team": "Golden State Valkyries",
-        "status": "NOT YET SUBMITTED",
-        "gameDate": "10/31/2026",
-        "gameTime": "08:00 (ET)",
-        "matchup": "ATL@GSV",
-        "updated": "2026-10-31"
-      }
-    ]
+    "teamStatuses": []
   },
   "errors": []
 }

@@ -209,6 +209,9 @@
   });
   modeSelect.addEventListener('change', () => {
     mode = modeSelect.value === 'totals' ? 'totals' : 'pergame';
+    players = [];
+    status.textContent = 'Loading ' + (mode === 'totals' ? 'playoff totals' : 'per-game playoff averages') + '…';
+    render();
     writeParams();
     load();
   });

@@ -9,3 +9,22 @@
 .award-card.kitchen-connected,.leader-row.kitchen-connected{position:relative;outline:4px solid #d8ff4f;outline-offset:-4px;box-shadow:0 0 0 2px #140a2f,0 16px 34px rgba(30,12,54,.16)}
 .award-card.kitchen-connected::before,.leader-row.kitchen-connected::before{content:"FROM PLAYERPEDIA";position:absolute;z-index:3;right:12px;bottom:10px;border-radius:999px;background:#140a2f;padding:5px 8px;color:#d8ff4f;font-size:.54rem;font-weight:1000;letter-spacing:.06em}
 .leader-row.kitchen-connected::before{top:7px;bottom:auto}
+
+
+/* The Finals are one playoff series; these cards are distinct from full postseason rankings. */
+.finals-leader-summary{margin:20px 0 24px;padding:clamp(14px,2.5vw,24px);border:1px solid #dbcaea;border-radius:20px;background:linear-gradient(135deg,#faf6ff,#fffaf2);color:#231139}
+.fls-heading{display:flex;justify-content:space-between;align-items:end;gap:12px;margin-bottom:14px}
+.fls-heading h3{margin:2px 0 4px;font-size:clamp(1.3rem,2.4vw,1.8rem);color:#231139}
+.fls-heading p:not(.kicker){margin:0;font-size:.92rem;line-height:1.45;color:#5e4d69}
+.fls-heading>a{flex:0 0 auto;font-size:.9rem;color:#542086;font-weight:900;text-decoration:underline;text-underline-offset:3px}
+.fls-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.fls-card{display:flex;flex-direction:column;min-width:0;gap:6px;padding:14px;border:1px solid #e6dcee;border-radius:14px;background:#fff}
+.fls-category{font-size:.83rem;font-weight:850;color:#5e4d69}
+.fls-total{font-size:clamp(1.6rem,3vw,2.1rem);line-height:1;color:#4c1d85;font-variant-numeric:tabular-nums}
+.fls-total small{font-size:.76rem;font-weight:900;color:#6a5b75}
+.fls-player{overflow-wrap:anywhere;color:#241039;font-weight:900;font-size:1rem;line-height:1.2}
+.fls-player:focus-visible{outline:3px solid #6f25e8;outline-offset:3px}
+.fls-team{margin-top:auto;color:#64546f;font-size:.82rem;line-height:1.35}
+.fls-source{margin:12px 0 0;font-size:.84rem;line-height:1.5;color:#62536d}
+@media(max-width:700px){.fls-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.fls-heading{align-items:start;flex-direction:column}.fls-card{padding:12px}}
+@media(max-width:360px){.fls-grid{grid-template-columns:1fr}}

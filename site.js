@@ -194,8 +194,10 @@ const clipboardSet=new Set(['Becky Hammon','Stephanie White','Sandy Brondello','
 const coachSearch=[['Karl Smesko','Atlanta Dream'],['Tyler Marsh','Chicago Sky'],['Rachid Meziane','Connecticut Sun'],['José Fernández','Dallas Wings'],['Natalie Nakase','Golden State Valkyries'],['Stephanie White','Indiana Fever'],['Becky Hammon','Las Vegas Aces'],['Cheryl Reeve','Minnesota Lynx'],['Chris DeMarco','New York Liberty'],['Nate Tibbetts','Phoenix Mercury'],['Alex Sarama','Portland Fire'],['Sonia Raman','Seattle Storm'],['Sandy Brondello','Toronto Tempo'],['Sydney Johnson','Washington Mystics']];
 const executiveSearch=[['Dan Padover','Atlanta Dream'],['Jeff Pagliocca','Chicago Sky'],['Jennifer Rizzotti','Connecticut Sun → Houston Comets'],['Morgan Tuck','Connecticut Sun · 2026 GM'],['Curt Miller','Dallas Wings'],['Ohemaa Nyanin','Golden State Valkyries'],['Amber Cox','Indiana Fever'],['Nikki Fargas','Las Vegas Aces'],['Ariana Andonian','Los Angeles Sparks'],['Cheryl Reeve','Minnesota Lynx'],['Jonathan Kolb','New York Liberty'],['Nick U’Ren','Phoenix Mercury'],['Vanja Černivec','Portland Fire'],['Talisa Rhea','Seattle Storm'],['Monica Wright Rogers','Toronto Tempo'],['Jamila Wideman','Washington Mystics']];
 
+coreSearch.push(['Houston Comets','Franchise Hub','/houston-comets.html','Houston Comets 2027 return Connecticut Sun relocation Toyota Center franchise lineage original WNBA dynasty four consecutive championships Houston basketball history']);
+
 const searchStaticIndex=[...coreSearch.map(([title,type,href,keywords])=>({title,type,href,keywords})),...teamSearch.map(([title,slug])=>({title,type:'Team',href:`/team.html?team=${slug}`,keywords:`${title} roster history rivalry mascot fanbase`})),...teamSearch.filter(([,slug])=>slug!=='cleveland-sirens').map(([title,slug])=>({title:`${title} · Stat leaders`,type:'Team Dashboard',href:`/team.html?team=${slug}#team-stat-leaders`,keywords:`${title} team leaders ppg rpg apg spg bpg shooting threes assists rebounds points blocks steals`})),...coachSearch.map(([title,team])=>({title,type:`Coach · ${team}`,href:clipboardSet.has(title)?'/coaches.html#court-to-clipboard':'/coaches.html',keywords:`${title} ${team} head coach court clipboard`})),...executiveSearch.map(([title,team])=>({title,type:`Basketball Operations · ${team}`,href:'/owners.html#basketball-operations',keywords:`${title} ${team} general manager president executive front office roster`}))];
-let globalSearchPlayers=null,globalSearchLoading=false;
+let globalSearchPlayers=null,globalSearchLoading=false,globalSearchContent=null,globalSearchContentPromise=null;
 const normalizeSearch=v=>String(v||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,' ').trim();
 function buildSearchDialog(){if(document.getElementById('globalSearchDialog'))return;const dialog=document.createElement('dialog');dialog.id='globalSearchDialog';dialog.className='global-search-dialog';dialog.innerHTML='<div class="global-search-shell"><div class="global-search-head"><div><span>WE KNOW THE W</span><strong>Search the encyclopedia</strong></div><button type="button" id="globalSearchClose" aria-label="Close search">×</button></div><label class="global-search-field"><span>Search</span><input id="globalSearchInput" type="search" autocomplete="off" placeholder="Players, teams, leagues, awards, coaches…"></label><div id="globalSearchResults" class="global-search-results"><div class="global-search-empty">Type at least 2 letters to search the W.</div></div></div>';document.body.appendChild(dialog);dialog.addEventListener('click',event=>{if(event.target===dialog)dialog.close();});dialog.querySelector('#globalSearchClose')?.addEventListener('click',()=>dialog.close());dialog.querySelector('#globalSearchInput')?.addEventListener('input',renderGlobalSearch);}
 async function loadSearchPlayers(){
@@ -223,8 +225,59 @@ async function loadSearchPlayers(){
   globalSearchLoading=false;
   renderGlobalSearch();
 }
-function renderGlobalSearch(){const input=document.getElementById('globalSearchInput'),results=document.getElementById('globalSearchResults');if(!input||!results)return;const q=normalizeSearch(input.value);if(q.length<2){results.innerHTML='<div class="global-search-empty">Type at least 2 letters to search the W.</div>';return;}const terms=q.split(/\s+/).filter(Boolean);const all=[...searchStaticIndex,...(window.WPlayerpediaLegacy?.searchRecords()||[]),...(globalSearchPlayers||[]).filter(player=>!window.WPlayerpediaLegacy?.find(player.title))];const matches=all.filter(item=>{const hay=normalizeSearch(`${item.title} ${item.type} ${item.keywords||''}`);return terms.every(term=>hay.includes(term));}).sort((a,b)=>normalizeSearch(a.title)===q?-1:normalizeSearch(b.title)===q?1:a.title.localeCompare(b.title)).slice(0,16);const shown=input.value.replaceAll('<','&lt;').replaceAll('>','&gt;');results.innerHTML=matches.length?matches.map(item=>`<a class="global-search-result" href="${item.href}"><span>${item.type}</span><strong>${item.title}</strong><b>→</b></a>`).join(''):`<div class="global-search-empty">No match yet for “${shown}”.</div>`;}
-function openGlobalSearch(){buildSearchDialog();const dialog=document.getElementById('globalSearchDialog');if(typeof dialog.showModal==='function')dialog.showModal();else dialog.setAttribute('open','');setTimeout(()=>document.getElementById('globalSearchInput')?.focus(),30);loadSearchPlayers();window.loadWPlayerpediaLegacy().then(renderGlobalSearch).catch(()=>{});}
+function loadGlobalSearchContent(){
+  if(globalSearchContent)return Promise.resolve(globalSearchContent);
+  if(!globalSearchContentPromise){
+    globalSearchContentPromise=fetch('/search-content-index.json?v=20261031-comprehensive-v1',{headers:{Accept:'application/json'}})
+      .then(async response=>{const payload=await response.json().catch(()=>({}));if(!response.ok)throw new Error('Site search content unavailable');return Array.isArray(payload.items)?payload.items:[];})
+      .catch(()=>[])
+      .then(items=>{globalSearchContent=items;renderGlobalSearch();return items;});
+  }
+  return globalSearchContentPromise;
+}
+function renderGlobalSearch(){
+  const input=document.getElementById('globalSearchInput'),results=document.getElementById('globalSearchResults');
+  if(!input||!results)return;
+  const q=normalizeSearch(input.value);
+  if(q.length<2){results.innerHTML='<div class="global-search-empty">Type at least 2 letters to search the W.</div>';return;}
+  const terms=q.split(/\s+/).filter(Boolean);
+  const staticItems=searchStaticIndex.map(item=>({...item}));
+  const staticByHref=new Map();
+  staticItems.forEach(item=>{if(!staticByHref.has(item.href))staticByHref.set(item.href,item);});
+  const supplementalByHref=new Map();
+  (globalSearchContent||[]).forEach(item=>{
+    const key=String(item.href||normalizeSearch(item.title));
+    const existing=supplementalByHref.get(key);
+    if(!existing){supplementalByHref.set(key,{...item});return;}
+    existing.keywords=[existing.keywords,item.keywords].filter(Boolean).join(' ');
+    if(/^(Story ·|Feature story|Snack Shak story)/.test(item.type||'')){existing.title=item.title;existing.type=item.type;}
+  });
+  const supplemental=[];
+  supplementalByHref.forEach(item=>{
+    const base=staticByHref.get(item.href);
+    if(base)base.keywords=[base.keywords,item.keywords].filter(Boolean).join(' ');
+    else supplemental.push(item);
+  });
+  const legacy=window.WPlayerpediaLegacy?.searchRecords()||[];
+  const extraPlayers=(globalSearchPlayers||[]).filter(player=>!window.WPlayerpediaLegacy?.find(player.title));
+  const all=[...staticItems,...supplemental,...legacy,...extraPlayers];
+  const matches=all.filter(item=>{
+    const hay=normalizeSearch(`${item.title} ${item.type} ${item.keywords||''}`);
+    return terms.every(term=>hay.includes(term));
+  }).sort((a,b)=>{
+    const rank=item=>{
+      const title=normalizeSearch(item.title);
+      if(title===q)return 0;
+      if(terms.every(term=>title.includes(term)))return 1;
+      if(terms.every(term=>normalizeSearch(`${item.title} ${item.type}`).includes(term)))return 2;
+      return 3;
+    };
+    return rank(a)-rank(b)||a.title.localeCompare(b.title);
+  }).slice(0,16);
+  const shown=input.value.replaceAll('<','&lt;').replaceAll('>','&gt;');
+  results.innerHTML=matches.length?matches.map(item=>`<a class="global-search-result" href="${item.href}"><span>${item.type}</span><strong>${item.title}</strong><b>→</b></a>`).join(''):`<div class="global-search-empty">No match yet for “${shown}”.</div>`;
+}
+function openGlobalSearch(){buildSearchDialog();const dialog=document.getElementById('globalSearchDialog');if(typeof dialog.showModal==='function')dialog.showModal();else dialog.setAttribute('open','');setTimeout(()=>document.getElementById('globalSearchInput')?.focus(),30);loadSearchPlayers();loadGlobalSearchContent();window.loadWPlayerpediaLegacy().then(renderGlobalSearch).catch(()=>{});}
 document.getElementById('globalSearchButton')?.addEventListener('click',openGlobalSearch);document.addEventListener('keydown',event=>{if(event.key==='/'&&!event.metaKey&&!event.ctrlKey&&!event.altKey&&!['INPUT','TEXTAREA','SELECT'].includes(document.activeElement?.tagName||'')){event.preventDefault();openGlobalSearch();}});
 
 function addTransferLinks(){if(!['/','/index.html'].includes(location.pathname))return;const cards=[...document.querySelectorAll('.family-card')];const around=cards.find(card=>card.querySelector('h3')?.textContent.trim()==='Around the W'),players=cards.find(card=>card.querySelector('h3')?.textContent.trim()==='Playerpedia'),courtside=cards.find(card=>card.querySelector('h3')?.textContent.trim()==='Courtside Culture');const add=(card,href,label,icon='→')=>{const box=card?.querySelector('.family-links');if(box&&!box.querySelector(`a[href="${href}"]`)){const a=document.createElement('a');a.href=href;a.innerHTML=`<span>${label}</span><span>${icon}</span>`;box.appendChild(a);}};add(around,'/no-love-lost.html','No Love Lost');add(players,'/playerpedia.html?view=current#playerpedia-directory','On the Floor · Current Players');add(players,'/playerpedia.html?view=recent#playerpedia-directory','Benched · Free Agents');add(players,'/playerpedia.html?view=retired#playerpedia-directory','Legends Lounge · Retired Players');add(courtside,'/mascots.html','Mascots');add(courtside,'/coaches.html','Coaches');add(courtside,'/owners.html','Owners');add(courtside,'/wnba-fits.html','The Fits');}

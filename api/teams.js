@@ -1,6 +1,6 @@
 const LEAGUE_ID = 4516;
 const V2_ROOT = 'https://www.thesportsdb.com/api/v2/json';
-// Current WNBA franchises only. Historical team marks belong to the archive pages.
+// Current, final-season, and transition marks. Historical logos remain tied to their playing era.
 const CURRENT_TEAM_LOGO_CODES = new Map([
   ['Atlanta Dream','atl'], ['Chicago Sky','chi'], ['Connecticut Sun','con'],
   ['Dallas Wings','dal'], ['Golden State Valkyries','gs'], ['Indiana Fever','ind'],
@@ -12,9 +12,14 @@ const currentLogo = name => {
   const code = CURRENT_TEAM_LOGO_CODES.get(name);
   return code ? `https://a.espncdn.com/i/teamlogos/wnba/500/${code}.png` : '';
 };
+const COMETS_PRIMARY_MARK = 'https://cdn.wnba.com/sites/1611661316/2026/10/houCOMETS-primary-icon-full-color.png';
+const TRANSITION_TEAM_ARTWORK = [{
+  name: 'Houston Comets', badge: COMETS_PRIMARY_MARK, logo: COMETS_PRIMARY_MARK,
+  source: 'Official Houston Comets primary icon · 2027 return', season: 2027, status: 'upcoming'
+}];
 const currentTeams = () => [...CURRENT_TEAM_LOGO_CODES.keys()].map(name => ({
-  name, badge: currentLogo(name), logo: currentLogo(name), source: 'Current franchise artwork'
-}));
+  name, badge: currentLogo(name), logo: currentLogo(name), source: 'Current or final-season franchise artwork'
+})).concat(TRANSITION_TEAM_ARTWORK);
 
 async function fetchV2(path, apiKey) {
   const response = await fetch(`${V2_ROOT}${path}`, {

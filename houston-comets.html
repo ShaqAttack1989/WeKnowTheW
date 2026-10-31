@@ -9,31 +9,45 @@
   <link rel="stylesheet" href="/landing.css">
   <link rel="stylesheet" href="/expansion.css?v=20260819a">
   <style>
-    :root{--hou-red:#d71920;--hou-deep:#7d0912;--hou-black:#050505;--hou-ink:#151515;--hou-cream:#fffaf8;--hou-line:#ead9d7}
-    .comets-hero{position:relative;overflow:hidden;background:radial-gradient(circle at 82% 40%,rgba(215,25,32,.45),transparent 28%),linear-gradient(135deg,#050505 0 49%,#8d0b15 49% 62%,#d71920 62% 100%);color:#fff}
+    :root{--hou-red:#C8102E;--hou-deep:#0C2340;--hou-black:#0C2340;--hou-ink:#151515;--hou-cream:#F3F6F9;--hou-line:#D8DEE6}
+    .comets-hero{position:relative;overflow:hidden;background:radial-gradient(circle at 82% 40%,rgba(200,16,46,.34),transparent 28%),linear-gradient(135deg,#0C2340 0 72%,#C8102E 72% 76%,#173A5C 76% 100%);color:#fff}
     .comets-hero:after{content:"";position:absolute;right:-12vw;top:-28vw;width:52vw;height:52vw;border:2px solid rgba(255,255,255,.22);border-radius:50%;box-shadow:0 0 0 28px rgba(255,255,255,.025),0 0 0 64px rgba(255,255,255,.02);pointer-events:none}
     .comets-hero .subhero-inner{position:relative;z-index:1;padding-bottom:56px}
-    .comets-kicker{display:inline-flex;gap:8px;align-items:center;background:#fff;color:#b3131b;padding:8px 12px;border-radius:999px;font-weight:900;letter-spacing:.08em;font-size:.8rem}
+     .comets-kicker{display:inline-flex;gap:8px;align-items:center;background:#fff;color:var(--hou-red);padding:8px 12px;border-radius:999px;font-weight:900;letter-spacing:.08em;font-size:.8rem}
     .comets-hero h1{font-size:clamp(3rem,10vw,7.5rem);line-height:.86;max-width:900px;margin:18px 0 18px;text-transform:uppercase;letter-spacing:-.055em}
     .comets-hero h1 em{display:block;color:#fff;font-style:italic}
     .comets-hero .lead{max-width:790px;font-size:clamp(1.05rem,2.4vw,1.35rem);line-height:1.6;color:#fff}
+    .comets-brand-lockup{display:flex;align-items:center;gap:16px;max-width:710px;margin:16px 0;padding:12px 16px;border:1px solid rgba(255,255,255,.28);border-radius:22px;background:rgba(12,35,64,.72);backdrop-filter:blur(8px)}
+    .comets-brand-lockup img{width:88px;height:88px;flex:0 0 auto;object-fit:contain;padding:10px;border-radius:18px;background:#fff}
+    .comets-brand-lockup p{margin:0;display:grid;gap:6px;line-height:1.4}
+    .comets-brand-lockup strong{color:#D5D8DC;font-size:.72rem;letter-spacing:.09em}
+    .comets-brand-lockup span{color:#fff}
+    .comets-mark-small{display:block;width:150px;height:150px;object-fit:contain;padding:14px;margin:0 0 16px;border-radius:22px;background:#fff}
+    .comets-brand-section{background:#0C2340;color:#fff}
+    .comets-brand-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.5fr);gap:30px;align-items:center}
+    .comets-brand-copy h2{margin:8px 0 12px;font-size:clamp(2rem,5vw,3.7rem);line-height:1}
+    .comets-brand-copy p{max-width:760px;color:#e4e8ed;line-height:1.65}
+    .comets-brand-copy .kicker{color:#D5D8DC;font-weight:900;letter-spacing:.12em}
+    .comets-palette{display:flex;flex-wrap:wrap;gap:9px;margin-top:18px}
+    .comets-palette span{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:8px 12px;color:#fff;font-size:.82rem;font-weight:800}
+    .comets-brand-source{display:inline-flex;margin-top:18px;color:#fff;font-weight:900;text-underline-offset:4px}
     .comets-route{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}.comets-route a,.comets-route span{border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:9px 13px;color:#fff;text-decoration:none;background:rgba(0,0,0,.24)}
     .return-board{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(260px,.7fr);gap:26px;align-items:stretch}
     .return-card{border:1px solid var(--hou-line);border-radius:26px;background:#fff;box-shadow:0 18px 55px rgba(74,10,14,.08);overflow:hidden}
-    .return-card.primary{padding:30px;background:linear-gradient(145deg,#fff,#fff6f5)}
+    .return-card.primary{padding:30px;background:linear-gradient(145deg,#fff,#F7F9FB)}
     .return-card .stamp{display:inline-block;color:#fff;background:var(--hou-red);font-weight:900;letter-spacing:.08em;padding:7px 10px;border-radius:8px;font-size:.78rem}
     .return-card h2{font-size:clamp(2rem,5vw,3.5rem);margin:15px 0 10px;line-height:1}.return-card p{line-height:1.65;color:#3d3434}
-    .launch-meter{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;padding:18px;background:#0a0a0a;color:#fff}
-    .launch-meter div{border:1px solid #313131;border-radius:16px;padding:17px}.launch-meter span{display:block;color:#ff8d91;font-size:.74rem;font-weight:900;letter-spacing:.08em}.launch-meter strong{display:block;font-size:1.15rem;margin-top:5px}
-    .status-banner{margin-top:18px;border-left:5px solid var(--hou-red);background:#fff4f3;padding:16px 18px;border-radius:0 16px 16px 0}.status-banner strong{display:block;margin-bottom:4px}
-    .two-history-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}.history-panel{border-radius:24px;padding:26px;border:1px solid #e6dedb;background:#fff}.history-panel.dark{background:#090909;color:#fff;border-color:#090909}.history-panel.dark p{color:#ddd}.history-panel span{font-size:.76rem;font-weight:900;letter-spacing:.1em;color:var(--hou-red)}.history-panel h3{font-size:1.65rem;margin:10px 0}.history-panel p{line-height:1.6;color:#474040}
-    .dynasty-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:20px}.dynasty-strip div{background:#fff;border:1px solid #eadfdd;border-radius:18px;padding:20px;text-align:center}.dynasty-strip strong{font-size:2rem;display:block;color:#a80f18}.dynasty-strip span{font-size:.82rem;color:#594e4e}
-    .handoff-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}.handoff-grid article{border-radius:22px;padding:24px;background:#fff;border:1px solid #e8dfdc}.handoff-grid b{display:inline-grid;place-items:center;width:36px;height:36px;border-radius:50%;background:#d71920;color:#fff}.handoff-grid h3{margin:14px 0 8px}.handoff-grid p{line-height:1.55;color:#514646}
-    .leadership-board{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(260px,.75fr);gap:18px;align-items:stretch}.leadership-card{padding:26px;border:1px solid var(--hou-line);border-radius:24px;background:#fff}.leadership-card.primary{border-left:6px solid var(--hou-red)}.leadership-card span{display:block;color:var(--hou-red);font-size:.75rem;font-weight:900;letter-spacing:.09em}.leadership-card h3{margin:8px 0 10px;font-size:1.7rem}.leadership-card p{margin:0;color:#4d4343;line-height:1.62}.leadership-card a{display:inline-flex;margin-top:16px;color:#9b1018;font-weight:900;text-decoration:none}.leadership-card.dark{background:#0a0a0a;border-color:#0a0a0a;color:#fff}.leadership-card.dark h3{color:#fff}.leadership-card.dark p{color:#d5d5d5}
-    .facility-band{background:#0a0a0a;color:#fff}.facility-band .page-heading p{color:#d9d9d9}.facility-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.facility-grid div{border:1px solid #333;border-radius:18px;padding:20px;background:#121212}.facility-grid strong{display:block;color:#ff777c;margin-bottom:6px}
+    .launch-meter{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;padding:18px;background:#0C2340;color:#fff}
+    .launch-meter div{border:1px solid #536579;border-radius:16px;padding:17px}.launch-meter span{display:block;color:#D5D8DC;font-size:.74rem;font-weight:900;letter-spacing:.08em}.launch-meter strong{display:block;font-size:1.15rem;margin-top:5px}
+    .status-banner{margin-top:18px;border-left:5px solid var(--hou-red);background:#EEF3F8;padding:16px 18px;border-radius:0 16px 16px 0}.status-banner strong{display:block;margin-bottom:4px}
+    .two-history-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}.history-panel{border-radius:24px;padding:26px;border:1px solid #e6dedb;background:#fff}.history-panel.dark{background:#0C2340;color:#fff;border-color:#090909}.history-panel.dark p{color:#ddd}.history-panel span{font-size:.76rem;font-weight:900;letter-spacing:.1em;color:var(--hou-red)}.history-panel h3{font-size:1.65rem;margin:10px 0}.history-panel p{line-height:1.6;color:#474040}
+    .dynasty-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:20px}.dynasty-strip div{background:#fff;border:1px solid #eadfdd;border-radius:18px;padding:20px;text-align:center}.dynasty-strip strong{font-size:2rem;display:block;color:#C8102E}.dynasty-strip span{font-size:.82rem;color:#594e4e}
+    .handoff-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}.handoff-grid article{border-radius:22px;padding:24px;background:#fff;border:1px solid #e8dfdc}.handoff-grid b{display:inline-grid;place-items:center;width:36px;height:36px;border-radius:50%;background:#C8102E;color:#fff}.handoff-grid h3{margin:14px 0 8px}.handoff-grid p{line-height:1.55;color:#514646}
+    .leadership-board{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(260px,.75fr);gap:18px;align-items:stretch}.leadership-card{padding:26px;border:1px solid var(--hou-line);border-radius:24px;background:#fff}.leadership-card.primary{border-left:6px solid var(--hou-red)}.leadership-card span{display:block;color:var(--hou-red);font-size:.75rem;font-weight:900;letter-spacing:.09em}.leadership-card h3{margin:8px 0 10px;font-size:1.7rem}.leadership-card p{margin:0;color:#4d4343;line-height:1.62}.leadership-card a{display:inline-flex;margin-top:16px;color:#9b1018;font-weight:900;text-decoration:none}.leadership-card.dark{background:#0C2340;border-color:#0a0a0a;color:#fff}.leadership-card.dark h3{color:#fff}.leadership-card.dark p{color:#d5d5d5}
+    .facility-band{background:#0C2340;color:#fff}.facility-band .page-heading p{color:#d9d9d9}.facility-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.facility-grid div{border:1px solid #333;border-radius:18px;padding:20px;background:#121212}.facility-grid strong{display:block;color:#D5D8DC;margin-bottom:6px}
     .source-stack{display:flex;flex-wrap:wrap;gap:10px}.source-stack a{display:inline-flex;text-decoration:none;border:1px solid #dccac7;border-radius:999px;padding:10px 13px;color:#6f1118;background:#fff;font-weight:800}
-    @media(max-width:780px){.return-board,.two-history-grid,.leadership-board{grid-template-columns:1fr}.handoff-grid{grid-template-columns:1fr}.facility-grid{grid-template-columns:repeat(2,1fr)}.dynasty-strip{grid-template-columns:repeat(2,1fr)}}
-    @media(max-width:480px){.facility-grid{grid-template-columns:1fr}.comets-hero h1{font-size:3.4rem}}
+    @media(max-width:780px){.return-board,.two-history-grid,.leadership-board,.comets-brand-grid{grid-template-columns:1fr}.handoff-grid{grid-template-columns:1fr}.facility-grid{grid-template-columns:repeat(2,1fr)}.dynasty-strip{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:480px){.facility-grid{grid-template-columns:1fr}.comets-hero h1{font-size:3.4rem}.comets-brand-lockup{align-items:flex-start;padding:10px}.comets-brand-lockup img{width:66px;height:66px;padding:7px}}
   </style>
 </head>
 <body class="section-page">
@@ -42,13 +56,20 @@
     <div class="page-shell subhero-inner">
       <span class="comets-kicker">2027 · HOUSTON, TEXAS</span>
       <h1>SHE'S <em>BACK.</em></h1>
-      <p class="lead">The Houston Comets return for the 2027 WNBA season after the league approved the sale and relocation of the Connecticut Sun to Houston. The name brings back the WNBA's first dynasty; the operating franchise arrives from Connecticut.</p>
+      <div class="comets-brand-lockup"><img src="https://cdn.wnba.com/sites/1611661316/2026/10/houCOMETS-primary-icon-full-color.png" alt="Houston Comets primary icon, a rising H crossed by a comet basketball and four stars"><p><strong>NEW PRIMARY ICON · REVEALED OCTOBER 29, 2026</strong><span>Four stars for four titles. A comet streaking toward Houston's next chapter.</span></p></div>
+      <p class="lead">The Houston Comets return for the 2027 WNBA season after the league approved the sale and relocation of the Connecticut Sun to Houston. The refreshed red, navy and silver identity carries the name into its next era.</p>
       <div class="comets-route"><a href="#teamNameOrigin">Behind the name</a><a href="/around-the-w.html#team-pages">Around the W</a><a href="/expansion-w.html">Expansion Watch</a><span><b>2027</b> tip-off</span><span>Toyota Center</span><span>Fertitta Entertainment</span></div>
     </div>
   </header>
 
   <main>
-<section class="page-section" id="teamNameOrigin" style="scroll-margin-top:160px"><div class="page-shell"><div class="page-heading"><p class="kicker">BEHIND THE NAME</p><h2>Space City gets its Comets back.</h2></div><div class="two-history-grid"><article class="history-panel"><img src="https://a.espncdn.com/i/teamlogos/wnba/500/hou.png" alt="Houston Comets historical logo" width="150" height="150" style="object-fit:contain"><h3>A name made for Houston</h3><p>Comets joined Houston’s space-themed sports vocabulary alongside the NBA’s Rockets when the WNBA launched in 1997. The name fits Space City, but Houston’s women built a legacy all their own: the original Comets won the first four WNBA championships, from 1997 through 2000.</p><a href="https://www.beaumontenterprise.com/sports/article/Texas-professional-sports-teams-names-origin-how-14368690.php" target="_blank" rel="noopener noreferrer">Read the naming history ↗</a></article><article class="history-panel"><span>1997 ORIGINAL · 2027 RETURN</span><h3>One name. Two franchise histories.</h3><p>The original Comets played from 1997 to 2008. The approved 2027 return revives their name through the Connecticut Sun’s relocation, continuing the franchise that began as the Orlando Miracle. The original Houston dynasty’s championships remain distinct.</p><p><strong>Name trail:</strong> Original Houston Comets (1997–2008, separate franchise) · Orlando Miracle → Connecticut Sun → Houston Comets (2027 return)</p><a href="/wnba-team-name-stories.html">Food for Thought: What’s in a Name? →</a><p><a href="https://www.wnba.com/webview/news/wnba-nba-approve-connecticut-sun-sale" target="_blank" rel="noopener noreferrer">Official relocation announcement ↗</a></p></article></div></div></section>
+<section class="page-section" id="teamNameOrigin" style="scroll-margin-top:160px"><div class="page-shell"><div class="page-heading"><p class="kicker">BEHIND THE NAME</p><h2>Space City gets its Comets back.</h2></div><div class="two-history-grid"><article class="history-panel"><img class="comets-mark-small" src="https://cdn.wnba.com/sites/1611661316/2026/10/houCOMETS-primary-icon-full-color.png" alt="Houston Comets primary icon revealed for the 2027 return" width="150" height="150" loading="lazy"><h3>A name made for Houston</h3><p>Comets joined Houston’s space-themed sports vocabulary alongside the NBA’s Rockets when the WNBA launched in 1997. The name fits Space City, but Houston’s women built a legacy all their own: the original Comets won the first four WNBA championships, from 1997 through 2000.</p><a href="https://www.beaumontenterprise.com/sports/article/Texas-professional-sports-teams-names-origin-how-14368690.php" target="_blank" rel="noopener noreferrer">Read the naming history ↗</a></article><article class="history-panel"><span>1997 ORIGINAL · 2027 RETURN</span><h3>One returning name. A connected franchise trail.</h3><p>The original Comets played from 1997 to 2008 and won the league’s first four championships. Houston’s official return announcement says their records and history carry forward into this next chapter. The relocating organization began as the Orlando Miracle, became the Connecticut Sun in 2003, and returns as the Comets for 2027.</p><p><strong>Name trail:</strong> Houston Comets legacy (1997–2008) · Orlando Miracle → Connecticut Sun (through 2026) → Houston Comets (2027 return). We Know the W keeps the Sun’s final 2026 results credited to Connecticut.</p><a href="/wnba-team-name-stories.html">Food for Thought: What’s in a Name? →</a><p><a href="https://www.wnba.com/webview/news/wnba-nba-approve-connecticut-sun-sale" target="_blank" rel="noopener noreferrer">Official relocation announcement ↗</a></p></article></div></div></section>
+    <section class="page-section comets-brand-section" id="comets-brand">
+      <div class="page-shell"><div class="comets-brand-grid">
+        <div class="comets-brand-copy"><p class="kicker">THE NEW COMETS IDENTITY · OCTOBER 29, 2026</p><h2>Four stars. One comet in motion.</h2><p>The primary icon pairs an upward-slanted H with a basketball comet forming its crossbar. Four stars honor Houston’s four consecutive WNBA championships from 1997 through 2000. Three stars are silver, and the fourth is white for Texas.</p><p>The official color guide names Comets Red, Houston Comets Blue and Houston Comets Silver: Pantone 186 C, 289 C and 422 C.</p><div class="comets-palette"><span>RED · PANTONE 186 C</span><span>NAVY · PANTONE 289 C</span><span>SILVER · PANTONE 422 C</span></div><a class="comets-brand-source" href="https://comets.wnba.com/" target="_blank" rel="noopener noreferrer">Visit the official Houston Comets site ↗</a></div>
+        <div class="comets-brand-copy"><p class="kicker">THE NEXT CHAPTER</p><h2>Space City is home again.</h2><p>The new wordmarks use the same comet-and-star motif. The lowercase “t” links the Comets identity to the Houston Rockets, while the circular global logo nods to the mission-patch tradition of Space City.</p></div>
+      </div></div>
+    </section>
     <section class="page-section" style="background:var(--hou-cream)">
       <div class="page-shell">
         <div class="return-board">
@@ -86,7 +107,7 @@
       </div>
     </section>
 
-    <section class="page-section" style="background:#f6efee">
+    <section class="page-section" style="background:#EEF1F4">
       <div class="page-shell">
         <div class="page-heading"><p class="kicker">HOW THE HANDOFF WORKS</p><h2>No expansion draft for Houston.</h2><p>Because Houston is receiving an existing franchise rather than becoming an added team, the roster path is different from Cleveland, Detroit and Philadelphia.</p></div>
         <div class="handoff-grid">
@@ -121,6 +142,7 @@
         <div class="page-heading compact" style="margin-top:38px"><p class="kicker">PRIMARY SOURCES</p><h2>Track the return at the source.</h2></div>
         <div class="source-stack">
           <a href="https://www.houstoncomets.com/" target="_blank" rel="noopener noreferrer">Official Houston Comets site ↗</a>
+          <a href="https://www.houstonchronicle.com/sports/rockets/article/houston-comets-new-logo-22500260.php" target="_blank" rel="noopener noreferrer">New logo and identity details ↗</a>
           <a href="https://www.houstoncomets.com/articles/approved-sale" target="_blank" rel="noopener noreferrer">Comets approval announcement ↗</a>
           <a href="https://www.wnba.com/news/wnba-nba-approve-connecticut-sun-sale" target="_blank" rel="noopener noreferrer">WNBA relocation release ↗</a>
           <a href="https://sun.wnba.com/frequently-asked-questions" target="_blank" rel="noopener noreferrer">Connecticut Sun sale FAQ ↗</a>

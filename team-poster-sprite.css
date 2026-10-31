@@ -107,6 +107,7 @@
   line-height:1;
 }
 .poster-load-error .team-poster-img{display:none!important;}
+.poster-local-fallback .directory-team-logo{display:block;width:clamp(76px,9vw,112px);height:clamp(76px,9vw,112px);object-fit:contain;padding:10px;border:1px solid rgba(255,255,255,.82);border-radius:22px;background:#fff;box-shadow:0 12px 26px rgba(0,0,0,.2)}
 .directory-expansion-label{
   grid-column:1/-1;
   width:100%;

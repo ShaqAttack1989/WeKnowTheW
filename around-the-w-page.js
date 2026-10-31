@@ -25,15 +25,15 @@ function posterCard(team,record,href){
   const poster=team.poster||'';
   const footNote=team.note||(record?`${pct} win percentage`:'Franchise home');
   return `<a class="team-directory-card approved-local-poster" href="${safe(link)}" style="--team-primary:${team.primary};--team-secondary:${team.secondary};--team-accent:${team.accent};--team-text:${team.text}" aria-label="Open ${safe(team.name)}">
-    <span class="poster-local-fallback"><b>${safe(team.tag)}</b><strong>${safe(team.name)}</strong></span>
+    <span class="poster-local-fallback">${team.logo?`<img class="directory-team-logo" src="${safe(team.logo)}" alt="" loading="lazy" decoding="async">`:`<b>${safe(team.tag)}</b>`}<strong>${safe(team.name)}</strong></span>
     ${poster?`<img class="team-poster-img" src="${safe(poster)}" alt="${safe(team.name)}" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('poster-load-error')">`:''}
     <div class="team-poster-footer"><span>${safe(recordText)}</span><span>${safe(footNote)}</span><b>→</b></div>
   </a>`;
 }
 
 function houstonPreviewCard(){
-  const houston={slug:'houston-comets',name:'Houston Comets',city:'Houston',tag:'HOU',primary:'#d71920',secondary:'#050505',accent:'#ffffff',text:'#ffffff',note:'Connecticut relocates · Toyota Center',recordLabel:'2027'};
-  return `<div class="directory-expansion-label"><span>2027 MARKET MOVE</span><strong>She's back: Houston Comets</strong></div>
+  const houston={slug:'houston-comets',name:'Houston Comets',city:'Houston',tag:'HOU',primary:'#C8102E',secondary:'#0C2340',accent:'#A7A8AA',text:'#FFFFFF',logo:'https://cdn.wnba.com/sites/1611661316/2026/10/houCOMETS-primary-icon-full-color.png',note:'New identity revealed Oct. 29 · Toyota Center',recordLabel:'2027'};
+  return `<div class="directory-expansion-label"><span>NEW IDENTITY · 2027 RETURN</span><strong>She’s back: Houston Comets</strong></div>
   ${posterCard(houston,null,'/houston-comets.html').replace('team-directory-card approved-local-poster','team-directory-card approved-local-poster expansion-preview-card')}`;
 }
 

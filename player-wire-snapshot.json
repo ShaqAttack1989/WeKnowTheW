@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-31T19:59:06.515Z",
+  "generatedAt": "2026-10-31T23:24:09.573Z",
   "movement": {
     "latestTransactionDate": "2026-09-28",
     "transactions": [
@@ -1438,26 +1438,13 @@
   },
   "availability": {
     "latestReportDate": "2026-10-31",
-    "reportLabel": "10/31/2026 03:45 PM ET",
-    "officialPdf": "https://ak-static.cms.nba.com/referee/wnba_injury/Injury-Report_2026-10-31_03_45PM.pdf",
+    "reportLabel": "10/31/2026 07:15 PM ET",
+    "officialPdf": "https://ak-static.cms.nba.com/referee/wnba_injury/Injury-Report_2026-10-31_07_15PM.pdf",
     "injuries": [
       {
         "player": "Brionna Jones",
         "team": "Atlanta Dream",
         "status": "OUT",
-        "reason": "Injury/Illness - Left Leg; N/A",
-        "gameDate": "10/31/2026",
-        "gameTime": "08:00 (ET)",
-        "matchup": "ATL@GSV",
-        "updated": "2026-10-31",
-        "source": "Official WNBA Injury Report PDF",
-        "officialCurrentReport": true,
-        "crossCheckOnly": false
-      },
-      {
-        "player": "Te- Hina Paopao",
-        "team": "Atlanta Dream",
-        "status": "QUESTIONABLE",
         "reason": "Injury/Illness - Left Leg; N/A",
         "gameDate": "10/31/2026",
         "gameTime": "08:00 (ET)",

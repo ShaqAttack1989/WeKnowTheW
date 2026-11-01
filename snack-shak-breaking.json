@@ -33,7 +33,7 @@
         "Angel Reese",
         "Rhyne Howard"
       ],
-      "dek": "Finals MVP Gabby Williams scored 30 as Golden State beat Atlanta 68–63 in the first Game 7 in WNBA Finals history, winning the title in the Valkyries’ second season.",
+      "dek": "Finals MVP Gabby Williams scored 30 as Golden State beat Atlanta 68–63 in the first Game 7 in WNBA Finals history, winning the title in the Valkyries’ second season. Natalie Nakase became the first Asian-American coach to win a WNBA title.",
       "gameResult": {
         "round": "WNBA Finals",
         "game": 7,
@@ -58,6 +58,10 @@
         {
           "label": "Valkyries Game 7 highlights",
           "url": "https://valkyries.wnba.com/watch/video/wnba-finals-game-7-highlights-valkyries-68-dream-63-10-31-26"
+        },
+        {
+          "label": "Valkyries official championship announcement",
+          "url": "https://valkyries.wnba.com/news/golden-state-valkyries-win-2026-wnba-championship-20261031"
         }
       ],
       "sections": [
@@ -81,8 +85,32 @@
             "Golden State outscored Atlanta 44–33 after halftime and held on for the five-point win. The Valkyries became the first expansion franchise to win a WNBA championship in its second season.",
             "The Dream were seeking their first title in a fourth Finals appearance. The series ends with Golden State on top, 4–3, and the first Finals Game 7 in league history in the books."
           ]
+        },
+        {
+          "title": "A historic title on the sideline",
+          "paragraphs": [
+            "At halftime, Nakase told Williams that the game would come to her; Williams trusted that read and scored 28 of her 30 after the break. After Golden State fell behind 2–1 in the Finals, Nakase changed the starting lineup, bringing in Kaila Charles and Tiffany Hayes. The adjustment helped the Valkyries turn the series around and finish a 4–3 title run.",
+            "Nakase is now the first Asian-American coach to win a WNBA title. She had already made history as the league’s first Asian-American head coach. It is her first championship as a head coach and her third overall after assistant-coach titles in Las Vegas in 2022 and 2023."
+          ]
         }
-      ]
+      ],
+      "gameGallery": {
+        "eyebrow": "A HISTORIC SIDELINE",
+        "title": "Natalie Nakase makes WNBA history",
+        "dek": "Golden State’s Game 7 win delivered Nakase her first title as a head coach.",
+        "items": [
+          {
+            "image": "/assets/images/natalie-nakase-2026-championship.jpg",
+            "alt": "ESPN graphic featuring Natalie Nakase with the 2026 WNBA championship trophy.",
+            "kicker": "COACHING HISTORY",
+            "title": "First Asian-American coach to win a WNBA title",
+            "caption": "Nakase won her first championship as a head coach; it is her third WNBA title overall.",
+            "credit": "ESPN championship graphic",
+            "sourceUrl": "https://www.espn.com/wnba/",
+            "imageFit": "contain"
+          }
+        ]
+      }
     },
     {
       "imageFocus": "50% 38%",

@@ -2,6 +2,89 @@
   "site": "Snack Shak",
   "posts": [
     {
+      "slug": "valkyries-win-2026-wnba-finals-game-7",
+      "type": "feature",
+      "priority": 18000,
+      "homepageSeason": "wnba-playoffs",
+      "seriesLabel": "FOOD FOR THOUGHT · FINALS GAME 7 RECAP",
+      "title": "Game 7 Is Golden State’s. The Valkyries Are WNBA Champions.",
+      "published": "2026-11-01",
+      "updated": "2026-11-01",
+      "week": "WNBA FINALS · GAME 7",
+      "image": "https://cdn.shopify.com/s/files/1/0803/0050/7409/files/we-know-the-w-atlanta-dream-allisha-gray-finals-2026.jpg?v=1792547248",
+      "storyImage": "https://cdn.shopify.com/s/files/1/0803/0050/7409/files/we-know-the-w-atlanta-dream-allisha-gray-finals-2026.jpg?v=1792547248",
+      "imageFit": "cover",
+      "imageFocus": "50% 50%",
+      "imageAlt": "Atlanta Dream guard Allisha Gray carries the ball along the baseline during the 2026 WNBA Finals. Photograph provided to We Know the W.",
+      "storyImageCaption": "Allisha Gray takes the ball along the baseline during the 2026 WNBA Finals. Photograph provided to We Know the W.",
+      "storyImageSourceUrl": "https://cdn.shopify.com/s/files/1/0803/0050/7409/files/we-know-the-w-atlanta-dream-allisha-gray-finals-2026.jpg?v=1792547248",
+      "imageSourceUrl": "https://cdn.shopify.com/s/files/1/0803/0050/7409/files/we-know-the-w-atlanta-dream-allisha-gray-finals-2026.jpg?v=1792547248",
+      "dashboardUrl": "/food-for-thought.html?post=valkyries-win-2026-wnba-finals-game-7#story",
+      "teams": [
+        "Golden State Valkyries",
+        "Atlanta Dream"
+      ],
+      "players": [
+        "Gabby Williams",
+        "Veronica Burton",
+        "Kiah Stokes",
+        "Jordin Canada",
+        "Allisha Gray",
+        "Angel Reese",
+        "Rhyne Howard"
+      ],
+      "dek": "Finals MVP Gabby Williams scored 30 as Golden State beat Atlanta 68–63 in the first Game 7 in WNBA Finals history, winning the title in the Valkyries’ second season.",
+      "gameResult": {
+        "round": "WNBA Finals",
+        "game": 7,
+        "date": "October 31, 2026",
+        "venue": "Chase Center",
+        "winner": "Golden State Valkyries",
+        "winnerScore": 68,
+        "loser": "Atlanta Dream",
+        "loserScore": 63,
+        "series": "Golden State wins 4–3",
+        "finalsMVP": "Gabby Williams"
+      },
+      "sources": [
+        {
+          "label": "WNBA official Game 7 recap",
+          "url": "https://www.wnba.com/news/2026-finals-valkyries-dream-game-7-recap"
+        },
+        {
+          "label": "WNBA official box score",
+          "url": "https://www.wnba.com/game/atl-vs-gsv-1042600307/box-score"
+        },
+        {
+          "label": "Valkyries Game 7 highlights",
+          "url": "https://valkyries.wnba.com/watch/video/wnba-finals-game-7-highlights-valkyries-68-dream-63-10-31-26"
+        }
+      ],
+      "sections": [
+        {
+          "title": "A Game 7, decided by the closer",
+          "paragraphs": [
+            "Golden State beat Atlanta 68–63 at Chase Center on October 31 to win the 2026 WNBA Finals, four games to three. It was the first Game 7 in Finals history and the Valkyries’ first championship, in their second season.",
+            "Finals MVP Gabby Williams scored 30 points, including 28 after halftime. Atlanta led 30–24 at the break; Williams scored 15 in the third quarter and the Valkyries took a 45–44 lead into the fourth."
+          ]
+        },
+        {
+          "title": "The final three minutes",
+          "paragraphs": [
+            "Rhyne Howard tied the game at 57 with 2:41 to play. Williams answered with a three-pointer, then added two free throws. Kiah Stokes scored a late basket, and Veronica Burton made the final two free throws with 5.1 seconds left.",
+            "Williams finished with 30 points and four blocks. Stokes had 13 rebounds and two blocks. Jordin Canada led Atlanta with 18 points, Allisha Gray scored 16, and Angel Reese finished with eight points and 12 rebounds."
+          ]
+        },
+        {
+          "title": "A championship in year two",
+          "paragraphs": [
+            "Golden State outscored Atlanta 44–33 after halftime and held on for the five-point win. The Valkyries became the first expansion franchise to win a WNBA championship in its second season.",
+            "The Dream were seeking their first title in a fourth Finals appearance. The series ends with Golden State on top, 4–3, and the first Finals Game 7 in league history in the books."
+          ]
+        }
+      ]
+    },
+    {
       "imageFocus": "50% 38%",
       "imageFit": "cover",
       "storyImageSourceUrl": "https://dream.wnba.com/news/atlanta-dream-signs-two-time-wnba-champion-dewanna-bonner",
@@ -16,17 +99,49 @@
       "title": "DeWanna Bonner Chooses Atlanta. The Dream Were Already Dangerous.",
       "published": "2026-08-26",
       "week": "Atlanta playoff push · Aug. 26, 2026",
-      "teams": ["Atlanta Dream", "Phoenix Mercury"],
-      "players": ["DeWanna Bonner", "Angel Reese", "Allisha Gray", "Rhyne Howard"],
+      "teams": [
+        "Atlanta Dream",
+        "Phoenix Mercury"
+      ],
+      "players": [
+        "DeWanna Bonner",
+        "Angel Reese",
+        "Allisha Gray",
+        "Rhyne Howard"
+      ],
       "dek": "Phoenix gave DeWanna Bonner the freedom to chase one more title. Atlanta gave her a team that did not need rescuing, only another veteran who knows exactly what playoff basketball asks for.",
       "storyTable": {
-        "columns": ["What Atlanta adds", "Bonner brings", "Why it matters in a series"],
+        "columns": [
+          "What Atlanta adds",
+          "Bonner brings",
+          "Why it matters in a series"
+        ],
         "rows": [
-          ["Playoff experience", "15 postseason appearances and two WNBA championships", "Atlanta adds a player who has already lived through every version of a long playoff run"],
-          ["Frontcourt flexibility", "6-foot-4 size with guard-forward mobility", "Bonner can play next to Angel Reese or slide across bigger wing and forward matchups"],
-          ["Rebounding", "6.1 rebounds per game with Phoenix in 2026", "Extra possessions matter more when every postseason possession gets expensive"],
-          ["Bench scoring", "10.6 points per game in 2026", "Atlanta does not have to ask its stars to carry every second-unit minute"],
-          ["Late-season urgency", "A veteran explicitly freed to chase a title", "The move arrives with Atlanta already in the playoff field rather than trying to sneak into it"]
+          [
+            "Playoff experience",
+            "15 postseason appearances and two WNBA championships",
+            "Atlanta adds a player who has already lived through every version of a long playoff run"
+          ],
+          [
+            "Frontcourt flexibility",
+            "6-foot-4 size with guard-forward mobility",
+            "Bonner can play next to Angel Reese or slide across bigger wing and forward matchups"
+          ],
+          [
+            "Rebounding",
+            "6.1 rebounds per game with Phoenix in 2026",
+            "Extra possessions matter more when every postseason possession gets expensive"
+          ],
+          [
+            "Bench scoring",
+            "10.6 points per game in 2026",
+            "Atlanta does not have to ask its stars to carry every second-unit minute"
+          ],
+          [
+            "Late-season urgency",
+            "A veteran explicitly freed to chase a title",
+            "The move arrives with Atlanta already in the playoff field rather than trying to sneak into it"
+          ]
         ]
       },
       "sections": [
@@ -84,11 +199,26 @@
         "script": "Phoenix cleared the table and DeWanna Bonner went straight to a kitchen that was already serving. Atlanta did not need a new head chef. It already has Allisha Gray cooking, Rhyne Howard bringing the heat, and Angel Reese grabbing every plate before it hits the floor. Bonner is the veteran sous-chef who has worked fifteen postseason dinner rushes and already owns two championship recipes. The three-point seasoning has been light this year, but the rebounding, size and playoff memory still travel. Atlanta was already dangerous. Now the Dream have one more ingredient nobody wants to deal with in a seven-game series."
       },
       "sources": [
-        {"label": "Bleacher Report: Bonner reportedly signs with Atlanta", "url": "https://bleacherreport.com/articles/25489445-dewanna-bonner-reportedly-signs-dream-contract-latest-wnba-standings-angel-reese-atlanta"},
-        {"label": "Bleacher Report: Phoenix and Bonner agree to buyout", "url": "https://bleacherreport.com/articles/25481893-dewanna-bonner-lands-mercury-contract-buyout-top-landing-spots-wnba-star-amid-playoff-race"},
-        {"label": "Atlanta Dream clinches 2026 playoff berth", "url": "https://dream.wnba.com/news/atlanta-dream-clinches-fourth-consecutive-playoff-berth-first-and-second-round-playoff-tickets-on-sale-beginning-sept-1"},
-        {"label": "WNBA: DeWanna Bonner career bio and postseason history", "url": "https://www.wnba.com/player/201886/dewanna-bonner/bio"},
-        {"label": "Basketball Reference: DeWanna Bonner 2026 statistics", "url": "https://www.basketball-reference.com/wnba/players/b/bonnede01w.html"}
+        {
+          "label": "Bleacher Report: Bonner reportedly signs with Atlanta",
+          "url": "https://bleacherreport.com/articles/25489445-dewanna-bonner-reportedly-signs-dream-contract-latest-wnba-standings-angel-reese-atlanta"
+        },
+        {
+          "label": "Bleacher Report: Phoenix and Bonner agree to buyout",
+          "url": "https://bleacherreport.com/articles/25481893-dewanna-bonner-lands-mercury-contract-buyout-top-landing-spots-wnba-star-amid-playoff-race"
+        },
+        {
+          "label": "Atlanta Dream clinches 2026 playoff berth",
+          "url": "https://dream.wnba.com/news/atlanta-dream-clinches-fourth-consecutive-playoff-berth-first-and-second-round-playoff-tickets-on-sale-beginning-sept-1"
+        },
+        {
+          "label": "WNBA: DeWanna Bonner career bio and postseason history",
+          "url": "https://www.wnba.com/player/201886/dewanna-bonner/bio"
+        },
+        {
+          "label": "Basketball Reference: DeWanna Bonner 2026 statistics",
+          "url": "https://www.basketball-reference.com/wnba/players/b/bonnede01w.html"
+        }
       ]
     }
   ]

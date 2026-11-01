@@ -22,7 +22,8 @@
     const image = safeUrl(post.storyImage || post.image || post.imageUrl || post.photo || post.thumbnail);
     const fit = post.imageFit === 'contain' ? 'contain' : 'cover';
     const focus = /^[\d.%\s]+$/.test(post.imageFocus || '') ? post.imageFocus : '50% 35%';
-    return `<a class="season-story${index === 0 ? ' season-story-lead' : ''}" href="${safe(href(post))}" data-story-slug="${safe(post.slug)}">${image ? `<figure class="season-story-media"><img src="${safe(image)}" alt="${safe(post.imageAlt || post.title)}" loading="${index === 0 ? 'eager' : 'lazy'}" style="object-fit:${fit};object-position:${focus}"><span>${safe(post.seriesLabel || 'SNACK SHAK')}</span></figure>` : ''}<div class="season-story-copy"><p class="season-story-label">${safe(date(post))}</p><h3>${safe(post.title)}</h3><p>${safe(post.dek || '')}</p><b>Read the story <span aria-hidden="true">→</span></b></div></a>`;
+    const eager = index === 0 || post.slug === 'usa-womens-3x3-americup-2026-watch-guide';
+    return `<a class="season-story${index === 0 ? ' season-story-lead' : ''}" href="${safe(href(post))}" data-story-slug="${safe(post.slug)}">${image ? `<figure class="season-story-media"><img src="${safe(image)}" alt="${safe(post.imageAlt || post.title)}" loading="${eager ? 'eager' : 'lazy'}" fetchpriority="${eager ? 'high' : 'auto'}" decoding="async" style="object-fit:${fit};object-position:${focus}"><span>${safe(post.seriesLabel || 'SNACK SHAK')}</span></figure>` : ''}<div class="season-story-copy"><p class="season-story-label">${safe(date(post))}</p><h3>${safe(post.title)}</h3><p>${safe(post.dek || '')}</p><b>Read the story <span aria-hidden="true">→</span></b></div></a>`;
   }
   const snapshots = new Map();
   let pending = null;

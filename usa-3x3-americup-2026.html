@@ -104,7 +104,11 @@
 </div></section>
 <section class="cup-block" id="cup-schedule"><div class="cup-shell"><div class="cup-kicker">ALL TIMES EASTERN · SCHEDULE SUBJECT TO FIBA CHANGES</div><h2>USA games & results</h2><p class="cup-desc">USA finished Pool B with a 21–7 win over Colombia and a 21–4 win over Cayman Islands. It advanced as the pool winner and meets Paraguay in Quarterfinal 3 at 3:10 p.m. ET on November 1.</p>
 <div class="cup-actions" role="group" aria-label="Filter games"><button class="cup-btn" type="button" data-filter="all" aria-pressed="true">All</button><button class="cup-btn" type="button" data-filter="Pool B" aria-pressed="false">Pool games</button><button class="cup-btn" type="button" data-filter="knockout" aria-pressed="false">Knockout path</button></div>
-<div class="cup-table-wrap"><table class="cup-table"><thead><tr><th>Date / tip ET</th><th>Stage</th><th>USA matchup</th><th>Status / result</th></tr></thead><tbody id="cupGames"><tr><td colspan="4">Loading verified schedule…</td></tr></tbody></table></div>
+<div class="cup-table-wrap"><table class="cup-table"><thead><tr><th>Date / tip ET</th><th>Stage</th><th>USA matchup</th><th>Status / result</th></tr></thead><tbody id="cupGames">
+<tr><td><b>Oct. 31 · 5:50 p.m.</b></td><td>Pool B</td><td>USA vs. Colombia</td><td><span class="cup-state final"><b>21 – 7</b> · Final</span></td></tr>
+<tr><td><b>Oct. 31 · 9:20 p.m.</b></td><td>Pool B</td><td>USA vs. Cayman Islands</td><td><span class="cup-state final"><b>21 – 4</b> · Final</span></td></tr>
+<tr><td><b>Nov. 1 · 3:10 p.m.</b></td><td>Quarterfinal 3</td><td>USA vs. Paraguay</td><td><span class="cup-state">Scheduled · scores pending</span><div><small>USA won Pool B. Quarterfinal 3 is confirmed by FIBA.</small></div></td></tr>
+</tbody></table></div>
 <div class="cup-stamp"><span class="dot"></span><span>USA pool scores and Quarterfinal 3 matchup verified against <a href="https://www.fiba.basketball/en/news/fiba-3x3-americup-2026-day-4-recap" target="_blank" rel="noopener noreferrer">FIBA Day 4 results ↗</a>. The semifinals and final remain conditional on advancing.</span></div>
 </div></section>
 <section class="cup-block cup-white" id="cup-pools"><div class="cup-shell"><div class="cup-kicker">MAIN DRAW · WOMEN</div><h2>The 2026 pool map</h2><p class="cup-desc">Pool play is complete. The top two teams in each group advanced to the November 1 quarterfinals. Cuba filled Pool C, and USA finished atop Pool B at 2–0 before drawing Paraguay in Quarterfinal 3.</p>
@@ -159,7 +163,7 @@ if(standings.length){el('cupStandings').innerHTML=standings.map(s=>'<tr><td>'+es
 el('cupUpdated').textContent='Event data verified '+state.verified+' · USA pool scores and its Quarterfinal 3 matchup are verified at FIBA';
 updateClock();
 }
-async function load(){try{let response=await fetch(file+'?v='+Date.now(),{cache:'no-store'});if(!response.ok)throw Error('Cannot load event file');let d=await response.json();if(!Array.isArray(d.games)||!Array.isArray(d.roster)||!Array.isArray(d.pools))throw Error('Incomplete event file');state=d;render();}catch(e){if(!state){el('cupUpdated').textContent='Event data temporarily unavailable; use official links below';el('cupGames').innerHTML='<tr><td colspan="4">Schedule unavailable. Please check USA Basketball for confirmed tips.</td></tr>';el('cupPlayers').textContent='Official roster is linked below.';}}}
+async function load(){try{let response=await fetch(file+'?v='+Date.now(),{cache:'no-store'});if(!response.ok)throw Error('Cannot load event file');let d=await response.json();if(!Array.isArray(d.games)||!Array.isArray(d.roster)||!Array.isArray(d.pools))throw Error('Incomplete event file');state=d;render();}catch(e){if(!state){el('cupUpdated').textContent='Event data temporarily unavailable; verified scores remain visible below';el('cupPlayers').textContent='Official roster is linked below.';}}}
 document.querySelectorAll('[data-filter]').forEach(b=>b.addEventListener('click',()=>{filter=b.dataset.filter;document.querySelectorAll('[data-filter]').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));render();}));
 load();setInterval(()=>{if(!document.hidden)load();},60000);setInterval(updateClock,60000);document.addEventListener('visibilitychange',()=>{if(!document.hidden)load();});
 })();

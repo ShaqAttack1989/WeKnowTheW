@@ -760,6 +760,15 @@
           "value": "no-store, max-age=0"
         }
       ]
+    },
+    {
+      "source": "/homepage-season-spotlight.css",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store, max-age=0"
+        }
+      ]
     }
   ],
   "crons": [

@@ -96,3 +96,15 @@
 .season-story-media.report-card-media{background:#120a29}
 .season-story-media.report-card-media img{object-position:top center}
 .season-story:hover .season-story-media.report-card-media img{transform:scale(1.015)}
+
+/* Keep the USA 3x3 guide photo visible if a feed copy arrives without image metadata. */
+#freshTopStories a.season-story[href*="usa-3x3-americup-2026.html"]:not(:has(.season-story-media))::before{
+  content:"";
+  display:block;
+  flex:0 0 auto;
+  aspect-ratio:16/10;
+  background-image:linear-gradient(180deg,transparent 55%,rgba(10,5,21,.35) 100%),url("https://storage.googleapis.com/usab-com-prod/upload/2026/08/18/aae2ef13-531c-4768-843d-935df11af515.jpeg");
+  background-size:cover;
+  background-position:center 42%;
+  background-repeat:no-repeat;
+}

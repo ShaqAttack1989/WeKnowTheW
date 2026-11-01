@@ -102,9 +102,9 @@ const PLAYOFF_2026_SCHEDULE=[
     {id:'2026-gsv-atl-finals-g2',date:'2026-10-19',startTimeUtc:'2026-10-19T20:00:00-04:00',homeTeam:'Golden State Valkyries',awayTeam:'Atlanta Dream',homeScore:65,awayScore:79,broadcasts:['USA','Peacock','CNBC'],status:'Final',state:'post',completed:true,round:'Finals',gameNumber:2,ifNecessary:false},
     {id:'1042600303',date:'2026-10-21',startTimeUtc:'2026-10-21T20:00:00-04:00',homeTeam:'Atlanta Dream',awayTeam:'Golden State Valkyries',homeScore:97,awayScore:71,broadcasts:['USA','Peacock','CNBC'],status:'Final',state:'post',completed:true,round:'Finals',gameNumber:3,ifNecessary:false},
     {id:'2026-gsv-atl-finals-g4',date:'2026-10-24',startTimeUtc:'2026-10-24T13:00:00-04:00',homeTeam:'Atlanta Dream',awayTeam:'Golden State Valkyries',homeScore:62,awayScore:67,broadcasts:['NBC','Peacock'],status:'Final',state:'post',completed:true,round:'Finals',gameNumber:4,ifNecessary:false},
-    {id:'2026-gsv-atl-finals-g5',date:'2026-10-26',startTimeUtc:'2026-10-26T20:00:00-04:00',homeTeam:'Golden State Valkyries',awayTeam:'Atlanta Dream',homeScore:null,awayScore:null,broadcasts:['USA','Peacock'],status:'Finals Game 5',state:'pre',completed:false,round:'Finals',gameNumber:5,ifNecessary:false},
-    {id:'2026-gsv-atl-finals-g6',date:'2026-10-29',startTimeUtc:'2026-10-29T20:00:00-04:00',homeTeam:'Atlanta Dream',awayTeam:'Golden State Valkyries',homeScore:null,awayScore:null,broadcasts:['USA','Peacock'],status:'Finals Game 6 · If necessary',state:'pre',completed:false,round:'Finals',gameNumber:6,ifNecessary:true},
-    {id:'2026-gsv-atl-finals-g7',date:'2026-10-31',startTimeUtc:'2026-10-31T20:00:00-04:00',homeTeam:'Golden State Valkyries',awayTeam:'Atlanta Dream',homeScore:null,awayScore:null,broadcasts:['USA','Peacock'],status:'Finals Game 7 · If necessary',state:'pre',completed:false,round:'Finals',gameNumber:7,ifNecessary:true}
+    {id:'2026-gsv-atl-finals-g5',date:'2026-10-26',startTimeUtc:'2026-10-26T20:00:00-04:00',homeTeam:'Golden State Valkyries',awayTeam:'Atlanta Dream',homeScore:64,awayScore:55,broadcasts:['USA','Peacock'],status:'Final',state:'post',completed:true,round:'Finals',gameNumber:5,ifNecessary:false},
+    {id:'2026-gsv-atl-finals-g6',date:'2026-10-29',startTimeUtc:'2026-10-29T12:30:00-04:00',homeTeam:'Atlanta Dream',awayTeam:'Golden State Valkyries',homeScore:80,awayScore:69,broadcasts:['USA','Peacock'],status:'Final',state:'post',completed:true,round:'Finals',gameNumber:6,ifNecessary:false},
+    {id:'2026-gsv-atl-finals-g7',date:'2026-10-31',startTimeUtc:'2026-10-31T20:00:00-04:00',homeTeam:'Golden State Valkyries',awayTeam:'Atlanta Dream',homeScore:68,awayScore:63,broadcasts:['USA','Peacock'],status:'Final',state:'post',completed:true,round:'Finals',gameNumber:7,ifNecessary:false}
 ].map(game=>({...game,competitionLabel:`Playoffs · ${game.date>='2026-10-17'?'Finals':game.date>='2026-10-04'?'Semifinals':'First Round'}`,officialFallback:true}));
 
 function playoffRound(game={}){
@@ -168,6 +168,6 @@ module.exports=async function handler(req,res){
     playoffs:{games:postseason,series:series(postseason),starts:'2026-09-27',started:Date.now()>=Date.parse('2026-09-27T00:00:00-04:00')},
     sources:{cup:'https://www.wnba.com/commissioners-cup/2026/about-the-cup',cupResults:'https://www.wnba.com/news/category/2026-commissioners-cup',cupFinal:'https://www.wnba.com/commissioners-cup/2026/leaderboard',playoffs:'https://www.wnba.com/playoffs/2026'},
     providerErrors,
-    sourceVersion:'20261025-game4-final-v1'
+    sourceVersion:'20261101-finals-complete-v1'
   });
 };

@@ -1,6 +1,6 @@
 (function (root) {
   'use strict';
-  const feeds = ['/snack-shak-love-and-basketball.json', '/snack-shak-all-time.json', '/snack-shaq-posts.json', '/snack-shak-specials.json', '/snack-shak-breaking.json', '/snack-shak-final.json', '/snack-shak-latest.json?v=20261101-home-image-refresh-v2'];
+  const feeds = ['/snack-shak-love-and-basketball.json', '/snack-shak-all-time.json', '/snack-shaq-posts.json', '/snack-shak-specials.json', '/snack-shak-breaking.json', '/snack-shak-final.json', '/snack-shak-latest.json?v=20261101-home-image-refresh-v3'];
   const time = value => { const n = Date.parse(value || ''); return Number.isFinite(n) ? n : 0; };
   const updated = post => Math.max(time(post.published), time(post.updated));
   function selectStories(groups, now = Date.now()) {
@@ -19,11 +19,13 @@
   const href = post => safeUrl(post.dashboardUrl) || `/${post.type === 'feature' ? 'food-for-thought' : 'snack-shak-bytes'}.html?post=${encodeURIComponent(post.slug)}#story`;
   const date = post => new Date(updated(post)).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric', timeZone: 'UTC' });
   function card(post, index) {
-    const image = safeUrl(post.storyImage || post.image || post.imageUrl || post.photo || post.thumbnail);
+    const fallbackImage = post.slug === 'usa-womens-3x3-americup-2026-watch-guide' ? 'https://storage.googleapis.com/usab-com-prod/upload/2026/08/18/aae2ef13-531c-4768-843d-935df11af515.jpeg' : '';
+    const image = safeUrl(post.storyImage || post.image || post.imageUrl || post.photo || post.thumbnail) || fallbackImage;
+    const imageAlt = post.imageAlt || (fallbackImage ? 'USA 3x3 women’s players huddle during 2026 Women’s Series play; Aerial Powers wears No. 10.' : post.title);
     const fit = post.imageFit === 'contain' ? 'contain' : 'cover';
-    const focus = /^[\d.%\s]+$/.test(post.imageFocus || '') ? post.imageFocus : '50% 35%';
+    const focus = /^[\d.%\s]+$/.test(post.imageFocus || '') ? post.imageFocus : (fallbackImage ? '50% 42%' : '50% 35%');
     const eager = index === 0 || post.slug === 'usa-womens-3x3-americup-2026-watch-guide';
-    return `<a class="season-story${index === 0 ? ' season-story-lead' : ''}" href="${safe(href(post))}" data-story-slug="${safe(post.slug)}">${image ? `<figure class="season-story-media"><img src="${safe(image)}" alt="${safe(post.imageAlt || post.title)}" loading="${eager ? 'eager' : 'lazy'}" fetchpriority="${eager ? 'high' : 'auto'}" decoding="async" style="object-fit:${fit};object-position:${focus}"><span>${safe(post.seriesLabel || 'SNACK SHAK')}</span></figure>` : ''}<div class="season-story-copy"><p class="season-story-label">${safe(date(post))}</p><h3>${safe(post.title)}</h3><p>${safe(post.dek || '')}</p><b>Read the story <span aria-hidden="true">→</span></b></div></a>`;
+    return `<a class="season-story${index === 0 ? ' season-story-lead' : ''}" href="${safe(href(post))}" data-story-slug="${safe(post.slug)}">${image ? `<figure class="season-story-media"><img src="${safe(image)}" alt="${safe(imageAlt)}" loading="${eager ? 'eager' : 'lazy'}" fetchpriority="${eager ? 'high' : 'auto'}" decoding="async" style="object-fit:${fit};object-position:${focus}"><span>${safe(post.seriesLabel || 'SNACK SHAK')}</span></figure>` : ''}<div class="season-story-copy"><p class="season-story-label">${safe(date(post))}</p><h3>${safe(post.title)}</h3><p>${safe(post.dek || '')}</p><b>Read the story <span aria-hidden="true">→</span></b></div></a>`;
   }
   const snapshots = new Map();
   let pending = null;

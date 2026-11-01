@@ -42,7 +42,7 @@
       fetch('/api/players',{headers:{Accept:'application/json'}}).then(r=>r.ok?r.json():{}),
       (window.WHomeData?.get?window.WHomeData.get('/snack-shaq-posts.json',{ttl:60000}):fetch('/snack-shaq-posts.json',{headers:{Accept:'application/json'}}).then(r=>r.ok?r.json():{})),
       fetch('/basketball-dictionary-page.js',{headers:{Accept:'text/plain'}}).then(r=>r.ok?r.text():''),
-      fetch('/search-content-index.json?v=20261101-nakase-comets-v2',{headers:{Accept:'application/json'}}).then(r=>r.ok?r.json():{})
+      fetch('/search-content-index.json?v=20261101-nakase-comets-v3',{headers:{Accept:'application/json'}}).then(r=>r.ok?r.json():{})
     ]).then(results=>{
       const p=results[0].status==='fulfilled'?results[0].value:{};
       players=(Array.isArray(p.players)?p.players:[]).map(x=>({title:x.name,type:'Player',href:`/playerpedia.html?search=${encodeURIComponent(x.name)}`,keywords:`${x.name} ${x.team||''} ${x.position||''}`}));

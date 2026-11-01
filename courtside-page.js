@@ -124,8 +124,8 @@
           '<div class="coach-spotlight-metrics">'+
             '<div><span>2026 regular season</span><strong>'+formatRecord(item.season2026)+'</strong><small>'+percent(item.season2026)+' wins</small></div>'+
             '<div><span>Career regular season</span><strong>'+formatRecord(item.careerRegular)+'</strong><small>'+percent(item.careerRegular)+' wins · through 2026</small></div>'+
-            '<div><span>2026 playoffs</span><strong>'+formatRecord(item.seasonPlayoffs2026)+'</strong><small>'+(item.seasonPlayoffs2026.wins+item.seasonPlayoffs2026.losses?'through Oct. 9':'did not qualify')+'</small></div>'+
-            '<div><span>Career playoffs</span><strong>'+formatRecord(item.careerPlayoffs)+'</strong><small>'+percent(item.careerPlayoffs)+' win rate · through Oct. 9</small></div>'+
+            '<div><span>2026 playoffs</span><strong>'+formatRecord(item.seasonPlayoffs2026)+'</strong><small>'+(item.seasonPlayoffs2026.wins+item.seasonPlayoffs2026.losses?(item.playoffsThrough||'through Oct. 9'):'did not qualify')+'</small></div>'+
+            '<div><span>Career playoffs</span><strong>'+formatRecord(item.careerPlayoffs)+'</strong><small>'+percent(item.careerPlayoffs)+' win rate · '+(item.playoffsThrough||'through Oct. 9')+'</small></div>'+
             '<div><span>WNBA titles</span><strong>'+item.titles.length+'</strong><small>as a head coach</small></div>'+
             '<div><span>WNBA Finals</span><strong>'+finals.length+'</strong><small>'+(item.seasonsToFirstFinal?'First trip in season '+item.seasonsToFirstFinal:'No Finals appearance yet')+'</small></div>'+
             '<div><span>Coach of the Year</span><strong>'+item.coyYears.length+'</strong><small>honors as head coach</small></div>'+
@@ -166,7 +166,7 @@
           '<td class="coach-rating-cell"><strong>'+(calculateCoachScores(item,data).legacy.total===null?'—':calculateCoachScores(item,data).legacy.total)+'</strong><small>'+(calculateCoachScores(item,data).legacy.total===null?'NR':calculateCoachScores(item,data).legacy.letter+(calculateCoachScores(item,data).legacy.provisional?' · PROV · '+calculateCoachScores(item,data).legacy.sampleGames+'G':' · /99'))+'</small></td>'+
           '<td class="coach-rating-cell coach-form-cell"><strong>'+calculateCoachScores(item,data).form.total+'</strong><small>'+calculateCoachScores(item,data).form.letter+' · /99</small></td>'+
           '<td><strong>'+formatRecord(item.season2026)+'</strong><small>'+percent(item.season2026)+'</small></td>'+
-          '<td><strong>'+formatRecord(item.seasonPlayoffs2026)+'</strong><small>'+(currentPlayoffGames?'through Oct. 9':'—')+'</small></td>'+
+          '<td><strong>'+formatRecord(item.seasonPlayoffs2026)+'</strong><small>'+(currentPlayoffGames?(item.playoffsThrough||'through Oct. 9'):'—')+'</small></td>'+
           '<td><strong>'+formatRecord(item.careerRegular)+'</strong><small>'+percent(item.careerRegular)+'</small></td>'+
           '<td><strong>'+formatRecord(item.careerPlayoffs)+'</strong><small>'+percent(item.careerPlayoffs)+'</small></td>'+
           '<td><strong>'+item.finalsYears.length+'</strong><small>'+(item.seasonsToFirstFinal?'First in season '+item.seasonsToFirstFinal:'No Finals trip')+'</small></td>'+

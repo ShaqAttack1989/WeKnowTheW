@@ -19,7 +19,8 @@
   const href = post => safeUrl(post.dashboardUrl) || `/${post.type === 'feature' ? 'food-for-thought' : 'snack-shak-bytes'}.html?post=${encodeURIComponent(post.slug)}#story`;
   const date = post => new Date(updated(post)).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric', timeZone: 'UTC' });
   function card(post, index) {
-    const fallbackImage = post.slug === 'usa-womens-3x3-americup-2026-watch-guide' ? 'https://storage.googleapis.com/usab-com-prod/upload/2026/08/18/aae2ef13-531c-4768-843d-935df11af515.jpeg' : '';
+    const isUSA3x3Guide = post.slug === 'usa-womens-3x3-americup-2026-watch-guide' || String(post.dashboardUrl || '').includes('usa-3x3-americup-2026') || /3x3 Watch Guide/i.test(post.title || '');
+    const fallbackImage = isUSA3x3Guide ? 'https://storage.googleapis.com/usab-com-prod/upload/2026/08/18/aae2ef13-531c-4768-843d-935df11af515.jpeg' : '';
     const image = safeUrl(post.storyImage || post.image || post.imageUrl || post.photo || post.thumbnail) || fallbackImage;
     const imageAlt = post.imageAlt || (fallbackImage ? 'USA 3x3 women’s players huddle during 2026 Women’s Series play; Aerial Powers wears No. 10.' : post.title);
     const fit = post.imageFit === 'contain' ? 'contain' : 'cover';

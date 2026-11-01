@@ -751,6 +751,15 @@
           "value": "no-store, max-age=0"
         }
       ]
+    },
+    {
+      "source": "/homepage-3x3-photo-fallback.js",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store, max-age=0"
+        }
+      ]
     }
   ],
   "crons": [

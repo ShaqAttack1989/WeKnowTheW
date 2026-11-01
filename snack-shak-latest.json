@@ -2,6 +2,118 @@
   "site": "Snack Shak",
   "posts": [
     {
+      "slug": "unrivaled-wnba-double-crown-gray-burton",
+      "type": "feature",
+      "priority": 17700,
+      "homepageSeason": true,
+      "seriesLabel": "FOOD FOR THOUGHT · UNRIVALED × WNBA",
+      "title": "Chelsea Gray Set the Bar. Veronica Burton Made the Double Crown a Club.",
+      "published": "2026-11-01",
+      "updated": "2026-11-01",
+      "week": "Unrivaled × WNBA · November 1, 2026",
+      "image": "https://cdn.wnba.com/sites/4/2026/10/GettyImages-2302926550-scaled.jpg",
+      "storyImage": "https://cdn.wnba.com/sites/4/2026/10/GettyImages-2302926550-scaled.jpg",
+      "imageFit": "cover",
+      "imageFocus": "50% 34%",
+      "imageAlt": "Golden State Valkyries players lift the WNBA Championship Trophy after defeating the Atlanta Dream in Game 7 of the 2026 WNBA Finals.",
+      "imageSource": "WNBA / Getty Images",
+      "imageSourceUrl": "https://www.wnba.com/news/live-updates-2026-wnba-finals-game-7",
+      "storyImageCaption": "Golden State celebrates its 68–63 Game 7 win over Atlanta. Photo: WNBA / Getty Images.",
+      "storyImageSourceUrl": "https://www.wnba.com/news/live-updates-2026-wnba-finals-game-7",
+      "dashboardUrl": "/food-for-thought.html?post=unrivaled-wnba-double-crown-gray-burton#story",
+      "teams": [
+        "Las Vegas Aces",
+        "Golden State Valkyries"
+      ],
+      "players": [
+        "Chelsea Gray",
+        "Veronica Burton",
+        "Breanna Stewart",
+        "A'ja Wilson",
+        "Gabby Williams"
+      ],
+      "dek": "Gray won Rose BC and the Las Vegas Aces in 2025. Burton followed with Mist BC and the Golden State Valkyries in 2026. The milestone is about adaptability, not matching MVP trophies.",
+      "storyLead": [
+        "For two straight calendar years, one player has won the Unrivaled title and the WNBA title. Chelsea Gray did it first in 2025. Veronica Burton joined her in 2026. The second name makes this more than an image comparison; it gives an offseason league a small, very serious piece of basketball history.",
+        "The headlines could make it sound like an MVP parade. They were not. Gray earned Unrivaled Finals MVP in 2025, but A'ja Wilson took the WNBA Finals award. Burton won both titles in 2026 while Breanna Stewart and Gabby Williams took the respective MVP honors. That distinction is the story: two champions, two different roles, and teams that did the heavy lifting together."
+      ],
+      "sections": [
+        {
+          "title": "Chelsea Gray wrote the first line",
+          "paragraphs": [
+            "Rose BC beat Vinyl BC 62–54 for the inaugural Unrivaled championship. Gray scored 18 points and added eight assists in the final, then became the first Unrivaled Finals MVP after averaging 28.5 points and 6.0 assists across the semifinal and championship games.",
+            "Months later, the Las Vegas Aces finished their 2025 WNBA title run with a Finals sweep of Phoenix. Gray was a champion in both leagues in the same calendar year. A'ja Wilson, not Gray, was the WNBA Finals MVP."
+          ]
+        },
+        {
+          "title": "Veronica Burton brought a different toolkit",
+          "paragraphs": [
+            "In 2026, Mist BC defeated Phantom BC 80–74 for its first Unrivaled title. Breanna Stewart scored 32 and earned Championship MVP. Burton's value showed up across the season: 9.6 points, 5.7 rebounds and a club-high 4.6 assists per game, plus a league-leading 29 steals.",
+            "That is not a copy of Gray's Finals MVP run. It is a guard creating possessions through defense, rebounding and organization, then turning those chances into offense."
+          ]
+        },
+        {
+          "title": "Game 7 gave Burton the last word",
+          "paragraphs": [
+            "The Golden State Valkyries beat the Atlanta Dream 68–63 in the first Game 7 in WNBA Finals history. Gabby Williams scored 30 and took Finals MVP honors. With 5.1 seconds left, Burton made the final two free throws to seal Golden State's championship in its second season.",
+            "The finishing sequence was a team possession before it became a box-score line. Burton read the loose ball, secured the jump-ball opportunity and made both shots. That is not a takeover statline. It is championship execution."
+          ]
+        },
+        {
+          "title": "Champion and MVP are not the same label",
+          "paragraphs": [
+            "The comparison works because we keep the awards straight. In 2025, Gray was Unrivaled Finals MVP while Wilson was WNBA Finals MVP. In 2026, Stewart earned Unrivaled Championship MVP and Williams earned WNBA Finals MVP. Gray and Burton were champions across both leagues; neither player had to be the top individual award winner on both stages.",
+            "ClutchPoints reported Burton as the second player to win an Unrivaled title and a WNBA championship in the same calendar year. The first was Gray. For a two-season-old league, that is already a piece of shared history."
+          ]
+        },
+        {
+          "title": "What can travel between formats?",
+          "paragraphs": [
+            "Unrivaled's three-on-three game leaves more space for quick reads, defensive pressure and one player's ability to create a clean possession. The WNBA's five-on-five game asks players to solve those problems inside a longer season and a more specialized lineup. The titles do not prove that one format caused success in the other.",
+            "What they do show is that championship value can take different shapes. Gray's path spotlights pace and playmaking. Burton's brings defense, rebounding and timely decisions into focus. If another player joins this club, which skill do you think will travel best: controlling the tempo or making the possession uncomfortable?"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "label": "Aces: Chelsea Gray and the 2025 Unrivaled final",
+          "url": "https://aces.wnba.com/news/aces-away-chelsea-gray-jewell-loyd-and-jackie-young-in-miami-unrivaled-finals"
+        },
+        {
+          "label": "WNBA: Aces win 2025 Finals Game 4",
+          "url": "https://www.wnba.com/watch/video/game-recap-aces-vs-mercury-10-10-25"
+        },
+        {
+          "label": "2025 Aces Finals roster and game notes",
+          "url": "https://cdn.wnba.com/sites/1611661319/2025/10/2025-10-10-Aces-at-Mercury-Finals-G4-Notes-FINAL.pdf"
+        },
+        {
+          "label": "Unrivaled: Mist win the 2026 championship",
+          "url": "https://www.unrivaled.basketball/game/jx1ocoygd5a4/recap"
+        },
+        {
+          "label": "Unrivaled: Veronica Burton's 2026 season",
+          "url": "https://www.unrivaled.basketball/player/veronica-burton-1zy3eeoe1a2m/bio"
+        },
+        {
+          "label": "Valkyries: 2026 WNBA championship recap",
+          "url": "https://valkyries.wnba.com/news/golden-state-valkyries-win-2026-wnba-championship-20261031"
+        },
+        {
+          "label": "WNBA: Game 7 recap and closing sequence",
+          "url": "https://www.wnba.com/news/live-updates-2026-wnba-finals-game-7"
+        },
+        {
+          "label": "2025 WNBA Finals MVP: A'ja Wilson",
+          "url": "https://www.wnba.com/news/las-vegas-aces-finals-accolades-2025"
+        },
+        {
+          "label": "Report on the shared milestone, ClutchPoints via Yahoo Sports",
+          "url": "https://sports.yahoo.com/articles/valkyries-veronica-burton-joins-chelsea-063430435.html"
+        }
+      ]
+    },
+    {
       "slug": "valkyries-win-2026-wnba-finals-game-7",
       "type": "feature",
       "priority": 18000,

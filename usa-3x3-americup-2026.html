@@ -144,8 +144,8 @@ const qualifierResults=Array.isArray(state.qualifierResults)?state.qualifierResu
 el('cupQualifiers').innerHTML=qualifierResults.map(q=>'<article class="cup-card"><span class="cup-chip">'+esc(q.status)+'</span><h3>'+esc(q.winner||'Awaiting result')+'</h3><p><b>'+esc(q.draw)+' · Pool '+esc(q.pool)+'</b></p><p>'+esc(q.result)+'</p><p>'+esc(q.detail)+'</p><a class="cup-roster-link" href="'+esc(q.source)+'" target="_blank" rel="noopener noreferrer">FIBA result ↗</a></article>').join('');
 const selected=state.games.filter(g=>filter==='all'||(filter==='knockout'?g.phase!=='Pool B':g.phase==='Pool B')).sort((a,b)=>new Date(a.date)-new Date(b.date));
 el('cupGames').innerHTML=selected.map(g=>{const played=g.status==='final'&&Number.isFinite(g.usaScore)&&Number.isFinite(g.opponentScore);
-const status=played?('<b>'+g.usaScore+' – '+g.opponentScore+'</b> · Final'):g.status==='conditional'?'If qualified':'Scheduled · scores pending';
-return '<tr><td><b>'+esc(display(g.date))+'</b></td><td>'+esc(g.phase)+'</td><td>USA vs. '+esc(g.opponent)+'</td><td><span class="cup-state '+(played?'final':g.status==='conditional'?'conditional':'')+'">'+esc(status)+'</span>'+(g.condition?'<div><small>'+esc(g.condition)+'</small></div>':'')+'</td></tr>';}).join('');
+const status=played?'<b>'+esc(g.usaScore)+' – '+esc(g.opponentScore)+'</b> · Final':g.status==='conditional'?'If qualified':'Scheduled · scores pending';
+return '<tr><td><b>'+esc(display(g.date))+'</b></td><td>'+esc(g.phase)+'</td><td>USA vs. '+esc(g.opponent)+'</td><td><span class="cup-state '+(played?'final':g.status==='conditional'?'conditional':'')+'">'+status+'</span>'+(g.condition?'<div><small>'+esc(g.condition)+'</small></div>':'')+'</td></tr>';}).join('');
 const finals=state.games.filter(g=>g.phase==='Pool B'&&g.status==='final'&&Number.isFinite(g.usaScore)&&Number.isFinite(g.opponentScore));
 const wins=finals.filter(g=>g.usaScore>g.opponentScore).length, losses=finals.filter(g=>g.usaScore<g.opponentScore).length;
 el('cupRecord').textContent=wins+'–'+losses;el('cupRecordNote').textContent=finals.length?finals.length+' of 2 pool games final':'Pool play not started';

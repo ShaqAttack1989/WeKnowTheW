@@ -33,6 +33,7 @@
   let players=[];
   let articles=[];
   let dictionary=[];
+  let siteContent=[];
   let extrasPromise=null;
   async function loadExtras(){
     window.loadWPlayerpediaLegacy?.().catch(()=>{});
@@ -40,7 +41,8 @@
     extrasPromise=Promise.allSettled([
       fetch('/api/players',{headers:{Accept:'application/json'}}).then(r=>r.ok?r.json():{}),
       (window.WHomeData?.get?window.WHomeData.get('/snack-shaq-posts.json',{ttl:60000}):fetch('/snack-shaq-posts.json',{headers:{Accept:'application/json'}}).then(r=>r.ok?r.json():{})),
-      fetch('/basketball-dictionary-page.js',{headers:{Accept:'text/plain'}}).then(r=>r.ok?r.text():'')
+      fetch('/basketball-dictionary-page.js',{headers:{Accept:'text/plain'}}).then(r=>r.ok?r.text():''),
+      fetch('/search-content-index.json?v=20261101-home-search-v1',{headers:{Accept:'application/json'}}).then(r=>r.ok?r.json():{})
     ]).then(results=>{
       const p=results[0].status==='fulfilled'?results[0].value:{};
       players=(Array.isArray(p.players)?p.players:[]).map(x=>({title:x.name,type:'Player',href:`/playerpedia.html?search=${encodeURIComponent(x.name)}`,keywords:`${x.name} ${x.team||''} ${x.position||''}`}));
@@ -51,6 +53,8 @@
       dictionary=[];
       const re=/\{term:'((?:\\'|[^'])+)'/g;let m;
       while((m=re.exec(text))){const term=m[1].replace(/\\'/g,"'");const k=norm(term);if(!k||seen.has(k))continue;seen.add(k);dictionary.push({title:term,type:'Basketball Term',href:`/basketball-dictionary.html?search=${encodeURIComponent(term)}`,keywords:term});}
+      const indexed=results[3].status==='fulfilled'?results[3].value:{};
+      siteContent=Array.isArray(indexed.items)?indexed.items:[];
       return true;
     });
     return extrasPromise;
@@ -67,7 +71,15 @@
   function resultsFor(query){
     const q=norm(query),terms=q.split(/\s+/).filter(Boolean);
     if(q.length<2)return [];
-    return [...staticIndex,...(window.WPlayerpediaLegacy?.searchRecords()||[]),...players.filter(player=>!window.WPlayerpediaLegacy?.find(player.title)),...articles,...dictionary]
+    const candidates=[...staticIndex,...(window.WPlayerpediaLegacy?.searchRecords()||[]),...players.filter(player=>!window.WPlayerpediaLegacy?.find(player.title)),...articles,...dictionary,...siteContent];
+    const byHref=new Map();
+    candidates.forEach(item=>{
+      const key=String(item.href||norm(item.title));
+      const existing=byHref.get(key);
+      if(!existing){byHref.set(key,{...item});return;}
+      existing.keywords=[existing.keywords,item.keywords].filter(Boolean).join(' ');
+    });
+    return [...byHref.values()]
       .map(item=>({item,score:scoreItem(item,q,terms)})).filter(x=>x.score!==null)
       .sort((a,b)=>a.score-b.score||a.item.title.localeCompare(b.item.title)).slice(0,12).map(x=>x.item);
   }

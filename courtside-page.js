@@ -20,7 +20,8 @@
     "Becky Hammon": {image: "https://upload.wikimedia.org/wikipedia/commons/3/36/240529_Lynx_Aces_JohnMc039_%28cropped%29.jpg", credit: "John Mac · CC BY-SA 2.0", sourceUrl: "https://commons.wikimedia.org/wiki/File:240529_Lynx_Aces_JohnMc039_(cropped).jpg"},
     "Stephanie White": {image: "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ea/Stephanie_White_2024_%28cropped%29.jpg/500px-Stephanie_White_2024_%28cropped%29.jpg", credit: "John Mac · CC BY-SA 2.0", sourceUrl: "https://commons.wikimedia.org/wiki/File:Stephanie_White_2024_(cropped).jpg"},
     "Sonia Raman": {image: "https://static.wixstatic.com/media/ab43c9_64875ba5f6444eb6ae95f2d28c4405ec~mv2.png/v1/fill/w_940%2Ch_705%2Cal_c%2Cq_90/ab43c9_64875ba5f6444eb6ae95f2d28c4405ec~mv2.png", credit: "Seattle Storm portrait · Abound", sourceUrl: "https://blog.joinabound.com/post/raman-makes-wnba-history-as-the-first-person-of-indian-descent-to-be-a-head-coach"},
-    "Lynne Roberts": {image: "https://hermes.media.static.aol.com/media/2026/04/30/db65fad1-4f41-31ff-ab91-d8a9d14db273/bebc289f-8659-4fb4-9d60-29a9487654e0.jpg", credit: "Sparks media-day photograph", sourceUrl: "https://www.aol.com/articles/sparks-head-coach-explains-player-211824000.html"}
+    "Lynne Roberts": {image: "https://hermes.media.static.aol.com/media/2026/04/30/db65fad1-4f41-31ff-ab91-d8a9d14db273/bebc289f-8659-4fb4-9d60-29a9487654e0.jpg", credit: "Sparks media-day photograph", sourceUrl: "https://www.aol.com/articles/sparks-head-coach-explains-player-211824000.html"},
+    "Natalie Nakase": {image: "/assets/images/natalie-nakase-2026-championship.jpg", credit: "ESPN championship graphic", sourceUrl: "https://www.espn.com/wnba/"}
   };
   function photo(name,type,team,source){
     const colors=`--team:${team.primary};--team2:${team.secondary}`;

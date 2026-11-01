@@ -7,6 +7,9 @@
     '/snack-shak-love-and-basketball.json'
   ];
   const CURATED={
+    'golden-state-valkyries':[
+      {date:'2026-11-01',category:'story',kind:'FINALS · GAME 7',title:'The Valkyries are champions. Natalie Nakase makes history.',detail:'Golden State beat Atlanta 68–63 to win its first WNBA title in its second season. Natalie Nakase became the first Asian-American coach to win a WNBA title.',href:'/food-for-thought.html?post=valkyries-win-2026-wnba-finals-game-7#story',priority:20}
+    ],
     'indiana-fever':[
       {date:'2026-10-23',category:'story',kind:'STORY',title:'The Fever’s Front-Office Reset: What Comes Next for Cox, White and Kelsey?',detail:'Kelly Krauskopf’s step-down is official. The Athletic reports the Fever will part ways with COO and GM Amber Cox, though the team has not confirmed that report. No successors have been named.',href:'/food-for-thought.html?post=the-fever-next-chapter-krauskopf-cox-white-mitchell-2026#story',priority:12000}
     ],

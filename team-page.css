@@ -143,6 +143,7 @@ body.team-page{background:#fffaf0;color:#17131f;}
 .dream-people-grid article{display:flex;flex-direction:column;min-height:244px;background:#fff;border:1px solid #e6deeb;border-radius:22px;padding:21px;box-shadow:0 10px 26px rgba(24,12,47,.05);}
 .dream-people-grid article>span{color:var(--team-primary-text);font-size:.7rem;font-weight:950;letter-spacing:.1em;}
 .dream-people-grid h3{font-size:1.17rem;margin:8px 0;}
+.dream-people-grid .team-person-photo{width:86px;height:86px;object-fit:cover;object-position:center 38%;border-radius:16px;margin:14px 0 4px;background:#f4f0f8;}
 .dream-people-grid p{color:#6f6879;margin:0 0 16px;font-size:.91rem;}
 .dream-people-grid a{margin-top:auto;color:#3a3045;font-weight:900;text-decoration:none;font-size:.82rem;}
 .dream-connection-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;}

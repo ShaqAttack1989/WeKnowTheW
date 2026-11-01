@@ -54,14 +54,14 @@
       const re=/\{term:'((?:\\'|[^'])+)'/g;let m;
       while((m=re.exec(text))){const term=m[1].replace(/\\'/g,"'");const k=norm(term);if(!k||seen.has(k))continue;seen.add(k);dictionary.push({title:term,type:'Basketball Term',href:`/basketball-dictionary.html?search=${encodeURIComponent(term)}`,keywords:term});}
       const indexed=results[3].status==='fulfilled'?results[3].value:{};
-      siteContent=Array.isArray(indexed.items)?indexed.items:[];
+      siteContent=Array.isArray(indexed.items)?indexed.items.map(item=>({...item,searchKeywords:item.keywords||'',snippet:short(item.keywords||'',165),keywords:short(item.keywords||'',165)})):[];
       return true;
     });
     return extrasPromise;
   }
 
   function scoreItem(item,q,terms){
-    const title=norm(item.title),hay=norm(`${item.title} ${item.type} ${item.keywords||''}`);
+    const title=norm(item.title),hay=norm(`${item.title} ${item.type} ${item.keywords||''} ${item.searchKeywords||''}`);
     if(!terms.every(term=>hay.includes(term)))return null;
     if(title===q)return 0;
     if(title.startsWith(q))return 1;
@@ -77,7 +77,8 @@
       const key=String(item.href||norm(item.title));
       const existing=byHref.get(key);
       if(!existing){byHref.set(key,{...item});return;}
-      existing.keywords=[existing.keywords,item.keywords].filter(Boolean).join(' ');
+      existing.searchKeywords=[existing.searchKeywords,item.searchKeywords,item.keywords].filter(Boolean).join(' ');
+      if(!existing.snippet&&item.snippet)existing.snippet=item.snippet;
     });
     return [...byHref.values()]
       .map(item=>({item,score:scoreItem(item,q,terms)})).filter(x=>x.score!==null)
@@ -89,7 +90,7 @@
     if(q.length<2){host.classList.remove('open');host.innerHTML='';return;}
     const matches=resultsFor(q);
     host.classList.add('open');
-    host.innerHTML=matches.length?matches.map(item=>`<a class="home-search-result" href="${safe(item.href)}"><span>${safe(item.type)}</span><div><strong>${safe(item.title)}</strong><small>${safe(item.keywords||'Open result')}</small></div><b>→</b></a>`).join(''):`<div class="home-search-empty"><strong>No exact shelf yet.</strong><div>Try a player surname, team, coach, award, basketball term or article topic.</div></div>`;
+    host.innerHTML=matches.length?matches.map(item=>`<a class="home-search-result" href="${safe(item.href)}"><span>${safe(item.type)}</span><div><strong>${safe(item.title)}</strong><small>${safe(short(item.snippet||item.keywords||'Open result',165))}</small></div><b>→</b></a>`).join(''):`<div class="home-search-empty"><strong>No exact shelf yet.</strong><div>Try a player surname, team, coach, award, basketball term or article topic.</div></div>`;
   }
   const input=document.getElementById('homeSiteSearch'),clear=document.getElementById('homeSearchClear');
   let searchTimer=null;

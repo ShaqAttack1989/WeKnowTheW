@@ -3,9 +3,9 @@
   "venue": "Plaza Merliot, San Salvador, El Salvador",
   "start": "2026-10-28",
   "end": "2026-11-01",
-  "verified": "2026-10-29",
+  "verified": "2026-11-01",
   "source": "https://www.usab.com/news/2026/10/2026-usa-basketball-3x3-americup-teams-announced",
-  "fibaSource": "https://www.fiba.basketball/en/news/fiba-3x3-americup-2026-day-1-recap",
+  "fibaSource": "https://www.fiba.basketball/en/news/fiba-3x3-americup-2026-day-4-recap",
   "stream": "https://www.youtube.com/fiba3x3",
   "coach": "Christina Batastini",
   "roster": [
@@ -52,7 +52,7 @@
       "teams": [
         "Chile",
         "Mexico",
-        "Qualifier B winner"
+        "Cuba"
       ]
     },
     {
@@ -71,10 +71,11 @@
       "phase": "Pool B",
       "side": "USA",
       "opponent": "Colombia",
-      "status": "scheduled",
-      "usaScore": null,
-      "opponentScore": null,
-      "confirmed": true
+      "status": "final",
+      "usaScore": 21,
+      "opponentScore": 7,
+      "confirmed": true,
+      "source": "https://www.fiba.basketball/en/news/fiba-3x3-americup-2026-day-4-recap"
     },
     {
       "id": "usa-pool-2",
@@ -82,34 +83,24 @@
       "phase": "Pool B",
       "side": "USA",
       "opponent": "Cayman Islands",
-      "status": "scheduled",
-      "usaScore": null,
-      "opponentScore": null,
-      "confirmed": true
-    },
-    {
-      "id": "usa-quarter-2",
-      "date": "2026-11-01T13:30:00-05:00",
-      "phase": "Quarterfinal",
-      "side": "USA",
-      "opponent": "TBD (USA second in Pool B)",
-      "status": "conditional",
-      "usaScore": null,
-      "opponentScore": null,
-      "confirmed": false,
-      "condition": "Only if USA finishes second in Pool B"
+      "status": "final",
+      "usaScore": 21,
+      "opponentScore": 4,
+      "confirmed": true,
+      "source": "https://www.fiba.basketball/en/news/fiba-3x3-americup-2026-day-4-recap"
     },
     {
       "id": "usa-quarter-1",
       "date": "2026-11-01T15:10:00-05:00",
       "phase": "Quarterfinal",
       "side": "USA",
-      "opponent": "TBD (USA first in Pool B)",
-      "status": "conditional",
+      "opponent": "Paraguay",
+      "status": "scheduled",
       "usaScore": null,
       "opponentScore": null,
-      "confirmed": false,
-      "condition": "Only if USA finishes first in Pool B"
+      "confirmed": true,
+      "condition": "USA finished first in Pool B; Quarterfinal 3 is confirmed.",
+      "source": "https://www.fiba.basketball/en/news/fiba-3x3-americup-2026-day-4-recap"
     },
     {
       "id": "usa-semis",
@@ -137,7 +128,7 @@
     }
   ],
   "standings": [],
-  "notes": "Colombia (Qualifying Draw A) and Paraguay (Qualifying Draw C) have advanced to the women's main draw. Qualifying Draw B is scheduled to conclude Oct. 29. USA begins Pool B on Oct. 31; no USA tournament scores or player statistics are available before its first game. This is a verified editorial schedule, not an automatic score feed.",
+  "notes": "USA completed Pool B 2–0, scoring 42 points and allowing 11. FIBA confirmed USA vs. Paraguay as Women's Quarterfinal 3 for November 1. Knockout results and full player box-score totals remain pending verification until those games are completed.",
   "playerStats": [
     {
       "name": "Aziaha James",
@@ -185,11 +176,11 @@
     {
       "draw": "Qualifying Draw B",
       "pool": "C",
-      "status": "IN PROGRESS · OCT. 29",
-      "winner": null,
-      "result": "The final qualifying games are scheduled for Oct. 29.",
-      "detail": "The winner will complete Pool C alongside Chile and Mexico.",
-      "source": "https://www.fiba.basketball/en/news/all-you-need-to-know-before-fiba-3x3-americup-2026"
+      "status": "FINAL · MAIN DRAW",
+      "winner": "Cuba",
+      "result": "Cuba went unbeaten in Qualifying Draw B to claim the Pool C place.",
+      "detail": "Cuba joins Chile and Mexico in the women's main draw.",
+      "source": "https://www.fiba.basketball/en/news/fiba-3x3-americup-2026-day-2-recap"
     },
     {
       "draw": "Qualifying Draw C",
@@ -200,5 +191,7 @@
       "detail": "Paraguay claims the Pool D place with Puerto Rico and Argentina.",
       "source": "https://www.fiba.basketball/en/news/fiba-3x3-americup-2026-day-1-recap"
     }
-  ]
+  ],
+  "poolResultsSource": "https://www.fiba.basketball/en/news/fiba-3x3-americup-2026-day-4-recap",
+  "bracketSource": "https://www.fiba.basketball/en/news/fiba-3x3-americup-2026-day-4-recap"
 }

@@ -4,7 +4,7 @@
     const q=Number.parseInt(new URLSearchParams(location.search).get('season')||'',10);
     return Number.isInteger(q)?q:CURRENT_SEASON;
   };
-  if(selected()!==CURRENT_SEASON)return;
+  if(selected()!==CURRENT_SEASON||selected()===2026)return;
 
   const teamSlugs={
     'Atlanta Dream':'atlanta-dream','Chicago Sky':'chicago-sky','Connecticut Sun':'connecticut-sun','Dallas Wings':'dallas-wings','Golden State Valkyries':'golden-state-valkyries','Indiana Fever':'indiana-fever','Las Vegas Aces':'las-vegas-aces','Los Angeles Sparks':'los-angeles-sparks','Minnesota Lynx':'minnesota-lynx','New York Liberty':'new-york-liberty','Phoenix Mercury':'phoenix-mercury','Portland Fire':'portland-fire','Seattle Storm':'seattle-storm','Toronto Tempo':'toronto-tempo','Washington Mystics':'washington-mystics'

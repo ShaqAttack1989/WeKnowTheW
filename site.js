@@ -94,6 +94,7 @@ const hierarchyMap={
 '/front-office-101.html':['The W Vault','/w-vault.html','Front Office 101'],
 '/season-yearbooks.html':['The W Vault','/w-vault.html','The W Rewind'],
 '/team-usa.html':['No Offseason','/no-offseason.html','Team USA'],
+'/unrivaled-coaches.html':['Unrivaled','/unrivaled.html','Coaches'],
 '/americup.html':['No Offseason','/no-offseason.html','AmeriCup'],
 '/americup-5x5.html':['AmeriCup','/americup.html','Women’s 5x5'],
 '/americup-3x3.html':['AmeriCup','/americup.html','Women’s 3x3'],
@@ -122,7 +123,7 @@ const navSections={
   vault:['/w-vault.html','/league-origins.html','/milestone-moments.html','/film-room.html','/front-office-101.html','/season-yearbooks.html','/basketball-dictionary.html','/trophy-case.html','/award-mvp.html','/award-dpoy.html','/award-mip.html','/award-sixth-player.html','/award-roy.html','/award-coy.html','/award-sportsmanship.html','/award-executive.html','/commissioners-cup.html','/all-wnba.html','/all-defensive.html','/all-rookie.html','/locker-room.html','/old-uniforms.html','/all-star-uniforms.html','/final-buzzer.html','/colors-symbols.html','/franchise-changes.html','/franchise-family-tree.html'],
   culture:['/courtside-culture.html','/mascots.html','/coaches.html','/owners.html','/celebrity-fans.html','/gameday-vibes.html','/wnba-fits.html'],
   future:['/who-got-next.html','/class-is-in-session.html','/2027-wnba-mock-draft.html','/the-call-up.html','/expansion-watch.html','/expansion-w.html','/expansion-upshot.html','/expansion-unrivaled.html','/expansion-athletes-unlimited.html','/cleveland-sirens.html','/detroit-expansion.html','/philadelphia-expansion.html','/expansion-draft-101.html','/past-expansion-waves.html'],
-  offseason:['/no-offseason.html','/team-usa.html','/fiba-world-cup.html','/fiba-watchers-guide.html','/team-usa-3x3.html','/americup.html','/americup-5x5.html','/americup-3x3.html','/usa-3x3-americup-2026.html','/team-usa-olympics.html','/team-usa-americup.html','/team-usa-qualifying.html','/team-usa-development.html','/unrivaled.html','/athletes-unlimited.html'],
+  offseason:['/no-offseason.html','/team-usa.html','/fiba-world-cup.html','/fiba-watchers-guide.html','/team-usa-3x3.html','/americup.html','/americup-5x5.html','/americup-3x3.html','/usa-3x3-americup-2026.html','/team-usa-olympics.html','/team-usa-americup.html','/team-usa-qualifying.html','/team-usa-development.html','/unrivaled.html','/unrivaled-coaches.html','/athletes-unlimited.html'],
   snack:['/snack-shak.html','/snack-shak-bytes.html','/food-for-thought.html','/tina-charles-sun-legend.html','/legendary-wnba-duos.html','/dewanna-bonner-buyout.html','/aja-wilson-south-carolina-nike-deal.html','/rickea-jackson-unrivaled-status.html','/lynx-playoff-blueprint-update.html']
 };
 navSections.future.push('/wpba.html');
@@ -442,3 +443,101 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
 
 // Related dashboards remain reachable from their hub and associated features.
 (()=>{const groups=[[["trophy-case.html", "award-sportsmanship.html", "award-executive.html", "award-coy.html", "w-vault.html"], [["Sportsmanship Winners", "/trophy-case.html#sportsmanship"], ["Sportsmanship Dashboard", "/award-sportsmanship.html"], ["Executive Award", "/award-executive.html"], ["Coach Award", "/award-coy.html"], ["Coaches Dashboard", "/coaches.html"], ["Trophy Room", "/trophy-case.html"]]], [["coaches.html", "owners.html", "courtside-culture.html"], [["Coaches Dashboard", "/coaches.html"], ["Basketball Operations", "/owners.html#basketball-operations"], ["Coach Award", "/award-coy.html"], ["Executive Award", "/award-executive.html"], ["Trophy Room", "/trophy-case.html"]]], [["who-got-next.html", "class-is-in-session.html", "2027-wnba-mock-draft.html", "wnba-draft-class-rankings.html", "preseason-rankings-2026-27-hype-homework.html"], [["College Scouting Desk", "/class-is-in-session.html"], ["2027 Mock Draft", "/2027-wnba-mock-draft.html"], ["Draft Class Rankings", "/wnba-draft-class-rankings.html"], ["Preseason Top 25", "/preseason-rankings-2026-27-hype-homework.html"], ["Who Got Next?", "/who-got-next.html"]]], [["2027-wnba-free-agency.html", "player-movement.html", "availability-report.html", "on-the-wire.html", "playerpedia.html"], [["Free Agency Dashboard", "/2027-wnba-free-agency.html"], ["Player Movement", "/player-movement.html"], ["Availability Report", "/availability-report.html"], ["Playerpedia", "/playerpedia.html"], ["On the Wire", "/on-the-wire.html"]]], [["live-stats.html", "games.html", "stat-kitchen.html", "playoff-player-rankings.html", "team.html"], [["Games + Series", "/games.html"], ["Live Standings", "/live-stats.html"], ["Stat Kitchen", "/stat-kitchen.html"], ["Playoff Player Board", "/playoff-player-rankings.html"], ["Team Directory", "/around-the-w.html#team-pages"]]], [["unrivaled-on-tour-2027.html", "expansion-unrivaled.html", "unrivaled-650-million.html"], [["Unrivaled Player Dashboard", "/unrivaled.html#player-dashboard"], ["Unrivaled Club Rooms", "/unrivaled.html#teams"], ["Athletes Unlimited", "/athletes-unlimited.html"], ["2027 Tour Dashboard", "/unrivaled-on-tour-2027.html"], ["No Offseason", "/no-offseason.html"]]]];const page=location.pathname.split('/').pop();const found=groups.find(([pages])=>pages.includes(page));const main=document.querySelector('main');if(!found||!main||document.getElementById('relatedDashboardRoutes'))return;const section=document.createElement('section');section.id='relatedDashboardRoutes';section.className='page-section';const shell=document.createElement('div');shell.className='page-shell';const label=document.createElement('p');label.className='kicker';label.textContent='KEEP EXPLORING';const heading=document.createElement('h2');heading.textContent='Connected dashboards';const nav=document.createElement('nav');nav.className='page-footer-nav';nav.setAttribute('aria-label','Related dashboards');found[1].forEach(([name,url])=>{if(url===location.pathname)return;const link=document.createElement('a');link.href=url;link.textContent=name+' →';nav.appendChild(link);});shell.append(label,heading,nav);section.appendChild(shell);main.appendChild(section);})();
+
+
+// AmeriCup historical dashboard switch: keep 5x5 and 3x3 titles in separate races.
+(()=> {
+  const panel=document.getElementById('americupDashboardPanel');
+  const toggle=document.querySelector('.americup-format-toggle');
+  if(!panel||!toggle)return;
+  const records={
+    '5x5':{
+      title:'Women’s 5x5 title race',
+      description:'Brazil leads the 5x5 record, with the United States within one championship.',
+      latest:'United States',latestYear:2025,window:'1989–2025',editions:18,
+      archive:'/americup-5x5.html',
+      titles:[
+        {country:'Brazil',count:6,years:[2023,2011,2009,2003,2001,1997]},
+        {country:'United States',count:5,years:[2025,2021,2019,2007,1993]},
+        {country:'Cuba',count:4,years:[2013,2005,1999,1989]},
+        {country:'Canada',count:3,years:[2017,2015,1995]}
+      ],
+      recent:[[2025,'United States'],[2023,'Brazil'],[2021,'United States'],[2019,'United States'],[2017,'Canada'],[2015,'Canada']]
+    },
+    '3x3':{
+      title:'Women’s 3x3 title race',
+      description:'The United States and Canada are tied at three titles each; Canada reclaimed the latest crown.',
+      latest:'Canada',latestYear:2026,window:'2021–2026',editions:6,
+      archive:'/americup-3x3.html',
+      titles:[
+        {country:'United States',count:3,years:[2025,2023,2021]},
+        {country:'Canada',count:3,years:[2026,2024,2022]}
+      ],
+      recent:[[2026,'Canada'],[2025,'United States'],[2024,'Canada'],[2023,'United States'],[2022,'Canada'],[2021,'United States']]
+    }
+  };
+  const nodes={
+    title:document.getElementById('dashboardTitle'),
+    description:document.getElementById('dashboardDescription'),
+    latest:document.getElementById('dashboardLatest'),
+    latestLabel:document.getElementById('dashboardLatestLabel'),
+    latestYear:document.getElementById('dashboardLatestYear'),
+    window:document.getElementById('dashboardWindow'),
+    editionCount:document.getElementById('dashboardEditionCount'),
+    panel:document.getElementById('americupDashboardPanel'),
+    titles:document.getElementById('countryTitleRows'),
+    recent:document.getElementById('recentWinners'),
+    titleHeading:document.getElementById('titleCountTitle'),
+    archiveLink:document.querySelector('[data-format-link]')
+  };
+  function safe(value){
+    return String(value).replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[char]));
+  }
+  function render(format,moveFocus){
+    const record=records[format]||records['5x5'];
+    panel.dataset.format=format;
+    panel.setAttribute('aria-busy','true');
+    nodes.title.textContent=record.title;
+    nodes.description.textContent=record.description;
+    nodes.latest.textContent=record.latest;
+    nodes.latestLabel.textContent='LATEST WOMEN’S '+format+' CHAMPION';
+    nodes.latestYear.textContent=String(record.latestYear);
+    nodes.window.textContent=record.window;
+    nodes.editionCount.textContent=record.editions+' editions';
+    nodes.titleHeading.textContent='Women’s '+format+' gold medals';
+    nodes.archiveLink.href=record.archive;
+    nodes.archiveLink.textContent='Open full '+format+' archive →';
+    const max=Math.max(...record.titles.map(item=>item.count));
+    nodes.titles.innerHTML=record.titles.map(item=>{
+      const years=item.years.map(year=>safe(year)).join(' · ');
+      const width=(item.count/max*100).toFixed(1)+'%';
+      return '<article class="americup-country-row"><div class="americup-country-label"><strong>'+safe(item.country)+'</strong><b>'+item.count+' '+(item.count===1?'title':'titles')+'</b></div><div class="americup-bar"><span style="--bar-width:'+width+'"></span></div><p>'+years+'</p></article>';
+    }).join('');
+    nodes.recent.innerHTML=record.recent.map(item=>'<article><time>'+safe(item[0])+'</time><strong>'+safe(item[1])+'</strong><span>'+safe(format)+' women’s title</span></article>').join('');
+    panel.setAttribute('aria-labelledby',format==='5x5'?'americupTab5x5':'americupTab3x3');
+    toggle.hidden=false;
+    toggle.querySelectorAll('[role="tab"]').forEach(button=>{
+      const selected=button.dataset.format===format;
+      button.setAttribute('aria-selected',String(selected));
+      button.tabIndex=selected?0:-1;
+      if(selected&&moveFocus)button.focus();
+    });
+    panel.setAttribute('aria-busy','false');
+  }
+  const tabs=[...toggle.querySelectorAll('[role="tab"]')];
+  tabs.forEach((button,index)=>{
+    button.addEventListener('click',()=>render(button.dataset.format,false));
+    button.addEventListener('keydown',event=>{
+      if(!['ArrowLeft','ArrowRight','Home','End'].includes(event.key))return;
+      event.preventDefault();
+      let next=index;
+      if(event.key==='ArrowRight')next=(index+1)%tabs.length;
+      if(event.key==='ArrowLeft')next=(index+tabs.length-1)%tabs.length;
+      if(event.key==='Home')next=0;
+      if(event.key==='End')next=tabs.length-1;
+      render(tabs[next].dataset.format,true);
+    });
+  });
+  toggle.hidden=false;
+  render('5x5',false);
+})();

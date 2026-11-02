@@ -1,0 +1,110 @@
+/* Shared No Offseason visual system: one high-contrast section nav, vivid data cards and accessible focus states. */
+body.no-offseason-page{--noff-ink:#1b1534;--noff-plum:#160629;--noff-plum-light:#35105c;--noff-lime:#d8ff4f;--noff-gold:#f0c866;--noff-paper:#f7f3f9;--noff-muted:#514b5f;background:var(--noff-paper);color:var(--noff-ink)}
+body.no-offseason-page [id]{scroll-margin-top:88px}
+body.no-offseason-page .subhero{position:relative;isolation:isolate;overflow:hidden}
+body.no-offseason-page .subhero .nav,body.no-offseason-page .subhero .subhero-inner,body.no-offseason-page .subhero .page-shell{position:relative;z-index:1}
+body.no-offseason-page .subhero .eyebrow{color:var(--noff-lime)!important}
+body.no-offseason-page .subhero .subhero-inner>p:not(.eyebrow):not(.page-crumbs){color:rgba(255,255,255,.86)!important}
+body.no-offseason-page .page-crumbs a,body.no-offseason-page .page-crumbs span,body.no-offseason-page .page-crumbs b{color:#fff}
+body.no-offseason-page :is(.team-usa-tabs,.fiba-guide-nav,.cup-tabs,.unrivaled-jump-nav,.au-jump-nav,.americup-nav-wrap){position:sticky;top:0;z-index:30;background:linear-gradient(100deg,#10051f,#2c1248);border-bottom:1px solid rgba(255,255,255,.16);box-shadow:0 9px 25px rgba(16,5,31,.18)}
+body.no-offseason-page :is(.team-usa-tabs,.fiba-guide-nav,.cup-tabs,.unrivaled-jump-nav,.au-jump-nav,.americup-nav-wrap){scrollbar-width:thin;scrollbar-color:rgba(216,255,79,.7) transparent}
+body.no-offseason-page :is(.fiba-guide-nav,.cup-tabs,.unrivaled-jump-nav,.au-jump-nav)>.page-shell{display:flex;align-items:center;gap:8px;overflow-x:auto;padding-top:10px;padding-bottom:10px}
+body.no-offseason-page :is(.team-usa-tabs,.americup-nav){display:flex;align-items:center;gap:8px;overflow-x:auto;scrollbar-width:none}
+body.no-offseason-page :is(.team-usa-tabs,.americup-nav)::-webkit-scrollbar,body.no-offseason-page :is(.fiba-guide-nav,.cup-tabs,.unrivaled-jump-nav,.au-jump-nav)>.page-shell::-webkit-scrollbar{display:none}
+body.no-offseason-page :is(.team-usa-tabs,.fiba-guide-nav,.cup-tabs,.unrivaled-jump-nav,.au-jump-nav,.americup-nav-wrap) a{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;min-height:40px;padding:8px 13px;border:1px solid rgba(255,255,255,.2);border-radius:999px;background:rgba(255,255,255,.045);color:#fff;text-decoration:none;font-size:.79rem;font-weight:900;white-space:nowrap;transition:background .18s ease,color .18s ease,border-color .18s ease,transform .18s ease}
+body.no-offseason-page :is(.team-usa-tabs,.fiba-guide-nav,.cup-tabs,.unrivaled-jump-nav,.au-jump-nav,.americup-nav-wrap) a:hover{transform:translateY(-1px);background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.5);color:#fff}
+body.no-offseason-page :is(.team-usa-tabs,.fiba-guide-nav,.cup-tabs,.unrivaled-jump-nav,.au-jump-nav,.americup-nav-wrap) a[aria-current=page],body.no-offseason-page :is(.team-usa-tabs,.fiba-guide-nav,.cup-tabs,.unrivaled-jump-nav,.au-jump-nav,.americup-nav-wrap) a[aria-selected=true]{background:var(--noff-lime);border-color:var(--noff-lime);color:#19112b}
+body.no-offseason-page :is(.team-usa-tabs,.fiba-guide-nav,.cup-tabs,.unrivaled-jump-nav,.au-jump-nav,.americup-nav-wrap) a:focus-visible,body.no-offseason-page :is(a,button,summary):focus-visible{outline:3px solid #d8ff4f;outline-offset:3px;box-shadow:0 0 0 5px rgba(20,8,36,.8)}
+body.no-offseason-page :is(.team-usa-stat,.team-usa-panel,.team-usa-tournament-card,.fiba-panel,.fiba-preview-card,.fiba-editorial-card,.fiba-watch-card,.fiba-brief-card,.league-standard-card,.league-honor-card,.offseason-league-card,.offseason-compare-grid article,.offseason-compare-grid>a,.americup-rank-card,.americup-edition){box-shadow:0 12px 30px rgba(20,10,47,.09);transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}
+body.no-offseason-page :is(.team-usa-tournament-card,.offseason-league-card,.offseason-compare-grid>a,.fiba-editorial-card,.league-standard-card,.americup-rank-card):hover{transform:translateY(-3px);box-shadow:0 18px 38px rgba(20,10,47,.15)}
+body.no-offseason-page details>summary{cursor:pointer}
+body.no-offseason-page details>summary:focus-visible{border-radius:10px}
+body.no-offseason-page :is(.team-usa-section,.fiba-guide-section,.fiba-panel,.cup-block,.page-section){scroll-margin-top:88px}
+@media(max-width:760px){
+ body.no-offseason-page :is(.team-usa-tabs,.americup-nav){margin-inline:0;padding-inline:12px}
+ body.no-offseason-page :is(.team-usa-tabs,.fiba-guide-nav,.cup-tabs,.unrivaled-jump-nav,.au-jump-nav,.americup-nav-wrap) a{min-height:38px;padding:8px 11px;font-size:.74rem}
+}
+@media(prefers-reduced-motion:reduce){body.no-offseason-page *,body.no-offseason-page *::before,body.no-offseason-page *::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+/* AmeriCup pages follow the Trophy Room's feature → records → expandable archive rhythm. */
+.americup-feature-section{padding:32px 0;background:linear-gradient(180deg,#fff 0%,#f1edf8 100%)}
+.americup-current-feature{position:relative;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(300px,.95fr);gap:26px;align-items:stretch;overflow:hidden;padding:clamp(22px,4vw,42px);border:1px solid rgba(255,255,255,.14);border-radius:30px;background:radial-gradient(circle at 90% 10%,rgba(216,255,79,.18),transparent 25%),linear-gradient(130deg,#10051f,#3a1760 65%,#66268b);color:#fff;box-shadow:0 22px 54px rgba(23,8,43,.22)}
+.americup-current-feature::after{content:"";position:absolute;right:-115px;bottom:-160px;width:330px;height:330px;border:1px solid rgba(255,255,255,.12);border-radius:50%;box-shadow:0 0 0 34px rgba(255,255,255,.035),0 0 0 68px rgba(255,255,255,.025);pointer-events:none}
+.americup-feature-copy{position:relative;z-index:1;align-self:center}
+.americup-feature-copy .americup-kicker{color:var(--noff-lime,#d8ff4f)}
+.americup-feature-copy h2{margin:8px 0 13px;color:#fff;font-size:clamp(2rem,4.7vw,4.1rem);line-height:.96;letter-spacing:-.05em}
+.americup-feature-copy>p:not(.americup-kicker){max-width:760px;color:rgba(255,255,255,.82);font-size:1rem;line-height:1.65}
+.americup-feature-facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin-top:20px}
+.americup-feature-facts>div{padding:13px 15px;border:1px solid rgba(255,255,255,.15);border-radius:15px;background:rgba(255,255,255,.075)}
+.americup-feature-facts .roster-fact{grid-column:1/-1}
+.americup-feature-facts small{display:block;color:#e3ff70;font-size:.63rem;font-weight:950;letter-spacing:.09em}
+.americup-feature-facts strong{display:block;margin-top:5px;color:#fff;font-size:.98rem;line-height:1.4}
+.americup-feature-actions{display:flex;align-items:center;flex-wrap:wrap;gap:14px;margin-top:19px}
+.americup-feature-button{display:inline-flex;align-items:center;gap:11px;min-height:47px;padding:12px 16px;border:1px solid var(--noff-lime,#d8ff4f);border-radius:999px;background:var(--noff-lime,#d8ff4f);color:#171022;font-weight:950;text-decoration:none;transition:transform .18s ease,background .18s ease}
+.americup-feature-button:hover{transform:translateY(-2px);background:#efffae}
+.americup-feature-button span{font-size:1.2rem}
+.americup-feature-source{color:#fff;font-size:.8rem;font-weight:850;text-decoration-thickness:1px;text-underline-offset:3px}
+.americup-feature-source:hover{color:#e3ff70}
+.americup-feature-visual{position:relative;z-index:1;align-self:stretch;min-height:350px;margin:0;overflow:hidden;border:1px solid rgba(255,255,255,.16);border-radius:24px;background:#171022;box-shadow:0 16px 34px rgba(0,0,0,.28)}
+.americup-feature-visual img{display:block;width:100%;height:100%;min-height:350px;object-fit:cover;object-position:center 34%}
+.americup-feature-visual::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 47%,rgba(13,4,23,.9) 100%);pointer-events:none}
+.americup-feature-visual figcaption{position:absolute;z-index:1;inset:auto 0 0;display:grid;gap:6px;padding:22px;color:#fff}
+.americup-feature-visual figcaption span{color:#e3ff70;font-size:.67rem;font-weight:950;letter-spacing:.1em}
+.americup-feature-visual figcaption b{font-size:1.15rem;line-height:1.3}
+.americup-dashboard-badges{display:flex;flex-wrap:wrap;gap:9px;justify-content:flex-end}
+.americup-dashboard-badges>div{min-width:98px;padding:12px 14px;border:1px solid #e0d7ec;border-radius:16px;background:#fff;box-shadow:0 8px 18px rgba(37,17,68,.07)}
+.americup-dashboard-badges small{display:block;color:#59486d;font-size:.6rem;font-weight:950;letter-spacing:.07em}
+.americup-dashboard-badges strong{display:block;margin-top:5px;color:#26153f;font-size:1.02rem;line-height:1.2}
+.americup-win-board{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.americup-win-row{display:grid;grid-template-columns:40px minmax(0,1fr) auto;gap:8px 13px;align-items:center;padding:20px;border:1px solid #ded5e8;border-radius:22px;background:#fff;box-shadow:0 12px 28px rgba(31,13,57,.08);transition:transform .18s ease,box-shadow .18s ease}
+.americup-win-row:hover{transform:translateY(-2px);box-shadow:0 18px 34px rgba(31,13,57,.13)}
+.americup-win-rank{width:38px;height:38px;display:grid;place-items:center;border-radius:13px;background:#32105b;color:#fff;font-weight:950}
+.americup-win-row.canada .americup-win-rank{background:#bf203c}
+.americup-win-country strong{display:block;color:#211536;font-size:1.15rem}
+.americup-win-country span{display:block;margin-top:2px;color:#61576c;font-size:.76rem;font-weight:750}
+.americup-win-number{text-align:right}
+.americup-win-number strong{display:block;color:#3d1566;font-size:2.35rem;line-height:.88}
+.americup-win-number small{color:#544b5e;font-size:.67rem;font-weight:900}
+.americup-win-meter{grid-column:2/4;height:9px;overflow:hidden;border-radius:999px;background:#eae5ef}
+.americup-win-meter span{display:block;width:var(--bar-width);height:100%;border-radius:inherit;background:linear-gradient(90deg,#532090,#9d65d5);transform-origin:left;animation:americup-bar-in .7s ease-out both}
+.americup-win-row.canada .americup-win-meter span{background:linear-gradient(90deg,#c62342,#ff7180)}
+.americup-win-row>p{grid-column:2/4;margin:0;color:#4e4756;font-size:.79rem;font-weight:850}
+.americup-dashboard-note{margin:17px 0 0;color:#4f4858;font-size:.85rem;font-weight:750}
+.americup-dashboard-note span{color:#70a73f}
+.americup-archive-section{padding:45px 0 55px;background:#f2eff7}
+.americup-archive-section .americup-section-heading{align-items:end}
+.americup-archive-section .americup-section-heading>div>p:last-child{max-width:680px;color:#514b5f}
+.americup-archive-section .americup-section-heading>a{color:#381367;font-weight:900;text-underline-offset:4px}
+.americup-edition-list{display:grid;gap:10px}
+.americup-edition{overflow:hidden;border:1px solid #ddd3e8;border-radius:19px;background:#fff;box-shadow:0 7px 20px rgba(23,9,43,.06);transition:border-color .18s ease,box-shadow .18s ease}
+.americup-edition[open]{border-color:#7445a1;box-shadow:0 14px 30px rgba(23,9,43,.11)}
+.americup-edition>summary{display:grid;grid-template-columns:74px minmax(130px,.9fr) minmax(190px,1.3fr) auto;gap:12px;align-items:center;padding:15px 18px;list-style:none;cursor:pointer}
+.americup-edition>summary::-webkit-details-marker{display:none}
+.americup-edition>summary::marker{content:""}
+.americup-edition-year{color:#51207c;font-size:1.32rem;font-weight:1000}
+.americup-edition-champion{color:#241438;font-size:.98rem;font-weight:950}
+.americup-edition-result{color:#564e61;font-size:.77rem;font-weight:800}
+.americup-edition-toggle{padding:8px 10px;border-radius:999px;background:#f0e9f8;color:#35145c;font-size:.69rem;font-weight:950;white-space:nowrap}
+.americup-edition-toggle .when-open{display:none}
+.americup-edition[open] .americup-edition-toggle .when-closed{display:none}
+.americup-edition[open] .americup-edition-toggle .when-open{display:inline}
+.americup-edition-body{padding:0 18px 18px;border-top:1px solid #ece6f1}
+.americup-edition-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px;padding:15px 0}
+.americup-edition-stats>div{min-width:0;padding:12px;border:1px solid #e8e0ee;border-radius:13px;background:#f8f6fb}
+.americup-edition-stats small{display:block;color:#58466c;font-size:.6rem;font-weight:950;letter-spacing:.06em}
+.americup-edition-stats strong{display:block;margin-top:4px;color:#201431;font-size:.84rem;line-height:1.3}
+.americup-edition-body>p{max-width:850px;margin:2px 0 13px;color:#484252;font-size:.94rem;line-height:1.6}
+.americup-edition-body>a{color:#441b70;font-size:.78rem;font-weight:900;text-underline-offset:3px}
+.americup-archive-note{margin:18px 0 0;color:#50495b;font-size:.83rem;line-height:1.55}
+.americup-archive-note a{color:#37125f;font-weight:900}
+.americup-current-feature-score{grid-template-columns:minmax(0,1.25fr) minmax(250px,.75fr);align-items:center}
+.americup-feature-scoreboard{position:relative;z-index:1;display:grid;justify-items:center;gap:8px;min-height:300px;padding:26px;border:1px solid rgba(255,255,255,.16);border-radius:24px;background:linear-gradient(145deg,rgba(255,255,255,.1),rgba(255,255,255,.035));text-align:center}
+.americup-feature-scoreboard>span{color:#e3ff70;font-size:.67rem;font-weight:950;letter-spacing:.13em}
+.americup-feature-scoreboard>b{color:#fff;font-size:clamp(3.5rem,7vw,6rem);line-height:.95;letter-spacing:-.07em}
+.americup-feature-scoreboard>b i{color:#e3ff70;font-style:normal}
+.americup-feature-scoreboard>strong{color:#fff;font-size:.77rem;letter-spacing:.1em}
+.americup-feature-scoreboard>strong small{color:rgba(255,255,255,.62);font-size:.62rem}
+.americup-feature-scoreboard>em{margin-top:12px;padding:9px 14px;border:1px solid rgba(216,255,79,.45);border-radius:999px;background:rgba(216,255,79,.1);color:#e3ff70;font-size:.83rem;font-style:normal;font-weight:900}
+@keyframes americup-bar-in{from{transform:scaleX(.08);opacity:.5}to{transform:scaleX(1);opacity:1}}
+@media(max-width:900px){.americup-current-feature,.americup-current-feature-score{grid-template-columns:1fr}.americup-feature-visual{min-height:330px}.americup-feature-visual img{min-height:330px;max-height:450px}.americup-dashboard-top{align-items:start;flex-direction:column}.americup-dashboard-badges{justify-content:flex-start}}
+@media(max-width:680px){.americup-feature-section{padding:20px 0}.americup-current-feature{gap:18px;padding:20px;border-radius:24px}.americup-feature-copy h2{font-size:clamp(1.95rem,11vw,3rem)}.americup-feature-facts{grid-template-columns:1fr}.americup-feature-facts .roster-fact{grid-column:auto}.americup-feature-visual,.americup-feature-visual img{min-height:260px}.americup-win-board{grid-template-columns:1fr}.americup-win-row{padding:16px}.americup-edition>summary{grid-template-columns:64px 1fr auto;gap:8px;padding:13px}.americup-edition-result{grid-column:2/4;grid-row:2}.americup-edition-toggle{grid-column:3;grid-row:1;font-size:.63rem}.americup-edition-stats{grid-template-columns:repeat(2,minmax(0,1fr))}.americup-current-feature-score{gap:16px}.americup-feature-scoreboard{min-height:230px}}
+@media(prefers-reduced-motion:reduce){.americup-win-meter span{animation:none}}

@@ -64,3 +64,21 @@
   .tpd-player-card dd{margin:2px 0 0;color:#211a28;font-size:.9rem;font-weight:900;font-variant-numeric:tabular-nums;}
   .tpd-source{font-size:.72rem;}
 }
+
+/* 2026 dashboard readability refresh */
+.tpd-summary article{position:relative;border-left:4px solid var(--team-primary);background:linear-gradient(135deg,color-mix(in srgb,var(--team-primary) 9%,#fff),#fff);transition:transform .18s ease,box-shadow .18s ease}
+.tpd-summary article:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(24,12,47,.1)}
+.tpd-summary span{color:#51475c;font-size:.76rem}
+.tpd-summary small{color:#50475a;font-size:.83rem}
+.tpd-table thead th{background:var(--team-primary);color:var(--team-on-primary);font-size:.74rem}
+.tpd-table tbody tr:hover{background:color-mix(in srgb,var(--team-primary) 8%,#fff)}
+.tpd-control{font-size:.78rem;color:#51485b}
+.tpd-season-toggle button[aria-pressed="true"]{outline:2px solid color-mix(in srgb,var(--team-primary) 60%,#fff);outline-offset:2px}
+.tpd-player-card{transition:transform .16s ease,box-shadow .16s ease;background:linear-gradient(135deg,color-mix(in srgb,var(--team-primary) 6%,#fff),#fff)}
+.tpd-player-card:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(24,12,47,.1)}
+.tpd-player-card dl div{background:color-mix(in srgb,var(--team-primary) 9%,#fff)}
+.tpd-player-card dt{color:#51475c;font-size:.72rem}
+.tpd-player-card header span{color:#51475c;font-size:.76rem}
+.tpd-source{color:#5d5566}
+@media(max-width:720px){.tpd-control{font-size:.74rem}.tpd-table thead th{font-size:.75rem}.tpd-player-card{padding:14px}}
+@media(prefers-reduced-motion:reduce){.tpd-summary article,.tpd-player-card{transition:none}.tpd-summary article:hover,.tpd-player-card:hover{transform:none}}

@@ -144,3 +144,37 @@
 @media(prefers-reduced-motion:reduce){
   .week-editorial-media img,.week-snapshot-media img,.week-snapshot-card{transition:none}
 }
+
+/* 2026 dashboard readability refresh */
+/* Stronger color coding and larger dashboard labels */
+.week-snapshot-card{border-color:#d7cbe1;transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease}
+.week-snapshot-card:hover{transform:translateY(-3px);border-color:#8c62ba;box-shadow:0 14px 30px rgba(42,18,68,.12)}
+#weekHubStat{border-left:5px solid #6d2bd8;background:linear-gradient(145deg,#fbf6ff,#f4edf9)}
+#weekHubRotations{border-left:5px solid #d04f57;background:linear-gradient(145deg,#fff7f4,#f8edf0)}
+#weekHubLive{border-left:5px solid #168b91;background:linear-gradient(145deg,#f3fbfa,#edf4f4)}
+#weekHubGames{border-left:5px solid #d29a20;background:linear-gradient(145deg,#fff9eb,#f8f0e3)}
+#weekHubMovement{border-left:5px solid #9a3f90;background:linear-gradient(145deg,#fff5fc,#f6eff8)}
+#weekHubAvailability{border-left:5px solid #378153;background:linear-gradient(145deg,#f5faf2,#edf4ee)}
+.week-hub-stamp{font-size:.76rem}
+.week-card-kicker{font-size:.74rem}
+.week-card-date,.week-card-meta{color:#62556a;font-size:.74rem}
+.week-story-series{color:#5c5164;font-size:.76rem}
+.week-media-tag,.week-snapshot-media span{font-size:.68rem}
+.week-head-visual-label{font-size:.66rem}
+.week-game-row span,.week-broadcast-row span{font-size:.74rem}
+.week-game-row strong,.week-broadcast-row strong{font-size:.86rem}
+.week-game-row b,.week-broadcast-row b{font-size:.76rem}
+.week-hub-divider span{color:#5c5164;font-size:.71rem}
+.week-snapshot-content p{color:#554b60;font-size:.9rem}
+.week-card-actions a{font-size:.82rem}
+.week-card-actions a.secondary{color:#61556a}
+.week-card-actions a:focus-visible,.week-editorial-body>a:focus-visible,.week-hub-foot a:focus-visible{outline:3px solid #6d2bd8;outline-offset:4px;border-radius:6px}
+.home-week-card.games .week-game-row b{padding:4px 7px;border-radius:999px;background:rgba(216,255,79,.15);color:#efffb5}
+.home-week-card.broadcast .week-broadcast-row b{padding:4px 7px;border-radius:999px;background:#e8f4ea;color:#205739}
+@media(max-width:700px){
+  .week-game-row span,.week-broadcast-row span{font-size:.72rem}
+  .week-game-row strong,.week-broadcast-row strong{font-size:.84rem}
+  .week-game-row b,.week-broadcast-row b{font-size:.75rem}
+  .week-media-tag,.week-snapshot-media span{font-size:.68rem}
+}
+@media(prefers-reduced-motion:reduce){.week-snapshot-card{transition:none}.week-snapshot-card:hover{transform:none}}

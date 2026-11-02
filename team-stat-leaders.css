@@ -40,3 +40,21 @@
 #team-stat-leaders a:focus-visible,#teamLeadersRefresh:focus-visible{outline:3px solid #6123b8;outline-offset:4px}
 @media(max-width:1000px){.team-leaders-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:600px){.team-leaders-grid{grid-template-columns:1fr;gap:12px}.team-leaders-heading{gap:12px;flex-wrap:wrap}.team-leaders-heading h2{font-size:1.9rem}.team-leaders-heading p{font-size:.86rem}#teamLeadersRefresh{margin:0}.team-leader-card{padding:18px}.team-leader-value{font-size:3rem}.team-leader-photo{flex-basis:70px;height:70px}.team-leader-name strong{font-size:1.03rem}.team-leaders-notes{padding:14px}#team-stat-leaders{scroll-margin-top:140px}}
+
+/* 2026 dashboard readability refresh */
+.team-leader-card{background:linear-gradient(145deg,color-mix(in srgb,var(--team-primary,#6123b8) 8%,#fff),#fff);transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}
+.team-leader-card:hover{transform:translateY(-3px);border-color:color-mix(in srgb,var(--team-primary,#6123b8) 55%,#fff);box-shadow:0 14px 30px rgba(31,13,46,.12)}
+.team-leader-card>header>span{background:color-mix(in srgb,var(--team-primary,#6123b8) 9%,#fff);font-size:.73rem}
+.team-leader-value>small{color:#51435f;font-size:.75rem}
+.team-leader-name small{color:#51475c;font-size:.76rem;line-height:1.45}
+.team-leader-name b{font-size:.74rem}
+.team-leader-availability{font-size:.68rem;color:#71321c}
+.team-leader-photo{background:color-mix(in srgb,var(--team-primary,#6123b8) 10%,#fff);color:#493758}
+.team-leaders-status{font-size:.83rem;color:#40364b}
+.team-leaders-notes{color:#493d54}
+.team-leaders-notes p{font-size:.83rem}
+.team-leader-player:focus-visible,#teamLeadersRefresh:focus-visible{outline:3px solid var(--team-primary,#6123b8);outline-offset:4px;border-radius:8px}
+#teamLeadersRefresh{transition:background .16s ease,transform .16s ease,box-shadow .16s ease}
+#teamLeadersRefresh:hover{background:color-mix(in srgb,var(--team-primary,#6123b8) 9%,#fff);transform:translateY(-1px);box-shadow:0 5px 14px rgba(31,13,46,.09)}
+@media(max-width:600px){.team-leader-name small{font-size:.78rem}.team-leader-card{padding:19px}}
+@media(prefers-reduced-motion:reduce){.team-leader-card,#teamLeadersRefresh{transition:none}.team-leader-card:hover,#teamLeadersRefresh:hover{transform:none}}

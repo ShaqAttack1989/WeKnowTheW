@@ -30,3 +30,20 @@
   .ps-source-line a{flex-basis:100%}
   .ps-leader-card strong{font-size:.98rem}
 }
+
+/* 2026 dashboard readability refresh */
+/* Clearer metric labels, selected tabs and responsive dashboard cards */
+.ps-leader-card{position:relative;border:1px solid rgba(255,255,255,.12);border-top:4px solid var(--ps-accent);background:radial-gradient(circle at 95% 4%,color-mix(in srgb,var(--ps-accent) 24%,transparent),transparent 34%),linear-gradient(145deg,#17131f,#271b36);transition:transform .18s ease,box-shadow .18s ease}
+.ps-leader-card:hover{transform:translateY(-3px);box-shadow:0 18px 38px rgba(0,0,0,.18)}
+.ps-leader-card span{font-size:.72rem}
+.ps-leader-card small{color:rgba(255,255,255,.84);font-size:.76rem}
+.ps-table th{font-size:.74rem}
+.ps-player-name small{color:#5d5366;font-size:.75rem}
+.ps-footnote{color:#51485b;font-size:.8rem}
+.ps-mini-count{color:#51485b;font-size:.76rem}
+.ps-metric-tabs button{font-size:.8rem;transition:background .16s ease,color .16s ease,transform .16s ease}
+.ps-metric-tabs button:hover,.ps-metric-tabs button:focus-visible{border-color:var(--ps-accent);transform:translateY(-1px)}
+.ps-metric-tabs button:focus-visible,.ps-controls input:focus-visible,.ps-controls select:focus-visible{outline:3px solid var(--ps-accent);outline-offset:3px}
+.ps-metric-tabs button[aria-selected="true"]{box-shadow:0 4px 12px color-mix(in srgb,var(--ps-accent) 30%,transparent)}
+@media(max-width:620px){.ps-leader-card span{font-size:.7rem}.ps-leader-card small{font-size:.74rem}.ps-player-name small{font-size:.75rem}}
+@media(prefers-reduced-motion:reduce){.ps-leader-card,.ps-metric-tabs button{transition:none}.ps-leader-card:hover,.ps-metric-tabs button:hover{transform:none}}

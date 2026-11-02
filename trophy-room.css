@@ -79,3 +79,20 @@
 /* Keep the official Lynx logo fully visible on Reeve's two award entries. */
 .award-placard-media img[src="https://a.espncdn.com/i/teamlogos/wnba/500/min.png"]{object-fit:contain;object-position:center;padding:8px;background:#fff;box-sizing:border-box}
 .award-winner-visual img[src="https://a.espncdn.com/i/teamlogos/wnba/500/min.png"]{object-fit:contain;object-position:center;padding:24px 24px 125px;background:#fff;box-sizing:border-box}
+
+/* Season-by-season postseason championship tracker */
+.postseason-tracker-section{background:#10051f;color:#fff}
+.postseason-tracker-heading{display:grid;grid-template-columns:minmax(0,1fr) minmax(280px,.62fr);gap:38px;align-items:end;margin-bottom:26px}
+.postseason-tracker-heading .kicker{margin:0;color:#d8ff4f}
+.postseason-tracker-heading h2{margin:5px 0 0;color:#fff;font-size:clamp(2rem,4.2vw,3.5rem);line-height:.98}
+.postseason-tracker-heading>p{margin:0;color:rgba(255,255,255,.76);line-height:1.65}
+.postseason-tracker-figure{max-width:980px;margin:0 auto;overflow:hidden;border:1px solid rgba(255,255,255,.16);border-radius:22px;background:#081322;box-shadow:0 22px 56px rgba(0,0,0,.28)}
+.postseason-tracker-figure a{display:block}
+.postseason-tracker-figure img{display:block;width:100%;height:auto}
+.postseason-tracker-figure a:focus-visible{outline:4px solid #d8ff4f;outline-offset:-4px}
+.postseason-tracker-figure figcaption{padding:11px 16px;text-align:center;color:#c3b6d0;font-size:.78rem}
+@media(max-width:700px){
+  .postseason-tracker-heading{grid-template-columns:1fr;gap:12px}
+  .postseason-tracker-figure{border-radius:16px}
+  .postseason-tracker-figure figcaption{font-size:.74rem}
+}

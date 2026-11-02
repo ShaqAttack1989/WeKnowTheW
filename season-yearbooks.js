@@ -18,7 +18,7 @@
   const pct=value=>number(value)===null?'—':Number(value).toFixed(3);
   const selected=()=>{const q=Number.parseInt(new URLSearchParams(location.search).get('season')||'',10);return Number.isInteger(q)&&q>=FIRST_SEASON&&q<=CURRENT_SEASON?q:CURRENT_SEASON;};
   const isCurrent=year=>year===CURRENT_SEASON;
-  const seasonOpen=year=>isCurrent(year)&&new Date()<new Date(`${year}-11-15T00:00:00`);
+  const seasonOpen=year=>year!==2026&&isCurrent(year)&&new Date()<new Date(`${year}-11-15T00:00:00`);
   const playerHref=name=>`/playerpedia.html?search=${encodeURIComponent(name)}#playerpedia-directory`;
   const formatDate=value=>{const d=new Date(`${String(value||'').slice(0,10)}T12:00:00`);return Number.isNaN(d.getTime())?String(value||''):d.toLocaleDateString([],{month:'short',day:'numeric',year:'numeric'});};
   function teamName(value,year=CURRENT_SEASON){const code=String(value||'').toUpperCase().trim();if(code==='SAS')return year<=2013?'San Antonio Silver Stars':'San Antonio Stars';return teamNames[code]||String(value||'Unknown team');}
@@ -28,11 +28,11 @@
 
   function shelf(year){
     const box=document.getElementById('yearbookShelf');if(!box)return;const years=[];for(let y=CURRENT_SEASON;y>=FIRST_SEASON;y--)years.push(y);
-    box.innerHTML=years.map(y=>`<a class="yearbook-spine ${isCurrent(y)?'live':''} ${y===year?'active':''}" href="${seasonUrl(y)}" ${y===year?'aria-current="page"':''}><span>${isCurrent(y)?'LIVE BOOK':'ARCHIVED'}</span><strong>${y}</strong><span>${isCurrent(y)?'STILL WRITING':'SHELVED'}</span></a>`).join('');
+    box.innerHTML=years.map(y=>`<a class="yearbook-spine ${isCurrent(y)?'live':''} ${y===year?'active':''}" href="${seasonUrl(y)}" ${y===year?'aria-current="page"':''}><span>${seasonOpen(y)?'LIVE BOOK':'ARCHIVED'}</span><strong>${y}</strong><span>${seasonOpen(y)?'STILL WRITING':'SHELVED'}</span></a>`).join('');
   }
   function setEditorialNav(year){document.querySelectorAll('.yearbook-jump a[href="#snack-shak"],.yearbook-jump a[href="#shak-rotation"]').forEach(link=>{link.hidden=year<EDITORIAL_START;});}
   async function getJson(url){const response=await fetch(`${url}${url.includes('?')?'&':'?'}cb=${Date.now()}`,{headers:{Accept:'application/json'},cache:'no-store'});if(!response.ok)throw new Error(`${url} returned ${response.status}`);return response.json();}
-  async function frozenSnapshot(year){if(isCurrent(year))return null;try{return await getJson(`/data/season-yearbooks/${year}.json`);}catch{return null;}}
+  async function frozenSnapshot(year){if(isCurrent(year)&&year!==2026)return null;try{return await getJson(`/data/season-yearbooks/${year}.json`);}catch{return null;}}
   function championFor(year,snapshot=null){if(snapshot?.champion)return snapshot.champion;if(championCorrections[year])return championCorrections[year];return (trophy.champions||[]).find(item=>Number(item.year)===Number(year))||null;}
   function inferFinalsChampion(competition={}){
     const games=Array.isArray(competition?.playoffs?.games)?competition.playoffs.games.filter(g=>g.completed):[];if(!games.length)return null;

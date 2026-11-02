@@ -11,12 +11,12 @@
       "published": "2026-11-02",
       "updated": "2026-11-02",
       "week": "November 2, 2026 · All-time sibling rankings",
-      "image": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/201496.png",
-      "storyImage": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/201496.png",
+      "image": "https://www.si.com/.image/t_share/MTY4MTkzMzc2MzAyMjEzMDIx/cheryl-and-reggie-miller.jpg",
+      "storyImage": "https://www.si.com/.image/t_share/MTY4MTkzMzc2MzAyMjEzMDIx/cheryl-and-reggie-miller.jpg",
       "imageFit": "contain",
-      "imageAlt": "Candace Parker in her Las Vegas Aces uniform, in an official WNBA portrait.",
-      "storyImageCaption": "Candace Parker leads our all-time sibling ranking alongside brother Anthony. Photo: WNBA.",
-      "storyImageSourceUrl": "https://www.wnba.com/player/201496/candace-parker",
+      "imageAlt": "Cheryl and Reggie Miller together in an archival photograph, wearing their USC and UCLA college basketball attire.",
+      "storyImageCaption": "Cheryl and Reggie Miller together during their college basketball years. Photo: TSN / Icon SMI, via Sports Illustrated.",
+      "storyImageSourceUrl": "https://www.si.com/nba/2012/09/05/05rare-photos-of-reggie-miller",
       "dashboardUrl": "/food-for-thought.html?post=same-family-different-league-top-10-wnba-nba-siblings#story",
       "dek": "The Parkers set the standard. The Reeses own the glass. The Salaüns are climbing. We grade ten brother-sister duos, with a GOAT tribute to Cheryl and Reggie Miller.",
       "players": [
@@ -505,7 +505,10 @@
           "label": "Reggie Miller: Basketball Hall of Fame",
           "url": "https://www.hoophall.com/hall-of-famers/reggie-miller"
         }
-      ]
+      ],
+      "imageFocus": "center",
+      "imageSource": "TSN / Icon SMI",
+      "imageSourceUrl": "https://www.si.com/nba/2012/09/05/05rare-photos-of-reggie-miller"
     },
     {
       "slug": "unrivaled-wnba-double-crown-gray-burton",

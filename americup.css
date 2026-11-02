@@ -1,0 +1,124 @@
+.americup-page{background:#f2f2f8;color:#18142a}
+.americup-hero{background:radial-gradient(circle at 82% 18%,rgba(232,65,44,.8),transparent 24%),radial-gradient(circle at 8% 92%,rgba(255,199,0,.26),transparent 30%),linear-gradient(135deg,#17132c 0%,#35105a 56%,#7b1fb4 100%)!important}
+.americup-hero .subhero-inner{position:relative;z-index:1}
+.americup-hero h1{max-width:980px;line-height:.92;letter-spacing:-.055em}
+.americup-hero h1 em{color:#ffe54a}
+.americup-hero .eyebrow{color:#ffe54a}
+.americup-hero .page-crumbs{flex-wrap:wrap}
+.americup-hero .page-crumbs a,.americup-hero .page-crumbs span,.americup-hero .page-crumbs b{color:#f8f4ff}
+.americup-nav-wrap{position:sticky;top:0;z-index:20;padding:9px 0;background:rgba(20,16,42,.96);border-bottom:1px solid rgba(255,255,255,.12);backdrop-filter:blur(12px)}
+.americup-nav{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none}
+.americup-nav::-webkit-scrollbar{display:none}
+.americup-nav a{flex:0 0 auto;display:inline-flex;align-items:center;min-height:42px;padding:9px 14px;border:1px solid rgba(255,255,255,.22);border-radius:999px;color:#fff;text-decoration:none;font-size:.83rem;font-weight:900;white-space:nowrap}
+.americup-nav a:hover,.americup-nav a:focus-visible{outline:3px solid #ffe54a;outline-offset:2px}
+.americup-nav a[aria-current=page]{background:#ffe54a;border-color:#ffe54a;color:#18142a}
+.americup-main{background:#f2f2f8}
+.americup-intro{padding:36px 0 24px;background:#fff}
+.americup-intro-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,.8fr);gap:26px;align-items:center}
+.americup-kicker{margin:0;color:#6f2bb2;font-size:.72rem;font-weight:950;letter-spacing:.12em;text-transform:uppercase}
+.americup-intro h2,.americup-child-summary h2{margin:8px 0 10px;color:#1b1534;font-size:clamp(2.1rem,4.8vw,4rem);line-height:.94;letter-spacing:-.045em}
+.americup-intro p:not(.americup-kicker),.americup-child-summary p:not(.americup-kicker){max-width:720px;margin:0;color:#514b5f;font-size:1rem;line-height:1.6}
+.americup-intro-stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.americup-intro-stats>div{padding:18px;border:1px solid #e5deef;border-radius:20px;background:#f8f6fb}
+.americup-intro-stats small,.americup-child-stats small{display:block;color:#5c3284;font-size:.63rem;font-weight:950;letter-spacing:.08em}
+.americup-intro-stats strong{display:block;margin:5px 0;color:#401477;font-size:2.3rem;line-height:.9}
+.americup-intro-stats span{color:#565061;font-size:.8rem;font-weight:750}
+.americup-dashboard-section{padding:34px 0 48px;background:linear-gradient(180deg,#fff 0%,#f1edf8 100%)}
+.americup-dashboard-top{display:flex;align-items:end;justify-content:space-between;gap:24px;margin-bottom:18px}
+.americup-dashboard-top h2,.americup-section-heading h2,.americup-format-heading h2{margin:7px 0 8px;color:#1b1534;font-size:clamp(1.9rem,4vw,3.3rem);line-height:.97;letter-spacing:-.04em}
+.americup-dashboard-top p:not(.americup-kicker){margin:0;color:#554f64;line-height:1.55}
+.americup-format-toggle{display:flex;gap:6px;padding:5px;border:1px solid #ded6ea;border-radius:18px;background:#fff;box-shadow:0 7px 20px rgba(39,15,72,.08)}
+.americup-format-toggle[hidden]{display:none}
+.americup-format-toggle button{display:grid;min-width:118px;padding:10px 14px;border:0;border-radius:13px;background:transparent;color:#3d3151;text-align:left;cursor:pointer}
+.americup-format-toggle button span{font-size:1.08rem;font-weight:950}
+.americup-format-toggle button small{margin-top:2px;color:#62596e;font-size:.7rem;font-weight:800}
+.americup-format-toggle button[aria-selected=true]{background:#4b1686;color:#fff}
+.americup-format-toggle button[aria-selected=true] small{color:#e8d9fb}
+.americup-format-toggle button:focus-visible{outline:3px solid #f34b36;outline-offset:2px}
+.americup-dashboard{padding:18px;border:1px solid #e0d8eb;border-radius:28px;background:#fff;box-shadow:0 20px 48px rgba(37,17,68,.11)}
+.americup-dashboard-summary{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:16px}
+.americup-latest,.americup-record-meta{display:grid;min-width:145px;padding:13px 16px;border:1px solid #eee9f3;border-radius:16px;background:#f8f6fb}
+.americup-latest small,.americup-record-meta small{color:#5f3c7d;font-size:.62rem;font-weight:950;letter-spacing:.08em}
+.americup-latest strong,.americup-record-meta strong{margin-top:3px;color:#241341;font-size:1.16rem;line-height:1.12}
+.americup-latest span,.americup-record-meta span{margin-top:3px;color:#60596a;font-size:.75rem;font-weight:800}
+.americup-text-link{margin-left:auto;color:#351269;font-weight:950;text-decoration-thickness:2px;text-underline-offset:4px}
+.americup-text-link:hover,.americup-text-link:focus-visible{color:#a62b26}
+.americup-board-grid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(280px,.75fr);gap:14px}
+.americup-board-card{min-width:0;padding:20px;border:1px solid #e5deed;border-radius:22px;background:#fcfbfe}
+.americup-card-head{display:flex;align-items:start;justify-content:space-between;gap:12px;margin-bottom:10px}
+.americup-card-head h3{margin:5px 0 0;color:#211537;font-size:1.25rem;line-height:1.08}
+.americup-count-chip{padding:7px 9px;border-radius:99px;background:#fff0cd;color:#5c3710;font-size:.62rem;font-weight:950;letter-spacing:.08em;white-space:nowrap}
+.americup-country-list{display:grid;gap:10px}
+.americup-country-row{padding:12px 13px;border-radius:15px;background:#fff;border:1px solid #ebe6f1}
+.americup-country-label{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.americup-country-label strong{color:#26173a;font-size:.98rem}
+.americup-country-label b{color:#4c1b83;font-size:.78rem}
+.americup-bar,.americup-rank-bar{height:8px;margin:8px 0 6px;overflow:hidden;border-radius:99px;background:#ece8f1}
+.americup-bar span,.americup-rank-bar span{display:block;width:var(--bar-width);height:100%;border-radius:inherit;background:linear-gradient(90deg,#6d28b6,#f14d38 80%,#ffc940);transition:width .35s ease}
+.americup-country-row p{margin:0;color:#5d5666;font-size:.71rem;line-height:1.4}
+.americup-recent-list{display:grid;gap:7px}
+.americup-recent-list article{display:grid;grid-template-columns:58px minmax(0,1fr) auto;align-items:center;gap:9px;padding:9px 10px;border:1px solid #ece7f1;border-radius:13px;background:#fff}
+.americup-recent-list time{color:#6524a4;font-size:.82rem;font-weight:950}
+.americup-recent-list strong{color:#211537;font-size:.82rem}
+.americup-recent-list span{color:#625a6d;font-size:.68rem;text-align:right}
+.americup-source-note{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:12px;padding-top:12px;border-top:1px solid #ebe5f0;color:#5b5367;font-size:.74rem}
+.americup-source-note a{color:#34116c;font-weight:900;text-underline-offset:3px}
+.americup-format-doors{padding:44px 0;background:#1c1533;color:#fff}
+.americup-format-heading{display:flex;align-items:end;justify-content:space-between;gap:24px;margin-bottom:18px}
+.americup-format-heading h2{color:#fff}
+.americup-format-heading>p{max-width:370px;margin:0;color:#e7dff0;line-height:1.55}
+.americup-format-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.americup-format-card{display:flex;flex-direction:column;min-height:255px;padding:23px;border:1px solid rgba(255,255,255,.22);border-radius:24px;background:linear-gradient(145deg,#49208a,#24133b);color:#fff;text-decoration:none;transition:transform .18s ease,box-shadow .18s ease}
+.americup-format-card.three{background:linear-gradient(145deg,#126a66,#102c41)}
+.americup-format-card:hover,.americup-format-card:focus-visible{transform:translateY(-3px);outline:3px solid #ffe54a;outline-offset:3px;box-shadow:0 18px 36px rgba(0,0,0,.28)}
+.americup-format-card>span{color:#ffe54a;font-size:.68rem;font-weight:950;letter-spacing:.09em}
+.americup-format-card strong{margin:12px 0 8px;font-size:clamp(1.7rem,3vw,2.5rem);line-height:1}
+.americup-format-card p{max-width:550px;margin:0;color:#f4effb;line-height:1.55}
+.americup-format-card b{margin-top:auto;padding-top:18px;color:#fff;font-size:.78rem}
+.americup-method-note{margin:18px 0 0;color:#ded4eb;font-size:.82rem;line-height:1.5}
+.americup-child-summary{padding:36px 0;background:#fff}
+.americup-child-summary .page-shell{display:grid;grid-template-columns:minmax(0,1fr) minmax(300px,.9fr);gap:24px;align-items:center}
+.americup-child-stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.americup-child-stats>div{padding:16px;border:1px solid #e3dceb;border-radius:18px;background:#faf8fc}
+.americup-child-stats strong{display:block;margin:5px 0 0;color:#31105d;font-size:1.16rem;line-height:1.2}
+.americup-history-section{padding:38px 0;background:#f2f2f8}
+.americup-history-section.alt{background:#e8e3f0}
+.americup-section-heading{display:flex;align-items:end;justify-content:space-between;gap:24px;margin-bottom:16px}
+.americup-section-heading>div{max-width:760px}
+.americup-section-heading h2{margin-bottom:7px}
+.americup-section-heading p:not(.americup-kicker){margin:0;color:#564e62;line-height:1.55}
+.americup-section-heading>a{flex:0 0 auto;color:#351269;font-weight:900;text-underline-offset:4px}
+.americup-rank-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.americup-rank-grid.two{max-width:900px}
+.americup-rank-card{padding:18px;border:1px solid #e0d8e9;border-radius:21px;background:#fff;box-shadow:0 9px 23px rgba(32,15,54,.06)}
+.americup-rank-head{display:flex;align-items:center;gap:12px}
+.americup-rank-number{display:grid;flex:0 0 auto;place-items:center;width:36px;height:36px;border-radius:12px;background:#43127b;color:#fff;font-weight:950}
+.americup-rank-head>div{min-width:0;display:grid}
+.americup-rank-head>div strong{color:#211537;font-size:1.15rem}
+.americup-rank-head>div span{margin-top:2px;color:#625b6b;font-size:.75rem}
+.americup-rank-head>b{display:grid;margin-left:auto;color:#4b1a82;font-size:1.45rem;text-align:right}
+.americup-rank-head>b small{color:#635b6c;font-size:.65rem}
+.americup-rank-card p{margin:10px 0 0;color:#534b61;font-size:.83rem;line-height:1.5}
+.americup-timeline{display:grid;gap:7px}
+.americup-timeline-row{display:grid;grid-template-columns:78px minmax(0,1fr) auto;gap:13px;align-items:center;padding:13px 16px;border:1px solid #e0d9e8;border-radius:14px;background:#fff}
+.americup-timeline-row time{color:#6a23b0;font-size:1.02rem;font-weight:950}
+.americup-timeline-row>div{display:grid}
+.americup-timeline-row strong{color:#24163a;font-size:.95rem}
+.americup-timeline-row span{margin-top:2px;color:#625b69;font-size:.72rem}
+.americup-timeline-row a{color:#34116c;font-size:.76rem;font-weight:900;text-underline-offset:3px}
+.americup-source-panel{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:14px;padding:16px 18px;border-radius:17px;background:#281942;color:#fff}
+.americup-source-panel p{flex:1 1 340px;margin:0;color:#f4effb;font-size:.87rem;line-height:1.5}
+.americup-source-panel a{color:#ffe54a;font-size:.8rem;font-weight:900;text-underline-offset:3px}
+.americup-related{padding:20px 0;background:#372052}
+.americup-related .page-shell{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.americup-related a{display:grid;padding:15px 18px;border:1px solid rgba(255,255,255,.2);border-radius:17px;background:rgba(255,255,255,.08);color:#fff;text-decoration:none}
+.americup-related a:hover,.americup-related a:focus-visible{outline:3px solid #ffe54a;outline-offset:2px}
+.americup-related a span{color:#ffe54a;font-size:.64rem;font-weight:950;letter-spacing:.08em}
+.americup-related a strong{margin-top:5px;color:#fff;font-size:.98rem}
+.americup-footer{padding:20px 0;background:#17132b}
+.americup-footer .page-shell{display:flex;gap:9px;flex-wrap:wrap;justify-content:space-between}
+.americup-footer a{padding:9px 12px;border:1px solid rgba(255,255,255,.2);border-radius:999px;color:#fff;text-decoration:none;font-size:.78rem;font-weight:850}
+.americup-footer a:hover,.americup-footer a:focus-visible{outline:3px solid #ffe54a;outline-offset:2px}
+@media(max-width:850px){.americup-dashboard-top,.americup-format-heading,.americup-section-heading{align-items:flex-start;flex-direction:column}.americup-board-grid,.americup-intro-grid,.americup-child-summary .page-shell{grid-template-columns:1fr}.americup-board-grid{gap:10px}.americup-dashboard-summary{align-items:stretch}.americup-text-link{margin-left:0}.americup-child-stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:620px){.americup-format-toggle{width:100%}.americup-format-toggle button{flex:1;min-width:0}.americup-dashboard{padding:12px;border-radius:21px}.americup-board-card{padding:14px}.americup-recent-list article{grid-template-columns:48px minmax(0,1fr)}.americup-recent-list span{grid-column:2;text-align:left}.americup-source-note{align-items:flex-start;flex-direction:column;gap:7px}.americup-format-grid,.americup-rank-grid,.americup-related .page-shell{grid-template-columns:1fr}.americup-timeline-row{grid-template-columns:58px minmax(0,1fr);gap:8px}.americup-timeline-row a{grid-column:2}.americup-child-stats{grid-template-columns:1fr 1fr}.americup-footer .page-shell{justify-content:flex-start}}
+@media(prefers-reduced-motion:reduce){.americup-format-card,.americup-bar span,.americup-rank-bar span{transition:none}}

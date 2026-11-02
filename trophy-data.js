@@ -3,6 +3,7 @@ window.TROPHY_DATA = (() => {
   const selections = window.WKTW_SELECTION_TEAMS_2026 || {};
 
   const champions = [
+    ['2026','Golden State Valkyries','Atlanta Dream','4 to 3','Gabby Williams'],
     ['2025','Las Vegas Aces','Phoenix Mercury','3 to 1',"A'ja Wilson"],
     ['2024','New York Liberty','Minnesota Lynx','3 to 2','Jonquel Jones'],
     ['2023','Las Vegas Aces','New York Liberty','3 to 1',"A'ja Wilson"],
@@ -35,6 +36,7 @@ window.TROPHY_DATA = (() => {
   ].map(([year,champion,runnerUp,result,finalsMvp]) => ({year,champion,runnerUp,result,finalsMvp}));
 
   const finalsMvpPhotos = {
+    'Gabby Williams': headshot('1628931'),
     "A'ja Wilson": headshot('1628932'),
     'Jonquel Jones': headshot('1627673'),
     'Chelsea Gray': headshot('203833'),
@@ -79,7 +81,8 @@ window.TROPHY_DATA = (() => {
     {name:'Indiana Fever',count:1,years:'2012',status:'Current franchise'},
     {name:'New York Liberty',count:1,years:'2024',status:'Current franchise'},
     {name:'Sacramento Monarchs',count:1,years:'2005',status:'Historic franchise'},
-    {name:'Washington Mystics',count:1,years:'2019',status:'Current franchise'}
+    {name:'Washington Mystics',count:1,years:'2019',status:'Current franchise'},
+    {name:'Golden State Valkyries',count:1,years:'2026',status:'Current franchise'}
   ];
 
   const recent = {
@@ -196,9 +199,9 @@ window.TROPHY_DATA = (() => {
     },
     {
       group:'Postseason + showcase honors',
-      note:'These awards follow separate event calendars rather than the regular-season ballot.',
+      note:'The 2026 Finals MVP is confirmed; showcase awards follow their own event calendars.',
       items:[
-        ['Finals MVP','Awarded after the WNBA Finals','#finals-mvp'],
+        ['Finals MVP','2026 · Gabby Williams','#finals-mvp'],
         ['Commissioner’s Cup MVP','2026 · Breanna Stewart','/commissioners-cup.html'],
         ['All-Star Game MVP','2026 · Jonquel Jones','https://valkyries.wnba.com/news/gameday-recap-20260725'],
         ['3-Point Contest','2026 · Azzi Fudd','https://www.wnba.com/watch/video/state-farm-wnba-3-point-contest-recap?collection=all-star-2026'],
@@ -207,9 +210,10 @@ window.TROPHY_DATA = (() => {
     },
     {
       group:'League + community honors',
-      note:'Verified through Oct. 13, 2026. Sportsmanship and basketball executive winners are now confirmed; later-calendar honors retain their latest completed results.',
+      note:'Verified through Nov. 2, 2026. Finals MVP, sportsmanship, basketball executive and business executive winners are confirmed; later-calendar community honors remain pending.',
       items:[
         ['Executive of the Year','2026 · Cheryl Reeve','/award-executive.html'],
+        ['Business Executive Leadership Award','2026 · Jennifer Rizzotti','https://www.wnba.com/webview/news/2026-wnba-executive-leadership-award'],
         ['Sportsmanship Award','2026 · Nneka Ogwumike','/award-sportsmanship.html'],
         ['Seasonlong Community Assist','Latest: 2025 · Tiffany Hayes; 2026 pending','https://www.wnba.com/news/2025-wnba-cares-community-assist-award'],
         ['Dawn Staley Community Leadership Award','Latest: 2025 · Tina Charles; 2026 pending','https://www.wnba.com/news/2025-dawn-staley-community-leadership-award'],

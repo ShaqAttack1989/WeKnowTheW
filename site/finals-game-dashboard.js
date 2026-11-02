@@ -79,9 +79,9 @@
     }).join('');
   }
   async function init(){
-    const article=document.querySelector('.snack-post');
+    const article=document.querySelector('.snack-post')||(location.pathname==='/stat-kitchen.html'?document.querySelector('main'):null);
     const slug=new URLSearchParams(location.search).get('post')||'';
-    if(!article||slug.indexOf('the-playoff-watch-party-2026')===-1)return;
+    if(!article||(location.pathname!=='/stat-kitchen.html'&&slug.indexOf('the-playoff-watch-party-2026')===-1))return;
     if(document.documentElement.dataset.fgdJumpHandlerBound!=='true'){
       document.documentElement.dataset.fgdJumpHandlerBound='true';
       document.addEventListener('click',function(event){
@@ -108,9 +108,9 @@
     if(mount.dataset.loaded==='true'||mount.dataset.loading==='true')return;
     mount.dataset.loading='true';
     try{
-      const response=await fetch('/finals-game-dashboard.json?v=20261022-compact-finals-dashboard-v3');
+      const response=await fetch('/api/finals-game-stats?v=20261102-game7-final-v1',{cache:'no-store'});
       if(!response.ok)throw Error('Dashboard data unavailable');
-      const data=await response.json();
+      let data=await response.json();
       let gameNumber=data.games[data.games.length-1].number;
       let team='ALL',sort='points',view='overview',seriesMetric='points';
       function render(){
@@ -174,10 +174,11 @@
         });
       });
       render();
+      setInterval(async()=>{if(document.hidden)return;try{const r=await fetch('/api/finals-game-stats?v=20261102-game7-final-v1',{cache:'no-store'});if(!r.ok)return;const next=await r.json();if(!next.games?.length)return;const latest=data.games[data.games.length-1].number;data=next;if(gameNumber===latest)gameNumber=data.games[data.games.length-1].number;render();}catch{}},300000);
       mount.dataset.loaded='true';
       delete mount.dataset.loading;
     }catch(error){
-      mount.innerHTML='<h3>Finals game statistics</h3><p>The statistics board is reconnecting. <a href="https://www.wnba.com/game/gsv-vs-atl-1042600303/box-score">Open the official Game 3 final box score ↗</a></p>';
+      mount.innerHTML='<h3>Finals game statistics</h3><p>The statistics board is reconnecting. <a href="https://www.wnba.com/game/atl-vs-gsv-1042600307/box-score">Open the official Game 7 final box score ↗</a></p>';
       mount.dataset.loaded='true';
       delete mount.dataset.loading;
     }

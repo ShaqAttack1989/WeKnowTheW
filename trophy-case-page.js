@@ -43,7 +43,7 @@
   if (championTimeline) {
     const initialCount = 10;
     championTimeline.innerHTML = data.champions.slice(0, initialCount).map(seasonRow).join('') +
-      `<button class="champion-more" type="button" aria-expanded="false">Show every champion, 1997 to 2025</button>`;
+      `<button class="champion-more" type="button" aria-expanded="false">Show every champion, 1997 to ${data.champions[0]?.year || '2025'}</button>`;
     championTimeline.querySelector('.champion-more')?.addEventListener('click', event => {
       championTimeline.innerHTML = data.champions.map(seasonRow).join('');
       hydrateTeamLogos(championTimeline);

@@ -371,12 +371,12 @@
       "priority": 14700,
       "homepageSeason": true,
       "seriesLabel": "NO OFFSEASON · 3x3 AMERICUP",
-      "title": "Four Players, One Halfcourt, a Gold Medal to Defend: USA's 2026 3x3 Watch Guide",
+      "title": "USA Women’s 3x3 Run Ends with Silver at the 2026 AmeriCup",
       "published": "2026-10-26",
-      "updated": "2026-11-01",
-      "week": "October 28–November 1, 2026 · San Salvador, El Salvador",
+      "updated": "2026-11-02",
+      "week": "Oct. 28–Nov. 1, 2026 · San Salvador, El Salvador",
       "dashboardUrl": "/usa-3x3-americup-2026.html",
-      "dek": "USA opened its title defense with a 2–0 Pool B sweep: 21–7 over Colombia, then 21–4 over Cayman Islands. Quarterfinal 3 against Paraguay tips Sunday at 3:10 p.m. ET.",
+      "dek": "USA went 4–1 and reached the gold-medal game, where Canada won 21–12. Full results, final standings and the honors from the women’s 2026 AmeriCup.",
       "players": [
         "Aziaha James",
         "Flau'jae Johnson",
@@ -389,52 +389,40 @@
         "Chicago Sky"
       ],
       "storyLead": [
-        "The USA women opened their 2026 3x3 title defense with a 2–0 Pool B sweep. They beat Colombia 21–7, then the Cayman Islands 21–4, to finish atop the group and advance to Quarterfinal 3 against Paraguay.",
-        "FIBA's recap credited Sydney Taylor with 12 points against Colombia and Flau'jae Johnson with eight against Cayman Islands. The pool wins are settled; the bracket now asks whether the new four-player group can carry that pace into single elimination."
+        "The USA women finished 4–1 at the 2026 FIBA 3x3 AmeriCup, winning four straight games before Canada took the final 21–12. The United States claimed silver, and Sydney Taylor was named to the Women’s Team of the Tournament.",
+        "USA swept Pool B, beat Paraguay in the quarterfinal and Cuba in the semifinal to reach the final. The complete scoreline, final standings and tournament awards are below."
       ],
       "sections": [
         {
-          "title": "Pool play delivered the result",
+          "title": "A clean pool sweep",
           "paragraphs": [
-            "USA beat Colombia 21–7 and Cayman Islands 21–4 to finish first in Pool B at 2–0. The two wins produced a 42–11 points-for/against margin.",
-            "FIBA's Day 4 recap confirmed Quarterfinal 3: USA vs. Paraguay on Sunday, November 1. The scheduled 3:10 p.m. ET tip is the next step in the title defense."
+            "Aziaha James, Flau’jae Johnson, Aerial Powers and Sydney Taylor opened with a 21–7 win over Colombia, then beat the Cayman Islands 21–4. The two victories put USA atop Pool B.",
+            "The defending champions moved into the knockout rounds with a strong start, but the bracket brought three different tests."
           ]
         },
         {
-          "title": "A new group, quick answers",
+          "title": "Two wins earned a place in the final",
           "paragraphs": [
-            "The roster pairs Aziaha James, Flau'jae Johnson, Aerial Powers and Sydney Taylor. Taylor led with 12 points against Colombia; Johnson added eight, including four two-pointers, in the Cayman Islands win.",
-            "Those are useful snapshots, not a complete player dashboard. Full individual totals stay blank until official box-score data is available."
+            "USA held off Paraguay 21–18 in the quarterfinal, then beat Cuba 21–17 in the semifinal. Taylor finished the Cuba game with 10 points and scored the game winner.",
+            "Taylor made the Women’s Team of the Tournament. The roster also included James, Johnson and Powers."
           ]
         },
         {
-          "title": "The watch desk moves to knockout mode",
+          "title": "Canada took gold; USA claimed silver",
           "paragraphs": [
-            "The results table now marks both USA pool games final and names Paraguay as the confirmed quarterfinal opponent. The semifinal and final remain conditional because USA must win to reach them.",
-            "Pool play gives the defending champions a clean start. Single elimination is the harder question: can the new group keep the pressure on when one cold stretch can end the run?"
+            "Canada defeated the United States 21–12 in the gold-medal game, ending the American run at four wins. The final result gave USA a 4–1 tournament record and the silver medal.",
+            "FIBA named Canada’s Michelle Plouffe the Women’s MVP. Plouffe, Taylor and Colombia’s Yuliany Paz made the Women’s Team of the Tournament. Colombia earned bronze for its first AmeriCup medal."
           ]
         }
       ],
       "sources": [
         {
-          "label": "USA Basketball official team announcement, Oct. 23",
-          "url": "https://www.usab.com/news/2026/10/2026-usa-basketball-3x3-americup-teams-announced"
+          "label": "FIBA final recap and women’s standings",
+          "url": "https://www.fiba.basketball/en/news/canada-and-usa-win-fiba-3x3-americup-2026"
         },
         {
-          "label": "USA Basketball preview and USA schedule, Oct. 26",
-          "url": "https://www.usab.com/news/2026/10/usa-look-to-defend-fiba-3x3-americup-gold-medals"
-        },
-        {
-          "label": "FIBA confirmed 2026 pool draw",
-          "url": "https://www.fiba.basketball/en/news/pools-confirmed-for-fiba-3x3-americup-2026"
-        },
-        {
-          "label": "FIBA: USA completes Pool B sweep and quarterfinal matchups, Day 4",
-          "url": "https://www.fiba.basketball/en/news/fiba-3x3-americup-2026-day-4-recap"
-        },
-        {
-          "label": "FIBA: Cuba completes the women's main draw, Day 2",
-          "url": "https://www.fiba.basketball/en/news/fiba-3x3-americup-2026-day-2-recap"
+          "label": "USA women’s AmeriCup schedule",
+          "url": "https://www.usab.com/teams/3x3-womens-americup/schedules"
         }
       ],
       "storyImage": "https://storage.googleapis.com/usab-com-prod/upload/2026/08/18/aae2ef13-531c-4768-843d-935df11af515.jpeg",

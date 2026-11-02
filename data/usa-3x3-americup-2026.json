@@ -1,12 +1,11 @@
 {
-  "event": "2026 FIBA 3x3 AmeriCup — Women",
+  "event": "2026 FIBA 3x3 AmeriCup — USA Women",
   "venue": "Plaza Merliot, San Salvador, El Salvador",
   "start": "2026-10-28",
   "end": "2026-11-01",
-  "verified": "2026-11-01",
-  "source": "https://www.usab.com/news/2026/10/2026-usa-basketball-3x3-americup-teams-announced",
-  "fibaSource": "https://www.fiba.basketball/en/news/fiba-3x3-americup-2026-day-4-recap",
-  "stream": "https://www.youtube.com/fiba3x3",
+  "verified": "2026-11-02",
+  "source": "https://www.fiba.basketball/en/news/canada-and-usa-win-fiba-3x3-americup-2026",
+  "fibaSource": "https://www.fiba.basketball/en/news/canada-and-usa-win-fiba-3x3-americup-2026",
   "coach": "Christina Batastini",
   "roster": [
     {
@@ -26,8 +25,8 @@
     },
     {
       "name": "Sydney Taylor",
-      "note": "Chicago Sky · USA 3x3 Women's Series veteran",
-      "tag": "3x3 EXPERIENCE"
+      "note": "Chicago Sky · Women’s Team of the Tournament",
+      "tag": "ALL-TOURNAMENT"
     }
   ],
   "pools": [
@@ -66,8 +65,8 @@
   ],
   "games": [
     {
-      "id": "usa-pool-1",
-      "date": "2026-10-31T17:50:00-04:00",
+      "id": "usa-w-pool-colombia",
+      "date": "2026-10-31",
       "phase": "Pool B",
       "side": "USA",
       "opponent": "Colombia",
@@ -75,11 +74,11 @@
       "usaScore": 21,
       "opponentScore": 7,
       "confirmed": true,
-      "source": "https://www.fiba.basketball/en/news/fiba-3x3-americup-2026-day-4-recap"
+      "source": "https://www.fiba.basketball/en/news/canada-and-usa-win-fiba-3x3-americup-2026"
     },
     {
-      "id": "usa-pool-2",
-      "date": "2026-10-31T21:20:00-04:00",
+      "id": "usa-w-pool-cayman",
+      "date": "2026-10-31",
       "phase": "Pool B",
       "side": "USA",
       "opponent": "Cayman Islands",
@@ -87,82 +86,46 @@
       "usaScore": 21,
       "opponentScore": 4,
       "confirmed": true,
-      "source": "https://www.fiba.basketball/en/news/fiba-3x3-americup-2026-day-4-recap"
+      "source": "https://www.fiba.basketball/en/news/canada-and-usa-win-fiba-3x3-americup-2026"
     },
     {
-      "id": "usa-quarter-1",
-      "date": "2026-11-01T15:10:00-05:00",
+      "id": "usa-w-quarterfinal",
+      "date": "2026-11-01",
       "phase": "Quarterfinal",
       "side": "USA",
       "opponent": "Paraguay",
-      "status": "scheduled",
-      "usaScore": null,
-      "opponentScore": null,
+      "status": "final",
+      "usaScore": 21,
+      "opponentScore": 18,
       "confirmed": true,
-      "condition": "USA finished first in Pool B; Quarterfinal 3 is confirmed.",
-      "source": "https://www.fiba.basketball/en/news/fiba-3x3-americup-2026-day-4-recap"
+      "source": "https://www.fiba.basketball/en/news/canada-and-usa-win-fiba-3x3-americup-2026"
     },
     {
-      "id": "usa-semis",
-      "date": "2026-11-01T17:20:00-05:00",
-      "phase": "Semifinals",
+      "id": "usa-w-semifinal",
+      "date": "2026-11-01",
+      "phase": "Semifinal",
       "side": "USA",
-      "opponent": "TBD",
-      "status": "conditional",
-      "usaScore": null,
-      "opponentScore": null,
-      "confirmed": false,
-      "condition": "Semifinal session starts at 5:20 PM ET; exact USA match TBD"
+      "opponent": "Cuba",
+      "status": "final",
+      "usaScore": 21,
+      "opponentScore": 17,
+      "confirmed": true,
+      "source": "https://www.fiba.basketball/en/news/canada-and-usa-win-fiba-3x3-americup-2026"
     },
     {
-      "id": "usa-final",
-      "date": "2026-11-01T20:40:00-05:00",
+      "id": "usa-w-final",
+      "date": "2026-11-01",
       "phase": "Final",
       "side": "USA",
-      "opponent": "TBD",
-      "status": "conditional",
-      "usaScore": null,
-      "opponentScore": null,
-      "confirmed": false,
-      "condition": "Only if USA advances to the gold-medal game"
+      "opponent": "Canada",
+      "status": "final",
+      "usaScore": 12,
+      "opponentScore": 21,
+      "confirmed": true,
+      "source": "https://www.fiba.basketball/en/news/canada-and-usa-win-fiba-3x3-americup-2026"
     }
   ],
-  "standings": [],
-  "notes": "USA completed Pool B 2–0, scoring 42 points and allowing 11. FIBA confirmed USA vs. Paraguay as Women's Quarterfinal 3 for November 1. Knockout results and full player box-score totals remain pending verification until those games are completed.",
-  "playerStats": [
-    {
-      "name": "Aziaha James",
-      "games": null,
-      "points": null,
-      "rebounds": null,
-      "assists": null,
-      "source": null
-    },
-    {
-      "name": "Flau'jae Johnson",
-      "games": null,
-      "points": null,
-      "rebounds": null,
-      "assists": null,
-      "source": null
-    },
-    {
-      "name": "Aerial Powers",
-      "games": null,
-      "points": null,
-      "rebounds": null,
-      "assists": null,
-      "source": null
-    },
-    {
-      "name": "Sydney Taylor",
-      "games": null,
-      "points": null,
-      "rebounds": null,
-      "assists": null,
-      "source": null
-    }
-  ],
+  "notes": "Final results verified November 2, 2026. USA women went 4–1 and finished with silver after a 12–21 final against Canada. Scores below are shown USA-first.",
   "qualifierResults": [
     {
       "draw": "Qualifying Draw A",
@@ -170,7 +133,7 @@
       "status": "FINAL · MAIN DRAW",
       "winner": "Colombia",
       "result": "Colombia 18–16 Brazil; Colombia also beat Uruguay 19–11.",
-      "detail": "Colombia claims the Pool B place and becomes USA's first opponent.",
+      "detail": "Colombia joined Pool B and was USA’s first opponent.",
       "source": "https://www.fiba.basketball/en/news/fiba-3x3-americup-2026-day-1-recap"
     },
     {
@@ -188,10 +151,38 @@
       "status": "FINAL · MAIN DRAW",
       "winner": "Paraguay",
       "result": "Paraguay swept its pool: 21–8 Nicaragua, 21–3 Jamaica, 21–8 Honduras.",
-      "detail": "Paraguay claims the Pool D place with Puerto Rico and Argentina.",
+      "detail": "Paraguay joined Pool D and later faced USA in the quarterfinal.",
       "source": "https://www.fiba.basketball/en/news/fiba-3x3-americup-2026-day-1-recap"
     }
   ],
-  "poolResultsSource": "https://www.fiba.basketball/en/news/fiba-3x3-americup-2026-day-4-recap",
-  "bracketSource": "https://www.fiba.basketball/en/news/fiba-3x3-americup-2026-day-4-recap"
+  "poolResultsSource": "https://www.fiba.basketball/en/news/canada-and-usa-win-fiba-3x3-americup-2026",
+  "bracketSource": "https://www.fiba.basketball/en/news/canada-and-usa-win-fiba-3x3-americup-2026",
+  "finalStandings": [
+    "Canada",
+    "United States",
+    "Colombia",
+    "Cuba",
+    "Argentina",
+    "Paraguay",
+    "El Salvador",
+    "Chile",
+    "Puerto Rico",
+    "Mexico",
+    "Venezuela",
+    "Cayman Islands"
+  ],
+  "awards": [
+    {
+      "award": "Women’s MVP",
+      "name": "Michelle Plouffe",
+      "note": "Canada · 9 points in the final"
+    },
+    {
+      "award": "Women’s Team of the Tournament",
+      "name": "Michelle Plouffe · Sydney Taylor · Yuliany Paz",
+      "note": "Canada · United States · Colombia"
+    }
+  ],
+  "rosterSource": "https://www.usab.com/teams/3x3-womens-americup/schedules",
+  "scheduleSource": "https://www.usab.com/teams/3x3-womens-americup/schedules"
 }

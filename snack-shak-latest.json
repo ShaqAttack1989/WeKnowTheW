@@ -2,6 +2,512 @@
   "site": "Snack Shak",
   "posts": [
     {
+      "slug": "same-family-different-league-top-10-wnba-nba-siblings",
+      "type": "feature",
+      "priority": 18000,
+      "homepageSeason": true,
+      "seriesLabel": "FOOD FOR THOUGHT · FAMILY BUSINESS",
+      "title": "Same Family, Different League: Ranking the Top 10 WNBA–NBA Sibling Duos",
+      "published": "2026-11-02",
+      "updated": "2026-11-02",
+      "week": "November 2, 2026 · All-time sibling rankings",
+      "image": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/201496.png",
+      "storyImage": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/201496.png",
+      "imageFit": "contain",
+      "imageAlt": "Candace Parker in her Las Vegas Aces uniform, in an official WNBA portrait.",
+      "storyImageCaption": "Candace Parker leads our all-time sibling ranking alongside brother Anthony. Photo: WNBA.",
+      "storyImageSourceUrl": "https://www.wnba.com/player/201496/candace-parker",
+      "dashboardUrl": "/food-for-thought.html?post=same-family-different-league-top-10-wnba-nba-siblings#story",
+      "dek": "The Parkers set the standard. The Reeses own the glass. The Salaüns are climbing. We grade ten brother-sister duos, with a GOAT tribute to Cheryl and Reggie Miller.",
+      "players": [
+        "Candace Parker",
+        "Anthony Parker",
+        "Imani McGee-Stafford",
+        "JaVale McGee",
+        "Angel Reese",
+        "Julian Reese",
+        "Elizabeth Williams",
+        "Mark Williams",
+        "Janelle Salaün",
+        "Tidjane Salaün",
+        "Iliana Rupert",
+        "Rayan Rupert",
+        "Gabriela Jaquez",
+        "Jaime Jaquez Jr.",
+        "Nia Coffey",
+        "Amir Coffey",
+        "Mfon Udoka",
+        "Ime Udoka",
+        "Cassandre Prosper",
+        "Olivier-Maxence Prosper",
+        "Cheryl Miller",
+        "Reggie Miller"
+      ],
+      "storyLead": [
+        "Some families pass down recipes. These families apparently pass down footwork, wingspan, and a complete unwillingness to lose in the driveway.",
+        "Angel and Julian Reese. Janelle and Tidjane Salaün. Candace and Anthony Parker. Their paths raise a good basketball question: Which brother-sister duo has the strongest combined résumé?",
+        "At We Know the W, the sister gets equal billing. An NBA contract does not automatically outweigh a WNBA award, and sharing a last name does not mean sharing credit for every accomplishment.",
+        "This ranking includes active and retired brother-sister pairs who played in the WNBA and NBA. We Know the W grades are editorial judgments, weighing production, individual honors, championship contributions, longevity, and what both siblings have accomplished. International and college achievements provide context, with professional performance carrying the most weight.",
+        "Season averages are labeled by year. They are individual league statistics, not numbers combined across different schedules and levels of competition. Team badges identify the stated season or career team; portraits may be archival."
+      ],
+      "siblingDuos": {
+        "pairs": [
+          {
+            "rank": 1,
+            "title": "Candace and Anthony Parker",
+            "grade": "A+",
+            "tagline": "The standard",
+            "players": [
+              {
+                "name": "Candace Parker",
+                "photo": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/201496.png",
+                "sourceUrl": "https://www.wnba.com/player/201496",
+                "credit": "WNBA official player photography",
+                "team": "Las Vegas Aces",
+                "teamNote": "Career team",
+                "logo": "https://cdn.wnba.com/logos/wnba/1611661319/primary/L/logo.svg"
+              },
+              {
+                "name": "Anthony Parker",
+                "photo": "https://cdn.nba.com/headshots/nba/latest/1040x760/1515.png",
+                "sourceUrl": "https://www.nba.com/player/1515",
+                "credit": "NBA official player photography",
+                "team": "Cleveland Cavaliers",
+                "teamNote": "Career team",
+                "logo": "https://cdn.nba.com/logos/nba/1610612739/primary/L/logo.svg"
+              }
+            ],
+            "paragraphs": [
+              "Candace’s career makes this family difficult to catch: three WNBA championships, two MVP awards, a Finals MVP, a Defensive Player of the Year award, and Rookie of the Year. She finished with regular-season averages of 16.0 points, 8.5 rebounds, and 4.0 assists. Her championships came with Los Angeles, Chicago, and Las Vegas, demonstrating how her skills translated across teams and roles.",
+              "Anthony deserves more than a footnote beneath his sister’s name. Across 494 NBA games, he averaged 9.1 points, 3.2 rebounds, and 2.3 assists, shooting 40.4% from three. Overseas, he won consecutive EuroLeague MVP awards in 2004–05 and 2005–06. That is a substantial professional career on both sides of the Atlantic.",
+              "The verdict: Candace supplies an all-time WNBA résumé. Anthony adds sustained NBA value and elite European accomplishments. This family has both the peak and the depth."
+            ]
+          },
+          {
+            "rank": 2,
+            "title": "Imani McGee-Stafford and JaVale McGee",
+            "grade": "A",
+            "tagline": "Championship experience meets defensive pedigree",
+            "players": [
+              {
+                "name": "Imani McGee-Stafford",
+                "photo": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1627677.png",
+                "sourceUrl": "https://www.wnba.com/player/1627677",
+                "credit": "WNBA official player photography",
+                "team": "Dallas Wings",
+                "teamNote": "Career team",
+                "logo": "https://cdn.wnba.com/logos/wnba/1611661321/primary/L/logo.svg"
+              },
+              {
+                "name": "JaVale McGee",
+                "photo": "https://cdn.nba.com/headshots/nba/latest/1040x760/201580.png",
+                "sourceUrl": "https://www.nba.com/player/201580",
+                "credit": "NBA official player photography",
+                "team": "Sacramento Kings",
+                "teamNote": "Career team",
+                "logo": "https://cdn.nba.com/logos/nba/1610612758/primary/L/logo.svg"
+              }
+            ],
+            "paragraphs": [
+              "JaVale finished his NBA career with averages of 7.6 points, 5.0 rebounds, and 1.4 blocks, collecting three NBA championships along the way. Those titles came with Golden State in 2017 and 2018 and the Lakers in 2020. His value came through rim protection, finishing, and filling a specific role beside championship stars.",
+              "Imani earned 2016 WNBA All-Rookie honors, averaging 6.7 points, 5.6 rebounds, and 1.4 blocks that season. Across her four WNBA seasons, she averaged 4.4 points and 4.2 rebounds in 121 games. Her rookie production showed she belonged on her own merits.",
+              "Their mother, Pamela McGee, also played in the WNBA. That family history adds meaning, although Mom’s accomplishments do not get added to the siblings’ grade.",
+              "The verdict: JaVale’s longevity and championship contributions, paired with Imani’s established WNBA production, keep this duo near the top. Neither needed to lead a team in scoring to have professional value."
+            ]
+          },
+          {
+            "rank": 3,
+            "title": "Angel and Julian Reese",
+            "grade": "A−",
+            "tagline": "The glass belongs to the family",
+            "players": [
+              {
+                "name": "Angel Reese",
+                "photo": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1642291.png",
+                "sourceUrl": "https://www.wnba.com/player/1642291",
+                "credit": "WNBA official player photography",
+                "team": "Atlanta Dream",
+                "teamNote": "2026 team",
+                "logo": "https://cdn.wnba.com/logos/wnba/1611661330/primary/L/logo.svg"
+              },
+              {
+                "name": "Julian Reese",
+                "photo": "https://cdn.nba.com/headshots/nba/latest/1040x760/1642882.png",
+                "sourceUrl": "https://www.nba.com/player/1642882",
+                "credit": "NBA official player photography",
+                "team": "New Orleans Pelicans",
+                "teamNote": "2026 team",
+                "logo": "https://cdn.nba.com/logos/nba/1610612740/primary/L/logo.svg"
+              }
+            ],
+            "paragraphs": [
+              "Angel’s 2026 Defensive Player of the Year season strengthened her case considerably. She averaged 16.4 points, 12.1 rebounds, and 1.8 steals, earning her third consecutive All-Star selection. Her season included 521 rebounds, 206 offensive rebounds, and 32 double-doubles, all reported by the league as single-season records. She also earned All-WNBA Second Team honors.",
+              "Julian’s first NBA season offered a smaller but intriguing sample: 11.8 points and 10.5 rebounds across 13 games for Washington in 2025–26. His early statement game against Utah produced 18 points and 20 rebounds. Apparently, leaving a rebound unattended violates the family code.",
+              "The verdict: Angel already has major individual hardware. Julian has demonstrated NBA-level rebounding, but 13 games cannot carry the same weight as years of sustained production. That sample-size limitation keeps this from becoming an A today."
+            ]
+          },
+          {
+            "rank": 4,
+            "title": "Elizabeth and Mark Williams",
+            "grade": "A−",
+            "tagline": "The paint comes with a security deposit",
+            "players": [
+              {
+                "name": "Elizabeth Williams",
+                "photo": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/204322.png",
+                "sourceUrl": "https://www.wnba.com/player/204322",
+                "credit": "WNBA official player photography",
+                "team": "Dallas Wings",
+                "teamNote": "2026 team",
+                "logo": "https://cdn.wnba.com/logos/wnba/1611661321/primary/L/logo.svg"
+              },
+              {
+                "name": "Mark Williams",
+                "photo": "https://cdn.nba.com/headshots/nba/latest/1040x760/1631109.png",
+                "sourceUrl": "https://www.nba.com/player/1631109",
+                "credit": "NBA official player photography",
+                "team": "Phoenix Suns",
+                "teamNote": "2026 team",
+                "logo": "https://cdn.nba.com/logos/nba/1610612756/primary/L/logo.svg"
+              }
+            ],
+            "paragraphs": [
+              "Elizabeth’s résumé includes 2016 Most Improved Player, a 2017 All-Star selection, 2020 All-Defensive First Team, and 2023 All-Defensive Second Team. Her breakthrough 2016 season produced 11.9 points, 8.1 rebounds, and 2.3 blocks per game. She has built her career around interior defense and dependable work that does not always dominate the headlines.",
+              "Mark demonstrated his offensive and rebounding ceiling with 15.3 points and 10.2 rebounds per game in 2024–25. His 2025–26 Phoenix season produced 11.7 points and 8.0 rebounds, with 64.4% shooting from the field.",
+              "The verdict: Both siblings have supplied meaningful production over more than a brief audition. Elizabeth’s awards and defensive longevity give this family the edge over several younger duos."
+            ]
+          },
+          {
+            "rank": 5,
+            "title": "Janelle and Tidjane Salaün",
+            "grade": "B+",
+            "tagline": "Big sister has the hardware",
+            "players": [
+              {
+                "name": "Janelle Salaün",
+                "photo": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1642767.png",
+                "sourceUrl": "https://www.wnba.com/player/1642767",
+                "credit": "WNBA official player photography",
+                "team": "Golden State Valkyries",
+                "teamNote": "2026 team",
+                "logo": "https://cdn.wnba.com/logos/wnba/1611661331/primary/L/logo.svg"
+              },
+              {
+                "name": "Tidjane Salaün",
+                "photo": "https://cdn.nba.com/headshots/nba/latest/1040x760/1642275.png",
+                "sourceUrl": "https://www.nba.com/player/1642275",
+                "credit": "NBA official player photography",
+                "team": "Charlotte Hornets",
+                "teamNote": "2026 team",
+                "logo": "https://cdn.nba.com/logos/nba/1610612766/primary/L/logo.svg"
+              }
+            ],
+            "paragraphs": [
+              "Janelle’s 2026 season demands attention. She was the unanimous WNBA Sixth Player of the Year, averaging 12.7 points and shooting 39.2% from three. Coming off the bench in all 40 appearances, she made 93 three-pointers and scored 509 points, establishing league records for a reserve in both categories. Golden State then won the 2026 championship.",
+              "Tidjane, the No. 6 pick in the 2024 NBA Draft, averaged 6.0 points and 4.0 rebounds in 37 NBA games in 2025–26, shooting 43.4% from three. The shooting improvement is encouraging, although the opportunity and volume still matter when evaluating that percentage.",
+              "The verdict: Janelle is driving this ranking through award-winning production on a championship team. Tidjane’s continued development will determine how quickly the duo climbs."
+            ]
+          },
+          {
+            "rank": 6,
+            "title": "Iliana and Rayan Rupert",
+            "grade": "B+",
+            "tagline": "France keeps the family pipeline moving",
+            "players": [
+              {
+                "name": "Iliana Rupert",
+                "photo": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1630387.png",
+                "sourceUrl": "https://www.wnba.com/player/1630387",
+                "credit": "WNBA official player photography",
+                "team": "Golden State Valkyries",
+                "teamNote": "2026 team",
+                "logo": "https://cdn.wnba.com/logos/wnba/1611661331/primary/L/logo.svg"
+              },
+              {
+                "name": "Rayan Rupert",
+                "photo": "https://cdn.nba.com/headshots/nba/latest/1040x760/1641712.png",
+                "sourceUrl": "https://www.nba.com/player/1641712",
+                "credit": "NBA official player photography",
+                "team": "Philadelphia 76ers",
+                "teamNote": "2026 team",
+                "logo": "https://cdn.nba.com/logos/nba/1610612755/primary/L/logo.svg"
+              }
+            ],
+            "paragraphs": [
+              "Iliana entered 2026 with a 2022 WNBA championship, Olympic bronze from Tokyo, and Olympic silver from Paris. Her WNBA biography also credits her with 9.3 points, 3.9 rebounds, and 44.3% three-point shooting in 2025. Her combination of size and perimeter shooting gives her a valuable modern frontcourt skill set.",
+              "Rayan averaged 5.2 points, 2.9 rebounds, and 1.1 assists across 64 NBA games in 2025–26. Those are developing rotation-player numbers, with plenty still to establish offensively.",
+              "The verdict: Iliana’s championship and international achievements anchor the grade. Rayan’s progress gives this pairing room to grow, but their combined résumé remains short of the more established families above them."
+            ]
+          },
+          {
+            "rank": 7,
+            "title": "Gabriela and Jaime Jaquez Jr.",
+            "grade": "B",
+            "tagline": "A promising family business",
+            "players": [
+              {
+                "name": "Gabriela Jaquez",
+                "photo": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1643447.png",
+                "sourceUrl": "https://www.wnba.com/player/1643447",
+                "credit": "WNBA official player photography",
+                "team": "Chicago Sky",
+                "teamNote": "2026 team",
+                "logo": "https://cdn.wnba.com/logos/wnba/1611661329/primary/L/logo.svg"
+              },
+              {
+                "name": "Jaime Jaquez Jr.",
+                "photo": "https://cdn.nba.com/headshots/nba/latest/1040x760/1631170.png",
+                "sourceUrl": "https://www.nba.com/player/1631170",
+                "credit": "NBA official player photography",
+                "team": "Milwaukee Bucks",
+                "teamNote": "2026 team",
+                "logo": "https://cdn.nba.com/logos/nba/1610612749/primary/L/logo.svg"
+              }
+            ],
+            "paragraphs": [
+              "Gabriela’s first WNBA season produced 7.1 points and 3.0 rebounds in 39 games, shooting 44.0% from the field. Those numbers establish a useful starting point for evaluating her professional career without assigning her credit for what she might become.",
+              "Jaime averaged 15.4 points, 5.0 rebounds, and 4.7 assists in 2025–26, finishing second in Sixth Man of the Year voting. He had already earned NBA All-Rookie First Team recognition earlier in his career. His scoring and playmaking give the duo a strong professional foundation.",
+              "The verdict: Jaime has the more established professional résumé. Gabriela’s rookie season gets them on the board, with future movement depending on how much her role expands."
+            ]
+          },
+          {
+            "rank": 8,
+            "title": "Nia Coffey and Amir Coffey",
+            "grade": "B",
+            "tagline": "Staying power deserves respect",
+            "players": [
+              {
+                "name": "Nia Coffey",
+                "photo": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1628269.png",
+                "sourceUrl": "https://www.wnba.com/player/1628269",
+                "credit": "WNBA official player photography",
+                "team": "Minnesota Lynx",
+                "teamNote": "2026 team",
+                "logo": "https://cdn.wnba.com/logos/wnba/1611661324/primary/L/logo.svg"
+              },
+              {
+                "name": "Amir Coffey",
+                "photo": "https://cdn.nba.com/headshots/nba/latest/1040x760/1629599.png",
+                "sourceUrl": "https://www.nba.com/player/1629599",
+                "credit": "NBA official player photography",
+                "team": "Phoenix Suns",
+                "teamNote": "2026 team",
+                "logo": "https://cdn.nba.com/logos/nba/1610612756/primary/L/logo.svg"
+              }
+            ],
+            "paragraphs": [
+              "Nia’s WNBA career has required adaptability across teams and roles. As one example of her production, she averaged 3.9 points and 2.6 rebounds while appearing in all 44 games for Atlanta in 2025. Durability and readiness matter when a team needs dependable rotation options.",
+              "Amir’s 2024–25 Clippers season produced a career-high 9.7 points per game in 72 appearances. He shot 40.9% from three, demonstrating the kind of perimeter efficiency that helps a role player earn consistent opportunities.",
+              "The verdict: Their case rests on sustained professional usefulness. Both have built careers doing the work required to stay in highly competitive leagues, even without major individual award collections."
+            ]
+          },
+          {
+            "rank": 9,
+            "title": "Mfon and Ime Udoka",
+            "grade": "B−",
+            "tagline": "Remember the playing careers",
+            "players": [
+              {
+                "name": "Mfon Udoka",
+                "photo": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/100257.png",
+                "sourceUrl": "https://www.wnba.com/player/100257",
+                "credit": "WNBA official player photography",
+                "team": "Los Angeles Sparks",
+                "teamNote": "Career team",
+                "logo": "https://cdn.wnba.com/logos/wnba/1611661320/primary/L/logo.svg"
+              },
+              {
+                "name": "Ime Udoka",
+                "photo": "https://cdn.nba.com/headshots/nba/latest/1040x760/2137.png",
+                "sourceUrl": "https://www.nba.com/player/2137",
+                "credit": "NBA official player photography",
+                "team": "San Antonio Spurs",
+                "teamNote": "Career team",
+                "logo": "https://cdn.nba.com/logos/nba/1610612759/primary/L/logo.svg"
+              }
+            ],
+            "paragraphs": [
+              "Mfon’s WNBA career was brief: 31 games, with averages of 2.7 points and 1.8 rebounds. Her international résumé tells a much larger story. At the 2004 Olympics, she averaged 21.7 points and 10.2 rebounds for Nigeria across six games. That production deserves recognition alongside her American professional record.",
+              "Ime averaged 5.2 points, 2.9 rebounds, and 1.0 assists during his NBA playing career. His later coaching career is separate from this evaluation of the siblings as players.",
+              "The verdict: Mfon’s international excellence lifts their case. Their comparatively modest WNBA and NBA playing résumés keep them below duos with more sustained production in those leagues."
+            ],
+            "sharedPhoto": "https://andscape.com/wp-content/uploads/2025/04/Image-from-iOS.jpg?w=700",
+            "sharedCaption": "Mfon Udoka (left) and Ime Udoka beside San Antonio’s championship trophies. Photo: Mfon Udoka, via Andscape.",
+            "sharedSource": "https://andscape.com/features/siblings-ime-and-mfon-udoka-inspire-each-other-through-basketball-careers/"
+          },
+          {
+            "rank": 10,
+            "title": "Cassandre and Olivier-Maxence Prosper",
+            "grade": "B−",
+            "tagline": "The next chapter is still being written",
+            "players": [
+              {
+                "name": "Cassandre Prosper",
+                "photo": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1643467.png",
+                "sourceUrl": "https://www.wnba.com/player/1643467",
+                "credit": "WNBA official player photography",
+                "team": "Washington Mystics",
+                "teamNote": "2026 team",
+                "logo": "https://cdn.wnba.com/logos/wnba/1611661322/primary/L/logo.svg"
+              },
+              {
+                "name": "Olivier-Maxence Prosper",
+                "photo": "https://cdn.nba.com/headshots/nba/latest/1040x760/1641765.png",
+                "sourceUrl": "https://www.nba.com/player/1641765",
+                "credit": "NBA official player photography",
+                "team": "Memphis Grizzlies",
+                "teamNote": "2026 team",
+                "logo": "https://cdn.nba.com/logos/nba/1610612763/primary/L/logo.svg"
+              }
+            ],
+            "paragraphs": [
+              "Cassandre’s 2026 WNBA rookie season produced 2.1 points and 1.0 rebound in 9.6 minutes per game across 38 appearances. Her 30.1% field-goal shooting shows that offensive development remains an important next step.",
+              "Olivier-Maxence made a substantial jump in 2025–26, averaging 10.0 points and 3.5 rebounds in 53 games for Memphis, while shooting 54.9% overall and 40.5% from three.",
+              "The verdict: His improvement gives this duo momentum. Cassandre needs more minutes and stronger offensive efficiency before we move the family higher. Potential earns attention; established production earns placement."
+            ]
+          }
+        ],
+        "legacy": {
+          "title": "Cheryl and Reggie Miller",
+          "grade": "A+",
+          "tagline": "The GOAT pairing the WNBA timeline never allowed",
+          "players": [
+            {
+              "name": "Cheryl Miller",
+              "photo": "https://dxbhsrqyrr690.cloudfront.net/sidearm.nextgen.sites/usctrojans.com/images/2021/2/1/cheryl_miller_usc_trojans.jpg",
+              "sourceUrl": "https://usctrojans.com/news/2024/1/25/womens-basketball-usc-womens-basketball-legend-cheryl-miller-honored-with-induction-into-california-hall-of-fame",
+              "credit": "USC Athletics archival photography",
+              "team": "USC Trojans",
+              "teamNote": "College playing career",
+              "logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/30.png"
+            },
+            {
+              "name": "Reggie Miller",
+              "photo": "https://cdn.nba.com/headshots/nba/latest/1040x760/397.png",
+              "sourceUrl": "https://www.nba.com/player/397",
+              "credit": "NBA official player photography",
+              "team": "Indiana Pacers",
+              "teamNote": "NBA playing career",
+              "logo": "https://cdn.nba.com/logos/nba/1610612754/primary/L/logo.svg"
+            }
+          ],
+          "paragraphs": [
+            "Before anybody starts arguing about the list, pull up a chair for Cheryl Miller.",
+            "At USC, Cheryl scored 3,018 career points, won two NCAA championships, earned three Naismith Player of the Year awards, and was a four-time All-American. She also won Olympic gold in 1984 and earned NCAA Tournament Most Outstanding Player honors twice. Her Hall of Fame induction came in 1995.",
+            "Reggie supplied an extraordinary résumé of his own: five NBA All-Star selections, three All-NBA Third Team selections, Olympic gold, more than 25,000 NBA points, and an NBA 75th Anniversary Team selection. He spent all 18 NBA seasons with Indiana and joined the Hall of Fame in 2012.",
+            "Cheryl never played in the WNBA. Her playing career was curtailed by knee injuries, and the league did not begin until 1997. We cannot award her imaginary WNBA championships or MVPs.",
+            "But here is the We Know the W take: had a healthy Cheryl Miller received a full WNBA runway, Cheryl and Reggie would be my pick for the greatest brother-sister basketball duo ever. That is an opinion grounded in the greatness she already demonstrated.",
+            "Calling her an honorable mention reflects this article’s WNBA eligibility rule. It does not describe her place in basketball history."
+          ]
+        }
+      },
+      "sections": [
+        {
+          "title": "Food for thought",
+          "paragraphs": [
+            "The most revealing part of this ranking is how often the sister supplies the family’s strongest basketball credentials.",
+            "Candace brings MVPs. Angel brings Defensive Player of the Year. Janelle brings Sixth Player of the Year and a championship. Elizabeth brings an established defensive résumé. Cheryl brought all-time greatness before there was a WNBA stage available to her.",
+            "So when we introduce these women through their brothers, we sometimes have the introduction backward.",
+            "The Parkers own our top spot. The Millers own our biggest what-if. And the next generation has plenty of time to make this ranking uncomfortable."
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "label": "Candace Parker: official WNBA career",
+          "url": "https://aces.wnba.com/candace-parker-bio"
+        },
+        {
+          "label": "Anthony Parker: career and EuroLeague MVPs",
+          "url": "https://bradleybraves.com/news/2012/7/3/205500398.aspx"
+        },
+        {
+          "label": "McGee-Stafford: WNBA biography",
+          "url": "https://www.wnba.com/player/1627677/imani-mcgee-stafford/bio"
+        },
+        {
+          "label": "JaVale McGee: career",
+          "url": "https://www.basketball-reference.com/players/m/mcgeeja01.html"
+        },
+        {
+          "label": "Angel Reese: 2026 Defensive Player of the Year",
+          "url": "https://www.wnba.com/webview/news/reese-named-2026-defensive-player-of-the-year"
+        },
+        {
+          "label": "Angel Reese: 2026 All-WNBA",
+          "url": "https://dream.wnba.com/news/angel-reese-and-rhyne-howard-named-to-2026-all-wnba-second-team"
+        },
+        {
+          "label": "Julian Reese: NBA statistics",
+          "url": "https://www.basketball-reference.com/players/r/reeseju01.html"
+        },
+        {
+          "label": "Elizabeth Williams: career",
+          "url": "https://www.basketball-reference.com/wnba/players/w/williel01w.html"
+        },
+        {
+          "label": "Mark Williams: NBA statistics",
+          "url": "https://basketball.realgm.com/player/Mark-Williams/Summary/132629"
+        },
+        {
+          "label": "Salaün: 2026 Sixth Player of the Year",
+          "url": "https://www.wnba.com/news/janelle-salaun-named-sixth-player-of-the-year"
+        },
+        {
+          "label": "Golden State: 2026 championship",
+          "url": "https://valkyries.wnba.com/news/gameday-recap-20261031"
+        },
+        {
+          "label": "Tidjane Salaün: NBA statistics",
+          "url": "https://www.basketball-reference.com/players/s/salauti01.html"
+        },
+        {
+          "label": "Iliana Rupert: official biography",
+          "url": "https://www.wnba.com/player/1630387/iliana-rupert/bio"
+        },
+        {
+          "label": "Rayan Rupert: 2025–26 statistics",
+          "url": "https://www.landofbasketball.com/nba_players_season_stats/2026/rayan_rupert_full.htm"
+        },
+        {
+          "label": "2026 WNBA rookie statistics",
+          "url": "https://stats.wnba.com/leaders/?Scope=Rookies&Season=2026&SeasonType=Regular+Season"
+        },
+        {
+          "label": "Jaime Jaquez: 2025–26 season",
+          "url": "https://fieldlevelmedia.com/nba/spurs-swingman-keldon-johnson-wins-nbas-sixth-man-award/"
+        },
+        {
+          "label": "Nia Coffey: career",
+          "url": "https://www.basketball-reference.com/wnba/players/c/coffeni01w.html"
+        },
+        {
+          "label": "Amir Coffey: NBA statistics",
+          "url": "https://www.basketball-reference.com/players/c/coffeam01.html"
+        },
+        {
+          "label": "Mfon Udoka: FIBA record",
+          "url": "https://www.fiba.basketball/en/players/131224-mfon-sunday-udoka"
+        },
+        {
+          "label": "Udoka siblings: Andscape reporting and photograph",
+          "url": "https://andscape.com/features/siblings-ime-and-mfon-udoka-inspire-each-other-through-basketball-careers/"
+        },
+        {
+          "label": "Olivier-Maxence Prosper: 2025–26 statistics",
+          "url": "https://www.landofbasketball.com/nba_players_season_stats/2026/olivier_maxence_prosper_full.htm"
+        },
+        {
+          "label": "Cheryl Miller: Basketball Hall of Fame",
+          "url": "https://www.hoophall.com/hall-of-famers/cheryl-miller"
+        },
+        {
+          "label": "Reggie Miller: Basketball Hall of Fame",
+          "url": "https://www.hoophall.com/hall-of-famers/reggie-miller"
+        }
+      ]
+    },
+    {
       "slug": "unrivaled-wnba-double-crown-gray-burton",
       "type": "feature",
       "priority": 17700,

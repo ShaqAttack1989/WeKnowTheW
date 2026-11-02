@@ -110,6 +110,144 @@
   .cup-panel .cup-card,.cup-btn,#cup-pulse .cup-card{transition:none}
   .cup-panel .cup-card:hover,.cup-btn:hover,#cup-pulse .cup-card:hover{transform:none}
 }
+
+/* FIBA visual refresh · women’s AmeriCup results */
+:root{--cup-ink:#10243f;--cup-lime:#ffd451;--cup-red:#b51f38;--cup-pale:#f2f6fb;--cup-navy:#071a34;--cup-blue:#15599a}
+.cup-page{color:#10243f;background:#f2f6fb}
+.cup-hero{background:radial-gradient(ellipse at 10% 2%,rgba(247,198,65,.22),transparent 28%),radial-gradient(ellipse at 85% 25%,rgba(39,114,190,.45),transparent 35%),linear-gradient(126deg,#06152b 0%,#0b2e59 58%,#8f1d34 100%);color:#fff}
+.cup-hero:after{color:rgba(255,255,255,.055);right:-1%;bottom:-11%;font-size:clamp(12rem,32vw,34rem)}
+.cup-head{display:grid;grid-template-columns:minmax(0,1.04fr) minmax(300px,.96fr);grid-template-areas:"eyebrow eyebrow" "title photo" "intro photo" "mini mini" "actions actions";gap:12px clamp(26px,4vw,54px);align-items:center;padding:clamp(2.4rem,5.3vw,4.7rem) 24px 3.2rem}
+.cup-eyebrow{grid-area:eyebrow;color:#ffdc68;font-size:.78rem;letter-spacing:.17em}
+.cup-head h1{grid-area:title;max-width:720px;margin:.1rem 0 .25rem;font-size:clamp(3.2rem,6vw,6rem);line-height:.91;letter-spacing:-.065em;text-wrap:balance}
+.cup-head h1 em{color:#ffd451;text-shadow:0 3px 18px rgba(255,212,81,.12)}
+.cup-head>p:not(.cup-eyebrow){grid-area:intro;max-width:680px;margin:0;color:#edf4ff;font-size:clamp(1.02rem,1.5vw,1.2rem);line-height:1.6}
+.cup-feature-photo{grid-area:photo;display:flex;flex-direction:column;width:100%;max-width:none;align-self:stretch;overflow:hidden;margin:0;border:1px solid rgba(255,255,255,.35);border-radius:24px;background:#07172d;box-shadow:0 22px 60px rgba(0,0,0,.3)}
+.cup-feature-photo img{display:block;width:100%;aspect-ratio:3/2;object-fit:cover}
+.cup-feature-photo figcaption{padding:12px 15px;color:#e9f0fa;background:rgba(4,17,35,.78);font-size:.82rem;line-height:1.5}
+.cup-feature-photo a{color:#ffdc68;text-underline-offset:3px}
+.cup-actions{grid-area:actions;gap:11px}
+.cup-actions a,.cup-source-links a{transition:transform .18s ease,box-shadow .18s ease,background .18s ease}
+.cup-actions a:first-child{background:#ffd451;color:#071a34;box-shadow:0 8px 20px rgba(0,0,0,.18)}
+.cup-actions a:not(:first-child){border-color:rgba(255,255,255,.42);background:rgba(255,255,255,.08);color:#fff}
+.cup-actions a:hover,.cup-source-links a:hover{transform:translateY(-2px)}
+.cup-actions a:not(:first-child):hover{background:rgba(255,255,255,.16)}
+.cup-mini{grid-area:mini;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:7px}
+.cup-mini span{min-width:0;border-color:rgba(255,255,255,.2);background:rgba(255,255,255,.09);color:#f2f6fd;font-size:.92rem}
+.cup-mini b{color:#ffdb64;font-size:1.16rem;letter-spacing:.02em}
+.cup-tabs{position:sticky;top:0;z-index:20;display:flex;flex-wrap:nowrap;overflow-x:auto;overscroll-behavior-x:contain;scrollbar-width:thin;scrollbar-color:#ffd451 #0a2344;background:#071a34;border:0;box-shadow:0 8px 24px rgba(5,20,41,.2);gap:5px;padding:10px max(20px,calc((100vw - 1112px)/2))}
+.cup-tabs a{flex:0 0 auto;border:1px solid transparent;border-radius:999px;padding:10px 14px;color:#edf4ff;font-size:.9rem;white-space:nowrap;transition:background .16s ease,color .16s ease,border-color .16s ease}
+.cup-tabs a:hover,.cup-tabs a:focus-visible{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.22);color:#ffdb64;outline-offset:2px}
+.cup-block{padding:clamp(34px,5vw,58px) 0;scroll-margin-top:76px}
+.cup-block h2{color:#10243f;font-size:clamp(1.9rem,3.3vw,2.8rem);letter-spacing:-.035em}
+.cup-kicker{color:#a61f36;font-size:.75rem;letter-spacing:.15em}
+.cup-desc{color:#394e68;line-height:1.65}
+.cup-card{position:relative;overflow:hidden;border:1px solid #d8e2ee;border-top:4px solid #2a73b8;border-radius:18px;background:linear-gradient(150deg,#fff,#f8fbff);color:#10243f;box-shadow:0 9px 24px rgba(16,36,63,.07);transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease}
+.cup-card:hover{transform:translateY(-4px);border-color:#a9c4df;box-shadow:0 16px 34px rgba(16,36,63,.13)}
+.cup-card small{color:#274d74}
+.cup-card h3{color:#10243f}
+.cup-card p{color:#40546d;line-height:1.55}
+.cup-card strong{color:#144f86}
+.cup-card .cup-chip{background:#e7f0fa;color:#174b7b}
+.cup-white{background:#fff}
+#cup-pulse{background:radial-gradient(ellipse at 90% 0%,rgba(36,104,169,.34),transparent 30%),linear-gradient(130deg,#081b36,#103e70);color:#fff}
+#cup-pulse .cup-kicker{color:#ffdc68}
+#cup-pulse h2{color:#fff}
+#cup-pulse .cup-desc{color:#e4edf9}
+#cup-pulse .cup-card{border-top:5px solid #efbd37;background:linear-gradient(145deg,#fff,#f4f8fd);box-shadow:0 14px 34px rgba(0,0,0,.16)}
+#cup-pulse .cup-card:nth-child(2){border-top-color:#2774b8}
+#cup-pulse .cup-card:nth-child(3){border-top-color:#50a3db}
+#cup-pulse .cup-card:nth-child(4){border-top-color:#b7223b}
+#cup-pulse .cup-card small{color:#274967}
+#cup-pulse .cup-card strong{color:#0c467c;font-size:clamp(2rem,3vw,2.55rem)}
+#cup-pulse .cup-card:nth-child(4) strong{color:#a51e35}
+#cup-pulse .cup-card p{color:#3e526b}
+#cup-pulse .cup-stamp{color:#e3edf9}
+.cup-stamp{color:#455a74}
+.cup-stamp a{color:#154f85;text-underline-offset:3px;font-weight:750}
+.cup-stamp .dot{background:#23815d;box-shadow:0 0 0 4px rgba(35,129,93,.13)}
+.cup-panel{border:1px solid rgba(255,255,255,.15);background:radial-gradient(circle at 96% 0%,rgba(255,212,81,.18),transparent 31%),linear-gradient(130deg,#071a34,#123e6d);box-shadow:0 20px 46px rgba(7,26,52,.2)}
+.cup-panel>h3{color:#ffdc68;font-size:clamp(1.4rem,2.6vw,1.75rem)}
+.cup-panel>.cup-grid{grid-template-columns:repeat(auto-fit,minmax(min(100%,245px),1fr));gap:14px}
+.cup-panel .cup-card{border:1px solid #d8e2ee;border-top:5px solid #efbd37;background:linear-gradient(145deg,#fff,#f6f9fd);color:#10243f;box-shadow:0 10px 24px rgba(2,14,30,.17)}
+.cup-panel .cup-card:nth-child(even){border-top-color:#2e79b8}
+.cup-panel .cup-card small{background:#e9f1fa;color:#174b7b}
+.cup-panel .cup-card h3{color:#10243f}
+.cup-panel .cup-card p{color:#40546d}
+.cup-panel .cup-card:hover{transform:translateY(-3px);border-color:#a9c4df;box-shadow:0 16px 32px rgba(2,14,30,.25)}
+.cup-btn{border:1px solid #cad7e5;background:#fff;color:#153a61;box-shadow:0 2px 8px rgba(16,36,63,.05);transition:background .16s ease,color .16s ease,border-color .16s ease,transform .16s ease,box-shadow .16s ease}
+.cup-btn:hover{transform:translateY(-1px);border-color:#1a5c98}
+.cup-btn[aria-pressed="true"]{border-color:#ffd451;background:#ffd451;color:#071a34;box-shadow:0 5px 15px rgba(16,36,63,.16)}
+.cup-btn:focus-visible,.cup-tabs a:focus-visible,.cup-roster-link:focus-visible,.cup-actions a:focus-visible{outline:3px solid #e1a91a;outline-offset:3px}
+#cup-schedule{background:#eef3f9}
+.cup-table-wrap{border-color:#d5e0ec;box-shadow:0 12px 30px rgba(16,36,63,.07)}
+.cup-table{color:#152c49}
+.cup-table th{background:linear-gradient(90deg,#071a34,#174d80);color:#fff}
+.cup-table td{border-bottom-color:#e6edf4}
+.cup-table tbody tr:nth-child(even){background:#f5f8fc}
+.cup-table tbody tr:hover{background:#eaf2fb}
+.cup-game-row td:first-child{border-left:4px solid transparent}
+.cup-game-row.is-win td:first-child{border-left-color:#21835d}
+.cup-game-row.is-loss td:first-child{border-left-color:#b51f38}
+.cup-state.final{display:inline-flex;align-items:center;gap:8px;color:#223953}
+.cup-state.final.is-win{color:#15583c}
+.cup-state.final.is-loss{color:#8c1c32}
+.cup-outcome{display:inline-flex;align-items:center;justify-content:center;min-width:50px;padding:5px 9px;border-radius:999px;background:#e1f2e8;color:#15583c;font-size:.72rem;font-weight:950;letter-spacing:.05em}
+.cup-state.final.is-loss .cup-outcome{background:#fde7eb;color:#8c1c32}
+.cup-final-word{color:#50637a;font-size:.76rem;font-weight:850}
+.cup-notice{border-left:4px solid #e5ad27;background:#fff7df;color:#263b54;border-radius:10px}
+.cup-pool-grid{gap:16px}
+.cup-pool{border:1px solid #d8e2ee;border-top:4px solid #2774b8;border-radius:18px;background:linear-gradient(150deg,#fff,#f8fbff);box-shadow:0 9px 24px rgba(16,36,63,.06)}
+.cup-pool:nth-child(2){border-top-color:#efbd37}
+.cup-pool:nth-child(3){border-top-color:#b51f38}
+.cup-pool:nth-child(4){border-top-color:#2a8a79}
+.cup-pool h3{color:#123b64}
+.cup-pool ol{color:#334b67}
+.cup-pool li::marker{color:#1a5b95;font-weight:900}
+.cup-roster-link{color:#154f85;text-underline-offset:3px}
+.cup-source-links a{border:1px solid #d5e0ec;background:#fff;color:#154c7e;box-shadow:0 7px 18px rgba(16,36,63,.07)}
+.cup-source-links a:hover{background:#eaf2fb}
+#cup-bracket{background:radial-gradient(ellipse at 86% 0%,rgba(38,106,171,.32),transparent 32%),linear-gradient(130deg,#071a34,#123e6d);color:#fff}
+#cup-bracket .cup-kicker{color:#ffdc68}
+#cup-bracket h2{color:#fff}
+#cup-bracket .cup-card{counter-increment:cup-round;border-top:4px solid #efbd37;padding-right:56px}
+#cup-bracket .cup-grid{counter-reset:cup-round}
+#cup-bracket .cup-card::after{content:"0" counter(cup-round);position:absolute;top:17px;right:17px;color:#cbd9e8;font-size:2.1rem;font-weight:950;line-height:1;letter-spacing:-.07em}
+#cup-bracket .cup-card:nth-child(2){border-top-color:#2774b8}
+#cup-bracket .cup-card:nth-child(3){border-top-color:#2774b8}
+#cup-bracket .cup-card:nth-child(4){border-top-color:#b51f38}
+#cup-bracket .cup-card strong{font-size:clamp(1.55rem,2.5vw,2rem);color:#144f86;overflow-wrap:anywhere}
+#cup-bracket .cup-card:nth-child(4) strong{color:#a51e35}
+#cup-footer,.cup-footer{background:#06152b;color:#eef4fc}
+.cup-footer a{color:#ffdc68}
+.cup-error{color:#8c1c32}
+.cup-page :target{scroll-margin-top:84px}
+@media(max-width:850px){
+ .cup-head{grid-template-columns:minmax(0,1fr);grid-template-areas:"eyebrow" "title" "intro" "photo" "mini" "actions";gap:12px;padding:2.4rem 20px 2.8rem}
+ .cup-head h1{font-size:clamp(3rem,10vw,5rem)}
+ .cup-feature-photo{max-width:680px;margin:8px 0 6px}
+ .cup-mini{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .cup-tabs{position:sticky;padding:10px 18px}
+}
+@media(max-width:550px){
+ .cup-head{padding:2rem 18px 2.3rem}
+ .cup-head h1{font-size:clamp(2.7rem,12vw,4rem)}
+ .cup-feature-photo{border-radius:17px}
+ .cup-mini span{flex:initial}
+ .cup-actions a{width:auto;flex:1 1 100%;text-align:center}
+ .cup-shell{padding:0 18px}
+ .cup-block{padding:30px 0}
+ .cup-grid,.cup-pool-grid{grid-template-columns:1fr}
+ .cup-panel{padding:18px}
+ .cup-panel>.cup-grid{grid-template-columns:1fr}
+ .cup-table td{padding:12px}
+ .cup-tabs{gap:3px;padding:9px 12px}
+ .cup-tabs a{padding:9px 11px;font-size:.84rem}
+}
+@media(prefers-reduced-motion:reduce){
+ .cup-card,.cup-btn,.cup-actions a,.cup-source-links a,.cup-tabs a{transition:none}
+ .cup-card:hover,.cup-btn:hover,.cup-actions a:hover,.cup-source-links a:hover{transform:none}
+}
+
 </style>
 <meta property="og:type" content="article">
 <meta property="og:title" content="USA Women’s 3x3 AmeriCup 2026 Results | We Know the W">

@@ -456,6 +456,11 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
       description:'Brazil leads the 5x5 record, with the United States within one championship.',
       latest:'United States',latestYear:2025,window:'1989–2025',editions:18,
       archive:'/americup-5x5.html',
+      sourceNote:'Women’s 5x5 results through the 2025 edition.',
+      sources:[
+        {url:'https://www.fiba.basketball/en/history/303-fiba-womens-americup',label:'FIBA editions ↗'},
+        {url:'https://www.fiba.basketball/en/events/fiba-womens-americup-2025/news/usa-defeats-brazil-to-reclaim-crown-at-fiba-womens-americup-2025',label:'2025 final recap ↗'}
+      ],
       titles:[
         {country:'Brazil',count:6,years:[2023,2011,2009,2003,2001,1997]},
         {country:'United States',count:5,years:[2025,2021,2019,2007,1993]},
@@ -469,6 +474,11 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
       description:'The United States and Canada are tied at three titles each; Canada reclaimed the latest crown.',
       latest:'Canada',latestYear:2026,window:'2021–2026',editions:6,
       archive:'/americup-3x3.html',
+      sourceNote:'Women’s 3x3 results through the 2026 edition.',
+      sources:[
+        {url:'https://www.fiba.basketball/en/news/canada-and-usa-win-fiba-3x3-americup-2026',label:'2026 FIBA final recap ↗'},
+        {url:'https://www.fiba.basketball/en/news/usa-win-double-at-the-fiba-3x3-americup-2025',label:'2025 FIBA recap ↗'}
+      ],
       titles:[
         {country:'United States',count:3,years:[2025,2023,2021]},
         {country:'Canada',count:3,years:[2026,2024,2022]}
@@ -488,7 +498,9 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
     titles:document.getElementById('countryTitleRows'),
     recent:document.getElementById('recentWinners'),
     titleHeading:document.getElementById('titleCountTitle'),
-    archiveLink:document.querySelector('[data-format-link]')
+    archiveLink:document.querySelector('[data-format-link]'),
+    sourceNote:document.querySelector('.americup-source-note'),
+    sourceLinks:[...document.querySelectorAll('.americup-source-note a')]
   };
   function safe(value){
     return String(value).replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[char]));
@@ -507,6 +519,13 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
     nodes.titleHeading.textContent='Women’s '+format+' gold medals';
     nodes.archiveLink.href=record.archive;
     nodes.archiveLink.textContent='Open full '+format+' archive →';
+    nodes.sourceNote.querySelector('span').textContent=record.sourceNote;
+    record.sources.forEach((source,index)=>{
+      const link=nodes.sourceLinks[index];
+      if(!link)return;
+      link.href=source.url;
+      link.textContent=source.label;
+    });
     const max=Math.max(...record.titles.map(item=>item.count));
     nodes.titles.innerHTML=record.titles.map(item=>{
       const years=item.years.map(year=>safe(year)).join(' · ');

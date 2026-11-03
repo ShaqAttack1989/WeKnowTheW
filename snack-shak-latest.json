@@ -23,13 +23,13 @@
         "Briann January",
         "Kara Lawson"
       ],
-      "image": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/100247.png",
+      "image": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/101168.png",
       "imageFit": "contain",
-      "imageAlt": "Sandy Brondello in her official WNBA player headshot.",
+      "imageAlt": "Sandy Brondello, head coach of the Toronto Tempo, in her official WNBA headshot.",
       "imageFocus": "50% 50%",
-      "storyImage": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/100247.png",
-      "storyImageCaption": "Sandy Brondello led New York to its first WNBA championship in 2024. Official WNBA headshot.",
-      "storyImageSourceUrl": "https://www.wnba.com/player/100247/sandy-brondello/profile",
+      "storyImage": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/101168.png",
+      "storyImageCaption": "Sandy Brondello’s official Toronto Tempo headshot. Photo: Toronto Tempo / WNBA.",
+      "storyImageSourceUrl": "https://tempo.wnba.com/roster",
       "storyLead": [
         "On September 23, 2025, the Liberty announced Sandy Brondello’s contract would not be renewed for the following season. That came one year after she led New York to its first WNBA championship, and after a first-round loss to Phoenix. Now, ESPN reports Chris DeMarco will not be retained after one season. New York is moving toward its third head coach in three years.",
         "Both chapters deserve their full context. Brondello went 107–53 in New York and raised the trophy in 2024. DeMarco’s Liberty won the 2026 Commissioner’s Cup and upset the top-seeded Minnesota Lynx before Atlanta swept them in the semifinals. The question is whether New York has found a coaching problem or keeps asking a new coach to absorb the same roster and organizational pressure."
@@ -46,10 +46,10 @@
             "gradeLabel": "Career legacy through 2025",
             "secondaryGrade": "2026 form: 64 · D+",
             "note": "Her Liberty tenure: 107–53, two Finals trips and the 2024 championship. The 2026 form grade reflects Toronto’s 11–33 expansion season; it does not grade her New York exit.",
-            "image": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/100247.png",
-            "imageAlt": "Official WNBA headshot of Sandy Brondello.",
-            "photoCredit": "Photo: WNBA",
-            "photoSourceUrl": "https://www.wnba.com/player/100247/sandy-brondello/profile"
+            "image": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/101168.png",
+            "imageAlt": "Official Toronto Tempo / WNBA headshot of Sandy Brondello.",
+            "photoCredit": "Photo: Toronto Tempo / WNBA",
+            "photoSourceUrl": "https://tempo.wnba.com/roster"
           },
           {
             "name": "Chris DeMarco",
@@ -70,10 +70,10 @@
             "gradeLabel": "Liberty opening fit",
             "secondaryGrade": "Our first call",
             "note": "A former WNBA player who led Stockton to a 24–10 record and the 2023–24 G League Coach of the Year award, then joined the Lakers as an assistant. The strongest blend of pro head-coaching reps and WNBA fluency; her risk is no WNBA head-coaching season.",
-            "image": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/201046.png",
-            "imageAlt": "Official WNBA headshot of Lindsey Harding.",
-            "photoCredit": "Photo: WNBA",
-            "photoSourceUrl": "https://www.wnba.com/player/201046/lindsey-harding/profile"
+            "image": "https://cdn.wnba.com/sites/4/2019/06/GettyImages-1142130473.jpg?im=Resize,width=960",
+            "imageAlt": "Lindsey Harding, then a Philadelphia 76ers assistant coach, before a playoff game in Toronto on May 7, 2019.",
+            "photoCredit": "Photo: Jesse D. Garrabrant / NBAE via Getty Images · WNBA archive",
+            "photoSourceUrl": "https://www.wnba.com/news/nine-notable-women-on-nba-coaching-staffs"
           },
           {
             "name": "Briann January",
@@ -83,9 +83,9 @@
             "secondaryGrade": "WNBA-first perspective",
             "note": "A seven-time All-Defensive Team honoree, 2012 champion and current Indiana assistant. She brings a clear defensive identity and deep WNBA credibility; this would be her first head-coaching job.",
             "image": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/201896.png",
-            "imageAlt": "Official WNBA headshot of Briann January.",
-            "photoCredit": "Photo: WNBA",
-            "photoSourceUrl": "https://www.wnba.com/player/201896/briann-january/profile"
+            "imageAlt": "Official Indiana Fever / WNBA headshot of Briann January.",
+            "photoCredit": "Photo: Indiana Fever / WNBA",
+            "photoSourceUrl": "https://fever.wnba.com/roster"
           },
           {
             "name": "Kara Lawson",
@@ -94,10 +94,10 @@
             "gradeLabel": "Liberty opening fit",
             "secondaryGrade": "Highest-profile, hardest to land",
             "note": "A former WNBA champion leading Duke and the USA women’s national team through 2028. Her leadership and head-coaching record are compelling; leaving two major jobs would make her the least attainable option.",
-            "image": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/100874.png",
-            "imageAlt": "Official WNBA headshot of Kara Lawson.",
-            "photoCredit": "Photo: WNBA",
-            "photoSourceUrl": "https://www.wnba.com/player/100874/kara-lawson/profile"
+            "image": "https://cdn.wnba.com/sites/4/2019/06/GettyImages-1136467450-1.jpg?im=Resize,width=960",
+            "imageAlt": "Kara Lawson reporting at the 2019 WNBA Draft.",
+            "photoCredit": "Photo: Catalina Fragoso / NBAE via Getty Images · WNBA archive",
+            "photoSourceUrl": "https://www.wnba.com/news/nine-notable-women-on-nba-coaching-staffs"
           }
         ],
         "method": "Brondello’s legacy and 2026 form grades use the site’s WNBA peer model and published score bands. DeMarco’s one-season career sample is NR, with his 2026 season scored separately. Candidate fit grades are editorial scores for this opening—pro head-coaching readiness, WNBA fluency, roster fit and likely availability—not WNBA performance grades."

@@ -6,7 +6,7 @@
   const hasNewerUpdate=post=>{const published=String(post.published||'').slice(0,10),updated=String(post.updated||'').slice(0,10);return Boolean(published&&updated&&updated>published);};
   const dateValue=post=>hasNewerUpdate(post)?post.updated:(post.published||'');
   const dateLabel=post=>`${hasNewerUpdate(post)?'Updated ':''}${format(dateValue(post))}`;
-  const sources=['/snack-shak-love-and-basketball.json','/snack-shak-all-time.json','/snack-shak-final.json','/snack-shak-latest.json?v=20261103-dewanna-retirement-v1','/snack-shak-breaking.json?v=20261101-game7-nakase-gallery-v1','/snack-shak-specials.json','/snack-shaq-posts.json'];
+  const sources=['/snack-shak-love-and-basketball.json','/snack-shak-all-time.json','/snack-shak-final.json','/snack-shak-latest.json?v=20261103-liberty-coach-grades-v1','/snack-shak-breaking.json?v=20261101-game7-nakase-gallery-v1','/snack-shak-specials.json','/snack-shaq-posts.json'];
 
   const FIBA_COMPETITION_ID='208875';
   const FIBA_PLAYER_IDS={
@@ -469,6 +469,23 @@ function wirePayHistoryDashboard(root){
   }
 
   function sectionsMarkup(sections=[]){return sections.map(section=>{const graphic=section.image?storyImageMarkup({storyImage:section.image,imageAlt:section.imageAlt||section.title,storyImageCaption:section.imageCaption}):'';const paragraphs=(section.paragraphs||[]).map(paragraph=>`<p>${safe(paragraph)}</p>`).join('');const id=section.id?` id="${safe(section.id)}"`:'';return `<section class="snack-section"${id}><h3>${safe(section.title)}</h3>${graphic}${paragraphs}</section>`;}).join('');}
+
+  function coachGradeBoardMarkup(board={}){
+    const coaches=Array.isArray(board.coaches)?board.coaches:[];
+    if(!coaches.length)return'';
+    const cards=coaches.map(coach=>{
+      const alt=safe(coach.imageAlt||('Official WNBA photo of '+(coach.name||'the coach')));
+      const credit=coach.photoSourceUrl
+        ?'<figcaption><a href="'+safe(coach.photoSourceUrl)+'" target="_blank" rel="noopener noreferrer">'+safe(coach.photoCredit||'Official WNBA photo')+' ↗</a></figcaption>'
+        :'<figcaption>'+safe(coach.photoCredit||'Official WNBA photo')+'</figcaption>';
+      const image=coach.image
+        ?'<figure class="wknw-coach-grade-photo"><img src="'+safe(coach.image)+'" alt="'+alt+'" loading="lazy" decoding="async"'+imageRecovery(coach.imageFallback||'')+'>'+credit+'</figure>'
+        :'';
+      return '<article class="wknw-coach-grade-card">'+image+'<div class="wknw-coach-grade-copy"><div class="wknw-coach-grade-topline"><span>'+safe(coach.role||'')+'</span><strong class="wknw-coach-grade-score">'+safe(coach.grade||'NR')+'</strong></div><small class="wknw-coach-grade-label">'+safe(coach.gradeLabel||'')+'</small>'+(coach.secondaryGrade?'<p class="wknw-coach-grade-secondary">'+safe(coach.secondaryGrade)+'</p>':'')+'<h4>'+safe(coach.name||'')+'</h4><p class="wknw-coach-grade-note">'+safe(coach.note||'')+'</p></div></article>';
+    }).join('');
+    return '<section class="wknw-coach-grade-board snack-section" aria-label="We Know the W coach grades"><header class="wknw-coach-grade-head"><span>'+safe(board.eyebrow||'WE KNOW THE W · COACH GRADES')+'</span><h3>'+safe(board.title||'Coach grades')+'</h3><p>'+safe(board.intro||'')+'</p></header><div class="wknw-coach-grade-grid">'+cards+'</div>'+(board.method?'<p class="wknw-coach-grade-method">'+safe(board.method)+'</p>':'')+'</section>';
+  }
+
   function storyLeadMarkup(post={}){const paragraphs=Array.isArray(post.storyLead)?post.storyLead:[];return paragraphs.length?`<div class="rookie-story-lead">${paragraphs.map(paragraph=>`<p>${safe(paragraph)}</p>`).join('')}</div>`:'';}
   function debatesMarkup(items=[]){return items.length?`<section class="snack-debate-board"><h3>Spicy debate board</h3><ul>${items.map(item=>`<li>${safe(item)}</li>`).join('')}</ul></section>`:'';}
   function foodMarkup(food={}){return food.title||food.script?`<section class="food-segment"><span class="segment-label">FROM THE KITCHEN</span><h3>${safe(food.title||'This week’s segment')}</h3>${food.script?`<blockquote>${safe(food.script)}</blockquote>`:''}</section>`:'';}
@@ -507,7 +524,7 @@ function wirePayHistoryDashboard(root){
   }
   function storyMarkup(post){
     if(post.slug==='the-playoff-watch-party-2026')return finalsWatchStoryMarkup(post);
-    return `<a class="snack-story-back" href="${pagePath}">← Back to all ${mode==='feature'?'Food for Thought articles':'Snack Shak Bytes'}</a><article class="snack-post"><header class="snack-post-header ${mode==='feature'?'feature-header':''}"><span class="snack-series-label">${safe(label(post))}</span><div class="meta"><span>${safe(dateLabel(post))}</span>${post.week?`<span>•</span><span>${safe(post.week)}</span>`:''}</div><h2>${safe(post.title)}</h2><p class="dek">${safe(post.dek||'')}</p></header>${storyImageMarkup(post)}${storyLeadMarkup(post)}${siblingDuosMarkup(post.siblingDuos)}${frontOfficeForecastMarkup(post.frontOfficeForecast)}${payHistoryDashboardMarkup(post.payHistoryDashboard)}${franchiseValueDashboardMarkup(post.franchiseValueDashboard)}${playoffGameOneMarkup(post.playoffGameOne)}${playoffGameOneMarkup(post.finalsGameOneSummary)}${playoffDraftBoardMarkup(post.playoffDraftBoard)}${playoffGalleryMarkup(post.finalsGraphic)}${playoffGalleryMarkup(post.gameGallery)}${playoffBoardMarkup(post)}${playoffWatchMarkup(post.playoffWatch)}${playoffAwardFalloutMarkup(post.awardFallout)}${rankingsMarkup(post.rankings)}${tableMarkup(post.storyTable)}${trioDashboardMarkup(post.trioDashboard)}${apAwardsDashboardMarkup(post.apAwardsDashboard)}${mvpLeadersDashboardMarkup(post.mvpLeadersDashboard)}${rookieSeasonDashboardMarkup(post.rookieSeasonDashboard)}${rookieHistoryDashboardMarkup(post.rookieHistoryDashboard)}${rookieSnubsMarkup(post.rookieSnubs)}${sectionsMarkup(post.sections)}${debatesMarkup(post.debates)}${foodMarkup(post.foodSegment)}${sourcesMarkup(post.sources)}</article>`;
+    return `<a class="snack-story-back" href="${pagePath}">← Back to all ${mode==='feature'?'Food for Thought articles':'Snack Shak Bytes'}</a><article class="snack-post"><header class="snack-post-header ${mode==='feature'?'feature-header':''}"><span class="snack-series-label">${safe(label(post))}</span><div class="meta"><span>${safe(dateLabel(post))}</span>${post.week?`<span>•</span><span>${safe(post.week)}</span>`:''}</div><h2>${safe(post.title)}</h2><p class="dek">${safe(post.dek||'')}</p></header>${post.coachGradeBoard?'':storyImageMarkup(post)}${storyLeadMarkup(post)}${coachGradeBoardMarkup(post.coachGradeBoard)}${siblingDuosMarkup(post.siblingDuos)}${frontOfficeForecastMarkup(post.frontOfficeForecast)}${payHistoryDashboardMarkup(post.payHistoryDashboard)}${franchiseValueDashboardMarkup(post.franchiseValueDashboard)}${playoffGameOneMarkup(post.playoffGameOne)}${playoffGameOneMarkup(post.finalsGameOneSummary)}${playoffDraftBoardMarkup(post.playoffDraftBoard)}${playoffGalleryMarkup(post.finalsGraphic)}${playoffGalleryMarkup(post.gameGallery)}${playoffBoardMarkup(post)}${playoffWatchMarkup(post.playoffWatch)}${playoffAwardFalloutMarkup(post.awardFallout)}${rankingsMarkup(post.rankings)}${tableMarkup(post.storyTable)}${trioDashboardMarkup(post.trioDashboard)}${apAwardsDashboardMarkup(post.apAwardsDashboard)}${mvpLeadersDashboardMarkup(post.mvpLeadersDashboard)}${rookieSeasonDashboardMarkup(post.rookieSeasonDashboard)}${rookieHistoryDashboardMarkup(post.rookieHistoryDashboard)}${rookieSnubsMarkup(post.rookieSnubs)}${sectionsMarkup(post.sections)}${debatesMarkup(post.debates)}${foodMarkup(post.foodSegment)}${sourcesMarkup(post.sources)}</article>`;
   }
 
   function setCollectionArchiveMode(activeSlug=''){

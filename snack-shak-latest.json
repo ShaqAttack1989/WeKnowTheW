@@ -2,6 +2,215 @@
   "site": "Snack Shak",
   "posts": [
     {
+      "slug": "new-york-vs-demarco-liberty-coach-grade-reset",
+      "type": "feature",
+      "priority": 27000,
+      "homepageSeason": true,
+      "seriesLabel": "FOOD FOR THOUGHT · THE COACH’S OFFICE",
+      "title": "New York vs. DeMarco: Did the Liberty Fix the Wrong Problem?",
+      "published": "2026-11-03",
+      "updated": "2026-11-03",
+      "week": "November 3, 2026 · Liberty coaching reset",
+      "dek": "Sandy Brondello led New York to its first WNBA title, then left after 2025. Chris DeMarco lasted one year. We grade both exits and the Liberty’s best replacement options.",
+      "teams": [
+        "New York Liberty",
+        "Toronto Tempo"
+      ],
+      "players": [
+        "Sandy Brondello",
+        "Chris DeMarco",
+        "Lindsey Harding",
+        "Briann January",
+        "Kara Lawson"
+      ],
+      "image": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/100247.png",
+      "imageFit": "contain",
+      "imageAlt": "Sandy Brondello in her official WNBA player headshot.",
+      "imageFocus": "50% 50%",
+      "storyImage": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/100247.png",
+      "storyImageCaption": "Sandy Brondello led New York to its first WNBA championship in 2024. Official WNBA headshot.",
+      "storyImageSourceUrl": "https://www.wnba.com/player/100247/sandy-brondello/profile",
+      "storyLead": [
+        "On September 23, 2025, the Liberty announced Sandy Brondello’s contract would not be renewed for the following season. That came one year after she led New York to its first WNBA championship, and after a first-round loss to Phoenix. Now, ESPN reports Chris DeMarco will not be retained after one season. New York is moving toward its third head coach in three years.",
+        "Both chapters deserve their full context. Brondello went 107–53 in New York and raised the trophy in 2024. DeMarco’s Liberty won the 2026 Commissioner’s Cup and upset the top-seeded Minnesota Lynx before Atlanta swept them in the semifinals. The question is whether New York has found a coaching problem or keeps asking a new coach to absorb the same roster and organizational pressure."
+      ],
+      "coachGradeBoard": {
+        "eyebrow": "WE KNOW THE W · COACH GRADES",
+        "title": "The exit grades and the next-hire board",
+        "intro": "Our year-end WNBA model gives Sandy Brondello a career grade through 2025 and a separate 2026 form grade. Chris DeMarco has a 2026 form grade; his career grade is not yet rankable. Replacement scores rate fit for this Liberty opening.",
+        "coaches": [
+          {
+            "name": "Sandy Brondello",
+            "role": "NEW YORK · 2022–25 / TORONTO · 2026",
+            "grade": "77 · B−",
+            "gradeLabel": "Career legacy through 2025",
+            "secondaryGrade": "2026 form: 64 · D+",
+            "note": "Her Liberty tenure: 107–53, two Finals trips and the 2024 championship. The 2026 form grade reflects Toronto’s 11–33 expansion season; it does not grade her New York exit.",
+            "image": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/100247.png",
+            "imageAlt": "Official WNBA headshot of Sandy Brondello.",
+            "photoCredit": "Photo: WNBA",
+            "photoSourceUrl": "https://www.wnba.com/player/100247/sandy-brondello/profile"
+          },
+          {
+            "name": "Chris DeMarco",
+            "role": "NEW YORK · 2026",
+            "grade": "77 · B−",
+            "gradeLabel": "2026 season form",
+            "secondaryGrade": "Career legacy: NR · one WNBA season",
+            "note": "He went 26–18, won the Commissioner’s Cup, reached the semifinals and finished 2–3 in the playoffs. The Liberty were swept by Atlanta.",
+            "image": "https://cdn.wnba.com/headshots/wnba/latest/260x190/1627666.png",
+            "imageAlt": "Official New York Liberty/WNBA headshot of Chris DeMarco.",
+            "photoCredit": "Photo: New York Liberty / WNBA",
+            "photoSourceUrl": "https://liberty.wnba.com/roster"
+          },
+          {
+            "name": "Lindsey Harding",
+            "role": "REPLACEMENT FIT · #1",
+            "grade": "89 · A−",
+            "gradeLabel": "Liberty opening fit",
+            "secondaryGrade": "Our first call",
+            "note": "A former WNBA player who led Stockton to a 24–10 record and the 2023–24 G League Coach of the Year award, then joined the Lakers as an assistant. The strongest blend of pro head-coaching reps and WNBA fluency; her risk is no WNBA head-coaching season.",
+            "image": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/201046.png",
+            "imageAlt": "Official WNBA headshot of Lindsey Harding.",
+            "photoCredit": "Photo: WNBA",
+            "photoSourceUrl": "https://www.wnba.com/player/201046/lindsey-harding/profile"
+          },
+          {
+            "name": "Briann January",
+            "role": "REPLACEMENT FIT · #2",
+            "grade": "87 · A−",
+            "gradeLabel": "Liberty opening fit",
+            "secondaryGrade": "WNBA-first perspective",
+            "note": "A seven-time All-Defensive Team honoree, 2012 champion and current Indiana assistant. She brings a clear defensive identity and deep WNBA credibility; this would be her first head-coaching job.",
+            "image": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/201896.png",
+            "imageAlt": "Official WNBA headshot of Briann January.",
+            "photoCredit": "Photo: WNBA",
+            "photoSourceUrl": "https://www.wnba.com/player/201896/briann-january/profile"
+          },
+          {
+            "name": "Kara Lawson",
+            "role": "REPLACEMENT FIT · #3",
+            "grade": "85 · B+",
+            "gradeLabel": "Liberty opening fit",
+            "secondaryGrade": "Highest-profile, hardest to land",
+            "note": "A former WNBA champion leading Duke and the USA women’s national team through 2028. Her leadership and head-coaching record are compelling; leaving two major jobs would make her the least attainable option.",
+            "image": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/100874.png",
+            "imageAlt": "Official WNBA headshot of Kara Lawson.",
+            "photoCredit": "Photo: WNBA",
+            "photoSourceUrl": "https://www.wnba.com/player/100874/kara-lawson/profile"
+          }
+        ],
+        "method": "Brondello’s legacy and 2026 form grades use the site’s WNBA peer model and published score bands. DeMarco’s one-season career sample is NR, with his 2026 season scored separately. Candidate fit grades are editorial scores for this opening—pro head-coaching readiness, WNBA fluency, roster fit and likely availability—not WNBA performance grades."
+      },
+      "sections": [
+        {
+          "title": "Sandy’s timeline: title in 2024, separation in 2025",
+          "paragraphs": [
+            "Brondello’s Liberty went 107–53 across four seasons. They reached the 2023 Finals and finished 32–8 in 2024 before beating Minnesota in the Finals for the franchise’s first championship. She was the winningest coach in team history.",
+            "The breakup followed a different season. New York opened 2025 at 9–0, then injuries hit Breanna Stewart, Jonquel Jones, Sabrina Ionescu and other rotation players. The Liberty finished 27–17 as the No. 5 seed and lost their first-round series to Phoenix, 2–1. On September 23, the team said Brondello’s contract would not be renewed for 2026.",
+            "General manager Jonathan Kolb called the move proactive and said the team needed evolution. He also described problems that had lasted beyond that season: handling physicality, spacing, defense and rebounding. Those are real coaching and roster questions. The injury wave made the 2025 playoff result a poor one-game verdict on a coach who had just delivered the title."
+          ]
+        },
+        {
+          "title": "DeMarco’s season had real highs and a real gap",
+          "paragraphs": [
+            "DeMarco arrived with four NBA championships from more than a decade on Golden State’s staff, but 2026 was his first WNBA head-coaching season. The Liberty finished 26–18, started the playoffs as the No. 8 seed, won their second Commissioner’s Cup, then swept the No. 1 Minnesota Lynx in the opening round.",
+            "Atlanta ended the run 3–0 in the semifinals. The scores were 92–82, 101–98 in overtime and 85–83. Two losses came down to the final possessions, but a sweep still exposed how little margin New York had once the Dream set the terms of the series.",
+            "Availability mattered again. Sabrina Ionescu and Leonie Fiebich missed significant time, Satou Sabally appeared in only 13 games before being ruled out, and Betnijah Laney-Hamilton fell out of the rotation and was waived shortly after the trade deadline. New York started 13–12 and had to rebuild its rotation as the season went on."
+          ]
+        },
+        {
+          "title": "The timeout controversy was a warning, not the whole case",
+          "paragraphs": [
+            "In the 101–98 overtime loss, the Liberty did not advance the ball for a possible tying three. Players and DeMarco said they had been told the team did not have a reset timeout. The WNBA’s review later described the exchange with the officials as a misunderstanding. New York still needed its bench to track timeout usage and confirm the situation clearly, but that sequence cannot explain three losses to Atlanta by itself.",
+            "The larger coaching question is whether DeMarco’s rotations, late-game communication and defensive plan matched a veteran roster with championship expectations. The larger front-office question is why a first-time WNBA head coach received a one-year runway after New York had already switched coaches after its 2025 first-round exit."
+          ]
+        },
+        {
+          "title": "What went wrong in New York",
+          "paragraphs": [
+            "First, the organization treated consecutive postseason disappointments as coaching resets while key players’ health and roster depth kept changing. The 2026 Commissioner’s Cup and Lynx upset show the roster could still win meaningful games. The No. 8 seed and Atlanta sweep show it was not reliable enough over a full season and a playoff series.",
+            "Second, the Liberty carried a championship standard without a stable coaching identity. Brondello’s staff got four seasons; DeMarco got one. After the next hire, New York will have its third coach in three years and its fourth head-coaching search under Kolb since 2019. That turnover belongs on the front office’s report card too.",
+            "Third, New York needs a team plan that survives player absences and a clear late-game chain of communication. The next coach should have an experienced WNBA staff, defined roles for the star core and enough trustworthy depth to protect the defense and rebounding when the starters are unavailable."
+          ]
+        },
+        {
+          "title": "The replacement call",
+          "paragraphs": [
+            "Lindsey Harding is my first call. She has WNBA playing experience, a documented professional head-coaching run and NBA staff experience. She is the best bridge between pro systems and an understanding of the WNBA game. New York would still need to pair her with a proven WNBA associate head coach and give her time to install an identity.",
+            "Briann January is the best WNBA-first option. Her playing career and seven All-Defensive selections map directly to the Liberty’s need for more defensive consistency, and she is already coaching in Indiana. She would need a veteran partner for her first head-coaching season.",
+            "Kara Lawson is the strongest proven head coach on paper. Duke lists her as both its head coach and USA women’s national team coach through 2028. That makes her a compelling interview and a difficult hire; New York should not build its plan around assuming she will leave.",
+            "The Liberty should interview all three, test the fit with the players and staff, and pick the coach whose basketball plan matches the front office’s roster plan. The person chosen needs a real runway. Otherwise the next exit will be a verdict on the organization’s patience, not just on one coach."
+          ]
+        },
+        {
+          "title": "Food for thought",
+          "paragraphs": [
+            "Brondello’s 2024 title proved the Liberty could reach the top with continuity. DeMarco’s 2026 Cup and first-round upset proved he could coach the team to a strong peak. Neither result erased what followed, but both make the same point: a new coach cannot be the only answer.",
+            "New York had a disappointing first-round loss with Sandy, then a 26-win, Cup-winning season and a semifinal sweep with DeMarco. The next question should be asked of Kolb and ownership as much as the next coach: what will change around the bench so the Liberty stop restarting the same championship chase?"
+          ]
+        }
+      ],
+      "debates": [
+        "Did New York make the right call on Brondello after one injury-hit season, or should the 2024 title have bought her more time?",
+        "Is Lindsey Harding the right balance of WNBA fluency and pro head-coaching experience, or would you hire January or Lawson?"
+      ],
+      "sources": [
+        {
+          "label": "Liberty: Brondello’s contract will not be renewed",
+          "url": "https://liberty.wnba.com/news/new-york-liberty-coaching-update"
+        },
+        {
+          "label": "Liberty’s first WNBA championship",
+          "url": "https://liberty.wnba.com/news/new-york-liberty-win-first-wnba-championship-in-franchise-history"
+        },
+        {
+          "label": "Kolb on the Brondello decision and the Liberty’s recurring issues",
+          "url": "https://abc7ny.com/post/liberty-gm-eyes-moving-forward-letting-sandy-brondello-go/17881450/"
+        },
+        {
+          "label": "2025 Liberty–Mercury first-round series",
+          "url": "https://www.wnba.com/playoffs/2025"
+        },
+        {
+          "label": "Liberty hire DeMarco",
+          "url": "https://liberty.wnba.com/news/four-time-nba-champion-chris-demarco-named-new-york-liberty-head-coach"
+        },
+        {
+          "label": "ESPN report: DeMarco will not be retained",
+          "url": "https://abc7ny.com/post/sources-new-york-liberty-not-retaining-coach-chris-demarco-1-year-helm/20011581/"
+        },
+        {
+          "label": "2026 Commissioner’s Cup archive",
+          "url": "https://www.wnba.com/news/category/2026-wnba-commissioners-cup"
+        },
+        {
+          "label": "2026 WNBA playoff bracket",
+          "url": "https://www.wnba.com/playoffs/2026"
+        },
+        {
+          "label": "WNBA review of the Game 2 timeout exchange",
+          "url": "https://sports.yahoo.com/articles/liberty-forward-breanna-stewart-disappointed-161605496.html"
+        },
+        {
+          "label": "Reported Liberty replacement names",
+          "url": "https://nypost.com/2026/11/03/sports/liberty-fire-chris-demarco-as-head-coach-after-one-year/"
+        },
+        {
+          "label": "Harding’s Lakers hire and G League Coach of the Year season",
+          "url": "https://goduke.com/news/2024/7/16/womens-basketball-lindsey-harding-joins-lakers-as-assistant-coach"
+        },
+        {
+          "label": "January’s official WNBA profile",
+          "url": "https://www.wnba.com/player/201896/briann-january/bio"
+        },
+        {
+          "label": "Lawson’s Duke and USA Basketball coaching record",
+          "url": "https://goduke.com/sports/womens-basketball/roster/coaches/kara-lawson/5407"
+        }
+      ]
+    },
+    {
       "slug": "dewanna-bonner-last-hooray-was-a-dream",
       "type": "byte",
       "priority": 25000,

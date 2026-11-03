@@ -71,30 +71,75 @@ function normalize(event) {
   };
 }
 
+function easternTimestamp(date, time) {
+  const dateMatch = /^(\d{4})-(\d{2})-(\d{2})$/.exec(String(date || ""));
+  if (!dateMatch) return NaN;
+  const timeMatch = /^(\d{1,2}):(\d{2})\s*(AM|PM)(?:\s*ET)?$/i.exec(String(time || "").trim());
+  let hour = 23;
+  let minute = 59;
+  if (timeMatch) {
+    hour = Number(timeMatch[1]) % 12;
+    if (timeMatch[3].toUpperCase() === "PM") hour += 12;
+    minute = Number(timeMatch[2]);
+  }
+  const nominal = Date.UTC(Number(dateMatch[1]), Number(dateMatch[2]) - 1, Number(dateMatch[3]), hour, minute);
+  const parts = new Intl.DateTimeFormat("en-US", { timeZone: "America/New_York", timeZoneName: "shortOffset" }).formatToParts(new Date(nominal));
+  const zoneName = (parts.find(part => part.type === "timeZoneName") || {}).value || "GMT";
+  const offsetMatch = /^GMT([+-])(\d{1,2})(?::(\d{2}))?$/.exec(zoneName);
+  const offsetMinutes = offsetMatch ? (offsetMatch[1] === "-" ? -1 : 1) * (Number(offsetMatch[2]) * 60 + Number(offsetMatch[3] || 0)) : 0;
+  return nominal - offsetMinutes * 60 * 1000;
+}
+
 function officialOpeningGames(now = Date.now()) {
-  const items = [seasonGuide.opener, ...(seasonGuide.openingDay || [])].filter(Boolean);
+  const items = [seasonGuide.opener, ...(seasonGuide.openingDay || []), ...(seasonGuide.upcomingSpotlight || [])].filter(Boolean);
   return items
-    .map((game,index)=>({
-      id:`official-opening-${index+1}`,
-      date:game.date||'',
-      time:game.time||'',
-      status:'Scheduled',
-      homeTeam:game.homeTeam||'',
-      awayTeam:game.awayTeam||'',
-      homeScore:null,
-      awayScore:null,
-      location:game.location||'',
-      tv:game.tv||'',
-      event:game.event||'',
-      officialGuide:true
+    .map((game, index) => ({
+      id: "official-opening-" + (index + 1),
+      date: game.date || "",
+      time: game.time || "",
+      status: "Scheduled",
+      homeTeam: game.homeTeam || "",
+      awayTeam: game.awayTeam || "",
+      homeScore: null,
+      awayScore: null,
+      location: game.location || "",
+      tv: game.tv || "",
+      event: game.event || "",
+      officialGuide: true
     }))
-    .filter(game=>{
-      const raw=game.time&&game.time!=='TBD'
-        ? `${game.date} ${game.time.replace(/\s*ET$/i,'')} GMT-0400`
-        : `${game.date}T23:59:59-04:00`;
-      const ts=Date.parse(raw);
-      return !Number.isFinite(ts)||ts>=now;
+    .filter(game => {
+      const timestamp = easternTimestamp(game.date, game.time);
+      return !Number.isFinite(timestamp) || timestamp >= now;
     });
+}
+
+function officialRecentGames(season) {
+  if (season !== seasonGuide.season) return [];
+  return (seasonGuide.openingResults || []).map((game, index) => ({
+    id: "official-result-" + (index + 1),
+    date: game.date || "",
+    time: "",
+    status: "Final",
+    homeTeam: game.homeTeam || "",
+    awayTeam: game.awayTeam || "",
+    homeScore: game.homeScore == null ? null : Number(game.homeScore),
+    awayScore: game.awayScore == null ? null : Number(game.awayScore),
+    location: game.location || "",
+    tv: game.tv || "",
+    event: game.event || game.label || "",
+    sourceUrl: game.sourceUrl || "",
+    officialGuide: true
+  })).sort((a, b) => String(b.date).localeCompare(String(a.date)));
+}
+
+function mergeRecent(primary = [], fallback = []) {
+  const seen = new Set();
+  return [...primary, ...fallback].filter(game => {
+    const key = [game.date, String(game.awayTeam || "").toLowerCase(), String(game.homeTeam || "").toLowerCase()].join("|");
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  }).sort((a, b) => String(b.date || "").localeCompare(String(a.date || ""))).slice(0, 8);
 }
 
 function mergeUpcoming(primary=[],fallback=[]){
@@ -127,14 +172,14 @@ module.exports = async function handler(req, res) {
   if (!apiKey) {
     return res.status(200).json({
       configured: false,
-      source: 'TheSportsDB',
-      league: 'NCAA Division I Basketball Women',
-      season: offseasonSnapshot.season,
+      source: "TheSportsDB",
+      league: "NCAA Division I Basketball Women",
+      season: upcomingSeason,
       upcomingSeason,
-      showingPriorSeason: true,
+      showingPriorSeason: false,
       upcoming: officialOpeningGames(),
-      recent: offseasonSnapshot.tournamentFinish || [],
-      providerMessage: `The 2025-26 record book remains visible while the official 2026-27 opening calendar is now on deck for Nov. 1.`,
+      recent: officialRecentGames(upcomingSeason),
+      providerMessage: "Live " + upcomingSeason + " stats are not connected; verified opening results and the 2025-26 season snapshot are shown.",
       ...baseSnapshot
     });
   }
@@ -164,11 +209,12 @@ module.exports = async function handler(req, res) {
       .map(normalize);
     const upcoming = mergeUpcoming(providerUpcoming, officialOpeningGames(now));
 
-    let recent = schedule
+    const providerRecent = schedule
       .filter(event => eventTime(event) < now && event.intHomeScore !== null && event.intAwayScore !== null)
       .sort((a, b) => eventTime(b) - eventTime(a))
       .slice(0, 8)
       .map(normalize);
+    let recent = mergeRecent(providerRecent, officialRecentGames(upcomingSeason));
 
     if (!recent.length && showingPriorSeason) {
       recent = offseasonSnapshot.tournamentFinish || [];
@@ -186,23 +232,23 @@ module.exports = async function handler(req, res) {
       upcoming,
       recent,
       providerMessage: showingPriorSeason
-        ? `Showing the ${offseasonSnapshot.season} results beside the official ${upcomingSeason} opening calendar. The season tips Nov. 1 in Rome.`
+        ? "The " + upcomingSeason + " schedule has not populated yet; verified opening results and the " + offseasonSnapshot.season + " archive remain visible."
         : schedule.length
           ? null
-          : `The official ${upcomingSeason} opening calendar is loaded while the independent full-season feed continues to populate.`,
+          : "The " + upcomingSeason + " schedule feed is empty; verified opening results remain visible while the full feed populates.",
       ...baseSnapshot
     });
   } catch (error) {
     return res.status(200).json({
       configured: true,
-      source: 'TheSportsDB',
-      league: 'NCAA Division I Basketball Women',
-      season: offseasonSnapshot.season,
+      source: "TheSportsDB",
+      league: "NCAA Division I Basketball Women",
+      season: upcomingSeason,
       upcomingSeason,
-      showingPriorSeason: true,
+      showingPriorSeason: false,
       upcoming: officialOpeningGames(),
-      recent: offseasonSnapshot.tournamentFinish || [],
-      providerMessage: `The independent schedule feed is temporarily unavailable, so the official ${seasonGuide.season} opening calendar is being used.`,
+      recent: officialRecentGames(upcomingSeason).length ? officialRecentGames(upcomingSeason) : (offseasonSnapshot.tournamentFinish || []),
+      providerMessage: "The live college feed is temporarily unavailable; verified opening results and the " + offseasonSnapshot.season + " archive remain visible.",
       providerStatus: error.status || null,
       ...baseSnapshot
     });

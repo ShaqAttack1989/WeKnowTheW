@@ -1,7 +1,7 @@
 {
   "season": "2026-27",
   "label": "2026-27 Season Guide",
-  "asOf": "2026-10-06",
+  "asOf": "2026-11-02",
   "startDate": "2026-11-01",
   "firstFullSlateDate": "2026-11-02",
   "opener": {
@@ -36,7 +36,7 @@
     },
     {
       "date": "2026-11-02",
-      "time": "12:30 PM ET",
+      "time": "1:30 PM ET",
       "awayTeam": "Stanford",
       "homeTeam": "Arizona",
       "location": "Las Vegas, NV",
@@ -61,11 +61,11 @@
     },
     {
       "date": "2026-11-02",
-      "time": "TBD",
+      "time": "5:00 PM ET",
       "awayTeam": "Cornell",
       "homeTeam": "UConn",
       "location": "Storrs, CT",
-      "tv": "TBD"
+      "tv": "Peacock / NBCSN"
     },
     {
       "date": "2026-11-02",
@@ -96,7 +96,7 @@
     {
       "date": "2026-11-08",
       "label": "Ally Tip-Off · Charlotte",
-      "detail": "NC State vs. Kentucky · 3:00 PM ET; South Carolina vs. North Carolina · 5:30 PM ET · ESPN"
+      "detail": "No. 25 NC State vs. No. 14 Kentucky · 3:00 PM ET · ESPN2; No. 12 North Carolina vs. No. 1 South Carolina · 5:30 PM ET · ESPN"
     },
     {
       "date": "2026-11-19",
@@ -139,6 +139,74 @@
     {
       "label": "NCAA · 2027 tournament schedule",
       "url": "https://www.ncaa.com/news/basketball-women/article/2026-05-07/2027-march-madness-womens-ncaa-tournament-schedule-dates-times"
+    },
+    {
+      "label": "Notre Dame · 2026 season opener recap",
+      "url": "https://fightingirish.com/news/2026/11/1/offensive-explosion-powers-no-13-irish-past-villanova-99-75"
+    },
+    {
+      "label": "SEC · 2026 South Carolina vs. Maryland recap",
+      "url": "https://www.secsports.com/news/2026/11/no-1-south-carolina-holds-off-no-20-maryland-in-paris-opener"
+    },
+    {
+      "label": "AP · USC opener and JuJu Watkins return",
+      "url": "https://www.ourmidland.com/sports/article/watkins-returns-with-21-points-hall-scores-22-in-22507456.php"
+    }
+  ],
+  "openingResults": [
+    {
+      "date": "2026-11-02",
+      "awayTeam": "Maryland",
+      "awayScore": 93,
+      "homeTeam": "South Carolina",
+      "homeScore": 101,
+      "event": "Oui Play · Paris",
+      "location": "Adidas Arena · Paris, France",
+      "label": "No. 1 South Carolina 101, No. 20 Maryland 93",
+      "sourceUrl": "https://www.secsports.com/news/2026/11/no-1-south-carolina-holds-off-no-20-maryland-in-paris-opener"
+    },
+    {
+      "date": "2026-11-02",
+      "awayTeam": "USC",
+      "awayScore": 100,
+      "homeTeam": "UNLV",
+      "homeScore": 68,
+      "event": "Hall of Fame Series · Las Vegas",
+      "location": "T-Mobile Arena · Las Vegas, Nevada",
+      "label": "No. 3 USC 100, UNLV 68",
+      "sourceUrl": "https://www.ourmidland.com/sports/article/watkins-returns-with-21-points-hall-scores-22-in-22507456.php"
+    },
+    {
+      "date": "2026-11-01",
+      "awayTeam": "Villanova",
+      "awayScore": 75,
+      "homeTeam": "Notre Dame",
+      "homeScore": 99,
+      "event": "Eternal City Tip-Off · Rome",
+      "location": "Palazzo dello Sport · Rome, Italy",
+      "tv": "FS1",
+      "label": "No. 13 Notre Dame 99, Villanova 75",
+      "sourceUrl": "https://fightingirish.com/news/2026/11/1/offensive-explosion-powers-no-13-irish-past-villanova-99-75"
+    }
+  ],
+  "upcomingSpotlight": [
+    {
+      "date": "2026-11-08",
+      "time": "3:00 PM ET",
+      "awayTeam": "NC State",
+      "homeTeam": "Kentucky",
+      "location": "Spectrum Center · Charlotte, North Carolina",
+      "tv": "ESPN2",
+      "event": "Ally Tipoff"
+    },
+    {
+      "date": "2026-11-08",
+      "time": "5:30 PM ET",
+      "awayTeam": "North Carolina",
+      "homeTeam": "South Carolina",
+      "location": "Spectrum Center · Charlotte, North Carolina",
+      "tv": "ESPN",
+      "event": "Ally Tipoff"
     }
   ]
 }

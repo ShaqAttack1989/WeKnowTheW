@@ -72,7 +72,7 @@
     return draftPromise;
   }
   function careerData(){
-    if(!careerPromise)careerPromise=fetch('/data/playerpedia-career-status.json',{headers:{Accept:'application/json'}}).then(r=>r.ok?r.json():{}).catch(()=>({}));
+    if(!careerPromise)careerPromise=fetch('/data/playerpedia-career-status.json?v=20261103-dewanna-retirement-v1',{headers:{Accept:'application/json'}}).then(r=>r.ok?r.json():{}).catch(()=>({}));
     return careerPromise;
   }
   function factFileFor(name=''){

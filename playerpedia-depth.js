@@ -1,7 +1,7 @@
 (()=>{
   'use strict';
 
-  const FACT_FILES=['ab','cf','gj','kn','os','tz'].map(group=>`/data/playerpedia-facts-${group}.json`);
+  const FACT_FILES=['ab','cf','gj','kn','os','tz'].map(group=>`/data/playerpedia-facts-${group}.json?v=20261103-dewanna-retirement-v1`);
   const WNBA_TEAMS=new Set(['Atlanta Dream','Charlotte Sting','Chicago Sky','Cleveland Rockers','Connecticut Sun','Dallas Wings','Detroit Shock','Golden State Valkyries','Houston Comets','Indiana Fever','Las Vegas Aces','Los Angeles Sparks','Miami Sol','Minnesota Lynx','New York Liberty','Orlando Miracle','Phoenix Mercury','Portland Fire','Sacramento Monarchs','San Antonio Silver Stars','San Antonio Stars','Seattle Storm','Toronto Tempo','Tulsa Shock','Utah Starzz','Washington Mystics']);
   const TEAM_PRONUNCIATION_SLUGS={
     'Atlanta Dream':'atlanta-dream','Chicago Sky':'chicago-sky','Connecticut Sun':'connecticut-sun','Dallas Wings':'dallas-wings','Golden State Valkyries':'golden-state-valkyries','Indiana Fever':'indiana-fever','Las Vegas Aces':'las-vegas-aces','Los Angeles Sparks':'los-angeles-sparks','Minnesota Lynx':'minnesota-lynx','New York Liberty':'new-york-liberty','Phoenix Mercury':'phoenix-mercury','Portland Fire':'portland-fire','Seattle Storm':'seattle-storm','Toronto Tempo':'toronto-tempo','Washington Mystics':'washington-mystics'

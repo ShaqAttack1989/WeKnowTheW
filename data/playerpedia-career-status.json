@@ -37,5 +37,13 @@
     "summary": "Announced she is stepping away from playing basketball after her rookie 2026 WNBA season with the Portland Fire.",
     "source": "https://www.kptv.com/2026/09/29/portland-fires-jordan-harrison-stepping-away-basketball/",
     "sourceLabel": "KPTV · retirement report"
+  },
+  "DeWanna Bonner": {
+    "status": "retirement-announced",
+    "label": "RETIRING · 2026",
+    "icon": "✓",
+    "announcedDate": "2026-11-03",
+    "retiredYear": 2026,
+    "summary": "Announced her retirement after 17 WNBA seasons. Her final game was the 2026 Finals Game 7, where she became the first player to reach 600 career postseason defensive rebounds."
   }
 }

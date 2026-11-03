@@ -7,6 +7,50 @@
   'use strict';
   const players=[
   {
+    "name": "DeWanna Bonner",
+    "retired": "2026",
+    "fact": "Two-time WNBA champion, six-time All-Star and the only three-time Sixth Player of the Year. Retired after 17 seasons; became the first player to reach 600 career postseason defensive rebounds.",
+    "teams": [
+      [
+        "Phoenix Mercury",
+        "2009–2019, 2025–2026"
+      ],
+      [
+        "Connecticut Sun",
+        "2020–2024"
+      ],
+      [
+        "Indiana Fever",
+        "2025"
+      ],
+      [
+        "Atlanta Dream",
+        "2026"
+      ]
+    ],
+    "source": "https://www.wnba.com/player/201886/dewanna-bonner/bio",
+    "sourceLabel": "WNBA · official player profile",
+    "mediaId": "201886",
+    "years": "2009–2026",
+    "careerState": "retired",
+    "photo": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/201886.png",
+    "photoSource": "https://www.wnba.com/player/201886/dewanna-bonner/bio",
+    "photoCredit": "WNBA",
+    "lastWnbaSeason": 2026,
+    "position": "Forward-Guard",
+    "college": "Auburn",
+    "careerStats": {
+      "games": 577,
+      "ppg": 14.3,
+      "rpg": 6,
+      "apg": 2.2,
+      "spg": 1.2,
+      "bpg": 0.6
+    },
+    "statsSource": "https://stats.wnba.com/alltime-leaders/?SeasonType=Regular+Season",
+    "statsSourceLabel": "WNBA Stats · career regular-season totals"
+  },
+  {
     "name": "Jordan Harrison",
     "retired": "2026",
     "fact": "Undrafted guard who turned a Portland training-camp opportunity into a rookie WNBA season, then stepped away from playing basketball after 16 games. She finished her final game with 6 points and 10 assists in Portland’s comeback win over Golden State.",

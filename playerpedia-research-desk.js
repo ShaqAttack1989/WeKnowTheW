@@ -96,7 +96,7 @@
   function careerMarkup(player){
     if(!player.careerStats)return '';
     const stats=player.careerStats;
-    return `<section class="research-career-stats"><span class="research-retired-kicker">${safe(player.years)} · WNBA CAREER</span><h3>Career regular-season averages</h3>${statGrid(stats)}<div class="research-retired-eff"><span><b>FG%</b> ${pct(stats.fgPct)}</span><span><b>3P%</b> ${pct(stats.fg3Pct)}</span><span><b>FT%</b> ${pct(stats.ftPct)}</span><span><b>PER</b> ${one(stats.per)}</span><span><b>TS%</b> ${pct(stats.tsPct)}</span></div><p class="research-source"><a href="${safe(player.statsSource)}" target="_blank" rel="noopener">Basketball-Reference · career and season records ↗</a></p></section>`;
+    return `<section class="research-career-stats"><span class="research-retired-kicker">${safe(player.years)} · WNBA CAREER</span><h3>Career regular-season averages</h3>${statGrid(stats)}<div class="research-retired-eff"><span><b>FG%</b> ${pct(stats.fgPct)}</span><span><b>3P%</b> ${pct(stats.fg3Pct)}</span><span><b>FT%</b> ${pct(stats.ftPct)}</span><span><b>PER</b> ${one(stats.per)}</span><span><b>TS%</b> ${pct(stats.tsPct)}</span></div><p class="research-source"><a href="${safe(player.statsSource)}" target="_blank" rel="noopener">${safe(player.statsSourceLabel||'Basketball-Reference · career and season records')} ↗</a></p></section>`;
   }
   function seasonMarkup(snapshot,season){
     const grade=snapshot?.letter||'NR',score=num(snapshot?.score);
@@ -105,7 +105,8 @@
   }
   function photoCredit(player){
     if(!player.photoSource)return '';
-    return `<p class="research-source">Photo: <a href="${safe(player.photoSource)}" target="_blank" rel="noopener">${safe(player.photoCredit)}</a> · <a href="${safe(player.photoLicenseUrl)}" target="_blank" rel="noopener">${safe(player.photoLicense)}</a> · cropped to fit.</p>`;
+    const license=player.photoLicenseUrl&&player.photoLicense? ` · <a href="${safe(player.photoLicenseUrl)}" target="_blank" rel="noopener">${safe(player.photoLicense)}</a>`:'';
+    return `<p class="research-source">Photo: <a href="${safe(player.photoSource)}" target="_blank" rel="noopener">${safe(player.photoCredit||'Photo source')}</a>${license} · cropped to fit.</p>`;
   }
   async function showArchiveProfile(name){
     const player=catalog.find(name);if(!player||!modalEl||!modalBodyEl)return;

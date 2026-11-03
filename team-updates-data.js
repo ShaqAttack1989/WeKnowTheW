@@ -105,6 +105,7 @@
   }
   function storyKind(story={}){
     const hay=norm([story.seriesLabel,story.category,story.type,story.title,story.dek].filter(Boolean).join(' '));
+    if(/retir/.test(hay))return 'RETIREMENT';
     if(/record|historic|history/.test(hay))return 'RECORD / MILESTONE';
     if(/award|honor|playeroftheweek|mvp/.test(hay))return 'HONOR';
     if(/playoff/.test(hay))return 'PLAYOFF STORY';

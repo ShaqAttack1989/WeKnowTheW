@@ -6,7 +6,7 @@
   const hasNewerUpdate=post=>{const published=String(post.published||'').slice(0,10),updated=String(post.updated||'').slice(0,10);return Boolean(published&&updated&&updated>published);};
   const dateValue=post=>hasNewerUpdate(post)?post.updated:(post.published||'');
   const dateLabel=post=>`${hasNewerUpdate(post)?'Updated ':''}${format(dateValue(post))}`;
-  const sources=['/snack-shak-love-and-basketball.json','/snack-shak-all-time.json','/snack-shak-final.json','/snack-shak-latest.json?v=20261101-nakase-game7-v2','/snack-shak-breaking.json?v=20261101-game7-nakase-gallery-v1','/snack-shak-specials.json','/snack-shaq-posts.json'];
+  const sources=['/snack-shak-love-and-basketball.json','/snack-shak-all-time.json','/snack-shak-final.json','/snack-shak-latest.json?v=20261103-dewanna-retirement-v1','/snack-shak-breaking.json?v=20261101-game7-nakase-gallery-v1','/snack-shak-specials.json','/snack-shaq-posts.json'];
 
   const FIBA_COMPETITION_ID='208875';
   const FIBA_PLAYER_IDS={
@@ -45,7 +45,7 @@
     document.head.appendChild(style);
   }
 
-  async function fetchPosts(url){const response=await fetch(`${url}?cb=${Date.now()}`,{headers:{Accept:'application/json'},cache:'no-store'});if(!response.ok)return[];const payload=await response.json().catch(()=>({}));return Array.isArray(payload.posts)?payload.posts:[];}
+  async function fetchPosts(url){const response=await fetch(`${url}${url.includes('?')?'&':'?'}cb=${Date.now()}`,{headers:{Accept:'application/json'},cache:'no-store'});if(!response.ok)return[];const payload=await response.json().catch(()=>({}));return Array.isArray(payload.posts)?payload.posts:[];}
   function isMatch(post){return post.type!=='intro'&&(mode==='feature'?post.type==='feature':post.type!=='feature');}
   function href(post){return post.dashboardUrl||`${pagePath}?post=${encodeURIComponent(post.slug)}#story`;}
   function label(post){return mode==='feature'?'FOOD FOR THOUGHT':(post.seriesLabel||'SNACK SHAK BYTE');}

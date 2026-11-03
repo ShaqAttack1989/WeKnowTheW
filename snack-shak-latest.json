@@ -2,6 +2,75 @@
   "site": "Snack Shak",
   "posts": [
     {
+      "slug": "dewanna-bonner-last-hooray-was-a-dream",
+      "type": "byte",
+      "priority": 25000,
+      "homepageSeason": true,
+      "seriesLabel": "SNACK SHAK BYTE · RETIREMENT",
+      "title": "The Last Hooray Was... a Dream",
+      "published": "2026-11-03",
+      "updated": "2026-11-03",
+      "week": "November 3, 2026 · DeWanna Bonner retires",
+      "dek": "DeWanna Bonner’s 17-season run ends where one last title chase began: with a Finals Game 7 in Atlanta.",
+      "storyLead": "The last hooray was...a Dream. DeWanna Bonner is retiring after 17 WNBA seasons, with her final game on basketball’s biggest stage: the 2026 Finals Game 7. Atlanta led Golden State 30–24 at halftime before the Valkyries rallied for a 68–63 win.",
+      "teams": [
+        "Atlanta Dream"
+      ],
+      "players": [
+        "DeWanna Bonner"
+      ],
+      "sections": [
+        {
+          "title": "One more run, one last record",
+          "paragraphs": [
+            "Bonner joined Atlanta late in the season after Phoenix agreed to a contract buyout, giving the veteran one more shot at a title. She played 14 minutes in the winner-take-all Game 7, finishing with four points, two rebounds and one assist.",
+            "Her second rebound made history. Bonner became the first player in WNBA history to reach 600 career postseason defensive rebounds, a milestone fitting for a career built on doing a little of everything."
+          ]
+        },
+        {
+          "title": "A career with room for every chapter",
+          "paragraphs": [
+            "Across 577 regular-season games, Bonner scored 8,243 points, third-most in league history. She finished with career averages of 14.3 points, 6.0 rebounds and 2.2 assists per game.",
+            "She won two championships with Phoenix (2009 and 2014), made six All-Star teams and earned two All-WNBA selections. Her three straight Sixth Player of the Year awards from 2009 to 2011 remain unmatched."
+          ]
+        },
+        {
+          "title": "The Dream was the last hooray",
+          "paragraphs": [
+            "The third ring did not arrive, and Atlanta’s first title remains ahead. Bonner’s final chapter still ended with a place in the record book: her 600th postseason defensive rebound, on Finals night.",
+            "From Phoenix champion to Connecticut cornerstone to one last Atlanta run, Bonner leaves a 17-season career that kept finding new ways to matter."
+          ]
+        }
+      ],
+      "debates": [
+        "Which Bonner chapter stays with you most: the Phoenix championship years, her Connecticut run, or one last title chase with Atlanta?"
+      ],
+      "sources": [
+        {
+          "label": "WNBA Finals Game 7 recap",
+          "url": "https://www.wnba.com/news/2026-finals-valkyries-dream-game-7-recap"
+        },
+        {
+          "label": "WNBA all-time regular-season leaders",
+          "url": "https://stats.wnba.com/alltime-leaders/?SeasonType=Regular+Season"
+        },
+        {
+          "label": "Atlanta signs Bonner for the 2026 playoff push",
+          "url": "https://dream.wnba.com/news/atlanta-dream-signs-two-time-wnba-champion-dewanna-bonner"
+        },
+        {
+          "label": "DeWanna Bonner’s official WNBA profile",
+          "url": "https://www.wnba.com/player/201886/dewanna-bonner/bio"
+        }
+      ],
+      "image": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/201886.png",
+      "storyImage": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/201886.png",
+      "imageFit": "contain",
+      "imageAlt": "DeWanna Bonner in her official WNBA player headshot.",
+      "storyImageCaption": "DeWanna Bonner. Photo: WNBA.",
+      "storyImageSourceUrl": "https://www.wnba.com/player/201886/dewanna-bonner/bio"
+    },
+    {
       "slug": "same-family-different-league-top-10-wnba-nba-siblings",
       "type": "feature",
       "priority": 18000,

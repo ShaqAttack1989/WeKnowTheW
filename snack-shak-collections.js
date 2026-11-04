@@ -54,7 +54,19 @@
   }
   function card(post){const eager=post.slug==='usa-womens-3x3-americup-2026-watch-guide';const fit=post.imageFit==='contain'?' is-contain':post.imageFit==='top-cover'?' is-top-cover':'';const media=post.image?`<div class="snack-collection-card-media${fit}"><img src="${safe(post.image)}" alt="${safe(post.imageAlt||post.title||'')}" loading="${eager?'eager':'lazy'}" fetchpriority="${eager?'high':'auto'}" decoding="async" style="object-position:${safe(post.imageFocus||(post.imageFit==='top-cover'?'center top':'center'))}"${imageRecovery(post.imageFallback||'')}></div>`:'';return `<a class="snack-collection-card ${mode} ${media?'has-media':''}" data-story-slug="${safe(post.slug||'')}" href="${safe(href(post))}">${media}<span>${safe(label(post))}</span><time datetime="${safe(dateValue(post))}">${safe(dateLabel(post))}</time><strong>${safe(post.title)}</strong><p>${safe(post.dek||'Open this Snack Shak story.')}</p><b>${mode==='feature'?'Read the long article →':'Read the Byte →'}</b></a>`;}
 
-  function storyImageMarkup(post={}){const source=post.storyImage||post.image;if(!source)return'';const sourceLink=post.storyImageSourceUrl?` <a href="${safe(post.storyImageSourceUrl)}" target="_blank" rel="noopener noreferrer">Photo source ↗</a>`:'';return `<figure class="snack-story-graphic"><img src="${safe(source)}" alt="${safe(post.imageAlt||post.title||'')}" decoding="async"${imageRecovery(post.storyImageFallback||post.imageFallback||'')}>${post.storyImageCaption||sourceLink?`<figcaption>${safe(post.storyImageCaption||'')}${sourceLink}</figcaption>`:''}</figure>`;}
+  function storyImageMarkup(post={}) {
+    const source=post.storyImage||post.image;
+    if(!source)return'';
+    const sourceLink=post.storyImageSourceUrl?' <a href="'+safe(post.storyImageSourceUrl)+'" target="_blank" rel="noopener noreferrer">Photo source ↗</a>':'';
+    const expandable=Boolean(post.expandableStoryImage);
+    const fullSize=post.storyImageFullSize||source;
+    const image='<img src="'+safe(source)+'" alt="'+safe(post.imageAlt||post.title||'')+'" decoding="async"'+imageRecovery(post.storyImageFallback||post.imageFallback||'')+'>';
+    const media=expandable?'<a class="snack-story-graphic-fullsize" href="'+safe(fullSize)+'" target="_blank" rel="noopener noreferrer" aria-label="Open the full-size '+safe(post.title||'scorecard')+'">'+image+'</a>':image;
+    const caption=post.storyImageCaption?'<span>'+safe(post.storyImageCaption)+'</span>':'';
+    const expandLink=expandable?'<a class="snack-story-graphic-expand" href="'+safe(fullSize)+'" target="_blank" rel="noopener noreferrer">Open full-size scorecard <span aria-hidden="true">↗</span></a>':'';
+    const figcaption=caption||sourceLink||expandLink?'<figcaption>'+caption+sourceLink+expandLink+'</figcaption>':'';
+    return '<figure class="snack-story-graphic'+(expandable?' is-expandable':'')+'">'+media+figcaption+'</figure>';
+  }
   function playoffGameOneMarkup(report={}){
     const receipts=Array.isArray(report.receipts)?report.receipts:[],highlights=Array.isArray(report.highlights)?report.highlights:[];
     if(!receipts.length&&!highlights.length)return'';
@@ -191,7 +203,82 @@
     if(name==='country'&&COUNTRY_CODES[value]){const flag=flagPhoto(value);return `<div class="story-country-cell"><img class="story-country-flag" src="${safe(flag)}" alt="${safe(value)} flag" loading="lazy" decoding="async" onerror="this.style.display='none'"><span>${safe(value)}</span></div>`;}
     return index===1?`<strong>${safe(value)}</strong>`:`<span>${safe(value)}</span>`;
   }
-  function tableMarkup(table={}){const columns=Array.isArray(table.columns)?table.columns:[],rows=Array.isArray(table.rows)?table.rows:[];if(!columns.length||!rows.length)return'';const hasPeople=columns.some(column=>String(column).toLowerCase()==='player')&&columns.some(column=>['country','team'].includes(String(column).toLowerCase()));if(hasPeople)ensureStoryTableMediaStyles();return `<section class="snack-section story-table-section"><div class="story-table-scroll"><div class="story-table${hasPeople?' has-people':''}" style="--story-cols:${columns.length}"><div class="story-table-row head">${columns.map(column=>`<span>${safe(column)}</span>`).join('')}</div>${rows.map(row=>`<div class="story-table-row">${row.map((cell,index)=>storyCellMarkup(columns[index],cell,index)).join('')}</div>`).join('')}</div></div></section>`;}
+  function ensureDuoScorecardStyles(){
+    if(document.getElementById('duoScorecardStyles'))return;
+    const style=document.createElement('style');
+    style.id='duoScorecardStyles';
+    style.textContent=
+      '.snack-story-graphic.is-expandable .snack-story-graphic-fullsize{display:block;overflow:hidden;border-radius:18px}'+
+      '.snack-story-graphic-fullsize img{display:block;width:100%;height:auto}'+
+      '.snack-story-graphic-expand{display:inline-flex;align-items:center;gap:8px;padding:9px 13px;border-radius:999px;background:#d8ff4f;color:#17131f;font-size:.82rem;font-weight:950;text-decoration:none}'+
+      '.snack-story-graphic-expand:focus-visible{outline:3px solid #5c1fc1;outline-offset:3px}'+
+      '.duo-score-details{overflow:hidden;border:1px solid #ded5e8;border-radius:22px;background:#f6f1fa;box-shadow:0 10px 28px rgba(20,10,47,.07)}'+
+      '.duo-score-details>summary{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:20px 22px;cursor:pointer;list-style:none;background:linear-gradient(120deg,#180d33,#3a1969);color:#fff}'+
+      '.duo-score-details>summary::-webkit-details-marker{display:none}'+
+      '.duo-score-expander-copy{display:grid;gap:4px;min-width:0}'+
+      '.duo-score-expander-copy small{color:#d8ff4f;font-size:.68rem;font-weight:950;letter-spacing:.1em}'+
+      '.duo-score-expander-copy strong{font-size:1.2rem;line-height:1.2}'+
+      '.duo-score-expander-copy em{font-size:.82rem;font-style:normal;color:rgba(255,255,255,.75)}'+
+      '.duo-score-expander-icon{display:grid;place-items:center;flex:0 0 42px;width:42px;height:42px;border-radius:50%;background:#d8ff4f;color:#180d33;font-size:1.6rem;font-weight:700;line-height:1;transition:transform .18s ease}'+
+      '.duo-score-details[open] .duo-score-expander-icon{transform:rotate(45deg)}'+
+      '.duo-score-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;padding:14px}'+
+      '.duo-score-card{min-width:0;padding:16px;border:1px solid #e5deeb;border-left:5px solid #6c2ad9;border-radius:17px;background:#fff}'+
+      '.duo-score-card.is-top-three{border-left-color:#a5c300;background:#fffef7}'+
+      '.duo-score-card-top{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:10px}'+
+      '.duo-score-rank{padding:5px 8px;border-radius:999px;background:#eee8f5;color:#4d267e;font-size:.67rem;font-weight:950;letter-spacing:.06em}'+
+      '.duo-score-card.is-top-three .duo-score-rank{background:#e9f7a8;color:#273500}'+
+      '.duo-score-value{display:inline-flex;align-items:baseline;gap:3px;color:#24134a;font-size:1.8rem;font-weight:950;line-height:1}'+
+      '.duo-score-value small{font-size:.72rem;color:#6b6175}'+
+      '.duo-score-program{margin:0 0 5px;color:#6c2ad9;font-size:.74rem;font-weight:950;letter-spacing:.08em;text-transform:uppercase}'+
+      '.duo-score-pair{margin:0 0 8px;color:#17131f;font-size:.98rem;font-weight:900;line-height:1.35;overflow-wrap:anywhere}'+
+      '.duo-score-ap{margin:0 0 9px;color:#716878;font-size:.7rem;font-weight:850}'+
+      '.duo-score-read{margin:0;color:#574f60;font-size:.82rem;line-height:1.5}'+
+      '.duo-score-meter{height:8px;margin-top:13px;overflow:hidden;border-radius:99px;background:#ece7f1}'+
+      '.duo-score-meter span{display:block;height:100%;border-radius:inherit;background:#6c2ad9}'+
+      '.duo-score-card.is-top-three .duo-score-meter span{background:#b0d000}'+
+      '.duo-score-details>summary:focus-visible{outline:3px solid #d8ff4f;outline-offset:-5px}'+
+      '@media(max-width:980px){.duo-score-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}'+
+      '@media(max-width:640px){.duo-score-details>summary{padding:16px}.duo-score-expander-copy strong{font-size:1.02rem}.duo-score-expander-copy em{font-size:.76rem}.duo-score-grid{grid-template-columns:minmax(0,1fr);gap:10px;padding:10px}.duo-score-card{padding:15px}.duo-score-pair{font-size:1rem}}'+
+      '@media(prefers-reduced-motion:reduce){.duo-score-expander-icon{transition:none}}';
+    document.head.appendChild(style);
+  }
+  function duoScorecardMarkup(table,columns,rows){
+    ensureDuoScorecardStyles();
+    const columnIndex=name=>columns.findIndex(column=>String(column).trim().toLowerCase()===name.toLowerCase());
+    const value=(row,name)=>{const index=columnIndex(name);return index<0?'':String(row[index]??'');};
+    const cards=rows.map(row=>{
+      const rank=value(row,'WKTW Rank')||'–';
+      const program=value(row,'Program')||'';
+      const pairing=value(row,'Pairing')||'';
+      const ap=value(row,'AP Preseason')||'';
+      const score=Math.max(0,Math.min(100,Number(value(row,'Score / 100'))||0));
+      const read=value(row,'Opening-Week Read')||'';
+      const topThree=Number(rank)<=3;
+      return '<article class="duo-score-card'+(topThree?' is-top-three':'')+'" aria-label="Rank '+safe(rank)+': '+safe(program)+', score '+score+' out of 100">'+
+        '<div class="duo-score-card-top"><span class="duo-score-rank">RANK '+safe(rank)+'</span><strong class="duo-score-value">'+score+'<small>/100</small></strong></div>'+
+        '<p class="duo-score-program">'+safe(program)+'</p>'+
+        '<h4 class="duo-score-pair">'+safe(pairing)+'</h4>'+
+        '<p class="duo-score-ap">AP PRESEASON #'+safe(ap)+'</p>'+
+        '<p class="duo-score-read">'+safe(read)+'</p>'+
+        '<div class="duo-score-meter" role="img" aria-label="Score: '+score+' out of 100"><span style="width:'+score+'%"></span></div>'+
+      '</article>';
+    }).join('');
+    const summary=table.summary||'Expand all '+rows.length+' pair scores';
+    return '<section class="snack-section story-table-section duo-score-section" aria-label="Dynamic Duo Scores">'+
+      '<details class="duo-score-details">'+
+      '<summary><span class="duo-score-expander-copy"><small>WE KNOW THE W · DYNAMIC DUO SCORE</small><strong>'+safe(summary)+'</strong><em>Scores, preseason ranks and opening-week reads</em></span><span class="duo-score-expander-icon" aria-hidden="true">+</span></summary>'+
+      '<div class="duo-score-grid">'+cards+'</div>'+
+      '</details></section>';
+  }
+  function tableMarkup(table={}){
+    const columns=Array.isArray(table.columns)?table.columns:[];
+    const rows=Array.isArray(table.rows)?table.rows:[];
+    if(!columns.length||!rows.length)return'';
+    if(table.layout==='duo-scorecards')return duoScorecardMarkup(table,columns,rows);
+    const hasPeople=columns.some(column=>String(column).toLowerCase()==='player')&&columns.some(column=>['country','team'].includes(String(column).toLowerCase()));
+    if(hasPeople)ensureStoryTableMediaStyles();
+    return '<section class="snack-section story-table-section"><div class="story-table-scroll"><div class="story-table'+(hasPeople?' has-people':'')+'" style="--story-cols:'+columns.length+'"><div class="story-table-row head">'+columns.map(column=>'<span>'+safe(column)+'</span>').join('')+'</div>'+rows.map(row=>'<div class="story-table-row">'+row.map((cell,index)=>storyCellMarkup(columns[index],cell,index)).join('')+'</div>').join('')+'</div></div></section>';
+  }
   function trioPlayerMarkup(player={}){
     const id=player.id?encodeURIComponent(player.id):'';
     const photo=player.photo||(id?`https://cdn.wnba.com/headshots/wnba/latest/260x190/${id}.png`:playerPhoto(player.name));

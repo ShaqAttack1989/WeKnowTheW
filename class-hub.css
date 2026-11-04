@@ -109,6 +109,6 @@
 .class-dynamic-duos-leaders b{color:#d8ff4f;font-size:1.45rem;line-height:1}
 .class-dynamic-duos-leaders strong{color:#fff;font-size:.76rem;line-height:1.25}
 .class-dynamic-duos-cta{display:inline-flex;flex-wrap:wrap;align-items:center;gap:7px;padding:11px 15px;border-radius:999px;background:#d8ff4f;color:#17131f;font-size:.86rem;font-weight:950}
-.class-dynamic-duos-card>img{display:block;width:100%;height:auto;aspect-ratio:1820/1200;object-fit:contain;border-radius:18px;background:#140a2f}
+.class-dynamic-duos-card>img{display:block;width:100%;height:auto;aspect-ratio:1800/1200;object-fit:contain;border-radius:18px;background:#140a2f}
 @media(max-width:760px){.class-dynamic-duos-card{grid-template-columns:minmax(0,1fr);gap:20px}.class-dynamic-duos-leaders span{flex:1 1 145px}.class-dynamic-duos-card>img{border-radius:14px}}
 @media(prefers-reduced-motion:reduce){.class-dynamic-duos-card{transition:none}.class-dynamic-duos-card:hover{transform:none}}

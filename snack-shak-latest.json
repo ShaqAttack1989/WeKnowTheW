@@ -52,12 +52,12 @@
         "Zoe Brooks",
         "Khamil Pierre"
       ],
-      "image": "/dynamic-duos-2026-27-wktw-scorecard.jpg",
+      "image": "/dynamic-duos-2026-27-wktw-feature.jpg",
       "storyImage": "/dynamic-duos-2026-27-wktw-scorecard.jpg",
-      "imageFit": "contain",
-      "imageFocus": "50% 50%",
-      "imageAlt": "A 2026–27 NCAAW dynamic duos poster beside a We Know the W scorecard ranking twelve player pairs out of 100.",
-      "storyImageCaption": "The 2026–27 NCAAW pairings alongside We Know the W’s opening-week scorecard.",
+      "imageFit": "cover",
+      "imageFocus": "center",
+      "imageAlt": "We Know the W Dynamic Duo Scoreboard with player photos, rankings and opening-week notes for twelve 2026–27 college basketball pairings.",
+      "storyImageCaption": "WKTW Dynamic Duo Scores · 2026–27 opening-week projections.",
       "storyLead": [
         "The first week has started, but the season is nowhere near ready to hand out verdicts. A two-player pairing looks simple on a poster. On the floor, it asks harder questions: Can one player draw help while the other stays dangerous? Can they defend different actions, share decisions, and still produce when the first option is taken away?",
         "The opening games gave us three strong signals. JuJu Watkins and Jazzy Davidson combined for 44 points for USC. Joyce Edwards and Tessa Johnson combined for 38 for South Carolina. Sarah Strong and Jovana Popovic each scored 19 for UConn. Those first returns put USC at 97, South Carolina at 96, and UConn at 95 on our opening-week scorecard.",
@@ -169,7 +169,9 @@
             "84",
             "Brooks’ experience and Pierre’s physicality offer useful contrast."
           ]
-        ]
+        ],
+        "layout": "duo-scorecards",
+        "summary": "Expand the 12-pair scoreboard"
       },
       "sections": [
         {
@@ -220,7 +222,8 @@
           "label": "CBS Sports, early Final Four and title predictions",
           "url": "https://www.cbssports.com/womens-college-basketball/news/womens-college-basketball-season-predictions-final-four-national-champ/"
         }
-      ]
+      ],
+      "expandableStoryImage": true
     },
     {
       "slug": "valkyries-championship-parade-day-2026",

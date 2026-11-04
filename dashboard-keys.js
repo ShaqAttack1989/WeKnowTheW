@@ -113,7 +113,7 @@
     teamLeaders: {title:'Team stat leaders', hint:'Per-game stats · shooting · shared leads', rows: () => [
       ...perGame.filter(([label]) => !label.startsWith('TOPG')), ['3PM/G', 'Made three-pointers per game.'], ...shooting,
       ['Team leader / Co-leaders', 'The highest exact rate among qualifying current roster members. Exact ties share the lead; equal rounded displays alone do not.'],
-      ['Qualifying player', 'At least 5 games for this team. Shooting categories also require 50 FGA, 20 three-point attempts or 20 FTA, respectively. These are this dashboard’s minimums.'],
+      ['Qualifying player', 'At least 5 games for this team. Shooting categories also require 50 FGA, 20 three-point attempts or 20 FTA, respectively. These are the eligibility thresholds for team leaders.'],
       ['FGA / FTA · made/attempted', 'Field-goal attempts / free-throw attempts. A line such as 40/80 means 40 shots made in 80 attempts.'],
       ['Games with this team', 'Only the player’s production for the displayed team counts. Statistics from a previous team are excluded.'],
       ['Out / Out for season', 'An availability label. An injured roster member can retain a lead earned earlier in the season.'],

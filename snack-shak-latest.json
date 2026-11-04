@@ -2,6 +2,227 @@
   "site": "Snack Shak",
   "posts": [
     {
+      "slug": "dynamic-duos-2026-27-early-predictions",
+      "type": "feature",
+      "priority": 90000,
+      "homepageSeason": "ncaaw-opening-week",
+      "seriesLabel": "FOOD FOR THOUGHT · CLASS IS IN SESSION",
+      "title": "Who’s Already Clicking? A 2026–27 Dynamic Duos Scorecard",
+      "published": "2026-11-04",
+      "updated": "2026-11-04",
+      "week": "2026–27 NCAAW · Opening Week",
+      "dek": "USC’s JuJu Watkins and Jazzy Davidson combined for 44 points in their opener. Can that put them over the championship favorites? Our first WKTW scorecard ranks all twelve pairings and makes a few early calls.",
+      "teams": [
+        "USC",
+        "South Carolina",
+        "UConn",
+        "Michigan",
+        "Vanderbilt",
+        "Duke",
+        "Louisville",
+        "LSU",
+        "Iowa",
+        "UCLA",
+        "Oklahoma State",
+        "NC State"
+      ],
+      "players": [
+        "JuJu Watkins",
+        "Jazzy Davidson",
+        "Joyce Edwards",
+        "Tessa Johnson",
+        "Sarah Strong",
+        "Jovana Popovic",
+        "Olivia Olson",
+        "Syla Swords",
+        "Mikayla Blakes",
+        "Aubrey Galvan",
+        "Toby Fournier",
+        "Aaliyah Crump",
+        "Imari Berry",
+        "Zamareya Jones",
+        "Milaysia Fulwiley",
+        "Mikaylah Williams",
+        "Dani Carnegie",
+        "Ava Heiden",
+        "Addy Brown",
+        "Donovyn Hunter",
+        "Audi Crooks",
+        "Liv McGill",
+        "Zoe Brooks",
+        "Khamil Pierre"
+      ],
+      "image": "/dynamic-duos-2026-27-wktw-scorecard.jpg",
+      "storyImage": "/dynamic-duos-2026-27-wktw-scorecard.jpg",
+      "imageFit": "contain",
+      "imageFocus": "50% 50%",
+      "imageAlt": "A 2026–27 NCAAW dynamic duos poster beside a We Know the W scorecard ranking twelve player pairs out of 100.",
+      "storyImageCaption": "The 2026–27 NCAAW pairings alongside We Know the W’s opening-week scorecard.",
+      "storyLead": [
+        "The first week has started, but the season is nowhere near ready to hand out verdicts. A two-player pairing looks simple on a poster. On the floor, it asks harder questions: Can one player draw help while the other stays dangerous? Can they defend different actions, share decisions, and still produce when the first option is taken away?",
+        "The opening games gave us three strong signals. JuJu Watkins and Jazzy Davidson combined for 44 points for USC. Joyce Edwards and Tessa Johnson combined for 38 for South Carolina. Sarah Strong and Jovana Popovic each scored 19 for UConn. Those first returns put USC at 97, South Carolina at 96, and UConn at 95 on our opening-week scorecard.",
+        "That makes USC’s pairing our current duo-score leader and South Carolina our national-title pick. The distinction matters. The WKTW Dynamic Duo Score grades the pair; a championship prediction weighs the entire roster, the defense, depth, and the road through March. The AP preseason poll put South Carolina, UConn, USC, Duke, and Michigan in its top five. It is a useful starting point, not a final answer."
+      ],
+      "storyTable": {
+        "columns": [
+          "WKTW Rank",
+          "Program",
+          "Pairing",
+          "AP Preseason",
+          "Score / 100",
+          "Opening-Week Read"
+        ],
+        "rows": [
+          [
+            "1",
+            "USC",
+            "JuJu Watkins + Jazzy Davidson",
+            "3",
+            "97",
+            "Combined for 44 points in the opener."
+          ],
+          [
+            "2",
+            "South Carolina",
+            "Joyce Edwards + Tessa Johnson",
+            "1",
+            "96",
+            "Combined for 38 points against No. 20 Maryland."
+          ],
+          [
+            "3",
+            "UConn",
+            "Sarah Strong + Jovana Popovic",
+            "2",
+            "95",
+            "Each scored 19 in the season opener."
+          ],
+          [
+            "4",
+            "Michigan",
+            "Olivia Olson + Syla Swords",
+            "5",
+            "92",
+            "A high-level wing pairing with room to build chemistry."
+          ],
+          [
+            "5",
+            "Vanderbilt",
+            "Mikayla Blakes + Aubrey Galvan",
+            "8",
+            "91",
+            "Blakes brings elite scoring pressure; Galvan can help balance the backcourt."
+          ],
+          [
+            "6",
+            "Duke",
+            "Toby Fournier + Aaliyah Crump",
+            "4",
+            "90",
+            "Crump had 11 points and six assists; Fournier did not appear in the opener."
+          ],
+          [
+            "7",
+            "Louisville",
+            "Imari Berry + Zamareya Jones",
+            "7",
+            "89",
+            "A complementary guard-and-wing mix with more chemistry to prove."
+          ],
+          [
+            "8",
+            "LSU",
+            "Milaysia Fulwiley + Mikaylah Williams",
+            "9",
+            "88",
+            "Creation beside scoring gives LSU a high-tempo option."
+          ],
+          [
+            "9",
+            "Iowa",
+            "Dani Carnegie + Ava Heiden",
+            "10",
+            "87",
+            "Carnegie’s scoring pressure can open space for Heiden inside."
+          ],
+          [
+            "10",
+            "UCLA",
+            "Addy Brown + Donovyn Hunter",
+            "11",
+            "86",
+            "Versatile pieces in a rotation still finding its shape."
+          ],
+          [
+            "11",
+            "Oklahoma State",
+            "Audi Crooks + Liv McGill",
+            "22",
+            "85",
+            "Crooks draws attention inside; McGill’s guard play sets the ceiling."
+          ],
+          [
+            "12",
+            "NC State",
+            "Zoe Brooks + Khamil Pierre",
+            "25",
+            "84",
+            "Brooks’ experience and Pierre’s physicality offer useful contrast."
+          ]
+        ]
+      },
+      "sections": [
+        {
+          "title": "What the first box scores say",
+          "paragraphs": [
+            "USC’s Watkins scored 21 and Davidson scored 23 in the Trojans’ season opener. South Carolina’s Edwards had 23 and Johnson added 15 in the Gamecocks’ 101–93 win over No. 20 Maryland. For UConn, Strong and freshman Popovic each scored 19 in a 100–35 win over Cornell. The matchups were different, so the points are early signals rather than a clean comparison.",
+            "Duke’s Aaliyah Crump put up 11 points and six assists against Green Bay. Toby Fournier did not appear in Duke’s official box score, so their pairing is still more projection than proof until they share court time."
+          ]
+        },
+        {
+          "title": "Our early calls",
+          "paragraphs": [
+            "National champion: South Carolina over UConn. The Gamecocks have the depth and frontcourt options to stay dangerous through a long season, and they opened with a win over a ranked Maryland team.",
+            "Final Four: South Carolina, UConn, USC, and Duke. If another team breaks into that group, Michigan is our first call.",
+            "National Player of the Year: Sarah Strong. Breakout pairing: Olivia Olson and Syla Swords. Highest-ceiling duo: Watkins and Davidson, with their opening-week chemistry already turning heads."
+          ]
+        },
+        {
+          "title": "How the WKTW Dynamic Duo Score works",
+          "paragraphs": [
+            "Each score is a 100-point editorial projection, not an official ranking or a game statistic. We weigh recent impact and player ceiling (30 points), complementary skills (25), role clarity and chemistry (20), team outlook (15), and availability (10). Opening-week results inform the early grades, but one game cannot settle a season.",
+            "The USC pair leads the duo score today. South Carolina remains the title pick because a championship forecast has to account for every rotation role, not just the two names on the poster. These opening-week grades should move as the teams give us more evidence."
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "label": "NCAA.com, AP preseason Top 25",
+          "url": "https://www.ncaa.com/news/basketball-women/article/2026-10-20/south-carolina-leads-2026-preseason-ap-top-25-womens-basketball-rankings"
+        },
+        {
+          "label": "USC Athletics, USC vs. UNLV box score",
+          "url": "https://d3jycsk0m72ya7.cloudfront.net/sports/womens-basketball/stats/2026-27/unlv/boxscore/35529"
+        },
+        {
+          "label": "SEC Sports, South Carolina vs. Maryland recap",
+          "url": "https://www.secsports.com/news/2026/11/no-1-south-carolina-holds-off-no-20-maryland-in-paris-opener"
+        },
+        {
+          "label": "UConn Athletics, season opener vs. Cornell",
+          "url": "https://uconnhuskies.com/news/2026/11/2/womens-basketball-no-2-uconn-begins-2026-27-with-win-over-cornell"
+        },
+        {
+          "label": "Duke Athletics, Green Bay box score",
+          "url": "https://goduke.com/sports/womens-basketball/stats/2026-27/green-bay/boxscore/25739"
+        },
+        {
+          "label": "CBS Sports, early Final Four and title predictions",
+          "url": "https://www.cbssports.com/womens-college-basketball/news/womens-college-basketball-season-predictions-final-four-national-champ/"
+        }
+      ]
+    },
+    {
       "slug": "valkyries-championship-parade-day-2026",
       "type": "byte",
       "priority": 50000,

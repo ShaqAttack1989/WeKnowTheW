@@ -6,7 +6,7 @@
   const hasNewerUpdate=post=>{const published=String(post.published||'').slice(0,10),updated=String(post.updated||'').slice(0,10);return Boolean(published&&updated&&updated>published);};
   const dateValue=post=>hasNewerUpdate(post)?post.updated:(post.published||'');
   const dateLabel=post=>`${hasNewerUpdate(post)?'Updated ':''}${format(dateValue(post))}`;
-  const sources=['/snack-shak-love-and-basketball.json','/snack-shak-all-time.json','/snack-shak-final.json','/snack-shak-latest.json?v=20261103-liberty-coach-grades-v1','/snack-shak-breaking.json?v=20261101-game7-nakase-gallery-v1','/snack-shak-specials.json','/snack-shaq-posts.json'];
+  const sources=['/snack-shak-love-and-basketball.json','/snack-shak-all-time.json','/snack-shak-final.json','/snack-shak-latest.json?v=20261104-valkyries-parade-day-v1','/snack-shak-breaking.json?v=20261101-game7-nakase-gallery-v1','/snack-shak-specials.json','/snack-shaq-posts.json'];
 
   const FIBA_COMPETITION_ID='208875';
   const FIBA_PLAYER_IDS={

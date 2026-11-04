@@ -1,6 +1,6 @@
 (function (root) {
   'use strict';
-  const feeds = ['/snack-shak-love-and-basketball.json', '/snack-shak-all-time.json', '/snack-shaq-posts.json', '/snack-shak-specials.json', '/snack-shak-breaking.json', '/snack-shak-final.json', '/snack-shak-latest.json?v=20261103-liberty-coach-grades-v1'];
+  const feeds = ['/snack-shak-love-and-basketball.json', '/snack-shak-all-time.json', '/snack-shaq-posts.json', '/snack-shak-specials.json', '/snack-shak-breaking.json', '/snack-shak-final.json', '/snack-shak-latest.json?v=20261104-valkyries-parade-day-v1'];
   const time = value => { const n = Date.parse(value || ''); return Number.isFinite(n) ? n : 0; };
   const updated = post => Math.max(time(post.published), time(post.updated));
   function selectStories(groups, now = Date.now()) {

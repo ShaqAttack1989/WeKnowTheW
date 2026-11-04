@@ -2,6 +2,83 @@
   "site": "Snack Shak",
   "posts": [
     {
+      "slug": "valkyries-championship-parade-day-2026",
+      "type": "byte",
+      "priority": 50000,
+      "homepageSeason": "wnba-playoffs",
+      "seriesLabel": "SNACK SHAK BYTE · CHAMPIONSHIP PARADE DAY",
+      "title": "The Valkyries Bring Their First Championship to the Bay",
+      "published": "2026-11-04",
+      "updated": "2026-11-04",
+      "week": "2026 WNBA CHAMPIONSHIP PARADE",
+      "dek": "San Francisco’s parade starts at noon along The Embarcadero. Here is the route, transit plan, street-closure window and why this second-season title belongs to the whole Bay.",
+      "teams": [
+        "Golden State Valkyries"
+      ],
+      "players": [
+        "Gabby Williams",
+        "Natalie Nakase"
+      ],
+      "image": "https://cdn.wnba.com/sites/4/2026/11/GettyImages-2302461744-1-scaled.jpg",
+      "imageFit": "cover",
+      "imageFocus": "50% 38%",
+      "imageAlt": "Golden State Valkyries guard Gabby Williams celebrates with the WNBA Finals MVP trophy after the 2026 championship.",
+      "storyImage": "https://cdn.wnba.com/sites/4/2026/11/GettyImages-2302461744-1-scaled.jpg",
+      "storyImageCaption": "Finals MVP Gabby Williams celebrates Golden State’s 2026 championship. Photo: WNBA/Getty Images.",
+      "storyImageSourceUrl": "https://www.wnba.com/news/rapid-reactions-2026-wnba-finals",
+      "imageSourceUrl": "https://www.wnba.com/news/rapid-reactions-2026-wnba-finals",
+      "storyLead": [
+        "The Valkyries’ first championship gets its Bay Area victory lap today. The team and the City of San Francisco have scheduled the parade for Wednesday, November 4, from noon to 2 p.m. It will travel along The Embarcadero from the Ferry Building near Mission Street to King and 2nd Street.",
+        "Fans can line up from 9 a.m. on the bay side of the route between Mission and 2nd. Players, coaches and staff are expected to join the celebration. Finals MVP Gabby Williams and San Francisco Mayor Daniel Lurie are set to start the parade with the Valkyries drum."
+      ],
+      "sections": [
+        {
+          "title": "Parade-day details",
+          "paragraphs": [
+            "The parade route runs south along The Embarcadero, from the Ferry Building to King and 2nd. The team has announced a viewing area, championship merchandise truck and fan activations along the route. Check the official Valkyries parade page for the event map and any last-minute updates.",
+            "SFMTA lists waterfront and downtown street closures from shortly after midnight to 4 p.m., with additional closures from 8 a.m. to 4 p.m. Several Muni lines will reroute or adjust stops. If you are driving or transferring between routes, review SFMTA’s event page before leaving."
+          ]
+        },
+        {
+          "title": "Getting there",
+          "paragraphs": [
+            "BART says it will add longer trains, staff and security for parade day. Embarcadero and Montgomery stations provide walking access to the route. For the south end near King and 2nd, BART’s guide recommends continuing to Powell Street and transferring to the southbound T Third at Union Square for 4th and King.",
+            "Transit details can shift with crowd and street conditions. Use BART’s trip planner and SFMTA’s event page for current service information."
+          ]
+        },
+        {
+          "title": "Why this parade is a landmark",
+          "paragraphs": [
+            "Golden State beat Atlanta 68–63 in Game 7 of the Finals, the first winner-take-all Game 7 in WNBA Finals history. The Valkyries won the championship in their second season. The team says that makes them the fastest North American major-league expansion franchise since 1967 to win a title.",
+            "The run had other history in it: Golden State reached the postseason in each of its first two seasons, drew 53 consecutive sellouts, and became the first WNBA champion without a 2026 All-WNBA honoree on its roster. The achievement reflects a deep team effort and a home crowd that made Chase Center feel like Ballhalla.",
+            "The parade gives that story a shared Bay Area stage, from the team’s Oakland practice home to its San Francisco home court and the fans who filled both cities with Valkyries pride. A championship this early is a statement about how quickly a new franchise, its players and its community can build something lasting."
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "label": "Golden State Valkyries: parade details and route",
+          "url": "https://valkyries.wnba.com/news/golden-state-valkyries-announce-championship-parade-information"
+        },
+        {
+          "label": "SFMTA: event map, street closures and Muni changes",
+          "url": "https://www.sfmta.com/travel-updates/valkyries-wnba-championship-parade-wednesday-november-4-2026"
+        },
+        {
+          "label": "BART: parade-day rider guide and service plan",
+          "url": "https://www.bart.gov/news/articles/2026/news20261029"
+        },
+        {
+          "label": "Valkyries: 2026 championship announcement",
+          "url": "https://valkyries.wnba.com/news/golden-state-valkyries-win-2026-wnba-championship-20261031"
+        },
+        {
+          "label": "Valkyries: Game 7 recap and championship records",
+          "url": "https://valkyries.wnba.com/news/gameday-recap-20261031"
+        }
+      ]
+    },
+    {
       "slug": "new-york-vs-demarco-liberty-coach-grade-reset",
       "type": "feature",
       "priority": 27000,

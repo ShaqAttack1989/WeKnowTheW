@@ -202,7 +202,7 @@
   if(page==='mascots')renderCards('#cultureGrid',COURTSIDE_MASCOTS,'mascot');
   if(page==='coaches'){
     renderCoachDashboard();
-    renderCards('#cultureGrid',COURTSIDE_COACHES,'coach');
+    renderCards('#cultureGrid',COURTSIDE_COACHES.filter(coach=>coach.isCurrent),'coach');
     const clipboard=$('#clipboardGrid');if(clipboard){clipboard.innerHTML=COURT_TO_CLIPBOARD.map(item=>card({...item,team:item.role.split(' · ')[0],summary:item.path},'coach')).join('');hydrateMedia();}
   }
   if(page==='owners'){

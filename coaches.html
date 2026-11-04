@@ -4,10 +4,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>WNBA Coaches | Courtside Culture</title>
-  <meta name="description" content="Meet every current WNBA head coach and former players who moved from court to clipboard.">
+  <meta name="description" content="Explore WNBA head coaches from 1997 through 2026, compare the current coaching landscape, and browse real, source-linked coach portraits and team logos.">
   <link rel="stylesheet" href="/styles.css">
   <link rel="stylesheet" href="/landing.css">
-  <link rel="stylesheet" href="/courtside-culture.css?v=20261013-coach-peer-grade-v2">
+  <link rel="stylesheet" href="/courtside-culture.css?v=20261104-coach-history-v1">
+  <link rel="stylesheet" href="/coach-history.css?v=20261104-coach-history-v1">
 </head>
 <body class="section-page culture-page" data-culture-page="coaches">
   <header class="subhero">
@@ -19,7 +20,7 @@
     <div class="page-shell subhero-inner">
       <p class="eyebrow">COURTSIDE CULTURE</p>
       <h1>THE <em>COACHES</em></h1>
-      <p>The voices, systems and leadership styles shaping the 2026 WNBA season.</p>
+      <p>Leadership across the 2026 season, with the 2027 offseason coaching picture and three decades of WNBA history.</p>
       <div class="page-crumbs"></div>
     </div>
   </header>
@@ -32,8 +33,8 @@
     <section class="page-section">
       <div class="page-shell">
         <div class="culture-intro">
-          <div><p class="eyebrow">2026 HEAD COACHES</p><h2>Fifteen teams. Fourteen current head coaches and one reported vacancy.</h2><p>Current head coaches across the league, plus the Los Angeles vacancy reported Sept. 25. Former WNBA players link directly back to their Playerpedia playing careers.</p></div>
-          <aside class="culture-note"><span>ROSTER DATE</span><strong>Updated Nov. 1, 2026.</strong><span>Current team announcements take priority over an older directory entry; historical coaching records remain linked below.</span></aside>
+          <div><p class="eyebrow">2027 OFFSEASON · 2026 SEASON COMPLETE</p><h2>Thirteen coaches remain in place. Two head-coach searches are open.</h2><p>Current roles are updated through Nov. 4, 2026. Los Angeles and New York have openings; their 2026 coaches stay in the season record and the 30-year history. Former WNBA players link back to their Playerpedia playing careers.</p></div>
+          <aside class="culture-note"><span>ROSTER DATE</span><strong>Updated Nov. 4, 2026.</strong><span>Los Angeles and New York are open for 2027. Chris DeMarco and Lynne Roberts are kept in the completed 2026 season record and historical archive.</span></aside>
         </div>
 
         <section class="coach-dashboard" id="coach-dashboard" aria-labelledby="coach-dashboard-title">
@@ -60,7 +61,7 @@
           <div class="coach-dashboard-controls">
             <div class="coach-dashboard-control">
               <label for="coachDashboardSearch">Find a coach or team</label>
-              <input id="coachDashboardSearch" type="search" placeholder="Search all 15 coaches" autocomplete="off">
+              <input id="coachDashboardSearch" type="search" placeholder="Search 2026 coaches" autocomplete="off">
             </div>
             <div class="coach-dashboard-control">
               <label for="coachDashboardSort">Sort coaches by</label>
@@ -90,6 +91,12 @@
               <tbody id="coachDashboardTable"></tbody>
             </table>
           </div>
+          <section class="coach-tech-card" aria-labelledby="coach-tech-title">
+            <h3 id="coach-tech-title">2026 coaching-staff technicals</h3>
+            <p>Technical fouls charged to coaching staffs, listed by each team's head coach. Counts include assistants, so they should not be read as head-coach-only totals.</p>
+            <div id="coachTechnicalLeaderboard" aria-label="2026 coaching staff technical foul leaderboard"></div>
+            <p class="coach-tech-source">Source: <a href="https://hoopsjunkie.io/wnba/stats/2026/teams/coaching/technicals" target="_blank" rel="noopener">Hoops Junkie 2026 coaching technicals ↗</a></p>
+          </section>
           <div class="coach-dashboard-sources">
             <p>Career regular-season totals include games through 2026. Career playoff totals include completed 2026 WNBA Finals through Oct. 31, 2026. Career W Grade uses eligible WNBA history through 2025; limited samples are provisional and no prior WNBA record is NR. The 2026 season and playoff results are scored in 2026 Form. Lynne Roberts’ line remains for her completed 2026 season; Los Angeles has since announced a vacancy.</p>
             <a href="https://www.wnba.com/standings" target="_blank" rel="noopener">Official 2026 standings ↗</a>
@@ -100,6 +107,21 @@
           </div>
         </section>
         <div class="culture-grid" id="cultureGrid"></div>
+        <section class="coach-history-dashboard" id="coach-history-dashboard" aria-labelledby="coach-history-title">
+          <div class="coach-history-heading"><div><p class="eyebrow">WNBA COACHING HISTORY · 1997–2026</p><h2 id="coach-history-title">Thirty seasons. Every head-coach chapter.</h2><p>Search the league's head-coaching history by coach, franchise, era, or current status. Franchise moves and retired team names stay attached to the seasons they represent.</p></div></div>
+          <div class="coach-history-kpis" id="coachHistoryKpis" aria-label="Coach history summary"></div>
+          <div class="coach-history-controls">
+            <div class="coach-history-control"><label for="coachHistorySearch">Find a coach, team, or year</label><input id="coachHistorySearch" type="search" placeholder="Try Becky Hammon, Detroit Shock, or 2017" autocomplete="off"></div>
+            <div class="coach-history-control"><label for="coachHistoryTeam">Franchise</label><select id="coachHistoryTeam"><option value="">All teams and franchises</option></select></div>
+            <div class="coach-history-control"><label for="coachHistoryStatus">Coach status</label><select id="coachHistoryStatus"><option value="all">All coaches</option><option value="current">In place for 2027</option><option value="former">Past head coaches</option><option value="2026">Coached in 2026</option><option value="champions">Won a WNBA title</option></select></div>
+            <div class="coach-history-control"><label for="coachHistoryEra">Era</label><select id="coachHistoryEra"><option value="all">All 30 seasons</option><option value="nineties">1997–1999</option><option value="twoThousands">2000–2009</option><option value="twentyTens">2010–2019</option><option value="twentyTwenties">2020–2026</option></select></div>
+            <div class="coach-history-control"><label for="coachHistorySort">Sort by</label><select id="coachHistorySort"><option value="name">Coach name</option><option value="titles">WNBA titles</option><option value="seasons">Seasons coached</option></select></div>
+          </div>
+          <p class="coach-history-count" id="coachHistoryCount" role="status" aria-live="polite"></p>
+          <div class="coach-history-grid" id="coachHistoryGrid" aria-label="WNBA head coaches from 1997 through 2026"></div>
+          <p class="coach-history-source-note">Historical coach names, team stops, and tenure years are based on the <a href="https://en.wikipedia.org/wiki/List_of_WNBA_head_coaches" target="_blank" rel="noopener">all-time WNBA head-coach index</a>; its record table is current through the 2025 season. Current roles are refreshed against the <a href="https://www.wnba.com/" target="_blank" rel="noopener">WNBA and team announcements</a> through Nov. 4, 2026. Championship years are cross-checked with the <a href="https://www.basketball-reference.com/wnba/coaches/" target="_blank" rel="noopener">Basketball-Reference WNBA Coach Index</a> and league history. Portraits are loaded only when the site can verify a real reusable image and provide its source credit; otherwise the card shows initials.</p>
+        </section>
+
         <div class="source-banner"><p><strong>History without rollback:</strong> use the Basketball-Reference coach index for career records and official team pages for today’s bench.</p><a href="https://www.basketball-reference.com/wnba/coaches/" target="_blank" rel="noopener">Basketball-Reference coach index ↗</a></div>
         <section class="clipboard-feature" id="court-to-clipboard">
           <div class="section-heading"><p class="eyebrow">SPECIAL FEATURE</p><h2>COURT TO CLIPBOARD</h2><p>Former WNBA players bringing lived experience into head coaching, assistant coaching and player development. Each card connects the coaching chapter back to Legends Lounge in Playerpedia.</p></div>
@@ -114,5 +136,7 @@
   <script src="/coach-grades.js?v=20261013-unified-v2"></script>
   <script src="/courtside-page.js?v=20261101-nakase-finals-complete-v3"></script>
   <script src="/coach-photo-fix.js?v=20261012-coach-photos-locked-v5"></script>
+  <script src="/coach-history-data.js?v=20261104-coach-history-v1"></script>
+  <script src="/coach-history-dashboard.js?v=20261104-coach-history-v1"></script>
 </body>
 </html>

@@ -66,3 +66,7 @@
   .unrivaled-signing-card strong{font-size:.98rem}
   .unrivaled-signing-card p{font-size:.72rem}
 }
+
+/* Leader values can wrap inside the third column on compact cards. */
+.unrivaled-leader-row{grid-template-columns:44px minmax(0,1fr) minmax(0,auto)}
+.unrivaled-leader-row b{white-space:normal;max-width:100%;overflow-wrap:anywhere;text-align:right}

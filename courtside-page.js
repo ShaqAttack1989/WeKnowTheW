@@ -116,7 +116,7 @@
       const scores=calculateCoachScores(item);
       const gradeText=grade=>grade.total===null?'NR · no pre-2026 WNBA sample':grade.total+' / 99 · '+grade.letter+(grade.provisional?' · PROVISIONAL · '+grade.sampleGames+' prior games':'');
       const breakdown=(grade,label)=>'<section class="coach-rating-panel"><h4>'+escape(label)+' · '+gradeText(grade)+'</h4><div class="coach-rating-breakdown">'+grade.points.map(component=>'<div><span>'+escape(component.label)+(component.valueText?' · '+escape(component.valueText):'')+'</span><strong>'+(Number.isFinite(component.percentile)?Math.round(component.percentile*100)+'th percentile · '+Math.round(component.weight*100)+'% weight':'Not scored · '+escape(component.missingReason||'not eligible'))+'</strong></div>').join('')+'</div></section>';
-      const scorePanels='<div class="coach-rating-panels">'+breakdown(scores.legacy,'Career W Grade · through 2025')+breakdown(scores.form,'2026 Form')+'</div>';
+      const scorePanels='<details class="coach-score-details"><summary>View how this coach’s WKTW grades were tallied</summary><div class="coach-rating-panels">'+breakdown(scores.legacy,'Career W Grade · through 2025')+breakdown(scores.form,'2026 Form')+'</div></details>';
       spotlight.innerHTML=
         '<article class="coach-spotlight-card" style="--team:'+team.primary+';--team2:'+team.secondary+'">'+
           '<div class="coach-spotlight-heading"><div><span class="coach-spotlight-kicker">'+escape(item.team)+' · '+badge+'</span><h3>'+escape(item.name)+'</h3><p>'+escape(summary)+'</p></div>'+

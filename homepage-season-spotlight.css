@@ -108,3 +108,6 @@
   background-position:center 42%;
   background-repeat:no-repeat;
 }
+
+/* The spotlight footer link stays within its card. */
+.season-spotlight-foot a{white-space:normal;max-width:100%;overflow-wrap:anywhere}

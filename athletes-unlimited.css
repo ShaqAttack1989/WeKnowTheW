@@ -3,3 +3,7 @@
 
 .au-season-snapshot .season-window-card{background:linear-gradient(145deg,#fff7e7,#fff);border-color:#e9cfae}
 .au-season-snapshot .season-window-card span{color:#a34c00}
+
+/* Roster labels can wrap without forcing the roster card wider. */
+.au-roster-grid .au-roster-player{min-width:0}
+.au-roster-player small{white-space:normal;max-width:100%;overflow-wrap:anywhere;text-align:right}

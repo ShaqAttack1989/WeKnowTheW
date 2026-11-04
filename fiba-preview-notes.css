@@ -15,3 +15,6 @@
 .fiba-editorial-card.final-four-card{grid-column:1/-1;border-color:#b9cc76;background:linear-gradient(120deg,#f8ffe1,#fff)}.fiba-editorial-card.final-four-card aside{background:linear-gradient(145deg,#0d2a4e,#35105b)}
 @media(max-width:900px){.fiba-editorial-grid{grid-template-columns:1fr}.fiba-editorial-head{align-items:flex-start;flex-direction:column}.fiba-editorial-head p{text-align:left}}
 @media(max-width:560px){.fiba-editorial-hub{padding:15px}.fiba-editorial-card{grid-template-columns:1fr}.fiba-editorial-card aside{grid-template-columns:auto auto 1fr;gap:8px;min-height:0;justify-items:start}.fiba-editorial-card aside em{font-size:2rem}}
+
+/* Source pills may contain long publisher names or URLs. */
+.fiba-preview-sources a{white-space:normal;max-width:100%;overflow-wrap:anywhere;line-height:1.35}

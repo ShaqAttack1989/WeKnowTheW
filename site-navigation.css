@@ -523,3 +523,6 @@ body>.w-utility-bar a{min-height:36px!important;font-size:13px;}
 
 #playoff-watch-guide,#playoff-bracket,#this-week,#live-desk,#overall-standings,#homepage-games{scroll-margin-top:280px}
 @media(max-width:1280px){#playoff-watch-guide,#playoff-bracket,#this-week,#live-desk,#overall-standings,#homepage-games{scroll-margin-top:180px}}
+
+/* Long section headlines wrap inside the hero instead of running past the viewport. */
+.section-page .subhero h1.around-heading{white-space:normal;max-width:100%;overflow-wrap:anywhere;line-height:1.02}

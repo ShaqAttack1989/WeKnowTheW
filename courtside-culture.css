@@ -177,3 +177,39 @@
 @media(max-width:1000px){.playoff-courtside-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:760px){.playoff-courtside-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.playoff-courtside-heading{align-items:flex-start;flex-direction:column}.playoff-courtside-source-link{white-space:normal}}
 @media(max-width:520px){.playoff-courtside-grid{grid-template-columns:1fr}.playoff-courtside-photo{aspect-ratio:4/5}.playoff-courtside-card figcaption{padding:.9rem}}
+
+/* Coach dashboard: keep the scorecard readable in narrow and desktop-mode mobile viewports. */
+.coach-dashboard-count{min-width:0;white-space:normal;overflow-wrap:anywhere;line-height:1.35}
+.coach-rating-breakdown>div{display:grid;grid-template-columns:minmax(0,1fr);align-items:start}
+.coach-rating-breakdown span,.coach-rating-breakdown strong{min-width:0;white-space:normal;overflow-wrap:anywhere}
+.coach-rating-breakdown strong{display:block;line-height:1.35}
+.coach-spotlight-metrics strong{white-space:normal;overflow-wrap:anywhere}
+.coach-score-details{margin:0 1.1rem 1rem;border:1px solid #51465a;border-radius:14px;background:rgba(15,12,18,.25)}
+.coach-score-details>summary{padding:.78rem .95rem;color:var(--culture-lime);font-size:.78rem;font-weight:900;cursor:pointer}
+.coach-score-details>summary:focus-visible{outline:3px solid var(--culture-lime);outline-offset:3px;border-radius:8px}
+.coach-score-details[open]>summary{border-bottom:1px solid #51465a}
+.coach-score-details .coach-rating-panels{grid-template-columns:repeat(2,minmax(0,1fr));padding:.8rem}
+@media(max-width:1100px){
+ .coach-dashboard-controls{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .coach-dashboard-kpis{grid-template-columns:repeat(3,minmax(0,1fr))}
+ .coach-dashboard-count{grid-column:1/-1}
+ .coach-spotlight-metrics{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+@media(max-width:640px){
+ .coach-dashboard-heading{align-items:flex-start;flex-direction:column}
+ .coach-dashboard-date{width:100%}
+ .coach-dashboard-kpis{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .coach-dashboard-controls{grid-template-columns:1fr}
+ .coach-dashboard-count{grid-column:auto}
+ .coach-spotlight-heading{align-items:flex-start;flex-direction:column}
+ .coach-spotlight-ratings{width:100%}
+ .coach-rating-panels,.coach-score-details .coach-rating-panels{grid-template-columns:1fr}
+ .coach-spotlight-metrics{grid-template-columns:repeat(2,minmax(0,1fr));padding:0 .75rem .75rem}
+ .coach-rating-breakdown{grid-template-columns:1fr;padding:0 .75rem .75rem}
+ .coach-trophy-shelf{grid-template-columns:1fr}
+ .coach-dashboard-table{min-width:860px}
+ .coach-score-details{margin-inline:.75rem}
+}
+
+/* Source links and coach score details must wrap within their cards. */
+.source-banner a{white-space:normal;max-width:100%;overflow-wrap:anywhere}

@@ -119,3 +119,6 @@
 .pr-team-card button{font-family:inherit;font-weight:800;font-size:.7rem;line-height:1.2}
 .pr-controls button{font-family:inherit;font-weight:800;font-size:.8rem;line-height:1.2}
 .playoff-page>.pr-sr:focus{position:fixed;left:12px;top:12px;width:auto;height:auto;padding:12px;margin:0;clip:auto;background:#fff;color:#53238a;z-index:10000}
+
+/* Checkbox descriptions and edition labels may wrap at narrow widths. */
+.pr-controls .pr-checkbox,.pr-edition{white-space:normal;max-width:100%;overflow-wrap:anywhere}

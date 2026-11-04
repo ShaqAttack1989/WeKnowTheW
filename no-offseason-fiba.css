@@ -157,3 +157,9 @@
   .fiba-leader-source{display:block}
   .fiba-leader-source a{display:inline-block;margin-top:7px}
 }
+
+/* Official source text stays inside FIBA callouts and leader rows. */
+.fiba-official-cta{flex-wrap:wrap}
+.fiba-official-cta a{white-space:normal;max-width:100%;overflow-wrap:anywhere}
+.fiba-leader-source{flex-wrap:wrap}
+.fiba-leader-source a{white-space:normal;max-width:100%;overflow-wrap:anywhere}

@@ -315,3 +315,6 @@ body.section-page { background:#fffaf0; color:#17131f; }
   }
   .hub-hero .hero-card strong{font-size:2.9rem}
 }
+
+/* HerStory calls to action wrap within their feature cards. */
+.herstory-profile-button,.herstory-category-on{white-space:normal;max-width:100%;overflow-wrap:anywhere}

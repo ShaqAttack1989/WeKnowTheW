@@ -22,3 +22,6 @@
 .next-expansion-line{display:flex;align-items:stretch;gap:.6rem;margin-top:1.4rem;overflow-x:auto;padding-bottom:.2rem}.next-expansion-stop{min-width:150px;background:#fff;border:1px solid var(--next-line);border-radius:18px;padding:.9rem 1rem}.next-expansion-stop b{display:block;font-size:1.5rem}.next-expansion-stop span{font-size:.68rem;font-weight:950;letter-spacing:.09em;color:#6c6173}.next-expansion-stop strong{display:block;margin-top:.4rem;font-size:.88rem}.next-expansion-stop.current{background:var(--next-lime);border-color:#b7e936}
 @media(max-width:900px){.next-desk-grid{grid-template-columns:1fr}.next-desk{min-height:330px}.next-now-grid{grid-template-columns:1fr}.pipeline-board{grid-template-columns:1fr}.pipeline-step:not(:last-child){border-right:0;border-bottom:1px solid #3a3040}}
 @media(max-width:620px){.next-now-card{grid-template-columns:auto 1fr}.next-now-arrow{display:none}.next-section{padding:3rem 0}.next-heading h2{font-size:2.8rem}.mock-draft-route{grid-template-columns:auto 1fr}.mock-draft-route-cta{grid-column:1/-1;text-align:center}}
+
+/* Draft route calls to action wrap instead of widening their card. */
+.mock-draft-route-cta{white-space:normal;max-width:100%;overflow-wrap:anywhere;text-align:center}

@@ -111,3 +111,7 @@
 @media(max-width:1050px){.playoff-draft-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:620px){.playoff-draft-board{padding:18px 13px;border-radius:19px}.playoff-draft-heading{align-items:flex-start;flex-direction:column;gap:8px}.playoff-draft-heading>small{text-align:left}.playoff-draft-highlights{grid-template-columns:1fr}.playoff-draft-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.playoff-draft-team{padding:10px;border-radius:14px}.playoff-draft-team-id{gap:6px}.playoff-draft-team-id img{width:27px;height:27px;flex-basis:27px}.playoff-draft-team-id>div>span{font-size:.52rem}.playoff-draft-team-id h4{font-size:.77rem}.playoff-draft-count strong{font-size:1.35rem}.playoff-draft-count span{font-size:.47rem}.playoff-draft-run p{font-size:.66rem}.playoff-draft-pick-name{font-size:.64rem}}
 @media(max-width:380px){.playoff-draft-grid{grid-template-columns:1fr}}
+
+/* Footer links wrap when the bracket is shown in a narrow column. */
+.wktw-bracket>footer{flex-wrap:wrap}
+.wktw-bracket>footer a{white-space:normal;max-width:100%;overflow-wrap:anywhere}

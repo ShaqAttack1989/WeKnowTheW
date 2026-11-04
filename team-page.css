@@ -316,3 +316,7 @@ body.team-page{background:#fffaf0;color:#17131f;}
 @media(max-width:600px){.team-name-origin-card{grid-template-columns:1fr;gap:16px;padding:20px}.team-name-origin-year{font-size:2.3rem}}
 
 .team-name-origin-logo{display:block;width:140px;height:140px;object-fit:contain;margin:0 auto 20px;padding:8px;background:#fff;border-radius:16px}
+
+/* The game-feed heading link can wrap below the heading on compact team cards. */
+.dream-panel-heading{flex-wrap:wrap}
+.dream-panel-heading a{white-space:normal;max-width:100%;overflow-wrap:anywhere}

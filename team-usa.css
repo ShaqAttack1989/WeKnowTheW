@@ -264,3 +264,6 @@ a.team-usa-kitchen-game:hover,a.team-usa-kitchen-game:focus-visible{background:#
 .wheelchair-source-bar{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-top:18px;padding:20px;border:1px solid #cbd9ed;border-radius:22px;background:#fff}.wheelchair-source-bar>div:first-child{max-width:650px}.wheelchair-source-bar span{display:block;color:#9b2639;font-size:.65rem;font-weight:950;letter-spacing:.08em}.wheelchair-source-bar strong{display:block;margin:5px 0;color:#142139;font-size:1.25rem}.wheelchair-source-bar p{margin:0;color:#68758a;line-height:1.5}
 @media(max-width:900px){.wheelchair-final-feature{grid-template-columns:1fr}.wheelchair-snapshot-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.wheelchair-history{grid-template-columns:repeat(2,minmax(0,1fr))}.wheelchair-source-bar{align-items:flex-start;flex-direction:column}}
 @media(max-width:560px){.wheelchair-final-notes,.wheelchair-snapshot-grid,.wheelchair-history{grid-template-columns:1fr}.wheelchair-final-score>strong{grid-template-columns:1fr;text-align:left}.wheelchair-final-score>strong b:last-child{text-align:left}.wheelchair-final-score i{order:3}}
+
+/* Source buttons wrap long source names within their flex row. */
+.team-usa-source-links a{white-space:normal;max-width:100%;overflow-wrap:anywhere;line-height:1.35}

@@ -1118,9 +1118,7 @@ window.WNBA_COACH_HISTORY = [
         "end": null
       }
     ],
-    "titles": [
-      2026
-    ],
+    "titles": [],
     "current": true
   },
   {

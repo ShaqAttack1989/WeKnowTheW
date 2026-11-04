@@ -130,10 +130,10 @@
 .snack-collection-card-media{width:calc(100% + 52px);height:178px;margin:0 -26px 20px;overflow:hidden;border-bottom:1px solid rgba(255,255,255,.16);background:#160a2f;}
 .snack-collection-card-media img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .25s ease;}
 .snack-collection-card:hover .snack-collection-card-media img,.snack-collection-card:focus-visible .snack-collection-card-media img{transform:scale(1.025);}
-.snack-collection-story{max-width:1040px;}
+.snack-collection-story{max-width:1040px;scroll-margin-top:270px;}
 .snack-story-back{display:inline-flex;margin-bottom:20px;color:#6c2ad9;font-weight:900;text-decoration:none;}
 @media(max-width:900px){.snack-door-grid,.snack-hub-latest-grid{grid-template-columns:1fr}.snack-collection-grid{grid-template-columns:repeat(2,minmax(0,1fr));}}
-@media(max-width:620px){.snack-collection-grid{grid-template-columns:1fr}.snack-door{min-height:280px}.snack-hub-story,.snack-collection-card{min-height:0}}
+@media(max-width:620px){.snack-collection-grid{grid-template-columns:1fr}.snack-door{min-height:280px}.snack-hub-story,.snack-collection-card{min-height:0}.snack-collection-story{scroll-margin-top:205px}}
 
 /* Sept. 3, 2026: 12pt/16px minimum inside actual article reading views. */
 .snack-post{font-size:1rem;line-height:1.72}

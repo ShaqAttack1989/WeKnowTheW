@@ -91,4 +91,4 @@
   const techHost=$("coachTechnicalLeaderboard");
   if(techHost){const max=Math.max(...technicals.map(item=>item.value),1);techHost.innerHTML='<div class="coach-tech-list" role="list">'+technicals.map((item,index)=>{const logo=logoUrl(item.team);return '<div class="coach-tech-row" role="listitem"><span class="coach-tech-rank">'+(index+1)+'</span>'+(logo?'<img src="'+esc(logo)+'" alt="'+esc(item.team)+' logo" loading="lazy" onerror="this.hidden=true">':'')+'<span class="coach-tech-name"><b>'+esc(item.name)+'</b><small>'+esc(item.team)+'</small><i style="--bar:'+(item.value/max*100)+'%"></i></span><strong>'+item.value+'</strong></div>'}).join("")+'</div>'}
   render();
-})();\n
+})();

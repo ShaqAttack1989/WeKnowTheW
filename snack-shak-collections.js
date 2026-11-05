@@ -555,7 +555,20 @@ function wirePayHistoryDashboard(root){
     return `<div class="sibling-board"><nav class="sibling-jump" aria-label="Sibling ranking navigation">${pairs.map(p=>`<a href="#sibling-${safe(p.rank)}">${safe(p.rank)}. ${safe(p.title)}</a>`).join('')}<a href="#sibling-millers">Cheryl + Reggie tribute</a></nav>${pairs.map(p=>entry(p)).join('')}${board.legacy?entry(board.legacy,true):''}</div>`;
   }
 
-  function sectionsMarkup(sections=[]){return sections.map(section=>{const graphic=section.image?storyImageMarkup({storyImage:section.image,imageAlt:section.imageAlt||section.title,storyImageCaption:section.imageCaption}):'';const paragraphs=(section.paragraphs||[]).map(paragraph=>`<p>${safe(paragraph)}</p>`).join('');const id=section.id?` id="${safe(section.id)}"`:'';return `<section class="snack-section"${id}><h3>${safe(section.title)}</h3>${graphic}${paragraphs}</section>`;}).join('');}
+  function sectionPhotoGridMarkup(items=[],label='Player portraits'){
+    const photos=Array.isArray(items)?items:[];
+    if(!photos.length)return'';
+    return '<div class="snack-story-photo-grid" aria-label="'+safe(label)+'">'+photos.map(item=>'<figure><img src="'+safe(item.image||'')+'" alt="'+safe(item.alt||item.name||'Official player portrait')+'" loading="lazy" decoding="async"'+imageRecovery(item.imageFallback||'')+'><figcaption><strong>'+safe(item.name||'')+'</strong></figcaption></figure>').join('')+'</div>';
+  }
+  function sectionsMarkup(sections=[]){
+    return sections.map(section=>{
+      const graphic=section.image?storyImageMarkup({storyImage:section.image,imageAlt:section.imageAlt||section.title,storyImageCaption:section.imageCaption}):'';
+      const photos=sectionPhotoGridMarkup(section.photos,section.photoGridLabel||((section.title||'')+' player portraits'));
+      const paragraphs=(section.paragraphs||[]).map(paragraph=>'<p>'+safe(paragraph)+'</p>').join('');
+      const id=section.id?' id="'+safe(section.id)+'"':'';
+      return '<section class="snack-section"'+id+'><h3>'+safe(section.title)+'</h3>'+graphic+photos+paragraphs+'</section>';
+    }).join('');
+  }
 
   function coachGradeBoardMarkup(board={}){
     const coaches=Array.isArray(board.coaches)?board.coaches:[];

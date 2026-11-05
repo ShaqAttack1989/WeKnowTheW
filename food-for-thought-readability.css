@@ -318,3 +318,10 @@
     grid-template-columns:minmax(0,1fr);
   }
 }
+
+/* Editorial photo grid for multi-player story sections */
+.snack-story-photo-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:20px 0 24px}
+.snack-story-photo-grid figure{min-width:0;margin:0;overflow:hidden;border:1px solid rgba(255,255,255,.12);border-radius:16px;background:#17131f}
+.snack-story-photo-grid img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center 24%}
+.snack-story-photo-grid figcaption{padding:8px 10px;color:#fff;font-size:.8rem;font-weight:800;line-height:1.25}
+@media(max-width:520px){.snack-story-photo-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.snack-story-photo-grid figcaption{font-size:.73rem;padding:7px 8px}}

@@ -70,3 +70,28 @@
 /* Leader values can wrap inside the third column on compact cards. */
 .unrivaled-leader-row{grid-template-columns:44px minmax(0,1fr) minmax(0,auto)}
 .unrivaled-leader-row b{white-space:normal;max-width:100%;overflow-wrap:anywhere;text-align:right}
+
+/* 2027 club roster cards */
+.unrivaled-reveal-complete{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:16px;align-items:center}
+.unrivaled-reveal-complete .button{margin:14px 10px 0 0}
+.unrivaled-roster-feature-link{display:flex;flex-wrap:wrap;align-items:center;gap:10px 18px;margin:18px 0 0;padding:16px 20px;border-left:4px solid #d8ff4f;border-radius:14px;background:#171119;color:#fff;line-height:1.5}
+.unrivaled-roster-feature-link strong{color:#d8ff4f;font-size:.68rem;letter-spacing:.08em}
+.unrivaled-roster-feature-link a,.unrivaled-roster-source a{color:#d8ff4f;font-weight:900;text-decoration:none}
+.unrivaled-roster-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin:22px 0 12px}
+.unrivaled-roster-card{min-width:0;overflow:hidden;border:1px solid #ddd1e2;border-radius:20px;background:#fff;box-shadow:0 10px 26px rgba(30,20,40,.08)}
+.unrivaled-roster-card>img{display:block;width:100%;height:auto;aspect-ratio:3/4;object-fit:cover;background:#171119}
+.unrivaled-roster-card-copy{padding:13px 15px 16px}
+.unrivaled-roster-card-copy h3{margin:0 0 7px;font-size:1.05rem;color:#24112d}
+.unrivaled-roster-card-copy p{margin:0;color:#544b5a;font-size:.76rem;line-height:1.55}
+.unrivaled-roster-card-phantom{display:flex;flex-direction:column;background:#171119}
+.unrivaled-phantom-headshots{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;padding:10px;background:linear-gradient(145deg,#171119,#312339)}
+.unrivaled-phantom-headshots figure{min-width:0;margin:0;overflow:hidden;border-radius:8px;background:#08080b}
+.unrivaled-phantom-headshots img{display:block;width:100%;aspect-ratio:1/1;object-fit:cover;object-position:center 20%}
+.unrivaled-phantom-headshots figcaption{padding:4px 3px;color:#fff;text-align:center;font-size:.58rem;font-weight:850;line-height:1.2}
+.unrivaled-roster-card-phantom .unrivaled-roster-card-copy{background:#171119}
+.unrivaled-roster-card-phantom .unrivaled-roster-card-copy h3{color:#fff}
+.unrivaled-roster-card-phantom .unrivaled-roster-card-copy p{color:rgba(255,255,255,.75)}
+.unrivaled-roster-source{margin:10px 0 28px;color:#6e6473;font-size:.8rem;line-height:1.5}
+.unrivaled-directory-heading{margin-top:30px}
+@media(max-width:1050px){.unrivaled-roster-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.unrivaled-reveal-complete{grid-template-columns:1fr}.unrivaled-reveal-complete .button{display:flex;width:max-content;max-width:100%;margin-right:0}.unrivaled-roster-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.unrivaled-roster-card-copy{padding:10px 10px 12px}.unrivaled-roster-card-copy h3{font-size:.94rem}.unrivaled-roster-card-copy p{font-size:.7rem}.unrivaled-phantom-headshots{gap:4px;padding:7px}.unrivaled-phantom-headshots figcaption{font-size:.51rem}}

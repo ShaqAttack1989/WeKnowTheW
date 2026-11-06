@@ -121,3 +121,37 @@
 .unrivaled-player-pool-source{margin:12px 0 0;color:#ded3e9;font-size:.76rem;line-height:1.5}
 @media(max-width:1000px){.unrivaled-player-pool-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:760px){.unrivaled-player-pool .page-heading,.unrivaled-player-pool-spotlight{grid-template-columns:1fr}.unrivaled-player-pool .page-heading .unrivaled-status{justify-self:start}.unrivaled-player-pool-grid{grid-template-columns:1fr}}
+
+
+.unrivaled-schedule-section{background:#f4eff7}
+.unrivaled-schedule-heading{display:flex;justify-content:space-between;gap:24px;align-items:end;margin-bottom:24px}
+.unrivaled-schedule-heading h2{margin:4px 0 10px;font-size:clamp(2rem,4vw,3.4rem);line-height:1}
+.unrivaled-schedule-heading p:not(.kicker){max-width:760px;color:#665d69;line-height:1.6}
+.unrivaled-schedule-overview{display:block;margin-top:15px;color:#613075;font-size:.78rem;letter-spacing:.035em}
+.unrivaled-schedule-controls{display:grid;grid-template-columns:minmax(0,1.5fr) repeat(2,minmax(160px,.6fr));gap:12px;margin:0 0 8px;padding:16px;border:1px solid #e3d9e8;border-radius:20px;background:#fff}
+.unrivaled-schedule-controls label{display:grid;gap:7px;color:#594b60;font-size:.72rem;font-weight:900}
+.unrivaled-schedule-controls input,.unrivaled-schedule-controls select{width:100%;min-height:44px;padding:10px 12px;border:1px solid #d8cbdc;border-radius:12px;background:#fff;color:#201b22;font:inherit;font-size:.9rem}
+.unrivaled-schedule-controls input:focus,.unrivaled-schedule-controls select:focus{outline:3px solid rgba(106,49,121,.23);border-color:#6a3179}
+.unrivaled-schedule-count{min-height:1.2em;color:#65596a;font-size:.78rem;font-weight:850}
+.unrivaled-schedule-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;align-items:stretch}
+.unrivaled-schedule-card{display:flex;min-width:0;flex-direction:column;overflow:hidden;border:1px solid #ded3e5;border-radius:20px;background:#fff;box-shadow:0 9px 24px rgba(38,21,45,.07)}
+.unrivaled-schedule-card>header{padding:17px 18px 14px;background:linear-gradient(130deg,#24142d,#4b2b60);color:#fff}
+.unrivaled-schedule-card-top{display:flex;justify-content:space-between;gap:10px;align-items:center}
+.unrivaled-schedule-card-top strong{font-size:.8rem;letter-spacing:.04em}
+.unrivaled-schedule-card-top span{color:#e2d1ed;font-size:.62rem;font-weight:900;text-align:right}
+.unrivaled-schedule-card h3{margin:11px 0 2px;font-size:1.35rem;line-height:1.1}
+.unrivaled-schedule-card header>p{margin:0;color:#e5dce9;font-size:.8rem}
+.unrivaled-schedule-card header>small{display:block;margin-top:6px;color:#d8ff4f;font-size:.66rem;font-weight:900}
+.unrivaled-schedule-slots{display:grid;gap:0;padding:5px 17px;flex:1}
+.unrivaled-schedule-slot{display:grid;grid-template-columns:minmax(105px,.7fr) minmax(0,1.3fr);gap:10px;align-items:center;padding:12px 0;border-bottom:1px solid #eee8f0}
+.unrivaled-schedule-slot:last-child{border-bottom:0}
+.unrivaled-schedule-slot time{display:block;color:#261530;font-size:.91rem;font-weight:950;white-space:nowrap}
+.unrivaled-schedule-slot small{display:block;margin-top:3px;color:#756b79;font-size:.65rem}
+.unrivaled-schedule-slot p{margin:0;color:#63586a;font-size:.72rem;line-height:1.4}
+.unrivaled-schedule-slot.tournament p{color:#623376;font-weight:850}
+.unrivaled-schedule-card footer{display:flex;justify-content:space-between;gap:10px;padding:11px 17px;background:#f7f3f9;color:#5e5363;font-size:.64rem;font-weight:850}
+.unrivaled-schedule-empty{grid-column:1/-1;padding:30px;border:1px dashed #b7a7bf;border-radius:18px;background:#fff;color:#5f5264;text-align:center}
+.unrivaled-schedule-source{margin:18px 0 0;color:#655b69;font-size:.78rem;line-height:1.6}
+.unrivaled-schedule-source a{color:#582769;font-weight:950}
+@media(max-width:1000px){.unrivaled-schedule-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:760px){.unrivaled-schedule-heading{align-items:start;flex-direction:column}.unrivaled-schedule-heading .unrivaled-status{max-width:100%;white-space:normal;text-align:center}.unrivaled-schedule-controls{grid-template-columns:1fr}.unrivaled-schedule-grid{grid-template-columns:1fr}.unrivaled-schedule-card-top strong{font-size:.78rem}.unrivaled-schedule-slot{grid-template-columns:minmax(108px,.7fr) minmax(0,1.3fr)}}

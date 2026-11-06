@@ -189,7 +189,7 @@ initUnrivaledRevealRoster();
  const state={season:2027,club:0,photos:new Map()};
  const key=value=>String(value||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]/g,'');
  const initials=value=>String(value||'').trim().split(/\s+/).map(part=>part[0]||'').join('').slice(0,2).toUpperCase();
- const officialPlayerSlugOverrides={'skylardiggins':'skylar-diggins-smith'};
+ const officialPlayerSlugOverrides={'skylardiggins':'skylar-diggins'};
  const officialPlayerImageRoot='https://pub-ad8cc693759b4b55a181a76af041efa0.r2.dev/players/';
  function officialPlayerSlug(name){
   const normalized=String(name||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');

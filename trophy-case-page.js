@@ -104,5 +104,42 @@
       }).join('')}</ul>
     </article>`).join('');
 
+
+  const communityAssistGrid = document.getElementById('communityAssistGrid');
+  const communityAssistSearch = document.getElementById('communityAssistSearch');
+  const communityAssistYear = document.getElementById('communityAssistYear');
+  const communityAssistResults = document.getElementById('communityAssistResults');
+  const communityAssistWinners = data.communityAssistWinners || [];
+  const renderCommunityAssist = () => {
+    if (!communityAssistGrid) return;
+    const query = String(communityAssistSearch?.value || '').trim().toLowerCase();
+    const year = communityAssistYear?.value || 'all';
+    const winners = communityAssistWinners.filter(winner => {
+      const matchesYear = year === 'all' || winner.year === year;
+      const matchesQuery = !query || [winner.name, winner.team, winner.summary].join(' ').toLowerCase().includes(query);
+      return matchesYear && matchesQuery;
+    });
+    communityAssistGrid.innerHTML = winners.map(winner => {
+      const visual = winner.collective
+        ? '<div class="assist-player-placeholder" role="img" aria-label="All WNBA players, the leaguewide 2020 recipient"><img src="https://cdn.wnba.com/logos/wnba/1611661324/primary/D/logo.svg" alt="WNBA logo" loading="lazy"><span>Leaguewide honor</span></div>'
+        : '<a class="assist-player-portrait" href="' + safeAttr(winner.profileUrl) + '" target="_blank" rel="noopener" aria-label="View ' + safeAttr(winner.name) + '’s official WNBA profile"><img src="' + headshot(winner.playerId) + '" alt="' + safeAttr(winner.name) + ' WNBA headshot" loading="lazy"></a>';
+      const teamMark = winner.collective
+        ? '<span class="assist-team-mark assist-team-mark-league" role="img" aria-label="WNBA leaguewide award">WNBA</span>'
+        : '<span class="assist-team-mark" data-team-logo="' + safeAttr(winner.team) + '" role="img" aria-label="' + safeAttr(winner.team) + ' logo"><b>' + initials(winner.team) + '</b></span>';
+      return '<article class="community-assist-card"><div class="assist-card-visual">' + visual +
+        '<span class="assist-card-year">' + safeAttr(winner.year) + '</span>' + teamMark +
+        '</div><div class="assist-card-copy"><span class="assist-card-label">SEASONLONG HONOREE</span><h4>' +
+        (winner.collective ? safeAttr(winner.name) : '<a href="' + safeAttr(winner.profileUrl) + '" target="_blank" rel="noopener">' + safeAttr(winner.name) + '</a>') +
+        '</h4><p class="assist-card-team">' + safeAttr(winner.team) + '</p><p class="assist-card-summary">' +
+        safeAttr(winner.summary) + '</p><a class="assist-card-source" href="' + safeAttr(winner.source) +
+        '" target="_blank" rel="noopener">Official WNBA release <span aria-hidden="true">↗</span></a></div></article>';
+    }).join('') || '<p class="community-assist-empty">No award recipients match those filters.</p>';
+    if (communityAssistResults) communityAssistResults.textContent = 'Showing ' + winners.length + ' of ' + communityAssistWinners.length + ' seasonlong recipients.';
+    hydrateTeamLogos(communityAssistGrid);
+  };
+  communityAssistSearch?.addEventListener('input', renderCommunityAssist);
+  communityAssistYear?.addEventListener('change', renderCommunityAssist);
+  renderCommunityAssist();
+
   loadTeamLogos();
 })();

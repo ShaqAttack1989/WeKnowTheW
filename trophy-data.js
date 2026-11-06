@@ -94,6 +94,17 @@ window.TROPHY_DATA = (() => {
     coy:[['2026','Cheryl Reeve','Minnesota Lynx'],['2025','Natalie Nakase','Golden State Valkyries'],['2024','Cheryl Reeve','Minnesota Lynx'],['2023','Stephanie White','Connecticut Sun'],['2022','Becky Hammon','Las Vegas Aces'],['2021','Curt Miller','Connecticut Sun'],['2020','Cheryl Reeve','Minnesota Lynx'],['2019','James Wade','Chicago Sky'],['2018','Nicki Collen','Atlanta Dream'],['2017','Curt Miller','Connecticut Sun']]
   };
 
+  const communityAssistWinners = [
+    {year:'2026',name:'Kayla McBride',team:'Minnesota Lynx',playerId:'203825',profileUrl:'https://www.wnba.com/player/203825/kayla-mcbride/profile',source:'https://www.wnba.com/webview/news/kayla-mcbride-2026-seasonlong-wnba-cares-community-assist-award',summary:'Youth mentorship, mental-health advocacy, pediatric visits and family-centered support.'},
+    {year:'2025',name:'Tiffany Hayes',team:'Golden State Valkyries',playerId:'203026',profileUrl:'https://www.wnba.com/player/203026/tiffany-hayes/profile',source:'https://www.wnba.com/news/2025-wnba-cares-community-assist-award',summary:'Youth mentorship, financial literacy, entrepreneurship and community empowerment.'},
+    {year:'2024',name:'Azurá Stevens',team:'Los Angeles Sparks',playerId:'1628922',profileUrl:'https://www.wnba.com/player/1628922/azura-stevens/profile',source:'https://www.wnba.com/news/2024-wnba-community-assist-award',summary:'Youth clinics, a shoe drive, hospital visits and literacy work reached children across Los Angeles.'},
+    {year:'2023',name:'Brittney Griner',team:'Phoenix Mercury',playerId:'203398',profileUrl:'https://www.wnba.com/player/203398/brittney-griner/profile',source:'https://www.wnba.com/webview/news/2023-wnba-community-assist-award',summary:'Her Heart & Sole Shoe Drive supported unhoused neighbors, alongside advocacy for families of people detained overseas.'},
+    {year:'2022',name:'Brianna Turner',team:'Phoenix Mercury',playerId:'1629488',profileUrl:'https://www.wnba.com/player/1629488/brianna-turner/profile',source:'https://www.wnba.com/news/phoenix-mercurys-brianna-turner-receives-seasonlong-wnba-care-community-assist-award-presented-by-state-farm',summary:'Advocacy for LGBTQ+ equality, gun-violence prevention and unhoused neighbors.'},
+    {year:'2021',name:'Amanda Zahui B.',team:'Los Angeles Sparks',playerId:'204320',profileUrl:'https://www.wnba.com/player/204320/amanda-zahui-b/profile',source:'https://www.wnba.com/news/los-angeles-sparks-amanda-zahui-b-receives-seasonlong-community-assist-award',summary:'Youth literacy, health and wellness, social justice, and support for unhoused Angelenos.'},
+    {year:'2020',name:'All WNBA Players',team:'Leaguewide',collective:true,source:'https://www.wnba.com/news/2020-season-long-community-assist-award-all-wnba-players/',summary:'A collective honor for players’ leadership and collaborative work to promote racial equality and systemic change.'},
+    {year:'2019',name:'Natalie Achonwa',team:'Indiana Fever',playerId:'203831',profileUrl:'https://www.wnba.com/player/203831/natalie-achonwa/profile',source:'https://www.wnba.com/news/natalie-achonwa-receives-seasonlong-wnba-community-assist-award-presented-by-state-farm/amp',summary:'Youth education and literacy, mental-health and anti-bullying support, and women’s empowerment.'}
+  ];
+
   const awardPages = {
     mvp:{
       slug:'award-mvp.html',eyebrow:'MOST VALUABLE PLAYER',title:'The center of the season',short:'MVP',
@@ -210,13 +221,13 @@ window.TROPHY_DATA = (() => {
     },
     {
       group:'League + community honors',
-      note:'Verified through Nov. 2, 2026. Finals MVP, sportsmanship, basketball executive and business executive winners are confirmed; later-calendar community honors remain pending.',
+      note:'Verified through Nov. 6, 2026 against official WNBA releases. Both 2026 community honors have been announced.',
       items:[
         ['Executive of the Year','2026 · Cheryl Reeve','/award-executive.html'],
         ['Business Executive Leadership Award','2026 · Jennifer Rizzotti','https://www.wnba.com/webview/news/2026-wnba-executive-leadership-award'],
         ['Sportsmanship Award','2026 · Nneka Ogwumike','/award-sportsmanship.html'],
-        ['Seasonlong Community Assist','Latest: 2025 · Tiffany Hayes; 2026 pending','https://www.wnba.com/news/2025-wnba-cares-community-assist-award'],
-        ['Dawn Staley Community Leadership Award','Latest: 2025 · Tina Charles; 2026 pending','https://www.wnba.com/news/2025-dawn-staley-community-leadership-award'],
+        ['Seasonlong Community Assist','2026 · Kayla McBride','/trophy-case.html#communityAssist'],
+        ['Dawn Staley Community Leadership Award','2026 · Paige Bueckers','https://www.wnba.com/webview/news/paige-bueckers-2026-dawn-staley-community-leadership-award'],
         ['Player of the Week + Month','Browse every published in-season winner','/stat-kitchen.html']
       ]
     }
@@ -228,6 +239,7 @@ window.TROPHY_DATA = (() => {
     dynasties,
     franchiseCounts,
     awardPages,
+    communityAssistWinners,
     awardIndex,
     awardOrder:['mvp','dpoy','mip','sixth','roy','coy','sportsmanship','executive','cup','allWnba','allDefense','allRookie'],
     sources:{champions:'https://www.wnba.com/all-time-wnba-champions',finalsMvp:'https://www.wnba.com/history-wnba-finals-mvp',history:'https://www.wnba.com/history'}

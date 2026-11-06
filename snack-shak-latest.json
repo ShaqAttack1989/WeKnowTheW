@@ -2,6 +2,85 @@
   "site": "Snack Shak",
   "posts": [
     {
+      "slug": "kayla-mcbride-community-assist-award-2026",
+      "type": "byte",
+      "priority": 62000,
+      "homepageSeason": true,
+      "seriesLabel": "SNACK SHAK BYTE · COMMUNITY ASSIST",
+      "title": "Showing Up Is the Work: Kayla McBride’s Community Assist Honor",
+      "published": "2026-11-06",
+      "updated": "2026-11-06",
+      "week": "2026 SEASONLONG COMMUNITY ASSIST AWARD",
+      "dek": "The Minnesota Lynx guard’s steady work with young people and families brings the 2026 WNBA Cares honor into focus.",
+      "teams": [
+        "Minnesota Lynx"
+      ],
+      "players": [
+        "Kayla McBride"
+      ],
+      "image": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/203825.png",
+      "imageFit": "cover",
+      "imageFocus": "50% 18%",
+      "imageAlt": "Kayla McBride, Minnesota Lynx guard, in her official WNBA headshot.",
+      "storyImage": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/203825.png",
+      "storyImageCaption": "Kayla McBride, 2026 Seasonlong WNBA Cares Community Assist Award recipient. Photo: WNBA.",
+      "storyImageSourceUrl": "https://www.wnba.com/player/203825/kayla-mcbride/profile",
+      "imageSourceUrl": "https://www.wnba.com/player/203825/kayla-mcbride/profile",
+      "storyLead": [
+        "The WNBA named Minnesota Lynx guard Kayla McBride its 2026 Seasonlong WNBA Cares Community Assist Award recipient on November 5. The award recognizes a season of youth mentorship, mental-health advocacy and lasting community connections in Minneapolis.",
+        "The through line is consistency. McBride has partnered with Washburn Center for Children since 2024, building relationships with children, families and staff while openly sharing her own mental-health journey. This season, she mentored eight middle-school girls through local community partners, visited pediatric patients and welcomed Washburn Center families to a Lynx game.",
+        "Her outreach reached beyond the gym. McBride joined a seventh grader for a back-to-school shopping trip that provided $1,000 in school essentials, invited a 12-year-old from Special Olympics Minnesota to the Jr. Lynx Dream Team, and shared lessons on leadership and perseverance at the Lynx Changemakers Summit."
+      ],
+      "sections": [
+        {
+          "title": "A season of showing up",
+          "paragraphs": [
+            "A single event can make a bright memory. A relationship that continues across seasons can make a young person feel seen. McBride’s work with Washburn Center for Children is built around that second kind of presence: connecting with children and families, listening, and returning.",
+            "Her 2026 calendar joined that long-running partnership with mentorship, hospital visits, school support and opportunities for young people to take part in Lynx basketball. The WNBA highlighted her commitment to emotional well-being and early, family-centered support."
+          ]
+        },
+        {
+          "title": "The award carries a community investment",
+          "paragraphs": [
+            "The WNBA and NBA leadership committee selected McBride for the seasonlong honor. The league will donate $20,000 in her name, split evenly between Play Your Way! MN, which creates athletic opportunities for children, and Girl Scouts River Valleys, which supports girls through friendship, exploration and leadership.",
+            "That funding matters. So does the recognition of work that asks for time, attention and follow-through. The young person at the clinic or in the store is not a backdrop to a basketball story; they are the reason the story matters."
+          ]
+        },
+        {
+          "title": "A history of players showing up",
+          "paragraphs": [
+            "McBride is the latest in a seasonlong tradition that began in 2019. The winners include Natalie Achonwa, Amanda Zahui B., Brianna Turner, Brittney Griner, Azurá Stevens and Tiffany Hayes. In 2020, the league recognized all WNBA players together for their shared leadership and collaborative efforts to promote racial equality and systemic change.",
+            "The names and team marks belong in the same frame as the headlines. The Trophy Room now carries the full seasonlong honor roll, with official WNBA headshots for individual recipients and team logos for their award seasons."
+          ]
+        },
+        {
+          "title": "The measure after the applause",
+          "paragraphs": [
+            "McBride’s award story turns on repeat visits and real relationships: a conversation with a middle-school student, time with a patient and family, a shopping trip where school essentials are chosen together. Those small moments are the connective tissue between a star’s platform and a community’s everyday life.",
+            "The trophy recognizes the work. The deeper win is what a young person can carry forward after the cameras leave."
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "label": "WNBA: Kayla McBride receives the 2026 Seasonlong Community Assist Award",
+          "url": "https://www.wnba.com/webview/news/kayla-mcbride-2026-seasonlong-wnba-cares-community-assist-award"
+        },
+        {
+          "label": "WNBA: Community Assist past winners",
+          "url": "https://www.wnba.com/wnba-cares-community-assist-past-winners"
+        },
+        {
+          "label": "WNBA: 2020 seasonlong award recognized all WNBA players",
+          "url": "https://www.wnba.com/news/2020-season-long-community-assist-award-all-wnba-players/"
+        },
+        {
+          "label": "WNBA: Official Kayla McBride player profile",
+          "url": "https://www.wnba.com/player/203825/kayla-mcbride/profile"
+        }
+      ]
+    },
+    {
       "slug": "dynamic-duos-2026-27-early-predictions",
       "type": "feature",
       "priority": 90000,

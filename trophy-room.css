@@ -113,3 +113,47 @@
 .award-placard .portal-label{font-size:.76rem}
 .award-placard p{color:#574d5d;font-size:.9rem}
 @media(prefers-reduced-motion:reduce){.champion-season,.champion-more{transition:none}.champion-season:not(.is-featured):hover,.champion-more:hover{transform:none}}
+
+
+/* Seasonlong WNBA Cares Community Assist dashboard */
+.community-assist-dashboard{margin:34px 0 30px;padding:clamp(18px,3vw,30px);border:1px solid #e4dce9;border-radius:26px;background:linear-gradient(145deg,#fff 0%,#fbf7ff 100%);box-shadow:0 16px 40px rgba(39,20,54,.07)}
+.community-assist-heading{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;margin-bottom:24px}
+.community-assist-heading h3{margin:5px 0 8px;font-size:clamp(1.55rem,3vw,2.25rem);line-height:1.08;color:#24152e}
+.community-assist-heading>div:first-child>p:last-child{margin:0;color:#5e5365;max-width:620px}
+.community-assist-total{flex:none;min-width:130px;padding:12px 16px;border-radius:18px;background:#32134f;color:#fff;text-align:center}
+.community-assist-total strong,.community-assist-total span{display:block}
+.community-assist-total strong{font-size:1.05rem;letter-spacing:.04em}
+.community-assist-total span{margin-top:3px;color:#e9def3;font-size:.78rem}
+.community-assist-controls{display:grid;grid-template-columns:auto minmax(170px,1fr) auto minmax(155px,.55fr);align-items:center;gap:10px 12px;margin:0 0 6px}
+.community-assist-controls label{font-size:.83rem;font-weight:750;color:#34243c}
+.community-assist-controls input,.community-assist-controls select{width:100%;min-height:44px;padding:9px 12px;border:1px solid #d9d0e0;border-radius:12px;background:#fff;color:#24152e;font:inherit}
+.community-assist-controls input:focus-visible,.community-assist-controls select:focus-visible{outline:3px solid #c49be2;outline-offset:2px}
+.community-assist-results{min-height:1.2em;margin:9px 0 14px;color:#6a5d70;font-size:.8rem}
+.community-assist-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.community-assist-card{min-width:0;overflow:hidden;border:1px solid #e6e0e9;border-radius:20px;background:#fff;box-shadow:0 7px 20px rgba(35,18,46,.055);transition:transform .18s ease,box-shadow .18s ease}
+.community-assist-card:hover{transform:translateY(-3px);box-shadow:0 13px 26px rgba(35,18,46,.11)}
+.assist-card-visual{position:relative;min-height:175px;background:radial-gradient(circle at 18% 20%,#42c1cb 0,#32105a 72%);overflow:hidden}
+.assist-player-portrait{display:block;height:175px;background:linear-gradient(145deg,#52c8cf,#301251)}
+.assist-player-portrait img{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 20%;mix-blend-mode:normal}
+.assist-card-year{position:absolute;top:12px;left:12px;z-index:2;padding:6px 10px;border:1px solid rgba(255,255,255,.45);border-radius:999px;background:rgba(29,13,44,.82);color:#fff;font-size:.78rem;font-weight:850;letter-spacing:.08em}
+.assist-team-mark{position:absolute;right:12px;bottom:11px;z-index:2;display:grid;width:55px;height:55px;place-items:center;padding:7px;border:2px solid rgba(255,255,255,.9);border-radius:50%;background:#fff;box-shadow:0 4px 15px rgba(0,0,0,.25)}
+.assist-team-mark img{display:block;width:100%;height:100%;object-fit:contain}
+.assist-team-mark b{font-size:.65rem;text-align:center;color:#2d1640}
+.assist-team-mark-league{font-size:.66rem;font-weight:900;letter-spacing:.03em;color:#32134f}
+.assist-player-placeholder{display:flex;height:175px;align-items:center;justify-content:center;flex-direction:column;gap:8px;color:#fff}
+.assist-player-placeholder img{width:90px;height:70px;object-fit:contain;filter:brightness(0) invert(1)}
+.assist-player-placeholder span{font-size:.78rem;font-weight:750;letter-spacing:.04em}
+.assist-card-copy{padding:15px 16px 16px}
+.assist-card-label{color:#75568a;font-size:.68rem;font-weight:850;letter-spacing:.12em}
+.assist-card-copy h4{margin:6px 0 2px;font-size:1.12rem;line-height:1.15;color:#25162e}
+.assist-card-copy h4 a{color:inherit;text-decoration:none}
+.assist-card-copy h4 a:hover{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:3px}
+.assist-card-team{margin:0 0 10px;color:#574c60;font-size:.86rem;font-weight:720}
+.assist-card-summary{min-height:4.2em;margin:0 0 13px;color:#5b5260;font-size:.83rem;line-height:1.45}
+.assist-card-source{display:inline-flex;align-items:center;gap:6px;color:#4c1b78;font-size:.79rem;font-weight:800;text-decoration:none}
+.assist-card-source:hover{text-decoration:underline;text-underline-offset:3px}
+.community-assist-empty{grid-column:1/-1;margin:0;padding:26px;border:1px dashed #c9bdd3;border-radius:18px;text-align:center;color:#665b6c}
+@media(max-width:1050px){.community-assist-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:760px){.community-assist-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.community-assist-controls{grid-template-columns:1fr 1fr}.community-assist-controls label{align-self:end}.community-assist-controls input,.community-assist-controls select{grid-row:2}.community-assist-controls label:nth-of-type(2){grid-column:1}.community-assist-controls select{grid-column:2}.community-assist-heading{align-items:flex-start}}
+@media(max-width:470px){.community-assist-dashboard{padding:16px;border-radius:20px}.community-assist-grid{grid-template-columns:1fr}.community-assist-card{display:grid;grid-template-columns:38% 62%}.assist-card-visual,.assist-player-portrait,.assist-player-placeholder{height:100%;min-height:0}.assist-player-portrait img{height:100%;min-height:150px}.assist-card-copy{padding:13px 12px}.assist-card-summary{min-height:0;font-size:.78rem}.assist-team-mark{width:44px;height:44px;right:8px;bottom:8px}.assist-card-year{top:8px;left:8px;font-size:.7rem}.community-assist-heading{gap:12px}.community-assist-total{min-width:92px;padding:10px 8px}.community-assist-total strong{font-size:.9rem}.community-assist-total span{font-size:.68rem}}
+@media(prefers-reduced-motion:reduce){.community-assist-card{transition:none}.community-assist-card:hover{transform:none}}

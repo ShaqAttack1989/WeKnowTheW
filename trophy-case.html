@@ -7,7 +7,7 @@
   <title>The Trophy Room | We Know the W</title>
   <link rel="stylesheet" href="/styles.css">
   <link rel="stylesheet" href="/landing.css">
-  <link rel="stylesheet" href="/trophy-room.css?v=20261102-dashboard-color-v2">
+  <link rel="stylesheet" href="/trophy-room.css?v=20261106-community-assist-v1">
   <link rel="stylesheet" href="/trophy-records.css?v=20261102-dashboard-color-v2">
 <style>.sportsmanship-history{margin-top:24px}.sportsmanship-history summary{cursor:pointer;padding:16px 20px;background:#35105c;color:#d8ff4f;border-radius:16px;font-weight:800}.sportsmanship-winners{display:grid;gap:8px;margin-top:14px}.sportsmanship-winner{display:grid;grid-template-columns:70px minmax(0,1fr) minmax(180px,.6fr);gap:14px;padding:14px 18px;border:1px solid #e1d7e7;border-radius:16px;background:#fff}.sportsmanship-winner b{color:#6b2bd9}.sportsmanship-winner span{color:#6f687a}@media(max-width:600px){.sportsmanship-winner{grid-template-columns:55px 1fr}.sportsmanship-winner span{grid-column:2}}</style></head>
 <body class="section-page trophy-page">
@@ -163,24 +163,50 @@
           <p>Open an award page to meet the latest honoree, revisit recent winners, understand the record book and move across the full awards family.</p>
         </div>
         <div class="award-directory" id="awardDirectory"></div>
+        <section class="community-assist-dashboard" id="communityAssist" aria-labelledby="community-assist-title">
+          <div class="community-assist-heading">
+            <div>
+              <p class="kicker">SEASONLONG COMMUNITY ASSIST</p>
+              <h3 id="community-assist-title">A record of showing up</h3>
+              <p>Every seasonlong honoree, from the award’s first season through 2026.</p>
+            </div>
+            <div class="community-assist-total" aria-label="Eight seasons of award recipients">
+              <strong>2019–26</strong><span>eight seasons</span>
+            </div>
+          </div>
+          <div class="community-assist-controls">
+            <label for="communityAssistSearch">Find a winner or team</label>
+            <input id="communityAssistSearch" type="search" placeholder="Player or team" autocomplete="off">
+            <label for="communityAssistYear">Season</label>
+            <select id="communityAssistYear">
+              <option value="all">All seasons</option>
+              <option value="2026">2026</option><option value="2025">2025</option>
+              <option value="2024">2024</option><option value="2023">2023</option>
+              <option value="2022">2022</option><option value="2021">2021</option>
+              <option value="2020">2020</option><option value="2019">2019</option>
+            </select>
+          </div>
+          <p class="community-assist-results" id="communityAssistResults" aria-live="polite"></p>
+          <div class="community-assist-grid" id="communityAssistGrid" aria-label="Seasonlong Community Assist award winners"></div>
+        </section>
         <section class="award-index-panel" aria-labelledby="award-index-title">
           <div class="award-index-heading">
             <div><p class="kicker">FULL HONORS INDEX</p><h3 id="award-index-title">What is complete—and what is still pending.</h3></div>
-            <p>Checked November 2, 2026 against official WNBA releases. Finals MVP, business executive and 2026 selection-team winners are now included; later-calendar community awards remain pending.</p>
+            <p>Checked November 6, 2026 against official WNBA releases. The 2026 Seasonlong Community Assist and Dawn Staley Community Leadership Award winners are included.</p>
           </div>
           <div class="award-index-grid" id="awardIndexGrid"></div>
           <a class="award-index-source" href="https://www.basketball-reference.com/wnba/awards/" target="_blank" rel="noopener">Open the Basketball-Reference WNBA awards index ↗</a>
         </section>
-        <div class="page-note">The 2026 champion, Finals MVP, individual awards and selection teams are recorded. The 2026 Seasonlong Community Assist and Dawn Staley community awards remain pending.</div>
+        <div class="page-note">Kayla McBride’s Seasonlong Community Assist and Paige Bueckers’ Dawn Staley Community Leadership honors complete the 2026 community-awards record.</div>
         <div class="page-footer-nav"><a href="/w-vault.html">← The W Vault</a><a href="/locker-room.html">The Locker Room →</a></div>
       </div>
     </section>
   </main>
-  <script src="/site.js?v=20261031-comprehensive-search-v1"></script>
+  <script src="/site.js?v=20261106-community-assist-v1"></script>
   <script src="/selection-teams-2026.js?v=20261024-v1"></script>
-  <script src="/trophy-data.js?v=20261102-finals-champion-v1"></script>
+  <script src="/trophy-data.js?v=20261106-community-assist-v1"></script>
   <script src="/trophy-data-corrections.js?v=20260903-audit-v2"></script>
-  <script src="/trophy-case-page.js?v=20261102-finals-champion-v1"></script>
+  <script src="/trophy-case-page.js?v=20261106-community-assist-v1"></script>
   <script src="/trophy-records-data.js?v=20261009-nneka-retired-v2"></script>
   <script src="/trophy-records.js?v=20261009-career-fallback-v4"></script>
 </body>

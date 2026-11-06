@@ -2,6 +2,7 @@
   const data = window.TROPHY_DATA;
   if (!data) return;
 
+  const headshot = id => `https://cdn.wnba.com/headshots/wnba/latest/1040x760/${id}.png`;
   const safeAttr = value => String(value ?? '').replaceAll('&','&amp;').replaceAll('"','&quot;').replaceAll('<','&lt;').replaceAll('>','&gt;');
   const initials = value => String(value || '').split(/\s+/).filter(Boolean).map(word => word[0]).join('').slice(0, 3).toUpperCase();
   const teamLogoMap = new Map();

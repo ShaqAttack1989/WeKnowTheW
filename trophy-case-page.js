@@ -145,10 +145,27 @@
   communityAssistYear?.addEventListener('change', renderCommunityAssist);
   renderCommunityAssist();
 
-  // Re-align the deep link after the dashboards above finish expanding.
+  // Keep direct links aligned while the dashboards above finish expanding.
   const alignCommunityAssist = () => {
     if (window.location.hash.toLowerCase() !== '#communityassist') return;
-    window.setTimeout(() => document.getElementById('communityAssist')?.scrollIntoView({block:'start'}), 350);
+    const target = document.getElementById('communityAssist');
+    const pageSection = target?.closest('.page-section');
+    if (!target || !pageSection) return;
+    const scrollToTarget = () => target.scrollIntoView({block:'start'});
+    scrollToTarget();
+    const main = document.querySelector('main');
+    const precedingSections = [...(main?.querySelectorAll('.page-section') || [])].filter(section =>
+      section !== pageSection && (section.compareDocumentPosition(pageSection) & Node.DOCUMENT_POSITION_FOLLOWING)
+    );
+    const watchedSections = [...precedingSections, pageSection];
+    if ('ResizeObserver' in window) {
+      const observer = new ResizeObserver(() => scrollToTarget());
+      watchedSections.forEach(section => observer.observe(section));
+      window.setTimeout(() => observer.disconnect(), 8000);
+    } else {
+      window.setTimeout(scrollToTarget, 1000);
+      window.setTimeout(scrollToTarget, 2500);
+    }
   };
   window.addEventListener('hashchange', alignCommunityAssist);
   window.addEventListener('load', alignCommunityAssist, {once:true});

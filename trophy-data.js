@@ -216,7 +216,7 @@ window.TROPHY_DATA = (() => {
         ['Commissioner’s Cup MVP','2026 · Breanna Stewart','/commissioners-cup.html'],
         ['All-Star Game MVP','2026 · Jonquel Jones','https://valkyries.wnba.com/news/gameday-recap-20260725'],
         ['3-Point Contest','2026 · Azzi Fudd','https://www.wnba.com/watch/video/state-farm-wnba-3-point-contest-recap?collection=all-star-2026'],
-        ['Kia Shooting Stars','2026 · Team Washington: Elena Delle Donne, Shakira Austin, Jezelle “GG” Banks','https://www.wnba.com/watch/video/kia-wnba-shooting-stars-recap']
+        ['Kia Shooting Stars','2026 winner · Team Washington, 31 points · Elena Delle Donne, Shakira Austin & GG Banks','https://www.wnba.com/watch/video/kia-wnba-shooting-stars-recap']
       ]
     },
     {

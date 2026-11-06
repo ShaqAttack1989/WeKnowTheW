@@ -157,3 +157,17 @@
 @media(max-width:760px){.community-assist-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.community-assist-controls{grid-template-columns:1fr 1fr}.community-assist-controls label{align-self:end}.community-assist-controls input,.community-assist-controls select{grid-row:2}.community-assist-controls label:nth-of-type(2){grid-column:1}.community-assist-controls select{grid-column:2}.community-assist-heading{align-items:flex-start}}
 @media(max-width:470px){.community-assist-dashboard{padding:16px;border-radius:20px}.community-assist-grid{grid-template-columns:1fr}.community-assist-card{display:grid;grid-template-columns:38% 62%}.assist-card-visual,.assist-player-portrait,.assist-player-placeholder{height:100%;min-height:0}.assist-player-portrait img{height:100%;min-height:150px}.assist-card-copy{padding:13px 12px}.assist-card-summary{min-height:0;font-size:.78rem}.assist-team-mark{width:44px;height:44px;right:8px;bottom:8px}.assist-card-year{top:8px;left:8px;font-size:.7rem}.community-assist-heading{gap:12px}.community-assist-total{min-width:92px;padding:10px 8px}.community-assist-total strong{font-size:.9rem}.community-assist-total span{font-size:.68rem}}
 @media(prefers-reduced-motion:reduce){.community-assist-card{transition:none}.community-assist-card:hover{transform:none}}
+
+
+/* Keep award labels and result summaries readable in the honors index. */
+.award-index-card a{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr) 18px;min-width:0}
+.award-index-card a>*{min-width:0}
+.award-index-card a span,.award-index-card a small{overflow-wrap:anywhere;word-break:normal;line-height:1.35}
+.award-index-card a small{text-align:left}
+@media(max-width:760px){
+  .award-index-grid{grid-template-columns:1fr}
+  .award-index-card a{grid-template-columns:minmax(0,1fr) 18px;align-items:start}
+  .award-index-card a span{grid-column:1}
+  .award-index-card a small{grid-column:1;text-align:left}
+  .award-index-card a b{grid-column:2;grid-row:1/3;align-self:center}
+}

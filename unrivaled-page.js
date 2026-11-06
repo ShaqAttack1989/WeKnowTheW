@@ -244,6 +244,7 @@ initUnrivaledRevealRoster();
   clubTabs.setAttribute('aria-label','Season '+year+' Unrivaled clubs');
   clubTabs.innerHTML=rosters.map((roster,index)=>'<button type="button" role="tab" id="unrivaledRevealClubTab'+index+'" aria-controls="unrivaledRevealPanel" aria-selected="'+String(index===state.club)+'" class="'+(index===state.club?'active':'')+'" data-reveal-club="'+index+'">'+roster.club+'</button>').join('');
   const roster=rosters[state.club]||rosters[0];
+  panel.classList.toggle('is-season-2027',year===2027);
   panel.setAttribute('aria-labelledby','unrivaledRevealClubTab'+state.club);
   const players=roster.players||[];
   const cards=players.map(player=>{

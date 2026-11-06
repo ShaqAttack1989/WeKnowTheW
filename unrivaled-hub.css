@@ -204,6 +204,6 @@
 #unrivaledRevealPanel.is-season-2027 .unrivaled-reveal-photo-frame,
 .unrivaled-roster-headshot-card .unrivaled-roster-player-photo{background:linear-gradient(155deg,#f2f0f1 0%,#dfdcdf 100%)}
 #unrivaledRevealPanel.is-season-2027 .unrivaled-reveal-photo-frame img,
-.unrivaled-roster-headshot-card .unrivaled-roster-player-photo img{object-fit:contain;object-position:center bottom;padding:2px 4px 0}
+.unrivaled-roster-headshot-card .unrivaled-roster-player-photo img{object-fit:cover;object-position:center top;padding:0}
 #unrivaledRevealPanel.is-season-2027 .unrivaled-reveal-photo-frame.is-no-photo span,
 .unrivaled-roster-headshot-card .unrivaled-roster-player-photo.is-no-photo span{color:#362340}

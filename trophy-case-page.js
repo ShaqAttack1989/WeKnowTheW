@@ -145,15 +145,14 @@
   communityAssistYear?.addEventListener('change', renderCommunityAssist);
   renderCommunityAssist();
 
-  // A deep link can fire before the dashboards above finish expanding.
-  if (window.location.hash === '#communityAssist') {
-    const alignCommunityAssist = () => document.getElementById('communityAssist')?.scrollIntoView({block:'start'});
-    if (document.readyState === 'complete') {
-      window.setTimeout(alignCommunityAssist, 350);
-    } else {
-      window.addEventListener('load', () => window.setTimeout(alignCommunityAssist, 350), {once:true});
-    }
-  }
+  // Re-align the deep link after the dashboards above finish expanding.
+  const alignCommunityAssist = () => {
+    if (window.location.hash.toLowerCase() !== '#communityassist') return;
+    window.setTimeout(() => document.getElementById('communityAssist')?.scrollIntoView({block:'start'}), 350);
+  };
+  window.addEventListener('hashchange', alignCommunityAssist);
+  window.addEventListener('load', alignCommunityAssist, {once:true});
+  if (document.readyState === 'complete') alignCommunityAssist();
 
   loadTeamLogos();
 })();

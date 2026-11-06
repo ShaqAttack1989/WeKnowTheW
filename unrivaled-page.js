@@ -189,10 +189,26 @@ initUnrivaledRevealRoster();
  const state={season:2027,club:0,photos:new Map()};
  const key=value=>String(value||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]/g,'');
  const initials=value=>String(value||'').trim().split(/\s+/).map(part=>part[0]||'').join('').slice(0,2).toUpperCase();
+ const officialPlayerSlugOverrides={'skylardiggins':'skylar-diggins-smith'};
+ const officialPlayerImageRoot='https://pub-ad8cc693759b4b55a181a76af041efa0.r2.dev/players/';
+ function officialPlayerSlug(name){
+  const normalized=String(name||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
+  return officialPlayerSlugOverrides[key(name)]||normalized;
+ }
+ function archivePortraitSources(name,club,year){
+  const slug=officialPlayerSlug(name),team=clubSlug(club).replace(/-bc$/,'');
+  const base=officialPlayerImageRoot+slug+'/images/';
+  const seasonFiles=year===2025?[team+'-headshot.jpg',team+'-headshot.png']:['2026/'+team+'-headshot.jpg','2026/'+team+'-headshot.png'];
+  const candidates=seasonFiles.map(file=>base+file);
+  candidates.push(base+'headshot.jpg',base+'headshot.png');
+  const verified=state.photos.get(key(name));
+  if(verified)candidates.push(verified);
+  return Array.from(new Set(candidates));
+ }
  function seasonTeams(year){
   if(year===2027)return unrivaledRevealRosters2027;
   const directory=seasonArchive[year]&&seasonArchive[year].directory||{};
-  return Object.entries(directory).map(entry=>({club:entry[0],players:entry[1].map(name=>({name:name,image:state.photos.get(key(name))||''}))}));
+  return Object.entries(directory).map(entry=>({club:entry[0],players:entry[1].map(name=>({name:name,imageCandidates:archivePortraitSources(name,entry[0],year)}))}));
  }
  function render(){
   const year=state.season,rosters=seasonTeams(year);
@@ -205,8 +221,8 @@ initUnrivaledRevealRoster();
   if(label)label.textContent='SEASON '+(year===2025?'1':year===2026?'2':'3')+' · '+year+' · PLAYER PORTRAITS';
   if(title)title.textContent=year===2027?'The 48, in their new clubs.':(year===2026?'The Season 2 clubs.':'The inaugural-season clubs.');
   if(description)description.textContent=year===2027?'Official Unrivaled portraits for every confirmed 2027 club roster.':(year===2025?'Season 1 club directory, including core players and official in-season additions.':'Season 2 club assignments from the league record, paired with verified real player headshots.');
-  if(official){official.href=year===2027?'https://www.unrivaled.basketball/roster-reveal/2027':'https://www.unrivaled.basketball/';official.textContent=year===2027?'Official 2027 roster reveal ↗':'Official Unrivaled ↗';}
-  if(source)source.textContent=year===2027?'Portraits: Unrivaled official roster reveal. Prior seasons use verified real player headshots.':'Archived assignments: We Know the W season records. Portraits: verified real player headshots.';
+  if(official){official.href=year===2027?'https://www.unrivaled.basketball/roster-reveal/2027':'https://www.unrivaled.basketball/stats/player?season='+year;official.textContent=year===2027?'Official 2027 roster reveal ↗':'Official '+year+' season archive ↗';}
+  if(source)source.textContent=year===2027?'Portraits: official Unrivaled Season 3 roster reveal.':'Portraits: official Unrivaled player and club media, with verified real headshots used if an official image is unavailable.';
   if(!rosters.length){clubTabs.innerHTML='';panel.innerHTML='<div class="unrivaled-reveal-panel-heading"><h3>Season directory</h3><span>Loading</span></div><p class="unrivaled-reveal-loading">Season club assignments are loading.</p>';return;}
   state.club=Math.min(state.club,rosters.length-1);
   clubTabs.setAttribute('aria-label','Season '+year+' Unrivaled clubs');
@@ -215,12 +231,14 @@ initUnrivaledRevealRoster();
   panel.setAttribute('aria-labelledby','unrivaledRevealClubTab'+state.club);
   const players=roster.players||[];
   const cards=players.map(player=>{
-   const photo=player.image||state.photos.get(key(player.name))||'';
+   const candidates=Array.isArray(player.imageCandidates)?player.imageCandidates:(player.image?[player.image]:[]);
+   const photo=candidates[0]||'';
    const fallback=initials(player.name);
-   const image=photo?'<img src="'+esc(photo)+'" alt="'+esc(player.name)+' player portrait" loading="lazy" decoding="async" onerror="this.remove();this.parentElement.classList.add(\'is-no-photo\')">':'';
+   const image=photo?'<img src="'+esc(photo)+'" data-fallback-photos="'+esc(JSON.stringify(candidates.slice(1)))+'" alt="Official Unrivaled '+year+' player portrait of '+esc(player.name)+'" loading="lazy" decoding="async">':'';
    return '<figure class="unrivaled-reveal-player"><div class="unrivaled-reveal-photo-frame '+(photo?'':'is-no-photo')+'">'+image+'<span aria-hidden="true">'+esc(fallback)+'</span></div><figcaption><strong>'+esc(player.name)+'</strong><span>'+esc(roster.club)+' BC</span></figcaption></figure>';
   }).join('');
   panel.innerHTML='<div class="unrivaled-reveal-panel-heading"><h3>'+esc(roster.club)+' BC</h3><span>'+players.length+' '+(year===2027?'confirmed players':'players listed')+'</span></div><div class="unrivaled-reveal-player-grid">'+cards+'</div>';
+  panel.querySelectorAll('.unrivaled-reveal-player img').forEach(img=>img.addEventListener('error',function(){let remaining=[];try{remaining=JSON.parse(this.dataset.fallbackPhotos||'[]');}catch{}if(remaining.length){this.dataset.fallbackPhotos=JSON.stringify(remaining.slice(1));this.src=remaining[0];return;}this.remove();this.parentElement.classList.add('is-no-photo');}));
  }
  seasonTabs.addEventListener('click',event=>{const button=event.target.closest('[data-reveal-season]');if(!button)return;state.season=Number(button.dataset.revealSeason);state.club=0;render();});
  clubTabs.addEventListener('click',event=>{const button=event.target.closest('[data-reveal-club]');if(!button)return;state.club=Number(button.dataset.revealClub);render();});

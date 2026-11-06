@@ -199,3 +199,11 @@
 .unrivaled-roster-player figcaption{min-height:2.6em;padding:6px 5px;color:#fff;text-align:center;font-size:.7rem;font-weight:850;line-height:1.2;overflow-wrap:anywhere}
 .unrivaled-portrait-roster-grid .unrivaled-roster-card-copy{display:none}
 @media(max-width:600px){.unrivaled-roster-grid.unrivaled-portrait-roster-grid{grid-template-columns:1fr;gap:12px}.unrivaled-roster-headshot-card{padding:11px}.unrivaled-roster-headshot-list{gap:6px}.unrivaled-roster-player figcaption{font-size:.66rem}}
+
+/* Match Season 3 portrait cutouts to the lighter Season 1 and 2 photo treatment */
+#unrivaledRevealPanel.is-season-2027 .unrivaled-reveal-photo-frame,
+.unrivaled-roster-headshot-card .unrivaled-roster-player-photo{background:linear-gradient(155deg,#f2f0f1 0%,#dfdcdf 100%)}
+#unrivaledRevealPanel.is-season-2027 .unrivaled-reveal-photo-frame img,
+.unrivaled-roster-headshot-card .unrivaled-roster-player-photo img{object-fit:contain;object-position:center bottom;padding:2px 4px 0}
+#unrivaledRevealPanel.is-season-2027 .unrivaled-reveal-photo-frame.is-no-photo span,
+.unrivaled-roster-headshot-card .unrivaled-roster-player-photo.is-no-photo span{color:#362340}

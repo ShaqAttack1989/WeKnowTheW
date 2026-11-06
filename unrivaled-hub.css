@@ -184,3 +184,18 @@
 @media(max-width:450px){.unrivaled-reveal-photo-board{padding:14px}.unrivaled-reveal-tabs{gap:5px}.unrivaled-reveal-tabs button{font-size:.65rem;padding:8px 4px}.unrivaled-reveal-panel{padding:11px}.unrivaled-reveal-player-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.unrivaled-reveal-player figcaption strong{font-size:.72rem}}
 
 .unrivaled-reveal-seasons{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 12px}.unrivaled-reveal-seasons button{min-height:42px;padding:9px 14px;border:1px solid #ded1e5;border-radius:12px;background:#fff;color:#33243a;font:inherit;font-size:.76rem;font-weight:900;cursor:pointer}.unrivaled-reveal-seasons button.active,.unrivaled-reveal-seasons button[aria-selected=true]{border-color:#d8ff4f;background:#d8ff4f;color:#21142b}.unrivaled-reveal-seasons button:focus-visible{outline:3px solid #a56bc0;outline-offset:2px}.unrivaled-reveal-photo-frame{position:relative;display:grid;place-items:center;aspect-ratio:4/5;overflow:hidden;background:linear-gradient(145deg,#34233f,#17101e)}.unrivaled-reveal-photo-frame img{position:absolute;inset:0;width:100%;height:100%;aspect-ratio:auto;object-fit:cover;object-position:center 18%}.unrivaled-reveal-photo-frame span{display:none;color:#d8ff4f;font-size:1.6rem;font-weight:950;letter-spacing:.06em}.unrivaled-reveal-photo-frame.is-no-photo span{display:grid}.unrivaled-reveal-loading{margin:0;color:rgba(255,255,255,.72)}.unrivaled-reveal-photo-source{font-size:.75rem;line-height:1.45}@media(max-width:640px){.unrivaled-reveal-seasons button{flex:1 1 auto;min-width:0;font-size:.68rem}.unrivaled-reveal-player-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.unrivaled-reveal-photo-frame{aspect-ratio:1/1}.unrivaled-reveal-photo-heading{align-items:flex-start;flex-direction:column}}
+/* Season 3 club rosters use league supplied player portraits */
+.unrivaled-roster-grid.unrivaled-portrait-roster-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.unrivaled-roster-headshot-card{min-width:0;padding:15px;border:1px solid rgba(216,255,79,.34);border-radius:20px;background:linear-gradient(145deg,#21142d,#30203d);box-shadow:0 12px 28px rgba(24,9,35,.18)}
+.unrivaled-roster-headshot-heading{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:0 0 12px}
+.unrivaled-roster-headshot-heading h3{margin:0;color:#fff;font-size:1.12rem;line-height:1.2}
+.unrivaled-roster-headshot-heading span{color:#d8ff4f;font-size:.65rem;font-weight:900;letter-spacing:.07em;text-transform:uppercase;white-space:nowrap}
+.unrivaled-roster-headshot-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.unrivaled-roster-player{min-width:0;margin:0;overflow:hidden;border:1px solid rgba(255,255,255,.12);border-radius:11px;background:rgba(9,5,15,.58)}
+.unrivaled-roster-player-photo{position:relative;overflow:hidden;aspect-ratio:4/5;background:linear-gradient(145deg,#453254,#170f20)}
+.unrivaled-roster-player-photo img{display:block;width:100%;height:100%;object-fit:cover;object-position:center top}
+.unrivaled-roster-player-photo span{display:none;position:absolute;inset:0;align-items:center;justify-content:center;color:#d8ff4f;font-size:1.3rem;font-weight:950}
+.unrivaled-roster-player-photo.is-no-photo span{display:flex}
+.unrivaled-roster-player figcaption{min-height:2.6em;padding:6px 5px;color:#fff;text-align:center;font-size:.7rem;font-weight:850;line-height:1.2;overflow-wrap:anywhere}
+.unrivaled-portrait-roster-grid .unrivaled-roster-card-copy{display:none}
+@media(max-width:600px){.unrivaled-roster-grid.unrivaled-portrait-roster-grid{grid-template-columns:1fr;gap:12px}.unrivaled-roster-headshot-card{padding:11px}.unrivaled-roster-headshot-list{gap:6px}.unrivaled-roster-player figcaption{font-size:.66rem}}

@@ -65,9 +65,15 @@
     $('#wpbaSchedule').innerHTML=scheduled.length?scheduled.map(gameCard).join(''):'<div class="wpba-empty">The next WPBA schedule has not been posted. This panel will fill automatically when the official feed adds games.</div>';
   }
 
-  function renderTeams(teams,standings){
-    const records=new Map(standings.map(row=>[row.team,`${row.w}-${row.l}`]));
-    $('#wpbaTeams').innerHTML=teams.map((team,index)=>`<a class="wpba-team-card" style="${teamStyle(team.name)}" href="https://www.womenspba.com/stats#/2693/team/${esc(team.teamId)}" target="_blank" rel="noopener"><div class="league-team-lockup"><span class="league-team-logo lg"><img src="${teamLogo(team.name)}" alt="${esc(team.name)} logo" loading="lazy"></span><div><span>TEAM ${String(index+1).padStart(2,'0')} · ${esc(records.get(team.name)||'Record pending')}</span><strong>${esc(team.name)}</strong></div></div><p>Roster, schedule, results and individual player statistics.</p><b>OPEN OFFICIAL TEAM PAGE →</b></a>`).join('');
+  function renderTeams(teams,standings,leaders){
+    const tabs=$('#wpbaTeamTabs'),panel=$('#wpbaTeamPanel');
+    if(!tabs||!panel)return;
+    const records=new Map(standings.map(row=>[row.team,row]));
+    const teamUrl=team=>'https://www.womenspba.com/stats#/2693/team/'+encodeURIComponent(team.teamId||'');
+    tabs.innerHTML=teams.map((team,index)=>'<button type="button" class="wpba-team-tab" role="tab" id="wpbaTeamTab'+index+'" aria-controls="wpbaTeamPanel" aria-selected="'+(index===0?'true':'false')+'" data-wpba-team="'+index+'" style="'+teamStyle(team.name)+'"><span class="league-team-logo"><img src="'+teamLogo(team.name)+'" alt="" loading="lazy" decoding="async"></span><span>'+esc(team.name)+'</span></button>').join('');
+    const show=index=>{const team=teams[index]||teams[0],record=records.get(team.name)||{},featured=(leaders||[]).filter(item=>item.team===team.name).slice(0,3);tabs.querySelectorAll('.wpba-team-tab').forEach((button,i)=>button.setAttribute('aria-selected',String(i===index?'true':'false')));const players=featured.length?'<section class="wpba-team-featured"><div class="wpba-team-panel-subhead"><span>2026 STAT LEADERS</span><strong>Players on the board</strong></div><div class="wpba-team-player-grid">'+featured.map(item=>'<figure class="wpba-team-player"><div class="wpba-team-player-photo"><img src="'+esc(playerPhoto(item))+'" alt="'+esc(item.player)+' player portrait" loading="lazy" decoding="async" onerror="this.hidden=true;this.parentElement.classList.add(\'is-missing\')"><span aria-hidden="true">'+esc(initials(item.player))+'</span></div><figcaption><strong>'+esc(item.player)+'</strong><span>'+esc(item.metric)+' · '+esc(item.value)+'</span></figcaption></figure>').join('')+'</div></section>':'<p class="wpba-team-no-leaders">No individual league-leading category is listed for this club in the 2026 snapshot.</p>';panel.setAttribute('aria-labelledby','wpbaTeamTab'+index);panel.innerHTML='<article class="wpba-team-room" style="'+teamStyle(team.name)+'"><header class="wpba-team-room-head"><span class="league-team-logo lg"><img src="'+teamLogo(team.name)+'" alt="'+esc(team.name)+' logo" loading="lazy" decoding="async"></span><div><span>2026 FINAL · '+esc(record.w||'—')+'-'+esc(record.l||'—')+'</span><h3>'+esc(team.name)+'</h3><p>'+'WPBA · San Francisco Bay Area'+'</p></div><a class="wpba-source-link" href="'+teamUrl(team)+'" target="_blank" rel="noopener noreferrer">Official team page ↗</a></header><div class="wpba-team-quick-stats"><div><span>W-L</span><strong>'+esc(record.w||'—')+'-'+esc(record.l||'—')+'</strong></div><div><span>Win rate</span><strong>'+esc(record.pct||'—')+'</strong></div><div><span>Point differential</span><strong>'+(Number.isFinite(Number(record.pf))&&Number.isFinite(Number(record.pa))?((Number(record.pf)-Number(record.pa)>=0?'+':'')+(Number(record.pf)-Number(record.pa))):'—')+'</strong></div></div>'+players+'</article>';};
+    tabs.onclick=event=>{const button=event.target.closest('[data-wpba-team]');if(button)show(Number(button.dataset.wpbaTeam));};
+    show(0);
   }
 
   function renderChampionship(item={}){
@@ -120,13 +126,13 @@
       const data=await response.json();
       if(!Array.isArray(data.standings)||data.standings.length!==8)throw new Error('WPBA standings snapshot is incomplete');
       (data.teams||[]).forEach(team=>teamMap.set(team.name,team));
-      renderPulse(data);renderChampionship(data.championship||{});renderStandings(data.standings);renderLeaders(data.leaders||[]);renderGames(data.games||[]);renderTeams(data.teams||[],data.standings);setupKitchen(data.standings);renderHonors(data.honors||[]);renderPhotos(data.photos||[]);renderHow(data.howItWorks||[]);renderHistory(data.history||[]);
+      renderPulse(data);renderChampionship(data.championship||{});renderStandings(data.standings);renderLeaders(data.leaders||[]);renderGames(data.games||[]);renderTeams(data.teams||[],data.standings,data.leaders||[]);setupKitchen(data.standings);renderHonors(data.honors||[]);renderPhotos(data.photos||[]);renderHow(data.howItWorks||[]);renderHistory(data.history||[]);
       const status=$('#wpbaStatus'),checked=formatDate(data.checkedAt||data.updatedAt),synced=formatDate(data.updatedAt);
       status.textContent=data.checkedAt&&data.checkedAt!==data.updatedAt?`Official feed checked ${checked} · last data change ${synced}`:`Official feed synced ${synced}`;status.classList.add('is-current');
     }catch(error){
       console.error(error);
       const status=$('#wpbaStatus');status.textContent='Official feed temporarily unavailable';status.classList.add('is-stale');
-      ['#wpbaPulse','#wpbaStandings','#wpbaLeaders','#wpbaResults','#wpbaSchedule','#wpbaTeams'].forEach(selector=>{const node=$(selector);if(node)node.innerHTML='<div class="wpba-empty">This dashboard could not load. Use the official WPBA link while We Know the W reconnects.</div>';});
+      ['#wpbaPulse','#wpbaStandings','#wpbaLeaders','#wpbaResults','#wpbaSchedule','#wpbaTeamTabs','#wpbaTeamPanel'].forEach(selector=>{const node=$(selector);if(node)node.innerHTML='<div class="wpba-empty">This dashboard could not load. Use the official WPBA link while We Know the W reconnects.</div>';});
     }
   }
   init();

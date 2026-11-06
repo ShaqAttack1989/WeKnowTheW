@@ -125,7 +125,7 @@
     });
     communityAssistGrid.innerHTML = winners.map(winner => {
       const visual = winner.collective
-        ? '<div class="assist-player-placeholder" role="img" aria-label="All WNBA players, the leaguewide 2020 recipient"><img src="https://cdn.wnba.com/logos/wnba/1611661324/primary/D/logo.svg" alt="WNBA logo" loading="lazy"><span>Leaguewide honor</span></div>'
+        ? '<div class="assist-player-placeholder" role="img" aria-label="All WNBA players, the leaguewide 2020 recipient"><span aria-hidden="true">ALL WNBA</span><span>Leaguewide honor</span></div>'
         : '<a class="assist-player-portrait" href="' + safeAttr(winner.profileUrl) + '" target="_blank" rel="noopener" aria-label="View ' + safeAttr(winner.name) + '’s official WNBA profile"><img src="' + headshot(winner.playerId) + '" alt="' + safeAttr(winner.name) + ' WNBA headshot" loading="lazy"></a>';
       const teamMark = winner.collective
         ? '<span class="assist-team-mark assist-team-mark-league" role="img" aria-label="WNBA leaguewide award">WNBA</span>'
@@ -144,6 +144,16 @@
   communityAssistSearch?.addEventListener('input', renderCommunityAssist);
   communityAssistYear?.addEventListener('change', renderCommunityAssist);
   renderCommunityAssist();
+
+  // A deep link can fire before the dashboards above finish expanding.
+  if (window.location.hash === '#communityAssist') {
+    const alignCommunityAssist = () => document.getElementById('communityAssist')?.scrollIntoView({block:'start'});
+    if (document.readyState === 'complete') {
+      window.setTimeout(alignCommunityAssist, 350);
+    } else {
+      window.addEventListener('load', () => window.setTimeout(alignCommunityAssist, 350), {once:true});
+    }
+  }
 
   loadTeamLogos();
 })();

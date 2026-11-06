@@ -110,6 +110,9 @@
   const communityAssistYear = document.getElementById('communityAssistYear');
   const communityAssistResults = document.getElementById('communityAssistResults');
   const communityAssistWinners = data.communityAssistWinners || [];
+  // Open the archive on the complete eight-season record, regardless of saved form state.
+  if (communityAssistYear) communityAssistYear.value = 'all';
+  if (communityAssistSearch) communityAssistSearch.value = '';
   const renderCommunityAssist = () => {
     if (!communityAssistGrid) return;
     const query = String(communityAssistSearch?.value || '').trim().toLowerCase();
@@ -133,7 +136,7 @@
         '</h4><p class="assist-card-team">' + safeAttr(winner.team) + '</p><p class="assist-card-summary">' +
         safeAttr(winner.summary) + '</p><a class="assist-card-source" href="' + safeAttr(winner.source) +
         '" target="_blank" rel="noopener">Official WNBA release <span aria-hidden="true">↗</span></a></div></article>';
-    }).join('') || '<p class="community-assist-empty">No award recipients match those filters.</p>';
+    }).join('') || '<p class="community-assist-empty">No honorees match these filters. Choose All seasons and clear the search to see the complete 2019–2026 record.</p>';
     if (communityAssistResults) communityAssistResults.textContent = 'Showing ' + winners.length + ' of ' + communityAssistWinners.length + ' seasonlong recipients.';
     hydrateTeamLogos(communityAssistGrid);
   };

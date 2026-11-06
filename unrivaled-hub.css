@@ -207,3 +207,8 @@
 .unrivaled-roster-headshot-card .unrivaled-roster-player-photo img{object-fit:cover;object-position:center top;padding:0}
 #unrivaledRevealPanel.is-season-2027 .unrivaled-reveal-photo-frame.is-no-photo span,
 .unrivaled-roster-headshot-card .unrivaled-roster-player-photo.is-no-photo span{color:#362340}
+
+/* Season 3 official headshots are transparent league cutouts; frame them on a soft studio tone. */
+#unrivaledRevealPanel.is-season-2027 .unrivaled-reveal-player img{background:linear-gradient(155deg,#f9f7f8 0%,#eee9ec 58%,#dfdbe0 100%)}
+.unrivaled-roster-headshot-card .unrivaled-roster-player-photo{background:linear-gradient(155deg,#f9f7f8 0%,#eee9ec 58%,#dfdbe0 100%)}
+.unrivaled-roster-headshot-card .unrivaled-roster-player-photo img{background:transparent;object-fit:cover;object-position:center top;padding:0}

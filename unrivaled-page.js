@@ -201,6 +201,7 @@ initUnrivaledRevealRoster();
   const seasonFiles=year===2025?[team+'-headshot.jpg',team+'-headshot.png']:['2026/'+team+'-headshot.jpg','2026/'+team+'-headshot.png'];
   const candidates=seasonFiles.map(file=>base+file);
   candidates.push(base+'headshot.jpg',base+'headshot.png');
+  if(key(name)==='skylardiggins')candidates.push('https://pub-ad8cc693759b4b55a181a76af041efa0.r2.dev/players/skylar-diggins/images/headshot.jpg?v=1767477677611');
   const verified=state.photos.get(key(name));
   if(verified)candidates.push(verified);
   return Array.from(new Set(candidates));

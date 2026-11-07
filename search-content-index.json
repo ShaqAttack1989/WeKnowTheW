@@ -1,5 +1,5 @@
 {
-  "version": "2026-11-06",
+  "version": "2026-11-07",
   "items": [
     {
       "title": "Showing Up Is the Work: Kayla McBride’s Community Assist Honor",
@@ -1188,6 +1188,13 @@
       "type": "Team · Franchise Hub",
       "href": "/team.html?team=golden-state-valkyries",
       "keywords": "Golden State Valkyries first WNBA championship 2026 Game 7 68–63 Atlanta Dream Finals 4–3 Natalie Nakase first Asian-American coach to win a WNBA title 2025 Coach of the Year Valkyries hub"
+    },
+    {
+      "title": "Global Women’s Basketball Association History",
+      "type": "League History",
+      "href": "/gwba.html",
+      "description": "A history of the GWBA, including its 2016–2023 championship seasons, Midwest teams, timeline and carefully documented final chapter.",
+      "keywords": "Global Women's Basketball Association GWBA league history championships champions 2016 2017 2018 2019 2020 canceled COVID 2021 2022 2023 Flint Monarchs Wisconsin GLO St Louis Surge KC Crossover independent women's basketball Midwest Arlesia Morse Crystal Bradford Jessica Lindstrom Kelly Moten Taylor Wurtz-Purifoy"
     }
   ]
 }

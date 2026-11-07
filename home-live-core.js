@@ -202,6 +202,11 @@ async function loadHomeLive(initial=false){
     payload.upcomingGames=withHomePlayoffSeries(dedupeHomeSchedule([...(upcomingPlayoffs||[]),...(payload.upcomingGames||[])]),playoffGames);
     payload.pastGames=withHomePlayoffSeries(dedupeHomeSchedule([...(playoffGames.filter(game=>game.completed||String(game.state||'').toLowerCase()==='post').sort((a,b)=>Date.parse(b.startTimeUtc||b.date)-Date.parse(a.startTimeUtc||a.date))),...(payload.pastGames||payload.recentResults||[])]),playoffGames);
     payload.hasPlayoffs=Boolean(competition.playoffs?.started||playoffGames.length);
+    const hasScheduledWnbaGames=Boolean((payload.liveGames||[]).length||(payload.upcomingGames||[]).some(game=>String(game.date||'')>=today));
+    const liveTools=document.querySelector('.offseason-live-details');
+    if(liveTools){liveTools.dataset.seasonState=hasScheduledWnbaGames?'active':'offseason';liveTools.open=hasScheduledWnbaGames;}
+    const offseasonSpotlight=document.querySelector('.offseason-spotlight');
+    if(offseasonSpotlight)offseasonSpotlight.hidden=hasScheduledWnbaGames;
     livePayload=payload;
     if(initial&&gameMode==='live'&&!payload.liveGames.length)gameMode='upcoming';
     window.WGameCards?.populateFilter(document.getElementById('homeGamesTeamFilter'),payload);

@@ -56,12 +56,12 @@
       spotlight.setAttribute('aria-label','2026 WNBA playoffs spotlight');
     }
     const heroButton=document.querySelector('.hub-hero .hero-actions .button.ghost');
-    if(heroButton){heroButton.textContent='Live Playoff Bracket';heroButton.href='#playoff-bracket';}
+    if(heroButton){heroButton.textContent='2026 Playoff Archive';heroButton.href='/stat-kitchen.html#2026-playoff-archive';}
   }
 
   function spotlightUsed(){
     const used=new Set();
-    document.querySelectorAll('.home-season-spotlight a[href]').forEach(link=>{const href=link.getAttribute('href');if(href)used.add(href);});
+    document.querySelectorAll('.home-season-spotlight a[href], #freshTopStories a[href], #freshNextStory a[href], #freshMoreStories a[href]').forEach(link=>{const href=link.getAttribute('href');if(href)used.add(href);});
     return used;
   }
 

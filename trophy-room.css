@@ -175,3 +175,6 @@
 
 .trophy-accolade-badge{display:inline-flex;align-items:center;gap:5px;width:max-content;max-width:100%;padding:5px 9px;border:1px solid rgba(216,255,79,.32);border-radius:999px;background:rgba(216,255,79,.1);color:#d8ff4f;font-size:.65rem;font-weight:950;letter-spacing:.04em;text-transform:uppercase;line-height:1.2}
 .trophy-accolade-badge>span[aria-hidden]{font-size:.9rem}
+
+.champion-name .trophy-accolade-badge,.champion-mvp .trophy-accolade-badge{color:#d8ff4f}
+.is-featured .champion-name .trophy-accolade-badge,.is-featured .champion-mvp .trophy-accolade-badge{color:#d8ff4f}

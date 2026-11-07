@@ -18,7 +18,7 @@
     window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
   </script>
   <script defer src="/_vercel/insights/script.js" data-vercel-analytics="true"></script>
-<link rel="stylesheet" href="/event-countdowns.css?v=20261029-pair-v3"></head>
+<link rel="stylesheet" href="/event-countdowns.css?v=20261029-pair-v3"><link rel="stylesheet" href="/offseason-microinteractions.css?v=20261107-v1"></head>
 <body>
   <header class="hub-hero" id="top">
     <nav class="nav shell" aria-label="Main navigation">
@@ -46,6 +46,17 @@
   </header>
 
   <main><section class="section shell" aria-label="Upcoming basketball events" style="padding-top:24px;padding-bottom:24px"><div class="w-countdown-grid" style="grid-template-columns:minmax(0,1fr);max-width:760px;margin-inline:auto"><div class="w-event-card"><p style="color:#d8ff36;font-weight:900;margin:0">THE NEXT BIG W DATE</p><h2>2027 Draft Lottery Countdown</h2><p>November 15 · 7:30 p.m. ET · ESPN</p><div id="draftLotteryCountdown" class="w-event-timer" role="timer" aria-label="Time until the WNBA draft lottery broadcast"></div><p id="draftLotteryCountdownStatus">Counting down to 7:30 p.m. Eastern on ESPN.</p><a class="button primary" href="/2027-wnba-mock-draft.html">See the odds and mock draft →</a></div></div></section>
+    <section class="offseason-spotlight" aria-labelledby="offseasonSpotlightTitle">
+      <div class="offseason-spotlight-inner">
+        <div><p class="kicker">OFFSEASON, FULL COURT</p><h2 id="offseasonSpotlightTitle">The W keeps moving.</h2><p>Follow the pros in winter leagues, track college hoops and keep an eye on the next class.</p></div>
+        <nav aria-label="Offseason coverage"><a href="/no-offseason.html">Winter leagues <span>Unrivaled · AU →</span></a><a href="/class-is-in-session.html">College hoops <span>Class Is in Session →</span></a><a href="/who-got-next.html">The pipeline <span>Who Got Next? →</span></a></nav>
+      </div>
+    </section>
+    <section class="lottery-poll" aria-labelledby="lotteryPollTitle">
+      <div><p class="kicker">YOUR PICK</p><h2 id="lotteryPollTitle">Who takes the No. 1 pick?</h2><p>Make a pick for the 2027 WNBA Draft Lottery. Your choice stays on this device.</p></div>
+      <div id="lotteryPollChoices" class="lottery-poll-choices" role="group" aria-label="Choose a team to win the 2027 WNBA Draft Lottery"></div>
+      <p id="lotteryPollStatus" class="lottery-poll-status" aria-live="polite"></p>
+    </section>
     <section class="desktop-app-launch" aria-labelledby="appLaunchTitle">
       <div class="desktop-app-launch__copy">
         <p class="desktop-app-launch__eyebrow"><span>NEW · BROWSER TESTING IS OPEN</span></p>
@@ -136,6 +147,7 @@
 
     <section class="page-section home-live" id="live">
       <div class="page-shell">
+        <details class="offseason-live-details"><summary>2026 regular-season standings and schedule <span>Open Around the W live tools</span></summary><div class="offseason-live-content">
         <div class="page-heading live-heading-row">
           <div>
             <p class="kicker">AROUND THE W · LIVE STATS</p>
@@ -188,6 +200,7 @@
           </div>
         </div>
         <div class="page-note" style="margin-top:22px"><strong>Around the W</strong> is the current-season headquarters: standings, games, player movement, availability, team pages and Seasoned Notes. <a href="/around-the-w.html" style="font-weight:900">Open Around the W →</a></div>
+        </div></details>
       </div>
     </section>
 
@@ -225,5 +238,5 @@
   <script src="/homepage-specials.js?v=20261107-9834d901-fresh-stories"></script>
   <script src="/homepage-desk.js?v=20260927-playoff-times-v5"></script>
   <script src="/home-live.js?v=20261025-game4-series-v1"></script>
-<script src="/draft-lottery-countdown.js?v=20261028" defer></script></body>
+<script src="/draft-lottery-countdown.js?v=20261028" defer></script><script src="/offseason-poll.js?v=20261107-v1" defer></script></body>
 </html>

@@ -782,3 +782,9 @@
 .wknw-coach-grade-method{margin:16px 0 0;color:#e3d9ed;font-size:.78rem;line-height:1.55}
 @media(max-width:900px){.wknw-coach-grade-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:620px){.wknw-coach-grade-board{margin-right:-12px;margin-left:-12px;padding:19px 13px;border-radius:22px}.wknw-coach-grade-grid{grid-template-columns:1fr;gap:11px}.wknw-coach-grade-card{display:grid;grid-template-columns:minmax(98px,34%) minmax(0,1fr);align-items:stretch}.wknw-coach-grade-photo{height:100%;min-height:160px;aspect-ratio:auto}.wknw-coach-grade-photo img{height:100%;min-height:160px}.wknw-coach-grade-copy{padding:11px;gap:4px}.wknw-coach-grade-topline{gap:5px}.wknw-coach-grade-topline>span{font-size:.57rem}.wknw-coach-grade-score{padding:6px 7px;font-size:.78rem}.wknw-coach-grade-label{font-size:.66rem}.wknw-coach-grade-secondary{font-size:.72rem}.wknw-coach-grade-copy h4{font-size:1rem}.wknw-coach-grade-note{font-size:.76rem;line-height:1.45}.wknw-coach-grade-photo figcaption{font-size:.55rem;padding:14px 5px 5px}}
+
+/* Small fixed reading marker for long editorial stories */
+.reading-progress{position:fixed;z-index:1000;top:0;right:0;left:0;height:3px;background:rgba(24,10,46,.18);pointer-events:none}
+.reading-progress[hidden]{display:none}
+.reading-progress span{display:block;width:100%;height:100%;transform:scaleX(0);transform-origin:left center;background:linear-gradient(90deg,#6eceb2,#d8ff4f);will-change:transform}
+@media(prefers-reduced-motion:reduce){.reading-progress span{transition:none}}

@@ -36,8 +36,8 @@
         <span class="winner-inset player-inset">${data.finalsMvpPhotos[season.finalsMvp] ? `<img src="${data.finalsMvpPhotos[season.finalsMvp]}" alt="${safeAttr(season.finalsMvp)}" loading="lazy">` : `<b>${initials(season.finalsMvp)}</b>`}</span>
         <span class="winner-inset team-inset" data-team-logo="${safeAttr(season.champion)}"><b>${initials(season.champion)}</b></span>
       </div>
-      <div class="champion-name"><strong>${season.champion}</strong><span>Champion · defeated ${season.runnerUp}</span></div>
-      <div class="champion-mvp"><strong>${season.finalsMvp}</strong><span>Finals MVP</span></div>
+      <div class="champion-name"><span class="trophy-accolade-badge"><span aria-hidden="true">🏆</span> Champion</span><strong>${season.champion}</strong><span>Defeated ${season.runnerUp}</span></div>
+      <div class="champion-mvp"><span class="trophy-accolade-badge"><span aria-hidden="true">⭐</span> Finals MVP</span><strong>${season.finalsMvp}</strong></div>
       <div class="champion-result">${season.result}</div>
     </article>`;
 

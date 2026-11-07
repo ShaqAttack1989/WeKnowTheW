@@ -143,7 +143,7 @@ Object.entries(navSections).forEach(([section,paths])=>{if(paths.includes(locati
  const existing=document.querySelector('.culture-subnav');
  if(existing){existing.classList.add('section-shortcuts');return;}
  const isHome=['/','/index.html'].includes(location.pathname);
- const homeShortcuts=[['Playoff Watch Guide','#playoff-watch-guide'],['Live Playoff Tracker','#playoff-bracket'],['This Week in the W','#this-week'],['Live Desk','#live-desk'],['Overall Standings','#overall-standings','overallToggle'],['Live Games','#homepage-games','liveGamesToggle'],['Upcoming Games','#homepage-games','upcomingGamesToggle']];
+ const homeShortcuts=[['Latest Stories','#latestStoriesTitle'],['2027 Draft Lottery','#draftLotteryCountdown'],['College Hoops','/class-is-in-session.html'],['Winter Leagues','/no-offseason.html'],['2026 Stat Kitchen Archive','/stat-kitchen.html#2026-playoff-archive'],['Live Desk','#live-desk'],['Upcoming Games','#homepage-games','upcomingGamesToggle']];
  const isRun=location.pathname==='/run-the-w.html';
  const modeShortcuts=[...document.querySelectorAll('.run-modes .run-mode-card[id]')].map(card=>{const a=document.createElement('a');a.href='#'+card.id;a.textContent=card.querySelector('h3').textContent;return a;});
  const candidates=isRun?modeShortcuts:isHome?homeShortcuts.map(([label,href,control])=>{const a=document.createElement('a');a.textContent=label;a.setAttribute('href',href);if(control)a.dataset.homeControl=control;return a;}):current?[...current.querySelectorAll('.nav-menu-section>a')]:[...navLinks.querySelectorAll('.nav-parent')];

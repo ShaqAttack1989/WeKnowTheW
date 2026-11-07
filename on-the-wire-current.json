@@ -1,7 +1,97 @@
 {
-  "updatedAt": "2026-11-06T17:28:33.017Z",
+  "updatedAt": "2026-11-07T16:24:57.358Z",
   "retentionDays": 14,
   "items": [
+    {
+      "title": "Caitlin Clark’s viral cheeseball challenge draws strong reaction from WNBA",
+      "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxPdnpxQXRKU2NzSjVSNE9kWFdfMUxoLTBuakgtUl9ZTU1id083Y3Y0ZTVWeHRvZ2doSV9ZUFpKM1FFY3kzVXJ6NDRoeXZBcDV3RFhRVDE0MXZnMVljcVJZVHVaSmJMNHE0cG5NRXQ1MUE2NFlkRjZhVENPSlpyQVVYTkVHZDRKeW0zWmNJc1ZYQTJXMGM?oc=5",
+      "source": "Yahoo Sports",
+      "publishedAt": "2026-11-07T15:58:40.000Z",
+      "category": "League news",
+      "origin": "auto",
+      "id": "842f3ab0e3b68875"
+    },
+    {
+      "title": "Paige Bueckers calls for WNBA rule change over Angel Reese incident",
+      "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxQYWExZnRCTkJoY05FcURQSXFkTTZjMjQwclNpd28xdUJoTllSeWdXNDg3V3cza2tyaFU0MERDTFJTX3l1bzYyaGo5d09vbWtWR3NfYU5xUTI5a0Q4Zkp4a2dJZzA5dzdCODBfUTM5d0JBS2FQdGRXSjFmNWYzZjBhMzA1bGJJZw?oc=5",
+      "source": "Yahoo Sports",
+      "publishedAt": "2026-11-07T15:15:00.000Z",
+      "category": "League news",
+      "origin": "auto",
+      "id": "e6bd6fabdbba42a3"
+    },
+    {
+      "title": "‘I’ve Gotten Death Threats for Covering Caitlin Clark’ – 5-Time All-Star Gets Brutally Honest on Dark Reality of WNBA’s Popularity Boom",
+      "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNRWZxN2F3SWkyWm9KMTVabURqelByaEh6Ty1pYVZHdURYV3F3b2RoX050YVpycmwyNl9PLXY3MlN5TXo2dnpkdHJSQjg1bWU1SzlGSFF5UVpxU2VWSV94anI1V1JSd0haMTFiX0N6STdLbnJmcU1fcUhiUC01U3JKaXh3REg1a21t?oc=5",
+      "source": "Yahoo Sports",
+      "publishedAt": "2026-11-07T09:24:02.000Z",
+      "category": "League news",
+      "origin": "auto",
+      "id": "c7792c42f381b602"
+    },
+    {
+      "title": "Angel Reese Supports Brother Julian at Pelicans vs. T-Wolves in Video After WNBA Finals Loss",
+      "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxQZmZDWE9zQnNmbld6V1F4OUVfU19yQV9ocFpBV0ZTd1hJOFkwcWdqdzFPWGZJdFNmTVktdmtKNkRDNDhOdWV6Z2dsbTk4dFFhZ3AtNnJuZ25mWFZOai1zMmVjanRjVjJtTmpSM2V5MENVeEhSZWVBQnByNGQ2cmFJYkYwWGVvLV9BejdJamN5QUYyYldMSHoxbnE4ckJDZTBOalFnMy1NNXNidHEtQnFjcWF2VnVQdGt6MFdBOVBSeVhCVjhJdWxoVlRR?oc=5",
+      "source": "Bleacher Report",
+      "publishedAt": "2026-11-07T03:14:36.000Z",
+      "category": "League news",
+      "origin": "auto",
+      "id": "8bd95c3261e3793c"
+    },
+    {
+      "title": "5-time WNBA All-Star Disrespects Caitlin Clark, Sophie Cunningham in 'Beauty' Rant",
+      "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxOSGZIR3h0Slp2UFhucDNna2EzamswS2FEbDBPSEVGRTM2SUdfSklycFlwYWMwQWFwaEtLVFUzZmZEbXVTaDk4aUhkQUFkLVdVeER5M0JrS0hzTE41Vno1akRGWVZuZ0J6N2RKZ1NZT3E0Rzhtc0dPVGdJRGtWSnJhZ29vM3Nldm9OQl9MZkxCZ1pTSl9rUUctS0Zzcm1QZHF5aEFURXVqNTZqaG1HMTRFdTZJSjBvZEg3Qng2aE5lOGMzMjRm?oc=5",
+      "source": "Sports Illustrated",
+      "publishedAt": "2026-11-07T00:32:00.000Z",
+      "category": "League news",
+      "origin": "auto",
+      "id": "16c6d562021ff737"
+    },
+    {
+      "title": "‘Storylines in the WNBA Are Wild,’ ‘Skipped Over Olivia Miles for This,’ ‘Insane League’ — Fans React As Paige Bueckers, Azzi Fudd Announce Breakup",
+      "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxOQW5GV0VQZ2wxRVVtWk5IME90VVZxWTZEUndBX19hZ2Y1VE43NHFFei1CSGR0LS1oZjM0dmk5NzZVc3hVcDR5UXhIMWkwUHNhcXRVdm94WlVlNEdvTmt1U0RaNDI5VGFRblRjbVYxVFNNQm1rSFpYMkVpOWkzamEyRktWdG0xWW1UZ3c?oc=5",
+      "source": "Yahoo Sports",
+      "publishedAt": "2026-11-06T23:51:15.000Z",
+      "category": "Courtside incident",
+      "origin": "auto",
+      "id": "82ef18796b371a73"
+    },
+    {
+      "title": "WNBA legend makes outrageous claim about Caitlin Clark & Sophie Cunningham’s looks",
+      "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxPbzJ5bXF2RFpCN1BkZlVOMmFyTDlhSEhWc2h4cEpNRjRYWDQ0djNObUJueXRzUDhEVXhSVkY4QzRwMkhLWjkxQThFY2NfNnFESUVtbWk5NllUWHNKNmw1NXFGdTdvdC1WWDdhM003MTBIRW94YjI3NXM2Rk1yMkFWM1cxU2RJR3NmSjg4?oc=5",
+      "source": "Yahoo Sports",
+      "publishedAt": "2026-11-06T19:32:15.000Z",
+      "category": "League news",
+      "origin": "auto",
+      "id": "9f9fbd65107906c2"
+    },
+    {
+      "title": "\"Everybody Loved Indiana\": Former WNBA Player's Kelsey Mitchell Anecdote Raises Questions About WNBA Stardom",
+      "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxPMlN5SWpBQmRGRkZqbkVESUdaMk13eF9JZWd4OUZXT1ppTVZKYmJLa21ZVDhObEZycm43NkxMU1FPWjduSW5DMm9adnRxY2hUejJZanR5V3ktTFRzc2ZFTDJrbVB2dmM3c0tRdG1DRUtIQ1J2ek1RUEpmMWIzLXllRUVXY05jTGF5bHlEdw?oc=5",
+      "source": "Yahoo Sports",
+      "publishedAt": "2026-11-06T19:23:27.000Z",
+      "category": "League news",
+      "origin": "auto",
+      "id": "89fad071b4397bf7"
+    },
+    {
+      "title": "Angel Reese Gets Royal Treatment at LSU After Heartbreaking WNBA Finals Loss",
+      "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxQVmdJdjlKUDV2WURLUkt3N3FxRER0ZFpOWEVVWnlCbDF3aFJySHAxMDlMZV9BMWtuckFDVVpVN2UtcTgzTThBSUJGT3RnSkVnVklaekViTWVoa1k4emRLWnpGQ2kzejZLanBGZHNSYl9rUTZheVZvbHVBY2VNMHg0bC15OW1OOGpwZkxuX0lzU0s5ZXktUFd2T1Q2NHZkNWJuRHkzck9UVFdCaFJzMUJSbmtWWVlHSFlvd2c?oc=5",
+      "source": "Sports Illustrated",
+      "publishedAt": "2026-11-06T18:15:00.000Z",
+      "category": "League news",
+      "origin": "auto",
+      "id": "e24f15806a7cb81a"
+    },
+    {
+      "title": "Paige Bueckers and Azzi Fudd Announce Breakup, Reveal Split Happened Before WNBA Season",
+      "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxOU1hWYUVRSC1aTm1vM3NTZlNNVW1Talh4M1hteE1TZktzZmltUG55WEVFOFNKSFFpeFBxVFpPQ2dDU3BaZnpnWmlKb1RTS0VWNkZzUGYzOE8zSGVlcjd5Y2Z1Szlka0h5MUtmQ21WckhlRDZRU2J5OUFCSXR1cUM4STlHbTlXM3VRUlg3VWF5Y0lqM25hdEotTGVCaEJ6d3hDOFJLUFJ4RTFwZEVvRjVmOGZ6cklLUFFfUk0zYlNVa0FhUQ?oc=5",
+      "source": "Bleacher Report",
+      "publishedAt": "2026-11-06T17:59:52.000Z",
+      "category": "League news",
+      "origin": "auto",
+      "id": "ae72fec65d351b3b"
+    },
     {
       "title": "Angel Reese Says Kim Mulkey’s Four-Hour Practices Made WNBA Jump ‘Really Easy’",
       "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxNOTAxMUdpX0lOWkl3Rzc1RTVHQnpDSXRlOWJYYWVtRUxkUTJiZkxyWTNkMzl1RlFRaTBXNWVkb2ExT3pDdDdoaEZCaEdUQnc2VnZkOEE1YlAtamJyeEJfMjRaLTlNbWpfcEo1RC1IWmpXWlFyNF9rUXQ3RFVscldGQTVR?oc=5",
@@ -1387,114 +1477,6 @@
       "category": "Awards",
       "origin": "auto",
       "id": "a05f7e6d3062d60a"
-    },
-    {
-      "title": "‘Outdoing the Hawks Now,’ ‘Whole City Came Out’ — Atlanta Legend Joe Johnson Marvels at Fan Support for Angel Reese’s Dream During WNBA Finals Run",
-      "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxOcTNrZmhkTUtmUnJCNFdqWVJvOGtKbkNLWWdsSkFYVWx2N0xNcUc3UTlKNVo5VVFSOTgtY2NJYnpvRFRNdEdndGQzX1RjdS1qMWNrNmFLZFFkc050SFM5TnhoUk5YTUxGRTQwT2hpMU5PRWluemxtdTNFX09JTW1pLWVqc2c?oc=5",
-      "source": "Yahoo Sports",
-      "publishedAt": "2026-10-24T12:00:58.000Z",
-      "category": "Courtside incident",
-      "origin": "auto",
-      "id": "e9d8b19909ef0353"
-    },
-    {
-      "title": "‘The Disrespect for Our Country Is Wild,’ ‘Move On’ — WNBA Fans Divided Over Gabby Williams’ Response to National Anthem Controversy",
-      "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxNS0MwbHRsV1hRaGxqSW8ybnpSb2t3M2ZURUc2MWRHZEhNUDdKbmcwZmxlcU1BMEZFejZVaDRDZTlWLVNKR1RaUDg0VTU5MEZUcFJhV2NoS19kYmdTQXBxa0t1VGVueHQtSlRKa3RnVmhLc3VKS3dacGN1ZE5ZU3llajhaMjd0S29ZSFE?oc=5",
-      "source": "Yahoo Sports",
-      "publishedAt": "2026-10-24T07:27:53.000Z",
-      "category": "Courtside incident",
-      "origin": "auto",
-      "id": "56a6b8cd59dd3323"
-    },
-    {
-      "title": "Allisha Gray plays through a hand injury as the Dream lead the WNBA Finals 2-1",
-      "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPVzdWSTJKcXlXUTRUaEI4U0ZtT0NCQnozU3NISHpVUHpfUUh1OEZoRThvUlBhYmJIUkRJYlpzZGZRZk1XN0dmb2ZfbHdlakR2eUFJS0QxRWs1YjIxU05IeGd3N01QMmlxMm1XQ1dyMUVvMjl3cDE4QlVVSFRHOGROSzRrTWJEUmtOemhJR2dnZWtsX01kYlFQMXpKbm1mZC03bTlCb1BHWXNCZXBKTmpMdXBCV1ZQR1p6?oc=5",
-      "source": "The Washington Post",
-      "publishedAt": "2026-10-24T05:08:57.000Z",
-      "category": "Availability",
-      "origin": "auto",
-      "id": "46eeb6290db8b398"
-    },
-    {
-      "title": "Candace Parker Makes Awkward Kevin Durant Blunder Live on Rockets vs. Spurs Broadcast as Fans Quickly Call Out WNBA Legend",
-      "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxPRjB2ZUNabS1JdUY1emlhdUJaVXRFTURtV1VGS180NWlmLTE1UVhHdEYtbHcwQk5hcmJjUm90VVVqMXFndE83ZEhndXl3a19CY2dMNG9ycVk5cFV3aHVXc2FnUk5HejBVU0pTbGFZVm45SS1KMENnN1VTQmxza19tbGlUaWZTMWxoMEdj?oc=5",
-      "source": "Yahoo Sports",
-      "publishedAt": "2026-10-24T05:06:00.000Z",
-      "category": "Courtside incident",
-      "origin": "auto",
-      "id": "1e903206a4c35bf7"
-    },
-    {
-      "title": "“Bye Bye Stephanie White” – WNBA Fans Erupt As Caitlin Clark Likes Fever’s Kelly Krauskopf Exit Post",
-      "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNYUctVDJyLW1QSXk2dXFTallhYjRUMnZSYkNvbFBOTTM0dndsYU9abVBZZFZuSUswWTl5YkJVVlFCWHBxam9aSV9Pd195SlFHSUhiRVhJQ25hcFA2NzJNbkZpdVJNd2VQYTRvZUd1TGtyUVBRSDNLS0h4RUN2aWtWd1JUcw?oc=5",
-      "source": "Yahoo Sports",
-      "publishedAt": "2026-10-24T04:30:00.000Z",
-      "category": "Courtside incident",
-      "origin": "auto",
-      "id": "e27a54ee83ae5fb7"
-    },
-    {
-      "title": "“Karl Saw That Her Potential Isn’t Only In The Paint” – WNBA Fans Erupt As Angel Reese Hones 3-Pt Shot Amid Shooting Breakthrough",
-      "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxQU3FsT09nZzFHREVjdHFOTmdLMDhabFBEVDBfVE8yb0dzVldDdWdTejFWUkVSNlhfazhGcC1sRFRXZ2FBelpfdmNNYldxbHFBM3pteXd0WHVBX1EzQW51SjZNd3RTQTFlVVdVRF9lcHk2ZUpZUnlkazVRa0k1Y2taSQ?oc=5",
-      "source": "Yahoo Sports",
-      "publishedAt": "2026-10-24T04:12:00.000Z",
-      "category": "Courtside incident",
-      "origin": "auto",
-      "id": "5dc31787332e1c2a"
-    },
-    {
-      "title": "WNBA Media Called Out For Unfair Treatment Of Angel Reese",
-      "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxOMnNnZ21fVkpfdGl1TDFVZ0xQQkg5U0h2US16TVJyaTJ4N3ZVOE56UVVOQXpuclJBazlXM0V6M0U5SzZSdWEyU0F1SnIyNUZ4cVUtVkNnS0dVbjI4ZHFzeU9RRE1JRGk0OS1JVkNQWjdCNUJnVnRDNUFUblhLSWlFaU1XMFBkd3h3U09Z?oc=5",
-      "source": "Yahoo Sports",
-      "publishedAt": "2026-10-24T03:48:08.000Z",
-      "category": "Availability",
-      "origin": "auto",
-      "id": "1b022dcc8ecb1cb6"
-    },
-    {
-      "title": "Angel Reese, Dream vs. Valkyries Game 3 Makes WNBA Finals Viewership History, How Many Fans Watched?",
-      "url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxOYlJndGp1dm53c0J4U0pieVBaY0hjNkFiYVRpbFNyazNNZEVNT3RnVTE1QUdQdG1sNjFPSFRCem15TjZseEFfbXA1aE9MaUM0T1ZFTzA3X3RvNVlFbm5nTWw4ZXlYXzFES21jUEFmcjc5NUV1a2Vzdko4NzYzc2ZOSHlrVjNLck5sTldWNEh5bGpoTjZxaWo3Q2JwRURFVXBIZ2dBLTJHc3VMcXFWQ3hHQ0VQVTA2OVRkYldDVGxFSk9QUHI1M2lDYVN5MG54Rm5DSFRNcTlrc00?oc=5",
-      "source": "Bleacher Report",
-      "publishedAt": "2026-10-24T00:07:52.000Z",
-      "category": "Courtside incident",
-      "origin": "auto",
-      "id": "e174ddf9d4025d84"
-    },
-    {
-      "title": "Stephanie White's Future as HC of Caitlin Clark, Fever Revealed in New WNBA Rumors After GM Firing",
-      "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxQNHo2d2tKUDhSZHZOOXExNWhJN1RoZm93Z1RTYmVXSVBKdGhGbEVBeHVsVzIwakZGcUhmNGVBdGNOQ251NUNNcVZneG9valBJbGRyaWZjaTZ5YjhuMEp2bnRXSlVxV2hnSEhQYkpKUTZZdHVsczNPbGZxdkRYY2ZEM1NOZmQxTkw1ZnVIQ2pwRzM3Q3VjNjNGeS1NYlJpd0VQZGxqd2hObnZfRm40N3p2b2JWeVl2YnU0LVhQd1k1eTBld1Y3Nkp6enJObU4?oc=5",
-      "source": "Bleacher Report",
-      "publishedAt": "2026-10-23T23:41:08.000Z",
-      "category": "League news",
-      "origin": "auto",
-      "id": "20ec2520f83345ac"
-    },
-    {
-      "title": "Angel Reese Is Winning on the Court, but the WNBA Finals Controversy Won’t Go Away",
-      "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxNSGRNLVlWcmR2LWhNa1gzR0VHVlotazdhRk1XaHZGMy1MLVl4VjFxcWFWREhkNGh5cXdrMEFSQkZqUmRfTXpzeE41THBteDVLVVowWlBNb1JxVjBNRnhXcDR1M0J3U1l5WlhlTkJzTFpHMjJSakI5WmV2LWZFSlZfQ0ZKUUJpdw?oc=5",
-      "source": "Yahoo Sports",
-      "publishedAt": "2026-10-23T22:59:56.000Z",
-      "category": "League news",
-      "origin": "auto",
-      "id": "6a68ca06cae15f0b"
-    },
-    {
-      "title": "Angel Reese Is Dominating the WNBA Finals, but One Question Still Won’t Go Away",
-      "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxPN0dVcFhDZlR6TWFWOWR3VjhWRThmRUtVX2xkTWktX21kdjgzbGNkMFFlQ3BQLU50WEpPcEE2ZmpzelZwd2pIR1VBT1UtY3B5QTlYX0NwNnZkM0lqazFSSGhod29MbU9ncjdnSmsxUGlMcXQ2SHE2YkpZZVZFdDlhc1lTYVY2eWUyY2tZ?oc=5",
-      "source": "Yahoo Sports",
-      "publishedAt": "2026-10-23T22:59:16.000Z",
-      "category": "League news",
-      "origin": "auto",
-      "id": "2404ac313db48ec6"
-    },
-    {
-      "title": "Why Caitlin Clark, Angel Reese missed ESPN's greatest WNBA players of all time ranking",
-      "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxQQmNqYnhXOFdfWDlYWDU4WnBMNFRuamtreFFoSlo1Mk9CRU5TMDNmbkdzaGMxc1B2STVlS3RHZU9KVWRpd29CQXhYVmdMWTE1TVN1VWJVMzA1R3NsTzhNVXJKc2Z5bG56YzY3ODhuNndDYnpzYkpjWUhJWTFqZ0daZG8ySlU?oc=5",
-      "source": "Yahoo Sports",
-      "publishedAt": "2026-10-23T18:56:46.000Z",
-      "category": "League news",
-      "origin": "auto",
-      "id": "420ef2a7a97e78e0"
     }
   ]
 }

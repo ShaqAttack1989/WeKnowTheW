@@ -178,3 +178,8 @@
 
 .champion-name .trophy-accolade-badge,.champion-mvp .trophy-accolade-badge{color:#d8ff4f}
 .is-featured .champion-name .trophy-accolade-badge,.is-featured .champion-mvp .trophy-accolade-badge{color:#d8ff4f}
+
+/* High contrast accolade labels on both light and featured cards. */
+.trophy-accolade-badge{border-color:#bdce9f;background:#edf4e2;color:#29451d}
+.champion-name .trophy-accolade-badge,.champion-mvp .trophy-accolade-badge{color:#29451d}
+.is-featured .champion-name .trophy-accolade-badge,.is-featured .champion-mvp .trophy-accolade-badge{border-color:#d8ff4f;background:#d8ff4f;color:#21133a}

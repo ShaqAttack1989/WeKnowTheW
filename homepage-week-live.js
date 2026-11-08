@@ -283,6 +283,11 @@
     ].filter(item=>item.src);
   }
 
+  let liveTickerTimer=null;
+  function setLiveTickerActive(active){
+    if(active&&!liveTickerTimer)liveTickerTimer=setInterval(()=>{if(!document.hidden)runModule('live',true);},30000);
+    if(!active&&liveTickerTimer){clearInterval(liveTickerTimer);liveTickerTimer=null;}
+  }
   function gameIsLive(game={}){
     return String(game.state||'').toLowerCase()==='in'||/in progress|live/i.test(String(game.status||''));
   }
@@ -304,7 +309,7 @@
     const liveHost=document.getElementById('weekHubLive');
     try{
       const feed=await fetchJson('/api/live-games',{ttl:15000});
-      const {game,live}=selectGame(feed);
+      const {game,live}=selectGame(feed);setLiveTickerActive(live);
       const score=game&&Number.isFinite(Number(game.awayScore))&&Number.isFinite(Number(game.homeScore))?`${awayName(game)} ${game.awayScore} · ${homeName(game)} ${game.homeScore}`:'';
       const state=game?(game.status|| (game.completed?'Final':gameTime(game))):'';
       snapshot(liveHost,{kicker:'WNBA GAME TICKER',title:game?gameTitle(game):'No game is live',copy:game?`${live?'Happening now':game.completed?'Latest final':'Next tip'} · ${state}${score?` · ${score}`:''}`:'The WNBA is between games. Open the game board for the season schedule and recent results.',meta:live?'LIVE NOW':game?.completed?'LATEST FINAL':'UP NEXT',href:'/games.html',label:'Open Game Board',media:game&&gameMedia(game).length?gameMedia(game):[{src:MEDIA.games,alt:'WNBA game board',focus:'50% 18%',mobileFocus:'50% 15%',fit:'contain',className:'player-headshot'}]});

@@ -95,7 +95,7 @@
   }
   function stageLabel(game={}){
     const round=text(game.round||game.competitionLabel||'').replace(/^Playoffs\s*·\s*/i,'').split('·')[0].trim();
-    return round||'PLAYOFFS';
+    return round?'PLAYOFFS · '+round.toUpperCase():(competition?.playoffs?.started?'PLAYOFFS':'REGULAR SEASON');
   }
   function broadcastLabel(game={}){
     return (Array.isArray(game.broadcasts)?game.broadcasts:[]).map(text).filter(Boolean).join(' · ');
@@ -103,7 +103,7 @@
   function card(game={}){
     const away=text(game.awayTeam||game.away?.name||'TBD'),home=text(game.homeTeam||game.home?.name||'TBD'),mode=bucket(game),gameNo=Number(game.gameNumber)||'';
     return `<a class="w-score-game is-${mode} ${game.conditional?'is-conditional':''}" href="/games.html" aria-label="${safe(away)} at ${safe(home)}, ${safe(status(game))}">
-      <div class="w-score-game-stage"><span>PLAYOFFS · ${safe(stageLabel(game).toUpperCase())}</span><b>${gameNo?`GAME ${gameNo}`:safe(mode==='live'?'LIVE':'WNBA')}</b></div>
+      <div class="w-score-game-stage"><span>${safe(stageLabel(game))}</span><b>${gameNo?`GAME ${gameNo}`:safe(mode==='live'?'LIVE':'WNBA')}</b></div>
       <div class="w-score-game-top"><span>${safe(gameDay(game))}</span><b>${safe(status(game))}</b></div>
       <div class="w-score-game-team">${badgeMarkup(away)}<span>${safe(away)}</span><strong>${safe(score(game,'away'))}</strong></div>
       <div class="w-score-game-team">${badgeMarkup(home)}<span>${safe(home)}</span><strong>${safe(score(game,'home'))}</strong></div>
@@ -124,20 +124,27 @@
         return ad-bd;
       });
       if(active.length||future.length)return mergeSlate(active,future).slice(0,10);
-      return merged.filter(game=>stateRank(game)===3).sort((a,b)=>(gameInstant(b)?.getTime()||0)-(gameInstant(a)?.getTime()||0)).slice(0,6);
+      const recentCutoff=Date.now()-72*60*60*1000;
+      return merged.filter(game=>stateRank(game)===3&&(gameInstant(game)?.getTime()||0)>=recentCutoff).sort((a,b)=>(gameInstant(b)?.getTime()||0)-(gameInstant(a)?.getTime()||0)).slice(0,6);
     }
     const regular=[...(stats.liveGames||[]),...(stats.upcomingGames||[]),...(stats.pastGames||stats.recentGames||[])],merged=mergeSlate(regular,current),today=easternDate();
     const todayGames=merged.filter(game=>gameDate(game)===today);
     if(todayGames.length)return todayGames.sort((a,b)=>(gameInstant(a)?.getTime()||0)-(gameInstant(b)?.getTime()||0));
     const now=Date.now(),future=merged.filter(game=>(gameInstant(game)?.getTime()||0)>=now&&stateRank(game)<3).sort((a,b)=>(gameInstant(a)?.getTime()||0)-(gameInstant(b)?.getTime()||0));
     if(future.length){const nextDate=gameDate(future[0]);return future.filter(game=>gameDate(game)===nextDate).slice(0,6);}
-    return merged.filter(game=>stateRank(game)===3).sort((a,b)=>(gameInstant(b)?.getTime()||0)-(gameInstant(a)?.getTime()||0)).slice(0,5);
+    const recentCutoff=Date.now()-72*60*60*1000;
+    return merged.filter(game=>stateRank(game)===3&&(gameInstant(game)?.getTime()||0)>=recentCutoff).sort((a,b)=>(gameInstant(b)?.getTime()||0)-(gameInstant(a)?.getTime()||0)).slice(0,5);
   }
   function render(){
     const host=document.getElementById('wGlobalScoreGames');
     if(!host)return;
     const games=selectedSlate();
-    host.innerHTML=games.length?games.map(card).join(''):'<a class="w-score-game" href="/games.html"><div class="w-score-game-top"><span>WNBA</span><b>SCHEDULE</b></div><div class="w-score-game-team"><i class="w-score-team-fallback">W</i><span>Open the full games board</span><strong>→</strong></div></a>';
+    const scorebar=host.closest('.w-home-scorebar');
+    if(scorebar)scorebar.style.display=games.length?'':'none';
+    document.documentElement.style.setProperty('--w-home-scorebar-height',games.length?`${Math.ceil(scorebar?.getBoundingClientRect().height||112)}px`:'0px');
+    const mode=document.getElementById('wGlobalScorebarMode');
+    if(mode)mode.textContent=competition?.playoffs?.started?'PLAYOFFS':'GAMES & SCORES';
+    host.innerHTML=games.map(card).join('');
   }
   function install(){
     const nav=document.getElementById('navLinks')?.closest('.nav')||document.querySelector('header .nav');
@@ -147,13 +154,13 @@
     if(!scorebar){scorebar=document.createElement('section');scorebar.className='w-home-scorebar';header.before(scorebar);}
     scorebar.dataset.globalScoreboard='true';
     scorebar.setAttribute('aria-label','WNBA game scoreboard');
-    scorebar.innerHTML=`<div class="w-home-scorebar-inner"><a class="w-scorebar-label" href="/games.html"><span>AROUND THE W</span><strong>PLAYOFFS</strong></a><div class="w-scorebar-games" id="wGlobalScoreGames" aria-live="polite"></div><a class="w-scorebar-full" href="/games.html">FULL<br>GAMES →</a></div>`;
+    scorebar.innerHTML=`<div class="w-home-scorebar-inner"><a class="w-scorebar-label" href="/games.html"><span>AROUND THE W</span><strong id="wGlobalScorebarMode">GAMES &amp; SCORES</strong></a><div class="w-scorebar-games" id="wGlobalScoreGames" aria-live="polite"></div><a class="w-scorebar-full" href="/games.html">FULL<br>GAMES →</a></div>`;
     let navWrap=document.querySelector('.w-home-nav-sticky');
     if(!navWrap){navWrap=document.createElement('div');navWrap.className='w-home-nav-sticky';scorebar.after(navWrap);}
     navWrap.setAttribute('aria-label','Sticky site navigation');
     if(!navWrap.contains(nav))navWrap.appendChild(nav);
     document.body.classList.add('has-global-scoreboard');
-    const setHeight=()=>document.documentElement.style.setProperty('--w-home-scorebar-height',`${Math.ceil(scorebar.getBoundingClientRect().height||72)}px`);
+    const setHeight=()=>document.documentElement.style.setProperty('--w-home-scorebar-height',scorebar.style.display==='none'?'0px':`${Math.ceil(scorebar.getBoundingClientRect().height||72)}px`);
     setHeight();
     if(!scorebar.dataset.heightObserver){scorebar.dataset.heightObserver='true';if('ResizeObserver' in window)new ResizeObserver(setHeight).observe(scorebar);else window.addEventListener('resize',setHeight,{passive:true});}
     return true;

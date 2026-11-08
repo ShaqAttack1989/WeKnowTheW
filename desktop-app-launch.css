@@ -12,24 +12,29 @@
 .home-draft-countdown__link:hover,.desktop-app-launch__play:hover{background:#e7ff95}
 .home-draft-countdown__link:focus-visible,.desktop-app-launch__play:focus-visible{outline:3px solid #fff;outline-offset:5px}
 .home-draft-countdown__status{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
-.desktop-app-launch{display:grid;grid-template-columns:minmax(0,1fr) 112px;gap:28px;align-items:center;padding:24px 28px}
-.desktop-app-launch__eyebrow{margin:0 0 8px!important;font-size:12px!important;font-weight:900;letter-spacing:.12em;color:#d8ff4f}
-.desktop-app-launch h2{font-size:clamp(28px,2.7vw,36px)!important;line-height:1.12!important;letter-spacing:-.03em;margin:0 0 10px!important;color:#fff!important}
+.desktop-app-launch{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(164px,.9fr) 80px;grid-template-areas:"copy play mark";gap:24px;align-items:center;padding:16px 24px}
+.desktop-app-launch__copy{grid-area:copy;min-width:0}
+.desktop-app-launch__play{grid-area:play;justify-self:center}
+.desktop-app-launch__eyebrow{margin:0 0 4px!important;font-size:12px!important;line-height:1.25;font-weight:900;letter-spacing:.12em;color:#d8ff4f}
+.desktop-app-launch h2{font-size:clamp(26px,2.4vw,30px)!important;line-height:1.08!important;letter-spacing:-.03em;margin:0 0 6px!important;color:#fff!important}
 .desktop-app-launch h2 em{color:#d8ff4f;font-style:normal}
-.desktop-app-launch__copy>p:not(.desktop-app-launch__eyebrow){max-width:700px;margin:0 0 16px!important;font-size:17px!important;line-height:1.5!important;color:#e8dff8!important}
-.desktop-app-launch__mark{display:block;width:112px;height:112px;max-width:100%;object-fit:contain;border-radius:20px}
+.desktop-app-launch__copy>p:not(.desktop-app-launch__eyebrow){max-width:700px;margin:0!important;font-size:16px!important;line-height:1.45!important;color:#e8dff8!important}
+.desktop-app-launch__mark{grid-area:mark;justify-self:end;display:block;width:80px;height:80px;max-width:100%;object-fit:contain;border-radius:20px}
 @media(max-width:1050px){
  .home-draft-countdown{grid-template-columns:minmax(0,1fr) auto;gap:16px 24px}
  .home-draft-countdown__copy{grid-column:1/-1}
  .home-draft-countdown .w-event-timer{width:240px;max-width:100%}
+}
+@media(max-width:800px){
+ .desktop-app-launch{grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"copy copy" "play mark";gap:12px;padding:16px 20px}
+ .desktop-app-launch__play{justify-self:start}
+ .desktop-app-launch__mark{width:48px;height:48px;border-radius:10px}
 }
 @media(max-width:600px){
  .home-draft-countdown,.desktop-app-launch{width:calc(100% - 32px);margin:18px auto;border-radius:18px}
  .home-draft-countdown{grid-template-columns:minmax(0,1fr);gap:16px;padding:18px}
  .home-draft-countdown .w-event-timer{width:100%}
  .home-draft-countdown__link{justify-self:start}
- .desktop-app-launch{grid-template-columns:minmax(0,1fr) 64px;gap:14px;padding:20px}
- .desktop-app-launch__mark{width:64px;height:64px;border-radius:12px}
  .desktop-app-launch h2{font-size:28px!important}
  .desktop-app-launch__copy>p:not(.desktop-app-launch__eyebrow){font-size:16px!important}
 }

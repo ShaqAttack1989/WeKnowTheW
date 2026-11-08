@@ -88,3 +88,21 @@ html{scroll-behavior:smooth;scroll-padding-top:122px}
 /* Keep film notes inside their card at narrow widths. */
 .film-note{flex-wrap:wrap}
 .film-note strong{white-space:normal;max-width:100%;min-width:0;overflow-wrap:anywhere}
+
+/* Retreat dribble: a clear, responsive ballhandler read */
+.retreat-read-card{margin-top:22px;padding:clamp(18px,3vw,28px);border:1px solid #d9c9e5;border-radius:22px;background:linear-gradient(135deg,#f7f1fc 0%,#fffaf0 100%);color:#201137;box-shadow:0 12px 30px rgba(34,15,57,.1)}
+.retreat-read-heading{display:grid;grid-template-columns:minmax(0,1fr) minmax(190px,.42fr);gap:20px;align-items:center}
+.retreat-read-heading .kicker{margin:0 0 8px;color:#6a2da1;font-size:.68rem;font-weight:950;letter-spacing:.12em}
+.retreat-read-heading h3{margin:0 0 8px;color:#201137;font-size:clamp(1.3rem,2.4vw,1.9rem);line-height:1.12}
+.retreat-read-heading>div:first-child>p:last-child{margin:0;color:#5e5368;font-size:.92rem;line-height:1.55}
+.retreat-read-cue{padding:17px 18px;border-radius:16px;background:#25133b;color:#fff}
+.retreat-read-cue span{color:#d5ff45;font-size:.67rem;font-weight:950;letter-spacing:.12em}
+.retreat-read-cue strong{display:block;margin-top:7px;color:#fff;font-size:.94rem;line-height:1.45}
+.retreat-read-counters{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:18px}
+.retreat-read-counter{min-width:0;padding:17px;border:1px solid #e4dce9;border-radius:16px;background:#fff}
+.retreat-read-counter>span{color:#6a2da1;font-size:.67rem;font-weight:950;letter-spacing:.08em}
+.retreat-read-counter h4{margin:7px 0 5px;color:#201137;font-size:1.02rem}
+.retreat-read-counter p{margin:0;color:#62586b;font-size:.84rem;line-height:1.5}
+.retreat-read-close{margin:17px 0 7px;color:#42334f;font-size:.87rem;font-weight:750;line-height:1.5}
+.retreat-read-source{color:#5e258e;font-size:.76rem;font-weight:850;text-underline-offset:3px}
+@media(max-width:760px){.retreat-read-heading{grid-template-columns:1fr}.retreat-read-counters{grid-template-columns:1fr}.retreat-read-card{padding:18px}.retreat-read-counter{padding:15px}}

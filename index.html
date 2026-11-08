@@ -7,13 +7,13 @@
   <meta name="description" content="We Know the W — a colorful women’s basketball encyclopedia for live stats, players, teams, history, culture, college basketball, offseason leagues and weekly Seasoned Notes updates.">
   <title>We Know the W | Women’s Basketball Encyclopedia</title>
   <link rel="stylesheet" href="/styles.css">
-  <link rel="stylesheet" href="/desktop-app-launch.css?v=20261025-v1">
+  <link rel="stylesheet" href="/desktop-app-launch.css?v=20261108-weekly-home-v4">
   <link rel="stylesheet" href="/landing.css?v=20261003-compact-home-hero-v2">
   <link rel="stylesheet" href="/game-broadcasts.css?v=20260825-official-v2">
   <link rel="stylesheet" href="/homepage-hub.css?v=20260825-v2">
   <link rel="stylesheet" href="/homepage-season-spotlight.css?v=20261107-offseason-stories-v1">
   <link rel="stylesheet" href="/homepage-week-live.css?v=20261108-ff118bce-weekly-hub">
-  <link rel="stylesheet" href="/homepage-desk.css?v=20260922-teamdesk-v4">
+  <link rel="stylesheet" href="/homepage-desk.css?v=20261108-weekly-home-v4">
   <script>
     window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
   </script>
@@ -45,7 +45,13 @@
     </div>
   </header>
 
-  <main><section class="section shell" aria-label="Upcoming basketball events" style="padding-top:24px;padding-bottom:24px"><div class="w-countdown-grid" style="grid-template-columns:minmax(0,1fr);max-width:760px;margin-inline:auto"><div class="w-event-card"><p style="color:#d8ff36;font-weight:900;margin:0">THE NEXT BIG W DATE</p><h2>2027 Draft Lottery Countdown</h2><p>November 15 · 7:30 p.m. ET · ESPN</p><div id="draftLotteryCountdown" class="w-event-timer" role="timer" aria-label="Time until the WNBA draft lottery broadcast"></div><p id="draftLotteryCountdownStatus">Counting down to 7:30 p.m. Eastern on ESPN.</p><a class="button primary" href="/2027-wnba-mock-draft.html">See the odds and mock draft →</a></div></div></section>
+  <main>
+    <section class="home-draft-countdown" aria-labelledby="draftCountdownTitle">
+      <div class="home-draft-countdown__copy"><p class="home-draft-countdown__eyebrow">DRAFT WATCH</p><h2 id="draftCountdownTitle">2027 WNBA Draft Lottery</h2><p>November 15 · 7:30 p.m. ET · ESPN</p></div>
+      <div id="draftLotteryCountdown" class="w-event-timer" role="timer" aria-label="Time until the WNBA draft lottery broadcast"></div>
+      <a class="home-draft-countdown__link" href="/2027-wnba-mock-draft.html">See draft odds →</a>
+      <p id="draftLotteryCountdownStatus" class="home-draft-countdown__status">November 15 at 7:30 p.m. Eastern on ESPN.</p>
+    </section>
     <section class="offseason-spotlight" aria-labelledby="offseasonSpotlightTitle">
       <div class="offseason-spotlight-inner">
         <div><p class="kicker">OFFSEASON, FULL COURT</p><h2 id="offseasonSpotlightTitle">The W keeps moving.</h2><p>Follow the pros in winter leagues, track college hoops and keep an eye on the next class.</p></div>
@@ -54,26 +60,18 @@
     </section>
     <section class="desktop-app-launch" aria-labelledby="appLaunchTitle">
       <div class="desktop-app-launch__copy">
-        <p class="desktop-app-launch__eyebrow"><span>NEW · BROWSER TESTING IS OPEN</span></p>
-        <h2 id="appLaunchTitle">Think you know the W? <em>Run it.</em></h2>
-        <p>Run the W is here to test in your browser. Draft your five, test your W IQ and take the hot seat.</p>
-        <a class="desktop-app-launch__play" href="https://run-the-w.base44.app/" target="_blank" rel="noopener">Test Run the W in your browser <span aria-hidden="true">↗</span></a>
+        <p class="desktop-app-launch__eyebrow">A BASKETBALL WEB GAME</p>
+        <h2 id="appLaunchTitle">Run the W <em>is live.</em></h2>
+        <p>Draft your five, test your W IQ, and take the hot seat.</p>
+        <a class="desktop-app-launch__play" href="https://run-the-w.base44.app/" target="_blank" rel="noopener">Play Run the W <span aria-hidden="true">→</span></a>
       </div>
-      <div class="desktop-app-launch__apps">
-        <div class="desktop-app-launch__logo"><img src="/assets/branding/run-the-w-app-logo.webp" width="640" height="640" alt="Run the W app logo" loading="lazy" decoding="async"><strong>Run the W</strong></div>
-        <div class="desktop-app-launch__logo"><img src="/assets/branding/we-know-the-w-app-logo.webp" width="640" height="640" alt="We Know the W app logo" loading="lazy" decoding="async"><strong>We Know the W</strong></div>
-        <p class="desktop-app-launch__store">Two apps. One love for the W.<br><strong>Both coming soon to Google Play.</strong></p>
-      </div>
+      <img class="desktop-app-launch__mark" src="/assets/branding/run-the-w-app-logo.webp" width="640" height="640" alt="Run the W" loading="lazy" decoding="async">
     </section>
 
     <section class="page-shell" aria-labelledby="latestStoriesTitle" style="padding-top:30px;padding-bottom:12px">
-      <header class="page-heading"><p class="kicker">LATEST FROM THE COURT</p><h2 id="latestStoriesTitle">The newest stories</h2><p>Fresh Food for Thought and Snack Shak coverage, updated as new stories are published.</p></header>
+      <header class="page-heading"><p class="kicker">LATEST FROM THE COURT</p><h2 id="latestStoriesTitle">The newest stories</h2></header>
       <div class="season-story-grid" id="freshTopStories" aria-label="Latest stories"></div>
     </section>
-
-  <section class="shell season-story-grid" id="freshNextStory" style="grid-template-columns:1fr" aria-label="More recent stories"></section>
-
-  <section class="shell season-story-grid" id="freshMoreStories" aria-label="More analysis"></section>
 
     
 
@@ -108,37 +106,7 @@
       </div>
     </section>
 
-    <section class="page-section home-week-section" id="this-week">
-      <div class="page-shell">
-        <div class="home-week-heading">
-          <div>
-            <p class="kicker">THIS WEEK IN THE W</p>
-            <h2>Three things to know this week.</h2>
-            <p>Milestone watch, the three newest Snack Shak stories, and Shak’s mock weekly Starting Five and Bench Mob, all in one easy-to-scan board.</p>
-          </div>
-          <span class="home-week-stamp" id="homeWeekStampLive">This week</span>
-        </div>
-        <div class="home-week-grid">
-          <article class="home-week-card games">
-            <span class="home-week-label">🏀 BIGGEST GAMES</span>
-            <h3>The week’s pressure points</h3>
-            <div id="homeWeekGamesLive" class="home-week-loading">Loading the next big matchups…</div>
-          </article>
-          <article class="home-week-card milestone">
-            <span class="home-week-label">📈 MILESTONE WATCH</span>
-            <div id="homeWeekMilestoneLive" class="home-week-loading">Checking the record chases…</div>
-          </article>
-          <article class="home-week-card snack">
-            <span class="home-week-label">🌶️ LATEST SNACK SHAK STORIES</span>
-            <div id="homeWeekSnackLive" class="home-week-loading">Heating up the latest plate…</div>
-          </article>
-          <article class="home-week-card rotations">
-            <span class="home-week-label">🔄 MONDAY ROTATIONS</span>
-            <div id="homeWeekRotationsLive" class="home-week-loading">Setting the five and the bench…</div>
-          </article>
-        </div>
-      </div>
-    </section>
+    <section class="page-section home-week-section" id="this-week"><div class="page-shell"></div></section>
 
     <section class="page-section home-live" id="live">
       <div class="page-shell">
@@ -227,11 +195,11 @@
   <script src="/game-cards.js?v=20261003-semifinal-state-v2"></script>
   <script src="/game-broadcast-upgrade.js?v=20260825-official-v2"></script>
   <script src="/homepage-hub-search.js?v=20261104-dynamic-duos-v1"></script>
-  <script src="/homepage-fresh-stories.js?v=20261108-unique-stories-v3"></script>
-  <script src="/homepage-week-live.js?v=20261108-ff118bce-weekly-hub"></script>
+  <script src="/homepage-fresh-stories.js?v=20261108-weekly-home-v4"></script>
+  <script src="/homepage-week-live.js?v=20261108-weekly-home-v4"></script>
   <script src="/homepage-3x3-photo-fallback.js?v=20261101-home-card-v1"></script>
   <script src="/homepage-specials.js?v=20261108-ff118bce-fresh-stories"></script>
-  <script src="/homepage-desk.js?v=20261108-unique-stories-v3"></script>
+  <script src="/homepage-desk.js?v=20261108-weekly-home-v4"></script>
   <script src="/home-live.js?v=20261107-offseason-state-v1"></script>
 <script src="/draft-lottery-countdown.js?v=20261028" defer></script></body>
 </html>

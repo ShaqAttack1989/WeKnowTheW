@@ -165,18 +165,14 @@
 
     shell.dataset.newsDeskReady='1';
     const layout=document.createElement('div');
-    layout.className='w-desk-layout';
+    layout.className='w-desk-layout week-stories-layout';
     layout.innerHTML=`
       <aside class="w-desk-rail w-desk-quick" aria-label="We Know the W quick links">
         <div class="w-desk-rail-head"><span>QUICK LINKS</span><strong>Get where you’re going.</strong></div>
         <div class="w-desk-link-list">${quickLinksMarkup()}</div>
       </aside>
-      <section class="w-desk-main" aria-label="Featured stories and live desk"></section>
-      <aside class="w-desk-rail w-desk-headlines" aria-label="Top headlines">
-        <div class="w-desk-rail-head"><span>MORE FROM THE W</span><strong>Keep reading.</strong></div>
-        <div class="w-headline-list" id="wDeskHeadlines"><div class="week-hub-loading">Loading the latest headlines…</div></div>
-        <a class="w-headline-more" href="/snack-shak.html">All stories →</a>
-      </aside>`;
+      <section class="w-desk-main" aria-label="This week’s stories and live desk"></section>
+`;
 
     const main=layout.querySelector('.w-desk-main');
     divider.id='live-desk';
@@ -187,40 +183,6 @@
     return true;
   }
 
-  function collectStories(value,source,output=[],seen=new Set()){
-    if(Array.isArray(value)){value.forEach(item=>collectStories(item,source,output,seen));return output;}
-    if(!value||typeof value!=='object')return output;
-    if(value.title&&typeof value.title==='string'){
-      const signature=`${text(value.slug||value.title)}|${text(storyDate(value))}`;
-      if(!seen.has(signature)){seen.add(signature);output.push({...value,_source:source});}
-    }
-    Object.values(value).forEach(item=>{if(item&&typeof item==='object')collectStories(item,source,output,seen);});
-    return output;
-  }
-  function storyKind(story={}){
-    const value=norm([story.type,story.kind,story.category,story.seriesLabel,story.series,story.slug,story._source].filter(Boolean).join(' '));
-    if(/byte/.test(value))return 'BYTE';
-    if(/food|feature|analysis|long/.test(value))return 'FOOD FOR THOUGHT';
-    return 'AROUND THE W';
-  }
-  function storyHref(story={}){
-    const direct=story.dashboardUrl||story.href||story.path||story.internalUrl;
-    if(direct&&String(direct).startsWith('/'))return direct;
-    const kind=storyKind(story);
-    if(story.slug)return kind==='BYTE'?`/snack-shak-bytes.html?post=${encodeURIComponent(story.slug)}#story`:`/food-for-thought.html?post=${encodeURIComponent(story.slug)}#story`;
-    return kind==='BYTE'?'/snack-shak-bytes.html':'/food-for-thought.html';
-  }
-
-  function renderHeadlines(plan){
-    const host=document.getElementById('wDeskHeadlines');
-    if(!host)return;
-    host.innerHTML=plan.headlines.map(story=>`<a class="w-headline" href="${safe(storyHref(story))}"><span>${safe(storyKind(story))}${storyDate(story)?` · ${safe(fmtShort(storyDate(story)))}`:''}</span><strong>${safe(story.title)}</strong></a>`).join('')||'<a class="w-headline" href="/snack-shak.html"><span>SNACK SHAK</span><strong>Explore the full story archive →</strong></a>';
-  }
-  async function loadHeadlines(){
-    renderHeadlines(await window.WHomeStories.load());
-  }
-  window.addEventListener('wktw:homepage-stories',event=>renderHeadlines(event.detail));
-
   function start(){
     document.body.classList.add('home-page');
     const ready=upgradeDeskLayout();
@@ -228,9 +190,9 @@
       let tries=0;
       const timer=setInterval(()=>{
         tries+=1;
-        if(upgradeDeskLayout()||tries>20){clearInterval(timer);if(document.getElementById('wDeskHeadlines'))loadHeadlines();}
+        if(upgradeDeskLayout()||tries>20)clearInterval(timer);
       },80);
-    }else loadHeadlines();
+    }
   }
 
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start,{once:true});

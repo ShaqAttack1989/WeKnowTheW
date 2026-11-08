@@ -101,8 +101,8 @@
         <header class="week-hub-head">
           <div class="week-hub-head-copy">
             <p class="kicker">THIS WEEK IN THE W</p>
-            <h2>The W, right now.</h2>
-            <p>The freshest stories, numbers, roster news and basketball beyond the league, distilled from across We Know the W. Get the headline here, then go deeper.</p>
+            <h2>The week in stories.</h2>
+            <p id="weekStoryDates">${safe(window.WHomeStories.calendarWeek().label)}</p>
           </div>
           <div class="week-hub-head-visual" aria-hidden="true">
             <span class="week-head-photo one" data-team-logo="Atlanta Dream"><b aria-hidden="true">W</b></span>
@@ -116,9 +116,8 @@
           <div class="week-hub-search-copy"><span>PLAYERPEDIA + SITEWIDE SEARCH</span><strong>Who or what are you looking for?</strong></div>
           <div id="weekHubSearchSlot"></div>
         </section>
-        <div class="week-editorial-grid">
-          <article class="week-editorial-card food" id="weekHubFood"><div class="week-hub-loading week-hub-skeleton" role="status" aria-label="Loading dashboard"><span></span><span></span><span></span><span></span></div></article>
-          <article class="week-editorial-card byte" id="weekHubByte"><div class="week-hub-loading week-hub-skeleton" role="status" aria-label="Loading dashboard"><span></span><span></span><span></span><span></span></div></article>
+        <div class="week-editorial-grid" id="weekStories" aria-label="This week's stories">
+          <article class="week-editorial-card"><div class="week-hub-loading week-hub-skeleton" role="status" aria-label="Loading stories"><span></span><span></span><span></span><span></span></div></article>
         </div>
         <div class="week-hub-divider"><span>FROM AROUND THE SITE</span><b></b></div>
         <div class="week-snapshot-grid">
@@ -129,7 +128,7 @@
           <article class="week-snapshot-card" id="weekHubMovement"><div class="week-hub-loading week-hub-skeleton" role="status" aria-label="Loading dashboard"><span></span><span></span><span></span><span></span></div></article>
           <article class="week-snapshot-card" id="weekHubAvailability"><div class="week-hub-loading week-hub-skeleton" role="status" aria-label="Loading dashboard"><span></span><span></span><span></span><span></span></div></article>
         </div>
-        <footer class="week-hub-foot"><span>One front door. The full encyclopedia is still underneath it.</span><a href="#sections">Explore every section →</a></footer>
+        <footer class="week-hub-foot"><a href="/snack-shak.html">All Snack Shak stories →</a><a href="#sections">Explore every section →</a></footer>
       </div>`;
 
     const searchSection=document.getElementById('sitewide-search');
@@ -216,15 +215,25 @@
   }
 
   function renderEditorialPlan(plan){
-    for(const [kind,story] of [['food',plan.food],['byte',plan.byte]]){
-      const host=document.getElementById(kind==='food'?'weekHubFood':'weekHubByte');
-      if(!host)continue;
-      host.hidden=!story;
-      if(!story){host.style.display='none';host.innerHTML='';continue;}
-      host.style.removeProperty('display');
-      renderEditorial(host,story,kind);
+    const host=document.getElementById('weekStories');
+    const dates=document.getElementById('weekStoryDates');
+    if(dates)dates.textContent=plan.week.label;
+    if(!host)return 0;
+    const signature=JSON.stringify(plan.weekly);
+    if(host.dataset.storySignature!==signature){
+      host.dataset.storySignature=signature;
+      host.replaceChildren();
+      for(const story of plan.weekly){
+        const kind=story.type==='byte'?'byte':'food';
+        const tile=document.createElement('article');
+        tile.className='week-editorial-card '+kind;
+        tile.dataset.storySlug=story.slug;
+        renderEditorial(tile,story,kind);
+        host.append(tile);
+      }
+      if(!plan.weekly.length)host.innerHTML='<p class="week-stories-empty">More stories are on the way this week. <a href="/snack-shak.html">Visit Snack Shak →</a></p>';
     }
-    return Math.max(timeValue(dateValue(plan.food)),timeValue(dateValue(plan.byte)));
+    return Math.max(0,...plan.weekly.map(story=>timeValue(dateValue(story))));
   }
   async function loadEditorial(){
     // All published feeds, including /snack-shak-latest.json, share one allocation.
@@ -394,7 +403,7 @@
   }
 
   const modules={
-    editorial:{targets:['weekHubFood','weekHubByte'],run:loadEditorial},
+    editorial:{targets:['weekStories'],run:loadEditorial},
     kitchen:{targets:['weekHubStat'],run:loadStaticSnapshots},
     rotations:{targets:['weekHubRotations'],run:loadRotations},
     live:{targets:['weekHubLive'],run:loadLeagueData},

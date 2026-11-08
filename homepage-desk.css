@@ -493,3 +493,15 @@
 
 /* The desk header link can wrap on small screens. */
 .home-fresh-desk>header>a{white-space:normal;max-width:100%;overflow-wrap:anywhere}
+
+/* Current-week stories occupy the main column without an archive headline rail. */
+.w-desk-layout.week-stories-layout{grid-template-columns:220px minmax(0,1fr)}
+.week-stories-layout .w-desk-main{grid-column:2}
+.week-stories-empty{margin:0;padding:22px;border:1px solid #ded4e7;border-radius:16px;background:#fff;color:#251737;font-size:16px;line-height:1.6}
+.week-stories-empty a{color:#54269b;font-weight:850}
+#weekStoryDates{color:#e5d8f5!important;font-size:16px!important;font-weight:750;line-height:1.5}
+.week-stories-layout .week-editorial-body>p{font-size:16px;line-height:1.6}
+@media(max-width:1180px){
+ .w-desk-layout.week-stories-layout{grid-template-columns:minmax(0,1fr)}
+ .week-stories-layout .w-desk-main{grid-column:1}
+}

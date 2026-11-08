@@ -29,17 +29,33 @@
   }
   // Allocate every article position together so lazy loading and refresh order
   // cannot put a featured story back into another homepage section.
-  function allocateStories(stories) {
-    const newest = stories.slice(0, 7), remaining = stories.slice(7);
-    const isByte = post => post.type === 'byte' || /\bbyte\b/i.test(post.seriesLabel || '');
-    const food = remaining.find(post => !isByte(post)) || null;
-    const byte = remaining.find(post => isByte(post)) || null;
-    const headlines = remaining.filter(post => post !== food && post !== byte).slice(0, 7);
-    return { newest, food, byte, headlines };
+  function easternDay(value) {
+    if (typeof value === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(value)) return value;
+    const parts = new Intl.DateTimeFormat('en-US', { timeZone: 'America/New_York', year: 'numeric', month: '2-digit', day: '2-digit' }).formatToParts(new Date(value));
+    const part = type => parts.find(item => item.type === type).value;
+    return `${part('year')}-${part('month')}-${part('day')}`;
   }
-  if (typeof module !== 'undefined' && module.exports) module.exports = { selectStories, allocateStories };
+  function calendarWeek(now = Date.now()) {
+    const today = new Date(easternDay(now) + 'T12:00:00Z');
+    const start = new Date(today);
+    start.setUTCDate(today.getUTCDate() - (today.getUTCDay() + 6) % 7);
+    const end = new Date(start); end.setUTCDate(start.getUTCDate() + 7);
+    const last = new Date(end); last.setUTCDate(end.getUTCDate() - 1);
+    const label = new Intl.DateTimeFormat('en-US', { timeZone: 'UTC', month: 'short', day: 'numeric', year: 'numeric' }).formatRange(start, last);
+    return { start: start.toISOString().slice(0, 10), end: end.toISOString().slice(0, 10), label };
+  }
+  function allocateStories(stories, now = Date.now()) {
+    const chronological = [...stories].sort((a, b) => time(b.published) - time(a.published) || updated(b) - updated(a) || a.slug.localeCompare(b.slug));
+    const newest = chronological.slice(0, 3), week = calendarWeek(now);
+    const weekly = chronological.slice(3).filter(post => {
+      const day = easternDay(post.published);
+      return day >= week.start && day < week.end;
+    });
+    return { newest, weekly, week };
+  }
+  if (typeof module !== 'undefined' && module.exports) module.exports = { selectStories, allocateStories, calendarWeek };
   if (!root.document) return;
-  root.WHomeStories = { load: refresh, selectStories, allocateStories };
+  root.WHomeStories = { load: refresh, selectStories, allocateStories, calendarWeek };
   const safe = value => String(value ?? '').replace(/[&<>"']/g, ch => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' }[ch]));
   const safeUrl = value => /^(\/[^/]|https:\/\/)/.test(String(value || '')) ? value : '';
   const href = post => safeUrl(post.dashboardUrl) || `/${post.type === 'feature' ? 'food-for-thought' : 'snack-shak-bytes'}.html?post=${encodeURIComponent(post.slug)}#story`;
@@ -57,7 +73,7 @@
   const snapshots = new Map();
   let pending = null;
   function render(stories) {
-    const zones = [['#freshTopStories', 3], ['#freshNextStory', 1], ['#freshMoreStories', 3]];
+    const zones = [['#freshTopStories', 3]];
     let cursor = 0;
     zones.forEach(([selector, count]) => {
       const host = document.querySelector(selector);
@@ -97,14 +113,14 @@
     started = true;
     refresh();
   };
-  const firstZone = document.querySelector('#freshTopStories, #freshNextStory, #freshMoreStories');
+  const firstZone = document.querySelector('#freshTopStories');
   if (firstZone && 'IntersectionObserver' in root) {
     const observer = new IntersectionObserver(entries => {
       if (!entries.some(entry => entry.isIntersecting)) return;
       observer.disconnect();
       start();
     }, { rootMargin: '220px 0px', threshold: 0.01 });
-    [document.querySelector('#freshTopStories'), document.querySelector('#freshNextStory'), document.querySelector('#freshMoreStories')].filter(Boolean).forEach(node => observer.observe(node));
+    observer.observe(firstZone);
   } else if (firstZone) {
     if (root.requestIdleCallback) root.requestIdleCallback(start, { timeout: 1600 });
     else setTimeout(start, 900);

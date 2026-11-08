@@ -19,7 +19,8 @@ test('a missing feed leaves available stories ordered and selectable', () => {
 test('homepage slots are dynamic in both published copies', () => {
   for (const file of ['index.html', 'site/index.html']) {
     const html = fs.readFileSync(file, 'utf8');
-    for (const id of ['freshTopStories', 'freshNextStory', 'freshMoreStories']) assert.ok(html.includes(`id="${id}"`));
+    assert.ok(html.includes('id="freshTopStories"'));
+    assert.doesNotMatch(html, /id="fresh(?:NextStory|MoreStories)"/);
     assert.match(html, /homepage-fresh-stories\.js/);
     assert.doesNotMatch(html, /Berlin to Buckets:|One Last Sunrise:|Issa Rae just bought/);
   }

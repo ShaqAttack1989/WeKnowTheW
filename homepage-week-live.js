@@ -283,19 +283,34 @@
     ].filter(item=>item.src);
   }
 
+  function gameIsLive(game={}){
+    return String(game.state||'').toLowerCase()==='in'||/in progress|live/i.test(String(game.status||''));
+  }
+  function gamePool(feed={}){
+    const rows=[...(Array.isArray(feed.games)?feed.games:[]),...(Array.isArray(feed.todayGames)?feed.todayGames:[])];
+    return [...new Map(rows.map((game,index)=>[String(game.id||`${game.date||''}-${index}`),game])).values()];
+  }
+  function selectGame(feed={},playoffGames=[]){
+    const pool=gamePool(feed);
+    const live=pool.find(gameIsLive);
+    const playoffLive=playoffGames.find(gameIsLive);
+    const playoffNext=playoffGames.filter(game=>!game.completed&&!gameIsLive(game)).sort((a,b)=>Date.parse(a.startTimeUtc||a.date)-Date.parse(b.startTimeUtc||b.date))[0];
+    const next=pool.filter(game=>!game.completed&&!gameIsLive(game)).sort((a,b)=>Date.parse(a.startTimeUtc||a.date)-Date.parse(b.startTimeUtc||b.date))[0];
+    const game=playoffLive||live||playoffNext||next||pool[0]||playoffGames[0]||null;
+    return {game,live:Boolean(playoffLive||live),playoff:Boolean(game&&(playoffGames.includes(game)||game.playoff))};
+  }
+
   async function loadLeagueData(){
     const liveHost=document.getElementById('weekHubLive');
     try{
-      const stats=await fetchJson('/api/stats?season=2026',{ttl:15000});
-      const rows=standingsRows(stats).sort((a,b)=>Number(a.overall_rank||a.playoff_seed||999)-Number(b.overall_rank||b.playoff_seed||999));
-      const leader=rows[0];
-      const live=Array.isArray(stats.liveGames)?stats.liveGames:[];
-      const team=leader?.team?.full_name||leader?.team||'Standings leader';
-      const record=Number.isFinite(Number(leader?.wins))?`${leader.wins}-${leader.losses}`:'';
-      snapshot(liveHost,{kicker:'LIVE STATS',title:leader?`${team}${record?` · ${record}`:''}`:'Standings are refreshing',copy:live.length?`${live.length} WNBA game${live.length===1?' is':'s are'} live right now. Open the live board for current scores and standings.`:'No WNBA game is live at this moment. The latest standings and season status are ready on the live stats page.',meta:live.length?'LIVE NOW':'SEASON SNAPSHOT',href:'/live-stats.html',label:'Open Live Stats',media:[{src:MEDIA.stats,alt:'WNBA standings snapshot',focus:'50% 38%',className:'dashboard-preview'}]});
-      return timeValue(stats.checkedAt||stats.updatedAt);
+      const feed=await fetchJson('/api/live-games',{ttl:15000});
+      const {game,live}=selectGame(feed);
+      const score=game&&Number.isFinite(Number(game.awayScore))&&Number.isFinite(Number(game.homeScore))?`${awayName(game)} ${game.awayScore} · ${homeName(game)} ${game.homeScore}`:'';
+      const state=game?(game.status|| (game.completed?'Final':gameTime(game))):'';
+      snapshot(liveHost,{kicker:'WNBA GAME TICKER',title:game?gameTitle(game):'No game is live',copy:game?`${live?'Happening now':game.completed?'Latest final':'Next tip'} · ${state}${score?` · ${score}`:''}`:'The WNBA is between games. Open the game board for the season schedule and recent results.',meta:live?'LIVE NOW':game?.completed?'LATEST FINAL':'UP NEXT',href:'/games.html',label:'Open Game Board',media:game&&gameMedia(game).length?gameMedia(game):[{src:MEDIA.games,alt:'WNBA game board',focus:'50% 18%',mobileFocus:'50% 15%',fit:'contain',className:'player-headshot'}]});
+      return timeValue(feed.updatedAt);
     }catch{
-      snapshotError(liveHost,'LIVE STATS','Current standings','/live-stats.html');
+      snapshotError(liveHost,'WNBA GAME TICKER','Current game board','/games.html');
       return 0;
     }
   }
@@ -303,22 +318,20 @@
   async function loadGamesData(){
     const gamesHost=document.getElementById('weekHubGames');
     try{
-      const [statsResult,competitionResult]=await Promise.allSettled([
-        fetchJson('/api/stats?season=2026',{ttl:15000}),
+      const [feedResult,competitionResult]=await Promise.allSettled([
+        fetchJson('/api/live-games',{ttl:15000}),
         fetchJson('/api/competition?season=2026',{ttl:300000})
       ]);
-      const stats=statsResult.status==='fulfilled'?statsResult.value:{};
+      const feed=feedResult.status==='fulfilled'?feedResult.value:{};
       const competition=competitionResult.status==='fulfilled'?competitionResult.value:{};
-      if(statsResult.status!=='fulfilled'&&competitionResult.status!=='fulfilled')throw new Error('Game data unavailable');
+      if(feedResult.status!=='fulfilled'&&competitionResult.status!=='fulfilled')throw new Error('Game data unavailable');
       const playoffGames=Array.isArray(competition.playoffs?.games)?competition.playoffs.games:[];
-      const playoffLive=playoffGames.filter(game=>String(game.state||'').toLowerCase()==='in');
-      const playoffUpcoming=playoffGames.filter(game=>!game.completed&&String(game.state||'').toLowerCase()!=='in').sort((a,b)=>Date.parse(a.startTimeUtc||a.date)-Date.parse(b.startTimeUtc||b.date));
-      const live=Array.isArray(stats.liveGames)?stats.liveGames:[];
-      const upcoming=Array.isArray(stats.upcomingGames)?stats.upcomingGames:[];
-      const game=playoffLive[0]||live[0]||playoffUpcoming[0]||upcoming[0];
-      const isPlayoff=Boolean(game&&(playoffLive.includes(game)||playoffUpcoming.includes(game)||game.playoff));
-      snapshot(gamesHost,{kicker:isPlayoff?'PLAYOFF GAMES':'GAMES',title:game?gameTitle(game):'No game is on deck',copy:game?`${playoffLive.includes(game)||live.includes(game)?'Happening now':isPlayoff?'Next playoff game':'Next on the schedule'} · ${gameTime(game)}${game.status?` · ${game.status}`:''}`:'The full game board keeps recent results, the postseason bracket and the next scheduled tip together.',meta:(playoffLive.length||live.length)?'LIVE':isPlayoff?'PLAYOFFS · NEXT TIP':'UP NEXT',href:'/games.html',label:'Open Games',media:gameMedia(game).length?gameMedia(game):[{src:MEDIA.games,alt:'Official WNBA player media',focus:'50% 18%',mobileFocus:'50% 15%',fit:'contain',className:'player-headshot'}]});
-      return Math.max(timeValue(stats.checkedAt||stats.updatedAt),timeValue(competition.updatedAt));
+      const selection=selectGame(feed,playoffGames);
+      const game=selection.game;
+      const score=game&&Number.isFinite(Number(game.awayScore))&&Number.isFinite(Number(game.homeScore))?`${awayName(game)} ${game.awayScore} · ${homeName(game)} ${game.homeScore}`:'';
+      const state=game?(game.status|| (game.completed?'Final':gameTime(game))):'';
+      snapshot(gamesHost,{kicker:selection.playoff?'PLAYOFF GAMES':'GAMES',title:game?gameTitle(game):'No game is on deck',copy:game?`${selection.live?'Happening now':game.completed?'Latest final':selection.playoff?'Next playoff game':'Next on the schedule'} · ${state}${score?` · ${score}`:''}`:'The full game board keeps recent results, the postseason bracket and the next scheduled tip together.',meta:selection.live?'LIVE':selection.playoff?'PLAYOFFS':game?.completed?'LATEST FINAL':'UP NEXT',href:'/games.html',label:'Open Games',media:gameMedia(game).length?gameMedia(game):[{src:MEDIA.games,alt:'Official WNBA player media',focus:'50% 18%',mobileFocus:'50% 15%',fit:'contain',className:'player-headshot'}]});
+      return Math.max(timeValue(feed.updatedAt),timeValue(competition.updatedAt));
     }catch{
       snapshot(gamesHost,{kicker:'GAMES',title:'The game board is available',copy:'Open the full game page for results, playoff context and the next scheduled tip.',meta:'WNBA',href:'/games.html',label:'Open Games',media:[{src:MEDIA.games,alt:'Official WNBA player media',focus:'50% 18%',mobileFocus:'50% 15%',fit:'contain',className:'player-headshot'}]});
       return 0;
@@ -400,7 +413,7 @@
     const affected=path.startsWith('/snack-shak-')?['editorial']:
       path==='/rotation-history.json'?['rotations']:
       path==='/stat-kitchen.html'?['kitchen']:
-      path.startsWith('/api/stats')?['live','games']:
+      path.startsWith('/api/live-games')?['live','games']:path.startsWith('/api/stats')?['live','games']:
       path.startsWith('/api/competition')?['games']:
       ['/api/player-movement','/api/availability','/api/players'].includes(path)?['playerWire']:[];
     affected.forEach(name=>{if(moduleState[name]?.started)runModule(name,true);});

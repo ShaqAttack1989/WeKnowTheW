@@ -215,17 +215,24 @@
     section.addEventListener('keydown',open);
   }
 
-  async function loadEditorial(){
-    const feeds=['/snack-shak-love-and-basketball.json','/snack-shak-latest.json','/snack-shak-breaking.json','/snack-shak-specials.json','/snack-shaq-posts.json'];
-    const results=await Promise.allSettled(feeds.map(fetchJson));
-    const stories=[];
-    results.forEach((result,index)=>{if(result.status==='fulfilled')collectStories(result.value,feeds[index],stories);});
-    const latestFood=freshest(stories,isFood)||freshest(stories,story=>!isByte(story));
-    const latestByte=freshest(stories,isByte);
-    renderEditorial(document.getElementById('weekHubFood'),latestFood,'food');
-    renderEditorial(document.getElementById('weekHubByte'),latestByte,'byte');
-    return Math.max(timeValue(dateValue(latestFood)),timeValue(dateValue(latestByte)));
+  function renderEditorialPlan(plan){
+    for(const [kind,story] of [['food',plan.food],['byte',plan.byte]]){
+      const host=document.getElementById(kind==='food'?'weekHubFood':'weekHubByte');
+      if(!host)continue;
+      host.hidden=!story;
+      if(!story){host.style.display='none';host.innerHTML='';continue;}
+      host.style.removeProperty('display');
+      renderEditorial(host,story,kind);
+    }
+    return Math.max(timeValue(dateValue(plan.food)),timeValue(dateValue(plan.byte)));
   }
+  async function loadEditorial(){
+    // All published feeds, including /snack-shak-latest.json, share one allocation.
+    return renderEditorialPlan(await window.WHomeStories.load());
+  }
+  window.addEventListener('wktw:homepage-stories',event=>{
+    if(moduleState.editorial?.started)renderEditorialPlan(event.detail);
+  });
 
   function usefulPageCopy(html=''){
     const doc=new DOMParser().parseFromString(html,'text/html');

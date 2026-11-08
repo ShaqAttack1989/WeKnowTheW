@@ -3,17 +3,43 @@
   const feeds = ['/snack-shak-love-and-basketball.json', '/snack-shak-all-time.json', '/snack-shaq-posts.json', '/snack-shak-specials.json', '/snack-shak-breaking.json', '/snack-shak-final.json', '/snack-shak-latest.json'];
   const time = value => { const n = Date.parse(value || ''); return Number.isFinite(n) ? n : 0; };
   const updated = post => Math.max(time(post.published), time(post.updated));
-  function selectStories(groups, now = Date.now()) {
-    const unique = new Map();
-    groups.flat().forEach(post => {
-      if (!post || !post.slug || !post.title || !post.published || !time(post.published) || time(post.published) > now || post.type === 'intro' || post.draft || post.status === 'draft' || post.status === 'scheduled' || post.homepageHidden) return;
-      const previous = unique.get(post.slug);
-      if (!previous || updated(post) >= updated(previous)) unique.set(post.slug, post);
-    });
-    return [...unique.values()].sort((a, b) => updated(b) - updated(a) || time(b.published) - time(a.published) || Number(b.priority || 0) - Number(a.priority || 0) || a.slug.localeCompare(b.slug));
+  const normalize = value => String(value || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
+  function storyKeys(post) {
+    const keys = ['slug:' + normalize(post.slug), 'title:' + normalize(post.title)];
+    if (post.dashboardUrl) {
+      try {
+        const url = new URL(post.dashboardUrl, 'https://www.weknowthew.com');
+        url.hash = '';
+        [...url.searchParams.keys()].filter(key => key === 'cb' || key.startsWith('utm_')).forEach(key => url.searchParams.delete(key));
+        url.searchParams.sort();
+        keys.push('url:' + url.pathname + url.search);
+      } catch { /* The slug and title still identify this story. */ }
+    }
+    return keys;
   }
-  if (typeof module !== 'undefined' && module.exports) module.exports = { selectStories };
+  function selectStories(groups, now = Date.now()) {
+    const eligible = groups.flat().filter(post => post && post.slug && post.title && post.published && time(post.published) && time(post.published) <= now && post.type !== 'intro' && !post.draft && !['draft', 'scheduled'].includes(post.status) && !post.homepageHidden);
+    eligible.sort((a, b) => updated(b) - updated(a) || time(b.published) - time(a.published) || Number(b.priority || 0) - Number(a.priority || 0) || a.slug.localeCompare(b.slug));
+    const seen = new Set();
+    return eligible.filter(post => {
+      const keys = storyKeys(post), duplicate = keys.some(key => seen.has(key));
+      keys.forEach(key => seen.add(key));
+      return !duplicate;
+    });
+  }
+  // Allocate every article position together so lazy loading and refresh order
+  // cannot put a featured story back into another homepage section.
+  function allocateStories(stories) {
+    const newest = stories.slice(0, 7), remaining = stories.slice(7);
+    const isByte = post => post.type === 'byte' || /\bbyte\b/i.test(post.seriesLabel || '');
+    const food = remaining.find(post => !isByte(post)) || null;
+    const byte = remaining.find(post => isByte(post)) || null;
+    const headlines = remaining.filter(post => post !== food && post !== byte).slice(0, 7);
+    return { newest, food, byte, headlines };
+  }
+  if (typeof module !== 'undefined' && module.exports) module.exports = { selectStories, allocateStories };
   if (!root.document) return;
+  root.WHomeStories = { load: refresh, selectStories, allocateStories };
   const safe = value => String(value ?? '').replace(/[&<>"']/g, ch => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' }[ch]));
   const safeUrl = value => /^(\/[^/]|https:\/\/)/.test(String(value || '')) ? value : '';
   const href = post => safeUrl(post.dashboardUrl) || `/${post.type === 'feature' ? 'food-for-thought' : 'snack-shak-bytes'}.html?post=${encodeURIComponent(post.slug)}#story`;
@@ -31,7 +57,6 @@
   const snapshots = new Map();
   let pending = null;
   function render(stories) {
-    if (!stories.length) return;
     const zones = [['#freshTopStories', 3], ['#freshNextStory', 1], ['#freshMoreStories', 3]];
     let cursor = 0;
     zones.forEach(([selector, count]) => {
@@ -58,7 +83,12 @@
       }
       if (!Array.isArray(payload.posts)) throw new Error('Invalid article feed');
       snapshots.set(url, payload.posts);
-    })).then(() => render(selectStories([...snapshots.values()]))).finally(() => { pending = null; });
+    })).then(() => {
+      const plan = allocateStories(selectStories([...snapshots.values()]));
+      render(plan.newest);
+      root.dispatchEvent(new CustomEvent('wktw:homepage-stories', { detail: plan }));
+      return plan;
+    }).finally(() => { pending = null; });
     return pending;
   }
   let started = false;
@@ -82,7 +112,7 @@
   setInterval(() => { if (started && !document.hidden) refresh(); }, 300000);
   root.addEventListener('focus', () => { if (started) refresh(); });
   window.addEventListener('wktw:data-updated', event => {
-    if (started && String(event.detail?.url || '').split('?')[0].startsWith('/snack-shak-')) refresh();
+    if (started && String(event.detail?.url || '').split('?')[0].match(/^\/snack-sha[kq]-/)) refresh();
   });
   document.addEventListener('visibilitychange', () => { if (started && !document.hidden) refresh(); });
 })(typeof window !== 'undefined' ? window : globalThis);

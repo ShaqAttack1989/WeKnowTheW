@@ -173,7 +173,7 @@
       </aside>
       <section class="w-desk-main" aria-label="Featured stories and live desk"></section>
       <aside class="w-desk-rail w-desk-headlines" aria-label="Top headlines">
-        <div class="w-desk-rail-head"><span>TOP HEADLINES</span><strong>What’s moving in the W.</strong></div>
+        <div class="w-desk-rail-head"><span>MORE FROM THE W</span><strong>Keep reading.</strong></div>
         <div class="w-headline-list" id="wDeskHeadlines"><div class="week-hub-loading">Loading the latest headlines…</div></div>
         <a class="w-headline-more" href="/snack-shak.html">All stories →</a>
       </aside>`;
@@ -211,24 +211,15 @@
     return kind==='BYTE'?'/snack-shak-bytes.html':'/food-for-thought.html';
   }
 
-  async function loadHeadlines(){
+  function renderHeadlines(plan){
     const host=document.getElementById('wDeskHeadlines');
     if(!host)return;
-    const feeds=['/snack-shak-love-and-basketball.json','/snack-shak-latest.json','/snack-shak-breaking.json','/snack-shak-specials.json','/snack-shaq-posts.json'];
-    try{
-      const results=await Promise.allSettled(feeds.map(fetchJson));
-      const stories=[];
-      results.forEach((result,index)=>{if(result.status==='fulfilled')collectStories(result.value,feeds[index],stories);});
-      const fresh=stories
-        .filter(story=>text(story.title))
-        .sort((a,b)=>timeValue(storyDate(b))-timeValue(storyDate(a))||Number(b.priority||0)-Number(a.priority||0));
-      const seen=new Set(),unique=[];
-      fresh.forEach(story=>{const key=norm(story.title);if(!seen.has(key)){seen.add(key);unique.push(story);}});
-      host.innerHTML=unique.slice(0,7).map(story=>`<a class="w-headline" href="${safe(storyHref(story))}"><span>${safe(storyKind(story))}${storyDate(story)?` · ${safe(fmtShort(storyDate(story)))}`:''}</span><strong>${safe(story.title)}</strong></a>`).join('')||'<a class="w-headline" href="/snack-shak.html"><span>SNACK SHAK</span><strong>Open the latest stories from around the W.</strong></a>';
-    }catch{
-      host.innerHTML='<a class="w-headline" href="/snack-shak.html"><span>SNACK SHAK</span><strong>Headlines are reconnecting. The full story desk is still open.</strong></a>';
-    }
+    host.innerHTML=plan.headlines.map(story=>`<a class="w-headline" href="${safe(storyHref(story))}"><span>${safe(storyKind(story))}${storyDate(story)?` · ${safe(fmtShort(storyDate(story)))}`:''}</span><strong>${safe(story.title)}</strong></a>`).join('')||'<a class="w-headline" href="/snack-shak.html"><span>SNACK SHAK</span><strong>Explore the full story archive →</strong></a>';
   }
+  async function loadHeadlines(){
+    renderHeadlines(await window.WHomeStories.load());
+  }
+  window.addEventListener('wktw:homepage-stories',event=>renderHeadlines(event.detail));
 
   function start(){
     document.body.classList.add('home-page');

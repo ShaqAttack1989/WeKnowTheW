@@ -18,10 +18,11 @@ function collectDivisionOneTeams(node,ids=new Set()){
  for(const [key,value]of Object.entries(node))if(key!=='team'&&value&&typeof value==='object')collectDivisionOneTeams(value,ids);
  return ids;
 }
-function metricValue(entry,section,stat){
+function metricValue(entry,section,stat,definitions=[]){
+ const schema=definitions.find(category=>category.name===section);
  const group=(entry.categories||[]).find(category=>category.name===section);
- const index=group?.names?.indexOf(stat)??-1;
- const value=index>=0?Number(group.values?.[index]):NaN;
+ const index=schema?.names?.indexOf(stat)??-1;
+ const value=index>=0?Number(group?.values?.[index]):NaN;
  return Number.isFinite(value)?value:null;
 }
 function displayMetric(value,spec){return spec.key==='totalPoints'?Math.round(value).toLocaleString():Number(value).toFixed(1)}
@@ -29,10 +30,10 @@ function profileUrl(athlete){
  const link=(athlete.links||[]).find(item=>item.rel?.includes('playercard')&&item.href?.startsWith('https://www.espn.com/'));
  return link?.href||'';
 }
-function cleanLeader(entry,spec,rank){
+function cleanLeader(entry,spec,rank,definitions){
  const athlete=entry.athlete||{};
  const team=athlete.teams?.[0]||{};
- const value=metricValue(entry,spec.section,spec.stat);
+ const value=metricValue(entry,spec.section,spec.stat,definitions);
  return{
   rank,
   name:athlete.displayName||athlete.fullName||'Player',
@@ -43,7 +44,7 @@ function cleanLeader(entry,spec,rank){
   profileUrl:profileUrl(athlete),
   value,
   displayValue:value===null?'—':displayMetric(value,spec),
-  gamesPlayed:metricValue(entry,'general','gamesPlayed')
+  gamesPlayed:metricValue(entry,'general','gamesPlayed',definitions)
  };
 }
 async function getLeaders(season,teamIds){
@@ -52,7 +53,7 @@ async function getLeaders(season,teamIds){
    const params=new URLSearchParams({region:'us',lang:'en',contentorigin:'espn',isqualified:'true',limit:'500',page:'1',season:String(season),category:spec.section,sort:`${spec.section}.${spec.stat}:${spec.sort}`});
    const feed=await withTimeout(`${WEB}${BASE}/statistics/byathlete?${params}`);
    const rows=(feed.athletes||[]).filter(row=>teamIds.has(String(row.athlete?.teamId||row.athlete?.teams?.[0]?.id||'')));
-   return[spec.key,rows.slice(0,10).map((row,index)=>cleanLeader(row,spec,index+1))];
+   return[spec.key,rows.slice(0,10).map((row,index)=>cleanLeader(row,spec,index+1,feed.categories||[]))];
   }catch(error){return[spec.key,[]]}
  }));
  return Object.fromEntries(pairs);

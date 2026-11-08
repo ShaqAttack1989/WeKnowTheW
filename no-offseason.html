@@ -2,14 +2,33 @@
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="The No Offseason hub brings current and archived player statistics together with Team USA, winter leagues and women’s basketball history.">
 <title>No Offseason | We Know the W</title>
-<link rel="stylesheet" href="/styles.css"><link rel="stylesheet" href="/landing.css"><link rel="stylesheet" href="/no-offseason.css?v=20261106-league-directory-v1"><link rel="stylesheet" href="/hub-child-pages.css?v=20261108-cohesion-v1">
+<link rel="stylesheet" href="/styles.css"><link rel="stylesheet" href="/landing.css"><link rel="stylesheet" href="/no-offseason.css?v=20261108-live-preview-v1"><link rel="stylesheet" href="/hub-child-pages.css?v=20261108-cohesion-v1">
 </head><body class="section-page no-offseason-page hub-home-page">
 <header class="subhero no-offseason-hero"><nav class="nav shell"><a class="brand" href="/"><span class="brand-mark">W</span><span>WE KNOW THE W</span></a><button class="menu-button" id="menuButton" aria-expanded="false" aria-controls="navLinks">Menu</button><div class="nav-links" id="navLinks"></div></nav>
 <div class="page-shell subhero-inner"><p class="eyebrow">WORLD STAGE · ESTABLISHED PROS · WINTER BALL</p><h1>NO <em>OFFSEASON</em></h1><p>The W season may stop. The hooping does not. Choose the stats desk or open the full guide to leagues, national teams and basketball history.</p><div class="page-crumbs"><a href="/">Home</a><span>›</span><b>No Offseason</b></div></div></header>
-<main><section class="page-section hub-doors-section"><div class="page-shell">
-<div class="hub-doors-heading"><p class="kicker">TWO DESKS · YEAR-ROUND HOOPS</p><h2>Follow the game between seasons.</h2><p>Player dashboards lead. League histories, schedules and feature coverage stay together in the guide.</p></div>
-<div class="hub-doors-grid">
-<a class="hub-door-card hub-door-card--stats" href="/no-offseason-stat-kitchen.html"><span class="hub-door-label">PLAYER DASHBOARDS · SEASON BY SEASON</span><span class="hub-door-mark" aria-hidden="true">01</span><h3>Stat Kitchen</h3><p>Search and sort the latest completed Unrivaled and Athletes Unlimited player tables, with real player portraits and official-source links.</p><strong>OPEN PLAYER STATS <span aria-hidden="true">→</span></strong></a>
-<a class="hub-door-card hub-door-card--stories" href="/no-offseason-leagues.html"><span class="hub-door-label">LEAGUES · NATIONAL TEAMS · HISTORY</span><span class="hub-door-mark" aria-hidden="true">02</span><h3>League Guide</h3><p>Team USA, Unrivaled, Athletes Unlimited, Project B, UPSHOT, WPBA, GWBA and AmeriCup coverage.</p><strong>EXPLORE THE LEAGUE GUIDE <span aria-hidden="true">→</span></strong></a>
-</div></div></section></main>
-<script src="/site.js?v=20261108-hub-navigation-v1"></script></body></html>
+<main class="hub-front-page">
+<section class="page-section no-offseason-snapshot" aria-labelledby="noOffseasonSnapshotTitle"><div class="page-shell">
+<div class="hub-preview-heading"><div><p class="kicker">NO OFFSEASON · LATEST COMPLETED SEASONS</p><h2 id="noOffseasonSnapshotTitle">The leaders who closed the books.</h2><p>Unrivaled Season 2 and Athletes Unlimited 2026, final. These compact boards put the latest completed player results up front; the full Stat Kitchen has every player and category.</p></div><a class="button primary" href="/no-offseason-stat-kitchen.html">OPEN THE FULL STAT KITCHEN →</a></div>
+<div class="no-offseason-preview-grid" id="noOffseasonPreviews">
+<article class="no-offseason-preview-card" data-offseason-preview data-source="/data/unrivaled-player-stats-2026.json" data-metrics="ppg,rpg,apg">
+<p class="no-offseason-season-label">UNRIVALED · SEASON 2 · 2026 FINAL</p><h3>Unrivaled</h3>
+<dl class="no-offseason-leaders">
+<div><dt>Points per game</dt><dd>25.3</dd><small>Marina Mabrey</small></div>
+<div><dt>Rebounds per game</dt><dd>12.4</dd><small>Aaliyah Edwards</small></div>
+<div><dt>Assists per game</dt><dd>6.1</dd><small>Chelsea Gray</small></div>
+</dl><a class="no-offseason-source" data-source-link href="/unrivaled.html">Season dashboard →</a>
+</article>
+<article class="no-offseason-preview-card no-offseason-preview-card--au" data-offseason-preview data-source="/data/au-player-stats-2026.json" data-metrics="auPoints,ppg,rpg">
+<p class="no-offseason-season-label">ATHLETES UNLIMITED · 2026 FINAL</p><h3>Athletes Unlimited</h3>
+<dl class="no-offseason-leaders">
+<div><dt>AU leaderboard points</dt><dd>6,764</dd><small>Odyssey Sims</small></div>
+<div><dt>Points per game</dt><dd>26.2</dd><small>Odyssey Sims</small></div>
+<div><dt>Rebounds per game</dt><dd>12.7</dd><small>Natasha Mack</small></div>
+</dl><a class="no-offseason-source" data-source-link href="/athletes-unlimited.html">Season dashboard →</a>
+</article>
+</div>
+<p class="hub-preview-status" id="noOffseasonPreviewStatus" aria-live="polite">Final season data · checking both source files now; rechecks every 10 minutes.</p>
+<div class="no-offseason-route-row"><a class="button secondary" href="/no-offseason-leagues.html">EXPLORE THE LEAGUE GUIDE →</a><span>Team USA, Unrivaled, AU, Project B, UPSHOT, WPBA, GWBA and AmeriCup.</span></div>
+</div></section>
+</main>
+<script src="/site.js?v=20261108-hub-preview-v1"></script><script src="/hub-live-previews.js?v=20261108-live-preview-v1"></script></body></html>

@@ -25,3 +25,47 @@
 
 /* Draft route calls to action wrap instead of widening their card. */
 .mock-draft-route-cta{white-space:normal;max-width:100%;overflow-wrap:anywhere;text-align:center}
+/* Section fronts show useful data and two direct next steps instead of oversized gateway cards. */
+.who-next-snapshot{padding-block:clamp(1.6rem,4vw,3rem);background:#fffaf1}
+.hub-preview-heading{display:flex;align-items:flex-end;justify-content:space-between;gap:1.5rem;margin-bottom:1.1rem}
+.hub-preview-heading>div{min-width:0}
+.hub-preview-heading .kicker,.who-next-pathways-heading .kicker{margin:0 0 .45rem;color:#6824c9;font-size:.7rem;font-weight:950;letter-spacing:.12em}
+.hub-preview-heading h2,.who-next-pathways-heading h2{max-width:24ch;margin:0 0 .55rem;font-size:clamp(1.8rem,4vw,2.8rem);line-height:1.02;letter-spacing:-.04em}
+.hub-preview-heading p:not(.kicker),.who-next-pathways-heading p:not(.kicker){max-width:70ch;margin:0;color:#655b6c;line-height:1.55}
+.hub-preview-heading .button{flex:0 0 auto;min-height:46px;white-space:normal;text-align:center}
+.ncaaw-hub-leaders{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:.65rem;margin:1.2rem 0 0;padding:0;list-style:none}
+.ncaaw-hub-leader{display:grid;grid-template-columns:28px 34px minmax(0,1fr);grid-template-rows:1fr auto;align-items:center;column-gap:.55rem;min-width:0;min-height:116px;padding:.85rem;border:1px solid #e2d8ea;border-radius:18px;background:#fff;box-shadow:0 8px 24px rgba(30,13,49,.055)}
+.ncaaw-preview-rank{grid-column:1;grid-row:1/3;align-self:start;display:grid;place-items:center;width:27px;height:27px;border-radius:50%;background:#efe6fa;color:#6424c1;font-size:.75rem;font-weight:950}
+.ncaaw-preview-photo{grid-column:2;grid-row:1/3;display:grid;place-items:center;width:34px;height:34px;overflow:hidden;border-radius:50%;background:#edddff;color:#4e198f;font-size:.62rem;font-weight:950}
+.ncaaw-preview-photo img{width:100%;height:100%;object-fit:cover}
+.ncaaw-preview-player{grid-column:3;grid-row:1;min-width:0}
+.ncaaw-preview-player strong{display:block;color:#20172b;font-size:.84rem;line-height:1.2;overflow-wrap:normal}
+.ncaaw-preview-player small{display:block;margin-top:.25rem;color:#655b6c;font-size:.72rem;line-height:1.3;overflow-wrap:anywhere}
+.ncaaw-preview-value{grid-column:3;grid-row:2;align-self:end;margin-top:.55rem;color:#4c187f;font-size:1.22rem;font-weight:950;line-height:1}
+.ncaaw-preview-value small{font-size:.62rem;letter-spacing:.08em}
+.hub-preview-status{margin:.75rem 0 0;color:#655b6c;font-size:.78rem;line-height:1.45}
+.who-next-pathways{padding-block:clamp(1.5rem,3.5vw,2.6rem);background:#f4effa}
+.who-next-pathways-heading{display:flex;align-items:end;justify-content:space-between;gap:1rem;margin-bottom:1rem}
+.who-next-pathways-heading h2{font-size:clamp(1.5rem,3.2vw,2.15rem)}
+.who-next-pathways-heading p:not(.kicker){max-width:54ch}
+.who-next-quick-links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.75rem}
+.who-next-quick-links>a{display:flex;min-width:0;flex-direction:column;gap:.35rem;padding:1rem 1.1rem;border:1px solid #ded5e7;border-radius:16px;background:#fff;color:#20172b;text-decoration:none;transition:border-color .18s ease,transform .18s ease}
+.who-next-quick-links>a:hover,.who-next-quick-links>a:focus-visible{transform:translateY(-2px);border-color:#722ee2;outline:2px solid rgba(114,46,226,.2);outline-offset:2px}
+.who-next-quick-links>a>span{color:#6424c1;font-size:.66rem;font-weight:950;letter-spacing:.1em}
+.who-next-quick-links>a>strong{display:flex;justify-content:space-between;gap:.5rem;font-size:.95rem;line-height:1.35}
+.who-next-quick-links>a>strong b{color:#6424c1}
+@media(max-width:900px){.ncaaw-hub-leaders{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:640px){
+ .hub-preview-heading,.who-next-pathways-heading{align-items:stretch;flex-direction:column}
+ .hub-preview-heading .button{width:100%}
+ .ncaaw-hub-leaders{grid-template-columns:1fr;gap:.45rem;margin-top:.85rem}
+ .ncaaw-hub-leader{grid-template-columns:28px 34px minmax(0,1fr) auto;grid-template-rows:1fr;min-height:68px;padding:.65rem .75rem}
+ .ncaaw-preview-rank,.ncaaw-preview-photo,.ncaaw-preview-player,.ncaaw-preview-value{grid-row:1}
+ .ncaaw-preview-value{grid-column:4;margin:0 0 0 .5rem;align-self:center;white-space:nowrap}
+ .ncaaw-preview-player{align-self:center}
+ .ncaaw-preview-player strong{font-size:.88rem}
+ .ncaaw-preview-player small{margin-top:.15rem}
+ .who-next-quick-links{grid-template-columns:1fr}
+ .who-next-pathways-heading{margin-bottom:.8rem}
+ .who-next-pathways-heading p:not(.kicker){max-width:100%}
+}

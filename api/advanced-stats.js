@@ -173,7 +173,7 @@ module.exports=async function handler(req,res){
     `https://r.jina.ai/http://www.basketball-reference.com/wnba/years/${season}_advanced.html`,
     `https://r.jina.ai/https://www.basketball-reference.com/wnba/years/${season}_advanced.html`
   ];
-  res.setHeader('Cache-Control','s-maxage=1800, stale-while-revalidate=21600');
+  res.setHeader('Cache-Control','s-maxage=300, stale-while-revalidate=600');
 
   let rows=[];
   let resolvedBy='';

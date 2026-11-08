@@ -447,7 +447,7 @@ module.exports = async function handler(req, res) {
   const results = await Promise.all(entries.map(([key, config]) => buildBoard(key, config)));
   results.forEach(board => { boards[board.key] = board; });
 
-  res.setHeader('Cache-Control', 's-maxage=900, stale-while-revalidate=2700');
+  res.setHeader('Cache-Control', 's-maxage=300, stale-while-revalidate=600');
   return res.status(200).json({
     updatedAt: new Date().toISOString(),
     refreshMinutes: 60,

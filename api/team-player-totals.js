@@ -17,6 +17,6 @@ module.exports=async function handler(req,res) {
   if(req.method!=='GET'){res.setHeader('Allow','GET');return res.status(405).json({error:'Method not allowed'});}
   if(req.query?.season && String(req.query.season)!=='2026')return res.status(400).json({error:'This feed covers the 2026 regular season.'});
   const payload=await load();
-  res.setHeader('Cache-Control',payload.stale?'public, max-age=0, s-maxage=300':'public, max-age=0, s-maxage=1800, stale-while-revalidate=300');
+  res.setHeader('Cache-Control',payload.stale?'public, max-age=0, s-maxage=300':'public, max-age=0, s-maxage=300, stale-while-revalidate=600');
   return res.status(200).json({...payload,refreshSeconds:1800,teamCount:15,scope:'Regular-season totals for each player’s individual team stint; combined rows excluded.'});
 };

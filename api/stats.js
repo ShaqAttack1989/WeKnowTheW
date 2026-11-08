@@ -473,7 +473,7 @@ module.exports = async function handler(req, res) {
     });
   }
 
-  res.setHeader('Cache-Control', currentGames.length ? 's-maxage=15, stale-while-revalidate=30' : 's-maxage=300, stale-while-revalidate=900');
+  res.setHeader('Cache-Control', currentGames.length ? 's-maxage=15, stale-while-revalidate=30' : 's-maxage=300, stale-while-revalidate=600');
   return res.status(200).json({
     configured: Boolean(productionKey),
     source: officialStandings.length >= 12

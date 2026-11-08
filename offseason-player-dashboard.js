@@ -29,7 +29,7 @@
   const enrichAffiliations=async(payload,players)=>{
     if(payload.league!=='Unrivaled')return;
     try{
-      const response=await fetch('/pro-offseason-affiliations.json',{headers:{Accept:'application/json'},cache:'no-store'});
+      const response=await fetch('/pro-offseason-affiliations.json',{headers:{Accept:'application/json'},cache:'default'});
       const data=await response.json().catch(()=>({}));
       const rows=data?.unrivaled?.players;
       if(!response.ok||!Array.isArray(rows))return;
@@ -51,9 +51,10 @@
   async function render(root){
     const source=root.dataset.source;
     if(!source)return;
-    root.innerHTML='<div class="ps-empty">Loading player dashboard…</div>';
+    root.setAttribute('aria-busy','true');
+    root.innerHTML='<div class="ps-loading-skeleton" role="status" aria-label="Loading player statistics"><span></span><span></span><span></span><span></span><span></span></div>';
     try{
-      const response=await fetch(source,{headers:{Accept:'application/json'},cache:'no-store'});
+      const response=await fetch(source,{headers:{Accept:'application/json'},cache:'default'});
       const payload=await response.json().catch(()=>({}));
       if(!response.ok||!Array.isArray(payload.players))throw new Error('Player stat data unavailable');
       const players=payload.players;
@@ -102,8 +103,34 @@
       teamSelect?.addEventListener('change',()=>{team=teamSelect.value;draw();});
       buttons.forEach(button=>button.addEventListener('click',()=>{activeKey=button.dataset.psMetric;draw();}));
       draw();
+      root.setAttribute('aria-busy','false');
       if(payload.league==='Unrivaled')syncUnrivaledLeaders(players,metricMap);
-    }catch(error){root.innerHTML='<div class="ps-empty">Player dashboard is temporarily unavailable.</div>';}
+    }catch(error){root.setAttribute('aria-busy','false');root.innerHTML='<div class="ps-empty">Player dashboard is temporarily unavailable.</div>';}
   }
-  document.querySelectorAll('[data-player-dashboard]').forEach(render);
+  const dashboardRoots=[...document.querySelectorAll('[data-player-dashboard]')];
+  const start=root=>{
+    if(root.dataset.psStarted==='1')return;
+    root.dataset.psStarted='1';
+    render(root);
+  };
+  dashboardRoots.forEach(root=>{
+    const disclosure=root.closest('details[data-lazy-matrix]');
+    if(disclosure){
+      disclosure.addEventListener('toggle',()=>{if(disclosure.open)start(root);});
+      if(disclosure.open)start(root);
+      return;
+    }
+    if('IntersectionObserver'in window){
+      const observer=new IntersectionObserver(entries=>{
+        if(!entries.some(entry=>entry.isIntersecting))return;
+        observer.disconnect();
+        start(root);
+      },{rootMargin:'220px 0px',threshold:0.01});
+      observer.observe(root);
+    }else{
+      const box=root.getBoundingClientRect();
+      if(box.top<innerHeight+220)start(root);
+      else window.addEventListener('scroll',()=>{if(root.getBoundingClientRect().top<innerHeight+220)start(root);},{once:true,passive:true});
+    }
+  });
 })();

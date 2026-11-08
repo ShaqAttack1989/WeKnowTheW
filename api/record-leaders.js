@@ -67,7 +67,7 @@ module.exports = async function handler(req, res) {
   }
   const requested = Number.parseInt(String(req.query.season || '2026'), 10);
   const season = Number.isFinite(requested) && requested >= 1997 && requested <= 2100 ? requested : 2026;
-  res.setHeader('Cache-Control', 's-maxage=1800, stale-while-revalidate=21600');
+  res.setHeader('Cache-Control', 's-maxage=300, stale-while-revalidate=600');
   try {
     const results = await Promise.allSettled([
       getOfficialAllTimeLeaders(5),

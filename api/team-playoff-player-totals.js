@@ -75,7 +75,7 @@ module.exports = async function handler(req, res) {
     const payload = await load(requested, team);
     res.setHeader('Cache-Control', payload.stale
       ? 'public, max-age=0, s-maxage=300'
-      : 'public, max-age=0, s-maxage=1800, stale-while-revalidate=300');
+      : 'public, max-age=0, s-maxage=300, stale-while-revalidate=600');
     return res.status(200).json(payload);
   } catch (error) {
     res.setHeader('Cache-Control', 'public, max-age=0, s-maxage=60');

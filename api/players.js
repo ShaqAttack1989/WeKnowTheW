@@ -525,7 +525,7 @@ module.exports = async function handler(req, res) {
     res.setHeader('Allow', 'GET');
     return res.status(405).json({ error: 'Method not allowed' });
   }
-  res.setHeader('Cache-Control', 's-maxage=1800, stale-while-revalidate=300');
+  res.setHeader('Cache-Control', 's-maxage=300, stale-while-revalidate=600');
   const checkedAt = new Date().toISOString();
   const errors = [];
   const [rostersResult, recentRostersResult, injuriesResult, transactionsResult] = await Promise.allSettled([

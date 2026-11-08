@@ -38,16 +38,14 @@
       host.innerHTML=src?'<img src="'+safe(src)+'" alt="" loading="lazy" decoding="async">':'<b aria-hidden="true">W</b>';
     });
   }
-  const fetchJson=async url=>{
-    if(window.WHomeData?.get)return window.WHomeData.get(url,{ttl:15000});
-    const joiner=url.includes('?')?'&':'?';
-    const response=await fetch(`${url}${joiner}cb=${Date.now()}`,{headers:{Accept:'application/json','Cache-Control':'no-cache'},cache:'no-store'});
+  const fetchJson=async(url,{ttl=300000,force=false}={})=>{
+    if(window.WHomeData?.get)return window.WHomeData.get(url,{ttl,force});
+    const response=await fetch(url,{headers:{Accept:'application/json'},cache:'default'});
     if(!response.ok)throw new Error(`${url} returned ${response.status}`);
     return response.json();
   };
   const fetchHtml=async url=>{
-    const joiner=url.includes('?')?'&':'?';
-    const response=await fetch(`${url}${joiner}cb=${Date.now()}`,{headers:{Accept:'text/html','Cache-Control':'no-cache'},cache:'no-store'});
+    const response=await fetch(url,{headers:{Accept:'text/html'},cache:'default'});
     if(!response.ok)throw new Error(`${url} returned ${response.status}`);
     return response.text();
   };
@@ -119,17 +117,17 @@
           <div id="weekHubSearchSlot"></div>
         </section>
         <div class="week-editorial-grid">
-          <article class="week-editorial-card food" id="weekHubFood"><div class="week-hub-loading">Finding the newest Food for Thought…</div></article>
-          <article class="week-editorial-card byte" id="weekHubByte"><div class="week-hub-loading">Heating up the newest Snack Shak Byte…</div></article>
+          <article class="week-editorial-card food" id="weekHubFood"><div class="week-hub-loading week-hub-skeleton" role="status" aria-label="Loading dashboard"><span></span><span></span><span></span><span></span></div></article>
+          <article class="week-editorial-card byte" id="weekHubByte"><div class="week-hub-loading week-hub-skeleton" role="status" aria-label="Loading dashboard"><span></span><span></span><span></span><span></span></div></article>
         </div>
         <div class="week-hub-divider"><span>FROM AROUND THE SITE</span><b></b></div>
         <div class="week-snapshot-grid">
-          <article class="week-snapshot-card" id="weekHubStat"><div class="week-hub-loading">Checking the Stat Kitchen…</div></article>
-          <article class="week-snapshot-card" id="weekHubRotations"><div class="week-hub-loading">Setting Shak’s rotations…</div></article>
-          <article class="week-snapshot-card" id="weekHubLive"><div class="week-hub-loading">Checking live stats…</div></article>
-          <article class="week-snapshot-card" id="weekHubGames"><div class="week-hub-loading">Checking the schedule…</div></article>
-          <article class="week-snapshot-card" id="weekHubMovement"><div class="week-hub-loading">Checking player movement…</div></article>
-          <article class="week-snapshot-card" id="weekHubAvailability"><div class="week-hub-loading">Checking availability…</div></article>
+          <article class="week-snapshot-card" id="weekHubStat"><div class="week-hub-loading week-hub-skeleton" role="status" aria-label="Loading dashboard"><span></span><span></span><span></span><span></span></div></article>
+          <article class="week-snapshot-card" id="weekHubRotations"><div class="week-hub-loading week-hub-skeleton" role="status" aria-label="Loading dashboard"><span></span><span></span><span></span><span></span></div></article>
+          <article class="week-snapshot-card" id="weekHubLive"><div class="week-hub-loading week-hub-skeleton" role="status" aria-label="Loading dashboard"><span></span><span></span><span></span><span></span></div></article>
+          <article class="week-snapshot-card" id="weekHubGames"><div class="week-hub-loading week-hub-skeleton" role="status" aria-label="Loading dashboard"><span></span><span></span><span></span><span></span></div></article>
+          <article class="week-snapshot-card" id="weekHubMovement"><div class="week-hub-loading week-hub-skeleton" role="status" aria-label="Loading dashboard"><span></span><span></span><span></span><span></span></div></article>
+          <article class="week-snapshot-card" id="weekHubAvailability"><div class="week-hub-loading week-hub-skeleton" role="status" aria-label="Loading dashboard"><span></span><span></span><span></span><span></span></div></article>
         </div>
         <footer class="week-hub-foot"><span>One front door. The full encyclopedia is still underneath it.</span><a href="#sections">Explore every section →</a></footer>
       </div>`;
@@ -286,36 +284,43 @@
   }
 
   async function loadLeagueData(){
-    const liveHost=document.getElementById('weekHubLive'),gamesHost=document.getElementById('weekHubGames');
+    const liveHost=document.getElementById('weekHubLive');
     try{
-      const [statsResult,teamsResult,competitionResult]=await Promise.allSettled([
-        fetchJson('/api/stats?season=2026'),
-        fetchJson('/api/teams?currentLogos=20260925'),
-        fetchJson('/api/competition?season=2026')
-      ]);
-      if(statsResult.status!=='fulfilled')throw statsResult.reason;
-      const stats=statsResult.value;
-      if(teamsResult.status==='fulfilled')storeTeamBadges(teamsResult.value);
-      hydrateHeaderBadges();
-      const competition=competitionResult.status==='fulfilled'?competitionResult.value:{};
+      const stats=await fetchJson('/api/stats?season=2026',{ttl:15000});
       const rows=standingsRows(stats).sort((a,b)=>Number(a.overall_rank||a.playoff_seed||999)-Number(b.overall_rank||b.playoff_seed||999));
       const leader=rows[0];
       const live=Array.isArray(stats.liveGames)?stats.liveGames:[];
-      const upcoming=Array.isArray(stats.upcomingGames)?stats.upcomingGames:[];
+      const team=leader?.team?.full_name||leader?.team||'Standings leader';
+      const record=Number.isFinite(Number(leader?.wins))?`${leader.wins}-${leader.losses}`:'';
+      snapshot(liveHost,{kicker:'LIVE STATS',title:leader?`${team}${record?` · ${record}`:''}`:'Standings are refreshing',copy:live.length?`${live.length} WNBA game${live.length===1?' is':'s are'} live right now. Open the live board for current scores and standings.`:'No WNBA game is live at this moment. The latest standings and season status are ready on the live stats page.',meta:live.length?'LIVE NOW':'SEASON SNAPSHOT',href:'/live-stats.html',label:'Open Live Stats',media:[{src:MEDIA.stats,alt:'WNBA standings snapshot',focus:'50% 38%',className:'dashboard-preview'}]});
+      return timeValue(stats.checkedAt||stats.updatedAt);
+    }catch{
+      snapshotError(liveHost,'LIVE STATS','Current standings','/live-stats.html');
+      return 0;
+    }
+  }
+
+  async function loadGamesData(){
+    const gamesHost=document.getElementById('weekHubGames');
+    try{
+      const [statsResult,competitionResult]=await Promise.allSettled([
+        fetchJson('/api/stats?season=2026',{ttl:15000}),
+        fetchJson('/api/competition?season=2026',{ttl:300000})
+      ]);
+      const stats=statsResult.status==='fulfilled'?statsResult.value:{};
+      const competition=competitionResult.status==='fulfilled'?competitionResult.value:{};
+      if(statsResult.status!=='fulfilled'&&competitionResult.status!=='fulfilled')throw new Error('Game data unavailable');
       const playoffGames=Array.isArray(competition.playoffs?.games)?competition.playoffs.games:[];
       const playoffLive=playoffGames.filter(game=>String(game.state||'').toLowerCase()==='in');
       const playoffUpcoming=playoffGames.filter(game=>!game.completed&&String(game.state||'').toLowerCase()!=='in').sort((a,b)=>Date.parse(a.startTimeUtc||a.date)-Date.parse(b.startTimeUtc||b.date));
-      const team=leader?.team?.full_name||leader?.team||'Standings leader';
-      const record=Number.isFinite(Number(leader?.wins))?`${leader.wins}-${leader.losses}`:'';
-      snapshot(liveHost,{kicker:'LIVE STATS',title:leader?`${team}${record?` · ${record}`:''}`:'Standings are refreshing',copy:(live.length||playoffLive.length)?`${live.length+playoffLive.length} WNBA game${live.length+playoffLive.length===1?' is':'s are'} live right now. The full standings and current game state are one click away.`:'No WNBA playoff game is live at this moment. The current bracket, series scores and final regular-season standings remain available.',meta:(live.length||playoffLive.length)?'LIVE NOW':'PLAYOFF TRACKER',href:'/live-stats.html',label:'Open Live Stats',media:[{src:MEDIA.stats,alt:'WNBA standings snapshot',focus:'50% 38%',className:'dashboard-preview'}]});
+      const live=Array.isArray(stats.liveGames)?stats.liveGames:[];
+      const upcoming=Array.isArray(stats.upcomingGames)?stats.upcomingGames:[];
       const game=playoffLive[0]||live[0]||playoffUpcoming[0]||upcoming[0];
       const isPlayoff=Boolean(game&&(playoffLive.includes(game)||playoffUpcoming.includes(game)||game.playoff));
-      const gameVisual=gameMedia(game);
-      snapshot(gamesHost,{kicker:isPlayoff?'PLAYOFF GAMES':'GAMES',title:game?gameTitle(game):'Next tip is loading',copy:game?`${playoffLive.includes(game)||live.includes(game)?'Happening now':isPlayoff?'Next playoff game':'Next on the schedule'} · ${gameTime(game)}${game.status?` · ${game.status}`:''}`:'The playoff slate is loading. Open Games for the full bracket, results and broadcast information.',meta:(playoffLive.length||live.length)?'LIVE':isPlayoff?'PLAYOFFS · NEXT TIP':'UP NEXT',href:'/games.html',label:'Open Games',media:gameVisual.length?gameVisual:[{src:MEDIA.games,alt:'Official WNBA player media for the 2026 playoff field',focus:'50% 18%',mobileFocus:'50% 15%',fit:'contain',className:'player-headshot'}]});
+      snapshot(gamesHost,{kicker:isPlayoff?'PLAYOFF GAMES':'GAMES',title:game?gameTitle(game):'No game is on deck',copy:game?`${playoffLive.includes(game)||live.includes(game)?'Happening now':isPlayoff?'Next playoff game':'Next on the schedule'} · ${gameTime(game)}${game.status?` · ${game.status}`:''}`:'The full game board keeps recent results, the postseason bracket and the next scheduled tip together.',meta:(playoffLive.length||live.length)?'LIVE':isPlayoff?'PLAYOFFS · NEXT TIP':'UP NEXT',href:'/games.html',label:'Open Games',media:gameMedia(game).length?gameMedia(game):[{src:MEDIA.games,alt:'Official WNBA player media',focus:'50% 18%',mobileFocus:'50% 15%',fit:'contain',className:'player-headshot'}]});
       return Math.max(timeValue(stats.checkedAt||stats.updatedAt),timeValue(competition.updatedAt));
     }catch{
-      snapshotError(liveHost,'LIVE STATS','Current standings','/live-stats.html');
-      snapshot(gamesHost,{kicker:'PLAYOFF GAMES',title:'The playoff slate is refreshing',copy:'Open the playoff game board for current series scores, tip times, results and broadcast information.',meta:'PLAYOFFS',href:'/games.html',label:'Open Games',media:[{src:MEDIA.games,alt:'Official WNBA player media for the 2026 playoff field',focus:'50% 18%',mobileFocus:'50% 15%',fit:'contain',className:'player-headshot'}]});
+      snapshot(gamesHost,{kicker:'GAMES',title:'The game board is available',copy:'Open the full game page for results, playoff context and the next scheduled tip.',meta:'WNBA',href:'/games.html',label:'Open Games',media:[{src:MEDIA.games,alt:'Official WNBA player media',focus:'50% 18%',mobileFocus:'50% 15%',fit:'contain',className:'player-headshot'}]});
       return 0;
     }
   }
@@ -363,24 +368,87 @@
     stamp.title=newest?`Newest source date: ${new Date(newest).toLocaleString()}`:'Homepage sources refreshed just now';
   }
 
-  let loading=false;
-  async function loadHub(){
-    if(loading)return;
-    loading=true;
-    try{
-      const results=await Promise.allSettled([loadEditorial(),loadStaticSnapshots(),loadRotations(),loadLeagueData(),loadPlayerWire()]);
-      const stamps=results.map(result=>result.status==='fulfilled'&&Number.isFinite(Number(result.value))?Number(result.value):0);
-      setStamp(stamps);
-    }finally{loading=false;}
+  const modules={
+    editorial:{targets:['weekHubFood','weekHubByte'],run:loadEditorial},
+    kitchen:{targets:['weekHubStat'],run:loadStaticSnapshots},
+    rotations:{targets:['weekHubRotations'],run:loadRotations},
+    live:{targets:['weekHubLive'],run:loadLeagueData},
+    games:{targets:['weekHubGames'],run:loadGamesData},
+    playerWire:{targets:['weekHubMovement','weekHubAvailability'],run:loadPlayerWire}
+  };
+  const moduleState=Object.fromEntries(Object.keys(modules).map(name=>[name,{started:false,loaded:false,promise:null,value:0}]));
+  async function runModule(name,force=false){
+    const state=moduleState[name],module=modules[name];
+    if(!state||!module)return 0;
+    if(state.promise)return state.promise;
+    if(state.loaded&&!force)return state.value;
+    state.started=true;
+    state.promise=Promise.resolve().then(()=>module.run()).then(value=>{
+      state.loaded=true;
+      state.value=Number.isFinite(Number(value))?Number(value):0;
+      setStamp(Object.values(moduleState).filter(item=>item.loaded).map(item=>item.value));
+      return state.value;
+    }).catch(()=>0).finally(()=>{state.promise=null;});
+    return state.promise;
   }
-
+  function refreshStartedModules(){
+    const started=Object.keys(moduleState).filter(name=>moduleState[name].started);
+    return Promise.allSettled(started.map(name=>runModule(name,true)));
+  }
+  window.addEventListener('wktw:data-updated',event=>{
+    const path=String(event.detail?.url||'').split('?')[0];
+    const affected=path.startsWith('/snack-shak-')?['editorial']:
+      path==='/rotation-history.json'?['rotations']:
+      path==='/stat-kitchen.html'?['kitchen']:
+      path.startsWith('/api/stats')?['live','games']:
+      path.startsWith('/api/competition')?['games']:
+      ['/api/player-movement','/api/availability','/api/players'].includes(path)?['playerWire']:[];
+    affected.forEach(name=>{if(moduleState[name]?.started)runModule(name,true);});
+  });
   function init(){
     if(!buildShell())return;
     wireTileNavigation();
-    loadHub();
-    setInterval(()=>{if(!document.hidden)loadHub();},300000);
-    window.addEventListener('focus',loadHub);
-    document.addEventListener('visibilitychange',()=>{if(!document.hidden)loadHub();});
+    runModule('live');
+    const targetMap=new Map();
+    Object.entries(modules).forEach(([name,module])=>module.targets.forEach(id=>targetMap.set(id,name)));
+    const startTarget=target=>{
+      const name=targetMap.get(target?.id);
+      if(name)runModule(name);
+    };
+    if('IntersectionObserver'in window){
+      const observer=new IntersectionObserver(entries=>{
+        entries.forEach(entry=>{
+          if(!entry.isIntersecting)return;
+          observer.unobserve(entry.target);
+          startTarget(entry.target);
+        });
+      },{rootMargin:'220px 0px',threshold:0.01});
+      targetMap.forEach((name,id)=>{
+        const target=document.getElementById(id);
+        if(target)observer.observe(target);
+      });
+    }else{
+      let scheduled=false;
+      const scan=()=>{
+        if(scheduled)return;
+        scheduled=true;
+        requestAnimationFrame(()=>{
+          scheduled=false;
+          targetMap.forEach((name,id)=>{
+            const target=document.getElementById(id);
+            if(!target||moduleState[name].started)return;
+            const box=target.getBoundingClientRect();
+            if(box.top<innerHeight+220&&box.bottom>-220)startTarget(target);
+          });
+        });
+      };
+      document.addEventListener('scroll',scan,{passive:true});
+      window.addEventListener('resize',scan);
+      scan();
+    }
+    setInterval(()=>{if(!document.hidden)refreshStartedModules();},300000);
+    window.addEventListener('focus',()=>{if(!document.hidden)refreshStartedModules();});
+    document.addEventListener('visibilitychange',()=>{if(!document.hidden)refreshStartedModules();});
   }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();
 })();

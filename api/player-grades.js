@@ -142,7 +142,7 @@ function officialTrueShooting(player={}){
 module.exports=async function handler(req,res){
   if(req.method!=='GET'){res.setHeader('Allow','GET');return res.status(405).json({error:'Method not allowed'});}
   const requested=Number.parseInt(String(req.query.season||'2026'),10);const season=Number.isFinite(requested)?requested:2026;
-  res.setHeader('Cache-Control','s-maxage=1800, stale-while-revalidate=21600');
+  res.setHeader('Cache-Control','s-maxage=300, stale-while-revalidate=600');
   try{
     const [pgResult,advResult,officialResult]=await Promise.allSettled([
       sourceRows(season,'per_game',parsePerGameMarkdown,parsePerGameHtml),

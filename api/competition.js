@@ -140,7 +140,7 @@ function series(games){
 module.exports=async function handler(req,res){
   if(req.method!=='GET'){res.setHeader('Allow','GET');return res.status(405).json({error:'Method not allowed'});}
   const season=Number(req.query.season)||2026;
-  res.setHeader('Cache-Control','no-store, max-age=0');
+  res.setHeader('Cache-Control','s-maxage=300, stale-while-revalidate=600');
 
   const [regularResult,postseasonResult]=await Promise.allSettled([fetchType(season,2),fetchType(season,3)]);
   const regular=regularResult.status==='fulfilled'?regularResult.value:[];

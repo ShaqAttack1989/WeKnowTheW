@@ -1,6 +1,6 @@
 (function (root) {
   'use strict';
-  const feeds = ['/snack-shak-love-and-basketball.json', '/snack-shak-all-time.json', '/snack-shaq-posts.json', '/snack-shak-specials.json', '/snack-shak-breaking.json', '/snack-shak-final.json', '/snack-shak-latest.json?v=20261104-valkyries-parade-day-v1'];
+  const feeds = ['/snack-shak-love-and-basketball.json', '/snack-shak-all-time.json', '/snack-shaq-posts.json', '/snack-shak-specials.json', '/snack-shak-breaking.json', '/snack-shak-final.json', '/snack-shak-latest.json'];
   const time = value => { const n = Date.parse(value || ''); return Number.isFinite(n) ? n : 0; };
   const updated = post => Math.max(time(post.published), time(post.updated));
   function selectStories(groups, now = Date.now()) {
@@ -46,19 +46,43 @@
       host.hidden = !chosen.length;
     });
   }
-  function refresh() {
+  function refresh(force = false) {
     if (pending) return pending;
     pending = Promise.allSettled(feeds.map(async url => {
-      const response = await fetch(url, { cache: 'no-store', headers: { Accept: 'application/json' } });
-      if (!response.ok) throw new Error('Article feed unavailable');
-      const payload = await response.json();
+      let payload;
+      if (root.WHomeData?.get) payload = await root.WHomeData.get(url, { ttl: 300000, force });
+      else {
+        const response = await fetch(url, { headers: { Accept: 'application/json' }, cache: 'default' });
+        if (!response.ok) throw new Error('Article feed unavailable');
+        payload = await response.json();
+      }
       if (!Array.isArray(payload.posts)) throw new Error('Invalid article feed');
       snapshots.set(url, payload.posts);
     })).then(() => render(selectStories([...snapshots.values()]))).finally(() => { pending = null; });
     return pending;
   }
-  refresh();
-  setInterval(() => { if (!document.hidden) refresh(); }, 60000);
-  root.addEventListener('focus', refresh);
-  document.addEventListener('visibilitychange', () => { if (!document.hidden) refresh(); });
+  let started = false;
+  const start = () => {
+    if (started) return;
+    started = true;
+    refresh();
+  };
+  const firstZone = document.querySelector('#freshTopStories, #freshNextStory, #freshMoreStories');
+  if (firstZone && 'IntersectionObserver' in root) {
+    const observer = new IntersectionObserver(entries => {
+      if (!entries.some(entry => entry.isIntersecting)) return;
+      observer.disconnect();
+      start();
+    }, { rootMargin: '220px 0px', threshold: 0.01 });
+    [document.querySelector('#freshTopStories'), document.querySelector('#freshNextStory'), document.querySelector('#freshMoreStories')].filter(Boolean).forEach(node => observer.observe(node));
+  } else if (firstZone) {
+    if (root.requestIdleCallback) root.requestIdleCallback(start, { timeout: 1600 });
+    else setTimeout(start, 900);
+  }
+  setInterval(() => { if (started && !document.hidden) refresh(); }, 300000);
+  root.addEventListener('focus', () => { if (started) refresh(); });
+  window.addEventListener('wktw:data-updated', event => {
+    if (started && String(event.detail?.url || '').split('?')[0].startsWith('/snack-shak-')) refresh();
+  });
+  document.addEventListener('visibilitychange', () => { if (started && !document.hidden) refresh(); });
 })(typeof window !== 'undefined' ? window : globalThis);

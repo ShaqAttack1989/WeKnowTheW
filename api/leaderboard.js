@@ -121,7 +121,7 @@ module.exports=async function handler(req,res){
   const errors=[];
   let rows=[];
   let resolvedBy='';
-  res.setHeader('Cache-Control','s-maxage=1800, stale-while-revalidate=21600');
+  res.setHeader('Cache-Control','s-maxage=300, stale-while-revalidate=600');
   try{
     const official=await getOfficialLeagueLeaders(season,'PerGame',5);
     const categories=official.categories||{};

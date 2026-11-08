@@ -20,7 +20,7 @@
   let observer=null;
 
   function sortPosts(items=[]){return [...items].sort((a,b)=>dateKey(b).localeCompare(dateKey(a))||Number(b.priority||0)-Number(a.priority||0));}
-  async function fetchPosts(url){const payload=window.WHomeData?.get?await window.WHomeData.get(url,{ttl:60000}):await fetch(`${url}?cb=${Date.now()}`,{headers:{Accept:'application/json','Cache-Control':'no-cache'},cache:'no-store'}).then(async response=>response.ok?response.json():({})).catch(()=>({}));return Array.isArray(payload.posts)?payload.posts:[];}
+  async function fetchPosts(url){const payload=window.WHomeData?.get?await window.WHomeData.get(url,{ttl:300000}):await fetch(url,{headers:{Accept:'application/json'},cache:'default'}).then(async response=>response.ok?response.json():({})).catch(()=>({}));return Array.isArray(payload.posts)?payload.posts:[];}
   async function loadSpecials(force=false){
     if(!force&&posts.length&&Date.now()-loadedAt<300000)return posts;
     if(loadPromise&&!force)return loadPromise;

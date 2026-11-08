@@ -178,3 +178,18 @@
   .week-media-tag,.week-snapshot-media span{font-size:.68rem}
 }
 @media(prefers-reduced-motion:reduce){.week-snapshot-card{transition:none}.week-snapshot-card:hover{transform:none}}
+
+
+/* Compact, fixed geometry while dashboard cards load. */
+.week-hub-loading.week-hub-skeleton{display:grid;gap:12px;align-content:center;min-height:260px;padding:20px;overflow:hidden}
+.week-hub-skeleton span{display:block;height:13px;border-radius:999px;background:linear-gradient(90deg,rgba(107,43,217,.08),rgba(107,43,217,.18),rgba(107,43,217,.08));background-size:200% 100%;animation:wktw-skeleton-shimmer 1.5s ease-in-out infinite}
+.week-hub-skeleton span:nth-child(1){width:34%;height:10px}
+.week-hub-skeleton span:nth-child(2){width:78%;height:24px;border-radius:8px}
+.week-hub-skeleton span:nth-child(3){width:92%}
+.week-hub-skeleton span:nth-child(4){width:58%}
+@keyframes wktw-skeleton-shimmer{to{background-position:-200% 0}}
+@media(max-width:760px){
+  .week-editorial-body,.week-snapshot-content{padding:clamp(14px,4vw,18px)}
+  .week-hub-loading.week-hub-skeleton{min-height:220px;padding:16px}
+}
+@media(prefers-reduced-motion:reduce){.week-hub-skeleton span{animation:none}}

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-10T09:53:10.726Z",
+  "generatedAt": "2026-11-10T17:50:24.896Z",
   "movement": {
     "latestTransactionDate": "2026-09-28",
     "transactions": [
@@ -1551,7 +1551,8 @@
         "source": "ESPN via WeHoop-compatible endpoint",
         "sourceUrl": null,
         "officialCurrentReport": false,
-        "crossCheckOnly": true
+        "crossCheckOnly": true,
+        "snapshotCarryover": true
       },
       {
         "player": "Shyanne Sellers",
@@ -1705,7 +1706,8 @@
         "source": "ESPN via WeHoop-compatible endpoint",
         "sourceUrl": null,
         "officialCurrentReport": false,
-        "crossCheckOnly": true
+        "crossCheckOnly": true,
+        "snapshotCarryover": true
       },
       {
         "player": "DiJonai Carrington",
@@ -1789,7 +1791,8 @@
         "source": "ESPN via WeHoop-compatible endpoint",
         "sourceUrl": null,
         "officialCurrentReport": false,
-        "crossCheckOnly": true
+        "crossCheckOnly": true,
+        "snapshotCarryover": true
       },
       {
         "player": "Saniya Rivers",
@@ -1803,7 +1806,8 @@
         "source": "ESPN via WeHoop-compatible endpoint",
         "sourceUrl": null,
         "officialCurrentReport": false,
-        "crossCheckOnly": true
+        "crossCheckOnly": true,
+        "snapshotCarryover": true
       },
       {
         "player": "Temi Fagbenle",
@@ -1901,7 +1905,8 @@
         "source": "ESPN via WeHoop-compatible endpoint",
         "sourceUrl": null,
         "officialCurrentReport": false,
-        "crossCheckOnly": true
+        "crossCheckOnly": true,
+        "snapshotCarryover": true
       },
       {
         "player": "Katie Lou Samuelson",

@@ -2,7 +2,7 @@
   const espnPlayer=id=>`https://a.espncdn.com/i/headshots/womens-college-basketball/players/full/${id}.png`;
   const espnTeam=code=>`https://a.espncdn.com/i/teamlogos/wnba/500/${code}.png`;
   const espnSchool=id=>`https://a.espncdn.com/i/teamlogos/ncaa/500/${id}.png`;
-  const houstonLogo='https://d26dmzpiksq0q.cloudfront.net/shared/whou/whou-comets-logo-blue-portrait.svg';
+  const houstonLogo='https://d23t1lvx2rk2vx.cloudfront.net/comets/logos/secondary/city/secondary_logo_dark.svg';
   const ainhoaPhoto='https://cdn.bebasket.fr/resources/images/player/ainhoa-risacher-2026-2027-profile-1f178471-2fcf-639a-a8ac-8fca17a9eb4f.png';
   const zhangPhoto='https://assets.fiba.basketball/image/upload/v1753005223/s1bdb9ertxgon28owwib.jpg';
   const teams={houston:{name:'Houston Comets',abbr:'HOU',logo:houstonLogo,color:'#b6223c'},toronto:{name:'Toronto Tempo',abbr:'TOR',logo:espnTeam('tor'),color:'#2477c5'},washington:{name:'Washington Mystics',abbr:'WAS',logo:espnTeam('wsh'),color:'#15365c'},seattle:{name:'Seattle Storm',abbr:'SEA',logo:espnTeam('sea'),color:'#286140'},portland:{name:'Portland Fire',abbr:'POR',logo:espnTeam('por'),color:'#c8352d'},losAngeles:{name:'Los Angeles Sparks',abbr:'LAS',logo:espnTeam('la'),color:'#6a2d88'},dallas:{name:'Dallas Wings',abbr:'DAL',logo:espnTeam('dal'),color:'#17607a'},chicago:{name:'Chicago Sky',abbr:'CHI',logo:espnTeam('chi'),color:'#3994ba'},newYork:{name:'New York Liberty',abbr:'NYL',logo:espnTeam('ny'),color:'#228675'},indiana:{name:'Indiana Fever',abbr:'IND',logo:espnTeam('ind'),color:'#b42b39'},goldenState:{name:'Golden State Valkyries',abbr:'GSV',logo:espnTeam('gs'),color:'#704ab5'},minnesota:{name:'Minnesota Lynx',abbr:'MIN',logo:espnTeam('min'),color:'#14584d'}};

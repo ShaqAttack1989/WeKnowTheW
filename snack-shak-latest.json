@@ -2,6 +2,32 @@
   "site": "Snack Shak",
   "posts": [
     {
+      "slug": "2027-draft-watch-kitts-rises-booker-health",
+      "type": "byte",
+      "priority": 64000,
+      "homepageSeason": true,
+      "seriesLabel": "2027 DRAFT WATCH",
+      "title": "Draft Watch: Kitts Climbs, Booker’s Status Pending",
+      "published": "2026-11-14",
+      "updated": "2026-11-14",
+      "week": "2027 WNBA DRAFT WATCH",
+      "dek": "Chloe Kitts reaches No. 9–10 in two new mocks. Madison Booker’s availability remains pending after her November 11 exit. Our numbered board stays intact ahead of the lottery.",
+      "teams": [
+        "South Carolina",
+        "Texas"
+      ],
+      "players": [
+        "Chloe Kitts",
+        "Madison Booker"
+      ],
+      "image": "https://a.espncdn.com/i/headshots/womens-college-basketball/players/full/5121055.png",
+      "imageAlt": "Chloe Kitts in her South Carolina player headshot.",
+      "imageFit": "contain",
+      "imageFocus": "50% 25%",
+      "imageSourceUrl": "https://abc7.com/post/juju-watkins-projected-no-1-wnba-pick-latest-2027-mock-draft/20038049/",
+      "dashboardUrl": "/2027-wnba-mock-draft.html#what-changed"
+    },
+    {
       "slug": "2027-wnba-draft-lottery-representatives",
       "type": "byte",
       "priority": 63000,

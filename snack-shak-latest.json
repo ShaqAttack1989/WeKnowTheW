@@ -35,7 +35,7 @@
       "seriesLabel": "SNACK SHAK BYTE · DRAFT LOTTERY",
       "title": "Who’s Carrying Lottery Night?",
       "published": "2026-11-12",
-      "updated": "2026-11-13",
+      "updated": "2026-11-14",
       "week": "2027 WNBA DRAFT LOTTERY",
       "dek": "Four lottery-night representatives are named: Tina Thompson for Houston, Aneesah Morrow for Toronto, Sylvia Fowles for Portland and Murriel Page for Washington. Los Angeles and Seattle remain unconfirmed.",
       "teams": [
@@ -52,11 +52,11 @@
         "Sylvia Fowles",
         "Murriel Page"
       ],
-      "image": "https://cdn.nba.com/teams/uploads/sites/1610612757/2022/10/tina_thompson_600x600_22.png",
-      "imageFit": "cover",
-      "imageFocus": "50% 25%",
-      "imageAlt": "Tina Thompson, inaugural WNBA No. 1 draft pick and four-time Houston Comets champion, in a real professional portrait.",
-      "imageSourceUrl": "https://www.nba.com/blazers/tina-thompson",
+      "image": "https://cdn.wnba.com/sites/4/2026/10/DL.png",
+      "imageFit": "contain",
+      "imageFocus": "50% 50%",
+      "imageAlt": "Official WNBA Draft Lottery graphic for the 2027 lottery.",
+      "imageSourceUrl": "https://www.wnba.com/news/wnba-draft-lottery-2027-sunday-november-15",
       "storyLead": [
         "One lottery, six franchises and seven first-round tickets. The 2027 WNBA Draft Lottery airs Sunday, November 15 at 7:30 p.m. ET on ESPN. Los Angeles holds its own pick and Phoenix’s, while Washington holds Chicago’s.",
         "As of November 13, four team representatives have been identified: Houston’s Tina Thompson, Toronto’s Aneesah Morrow, Portland’s Sylvia Fowles and Washington’s Murriel Page. Los Angeles and Seattle have not named a representative in the sources verified for this update. The historical reasons below are analysis unless directly attributed to a team."
@@ -81,6 +81,14 @@
           "title": "Toronto Tempo: Aneesah Morrow",
           "paragraphs": [
             "The Tempo introduced Morrow with “Morrow Magic.” The team has not published a fuller explanation for choosing her as its representative. Our read: Toronto is spotlighting a young forward it added midseason to help address rebounding, and a player who can connect the franchise’s first season to what comes next."
+          ],
+          "photoGridLabel": "Toronto Tempo lottery representative",
+          "photos": [
+            {
+              "image": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1642800.png",
+              "alt": "Aneesah Morrow in her official WNBA headshot.",
+              "name": "Aneesah Morrow · Photo: WNBA"
+            }
           ]
         },
         {
@@ -178,7 +186,10 @@
           "label": "Naismith Hall of Fame: Tina Thompson career",
           "url": "https://www.hoophall.com/hall-of-famers/tina-thompson"
         }
-      ]
+      ],
+      "storyImage": "https://cdn.wnba.com/sites/4/2026/10/DL.png",
+      "storyImageSourceUrl": "https://www.wnba.com/news/wnba-draft-lottery-2027-sunday-november-15",
+      "storyImageCaption": "2027 WNBA Draft Lottery · November 15, 2026 · Graphic: WNBA."
     },
     {
       "slug": "kayla-mcbride-community-assist-award-2026",

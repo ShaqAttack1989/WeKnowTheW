@@ -2,6 +2,148 @@
   "site": "Snack Shak",
   "posts": [
     {
+      "slug": "toronto-wins-2027-lottery-the-pick-is-only-the-beginning",
+      "type": "feature",
+      "priority": 99000,
+      "seriesLabel": "FOOD FOR THOUGHT · 2027 DRAFT",
+      "title": "Toronto Won the Pick. Now Comes the Work.",
+      "published": "2026-11-15",
+      "updated": "2026-11-15",
+      "week": "2027 WNBA Draft · Lottery Night",
+      "teams": [
+        "Toronto Tempo",
+        "Houston Comets",
+        "Washington Mystics",
+        "Seattle Storm",
+        "Portland Fire",
+        "Los Angeles Sparks"
+      ],
+      "players": [
+        "JuJu Watkins",
+        "Hannah Hidalgo",
+        "Madison Booker"
+      ],
+      "image": "https://cdn.wnba.com/sites/4/2026/10/DL.png",
+      "storyImage": "https://cdn.wnba.com/sites/4/2026/10/DL.png",
+      "imageFit": "contain",
+      "imageAlt": "Official WNBA Draft Lottery 2027 graphic.",
+      "imageSource": "WNBA",
+      "imageSourceUrl": "https://www.wnba.com/news/wnba-draft-lottery-2027-sunday-november-15",
+      "storyImageCaption": "Official 2027 WNBA Draft Lottery graphic. Credit: WNBA.",
+      "dek": "Toronto gets first choice, Houston follows at No. 2, and Washington’s Chicago pick becomes No. 3. The order is real. The player choices still have a season to earn.",
+      "storyLead": [
+        "The ping-pong balls have finished their part. Toronto won the first pick in the 2027 WNBA Draft on November 15, with Houston second. Sportsnet confirmed the Tempo’s win Sunday evening, and SB Nation reported the complete seven-pick lottery order.",
+        "For Toronto, this is a chance to decide what its next chapter sounds like. For everyone watching JuJu Watkins, it gives the most obvious draft conversation an actual destination. But a winning envelope does not put a player under contract. April still requires declarations, evaluation and a roster plan."
+      ],
+      "storyTable": {
+        "columns": [
+          "Pick",
+          "Team",
+          "Pick origin"
+        ],
+        "rows": [
+          [
+            "1",
+            "Toronto Tempo",
+            "Own"
+          ],
+          [
+            "2",
+            "Houston Comets",
+            "Former Connecticut franchise"
+          ],
+          [
+            "3",
+            "Washington Mystics",
+            "Via Chicago"
+          ],
+          [
+            "4",
+            "Seattle Storm",
+            "Own"
+          ],
+          [
+            "5",
+            "Portland Fire",
+            "Own"
+          ],
+          [
+            "6",
+            "Los Angeles Sparks",
+            "Own"
+          ],
+          [
+            "7",
+            "Los Angeles Sparks",
+            "Via Phoenix"
+          ]
+        ],
+        "summary": "The seven lottery selections · November 15 results"
+      },
+      "sections": [
+        {
+          "title": "Toronto has the first decision, not a finished team",
+          "image": "https://a.espncdn.com/i/headshots/womens-college-basketball/players/full/5175946.png",
+          "imageAlt": "USC guard JuJu Watkins.",
+          "imageCaption": "JuJu Watkins remains the WKTW projected No. 1, contingent on entering the draft. Player photo: ESPN.",
+          "paragraphs": [
+            "My early call remains Watkins at No. 1 if she enters. That is an editorial projection, not a selection announcement. Her combination of size and on-ball creation offers a team a way to organize an offense around a player who can force a defense to react.",
+            "The practical challenge is building the conditions for that talent to thrive. Toronto should be thinking about spacing, a dependable second decision-maker and defensive support. Asking a rookie to generate every difficult shot is a heavy welcome basket. Winning first choice gives the front office flexibility; it does not excuse the rest of the construction."
+          ]
+        },
+        {
+          "title": "Houston still gets a serious swing",
+          "paragraphs": [
+            "Second is a strong place to begin the next version of the Comets. Our current mock pairs Houston with Hannah Hidalgo. Her ball pressure and downhill guard play suggest a distinct identity, but that fit remains a projection while the college season develops.",
+            "Houston should evaluate the whole top tier rather than behave as if Toronto has already selected someone. Prospect availability, health and skill development can change the decision. A useful draft room keeps its options open longer than social media does."
+          ]
+        },
+        {
+          "title": "Washington’s trade has a number now",
+          "paragraphs": [
+            "The Mystics hold No. 3 through Chicago’s pick. The WNBA’s published ownership notes tie that selection to the Ariel Atkins trade. That is a tangible return on a previous roster decision, and another chance to add a high-level prospect.",
+            "Madison Booker remains our No. 3 projection. Her health deserves careful tracking: AP reported that Texas held her out November 14 as a precaution, with Vic Schaefer expecting her back November 18. An expected return is not a completed return. The lottery changes Washington’s certainty about its slot, not what we know about Booker’s availability."
+          ]
+        },
+        {
+          "title": "Seattle, Portland and the Sparks still have choices",
+          "paragraphs": [
+            "Seattle picks fourth and Portland fifth. Both can use the months ahead to test which prospects offer repeatable professional skills rather than chase a college highlight reel. The useful questions are specific: Who creates an advantage? Who sustains it? Who can defend the next action?",
+            "Los Angeles has consecutive selections at six and seven, including Phoenix’s pick. Two picks create a different kind of flexibility: complementary prospects, two development timelines, or assets to discuss in a future transaction. None of that is a reported trade plan. It is the strategic menu those slots provide."
+          ]
+        },
+        {
+          "title": "What changes on our board",
+          "paragraphs": [
+            "The Toronto-first ordering in our early mock now matches the reported lottery outcome instead of serving as a placeholder. Houston follows, then Washington via Chicago, Seattle, Portland and the two Los Angeles selections. That validates the destination order; it does not prove every prospect ranking correct.",
+            "Keep the distinction clear: lottery position is a result, and a mock selection is an opinion. We will keep evaluating the players, their decisions and their sustained performance before the April 12, 2027 draft. Toronto won tonight’s first choice. The best front-office work starts after the celebration."
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "label": "Sportsnet: Toronto lands first overall, November 15",
+          "url": "https://www.sportsnet.ca/wnba/article/tempo-land-first-overall-pick-in-2027-wnba-draft/"
+        },
+        {
+          "label": "SB Nation: complete seven-pick lottery results, November 15",
+          "url": "https://www.sbnation.com/womens-sports/1135277/wnba-draft-lottery-toronto-tempo"
+        },
+        {
+          "label": "WNBA: official lottery method, ownership and April 12 draft date",
+          "url": "https://www.wnba.com/news/wnba-draft-lottery-2027-sunday-november-15"
+        },
+        {
+          "label": "AP: Booker held out as precaution, November 14",
+          "url": "https://abcnews.com/Sports/wireStory/freshman-brihanna-crittendon-scores-16-points-6-texas-138146643"
+        },
+        {
+          "label": "We Know the W: current mock and prospect watch",
+          "url": "/2027-wnba-mock-draft.html"
+        }
+      ]
+    },
+    {
       "slug": "2027-draft-watch-kitts-rises-booker-health",
       "type": "byte",
       "priority": 64000,

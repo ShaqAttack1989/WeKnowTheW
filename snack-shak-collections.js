@@ -560,10 +560,16 @@ function wirePayHistoryDashboard(root){
     if(!photos.length)return'';
     return '<div class="snack-story-photo-grid" aria-label="'+safe(label)+'">'+photos.map(item=>'<figure><img src="'+safe(item.image||'')+'" alt="'+safe(item.alt||item.name||'Official player portrait')+'" loading="lazy" decoding="async"'+imageRecovery(item.imageFallback||'')+'><figcaption><strong>'+safe(item.name||'')+'</strong></figcaption></figure>').join('')+'</div>';
   }
+  function pairingRowsMarkup(rows){
+    if(!Array.isArray(rows)||!rows.length)return '';
+    const portrait=item=>'<figure><img src="'+safe(item.image)+'" alt="'+safe(item.alt||item.name)+'" loading="lazy" decoding="async"><figcaption>'+safe(item.name)+'</figcaption></figure>';
+    const cell=(label,items)=>'<div class="draft-pair-cell"><strong class="draft-pair-label">'+label+'</strong>'+ (items.length?items.map(portrait).join(''):'<p class="draft-pair-empty">No named free-agent pairing proposed.</p>')+'</div>';
+    return '<style>.draft-pair-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin:24px 0;padding:18px;background:#f4effa;border:1px solid #d9cce6;border-radius:18px}.draft-pair-cell{min-width:0;text-align:center}.draft-pair-label{display:block;font-size:14px;line-height:1.5;color:#552087;margin-bottom:12px}.draft-pair-cell figure{margin:0 0 16px!important}.draft-pair-cell img{display:block;width:100%;height:170px;object-fit:contain;background:#fff;border-radius:12px}.draft-pair-cell figcaption{font-size:16px;line-height:1.5;font-weight:750;color:#21122f;margin-top:10px;overflow-wrap:break-word}.draft-pair-empty{font-size:16px;line-height:1.5;color:#62566d}@media(max-width:600px){.draft-pair-row{grid-template-columns:1fr;padding:18px;gap:22px}.draft-pair-cell img{height:190px}.draft-pair-cell{padding-bottom:12px;border-bottom:1px solid #d9cce6}.draft-pair-cell:last-child{border-bottom:0}}</style>'+rows.map(row=>'<div class="draft-pair-row" aria-label="Team, projected rookie and potential free-agent pairing">'+cell('TEAM',[row.team])+cell('PROJECTED ROOKIE',row.rookies||[])+cell('FREE AGENT · PROPOSED FIT / RETENTION',row.veterans||[])+'</div>').join('');
+  }
   function sectionsMarkup(sections=[]){
     return sections.map(section=>{
       const graphic=section.image?storyImageMarkup({storyImage:section.image,imageAlt:section.imageAlt||section.title,storyImageCaption:section.imageCaption}):'';
-      const photos=sectionPhotoGridMarkup(section.photos,section.photoGridLabel||((section.title||'')+' player portraits'));
+      const photos=section.pairingRows?pairingRowsMarkup(section.pairingRows):sectionPhotoGridMarkup(section.photos,section.photoGridLabel||((section.title||'')+' player portraits'));
       const paragraphs=(section.paragraphs||[]).map(paragraph=>'<p>'+safe(paragraph)+'</p>').join('');
       const id=section.id?' id="'+safe(section.id)+'"':'';
       return '<section class="snack-section"'+id+'><h3>'+safe(section.title)+'</h3>'+graphic+photos+paragraphs+'</section>';

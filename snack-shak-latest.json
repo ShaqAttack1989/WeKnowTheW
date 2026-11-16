@@ -147,270 +147,359 @@
         },
         {
           "title": "No. 1 Toronto: Watkins can raise the ceiling; the frontcourt sets the pace",
-          "photos": [
-            {
-              "name": "JuJu Watkins",
-              "image": "https://a.espncdn.com/i/headshots/womens-college-basketball/players/full/5175946.png",
-              "alt": "JuJu Watkins college player headshot. Photo: ESPN."
-            },
-            {
-              "name": "Temi Fágbénlé · potential re-signing",
-              "image": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1627701.png",
-              "alt": "Temi Fágbénlé official WNBA headshot. potential re-signing. Photo: WNBA."
-            },
-            {
-              "name": "Toronto",
-              "image": "https://a.espncdn.com/i/teamlogos/wnba/500/tor.png",
-              "alt": "Team logo"
-            }
-          ],
           "paragraphs": [
             "Toronto finished 11–33. That is a substantial distance from the playoff line, so drafting Watkins should not automatically turn into a postseason guarantee. Our projection gives the Tempo a large creator who can draw help, attack mismatches and supply defensive playmaking. The first return would be an offense with another way to manufacture an advantage.",
             "The danger is confusing a franchise centerpiece with a complete franchise. Toronto needs dependable screening, finishing and defensive communication around its creators. A healthy roster also matters: the ESPN offseason guide described a season disrupted by major availability problems. Some improvement can come from returning players being available rather than from the rookie doing everything.",
             "My free-agency construction idea is Watkins plus a veteran frontcourt stabilizer. Re-signing listed free agent Temi Fágbénlé would be a continuity route; pursuing another proven screen-and-finish defender would be the external route. That is less glamorous than adding another high-usage scorer, but it gives the rookie more functional possessions. Immediate ROI: high potential for attention and rotation impact, more measured expectations for wins."
           ],
-          "photoGridLabel": "Potential rookie and veteran pairing; proposed, not signed"
+          "photoGridLabel": "Potential rookie and veteran pairing; proposed, not signed",
+          "pairingRows": [
+            {
+              "team": {
+                "name": "Toronto Tempo",
+                "image": "https://a.espncdn.com/i/teamlogos/wnba/500/tor.png",
+                "alt": "Toronto Tempo logo"
+              },
+              "rookies": [
+                {
+                  "name": "JuJu Watkins",
+                  "image": "https://a.espncdn.com/i/headshots/womens-college-basketball/players/full/5175946.png",
+                  "alt": "JuJu Watkins college player headshot. Photo: ESPN."
+                }
+              ],
+              "veterans": [
+                {
+                  "name": "Temi Fágbénlé · potential re-signing",
+                  "image": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1627701.png",
+                  "alt": "Temi Fágbénlé official WNBA headshot. potential re-signing. Photo: WNBA."
+                }
+              ]
+            }
+          ]
         },
         {
           "title": "No. 2 Houston: Hidalgo needs an offense that can cash in the pressure",
-          "photos": [
-            {
-              "name": "Hannah Hidalgo",
-              "image": "https://a.espncdn.com/i/headshots/womens-college-basketball/players/full/5174674.png",
-              "alt": "Hannah Hidalgo college player headshot. Photo: ESPN."
-            },
-            {
-              "name": "Brittney Griner · potential re-signing",
-              "image": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/203398.png",
-              "alt": "Brittney Griner official WNBA headshot. potential re-signing. Photo: WNBA."
-            },
-            {
-              "name": "Houston Comets",
-              "image": "https://d23t1lvx2rk2vx.cloudfront.net/comets/logos/secondary/city/secondary_logo_dark.svg",
-              "alt": "Team logo"
-            }
-          ],
           "paragraphs": [
             "The Connecticut franchise finished 11–33 before its Houston move. Her Hoop Stats ranked its offense last and its defense 11th in 2026. Hidalgo would supply an identity: disruptive pressure, pace and repeated challenges to a defense before it is comfortably set.",
             "Those strengths lose value if every steal leads into a crowded lane. Houston’s offseason should prioritize shooting and a reliable half-court outlet. In this projection, Hidalgo’s early impact is likely to show in possession creation and transition opportunities before the entire offense becomes efficient.",
             "A Hidalgo–Brittney Griner partnership is a retention scenario, not a new signing: Griner appears on the upcoming free-agent list. If Houston retains her, the rookie would have an experienced interior target. The external shopping list should then emphasize a lower-usage shooter. Trying to add another ball-dominant guard without improving spacing could duplicate the problem. Immediate ROI: meaningful minutes and defensive events are plausible; a rapid playoff leap needs veteran help."
           ],
-          "photoGridLabel": "Potential rookie and veteran pairing; proposed, not signed"
+          "photoGridLabel": "Potential rookie and veteran pairing; proposed, not signed",
+          "pairingRows": [
+            {
+              "team": {
+                "name": "Houston Comets",
+                "image": "https://d23t1lvx2rk2vx.cloudfront.net/comets/logos/secondary/city/secondary_logo_dark.svg",
+                "alt": "Team logo"
+              },
+              "rookies": [
+                {
+                  "name": "Hannah Hidalgo",
+                  "image": "https://a.espncdn.com/i/headshots/womens-college-basketball/players/full/5174674.png",
+                  "alt": "Hannah Hidalgo college player headshot. Photo: ESPN."
+                }
+              ],
+              "veterans": [
+                {
+                  "name": "Brittney Griner · potential re-signing",
+                  "image": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/203398.png",
+                  "alt": "Brittney Griner official WNBA headshot. potential re-signing. Photo: WNBA."
+                }
+              ]
+            }
+          ]
         },
         {
           "title": "No. 3 Washington: Booker gets the strongest foundation in this lottery",
-          "photos": [
-            {
-              "name": "Madison Booker",
-              "image": "https://a.espncdn.com/i/headshots/womens-college-basketball/players/full/5175792.png",
-              "alt": "Madison Booker college player headshot. Photo: ESPN."
-            },
-            {
-              "name": "Betnijah Laney-Hamilton · potential re-signing",
-              "image": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/204335.png",
-              "alt": "Betnijah Laney-Hamilton official WNBA headshot. potential re-signing. Photo: WNBA."
-            },
-            {
-              "name": "Washington",
-              "image": "https://a.espncdn.com/i/teamlogos/wnba/500/wsh.png",
-              "alt": "Team logo"
-            }
-          ],
           "paragraphs": [
             "Washington was 28–16 and reached the playoffs, then lost its first-round series to Atlanta. Its No. 3 selection comes from Chicago. That is why this is a different return-on-investment case: the Mystics can add a premium prospect without asking her to rescue a bottom-of-the-table team.",
             "Booker offers the outline of a wing organizer who can connect possessions and help late in the clock. She would need to earn touches, defend consistently and show how her shooting fits the professional floor. Her November 14 precautionary absence remains part of the evaluation; an expected November 18 return is not a completed return.",
             "The sensible veteran pairing is an experienced two-way wing or shooter, with a Betnijah Laney-Hamilton retention discussion one available continuity question on the current free-agent board. That is not a claim she has re-signed. Washington can be selective about an outside addition because a good rookie role may be more valuable than another expensive player competing for the same minutes. Immediate ROI: strongest chance among the lottery teams for a defined role to help an existing playoff group."
           ],
-          "photoGridLabel": "Potential rookie and veteran pairing; proposed, not signed"
+          "photoGridLabel": "Potential rookie and veteran pairing; proposed, not signed",
+          "pairingRows": [
+            {
+              "team": {
+                "name": "Washington Mystics",
+                "image": "https://a.espncdn.com/i/teamlogos/wnba/500/wsh.png",
+                "alt": "Washington Mystics logo"
+              },
+              "rookies": [
+                {
+                  "name": "Madison Booker",
+                  "image": "https://a.espncdn.com/i/headshots/womens-college-basketball/players/full/5175792.png",
+                  "alt": "Madison Booker college player headshot. Photo: ESPN."
+                }
+              ],
+              "veterans": [
+                {
+                  "name": "Betnijah Laney-Hamilton · potential re-signing",
+                  "image": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/204335.png",
+                  "alt": "Betnijah Laney-Hamilton official WNBA headshot. potential re-signing. Photo: WNBA."
+                }
+              ]
+            }
+          ]
         },
         {
           "title": "No. 4 Seattle: Nichols plus a veteran organizer is a rebuild with guardrails",
-          "photos": [
-            {
-              "name": "S’Mya Nichols",
-              "image": "https://a.espncdn.com/i/headshots/womens-college-basketball/players/full/5175749.png",
-              "alt": "S’Mya Nichols college player headshot. Photo: ESPN."
-            },
-            {
-              "name": "Natasha Cloud · hypothetical target",
-              "image": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/204333.png",
-              "alt": "Natasha Cloud official WNBA headshot. hypothetical target. Photo: WNBA."
-            },
-            {
-              "name": "Seattle",
-              "image": "https://a.espncdn.com/i/teamlogos/wnba/500/sea.png",
-              "alt": "Team logo"
-            }
-          ],
           "paragraphs": [
             "Seattle finished 8–36, the worst record in the league. A rookie should not be assigned responsibility for repairing that entire gap. Nichols brings a size-and-creation bet, with rim pressure and passing that could make the Storm harder to contain. Her perimeter shooting and possession-to-possession defense remain important translation questions.",
             "This is a team where an experienced organizer can make the rookie’s job more learnable. Natasha Cloud, listed among the upcoming free agents, is an illustrative external fit: a veteran who could shoulder initiation and defensive communication while Nichols grows into a bigger role. There is no reported Seattle agreement or pursuit asserted here.",
             "The tradeoff is developmental space versus short-term structure. A veteran should make the young player’s decisions clearer without taking every meaningful possession away. Immediate ROI: developmental progress is the fairest first-year benchmark; expecting one pick to erase a 36-loss season is asking the draft to do the whole front office’s homework."
           ],
-          "photoGridLabel": "Potential rookie and veteran pairing; proposed, not signed"
+          "photoGridLabel": "Potential rookie and veteran pairing; proposed, not signed",
+          "pairingRows": [
+            {
+              "team": {
+                "name": "Seattle Storm",
+                "image": "https://a.espncdn.com/i/teamlogos/wnba/500/sea.png",
+                "alt": "Seattle Storm logo"
+              },
+              "rookies": [
+                {
+                  "name": "S’Mya Nichols",
+                  "image": "https://a.espncdn.com/i/headshots/womens-college-basketball/players/full/5175749.png",
+                  "alt": "S’Mya Nichols college player headshot. Photo: ESPN."
+                }
+              ],
+              "veterans": [
+                {
+                  "name": "Natasha Cloud · hypothetical target",
+                  "image": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/204333.png",
+                  "alt": "Natasha Cloud official WNBA headshot. hypothetical target. Photo: WNBA."
+                }
+              ]
+            }
+          ]
         },
         {
           "title": "No. 5 Portland: Fulwiley needs a defense behind the fireworks",
-          "photos": [
-            {
-              "name": "MiLaysia Fulwiley",
-              "image": "https://a.espncdn.com/i/headshots/womens-college-basketball/players/full/5174285.png",
-              "alt": "MiLaysia Fulwiley college player headshot. Photo: ESPN."
-            },
-            {
-              "name": "DiJonai Carrington · hypothetical target",
-              "image": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1630096.png",
-              "alt": "DiJonai Carrington official WNBA headshot. hypothetical target. Photo: WNBA."
-            },
-            {
-              "name": "Portland",
-              "image": "https://a.espncdn.com/i/teamlogos/wnba/500/por.png",
-              "alt": "Team logo"
-            }
-          ],
           "paragraphs": [
             "Portland went 17–27 in its inaugural season, a better base than Seattle, Toronto or Connecticut. In our current projection, Fulwiley brings burst, transition creativity and pressure. The offensive appeal is easy to picture; the question is whether Portland can keep that pace without surrendering efficient looks at the other end.",
             "A veteran defensive wing would make more sense than simply adding a second highlight guard. DiJonai Carrington, on the upcoming free-agent list, is a hypothetical target for that function. This is a fit proposal, not a report of negotiations, and her price, preferences and competing offers would matter.",
             "The early payoff would be a harder perimeter to attack and a young creator who can play through mistakes within a coherent structure. Portland should judge the pairing by how the lineup functions, not just the rookie’s scoring average. Immediate ROI: plausible improvement toward playoff contention, contingent on defensive progress and the rest of the roster."
           ],
-          "photoGridLabel": "Potential rookie and veteran pairing; proposed, not signed"
+          "photoGridLabel": "Potential rookie and veteran pairing; proposed, not signed",
+          "pairingRows": [
+            {
+              "team": {
+                "name": "Portland Fire",
+                "image": "https://a.espncdn.com/i/teamlogos/wnba/500/por.png",
+                "alt": "Portland Fire logo"
+              },
+              "rookies": [
+                {
+                  "name": "MiLaysia Fulwiley",
+                  "image": "https://a.espncdn.com/i/headshots/womens-college-basketball/players/full/5174285.png",
+                  "alt": "MiLaysia Fulwiley college player headshot. Photo: ESPN."
+                }
+              ],
+              "veterans": [
+                {
+                  "name": "DiJonai Carrington · hypothetical target",
+                  "image": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1630096.png",
+                  "alt": "DiJonai Carrington official WNBA headshot. hypothetical target. Photo: WNBA."
+                }
+              ]
+            }
+          ]
         },
         {
           "title": "Nos. 6–7 Los Angeles: Williams and Strack make more sense together",
-          "photos": [
-            {
-              "name": "Mikaylah Williams",
-              "image": "https://a.espncdn.com/i/headshots/womens-college-basketball/players/full/5174267.png",
-              "alt": "Mikaylah Williams college player headshot. Photo: ESPN."
-            },
-            {
-              "name": "Clara Strack · projected rookie",
-              "image": "https://a.espncdn.com/i/headshots/womens-college-basketball/players/full/5174442.png",
-              "alt": "Clara Strack college headshot. Photo: ESPN."
-            },
-            {
-              "name": "Kelsey Mitchell · hypothetical target",
-              "image": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1628909.png",
-              "alt": "Kelsey Mitchell official WNBA headshot. hypothetical target. Photo: WNBA."
-            },
-            {
-              "name": "Los Angeles",
-              "image": "https://a.espncdn.com/i/teamlogos/wnba/500/la.png",
-              "alt": "Team logo"
-            }
-          ],
           "paragraphs": [
             "Los Angeles finished 16–28 and holds its own pick plus Phoenix’s selection. Our projection pairs Mikaylah Williams with Clara Strack: a perimeter scoring bet followed by an interior anchor. Two selections let the Sparks address distinct jobs instead of asking one rookie to be both creator and defensive repair kit.",
             "Strack’s screening and finishing could complement Williams’ scoring, while Williams’ perimeter threat could improve the space around the center. Both would still face the jump in speed, strength and decision-making. A young center’s timing in ball-screen defense rarely arrives fully formed on opening night.",
             "A veteran guard would be the natural third piece. Kelsey Mitchell is a premium hypothetical target from the upcoming market; she is not a newly acquired Spark. That scenario is a difficult recruitment and roster-budget exercise, not a plug-and-play assumption. A more modest veteran organizer could still help. Immediate ROI: two usable roles are possible, but a crowded development plan or a poor veteran fit could delay the payoff."
           ],
-          "photoGridLabel": "Potential rookie and veteran pairing; proposed, not signed"
+          "photoGridLabel": "Potential rookie and veteran pairing; proposed, not signed",
+          "pairingRows": [
+            {
+              "team": {
+                "name": "Los Angeles Sparks",
+                "image": "https://a.espncdn.com/i/teamlogos/wnba/500/la.png",
+                "alt": "Los Angeles Sparks logo"
+              },
+              "rookies": [
+                {
+                  "name": "Mikaylah Williams",
+                  "image": "https://a.espncdn.com/i/headshots/womens-college-basketball/players/full/5174267.png",
+                  "alt": "Mikaylah Williams college player headshot. Photo: ESPN."
+                },
+                {
+                  "name": "Clara Strack · projected rookie",
+                  "image": "https://a.espncdn.com/i/headshots/womens-college-basketball/players/full/5174442.png",
+                  "alt": "Clara Strack college headshot. Photo: ESPN."
+                }
+              ],
+              "veterans": [
+                {
+                  "name": "Kelsey Mitchell · hypothetical target",
+                  "image": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1628909.png",
+                  "alt": "Kelsey Mitchell official WNBA headshot. hypothetical target. Photo: WNBA."
+                }
+              ]
+            }
+          ]
         },
         {
           "title": "Picks 8–11: playoff teams can buy a role, Chicago needs a foundation",
-          "photos": [
-            {
-              "name": "New York Liberty",
-              "image": "https://a.espncdn.com/i/teamlogos/wnba/500/ny.png",
-              "alt": "New York Liberty logo"
-            },
-            {
-              "name": "Talaysia Cooper",
-              "image": "https://a.espncdn.com/i/headshots/womens-college-basketball/players/full/4682955.png",
-              "alt": "Talaysia Cooper. Photo: ESPN."
-            },
-            {
-              "name": "Dallas Wings",
-              "image": "https://a.espncdn.com/i/teamlogos/wnba/500/dal.png",
-              "alt": "Dallas Wings logo"
-            },
-            {
-              "name": "Tessa Johnson",
-              "image": "https://a.espncdn.com/i/headshots/womens-college-basketball/players/full/5174284.png",
-              "alt": "Tessa Johnson. Photo: ESPN."
-            },
-            {
-              "name": "Indiana Fever",
-              "image": "https://a.espncdn.com/i/teamlogos/wnba/500/ind.png",
-              "alt": "Indiana Fever logo"
-            },
-            {
-              "name": "Ashlyn Watkins",
-              "image": "https://a.espncdn.com/i/headshots/womens-college-basketball/players/full/4565516.png",
-              "alt": "Ashlyn Watkins. Photo: ESPN."
-            },
-            {
-              "name": "Kelsey Mitchell · Indiana retention scenario",
-              "image": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1628909.png",
-              "alt": "Kelsey Mitchell official WNBA headshot. Indiana retention scenario. Photo: WNBA."
-            },
-            {
-              "name": "Chicago Sky",
-              "image": "https://a.espncdn.com/i/teamlogos/wnba/500/chi.png",
-              "alt": "Chicago Sky logo"
-            },
-            {
-              "name": "Oluchi Okananwa",
-              "image": "https://a.espncdn.com/i/headshots/womens-college-basketball/players/full/5174408.png",
-              "alt": "Oluchi Okananwa. Photo: ESPN."
-            }
-          ],
           "paragraphs": [
             "New York, 26–18 and a semifinalist, gets Cooper at No. 8 in this projection. Her length and attacking force offer a perimeter role that should be assessed alongside the veterans already in place. A targeted shooter or defensive depth addition could help more than another player who needs the offense built around her. Immediate ROI: rotation competition and athletic depth, with playoff usefulness dependent on decisions and shooting.",
             "Dallas, 27–17 with a first-round exit, gets Tessa Johnson at No. 9. Her shooting offers a straightforward way to support an existing guard-led attack. The draft-and-market question is whether Dallas can pair that spacing with another dependable frontcourt role, including its own retention decisions. Immediate ROI: potentially quick because a complementary shooter can contribute without owning every possession.",
             "Indiana, 28–16 with a first-round exit, gets Ashlyn Watkins at No. 10. Vertical defense, rebounding and rim running are the appeal. The major free-agency companion decision is retaining Kelsey Mitchell, not pretending she has already been replaced or newly signed. A proven perimeter scorer and a rookie interior athlete solve different problems. Immediate ROI: a useful specialist role if sustained availability and defensive readiness support it.",
             "Chicago, 16–28, uses Washington’s pick on Okananwa at No. 11. Her force and defense provide a perimeter building block, but the Sky need enough shooting and organized creation to make those strengths useful. An experienced guard addition would be a reasonable priority if its own free agents depart. Immediate ROI: energy and defensive minutes before expecting polished primary creation."
+          ],
+          "pairingRows": [
+            {
+              "team": {
+                "name": "New York Liberty",
+                "image": "https://a.espncdn.com/i/teamlogos/wnba/500/ny.png",
+                "alt": "New York Liberty logo"
+              },
+              "rookies": [
+                {
+                  "name": "Talaysia Cooper",
+                  "image": "https://a.espncdn.com/i/headshots/womens-college-basketball/players/full/4682955.png",
+                  "alt": "Talaysia Cooper. Photo: ESPN."
+                }
+              ],
+              "veterans": []
+            },
+            {
+              "team": {
+                "name": "Dallas Wings",
+                "image": "https://a.espncdn.com/i/teamlogos/wnba/500/dal.png",
+                "alt": "Dallas Wings logo"
+              },
+              "rookies": [
+                {
+                  "name": "Tessa Johnson",
+                  "image": "https://a.espncdn.com/i/headshots/womens-college-basketball/players/full/5174284.png",
+                  "alt": "Tessa Johnson. Photo: ESPN."
+                }
+              ],
+              "veterans": []
+            },
+            {
+              "team": {
+                "name": "Indiana Fever",
+                "image": "https://a.espncdn.com/i/teamlogos/wnba/500/ind.png",
+                "alt": "Indiana Fever logo"
+              },
+              "rookies": [
+                {
+                  "name": "Ashlyn Watkins",
+                  "image": "https://a.espncdn.com/i/headshots/womens-college-basketball/players/full/4565516.png",
+                  "alt": "Ashlyn Watkins. Photo: ESPN."
+                }
+              ],
+              "veterans": [
+                {
+                  "name": "Kelsey Mitchell · hypothetical target",
+                  "image": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1628909.png",
+                  "alt": "Kelsey Mitchell official WNBA headshot. hypothetical target. Photo: WNBA."
+                }
+              ]
+            },
+            {
+              "team": {
+                "name": "Chicago Sky",
+                "image": "https://a.espncdn.com/i/teamlogos/wnba/500/chi.png",
+                "alt": "Chicago Sky logo"
+              },
+              "rookies": [
+                {
+                  "name": "Oluchi Okananwa",
+                  "image": "https://a.espncdn.com/i/headshots/womens-college-basketball/players/full/5174408.png",
+                  "alt": "Oluchi Okananwa. Photo: ESPN."
+                }
+              ],
+              "veterans": []
+            }
           ]
         },
         {
           "title": "Picks 12–15: patience can be an asset, especially for the contenders",
-          "photos": [
-            {
-              "name": "Zhang Ziyu",
-              "image": "https://assets.fiba.basketball/image/upload/v1753005223/s1bdb9ertxgon28owwib.jpg",
-              "alt": "Zhang Ziyu playing for China. Photo: FIBA."
-            },
-            {
-              "name": "Dallas Wings",
-              "image": "https://a.espncdn.com/i/teamlogos/wnba/500/dal.png",
-              "alt": "Dallas Wings logo"
-            },
-            {
-              "name": "Golden State Valkyries",
-              "image": "https://a.espncdn.com/i/teamlogos/wnba/500/gs.png",
-              "alt": "Golden State Valkyries logo"
-            },
-            {
-              "name": "Chloe Kitts",
-              "image": "https://a.espncdn.com/i/headshots/womens-college-basketball/players/full/5121055.png",
-              "alt": "Chloe Kitts. Photo: ESPN."
-            },
-            {
-              "name": "Tiffany Hayes · potential re-signing if playing",
-              "image": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/203026.png",
-              "alt": "Tiffany Hayes official WNBA headshot. potential re-signing if playing. Photo: WNBA."
-            },
-            {
-              "name": "Minnesota Lynx",
-              "image": "https://a.espncdn.com/i/teamlogos/wnba/500/min.png",
-              "alt": "Minnesota Lynx logo"
-            },
-            {
-              "name": "Khamil Pierre",
-              "image": "https://a.espncdn.com/i/headshots/womens-college-basketball/players/full/5174309.png",
-              "alt": "Khamil Pierre. Photo: ESPN."
-            },
-            {
-              "name": "Napheesa Collier · potential re-signing",
-              "image": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1629483.png",
-              "alt": "Napheesa Collier official WNBA headshot. potential re-signing. Photo: WNBA."
-            }
-          ],
           "paragraphs": [
             "Chicago’s Atlanta selection becomes Zhang Ziyu at No. 12 in this mock. Her unusual size and touch give the Sky a distinct long-term gamble. Mobility, conditioning and defensive coverage are meaningful uncertainties, so an experienced center and a patient development plan would be more useful than promising immediate star production.",
             "Dallas’ Las Vegas pick becomes Ainhoa Risacher at No. 13. A young international connector offers a different timeline from Johnson’s more immediate shooting role. Availability and the plan for bringing her into the WNBA matter as much as a draft-night grade. Two first-round selections do not require identical first-year expectations.",
             "Golden State, the 32–12 champion, gets Kitts at No. 14 on our existing board. ESPN and The Athletic have recently projected her higher, so this slot remains under review rather than a prediction that she must fall. If available, her rebounding and connective play could fit a team that already knows its identity. Retaining a veteran such as Tiffany Hayes, if she continues playing and both sides agree, could give that rookie a stable competitive environment. Immediate ROI: potentially useful bench minutes, with winning habits more important than touches.",
             "Minnesota finished 33–11 but was swept by New York in the first round. Pierre at No. 15 supplies a rebounding-and-physicality bet. The much larger offseason variable is Napheesa Collier’s free agency. Retaining the established star would create a clearer developmental setting than asking the rookie to fill a star-sized vacancy. Immediate ROI: depth and matchup utility, not a substitute for the franchise’s biggest retention decision."
+          ],
+          "pairingRows": [
+            {
+              "team": {
+                "name": "Chicago Sky",
+                "image": "https://a.espncdn.com/i/teamlogos/wnba/500/chi.png",
+                "alt": "Chicago Sky logo"
+              },
+              "rookies": [
+                {
+                  "name": "Zhang Ziyu",
+                  "image": "https://assets.fiba.basketball/image/upload/v1753005223/s1bdb9ertxgon28owwib.jpg",
+                  "alt": "Zhang Ziyu playing for China. Photo: FIBA."
+                }
+              ],
+              "veterans": []
+            },
+            {
+              "team": {
+                "name": "Dallas Wings",
+                "image": "https://a.espncdn.com/i/teamlogos/wnba/500/dal.png",
+                "alt": "Dallas Wings logo"
+              },
+              "rookies": [
+                {
+                  "name": "Ainhoa Risacher",
+                  "image": "https://cdn.bebasket.fr/resources/images/player/ainhoa-risacher-2026-2027-profile-1f178471-2fcf-639a-a8ac-8fca17a9eb4f.png",
+                  "alt": "Ainhoa Risacher. Photo: BeBasket."
+                }
+              ],
+              "veterans": []
+            },
+            {
+              "team": {
+                "name": "Golden State Valkyries",
+                "image": "https://a.espncdn.com/i/teamlogos/wnba/500/gs.png",
+                "alt": "Golden State Valkyries logo"
+              },
+              "rookies": [
+                {
+                  "name": "Chloe Kitts",
+                  "image": "https://a.espncdn.com/i/headshots/womens-college-basketball/players/full/5121055.png",
+                  "alt": "Chloe Kitts. Photo: ESPN."
+                }
+              ],
+              "veterans": [
+                {
+                  "name": "Tiffany Hayes · potential re-signing if playing",
+                  "image": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/203026.png",
+                  "alt": "Tiffany Hayes official WNBA headshot. potential re-signing if playing. Photo: WNBA."
+                }
+              ]
+            },
+            {
+              "team": {
+                "name": "Minnesota Lynx",
+                "image": "https://a.espncdn.com/i/teamlogos/wnba/500/min.png",
+                "alt": "Minnesota Lynx logo"
+              },
+              "rookies": [
+                {
+                  "name": "Khamil Pierre",
+                  "image": "https://a.espncdn.com/i/headshots/womens-college-basketball/players/full/5174309.png",
+                  "alt": "Khamil Pierre. Photo: ESPN."
+                }
+              ],
+              "veterans": [
+                {
+                  "name": "Napheesa Collier · potential re-signing",
+                  "image": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1629483.png",
+                  "alt": "Napheesa Collier official WNBA headshot. potential re-signing. Photo: WNBA."
+                }
+              ]
+            }
           ]
         },
         {

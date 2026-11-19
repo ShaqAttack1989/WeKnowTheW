@@ -2,6 +2,129 @@
   "site": "Snack Shak",
   "posts": [
     {
+      "slug": "milaysia-fulwiley-bond-da-review",
+      "type": "byte",
+      "priority": 66000,
+      "homepageSeason": true,
+      "seriesLabel": "SNACK SHAK BYTE · LSU",
+      "title": "MiLaysia Fulwiley Released on Bond as Footage Heads to DA Review",
+      "published": "2026-11-18",
+      "updated": "2026-11-18",
+      "week": "WOMEN’S COLLEGE BASKETBALL",
+      "dek": "The LSU senior guard posted $20,000 bond after her Nov. 14 arrest. She denies striking an officer, and Louisiana State Police is compiling footage for review by the district attorney’s office.",
+      "teams": [
+        "LSU"
+      ],
+      "players": [
+        "MiLaysia Fulwiley"
+      ],
+      "image": "https://a.espncdn.com/i/headshots/womens-college-basketball/players/full/5174285.png",
+      "imageAlt": "MiLaysia Fulwiley in her ESPN player headshot.",
+      "imageFit": "contain",
+      "imageFocus": "50% 20%",
+      "imageSourceUrl": "https://www.espn.com/womens-college-basketball/player/_/id/5174285/milaysia-fulwiley",
+      "imageCaption": "MiLaysia Fulwiley, LSU women’s basketball guard. Photo: ESPN.",
+      "storyLead": [
+        "LSU senior guard MiLaysia Fulwiley was released after posting a $20,000 bond following her Nov. 14 arrest in Baton Rouge, WBRZ reported. The case is moving toward review by the district attorney’s office."
+      ],
+      "sections": [
+        {
+          "title": "What the arrest records allege",
+          "paragraphs": [
+            "WBRZ reported that arrest records allege Fulwiley’s vehicle struck an officer as she drove away during postgame traffic control after LSU’s football game against Texas. She was booked on charges including aggravated battery, failing to obey police officers, flight from an officer, aggravated assault and resisting an officer. These remain allegations and charges, not a finding of guilt."
+          ]
+        },
+        {
+          "title": "Fulwiley denies striking the officer",
+          "paragraphs": [
+            "Fulwiley has denied that she struck a law enforcement officer, according to WBRZ. Louisiana State Police says it is compiling available dash-camera, body-worn camera and surrounding video, along with a report, for submission to the 19th Judicial District Attorney’s Office."
+          ]
+        },
+        {
+          "title": "The latest update",
+          "paragraphs": [
+            "WBRZ’s Nov. 17 report said the footage and report were being prepared for prosecutors to review. No decision by the district attorney’s office was reported in that update."
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "label": "WBRZ · Footage being compiled for DA review",
+          "url": "https://www.wbrz.com/news/lsp-compiling-all-footage-related-to-lsu-basketball-player-s-arrest-for-review-by-da-s-office/"
+        },
+        {
+          "label": "WBRZ · Bond and Fulwiley’s denial",
+          "url": "https://www.wbrz.com/news/lsu-basketball-player-milaysia-fulwiley-released-on-bond-following-saturday-night-arrest/"
+        },
+        {
+          "label": "LSU Athletics · MiLaysia Fulwiley profile",
+          "url": "https://lsusports.net/sports/wbball/roster/player/milaysia-fulwiley"
+        }
+      ]
+    },
+    {
+      "slug": "nalyssa-smith-foundation-launch",
+      "type": "byte",
+      "priority": 65000,
+      "homepageSeason": true,
+      "seriesLabel": "SNACK SHAK BYTE · COMMUNITY",
+      "title": "NaLyssa Smith Launches Foundation Supporting Children, People Experiencing Homelessness and Those Affected by Lupus",
+      "published": "2026-11-18",
+      "updated": "2026-11-18",
+      "week": "WNBA · COMMUNITY",
+      "dek": "The Las Vegas Aces forward introduced the NaLyssa Smith Foundation, with a mission centered on children, people experiencing homelessness and people affected by lupus.",
+      "teams": [
+        "Las Vegas Aces"
+      ],
+      "players": [
+        "NaLyssa Smith"
+      ],
+      "image": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1631019.png",
+      "imageAlt": "NaLyssa Smith in her official WNBA player headshot.",
+      "imageFit": "contain",
+      "imageFocus": "50% 20%",
+      "imageSourceUrl": "https://www.wnba.com/player/1631019/nalyssa-smith/bio",
+      "imageCaption": "NaLyssa Smith, Las Vegas Aces forward. Photo: WNBA.",
+      "storyLead": [
+        "Las Vegas Aces forward NaLyssa Smith has introduced a new foundation focused on helping people and families facing difficult circumstances. Its stated priorities include children, people experiencing homelessness and people affected by lupus."
+      ],
+      "sections": [
+        {
+          "title": "A mission rooted in community",
+          "paragraphs": [
+            "Smith shared the launch in an Instagram Story on Nov. 18. She says the foundation plans to use community outreach, charitable initiatives, donations, events and hands-on involvement to connect people with resources, encouragement and support.",
+            "The announcement also emphasizes creating opportunities for people who may not otherwise have access to them."
+          ]
+        },
+        {
+          "title": "Lupus support has a personal connection",
+          "paragraphs": [
+            "Heavy.com reports that the foundation’s website includes education, advocacy and access to essential resources for people affected by lupus. Smith previously supported the Lupus Foundation of America through Athletes Unlimited after her grandfather was diagnosed with lupus."
+          ]
+        },
+        {
+          "title": "Taking impact beyond basketball",
+          "paragraphs": [
+            "The new organization extends Smith’s community work beyond the court. Its announcement describes a goal of bringing people together and building a stronger, more supportive community."
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "label": "Heavy.com · Smith announces foundation",
+          "url": "https://heavy.com/sports/wnba/las-vegas-aces/aces-nalyssa-smith-announces-foundation/"
+        },
+        {
+          "label": "Athletes Unlimited · NaLyssa Smith",
+          "url": "https://auprosports.com/basketball/athletes/nalyssa-smith/336/"
+        },
+        {
+          "label": "WNBA · NaLyssa Smith profile",
+          "url": "https://www.wnba.com/player/1631019/nalyssa-smith/bio"
+        }
+      ]
+    },
+    {
       "slug": "toronto-wins-2027-lottery-the-pick-is-only-the-beginning",
       "type": "feature",
       "priority": 99000,

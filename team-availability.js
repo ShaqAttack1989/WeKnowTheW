@@ -31,6 +31,14 @@
     const content=`<div><span>${esc(item.kind||'UPDATE')}</span><time datetime="${esc(item.date||'')}">${esc(shortDate(item.date))}</time></div><strong>${esc(item.title||'Team update')}</strong><p>${esc(item.detail||'')}</p><small>${esc(item.category==='story'?'We Know the W story':item.category==='movement'?'Player Movement':'Availability')}</small>`;
     return href?`<article class="team-update-card team-update-${esc(item.category||'update')}"><a class="team-update-card-link" href="${esc(href)}">${content}</a></article>`:`<article class="team-update-card">${content}</article>`;
   }
+  const acesFoundation={
+    date:'2026-11-18',category:'story',kind:'SNACK SHAK BYTE',
+    title:'NaLyssa Smith launches a foundation for children, families and lupus support',
+    detail:'The Aces forward introduced a foundation supporting children, people experiencing homelessness and people affected by lupus.',
+    href:'/snack-shak-bytes.html?post=nalyssa-smith-foundation-launch#story'
+  };
+  if(slug==='las-vegas-aces')root.innerHTML=card(acesFoundation);
+
   async function refresh(){
     try{
       const result=await WTeamUpdates.loadTeamUpdates(teamName,slug);
@@ -42,7 +50,9 @@
       };
       const updates=slug==='indiana-fever'
         ?[feverFeature,...(result.dashboard||[]).filter(item=>!item.href?.includes('the-fever-next-chapter-krauskopf-cox-white-mitchell-2026'))]
-        :(result.dashboard||[]);
+        :slug==='las-vegas-aces'
+          ?[acesFoundation,...(result.dashboard||[]).filter(item=>!item.href?.includes('nalyssa-smith-foundation-launch'))]
+          :(result.dashboard||[]);
       root.innerHTML=updates.length?updates.map(card).join(''):`<div class="dream-wire-clear"><span aria-hidden="true">✓</span><div><strong>No current ${esc(teamName)} updates are loaded.</strong><p>Use the full report to review the 2026 season archive.</p></div></div>`;
       const oldSource=root.parentElement?.querySelector('.team-availability-source');
       if(oldSource)oldSource.remove();
@@ -51,7 +61,8 @@
       source.innerHTML=`Newest updates first · roster movement · availability · site stories${result.checkedAt?` · checked ${esc(checked(result.checkedAt))}`:''} · <a href="/team-season-report.html?team=${encodeURIComponent(slug)}">full report →</a>`;
       root.insertAdjacentElement('afterend',source);
     }catch(error){
-      root.innerHTML=`<div class="team-error">The team update desk is temporarily unavailable. <a href="/team-season-report.html?team=${encodeURIComponent(slug)}">Open the full report →</a></div>`;
+      const featured=slug==='las-vegas-aces'?card(acesFoundation):'';
+      root.innerHTML=`${featured}<div class="team-error">The team update desk is temporarily unavailable. <a href="/team-season-report.html?team=${encodeURIComponent(slug)}">Open the full report →</a></div>`;
     }
   }
   refresh();

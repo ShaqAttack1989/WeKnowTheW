@@ -379,3 +379,29 @@
 .player-game-links a{display:inline-flex;align-items:center;min-height:40px;padding:9px 13px;border:1px solid #d8ff4f;border-radius:999px;background:#21123e;color:#fff;font-size:.82rem;font-weight:900;text-decoration:none}
 .player-game-links a:hover,.player-game-links a:focus-visible{background:#d8ff4f;color:#21123e;outline:2px solid #21123e;outline-offset:2px}
 @media(max-width:520px){.profile-radar-wrap{gap:8px;padding:10px}.profile-radar{flex-basis:126px;width:126px;height:126px}.profile-radar-wrap p{font-size:.7rem}.player-game-links>div{display:grid}.player-game-links a{justify-content:center;text-align:center}}
+
+
+/* Player-linked Snack Shak coverage */
+.player-story-section{border-top:1px solid rgba(255,255,255,.12)}
+.player-story-section .page-heading h2{color:#fff}
+.player-story-section .page-heading>p:last-child{color:rgba(255,255,255,.72)}
+.player-story-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;align-items:stretch}
+.player-story-card{display:flex;flex-direction:column;min-width:0;overflow:hidden;border-radius:20px;background:#fff;color:#17131f;box-shadow:0 16px 36px rgba(0,0,0,.18)}
+.player-story-card-media{width:100%;aspect-ratio:16/9;overflow:hidden;display:grid;place-items:center;background:#21123e}
+.player-story-card-media img{width:100%;height:100%;object-fit:contain}
+.player-story-card-main{display:block;flex:1;color:inherit;text-decoration:none}
+.player-story-card-main:focus-visible{outline:3px solid #d8ff4f;outline-offset:-4px}
+.player-story-card-body{padding:18px}
+.player-story-label{display:block;margin-bottom:8px;color:#6c2ad9;font-size:.7rem;font-weight:950;letter-spacing:.1em;text-transform:uppercase}
+.player-story-card-body strong{display:block;font-size:1.12rem;line-height:1.25}
+.player-story-card-body p{margin:9px 0;color:#706879;font-size:.9rem;line-height:1.5}
+.player-story-card-body small{display:block;margin-top:8px;color:#51475d;font-size:.76rem;font-weight:800}
+.player-story-card-body b{display:inline-flex;margin-top:12px;color:#552296;font-size:.82rem}
+.player-story-photo-credit{padding:0 18px 15px;color:#6e6579;font-size:.7rem;line-height:1.4}
+.player-story-photo-credit a{color:#5b22b7;font-weight:850}
+.player-story-empty{padding:18px;border-radius:14px;background:#fff;color:#51475d}
+.player-story-profile-links{display:grid;gap:8px}
+.player-story-profile-links a{display:flex;justify-content:space-between;gap:12px;padding:12px 14px;border-radius:12px;background:#f4effa;color:#4c1b8a;font-weight:850;text-decoration:none}
+.player-story-profile-links a:hover,.player-story-profile-links a:focus-visible{background:#e8dcf8;text-decoration:underline}
+.player-story-profile-links a span{flex:0 0 auto;font-size:.78rem}
+@media(max-width:680px){.player-story-grid{grid-template-columns:1fr}.player-story-profile-links a{align-items:flex-start;flex-direction:column;gap:4px}}

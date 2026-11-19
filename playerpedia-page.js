@@ -50,6 +50,55 @@ function overlapsBio(candidate,bio){
   });
 }
 
+let playerStoryPosts=[];
+function playerStoryHref(post={}){
+  const slug=String(post.slug||'').trim();
+  if(!slug)return '/snack-shak-bytes.html';
+  return post.type==='feature'?'/food-for-thought.html?post='+encodeURIComponent(slug)+'#story':'/snack-shak-bytes.html?post='+encodeURIComponent(slug)+'#story';
+}
+function playerStorySafeUrl(value=''){
+  try{const url=new URL(String(value||''),location.origin);return url.protocol==='https:'?url.href:'';}catch{return'';}
+}
+function playerStoryDate(value=''){
+  const iso=String(value||'').slice(0,10),date=new Date(iso+'T12:00:00');
+  return Number.isNaN(date.getTime())?iso:date.toLocaleDateString([],{month:'short',day:'numeric',year:'numeric'});
+}
+function playerStoryCardMarkup(post={}){
+  const href=playerStoryHref(post),image=playerStorySafeUrl(post.image),photoUrl=playerStorySafeUrl(post.imageSourceUrl);
+  const people=(Array.isArray(post.players)?post.players:[]).map(pSafe).join(' · ');
+  const teams=(Array.isArray(post.teams)?post.teams:[]).map(pSafe).join(' · ');
+  const label='SNACK SHAK BYTE · '+playerStoryDate(post.published||post.updated);
+  return '<article class="player-story-card">'+
+    (image?'<div class="player-story-card-media"><img src="'+pSafe(image)+'" alt="'+pSafe(post.imageAlt||post.title||'Player story')+'" loading="lazy" decoding="async" onerror="this.parentElement.hidden=true"></div>':'')+
+    '<a class="player-story-card-main" href="'+pSafe(href)+'"><div class="player-story-card-body">'+
+    '<span class="player-story-label">'+pSafe(label)+'</span><strong>'+pSafe(post.title||'Player story')+'</strong>'+
+    '<p>'+pSafe(post.dek||'Open the Snack Shak Byte for the full update.')+'</p>'+
+    (people||teams?'<small>'+[people,teams].filter(Boolean).join(' · ')+'</small>':'')+
+    '<b>Read the Byte →</b></div></a>'+
+    (photoUrl?'<div class="player-story-photo-credit">'+pSafe(post.imageCaption||'Player photo')+' · <a href="'+pSafe(photoUrl)+'" target="_blank" rel="noopener noreferrer">Photo source ↗</a></div>':'')+
+    '</article>';
+}
+function playerCoverageMarkup(playerName=''){
+  const key=playerKey(playerName);
+  const matches=playerStoryPosts.filter(post=>Array.isArray(post.players)&&post.players.some(name=>playerKey(name)===key)).slice(0,3);
+  if(!matches.length)return '';
+  return '<section class="profile-subsection player-story-profile"><h4>Snack Shak coverage</h4><div class="player-story-profile-links">'+matches.map(post=>'<a href="'+pSafe(playerStoryHref(post))+'">'+pSafe(post.title||'Read story')+' <span>Read the Byte →</span></a>').join('')+'</div></section>';
+}
+async function loadPlayerStoryCoverage(){
+  const host=document.getElementById('playerStoryGrid');
+  try{
+    const response=await fetch('/snack-shak-latest.json?cb='+Date.now(),{headers:{Accept:'application/json'},cache:'no-store'});
+    if(!response.ok)throw new Error('Player coverage unavailable');
+    const payload=await response.json();
+    const posts=(Array.isArray(payload.posts)?payload.posts:[]).filter(post=>post&&post.type==='byte'&&post.slug&&Array.isArray(post.players)&&post.players.length);
+    playerStoryPosts=posts.sort((a,b)=>String(b.published||'').localeCompare(String(a.published||''))||Number(b.priority||0)-Number(a.priority||0)).slice(0,4);
+    if(host&&playerStoryPosts.length)host.innerHTML=playerStoryPosts.map(playerStoryCardMarkup).join('');
+  }catch(error){
+    if(host&&host.children.length===0)host.innerHTML='<p class="player-story-empty">Player stories are temporarily unavailable.</p>';
+  }
+}
+const playerStoriesReady=loadPlayerStoryCoverage();
+
 const azGrid=document.getElementById('azGrid'),playerGrid=document.getElementById('playerGrid'),playerSearch=document.getElementById('playerSearch'),playerTeamFilter=document.getElementById('playerTeamFilter'),reset=document.getElementById('resetPlayerFilters'),playerCount=document.getElementById('playerCount'),status=document.getElementById('playerStatus'),modal=document.getElementById('playerModal'),modalBody=document.getElementById('playerModalBody'),modalClose=document.getElementById('playerModalClose');
 const liveRosterCount=document.getElementById('liveRosterCount'),liveRosterUpdated=document.getElementById('liveRosterUpdated'),transactionFeed=document.getElementById('transactionFeed'),injuryFeed=document.getElementById('injuryFeed'),movementUpdated=document.getElementById('movementUpdated'),injuryUpdated=document.getElementById('injuryUpdated');
 let allPlayers=[],teams=[],letter='';
@@ -274,8 +323,10 @@ async function openProfile(id){
     : advancedFeedReady?`<p class="why-source">2026 efficiency metrics refresh with official WNBA season data and available advanced-stat sources.${pSafe(refreshedText)}</p>`:'<p class="why-source">Advanced metrics are temporarily unavailable and will repopulate automatically when the season feed reconnects.</p>';
   const currentMetrics=p.historicalPlayerpedia?'':metricsMarkup(name);
   const careerMetrics=careerMetricsMarkup(p);
+  await playerStoriesReady;
+  const playerCoverage=playerCoverageMarkup(name);
 
-  modalBody.innerHTML=`<div class="profile-hero">${avatarMarkup({...p,name},true)}<div><p class="kicker">PLAYERPEDIA</p><h3 id="playerModalTitle">${pSafe(name)}</h3><p class="profile-teamline">${pSafe([p.team||roster?.team,p.position||roster?.position].filter(Boolean).join(' · '))}</p></div></div><div class="profile-facts">${facts(p)}</div>${careerMetrics}${liveNote}${alumniNote}${p.description?`<section class="profile-subsection"><h4>Quick bio</h4><p>${pSafe(p.description)}</p></section>`:''}${honors.length?`<section class="profile-subsection"><h4>Honors & awards</h4><div class="profile-tags">${honors.map(h=>{const label=/champion|championship|title/i.test(h)?'🏆':/all-star/i.test(h)?'⭐':/rookie/i.test(h)?'🌟':/mvp|player of the year/i.test(h)?'👑':/olympic|gold medal/i.test(h)?'🥇':'🏅';return `<span class="profile-award-badge"><span aria-hidden="true">${label}</span>${pSafe(h)}</span>`;}).join('')}</div>${selection?`<a class="profile-award-link" href="/all-wnba.html">View the 2026 All-WNBA teams →</a>`:''}</section>`:''}<section class="profile-subsection player-game-links"><h4>Play with \${pSafe(name)}</h4><p>Take her into a lineup or carry her name into a WNBA trivia round.</p><div><a href="https://run-the-w.base44.app/season-simulator?player=\${encodeURIComponent(name)}" target="_blank" rel="noopener">Draft \${pSafe(name)} in Run the W ↗</a><a href="https://playfactorcap.com/?player=\${encodeURIComponent(name)}" target="_blank" rel="noopener">Test your WNBA knowledge in Fact or Cap ↗</a></div></section><section class="why-we-know-her"><span>WHY WE KNOW HER</span><strong>${pSafe(name)} · the numbers + the story.</strong>${currentMetrics}<div class="amazing-fact"><span>AMAZING FACT</span><p>${pSafe(fact)}</p></div>${statNote}</section>${detailsNote}`;
+  modalBody.innerHTML=`<div class="profile-hero">${avatarMarkup({...p,name},true)}<div><p class="kicker">PLAYERPEDIA</p><h3 id="playerModalTitle">${pSafe(name)}</h3><p class="profile-teamline">${pSafe([p.team||roster?.team,p.position||roster?.position].filter(Boolean).join(' · '))}</p></div></div><div class="profile-facts">${facts(p)}</div>${careerMetrics}${liveNote}${alumniNote}${playerCoverage}${p.description?`<section class="profile-subsection"><h4>Quick bio</h4><p>${pSafe(p.description)}</p></section>`:''}${honors.length?`<section class="profile-subsection"><h4>Honors & awards</h4><div class="profile-tags">${honors.map(h=>{const label=/champion|championship|title/i.test(h)?'🏆':/all-star/i.test(h)?'⭐':/rookie/i.test(h)?'🌟':/mvp|player of the year/i.test(h)?'👑':/olympic|gold medal/i.test(h)?'🥇':'🏅';return `<span class="profile-award-badge"><span aria-hidden="true">${label}</span>${pSafe(h)}</span>`;}).join('')}</div>${selection?`<a class="profile-award-link" href="/all-wnba.html">View the 2026 All-WNBA teams →</a>`:''}</section>`:''}<section class="profile-subsection player-game-links"><h4>Play with \${pSafe(name)}</h4><p>Take her into a lineup or carry her name into a WNBA trivia round.</p><div><a href="https://run-the-w.base44.app/season-simulator?player=\${encodeURIComponent(name)}" target="_blank" rel="noopener">Draft \${pSafe(name)} in Run the W ↗</a><a href="https://playfactorcap.com/?player=\${encodeURIComponent(name)}" target="_blank" rel="noopener">Test your WNBA knowledge in Fact or Cap ↗</a></div></section><section class="why-we-know-her"><span>WHY WE KNOW HER</span><strong>${pSafe(name)} · the numbers + the story.</strong>${currentMetrics}<div class="amazing-fact"><span>AMAZING FACT</span><p>${pSafe(fact)}</p></div>${statNote}</section>${detailsNote}`;
 }
 
 playerGrid.addEventListener('click',e=>{const card=e.target.closest('[data-player-id]');if(card)openProfile(card.dataset.playerId);});

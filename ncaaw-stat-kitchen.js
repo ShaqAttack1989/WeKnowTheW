@@ -89,6 +89,23 @@
    document.querySelectorAll('.ncaaw-board').forEach(panel=>{const active=panel.id==='panel-'+name;panel.classList.toggle('is-active',active);panel.hidden=!active});
   }));
  }
+ async function loadLsuStoryCrosslink(){
+  const host=$('ncaawStoryCrosslink');if(!host)return;
+  try{
+   const response=await fetch('/snack-shak-latest.json?cb='+Date.now(),{headers:{Accept:'application/json'},cache:'no-store'});
+   if(!response.ok)return;
+   const payload=await response.json();
+   const post=(Array.isArray(payload.posts)?payload.posts:[])
+    .filter(item=>item&&item.type==='byte'&&item.slug&&Array.isArray(item.teams)&&item.teams.some(team=>String(team).trim().toLowerCase()==='lsu'))
+    .sort((a,b)=>String(b.published||'').localeCompare(String(a.published||''))||Number(b.priority||0)-Number(a.priority||0))[0];
+   if(!post)return;
+   const href='/snack-shak-bytes.html?post='+encodeURIComponent(post.slug)+'#story';
+   const date=String(post.published||'').slice(0,10);
+   const parsed=new Date(date+'T12:00:00');
+   const dateLabel=Number.isNaN(parsed.getTime())?date:parsed.toLocaleDateString([],{month:'short',day:'numeric',year:'numeric'});
+   host.innerHTML='<a class="class-ncaaw-child" href="'+escape(href)+'"><span>LSU · SNACK SHAK BYTE · '+escape(dateLabel)+'</span><strong>'+escape(post.title||'Latest LSU story')+'</strong><p>'+escape(post.dek||'Read the latest LSU women’s basketball update from We Know the W.')+'</p><b>→</b></a>';
+  }catch(error){}
+ }
  async function load(){
   if(state.busy)return;state.busy=true;
   const label=$('kitchenUpdate');
@@ -105,6 +122,7 @@
   }finally{state.busy=false}
  }
  renderTabs();
+ loadLsuStoryCrosslink();
  $('kitchenRefresh')?.addEventListener('click',load);
- load();state.timer=setInterval(load,10*60*1000);
+ load();state.timer=setInterval(()=>{load();loadLsuStoryCrosslink()},10*60*1000);
 })();

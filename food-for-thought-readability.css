@@ -325,3 +325,34 @@
 .snack-story-photo-grid img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center 24%}
 .snack-story-photo-grid figcaption{padding:8px 10px;color:#fff;font-size:.8rem;font-weight:800;line-height:1.25}
 @media(max-width:520px){.snack-story-photo-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.snack-story-photo-grid figcaption{font-size:.73rem;padding:7px 8px}}
+
+/* 50-state WNBA roll call */
+.state-roll-call-board{margin:26px 0 34px}
+.state-roll-call-head{margin:0 0 18px;padding:22px 24px;border:1px solid rgba(255,255,255,.12);border-radius:20px;background:linear-gradient(135deg,#251344,#421e63 58%,#721a43);color:#fff}
+.state-roll-call-head>span{display:block;font-size:.74rem;letter-spacing:.13em;font-weight:900;color:#f8cb6b}
+.state-roll-call-head h3{margin:7px 0 8px;font-size:clamp(1.45rem,3vw,2.1rem);line-height:1.08;color:#fff}
+.state-roll-call-head p{margin:0;max-width:760px;color:#f0eaf5;font-size:1rem;line-height:1.55}
+.state-roll-call-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.state-player-card{min-width:0;overflow:hidden;padding:14px;border:1px solid rgba(28,17,43,.14);border-radius:18px;background:#fff;color:#22182d;box-shadow:0 8px 22px rgba(31,14,56,.08)}
+.state-player-card-header{display:grid;grid-template-columns:42px 34px minmax(0,1fr);align-items:center;gap:9px;margin-bottom:12px}
+.state-flag-link{display:block;width:42px;height:29px;overflow:hidden;border-radius:5px;background:#eee7f5;box-shadow:0 0 0 1px rgba(31,14,56,.14)}
+.state-flag-icon{display:block;width:100%;height:100%;object-fit:cover}
+.state-abbr{display:grid;place-items:center;width:31px;height:31px;border-radius:50%;background:#32164f;color:#fff;font-size:.72rem;font-weight:900;letter-spacing:.02em}
+.state-player-card-header p{margin:0;color:#261733;font-size:.94rem;font-weight:900;line-height:1.2}
+.state-player-card-header div>span{display:block;margin-top:3px;color:#665a70;font-size:.78rem;line-height:1.3}
+.state-player-card-main{display:grid;grid-template-columns:78px minmax(0,1fr);align-items:start;gap:13px}
+.state-player-headshot{margin:0;text-align:center}
+.state-player-headshot img{display:block;width:76px;height:76px;border:2px solid #e9def3;border-radius:50%;object-fit:cover;object-position:center 18%;background:#f6f1fa}
+.state-player-headshot figcaption{margin-top:5px;font-size:.64rem;line-height:1.15}
+.state-player-headshot figcaption a{color:#645172;text-decoration:underline}
+.state-player-card-copy h4{margin:0 0 6px;color:#291b36;font-size:1.06rem;line-height:1.2}
+.state-player-card-copy p{margin:0 0 8px;color:#3d3347;font-size:.88rem;line-height:1.45}
+.state-player-profile{display:inline-block;color:#633b89;font-size:.79rem;font-weight:850;text-decoration:underline;text-underline-offset:2px}
+.state-player-card-empty{min-height:162px;background:linear-gradient(140deg,#fff,#f4eff8)}
+.state-player-card-empty-copy{padding:4px 0 0 4px}
+.state-player-card-empty-copy strong{display:block;margin-bottom:6px;color:#3a2350;font-size:1.02rem}
+.state-player-card-empty-copy p{margin:0;color:#51465e;font-size:.9rem;line-height:1.45}
+.state-roll-call-method{margin:16px 0 0;padding:13px 16px;border-left:4px solid #e5b64e;border-radius:0 10px 10px 0;background:#f7f3fa;color:#43384c;font-size:.88rem;line-height:1.5}
+.state-board-story .source-list{margin-top:26px}
+@media(max-width:1050px){.state-roll-call-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:620px){.state-roll-call-grid{grid-template-columns:minmax(0,1fr);gap:10px}.state-roll-call-head{padding:18px 16px}.state-player-card{padding:13px}.state-player-card-main{grid-template-columns:70px minmax(0,1fr);gap:12px}.state-player-headshot img{width:68px;height:68px}.state-player-card-copy p{font-size:.9rem}}

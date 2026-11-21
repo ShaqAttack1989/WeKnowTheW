@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-09",
+  "updatedAt": "2026-11-21",
   "rules": {
     "pronunciation": "Only use a written pronunciation when a team, league or other reliable media guide explicitly provides it. When a player-recorded audio pronunciation is available, link to that instead of inventing phonetics.",
     "offCourt": "Only include a personal, family, education, advocacy, business, media, music or nickname connection when it is documented in the Playerpedia bio tracker or a cited public source.",
@@ -882,6 +882,21 @@
           "captionText": "July 13, 1997: Heidi Burge of the Los Angeles Sparks tries to keep the ball away from Phoenix’s Michele Timms during a game at the Great Western Forum."
         }
       }
+    },
+    "sylviafowles": {
+      "amazingFact": "On Nov. 21, 2007, Fowles stole the ball against Louisiana-Lafayette, raced coast to coast and finished with a one-handed dunk. She became the first LSU women’s basketball player to dunk in a game and, at the time, the sixth woman in NCAA history to do so.",
+      "amazingFactSource": "https://lsusports.net/news/2007/11/21/1325247",
+      "amazingFactSourceLabel": "LSU game recap",
+      "achievements": [
+        "On Nov. 21, 2007, became the first LSU women’s basketball player to dunk in a game. LSU’s 2024 Hall of Fame announcement said she remains the only LSU player to do it."
+      ],
+      "achievementsSources": [
+        "https://lsusports.net/news/2007/11/21/1325247",
+        "https://lsusports.net/news/2024/11/15/lsu-great-sylvia-fowles-elected-into-womens-basketball-hall-of-fame",
+        "https://static.lsusports.net/assets/docs/wb/08stats/ls05.htm"
+      ],
+      "memorable": "With 9:29 left in the first half against Louisiana-Lafayette on Nov. 21, 2007, Fowles stole the ball at the top of the key, sprinted the length of the court and dunked one-handed. She finished with 21 points, 12 rebounds, three steals and three blocks in LSU’s 72–37 win.",
+      "memorableSource": "https://lsusports.net/news/2007/11/21/1325247"
     }
   }
 }

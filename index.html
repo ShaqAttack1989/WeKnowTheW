@@ -19,7 +19,7 @@
   </script>
   <script defer src="/_vercel/insights/script.js" data-vercel-analytics="true"></script>
 <link rel="stylesheet" href="/event-countdowns.css?v=20261029-pair-v3"><link rel="stylesheet" href="/offseason-microinteractions.css?v=20261107-v1">  <style>
-    .w-countdown-pair{width:min(1296px,calc(100% - 48px));margin:16px auto 28px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+    .w-countdown-pair{width:min(1296px,calc(100% - 48px));margin:16px auto 28px;display:grid;grid-template-columns:minmax(0,1fr);gap:16px}
     .w-countdown-card{min-width:0;border:1px solid #6228b7;border-radius:22px;background:linear-gradient(125deg,#17092f,#36105e);padding:22px 24px;color:#fff;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:14px 20px}
     .w-countdown-card--season{background:linear-gradient(125deg,#20104b,#172751);border-color:#5668d5}
     .w-countdown-kicker{font-size:12px;font-weight:900;letter-spacing:.09em;color:#d1ff49;margin:0 0 7px}
@@ -64,24 +64,15 @@
   </header>
 
   <main>
-    <section class="w-countdown-pair" aria-label="2027 WNBA event countdowns">
-      <article class="w-countdown-card" aria-labelledby="wnbaDraftCountdownTitle">
+    <section class="w-countdown-pair" aria-label="Countdown to Unrivaled 2027 season" >
+      <article class="w-countdown-card" aria-labelledby="unrivaledCountdownTitle">
         <div class="w-countdown-info">
-          <p class="w-countdown-kicker">DRAFT WATCH</p>
-          <h2 id="wnbaDraftCountdownTitle">2027 WNBA Draft</h2>
-          <p>Monday, April 12, 2027 · Event time TBA</p>
+          <p class="w-countdown-kicker">NO OFFSEASON · UNRIVALED</p>
+          <h2 id="unrivaledCountdownTitle">Unrivaled Season 3 Tip-Off</h2>
+          <p>Friday, January 8, 2027 · 7:30 p.m. ET · Boston and Los Angeles</p>
         </div>
-        <div class="w-countdown-clock" id="wnbaDraftCountdown" role="timer" aria-label="Countdown to the date of the 2027 WNBA Draft">Loading countdown…</div>
-        <a class="w-countdown-link" href="/2027-wnba-mock-draft.html">Explore mock draft →</a>
-      </article>
-      <article class="w-countdown-card w-countdown-card--season" aria-labelledby="wnbaSeasonCountdownTitle">
-        <div class="w-countdown-info">
-          <p class="w-countdown-kicker">RETURN TO THE W</p>
-          <h2 id="wnbaSeasonCountdownTitle">2027 WNBA Season Tip-Off</h2>
-          <p>May 7, 2027 · Reported opening date, not yet official</p>
-        </div>
-        <div class="w-countdown-clock" id="wnbaSeasonCountdown" role="timer" aria-label="Countdown to the reported start date of the 2027 WNBA season">Loading countdown…</div>
-        <a class="w-countdown-link" href="/around-the-w.html">Around the W →</a>
+        <div class="w-countdown-clock" id="unrivaledCountdown" role="timer" aria-label="Time remaining until Unrivaled season 3 begins">Loading countdown…</div>
+        <a class="w-countdown-link" href="/unrivaled.html">Explore Unrivaled →</a>
       </article>
     </section>
     <section class="offseason-spotlight" aria-labelledby="offseasonSpotlightTitle">
@@ -235,33 +226,26 @@
   <script src="/home-live.js?v=20261107-offseason-state-v1"></script>
   <script>
   (() => {
-    // Count down to the announced calendar dates at midnight in New York.
-    // Event tip-off / draft broadcast times are not yet published.
-    const events = [
-      {id:'wnbaDraftCountdown', target:'2027-04-12T00:00:00-04:00', done:'Draft day is here!'},
-      {id:'wnbaSeasonCountdown', target:'2027-05-07T00:00:00-04:00', done:'The reported season opening date has arrived!'}
-    ];
+    // Unrivaled's announced opening-night start: Jan 8, 2027 at 7:30 p.m. New York time (EST).
+    const el = document.getElementById('unrivaledCountdown');
+    const target = Date.parse('2027-01-08T19:30:00-05:00');
     const format = (value,label) => '<div class="w-countdown-unit"><strong>' +
       String(value).padStart(2,'0') + '</strong><span>' + label + '</span></div>';
     function render() {
-      const now = Date.now();
-      events.forEach(({id,target,done}) => {
-        const el = document.getElementById(id);
-        if(!el) return;
-        const remaining = Math.max(0,Date.parse(target)-now);
-        if(remaining === 0) {
-          el.innerHTML = '<span class="w-countdown-complete">' + done + '</span>';
-          return;
-        }
-        const seconds = Math.floor(remaining/1000);
-        const days = Math.floor(seconds/86400);
-        const hours = Math.floor((seconds%86400)/3600);
-        const minutes = Math.floor((seconds%3600)/60);
-        el.innerHTML = format(days,'Days')+format(hours,'Hours')+format(minutes,'Minutes')+format(seconds%60,'Seconds');
-      });
+      if (!el) return;
+      const remaining = Math.max(0, target - Date.now());
+      if (!remaining) {
+        el.innerHTML = '<span class="w-countdown-complete">Unrivaled Season 3 is here!</span>';
+        return;
+      }
+      const seconds = Math.floor(remaining / 1000);
+      el.innerHTML = format(Math.floor(seconds / 86400), 'Days') +
+        format(Math.floor((seconds % 86400) / 3600), 'Hours') +
+        format(Math.floor((seconds % 3600) / 60), 'Minutes') +
+        format(seconds % 60, 'Seconds');
     }
     render();
-    setInterval(render,1000);
+    setInterval(render, 1000);
   })();
   </script>
 </body>

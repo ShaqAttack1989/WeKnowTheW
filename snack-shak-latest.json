@@ -724,24 +724,26 @@
       "priority": 64000,
       "homepageSeason": true,
       "seriesLabel": "2027 DRAFT WATCH",
-      "title": "Draft Watch: Booker Returns for 36 Minutes",
+      "title": "Draft Watch: Fulwiley Availability Unconfirmed",
       "published": "2026-11-14",
-      "updated": "2026-11-19",
+      "updated": "2026-11-22",
       "week": "2027 WNBA DRAFT WATCH",
-      "dek": "Madison Booker returned November 18 with 12 points, nine rebounds and four assists in Texas’ win at Green Bay. Her No. 3 projection and the official draft order remain unchanged.",
+      "dek": "MiLaysia Fulwiley’s return remains unconfirmed after the November 20 legal update. Her No. 5 projection stays put; Booker’s return checkpoint and the official draft order are preserved.",
       "teams": [
+        "LSU",
         "South Carolina",
         "Texas"
       ],
       "players": [
+        "MiLaysia Fulwiley",
         "Chloe Kitts",
         "Madison Booker"
       ],
-      "image": "https://a.espncdn.com/i/headshots/womens-college-basketball/players/full/5121055.png",
-      "imageAlt": "Chloe Kitts in her South Carolina player headshot.",
+      "image": "https://a.espncdn.com/i/headshots/womens-college-basketball/players/full/5174285.png",
+      "imageAlt": "MiLaysia Fulwiley in her LSU player headshot.",
       "imageFit": "contain",
       "imageFocus": "50% 25%",
-      "imageSourceUrl": "https://abc7.com/post/juju-watkins-projected-no-1-wnba-pick-latest-2027-mock-draft/20038049/",
+      "imageSourceUrl": "https://www.ksl.com/article/51647262/lsus-milaysia-fulwiley-no-longer-facing-felony-charges-for-evading-traffic-stop",
       "dashboardUrl": "/2027-wnba-mock-draft.html#what-changed"
     },
     {

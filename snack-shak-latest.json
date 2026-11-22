@@ -4,30 +4,58 @@
     {
       "slug": "milaysia-fulwiley-bond-da-review",
       "type": "byte",
-      "priority": 66000,
+      "priority": 68000,
       "homepageSeason": true,
       "seriesLabel": "SNACK SHAK BYTE · LSU",
-      "title": "MiLaysia Fulwiley Released on Bond as Footage Heads to DA Review",
+      "title": "UPDATE: Felony Charges Against MiLaysia Fulwiley Dropped Following DA Review",
       "published": "2026-11-18",
-      "updated": "2026-11-18",
+      "updated": "2026-11-22",
       "week": "WOMEN’S COLLEGE BASKETBALL",
-      "dek": "The LSU senior guard posted $20,000 bond after her Nov. 14 arrest. She denies striking an officer, and Louisiana State Police is compiling footage for review by the district attorney’s office.",
+      "dek": "Prosecutors dropped both felony charges against LSU guard MiLaysia Fulwiley on November 20. Three misdemeanor counts were referred to pretrial diversion, and Fulwiley issued a public apology.",
       "teams": [
         "LSU"
       ],
       "players": [
         "MiLaysia Fulwiley"
       ],
-      "image": "https://a.espncdn.com/i/headshots/womens-college-basketball/players/full/5174285.png",
-      "imageAlt": "MiLaysia Fulwiley in her ESPN player headshot.",
-      "imageFit": "contain",
-      "imageFocus": "50% 20%",
-      "imageSourceUrl": "https://www.espn.com/womens-college-basketball/player/_/id/5174285/milaysia-fulwiley",
-      "imageCaption": "MiLaysia Fulwiley, LSU women’s basketball guard. Photo: ESPN.",
+      "image": "https://dmn-dallas-news-prod.cdn.arcpublishing.com/resizer/v2/MV3YV3NBWVH25NO2ZAEWRJI4CM.jpg?auth=1521e0826e8f008c6f138566ec0436dfa73dc91071f0d3a02179cf93211c1cb8&focal=2882%2C1310&height=900&quality=80&width=1200",
+      "imageAlt": "MiLaysia Fulwiley shoots in her LSU No. 23 jersey against Oklahoma during the March 2026 SEC tournament.",
+      "imageFit": "cover",
+      "imageFocus": "center 34%",
+      "imageSourceUrl": "https://www.dallasnews.com/sports/oklahoma-sooners/2026/03/06/milaysia-fulwiley-leads-no-6-lsu-to-rout-of-no-7-oklahoma-in-womens-sec-tournament/",
+      "imageCaption": "MiLaysia Fulwiley in SEC tournament action against Oklahoma, March 6, 2026. Photo: The Dallas Morning News.",
       "storyLead": [
-        "LSU senior guard MiLaysia Fulwiley was released after posting a $20,000 bond following her Nov. 14 arrest in Baton Rouge, WBRZ reported. The case is moving toward review by the district attorney’s office."
+        "NOVEMBER 22 UPDATE | The legal status of LSU guard MiLaysia Fulwiley has changed significantly since our November 18 report. East Baton Rouge Parish District Attorney Hillar Moore confirmed November 20 that prosecutors dropped both felony charges following review of the case. The remaining three misdemeanor counts have been referred to pretrial diversion; they have not yet been dismissed."
       ],
       "sections": [
+        {
+          "title": "November 22 update: Two felony charges dropped",
+          "paragraphs": [
+            "The district attorney's office will not pursue the aggravated battery with a dangerous weapon and aggravated assault with a dangerous weapon charges that followed Fulwiley's November 14 arrest near Tiger Stadium. The decision follows prosecutors' review of the circumstances and evidence. Dropping the charges is not a conviction or a finding that the initial allegations were proven.",
+            "The three remaining misdemeanor counts are flight from an officer, resisting an officer, and failure to obey police officers. They have been referred to a pretrial diversion program. If Fulwiley successfully completes the program, those counts may also be dismissed; their dismissal has not been confirmed."
+          ]
+        },
+        {
+          "title": "Fulwiley responds with an apology",
+          "paragraphs": [
+            "In a November 20 public statement, Fulwiley apologized to the officers involved, LSU supporters and others affected by the incident. She also acknowledged that her social-media response after the arrest made matters worse and said she intended to rebuild trust.",
+            "Her apology should not be interpreted as an admission that she committed the dismissed felony offenses."
+          ]
+        },
+        {
+          "title": "LSU basketball: Return remains unconfirmed",
+          "paragraphs": [
+            "Fulwiley missed LSU's games against Troy and Fairleigh Dickinson after her arrest. LSU had not announced a confirmed return date as of this November 22 update. The criminal-case developments and any decision about her playing status are separate questions.",
+            "The next milestones to watch are the terms and completion of pretrial diversion, any additional clarification from prosecutors, and an official LSU update on her availability."
+          ]
+        },
+        {
+          "title": "ORIGINAL REPORTING | November 18, 2026",
+          "paragraphs": [
+            "LSU senior guard MiLaysia Fulwiley was released after posting a $20,000 bond following her Nov. 14 arrest in Baton Rouge, WBRZ reported. The case is moving toward review by the district attorney’s office.",
+            "The sections below reproduce the November 18 account as originally reported. References to pending DA review and then-current charges reflect what was known on that date; see the November 22 update above for their subsequent disposition."
+          ]
+        },
         {
           "title": "What the arrest records allege",
           "paragraphs": [
@@ -48,6 +76,18 @@
         }
       ],
       "sources": [
+        {
+          "label": "WBRZ · Nov. 20: DA drops felony charges and refers remaining counts to diversion",
+          "url": "https://www.wbrz.com/news/east-baton-rouge-da-drops-felony-charges-against-lsu-basketball-player-milaysia-fulwiley"
+        },
+        {
+          "label": "On3 · Nov. 20: Fulwiley public apology",
+          "url": "https://www.on3.com/news/milaysia-fulwiley-releases-statement-recent-arrest-felony-charges-dropped/"
+        },
+        {
+          "label": "The Dallas Morning News · March 2026 game photo",
+          "url": "https://www.dallasnews.com/sports/oklahoma-sooners/2026/03/06/milaysia-fulwiley-leads-no-6-lsu-to-rout-of-no-7-oklahoma-in-womens-sec-tournament/"
+        },
         {
           "label": "WBRZ · Footage being compiled for DA review",
           "url": "https://www.wbrz.com/news/lsp-compiling-all-footage-related-to-lsu-basketball-player-s-arrest-for-review-by-da-s-office/"

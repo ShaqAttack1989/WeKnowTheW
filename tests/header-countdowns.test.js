@@ -9,6 +9,8 @@ test('adds both 2027 countdowns to the shared site header', () => {
   assert.match(site, /data-w-header-countdowns/);
   assert.match(site, /2027 WNBA Draft/);
   assert.match(site, /2027 Season Tip-Off/);
+  assert.match(site, /\['2027 Countdowns','#wHeaderCountdowns'\]/);
+  assert.doesNotMatch(site, /#draftLotteryCountdown/);
   assert.match(site, /2027-04-12T00:00:00-04:00/);
   assert.match(site, /2027-05-07T00:00:00-04:00/);
 });

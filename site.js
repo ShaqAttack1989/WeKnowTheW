@@ -93,6 +93,7 @@ if(siteNavigation&&!document.querySelector('[data-beta-test-banner]')){
     }
   ];
   const countdowns=document.createElement('section');
+  countdowns.id='wHeaderCountdowns';
   countdowns.className='w-header-countdowns';
   countdowns.dataset.wHeaderCountdowns='true';
   countdowns.setAttribute('aria-label','Countdowns to the 2027 WNBA Draft and season');
@@ -198,7 +199,7 @@ Object.entries(navSections).forEach(([section,paths])=>{if(paths.includes(locati
  const isHome=['/','/index.html'].includes(location.pathname);
  const isRun=location.pathname==='/run-the-w.html';
  if(!isHome&&!isRun)return;
- const homeShortcuts=[['Latest Stories','#latestStoriesTitle'],['2027 Draft Lottery','#draftLotteryCountdown'],['College Hoops','/class-is-in-session.html'],['Winter Leagues','/no-offseason.html'],['2026 Stat Kitchen Archive','/stat-kitchen.html#2026-playoff-archive'],['Live Desk','#live-desk'],['Upcoming Games','#homepage-games','upcomingGamesToggle']];
+ const homeShortcuts=[['Latest Stories','#latestStoriesTitle'],['2027 Countdowns','#wHeaderCountdowns'],['College Hoops','/class-is-in-session.html'],['Winter Leagues','/no-offseason.html'],['2026 Stat Kitchen Archive','/stat-kitchen.html#2026-playoff-archive'],['Live Desk','#live-desk'],['Upcoming Games','#homepage-games','upcomingGamesToggle']];
  const modeShortcuts=[...document.querySelectorAll('.run-modes .run-mode-card[id]')].map(card=>{const a=document.createElement('a');a.href='#'+card.id;a.textContent=card.querySelector('h3')?.textContent||'Game mode';return a;});
  const candidates=isRun?modeShortcuts:homeShortcuts.map(([label,href,control])=>{const a=document.createElement('a');a.textContent=label;a.setAttribute('href',href);if(control)a.dataset.homeControl=control;return a;});
  const subnav=document.createElement('nav');subnav.className='section-shortcuts';

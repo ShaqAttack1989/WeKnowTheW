@@ -45,10 +45,12 @@
     return { start: start.toISOString().slice(0, 10), end: end.toISOString().slice(0, 10), label };
   }
   function allocateStories(stories, now = Date.now()) {
-    const chronological = [...stories].sort((a, b) => time(b.published) - time(a.published) || updated(b) - updated(a) || a.slug.localeCompare(b.slug));
+    // Rank refreshed reporting by its latest editorial date. Previously the original
+    // publication date took precedence, hiding important updates like Fulwiley's DA review.
+    const chronological = [...stories].sort((a, b) => updated(b) - updated(a) || time(b.published) - time(a.published) || Number(b.priority || 0) - Number(a.priority || 0) || a.slug.localeCompare(b.slug));
     const newest = chronological.slice(0, 3), week = calendarWeek(now);
     const weekly = chronological.slice(3).filter(post => {
-      const day = easternDay(post.published);
+      const day = easternDay(updated(post));
       return day >= week.start && day < week.end;
     });
     return { newest, weekly, week };

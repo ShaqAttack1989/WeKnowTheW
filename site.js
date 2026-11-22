@@ -23,7 +23,7 @@
 
 const UI_FIXES_HREF='/ui-fixes.css?v=20260930-dashboard-spacing-v4';
 if(!document.querySelector('link[data-ui-fixes]')){const link=document.createElement('link');link.rel='stylesheet';link.href=UI_FIXES_HREF;link.dataset.uiFixes='true';document.head.appendChild(link);}
-const NAVIGATION_HREF='/site-navigation.css?v=20261025-homepage-jumps-v9';
+const NAVIGATION_HREF='/site-navigation.css?v=20261122-header-countdowns-v1';
 if(!document.querySelector('link[data-site-navigation]')){const link=document.createElement('link');link.rel='stylesheet';link.href=NAVIGATION_HREF;link.dataset.siteNavigation='true';document.head.appendChild(link);}
 const GLOBAL_SCOREBOARD_HREF='/global-scoreboard.css?v=20261003-readable-ribbon-v5';
 if(!document.querySelector('link[data-global-scoreboard]')){const link=document.createElement('link');link.rel='stylesheet';link.href=GLOBAL_SCOREBOARD_HREF;link.dataset.globalScoreboard='true';document.head.appendChild(link);}
@@ -68,6 +68,61 @@ if(siteNavigation&&!document.querySelector('[data-beta-test-banner]')){
   betaBanner.innerHTML='<span class="beta-test-banner__track" aria-hidden="true"><span class="beta-test-banner__message">We Know The W Android app · Beta testers wanted · Join the Google Play internal test · Help us get ready for tipoff →</span><span class="beta-test-banner__message" aria-hidden="true">We Know The W Android app · Beta testers wanted · Join the Google Play internal test · Help us get ready for tipoff →</span></span>';
   siteNavigation.insertAdjacentElement('afterend',betaBanner);
 }
+
+// Keep the next two major WNBA dates visible in the shared header.
+(()=>{
+  if(!siteNavigation||document.querySelector('[data-w-header-countdowns]'))return;
+  const events=[
+    {
+      id:'draft',
+      eyebrow:'DRAFT NIGHT',
+      label:'2027 WNBA Draft',
+      target:'2027-04-12T00:00:00-04:00',
+      dateLine:'APR 12, 2027 · TIME TBA',
+      href:'/2027-wnba-mock-draft.html',
+      complete:'DRAFT DAY'
+    },
+    {
+      id:'season',
+      eyebrow:'RETURN TO THE W',
+      label:'2027 Season Tip-Off',
+      target:'2027-05-07T00:00:00-04:00',
+      dateLine:'PROJECTED MAY 7 · OFFICIAL DATE TBA',
+      href:'/around-the-w.html',
+      complete:'THE W IS BACK'
+    }
+  ];
+  const countdowns=document.createElement('section');
+  countdowns.className='w-header-countdowns';
+  countdowns.dataset.wHeaderCountdowns='true';
+  countdowns.setAttribute('aria-label','Countdowns to the 2027 WNBA Draft and season');
+  countdowns.innerHTML=events.map(event=>`<a class="w-header-countdown w-header-countdown--${event.id}" href="${event.href}" data-header-countdown="${event.id}"><span class="w-header-countdown__copy"><small>${event.eyebrow}</small><strong>${event.label}</strong><span>${event.dateLine}</span></span><span class="w-header-countdown__timer" role="timer" data-header-countdown-timer></span></a>`).join('');
+  siteNavigation.insertAdjacentElement('afterend',countdowns);
+
+  function renderCountdown(event){
+    const card=countdowns.querySelector(`[data-header-countdown="${event.id}"]`);
+    const timer=card?.querySelector('[data-header-countdown-timer]');
+    if(!card||!timer)return;
+    const seconds=Math.max(0,Math.floor((Date.parse(event.target)-Date.now())/1000));
+    if(seconds<=0){
+      timer.innerHTML=`<strong class="w-header-countdown__complete">${event.complete}</strong>`;
+      card.setAttribute('aria-label',`${event.label}: ${event.complete.toLowerCase()}`);
+      return;
+    }
+    const units=[
+      ['DAYS',Math.floor(seconds/86400)],
+      ['HRS',Math.floor(seconds%86400/3600)],
+      ['MIN',Math.floor(seconds%3600/60)],
+      ['SEC',seconds%60]
+    ];
+    timer.innerHTML=units.map(([unit,value])=>`<span class="w-header-countdown__unit"><b>${String(value).padStart(2,'0')}</b><small>${unit}</small></span>`).join('');
+    card.setAttribute('aria-label',`${event.label}: ${units[0][1]} days, ${units[1][1]} hours, ${units[2][1]} minutes remaining. ${event.dateLine.toLowerCase()}.`);
+  }
+  const tick=()=>events.forEach(renderCountdown);
+  tick();
+  window.setInterval(tick,1000);
+  document.addEventListener('visibilitychange',()=>{if(!document.hidden)tick();});
+})();
 
 const futureMenu=navLinks?.querySelector('[data-nav-section="future"] .nav-menu-section');
 if(futureMenu&&!futureMenu.querySelector('a[href="/wpba.html"]')){

@@ -92,6 +92,6 @@ test('homepage announcements and story sections contain the requested public cop
   const html=fs.readFileSync('index.html','utf8');
   assert.doesNotMatch(html,/Fresh Food for Thought and Snack Shak coverage, updated as new stories are published|Google Play|BROWSER TESTING IS OPEN|Both coming soon/);
   assert.match(html,/Play Run the W/);
-  assert.match(html,/class="home-draft-countdown"/);
+  assert.doesNotMatch(html,/class="home-draft-countdown"|2027 WNBA Draft Lottery/);
   assert.doesNotMatch(html,/id="freshNextStory"|id="freshMoreStories"/);
 });

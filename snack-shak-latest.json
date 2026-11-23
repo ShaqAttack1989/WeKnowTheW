@@ -2,6 +2,43 @@
   "site": "Snack Shak",
   "posts": [
     {
+      "slug": "womens-college-weekly-roundup-2026-11-23",
+      "type": "feature",
+      "priority": 99000,
+      "homepageSeason": true,
+      "homepagePinUntil": "2026-11-29",
+      "seriesLabel": "WOMEN’S COLLEGE BASKETBALL · WEEKLY ROUNDUP",
+      "title": "Women’s College Basketball Weekly Roundup: Cambridge Closes, Harpring Steals the Show",
+      "published": "2026-11-23",
+      "updated": "2026-11-23",
+      "week": "WOMEN’S COLLEGE BASKETBALL",
+      "dek": "Jaloni Cambridge delivered two 27-point performances, Kate Harpring tied a WBCA Showcase steals record, and the ranked results set up a major UConn showcase.",
+      "teams": [
+        "Ohio State",
+        "Ole Miss",
+        "Texas",
+        "North Carolina",
+        "Texas Tech",
+        "UCLA",
+        "Tennessee",
+        "Louisville",
+        "Seattle",
+        "UConn",
+        "Seton Hall"
+      ],
+      "players": [
+        "Jaloni Cambridge",
+        "Breya Cunningham",
+        "Kate Harpring",
+        "KK Bransford",
+        "Elina Aarnisalo",
+        "Kaylene Smikle",
+        "Carys Baker",
+        "Jovana Popovic"
+      ],
+      "dashboardUrl": "/ncaaw-weekly-roundup-2026-11-23.html"
+    },
+    {
       "slug": "milaysia-fulwiley-bond-da-review",
       "type": "byte",
       "priority": 68000,

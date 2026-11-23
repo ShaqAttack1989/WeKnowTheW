@@ -71,7 +71,7 @@
     groups.sort((a,b)=>a.name.localeCompare(b.name));
     const previous=select.value;
     select.innerHTML=groups.map(group=>'<option value="'+esc(group.name)+'">'+esc(group.name)+'</option>').join('');
-    const preferred=groups.find(group=>/^(SEC|Southeastern)$/i.test(group.name));
+    const preferred=groups.find(group=>/^(SEC|Southeastern)( Conference)?$/i.test(group.name));
     select.value=groups.some(group=>group.name===previous)?previous:(preferred?.name||groups[0].name);
     const group=groups.find(item=>item.name===select.value)||groups[0];
     const teams=group.entries.map(entry=>({team:entry.team||{},stats:statsMap(entry)})).sort((a,b)=>Number(b.stats.winPercent||b.stats.winningPercentage||0)-Number(a.stats.winPercent||a.stats.winningPercentage||0)||Number(b.stats.wins||0)-Number(a.stats.wins||0)||String(a.team.displayName||a.team.name||'').localeCompare(String(b.team.displayName||b.team.name||'')));

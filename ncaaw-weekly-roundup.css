@@ -3,3 +3,56 @@
 @media(max-width:900px){.roundup-intro{grid-template-columns:1fr}.roundup-story-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.roundup-story-card.story-featured{grid-column:span 2}.roundup-score-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.roundup-live-grid{grid-template-columns:1fr}}
 @media(max-width:620px){.roundup-section-heading{align-items:flex-start;flex-direction:column}.roundup-stat-strip{grid-template-columns:repeat(3,minmax(0,1fr));gap:.42rem}.roundup-stat-strip article{min-height:116px;padding:.7rem}.roundup-stat-strip span{font-size:.76rem}.roundup-story-grid,.roundup-score-grid,.roundup-upcoming-grid{grid-template-columns:1fr}.roundup-story-card.story-featured{grid-column:auto}.roundup-dashboard-controls{align-items:stretch;flex-direction:column}.roundup-dashboard-controls label{min-width:0;width:100%}.roundup-filter-count{margin-left:0}.roundup-live-card{padding:.8rem}.roundup-live-card-heading{align-items:flex-start;flex-direction:column}.roundup-live-status button{margin-left:0}.roundup-sources ul{grid-template-columns:1fr}.roundup-score-card{padding:.85rem}.wbb-roundup-hero h1{font-size:clamp(2.2rem,9vw,3.4rem)}.ncaaw-weekly-feature{grid-template-columns:1fr}.ncaaw-weekly-feature p,.ncaaw-weekly-feature b{grid-column:1;grid-row:auto}.ncaaw-weekly-feature b{white-space:normal}}
 @media(prefers-reduced-motion:reduce){.roundup-story-card,.roundup-score-card{scroll-behavior:auto;transition:none}}
+
+/* Photo-led roundup: consistent cards and readable controls. */
+.wbb-roundup-page{font-size:17px;line-height:1.6}
+.wbb-roundup-page .page-shell{width:min(1180px,calc(100% - 40px));min-width:0}
+.wbb-roundup-page .subhero-inner{max-width:1180px;padding:40px 0 32px}
+.wbb-roundup-hero h1{font-size:clamp(2.4rem,5.6vw,4.6rem);max-width:1000px;margin:.6rem 0 1rem;line-height:1.08}
+.wbb-roundup-hero .subhero-inner>p:not(.eyebrow){max-width:780px}
+.roundup-jump-nav{display:flex;flex-wrap:wrap;gap:10px;padding-block:18px}
+.roundup-jump-nav a{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:9px 17px;background:#24113c;color:#fff;border-radius:999px;text-decoration:none;font-size:1rem;font-weight:800}
+.roundup-jump-nav a:hover,.roundup-jump-nav a:focus-visible{background:#542596;outline:3px solid #c8f93f;outline-offset:2px}
+.roundup-intro{padding-top:12px;align-items:start}
+.roundup-stat-strip{grid-template-columns:1fr}
+.roundup-stat-strip article{min-height:0;display:grid;grid-template-columns:3rem minmax(0,1fr);align-items:center;gap:14px;padding:14px 18px}
+.roundup-stat-strip span{margin:0;font-size:.9375rem;line-height:1.45}
+.roundup-story-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;align-items:stretch}
+.roundup-story-card,.roundup-story-card.story-featured{grid-column:auto;padding:0 0 22px;display:flex;flex-direction:column;overflow:hidden}
+.roundup-story-photo{margin:0 0 18px;width:100%;background:#eee7f4}
+.roundup-story-photo img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover}
+.roundup-story-photo figcaption{padding:8px 20px;background:#f4eef8;color:#5a4d65;font-size:.8125rem;line-height:1.5}
+.roundup-story-photo figcaption a{color:#542596;text-underline-offset:3px}
+.roundup-story-card>.roundup-story-number,.roundup-story-card>h3,.roundup-story-card>p,.roundup-story-card>a{margin-left:22px;margin-right:22px}
+.roundup-story-number{font-size:.875rem;line-height:1.5;letter-spacing:.045em}
+.roundup-story-card h3{font-size:clamp(1.4rem,2.2vw,1.85rem);line-height:1.2}
+.roundup-story-card p{font-size:1.0625rem;line-height:1.7;margin-top:8px}
+.roundup-story-card>a{align-self:flex-start;margin-top:auto;padding:10px 16px;background:#d4ff4d;color:#16082f;border-radius:999px;font-size:.9375rem;line-height:1.4;text-decoration:none}
+.roundup-story-card>a:hover{background:#eaffb3}
+.roundup-section-heading{align-items:start}
+.roundup-section-heading>div{min-width:0;flex:1}
+.roundup-section-heading>p{flex:1;max-width:42ch;font-size:1rem}
+.roundup-dashboard-controls label,.roundup-dashboard-controls input,.roundup-dashboard-controls select,.roundup-live-card select{font-size:1rem;max-width:100%}
+.roundup-score-meta{flex-wrap:wrap;font-size:.9375rem}
+.roundup-score-tag{white-space:normal}
+.roundup-table th,.roundup-live-table th,.roundup-live-card-heading .kicker,.roundup-leader-controls button,.roundup-upcoming-grid article>span{font-size:.875rem}
+.roundup-leader-player small,.roundup-filter-count,.roundup-live-note{font-size:.9375rem}
+.roundup-story-card,.roundup-live-card,.roundup-score-card,.roundup-upcoming-grid article{overflow-wrap:break-word}
+.wbb-roundup-page :is(h2,h3,h4){scroll-margin-top:110px}
+@media(max-width:900px){.roundup-stat-strip{grid-template-columns:repeat(3,minmax(0,1fr))}.roundup-stat-strip article{display:flex;align-items:flex-start;gap:8px}.roundup-section-heading{flex-direction:column}}
+@media(max-width:620px){
+ .wbb-roundup-page .page-shell{width:calc(100% - 32px)}
+ .wbb-roundup-page .subhero-inner{padding:28px 0 24px}
+ .wbb-roundup-hero h1{font-size:clamp(2.15rem,8.5vw,3.2rem)}
+ .roundup-jump-nav{gap:8px;padding-block:14px}
+ .roundup-jump-nav a{font-size:.9375rem;padding:9px 13px}
+ .roundup-story-grid{grid-template-columns:minmax(0,1fr);gap:20px}
+ .roundup-stat-strip{grid-template-columns:1fr}
+ .roundup-stat-strip article{display:grid;grid-template-columns:3rem minmax(0,1fr);align-items:center;padding:12px 16px}
+ .roundup-stat-strip span{font-size:.9375rem}
+ .roundup-story-card>h3,.roundup-story-card>p,.roundup-story-card>a,.roundup-story-card>.roundup-story-number{margin-left:18px;margin-right:18px}
+ .roundup-live-card{padding:16px}
+ .roundup-score-grid,.roundup-upcoming-grid{grid-template-columns:minmax(0,1fr)}
+ .roundup-live-status{align-items:flex-start}
+ .roundup-live-status #roundupLiveStatus{flex:1;min-width:0}
+}

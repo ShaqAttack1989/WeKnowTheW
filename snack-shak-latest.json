@@ -36,7 +36,13 @@
         "Carys Baker",
         "Jovana Popovic"
       ],
-      "dashboardUrl": "/ncaaw-weekly-roundup-2026-11-23.html"
+      "dashboardUrl": "/ncaaw-weekly-roundup-2026-11-23.html",
+      "image": "https://images.sidearmdev.com/resize?url=https%3A%2F%2Fdxbhsrqyrr690.cloudfront.net%2Fsidearm.nextgen.sites%2Fohiostatebuckeyes.com%2Fimages%2F2026%2F11%2F18%2FDSC02655_ASpgi.jpg&width=1600&type=jpeg",
+      "imageAlt": "Ohio State players celebrate during the ranked win over Ole Miss.",
+      "imageFit": "cover",
+      "imageFocus": "50% 35%",
+      "imageSourceUrl": "https://ohiostatebuckeyes.com/news/2026/11/19/womens-basketball-buckeyes-hold-off-rebels-for-ranked-win",
+      "imageCaption": "Ohio State Athletics · November 18, 2026"
     },
     {
       "slug": "milaysia-fulwiley-bond-da-review",

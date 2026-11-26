@@ -18,12 +18,12 @@
       "teams": [
         "Las Vegas Aces"
       ],
-      "image": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1628932.png",
-      "imageAlt": "A’ja Wilson in her official WNBA player headshot.",
-      "imageFit": "contain",
-      "imageFocus": "50% 18%",
-      "imageSourceUrl": "https://www.wnba.com/player/1628932/a-ja-wilson/profile",
-      "imageCaption": "A’ja Wilson, Las Vegas Aces. Photo: WNBA.",
+      "image": "https://thekingcenter.org/wp-content/uploads/2026/11/aja-wilson-headshot.webp",
+      "imageAlt": "A’ja Wilson in the formal red-suit portrait used by The King Center for its 2027 honoree announcement.",
+      "imageFit": "top-cover",
+      "imageFocus": "50% 12%",
+      "imageSourceUrl": "https://thekingcenter.org/king-holiday-2027/",
+      "imageCaption": "A’ja Wilson, 2027 Beloved Community Youth Influencer Award honoree. Photo: The King Center.",
       "storyLead": [
         "The King Center has named Las Vegas Aces star A’ja Wilson the recipient of its 2027 Beloved Community Youth Influencer Award. The presentation is scheduled for Jan. 16, 2027, in Atlanta, during the King Center’s MLK holiday observance.",
         "This is recognition of the way Wilson’s public platform reaches beyond the scoreboard: toward young people, education and the confidence to see their own potential."
@@ -82,12 +82,12 @@
       "teams": [
         "South Carolina Gamecocks"
       ],
-      "image": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/100372.png",
-      "imageAlt": "Dawn Staley in her official WNBA player headshot.",
-      "imageFit": "contain",
+      "image": "https://assets.tenniscanada.com/production/Generic-Images/GSE/Unmatched-2025/_1200x1200_crop_center-center_90_none_ns/113227/DawnStaley.webp",
+      "imageAlt": "Dawn Staley in a formal Tennis Canada portrait.",
+      "imageFit": "top-cover",
       "imageFocus": "50% 18%",
-      "imageSourceUrl": "https://www.wnba.com/player/100372/dawn-staley/profile",
-      "imageCaption": "Dawn Staley, former WNBA guard and current South Carolina head coach. Photo: WNBA.",
+      "imageSourceUrl": "https://www.tenniscanada.com/profiles/dawn-staley",
+      "imageCaption": "Dawn Staley, South Carolina women’s basketball head coach. Photo: Tennis Canada.",
       "storyLead": [
         "The Heisman Trust has selected South Carolina women’s basketball coach Dawn Staley for the 2026 Heisman Humanitarian Award. She is scheduled to receive the honor at Heisman Live! on Dec. 11 in New York.",
         "The distinction is separate from the Heisman Trophy awarded to a college football player. It recognizes the service, mentorship and leadership Staley has built alongside a Hall of Fame playing and coaching career."
@@ -135,6 +135,10 @@
         {
           "label": "WNBA · Dawn Staley profile and playing career",
           "url": "https://www.wnba.com/player/100372/dawn-staley/profile"
+        },
+        {
+          "label": "Tennis Canada · Dawn Staley portrait",
+          "url": "https://www.tenniscanada.com/profiles/dawn-staley"
         }
       ]
     },
@@ -158,12 +162,12 @@
         "Veronica Burton",
         "Napheesa Collier"
       ],
-      "image": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/204322.png",
-      "imageAlt": "Elizabeth Williams in her official WNBA player headshot.",
-      "imageFit": "contain",
+      "image": "https://static.wixstatic.com/media/575289_21b12c3ebd3040398674531346a3bbe5~mv2.png/v1/fill/w_980%2Ch_980%2Cal_c%2Cq_90%2Cusm_0.66_1.00_0.01%2Cenc_avif%2Cquality_auto/Elizabeth%20Williams.png",
+      "imageAlt": "Official WNBPA portrait of Elizabeth Williams, elected president.",
+      "imageFit": "top-cover",
       "imageFocus": "50% 18%",
-      "imageSourceUrl": "https://www.wnba.com/player/204322/elizabeth-williams/profile",
-      "imageCaption": "Elizabeth Williams, Chicago Sky center. Photo: WNBA.",
+      "imageSourceUrl": "https://www.wnbpa.com/leadership",
+      "imageCaption": "Elizabeth Williams, elected WNBPA president. Portrait: WNBPA.",
       "storyLead": [
         "The WNBA’s player representatives elected Chicago Sky center Elizabeth Williams as president of the WNBA Players Association, succeeding Nneka Ogwumike after her retirement. The election also set the union’s vice presidents, treasurer and secretary.",
         "The change matters because a players’ union is not only a negotiating table. Its leaders also keep members informed, represent their priorities and help carry a collective agreement into practice."
@@ -174,6 +178,64 @@
           "paragraphs": [
             "Williams is president. Alysha Clark, Ezi Magbegor and Maya Caldwell are vice presidents; Chelsea Gray is treasurer; and Veronica Burton is secretary. The three vice president positions carry two-year terms, according to the Associated Press. Clark returns for a second consecutive term on the board.",
             "ESPN reported that Napheesa Collier remains the executive committee’s first vice president, so these six names are the new or returning elected officers shown in the announcement, not the entire committee."
+          ],
+          "photoGridLabel": "Portraits of the six WNBPA officers elected in 2026",
+          "photoGridClass": "wnbpa-election-portraits",
+          "photos": [
+            {
+              "player": "Elizabeth Williams",
+              "name": "Elizabeth Williams",
+              "role": "President",
+              "image": "https://static.wixstatic.com/media/575289_21b12c3ebd3040398674531346a3bbe5~mv2.png/v1/fill/w_980%2Ch_980%2Cal_c%2Cq_90%2Cusm_0.66_1.00_0.01%2Cenc_avif%2Cquality_auto/Elizabeth%20Williams.png",
+              "alt": "Official WNBPA portrait of Elizabeth Williams.",
+              "credit": "WNBPA",
+              "sourceUrl": "https://www.wnbpa.com/leadership"
+            },
+            {
+              "player": "Maya Caldwell",
+              "name": "Maya Caldwell",
+              "role": "Vice President",
+              "image": "https://static.wixstatic.com/media/8121a3_3f3ca5eb866142cbae75b0546b043989~mv2.png",
+              "alt": "Official WNBPA portrait of Maya Caldwell.",
+              "credit": "WNBPA",
+              "sourceUrl": "https://www.wnbpa.com/leadership"
+            },
+            {
+              "player": "Alysha Clark",
+              "name": "Alysha Clark",
+              "role": "Vice President",
+              "image": "https://static.wixstatic.com/media/575289_e7f7a038a390467b98d51d9462dbf0e8~mv2.jpg/v1/fill/w_980%2Ch_976%2Cal_c%2Cq_85%2Cusm_0.66_1.00_0.01%2Cenc_avif%2Cquality_auto/Alysha%20Clark%202_edited.jpg",
+              "alt": "Official WNBPA portrait of Alysha Clark.",
+              "credit": "WNBPA",
+              "sourceUrl": "https://www.wnbpa.com/leadership"
+            },
+            {
+              "player": "Ezi Magbegor",
+              "name": "Ezi Magbegor",
+              "role": "Vice President",
+              "image": "https://static.wixstatic.com/media/8121a3_3525e963c21d42b3a43f6010524f0f2c~mv2.png",
+              "alt": "Official WNBPA portrait of Ezi Magbegor.",
+              "credit": "WNBPA",
+              "sourceUrl": "https://www.wnbpa.com/leadership"
+            },
+            {
+              "player": "Chelsea Gray",
+              "name": "Chelsea Gray",
+              "role": "Treasurer",
+              "image": "https://static.wixstatic.com/media/8121a3_6616813da4bc4048b7a822e97a514438~mv2.png",
+              "alt": "Official WNBPA portrait of Chelsea Gray.",
+              "credit": "WNBPA",
+              "sourceUrl": "https://www.wnbpa.com/leadership"
+            },
+            {
+              "player": "Veronica Burton",
+              "name": "Veronica Burton",
+              "role": "Secretary",
+              "image": "https://cdn.wnba.com/headshots/wnba/latest/1040x760/1631007.png",
+              "alt": "Veronica Burton in her official WNBA portrait.",
+              "credit": "WNBA",
+              "sourceUrl": "https://www.wnba.com/player/1631007"
+            }
           ]
         },
         {
@@ -207,6 +269,14 @@
         {
           "label": "WNBA · Elizabeth Williams profile",
           "url": "https://www.wnba.com/player/204322/elizabeth-williams/profile"
+        },
+        {
+          "label": "WNBPA · Official leadership portraits",
+          "url": "https://www.wnbpa.com/leadership"
+        },
+        {
+          "label": "WNBA · Veronica Burton portrait",
+          "url": "https://www.wnba.com/player/1631007"
         }
       ]
     },

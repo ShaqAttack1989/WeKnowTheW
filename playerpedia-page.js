@@ -1,18 +1,25 @@
 function pSafe(v=''){return String(v).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;').replaceAll("'",'&#039;');}
 function initials(name=''){return String(name).trim().split(/\s+/).filter(Boolean).slice(0,2).map(x=>x[0]?.toUpperCase()||'').join('')||'W';}
 const PLAYERPEDIA_PHOTO_OVERRIDES={
-  aminatagueye:'https://assets.fiba.basketball/image/upload/w_720,h_960,c_pad,g_north/f_png/q_auto/.headshot--person_269523--competition_208875'
+  aminatagueye:'https://assets.fiba.basketball/image/upload/w_720,h_960,c_pad,g_north/f_png/q_auto/.headshot--person_269523--competition_208875',
+  ajawilson:"https://thekingcenter.org/wp-content/uploads/2026/11/aja-wilson-headshot.webp",
+  dawnstaley:"https://assets.tenniscanada.com/production/Generic-Images/GSE/Unmatched-2025/_1200x1200_crop_center-center_90_none_ns/113227/DawnStaley.webp",
+  elizabethwilliams:"https://static.wixstatic.com/media/575289_21b12c3ebd3040398674531346a3bbe5~mv2.png/v1/fill/w_980%2Ch_980%2Cal_c%2Cq_90%2Cusm_0.66_1.00_0.01%2Cenc_avif%2Cquality_auto/Elizabeth%20Williams.png",
+  mayacaldwell:"https://static.wixstatic.com/media/8121a3_3f3ca5eb866142cbae75b0546b043989~mv2.png",
+  alyshaclark:"https://static.wixstatic.com/media/575289_e7f7a038a390467b98d51d9462dbf0e8~mv2.jpg/v1/fill/w_980%2Ch_976%2Cal_c%2Cq_85%2Cusm_0.66_1.00_0.01%2Cenc_avif%2Cquality_auto/Alysha%20Clark%202_edited.jpg",
+  ezimagbegor:"https://static.wixstatic.com/media/8121a3_3525e963c21d42b3a43f6010524f0f2c~mv2.png",
+  chelseagray:"https://static.wixstatic.com/media/8121a3_6616813da4bc4048b7a822e97a514438~mv2.png",
+  veronicaburton:"https://cdn.wnba.com/headshots/wnba/latest/1040x760/1631007.png"
 };
 function playerPhoto(player={}){
+  const override=PLAYERPEDIA_PHOTO_OVERRIDES[playerKey(player.name||'')];
+  if(override)return override;
   const cutout=[player.officialHeadshot,player.photoCutout].find(value=>/^https?:\/\//i.test(String(value||'').trim()));
   if(cutout)return String(cutout).trim();
   const id=String(player.espnId||'').replace(/[^0-9]/g,'');
   if(id)return `/api/photo?id=${id}`;
   const direct=[player.photo,player.photoThumb,player.headshot].find(value=>/^https?:\/\//i.test(String(value||'').trim()));
-  if(!direct){
-    const nameKey=String(player.name||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]/g,'');
-    return PLAYERPEDIA_PHOTO_OVERRIDES[nameKey]||'';
-  }
+  if(!direct)return '';
   const espn=String(direct).match(/headshots\/(wnba|womens-college-basketball)\/players\/full\/(\d+)\.(?:png|jpg)/i);
   if(espn)return `/api/photo?id=${espn[2]}${espn[1]==='wnba'?'':'&league=ncaaw'}`;
   return `/api/photo?src=${encodeURIComponent(String(direct).trim())}`;
@@ -82,7 +89,16 @@ function playerCoverageMarkup(playerName=''){
   const key=playerKey(playerName);
   const matches=playerStoryPosts.filter(post=>Array.isArray(post.players)&&post.players.some(name=>playerKey(name)===key)).slice(0,3);
   if(!matches.length)return '';
-  return '<section class="profile-subsection player-story-profile"><h4>Snack Shak coverage</h4><div class="player-story-profile-links">'+matches.map(post=>'<a href="'+pSafe(playerStoryHref(post))+'">'+pSafe(post.title||'Read story')+' <span>Read the Byte →</span></a>').join('')+'</div></section>';
+  const cards=matches.map(post=>{
+    const photos=(Array.isArray(post.sections)?post.sections:[]).reduce((all,section)=>all.concat(Array.isArray(section.photos)?section.photos:[]),[]);
+    const portrait=photos.find(item=>playerKey(item.player||item.name)===key);
+    const image=playerStorySafeUrl(portrait&&portrait.image||post.image);
+    return '<a class="player-story-coverage-card" href="'+pSafe(playerStoryHref(post))+'">'+
+      (image?'<span class="player-story-profile-photo"><img src="'+pSafe(image)+'" alt="" loading="lazy" decoding="async" onerror="this.parentElement.hidden=true"></span>':'')+
+      '<span class="player-story-profile-copy"><strong>'+pSafe(post.title||'Read story')+'</strong><span>Read the Byte →</span></span>'+
+    '</a>';
+  }).join('');
+  return '<section class="profile-subsection player-story-profile"><h4>Snack Shak coverage</h4><div class="player-story-profile-links">'+cards+'</div></section>';
 }
 async function loadPlayerStoryCoverage(){
   const host=document.getElementById('playerStoryGrid');

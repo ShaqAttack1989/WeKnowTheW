@@ -2,6 +2,91 @@
   "site": "Snack Shak",
   "posts": [
     {
+      "slug": "expansion-draft-what-it-meant-2026",
+      "type": "feature",
+      "priority": 85000,
+      "seriesLabel": "FOOD FOR THOUGHT · FRONT OFFICE 101",
+      "title": "From 11 Expansion Picks to a Championship: What Golden State’s Draft Meant",
+      "published": "2026-11-26",
+      "updated": "2026-11-26",
+      "week": "WNBA EXPANSION",
+      "teams": [
+        "Golden State Valkyries",
+        "Portland Fire",
+        "Toronto Tempo"
+      ],
+      "players": [
+        "Veronica Burton",
+        "Kayla Thornton",
+        "Cecilia Zandalasini",
+        "Carla Leite",
+        "María Conde"
+      ],
+      "dek": "The Valkyries’ title shows how an expansion draft opens doors for new teams and players, while roster building keeps going long after draft night.",
+      "storyLead": [
+        "Golden State selected 11 players in the 2024 WNBA expansion draft. Two seasons later, the Valkyries won the 2026 championship, and three of those original picks appeared in Game 7: Veronica Burton, Kayla Thornton and Cecilia Zandalasini. The difference between 11 selections and three Game 7 contributors is a useful way to understand what an expansion draft is built to do."
+      ],
+      "videoEmbed": {
+        "id": "ZPv7umPf1Bw",
+        "heading": "Carey Uhl’s video breakdown",
+        "title": "The Valkyries Won With 3 Expansion Picks, Not 11 | WNBA Whistle",
+        "caption": "Carey Uhl explains how Golden State’s 2024 expansion class factored into the Valkyries’ 2026 title run."
+      },
+      "sections": [
+        {
+          "title": "A starting roster, and a new chance",
+          "paragraphs": [
+            "An expansion draft gives a new franchise a pool of players and player rights to help assemble its first roster. In 2024, Golden State could select one player from the available list submitted by each of the league’s 12 existing teams. Those teams could protect up to six players.",
+            "The draft was the opening move. The Valkyries still had free agency and the 2025 WNBA Draft ahead of them. Expansion selections give a front office talent to assess, roles to shape and decisions to make. The draft list itself is a beginning, while later roster moves and player development help determine what the team becomes."
+          ]
+        },
+        {
+          "title": "Three picks made it to Game 7",
+          "paragraphs": [
+            "Veronica Burton was selected from Connecticut. In the title-clinching game, she recorded 10 points and 10 rebounds, then secured a late possession and made the final two free throws. Kayla Thornton and Cecilia Zandalasini also appeared, coming off the bench as Golden State adjusted its lineup during the Finals.",
+            "That is a more revealing story than counting how many of the original 11 remained. Burton, Thornton and Zandalasini had different roles, and the championship roster came together across multiple seasons. The expansion draft gave Golden State a foundation; the front office and coaching staff kept building."
+          ]
+        },
+        {
+          "title": "Expansion changes choices across the league",
+          "paragraphs": [
+            "The 2026 draft for Portland and Toronto showed the balancing act from the other side. Each of the 13 existing teams could protect up to five players. Across two rounds, no incumbent team could lose more than two unprotected players, with a limit of one selection from that team in each round.",
+            "The process also reached Golden State. Portland selected Carla Leite and Toronto selected María Conde, both from the Valkyries’ available list. They had been among Golden State’s original 2024 expansion selections. As the league adds teams, expansion drafts create a new round of choices about who to protect, who to expose and where players may find a bigger opportunity."
+          ]
+        },
+        {
+          "title": "What the draft meant",
+          "paragraphs": [
+            "For a new franchise, the expansion draft is a launch point. For an established team, it is a roster-management test. For players, it can open a new path to playing time, a different role or a chance to help define a team’s identity.",
+            "Golden State’s second-season championship is a remarkable outcome, but its expansion draft was one part of the work. The lesson for Portland, Toronto and future expansion teams is to look beyond the names announced on draft night: the draft starts the build, and the choices that follow give it direction.",
+            "When you hear that a team selected a certain number of players, ask what the front office built from that group, which players found room to grow and how the roster changed before the biggest games."
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "label": "WNBA: Golden State’s 2024 Expansion Draft selections",
+          "url": "https://www.wnba.com/news/golden-state-valkyries-expansion-draft-results"
+        },
+        {
+          "label": "WNBA: 2026 Expansion Draft rules",
+          "url": "https://www.wnba.com/news/2026-expansion-draft-faq"
+        },
+        {
+          "label": "WNBA: Portland and Toronto’s 2026 Expansion Draft results",
+          "url": "https://www.wnba.com/news/wnba-expansion-draft-2026-results"
+        },
+        {
+          "label": "WNBA/AP: 2026 Finals Game 7 recap",
+          "url": "https://www.wnba.com/news/2026-finals-valkyries-dream-game-7-recap"
+        },
+        {
+          "label": "Valkyries: 2026 championship Game 7 recap",
+          "url": "https://valkyries.wnba.com/news/gameday-recap-20261031"
+        }
+      ]
+    },
+    {
       "slug": "top-wnba-player-each-state-2026",
       "type": "feature",
       "priority": 200,

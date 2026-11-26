@@ -237,7 +237,7 @@ async function loadSearchPlayers(){
 function loadGlobalSearchContent(){
   if(globalSearchContent)return Promise.resolve(globalSearchContent);
   if(!globalSearchContentPromise){
-    globalSearchContentPromise=fetch('/search-content-index.json?v=20261106-kayla-community-assist-v1',{headers:{Accept:'application/json'}})
+    globalSearchContentPromise=fetch('/search-content-index.json?v=20261126-community-leadership-v1',{headers:{Accept:'application/json'}})
       .then(async response=>{const payload=await response.json().catch(()=>({}));if(!response.ok)throw new Error('Site search content unavailable');return Array.isArray(payload.items)?payload.items:[];})
       .catch(()=>[])
       .then(items=>{globalSearchContent=items;renderGlobalSearch();return items;});

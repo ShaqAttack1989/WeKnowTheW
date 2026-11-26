@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-21",
+  "updatedAt": "2026-11-26",
   "rules": {
     "pronunciation": "Only use a written pronunciation when a team, league or other reliable media guide explicitly provides it. When a player-recorded audio pronunciation is available, link to that instead of inventing phonetics.",
     "offCourt": "Only include a personal, family, education, advocacy, business, media, music or nickname connection when it is documented in the Playerpedia bio tracker or a cited public source.",
@@ -10,24 +10,20 @@
       "pronunciation": "A-zhuh, like Asia",
       "pronunciationSource": "https://cdn.wnba.com/sites/1611661319/2025/06/2025-06-25-Aces-v-Conn-Wash-Notes-v2.pdf",
       "latestAward": {
-        "date": "2026-10-08",
-        "dateLabel": "OCT. 8, 2026",
-        "label": "WNBA MVP",
-        "ribbon": "5× MVP · FIRST THREE-PEAT",
-        "headline": "The first five-time WNBA MVP",
-        "detail": "Wilson won the 2026 Kia WNBA MVP, her fifth overall (2020, 2022, 2024–26) and her third straight, becoming the first player in league history to reach both marks. She received 65 of 74 first-place votes.",
+        "date": "2026-11-26",
+        "dateLabel": "ANNOUNCED NOV. 26, 2026",
+        "label": "BELOVED COMMUNITY YOUTH INFLUENCER AWARD",
+        "ribbon": "2027 HONOREE · JAN. 16 PRESENTATION",
+        "headline": "Named 2027 Beloved Community Youth Influencer",
+        "detail": "The King Center selected Wilson as the 2027 recipient of its Beloved Community Youth Influencer Award. Presentation is scheduled for Jan. 16, 2027, at the MLK, Jr. Beloved Community Awards in Atlanta.",
         "sources": [
           {
-            "url": "https://www.wnba.com/news/wilson-named-2026-most-valuable-player",
-            "label": "Official WNBA award announcement"
+            "url": "https://thekingcenter.org/king-holiday-2027/",
+            "label": "The King Center · 2027 honoree and event details"
           },
           {
-            "url": "https://aces.wnba.com/news/aja-wilson-earns-historic-third-consecutive-fifth-overall-kia-wnba-mvp-honor",
-            "label": "Las Vegas Aces award release"
-          },
-          {
-            "url": "https://www.weknowthew.com/food-for-thought.html?post=aja-wilson-five-mvps-2026#story",
-            "label": "Read the Playerpedia legacy feature"
+            "url": "https://www.ajawilsonfoundation.org/about",
+            "label": "A’ja Wilson Foundation · youth mission"
           }
         ]
       },
@@ -55,6 +51,7 @@
       "offCourt": "Her South Carolina legacy and business/brand work are connected to Herstory and the site's A'ja Wilson feature.",
       "offCourtLink": "/aja-wilson-south-carolina-nike-deal.html",
       "achievements": [
+        "Named the 2027 Beloved Community Youth Influencer Award recipient by The King Center; presentation scheduled for Jan. 16, 2027.",
         "Three-time WNBA champion with Las Vegas (2022, 2023 and 2025).",
         "Two-time WNBA Finals MVP (2023 and 2025).",
         "Three-time WNBA Defensive Player of the Year (2022, 2023 and the shared 2025 honor).",
@@ -63,6 +60,10 @@
         "2017 NCAA champion and Final Four Most Outstanding Player with South Carolina."
       ],
       "achievementsSources": [
+        {
+          "url": "https://thekingcenter.org/king-holiday-2027/",
+          "label": "The King Center · 2027 Beloved Community Awards"
+        },
         {
           "url": "https://aces.wnba.com/aja-wilson-bio",
           "label": "Aces career honors"
@@ -371,7 +372,10 @@
     },
     "alyshaclark": {
       "pronunciation": "uh-LEE-sha Clark",
-      "pronunciationSource": "https://cdn.wnba.com/sites/1611661319/2024/10/2024-10-06-Aces-vs-New-York-Semis-G4-Notes.pdf"
+      "pronunciationSource": "https://cdn.wnba.com/sites/1611661319/2024/10/2024-10-06-Aces-vs-New-York-Semis-G4-Notes.pdf",
+      "offCourt": "Elected one of the WNBPA’s three vice presidents in November 2026 for a two-year term, returning for a second consecutive board term. This leadership role is part of the WNBPA executive committee.",
+      "offCourtSource": "https://www.washingtonpost.com/sports/wnba/2026/11/24/elizabeth-williams-wnba-wnbapa/68e60f06-e84c-11f1-8db0-6f1e3c389e7c_story.html",
+      "offCourtLink": "/snack-shak-bytes.html?post=wnbpa-elects-elizabeth-williams-president-2026#story"
     },
     "rebeccaallen": {
       "pronunciationSource": "https://herhoopstats.com/pronunciations/wnba/team/2026/new-york-liberty/",
@@ -457,12 +461,18 @@
     "chelseagray": {
       "nickname": "Point Gawd",
       "nicknameSource": "https://en.wikipedia.org/wiki/Chelsea_Gray",
-      "nicknameNote": "Widely used nickname tied to her point-guard play."
+      "nicknameNote": "Widely used nickname tied to her point-guard play.",
+      "offCourt": "Elected WNBPA treasurer in November 2026. This leadership role is part of the WNBPA executive committee.",
+      "offCourtSource": "https://www.washingtonpost.com/sports/wnba/2026/11/24/elizabeth-williams-wnba-wnbapa/68e60f06-e84c-11f1-8db0-6f1e3c389e7c_story.html",
+      "offCourtLink": "/snack-shak-bytes.html?post=wnbpa-elects-elizabeth-williams-president-2026#story"
     },
     "napheesacollier": {
       "nickname": "Phee",
       "nicknameSource": "https://en.wikipedia.org/wiki/Napheesa_Collier",
-      "nicknameNote": "Common shortened nickname."
+      "nicknameNote": "Common shortened nickname.",
+      "offCourt": "Continues as WNBPA first vice president on the executive committee after the November 2026 officer election. This leadership role is part of the WNBPA executive committee.",
+      "offCourtSource": "https://www.espn.com/wnba/story/_/id/50585586/wnba-players-elect-elizabeth-williams-lead-players-union",
+      "offCourtLink": "/snack-shak-bytes.html?post=wnbpa-elects-elizabeth-williams-president-2026#story"
     },
     "natishahiedeman": {
       "nickname": "StudBudz (duo)",
@@ -897,6 +907,59 @@
       ],
       "memorable": "With 9:29 left in the first half against Louisiana-Lafayette on Nov. 21, 2007, Fowles stole the ball at the top of the key, sprinted the length of the court and dunked one-handed. She finished with 21 points, 12 rebounds, three steals and three blocks in LSU’s 72–37 win.",
       "memorableSource": "https://lsusports.net/news/2007/11/21/1325247"
+    },
+    "dawnstaley": {
+      "latestAward": {
+        "date": "2026-11-24",
+        "dateLabel": "ANNOUNCED NOV. 24, 2026",
+        "label": "HEISMAN HUMANITARIAN AWARD",
+        "ribbon": "2026 RECIPIENT · PRESENTATION DEC. 11",
+        "headline": "Selected for the 2026 Heisman Humanitarian Award",
+        "detail": "The Heisman Trust selected Staley for the 2026 honor, citing service, mentorship and leadership through the Dawn Staley Foundation, Innersole, the Champions Fund and the Leadership Academy. Presentation is scheduled for Dec. 11, 2026, at Heisman Live!.",
+        "sources": [
+          {
+            "url": "https://www.heisman.com/articles/heisman-ushers-in-a-new-era-of-heisman-weekend-with-star-studded-celebration-of-excellence-empowerment-and-tradition/",
+            "label": "Heisman · 2026 award announcement"
+          },
+          {
+            "url": "https://www.heisman.com/humanitarians/",
+            "label": "Heisman · Humanitarian Award purpose"
+          }
+        ]
+      },
+      "offCourt": "Staley’s work beyond basketball includes the Dawn Staley Foundation, Innersole, the Dawn Staley Champions Fund and the Dawn Staley Leadership Academy. The Heisman Trust selected her for its 2026 Humanitarian Award.",
+      "offCourtSource": "https://www.heisman.com/articles/heisman-ushers-in-a-new-era-of-heisman-weekend-with-star-studded-celebration-of-excellence-empowerment-and-tradition/",
+      "offCourtLink": "/snack-shak-bytes.html?post=dawn-staley-2026-heisman-humanitarian-award#story",
+      "achievementsSources": [
+        {
+          "url": "https://www.heisman.com/articles/heisman-ushers-in-a-new-era-of-heisman-weekend-with-star-studded-celebration-of-excellence-empowerment-and-tradition/",
+          "label": "Heisman · award announcement"
+        },
+        {
+          "url": "https://sc.edu/study/colleges_schools/hrsm/about/news/2026/dawn-staley-leadership-academy.php",
+          "label": "University of South Carolina · Leadership Academy"
+        }
+      ]
+    },
+    "elizabethwilliams": {
+      "offCourt": "Elected WNBPA president in November 2026, succeeding Nneka Ogwumike. Williams previously served as union secretary from 2018 and participated in the 2020 and 2026 collective bargaining negotiations. This leadership role is part of the WNBPA executive committee.",
+      "offCourtSource": "https://www.washingtonpost.com/sports/wnba/2026/11/24/elizabeth-williams-wnba-wnbapa/68e60f06-e84c-11f1-8db0-6f1e3c389e7c_story.html",
+      "offCourtLink": "/snack-shak-bytes.html?post=wnbpa-elects-elizabeth-williams-president-2026#story"
+    },
+    "mayacaldwell": {
+      "offCourt": "Elected one of the WNBPA’s three vice presidents in November 2026; the position carries a two-year term. This leadership role is part of the WNBPA executive committee.",
+      "offCourtSource": "https://www.washingtonpost.com/sports/wnba/2026/11/24/elizabeth-williams-wnba-wnbapa/68e60f06-e84c-11f1-8db0-6f1e3c389e7c_story.html",
+      "offCourtLink": "/snack-shak-bytes.html?post=wnbpa-elects-elizabeth-williams-president-2026#story"
+    },
+    "ezimagbegor": {
+      "offCourt": "Elected one of the WNBPA’s three vice presidents in November 2026; the position carries a two-year term. This leadership role is part of the WNBPA executive committee.",
+      "offCourtSource": "https://www.washingtonpost.com/sports/wnba/2026/11/24/elizabeth-williams-wnba-wnbapa/68e60f06-e84c-11f1-8db0-6f1e3c389e7c_story.html",
+      "offCourtLink": "/snack-shak-bytes.html?post=wnbpa-elects-elizabeth-williams-president-2026#story"
+    },
+    "veronicaburton": {
+      "offCourt": "Elected WNBPA secretary in November 2026, succeeding Elizabeth Williams. This leadership role is part of the WNBPA executive committee.",
+      "offCourtSource": "https://www.washingtonpost.com/sports/wnba/2026/11/24/elizabeth-williams-wnba-wnbapa/68e60f06-e84c-11f1-8db0-6f1e3c389e7c_story.html",
+      "offCourtLink": "/snack-shak-bytes.html?post=wnbpa-elects-elizabeth-williams-president-2026#story"
     }
   }
 }

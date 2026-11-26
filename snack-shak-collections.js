@@ -555,10 +555,17 @@ function wirePayHistoryDashboard(root){
     return `<div class="sibling-board"><nav class="sibling-jump" aria-label="Sibling ranking navigation">${pairs.map(p=>`<a href="#sibling-${safe(p.rank)}">${safe(p.rank)}. ${safe(p.title)}</a>`).join('')}<a href="#sibling-millers">Cheryl + Reggie tribute</a></nav>${pairs.map(p=>entry(p)).join('')}${board.legacy?entry(board.legacy,true):''}</div>`;
   }
 
-  function sectionPhotoGridMarkup(items=[],label='Player portraits'){
+  function sectionPhotoGridMarkup(items=[],label='Player portraits',gridClass=''){
     const photos=Array.isArray(items)?items:[];
     if(!photos.length)return'';
-    return '<div class="snack-story-photo-grid" aria-label="'+safe(label)+'">'+photos.map(item=>'<figure><img src="'+safe(item.image||'')+'" alt="'+safe(item.alt||item.name||'Official player portrait')+'" loading="lazy" decoding="async"'+imageRecovery(item.imageFallback||'')+'><figcaption><strong>'+safe(item.name||'')+'</strong></figcaption></figure>').join('')+'</div>';
+    const className='snack-story-photo-grid'+(gridClass?' '+safe(gridClass):'');
+    return '<div class="'+className+'" aria-label="'+safe(label)+'">'+photos.map(item=>{
+      const sourceUrl=String(item.sourceUrl||'').trim();
+      const sourceLink=sourceUrl.startsWith('https://')||sourceUrl.startsWith('http://')?'<a href="'+safe(sourceUrl)+'" target="_blank" rel="noopener noreferrer">Source ↗</a>':'';
+      const role=item.role?'<span class="snack-story-photo-role">'+safe(item.role)+'</span>':'';
+      const credit=item.credit?'<small class="snack-story-photo-credit">Photo: '+safe(item.credit)+(sourceLink?' · '+sourceLink:'')+'</small>':(sourceLink?'<small class="snack-story-photo-credit">'+sourceLink+'</small>':'');
+      return '<figure><img src="'+safe(item.image||'')+'" alt="'+safe(item.alt||item.name||'Official player portrait')+'" loading="lazy" decoding="async"'+imageRecovery(item.imageFallback||'')+'><figcaption><strong>'+safe(item.name||'')+'</strong>'+role+credit+'</figcaption></figure>';
+    }).join('')+'</div>';
   }
   function pairingRowsMarkup(rows){
     if(!Array.isArray(rows)||!rows.length)return '';
@@ -569,7 +576,7 @@ function wirePayHistoryDashboard(root){
   function sectionsMarkup(sections=[]){
     return sections.map(section=>{
       const graphic=section.image?storyImageMarkup({storyImage:section.image,imageAlt:section.imageAlt||section.title,storyImageCaption:section.imageCaption}):'';
-      const photos=section.pairingRows?pairingRowsMarkup(section.pairingRows):sectionPhotoGridMarkup(section.photos,section.photoGridLabel||((section.title||'')+' player portraits'));
+      const photos=section.pairingRows?pairingRowsMarkup(section.pairingRows):sectionPhotoGridMarkup(section.photos,section.photoGridLabel||((section.title||'')+' player portraits'),section.photoGridClass);
       const paragraphs=(section.paragraphs||[]).map(paragraph=>'<p>'+safe(paragraph)+'</p>').join('');
       const id=section.id?' id="'+safe(section.id)+'"':'';
       return '<section class="snack-section"'+id+'><h3>'+safe(section.title)+'</h3>'+graphic+photos+paragraphs+'</section>';
